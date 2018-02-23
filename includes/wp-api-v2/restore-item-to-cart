@@ -1,0 +1,44 @@
+<h2 id="restore-item-to-cart">Restore Item to Cart</h2>
+
+<p>This API helps you to restore an item to the cart.</p>
+
+<h3 id="restore-item-properties">Restore item properties</h3>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">cart_item_key</code></td>
+<td>string</td>
+<td>The cart item key of the product that was in the cart recently. <i class="label label-info">mandatory</i></td>
+</tr>
+</tbody></table>
+
+<h3 id="http-request">HTTP request</h3>
+
+<div class="api-endpoint">
+    <div class="endpoint-data">
+        <i class="label label-get">GET</i>
+        <h6>/wp-json/wc/v2/cart?cart_item_key=&lt;cart_item_key&gt;</h6>
+    </div>
+</div>
+<pre class="highlight shell tab-shell"><code>curl -X GET https://example.com/wp-json/wc/v2/cart?cart_item_key<span class="o">=</span>404dcc91b2aeaa7caa47487d1483e48a <span class="se">\</span>
+    -H <span class="s2">"Content-Type: application/json"</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="nx">WooCommerce</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">'cart?cart_item_key=404dcc91b2aeaa7caa47487d1483e48a'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">data</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">res</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+<span class="nb">print_r</span><span class="p">(</span><span class="nv">$woocommerce</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">'cart?cart_item_key=404dcc91b2aeaa7caa47487d1483e48a'</span><span class="p">));</span>
+<span class="cp">?&gt;</span>
+</code></pre><pre class="highlight python tab-python"><code><span class="k">print</span><span class="p">(</span><span class="n">wcapi</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">"cart?cart_item_key=404dcc91b2aeaa7caa47487d1483e48a"</span><span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
+</code></pre><pre class="highlight ruby tab-ruby"><code><span class="n">woocommerce</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="s2">"cart?cart_item_key=404dcc91b2aeaa7caa47487d1483e48a"</span><span class="p">).</span><span class="nf">parsed_response</span>
+</code></pre>
+<blockquote>
+<p>JSON response example:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="s2">"Item has been restored to the cart."</span><span class="w">
+</span></code></pre>
