@@ -88,7 +88,8 @@ woocommerce.post("cart/add", data).parsed_response
     "line_subtotal_tax":0,
     "line_total":18,
     "line_tax":0,
-    "data":{}
+    "data":{},
+    "product_name": "Tshirt"
   }
 }
 ```
