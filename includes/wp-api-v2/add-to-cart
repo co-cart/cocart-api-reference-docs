@@ -99,7 +99,8 @@
     </span><span class="s2">"line_subtotal_tax"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="s2">"line_total"</span><span class="p">:</span><span class="mi">18</span><span class="p">,</span><span class="w">
     </span><span class="s2">"line_tax"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"data"</span><span class="p">:{}</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:{},</span><span class="w">
+    </span><span class="s2">"product_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tshirt"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
