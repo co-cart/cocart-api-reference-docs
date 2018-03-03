@@ -14,52 +14,57 @@ This API helps you to update an item in the cart.
 <div class="api-endpoint">
 	<div class="endpoint-data">
 		<i class="label label-post">POST</i>
-		<h6>/wp-json/wc/v2/cart?cart_item_key=&lt;cart_item_key&gt;</h6>
+		<h6>/wp-json/wc/v2/cart/cart-item</h6>
 	</div>
 </div>
 
 ```shell
-curl -X POST https://example.com/wp-json/wc/v2/cart?cart_item_key=404dcc91b2aeaa7caa47487d1483e48a \
+curl -X POST https://example.com/wp-json/wc/v2/cart/cart-item \
 	-H "Content-Type: application/json" \
-  -d '{
-    "quantity": 2
-  }'
+	-d '{
+		"cart_item_key": "404dcc91b2aeaa7caa47487d1483e48a",
+		"quantity": 2
+	}'
 ```
 
 ```javascript
 var data = {
-  quantity: 2
+	cart_item_key: "404dcc91b2aeaa7caa47487d1483e48a",
+	quantity: 2
 };
 
-WooCommerce.post('cart?cart_item_key=404dcc91b2aeaa7caa47487d1483e48a', data, function(err, data, res) {
-  console.log(res);
+WooCommerce.post('cart/cart-item', data, function(err, data, res) {
+	console.log(res);
 });
 ```
 
 ```php
 <?php
 $data = [
-  "quantity" => 2
+	"cart_item_key" => "404dcc91b2aeaa7caa47487d1483e48a",
+	"quantity" => 2
 ];
 
-print_r($woocommerce->post('cart?cart_item_key=404dcc91b2aeaa7caa47487d1483e48a', $data));
+print_r($woocommerce->post('cart/cart-item', $data));
 ?>
 ```
 
 ```python
 data = {
-  "quantity": 2
+	"cart_item_key": "404dcc91b2aeaa7caa47487d1483e48a",
+	"quantity": 2
 }
 
-print(wcapi.post("cart?cart_item_key=404dcc91b2aeaa7caa47487d1483e48a", data).json())
+print(wcapi.post("cart/cart-item", data).json())
 ```
 
 ```ruby
 data = {
-  quantity: 2
+	cart_item_key: "404dcc91b2aeaa7caa47487d1483e48a",
+	quantity: 2
 }
 
-woocommerce.post("cart?cart_item_key=404dcc91b2aeaa7caa47487d1483e48a", data).parsed_response
+woocommerce.post("cart/cart-item", data).parsed_response
 ```
 
 > JSON response example:

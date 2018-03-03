@@ -6,12 +6,6 @@ The cart API allows you to add, view, update, and delete individual items for th
 
 This API helps you view the contents of the cart.
 
-### View cart properties ###
-
-| Attribute       | Type   | Description                                   |
-| --------------- | ------ | --------------------------------------------- |
-| `thumb` | bool | The main image of the product in the cart. Default: false <i class="label label-info">optional</i> |
-
 ### HTTP request ###
 
 <div class="api-endpoint">
@@ -64,8 +58,7 @@ woocommerce.get("cart").parsed_response
     "line_subtotal_tax":0,
     "line_total":18,
     "line_tax":0,
-    "data":{},
-    "product_name": "Tshirt"
+    "data":{}
   }
 }
 ```
@@ -247,21 +240,5 @@ woocommerce.get("cart/totals").parsed_response
 > JSON response example:
 
 ```json
-{
-  "subtotal": "18.00",
-  "subtotal_tax": 0,
-  "shipping_total": "0.00",
-  "shipping_tax": 0,
-  "shipping_taxes": [],
-  "discount_total": 0,
-  "discount_tax": 0,
-  "cart_contents_total": "18.00",
-  "cart_contents_tax": 0,
-  "cart_contents_taxes": [],
-  "fee_total": "0.00",
-  "fee_tax": 0,
-  "fee_taxes": [],
-  "total": "18.00",
-  "total_tax": 0
-}
+
 ```
