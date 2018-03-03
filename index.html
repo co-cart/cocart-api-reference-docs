@@ -503,6 +503,22 @@ Please note that you are <strong>not</strong> required to install the <a href="h
 
 <p>This API helps you view the contents of the cart.</p>
 
+<h3 id="view-cart-properties">View cart properties</h3>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">thumb</code></td>
+<td>bool</td>
+<td>The main image of the product in the cart. Default: false <i class="label label-info">optional</i></td>
+</tr>
+</tbody></table>
+
 <h3 id="http-request">HTTP request</h3>
 
 <div class="api-endpoint">
@@ -540,7 +556,8 @@ Please note that you are <strong>not</strong> required to install the <a href="h
     </span><span class="s2">"line_subtotal_tax"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="s2">"line_total"</span><span class="p">:</span><span class="mi">18</span><span class="p">,</span><span class="w">
     </span><span class="s2">"line_tax"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"data"</span><span class="p">:{}</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:{},</span><span class="w">
+    </span><span class="s2">"product_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tshirt"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -658,7 +675,23 @@ It is important that you use POST and not GET as it will cache and return with a
 <blockquote>
 <p>JSON response example:</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="w">
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"subtotal"</span><span class="p">:</span><span class="w"> </span><span class="s2">"18.00"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"subtotal_tax"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"shipping_total"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"shipping_tax"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"shipping_taxes"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+  </span><span class="s2">"discount_total"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"discount_tax"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"cart_contents_total"</span><span class="p">:</span><span class="w"> </span><span class="s2">"18.00"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"cart_contents_tax"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"cart_contents_taxes"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+  </span><span class="s2">"fee_total"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"fee_tax"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"fee_taxes"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+  </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="s2">"18.00"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"total_tax"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span><span class="p">}</span><span class="w">
 </span></code></pre>
           <h2 id="add-to-cart">Add to Cart</h2>
 
@@ -761,7 +794,8 @@ It is important that you use POST and not GET as it will cache and return with a
     </span><span class="s2">"line_subtotal_tax"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="s2">"line_total"</span><span class="p">:</span><span class="mi">18</span><span class="p">,</span><span class="w">
     </span><span class="s2">"line_tax"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"data"</span><span class="p">:{}</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:{},</span><span class="w">
+    </span><span class="s2">"product_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tshirt"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
