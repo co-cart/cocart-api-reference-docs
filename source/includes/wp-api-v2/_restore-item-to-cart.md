@@ -1,4 +1,4 @@
-## Restore Item from Cart ##
+## Restore Item to Cart ##
 
 This API helps you to restore an item to the cart.
 
