@@ -142,8 +142,8 @@ woocommerce = WooCommerce::API.new(
 )
 ```
 
-<aside class="notice">
-	Use the tabs in the top-right corner of this page to see how to install and use each library.
+<aside class="warning">
+	<strong>5th July 2018</strong> - All of the official libraries require authentication so using them for this API is NOT RECOMMENDED. So please ignore the code examples provided for those libraries as they are no longer usable. I will update the documentation when I have more free time to work on this project. Only all cURL examples are still OK to use.
 </aside>
 
 ### Third party libraries ###
@@ -154,7 +154,7 @@ woocommerce = WooCommerce::API.new(
 - [Swift](https://github.com/minhcasi/WooCommerceSDK) Library
 
 <aside class="notice">
-	Note that I don't offer support for third party libraries, so if you have questions about how use any of this libraries you should contact the respective authors.
+	I do NOT offer support for these third party libraries or have tested them personally, so if you have questions about how to use any of this libraries you should contact the respective authors.
 </aside>
 
 ## Tools ##
