@@ -1,8 +1,8 @@
 # Introduction #
 
-WooCommerce Cart REST API is an extension to WooCommerce REST API. This is not official in anyway but does provide the missing endpoint to enable the ability to add, view, update and delete items from the cart using requests in JSON format. Perfect for building your store app.
+Cart REST API for WooCommerce is an extension to the WooCommerce REST API. This is NOT an official WooCommerce project in anyway but does provide the missing endpoint to enable the ability to add, view, update and delete items from the cart using requests in JSON format. Perfect for building your store app.
 
-The current WC REST API integration version is `v2`. The same for the WC Cart REST API. The namespace matches with the current version to keep all endpoints together when [viewing the index](http://woocommerce.github.io/woocommerce-rest-api-docs/#index).
+The current WC REST API integration version is `v2`. The same for the Cart REST API for WooCommerce. The namespace matches with the current version to keep all endpoints together when [viewing the index](http://woocommerce.github.io/woocommerce-rest-api-docs/#index).
 
 The cart endpoint also registers before WooCommerce endpoints in order for the index of WC REST API to be in alphabetical order.
 
