@@ -1,5 +1,5 @@
-# WooCommerce Cart REST API Documentation
+# CoCart Documentation
 
-Repository of documentation Cart REST API for WooCommerce.
+This is the repository for the CoCart documentation.
 
 This project is based on [Slate](https://github.com/tripit/slate).

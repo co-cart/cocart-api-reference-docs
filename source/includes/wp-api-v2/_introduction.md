@@ -1,14 +1,18 @@
 # Introduction #
 
-Cart REST API for WooCommerce is an extension to the WooCommerce REST API. This is NOT an official WooCommerce project in anyway but does provide the missing endpoint to enable the ability to add, view, update and delete items from the cart using requests in JSON format. Perfect for building your store app.
+CoCart, also written as co-cart, is a REST API for WooCommerce. Accessing the cart via the REST API was highly requested by mobile and app developers and was missing from the core of WooCommerce.
 
-The current WC REST API integration version is `v2`. The same for the Cart REST API for WooCommerce. The namespace matches with the current version to keep all endpoints together when [viewing the index](http://woocommerce.github.io/woocommerce-rest-api-docs/#index).
+So I built it. Tada!
+
+It allows you to use WooCommerce’s REST API to its full potential providing the option to create a full web or mobile app 📱 for your store powered by WooCommerce.
+
+The current WooCommerce REST API is version `v2`. The same for CoCart. The namespace matches with the current version to keep all endpoints together when [viewing the index](http://woocommerce.github.io/woocommerce-rest-api-docs/#index).
 
 The cart endpoint also registers before WooCommerce endpoints in order for the index of WC REST API to be in alphabetical order.
 
 ## Requirements ##
 
-To use the latest version of the Cart REST API you must be using:
+To use the latest version of the CoCart you must be using:
 
 * WordPress 4.4 or later.
 * WooCommerce 3.0.x or later.
@@ -51,7 +55,7 @@ Occasionally you might encounter errors when accessing the REST API. There are f
   }
 }
 ```
-> WooCommerce Cart REST API error example:
+> CoCart error example:
 
 ```json
 {
@@ -90,7 +94,7 @@ Almost all endpoints accept optional parameters which can be passed as a HTTP qu
 - [Swift](https://github.com/minhcasi/WooCommerceSDK) Library
 
 <aside class="notice">
-	I do NOT offer support for these third party libraries or have tested them personally, so if you have questions about how to use any of this libraries you should contact the respective authors.
+	I DO NOT offer support for these third party libraries or have tested them personally, so if you have questions about how to use any of this libraries you should contact the respective authors.
 </aside>
 
 ## Tools ##
@@ -98,6 +102,7 @@ Almost all endpoints accept optional parameters which can be passed as a HTTP qu
 Some useful tools you can use to access the API include:
 
 * [Postman](https://www.getpostman.com/) - A multi platform REST API GUI client (using Google Chrome or installing the app on Mac OS X or Windows).
+* [Insomnia](https://insomnia.rest/) - Similar to Postman using an app on Mac OS X, Windows or Ubuntu.
 * [CocoaRestClient](http://mmattozzi.github.io/cocoa-rest-client/) - A Mac OS X GUI client for interacting with the API.
 * [Paw HTTP Client](https://itunes.apple.com/us/app/paw-http-client/id584653203?mt=12) - Another HTTP client for Mac OS X.
 * [RESTClient, a debugger for RESTful web services](https://addons.mozilla.org/en-US/firefox/addon/restclient/) - Free Firefox add-on.
