@@ -223,7 +223,7 @@ html, body {
   // half of the content always this background color.
   .dark-box {
     width: $examples-width;
-    background-color: $examples-bg;
+    background: $bg-code-samples;
     position: absolute;
     right: 0;
     top: 0;
@@ -233,7 +233,7 @@ html, body {
   .lang-selector {
     position: fixed;
     z-index: 50;
-    border-bottom: 5px solid $lang-select-active-bg;
+    border-bottom: 5px solid #6e60cc;
   }
 }
 
@@ -254,13 +254,13 @@ html, body {
     &:active, &:focus, &:hover {
       background-color: $lang-select-pressed-bg;
       color: $lang-select-pressed-text;
-      border-top-color: #345d9b;
+      /*border-top-color: #484389;*/
     }
 
     &.active {
       background-color: $lang-select-active-bg;
       color: $lang-select-active-text;
-      border-top-color: #345d9b;
+      border-top-color: #a27aff;
     }
   }
 

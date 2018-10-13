@@ -1,6 +1,6 @@
 # Error Responses #
 
-You might encounter errors when using the WooCommerce Cart REST API. These error responses explain what might have happened.
+You might encounter errors when using CoCart. These error responses explain what might have happened.
 
 | Error Status | Error Response |
 | ------------ | -------------- |
