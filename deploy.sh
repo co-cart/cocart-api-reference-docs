@@ -102,11 +102,7 @@ main() {
     return 1
   fi
 
-<<<<<<< HEAD
-  # must use short form of flag in ls for compatibility with OS X and BSD
-=======
   # must use short form of flag in ls for compatibility with macOS and BSD
->>>>>>> upstream/master
   if [[ -z `ls -A "$deploy_directory" 2> /dev/null` && -z $allow_empty ]]; then
     echo "Deploy directory '$deploy_directory' is empty. Aborting. If you're sure you want to deploy an empty tree, use the --allow-empty / -e flag." >&2
     return 1
@@ -132,11 +128,7 @@ main() {
 initial_deploy() {
   git --work-tree "$deploy_directory" checkout --orphan $deploy_branch
   git --work-tree "$deploy_directory" add --all
-<<<<<<< HEAD
   commit_push
-=======
-  commit+push
->>>>>>> upstream/master
 }
 
 incremental_deploy() {
@@ -151,11 +143,7 @@ incremental_deploy() {
   set -o errexit
   case $diff in
     0) echo No changes to files in $deploy_directory. Skipping commit.;;
-<<<<<<< HEAD
     1) commit_push;;
-=======
-    1) commit+push;;
->>>>>>> upstream/master
     *)
       echo git diff exited with code $diff. Aborting. Staying on branch $deploy_branch so you can debug. To switch back to master, use: git symbolic-ref HEAD refs/heads/master && git reset --mixed >&2
       return $diff
@@ -163,11 +151,7 @@ incremental_deploy() {
   esac
 }
 
-<<<<<<< HEAD
 commit_push() {
-=======
-commit+push() {
->>>>>>> upstream/master
   set_user_id
   git --work-tree "$deploy_directory" commit -m "$commit_message"
 
@@ -217,24 +201,6 @@ filter() {
   sed -e "s|$repo|\$repo|g"
 }
 
-<<<<<<< HEAD
-##sanitize() {
-  ##"$@" 2> >(filter 1>&2) | filter
-##}
-
-##if [[ $1 = --source-only ]]; then
-  run_build
-##elif [[ $1 = --push-only ]]; then
-  ##main "$@"
-##else
-  ##run_build
-  ##main "$@"
-##fi
-=======
-sanitize() {
-  "$@" 2> >(filter 1>&2) | filter
-}
-
 if [[ $1 = --source-only ]]; then
   run_build
 elif [[ $1 = --push-only ]]; then
@@ -243,4 +209,3 @@ else
   run_build
   main "$@"
 fi
->>>>>>> upstream/master
