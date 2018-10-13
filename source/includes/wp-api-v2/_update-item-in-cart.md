@@ -27,47 +27,7 @@ curl -X POST https://example.com/wp-json/wc/v2/cart/cart-item \
 	}'
 ```
 
-```javascript
-var data = {
-	cart_item_key: "404dcc91b2aeaa7caa47487d1483e48a",
-	quantity: 2
-};
-
-WooCommerce.post('cart/cart-item', data, function(err, data, res) {
-	console.log(res);
-});
-```
-
-```php
-<?php
-$data = [
-	"cart_item_key" => "404dcc91b2aeaa7caa47487d1483e48a",
-	"quantity" => 2
-];
-
-print_r($woocommerce->post('cart/cart-item', $data));
-?>
-```
-
-```python
-data = {
-	"cart_item_key": "404dcc91b2aeaa7caa47487d1483e48a",
-	"quantity": 2
-}
-
-print(wcapi.post("cart/cart-item", data).json())
-```
-
-```ruby
-data = {
-	cart_item_key: "404dcc91b2aeaa7caa47487d1483e48a",
-	quantity: 2
-}
-
-woocommerce.post("cart/cart-item", data).parsed_response
-```
-
-> JSON response example:
+> JSON response example
 
 ```json
 "The quantity for 'Woo T-Shirt' has increased to '2'."
