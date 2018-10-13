@@ -2,7 +2,9 @@
 
 This is the repository for the CoCart documentation.
 
-The documenation uses [Slate](https://github.com/lord/slate).
+The documenation is powered by [Slate](https://github.com/lord/slate).
+
+If you would like to contribute to the documentation to either correct a mistake, maybe add another language or something else. Then please follow these [contribution guidelines](https://github.com/co-cart/co-cart-docs/blob/master/CONTRIBUTING.md).
 
 ## Getting Started
 
@@ -18,7 +20,7 @@ You're going to need:
 
 1. Fork this repository on GitHub.
 2. Clone *your forked repository* (not this original one) to your hard drive with `git clone https://github.com/YOURUSERNAME/co-cart-docs.git`
-3. `cd slate`
+3. `cd co-cart-docs`
 4. Initialize and start Slate. You can either do this locally, or with Vagrant:
 
 ```shell
