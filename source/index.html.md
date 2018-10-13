@@ -3,10 +3,6 @@ title: CoCart Documentation - CoCart v1.0.5
 
 language_tabs:
  - shell: cURL
- - javascript: Node
- - php: PHP
- - python: Python
- - ruby: Ruby
 
 toc_footers:
   - <a href="https://github.com/co-cart/co-cart/blob/master/CONTRIBUTING.md">Contribute to Project</a>
