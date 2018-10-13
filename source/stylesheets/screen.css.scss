@@ -1,8 +1,8 @@
 @charset "utf-8";
 @import 'normalize';
 @import 'variables';
-@import 'syntax';
 @import 'icon-font';
+// @import 'rtl'; // uncomment to switch to RTL format
 
 /*
 Copyright 2008-2013 Concur Technologies, Inc.
@@ -47,7 +47,7 @@ html, body {
   width: 20px;
 }
 
-.tocify-wrapper {
+.toc-wrapper {
   transition: left 0.3s ease-in-out;
 
   overflow-y: auto;
@@ -61,7 +61,6 @@ html, body {
   background-color: $nav-bg;
   font-size: 13px;
   font-weight: bold;
-  border-right: 1px solid #ddd;
 
   // language selector for mobile devices
   .lang-selector {
@@ -73,30 +72,67 @@ html, body {
   }
 
   // This is the logo at the top of the ToC
-  .logo-wrapper {
-    padding: 10px 20px;
-    margin: 0;
+  .logo {
     display: block;
-    border-bottom: 1px solid #ddd;
+    max-width: 100%;
+    margin-bottom: $logo-margin;
+  }
 
-    img {
-      display: block;
-      width: 100%;
+  &>.search {
+    position: relative;
+
+    input {
+      background: $nav-bg;
+      border-width: 0 0 1px 0;
+      border-color: $search-box-border-color;
+      padding: 6px 0 6px 20px;
+      box-sizing: border-box;
+      margin: $nav-v-padding $nav-padding;
+      width: $nav-width - ($nav-padding*2);
+      outline: none;
+      color: $nav-text;
+      border-radius: 0; /* ios has a default border radius */
+    }
+
+    &:before {
+      position: absolute;
+      top: 17px;
+      left: $nav-padding;
+      color: $nav-text;
+      @extend %icon-search;
     }
   }
 
-  img+.tocify {
-    margin-top: $logo-margin;
+  .search-results {
+    margin-top: 0;
+    box-sizing: border-box;
+    height: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    transition-property: height, margin;
+    transition-duration: 180ms;
+    transition-timing-function: ease-in-out;
+    background: $nav-subitem-bg;
+    &.visible {
+      height: 30%;
+      margin-bottom: 1em;
+    }
+
+    li {
+      margin: 1em $nav-padding;
+      line-height: 1;
+    }
+
+    a {
+      color: $nav-text;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
   }
 
-  .tocify-item>a, .toc-footer li {
-    padding: 10px $nav-padding;
-    line-height: 1;
-    display: block;
-    overflow-x: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-  }
 
   // The Table of Contents is composed of multiple nested
   // unordered lists.  These styles remove the default
@@ -112,45 +148,36 @@ html, body {
     color: $nav-text;
     transition-property: background;
     transition-timing-function: linear;
-    transition-duration: 230ms;
-  }
-
-  a:hover {
-    background: #eee;
+    transition-duration: 200ms;
   }
 
   // This is the currently selected ToC entry
-  .tocify-focus {
-    //box-shadow: 0px 1px 0px $nav-active-shadow;
+  .toc-link.active {
     background-color: $nav-active-bg;
     color: $nav-active-text;
-    a:hover {
-      text-decoration: none;
-      background-color: $nav-active-bg;
-    }
   }
 
-  // Subheaders are the submenus that slide open
-  // in the table of contents.
-  .tocify-subheader {
-    display: none; // tocify will override this when needed
+  // this is parent links of the currently selected ToC entry
+  .toc-link.active-parent {
+    background-color: $nav-active-parent-bg;
+    color: $nav-active-parent-text;
+  }
+
+  .toc-list-h2 {
+    display: none;
     background-color: $nav-subitem-bg;
     font-weight: 500;
+  }
 
-    .tocify-item>a {
-      padding-left: $nav-padding + 10;
-      font-size: 12px;
-    }
-
-    &>li:last-child {
-      box-shadow: none; // otherwise it'll overflow out of the subheader
-    }
+  .toc-h2 {
+    padding-left: $nav-padding + $nav-indent;
+    font-size: 12px;
   }
 
   .toc-footer {
-    padding: 10px 0;
-    margin-top: 10px;
-    border-top: 1px solid #ddd;
+    padding: 1em 0;
+    margin-top: 1em;
+    border-top: 1px dashed $nav-footer-border-color;
 
     li,a {
       color: $nav-text;
@@ -163,10 +190,23 @@ html, body {
 
     li {
       font-size: 0.8em;
+      line-height: 1.7;
       text-decoration: none;
     }
   }
+}
 
+.toc-link, .toc-footer li {
+  padding: 0 $nav-padding 0 $nav-padding;
+  display: block;
+  overflow-x: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  text-decoration: none;
+  color: $nav-text;
+  transition-property: background;
+  transition-timing-function: linear;
+  transition-duration: 130ms;
 }
 
 // button to show navigation on mobile devices
@@ -277,6 +317,8 @@ html, body {
 // This is all the stuff with the light background in the left half of the page
 
 .content {
+  // fixes webkit rendering bug for some: see #538
+  -webkit-transform: translateZ(0);
   // to place content above the dark box
   position: relative;
   z-index: 30;
@@ -364,6 +406,9 @@ html, body {
       text-align: left;
       vertical-align: top;
       line-height: 1.6;
+      code {
+        white-space: nowrap;
+      }
     }
 
     th {
@@ -513,6 +558,14 @@ html, body {
       background-color: $code-bg;
     }
   }
+
+  blockquote {
+    &>p {
+      background-color: $code-annotation-bg;
+      padding: $code-annotation-padding 2em;
+      color: #eee;
+    }
+  }
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -522,7 +575,7 @@ html, body {
 // There are also a couple styles disperesed
 
 @media (max-width: $tablet-width) {
-  .tocify-wrapper {
+  .toc-wrapper {
     left: -$nav-width;
 
     &.open {
@@ -538,7 +591,7 @@ html, body {
     display: block;
   }
 
-  .tocify-wrapper .tocify-item > a {
+  .toc-link {
     padding-top: 0.3em;
     padding-bottom: 0.3em;
   }
@@ -553,7 +606,7 @@ html, body {
     margin-right: 0;
   }
 
-  .tocify-wrapper .lang-selector {
+  .toc-wrapper .lang-selector {
     display: block;
   }
 
@@ -707,4 +760,12 @@ body.has-warning {
     display: block;
     margin-bottom: 5px;
   }
+}
+
+.highlight .c, .highlight .cm, .highlight .c1, .highlight .cs {
+  color: #909090;
+}
+
+.highlight, .highlight .w {
+  background-color: $code-bg;
 }

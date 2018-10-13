@@ -1,5 +1,4 @@
 .github
-lib
 *.gem
 *.rbc
 .bundle

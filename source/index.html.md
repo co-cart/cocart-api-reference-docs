@@ -14,7 +14,7 @@ toc_footers:
   - <a href="https://github.com/co-cart/co-cart/issues?page=1&amp;state=open">CoCart Issues</a>
   - <a href="http://woocommerce.github.io/woocommerce-rest-api-docs/">WooCommerce REST API Documentation</a>
   - <a href="https://sebastiendumont.com">Developed by Sébastien Dumont</a>
-  - <a href="https://github.com/tripit/slate">Documentation Powered by Slate</a>
+  - <a href="https://github.com/lord/slate">Documentation Powered by Slate</a>
 
 includes:
   - wp-api-v2/introduction
