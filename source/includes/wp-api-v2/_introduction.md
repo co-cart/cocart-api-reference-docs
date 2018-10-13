@@ -1,4 +1,4 @@
-# Introduction #
+# What is CoCart? #
 
 CoCart, also written as co-cart, is a REST API for WooCommerce. Accessing the cart via the REST API was highly requested by mobile and app developers and was missing from the core of WooCommerce.
 
@@ -44,7 +44,7 @@ Occasionally you might encounter errors when accessing the REST API. There are f
 | `404 Not Found` | Requests to resources that don't exist or are missing |
 | `500 Internal Server Error` | Server error |
 
-> WP REST API error example:
+> WP REST API error example
 
 ```json
 {
@@ -55,7 +55,7 @@ Occasionally you might encounter errors when accessing the REST API. There are f
   }
 }
 ```
-> CoCart error example:
+> CoCart error example
 
 ```json
 {
@@ -83,7 +83,7 @@ Almost all endpoints accept optional parameters which can be passed as a HTTP qu
 - [Ruby](https://rubygems.org/gems/woocommerce_api) Library
 
 <aside class="warning">
-	<strong>5th July 2018</strong> - All of the official libraries require authentication so using them for this API is NOT RECOMMENDED. So please ignore the code examples provided for those libraries as they are no longer usable. I will update the documentation when I have more free time to work on this project. Only all cURL examples are still OK to use.
+	All of the official libraries require authentication so using them for this API is NOT RECOMMENDED.
 </aside>
 
 ### Third party libraries ###

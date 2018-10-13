@@ -30,47 +30,7 @@ curl -X POST https://example.com/wp-json/wc/v2/cart/add \
   }'
 ```
 
-```javascript
-var data = {
-  product_id: 1722,
-  quantity: 1
-};
-
-WooCommerce.post('cart/add', data, function(err, data, res) {
-  console.log(res);
-});
-```
-
-```php
-<?php
-$data = [
-  "product_id" => 1722,
-  "quantity" => 1
-];
-
-print_r($woocommerce->post('cart/add', $data));
-?>
-```
-
-```python
-data = {
-  "product_id": 1722,
-  "quantity": 1
-}
-
-print(wcapi.post("cart/add", data).json())
-```
-
-```ruby
-data = {
-  product_id: 1722,
-  quantity: 1
-}
-
-woocommerce.post("cart/add", data).parsed_response
-```
-
-> JSON response example:
+> JSON response example
 
 ```json
 {

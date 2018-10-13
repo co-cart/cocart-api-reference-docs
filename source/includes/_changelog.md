@@ -7,6 +7,7 @@ The Documentation is updated only when needed. Below is the changelog for "CoCar
 * Changed support to contribution.
 * Updated links.
 * Added Insomnia as another tool you can use to access the API with.
+* Removed all languages except for cURL showing examples on how to use with official library wrappers due to authentication required whic CoCart does not.
 
 ### Doc Version 0.3 - Plugin Release 1.0.4 ###
 * Official libraries are not supported as they require authentication which this API does not.

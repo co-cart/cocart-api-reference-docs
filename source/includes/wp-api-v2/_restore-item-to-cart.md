@@ -25,43 +25,7 @@ curl -X DELETE https://example.com/wp-json/wc/v2/cart/cart-item \
 	}'
 ```
 
-```javascript
-var data = {
-	cart_item_key: "404dcc91b2aeaa7caa47487d1483e48a"
-};
-
-WooCommerce.get('cart/cart-item', data, function(err, data, res) {
-	console.log(res);
-});
-```
-
-```php
-<?php
-$data = [
-	"cart_item_key" => "404dcc91b2aeaa7caa47487d1483e48a"
-];
-
-print_r($woocommerce->get('cart/cart-item', $data));
-?>
-```
-
-```python
-data = {
-	"cart_item_key": "404dcc91b2aeaa7caa47487d1483e48a"
-}
-
-print(wcapi.get("cart/cart-item", data).json())
-```
-
-```ruby
-data = {
-	cart_item_key: "404dcc91b2aeaa7caa47487d1483e48a"
-}
-
-woocommerce.get("cart/cart-item", data).parsed_response
-```
-
-> JSON response example:
+> JSON response example
 
 ```json
 "Item has been restored to the cart.""
