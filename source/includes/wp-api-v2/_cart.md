@@ -92,6 +92,7 @@ curl -X GET https://example.com/wp-json/wc/v2/cart/count-items \
 > JSON response example
 
 ```json
+1
 ```
 
 ## Calculate Cart Totals ##
@@ -139,4 +140,21 @@ curl -X GET https://example.com/wp-json/wc/v2/cart/totals \
 > JSON response example
 
 ```json
+{
+  "subtotal":"42.00",
+  "subtotal_tax":0,
+  "shipping_total":"0.00",
+  "shipping_tax":0,
+  "shipping_taxes":[],
+  "discount_total":0,
+  "discount_tax":0,
+  "cart_contents_total":"42.00",
+  "cart_contents_tax":0,
+  "cart_contents_taxes":[],
+  "fee_total":"0.00",
+  "fee_tax":0,
+  "fee_taxes":[],
+  "total":"42.00",
+  "total_tax":0
+}
 ```
