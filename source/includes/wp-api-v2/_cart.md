@@ -6,6 +6,10 @@ The cart API allows you to add, view, update, and delete individual items for th
 
 This API helps you view the contents of the cart.
 
+| Attribute | Type | Description |
+| ------------ | -------------- | ------------ |
+`thumb` | bool | Returns the product thumbnail for the product.
+
 ### HTTP request ###
 
 <div class="api-endpoint">
