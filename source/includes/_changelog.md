@@ -2,6 +2,10 @@
 
 The Documentation is updated only when needed. Below is the changelog for "CoCart" documentation that matches with the version of the plugin release.
 
+### Doc Version 0.5 ###
+* Added attribute table for view cart.
+* Added missing examples for count items and get cart totals.
+
 ### Doc Version 0.4 - Plugin Release 1.0.5 ###
 * Project renamed to CoCart.
 * Changed support to contribution.
