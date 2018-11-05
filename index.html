@@ -509,6 +509,20 @@ Please note that you are <strong>not</strong> required to install the <a href="h
 <p>The cart API allows you to add, view, update, and delete individual items for the cart.</p>
 <h2 id='view-cart-contents'>View Cart Contents</h2>
 <p>This API helps you view the contents of the cart.</p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>thumb</code></td>
+<td>bool</td>
+<td>Returns the product thumbnail for the product.</td>
+</tr>
+</tbody></table>
 <h3 id='http-request'>HTTP request</h3>
 <div class="api-endpoint">
     <div class="endpoint-data">
@@ -575,7 +589,8 @@ It is important that you use POST and not GET as it will cache and return with a
 <blockquote>
 <p>JSON response example</p>
 </blockquote>
-<pre class="highlight json tab-json"><code></code></pre><h2 id='calculate-cart-totals'>Calculate Cart Totals</h2>
+<pre class="highlight json tab-json"><code><span class="mi">1</span><span class="w">
+</span></code></pre><h2 id='calculate-cart-totals'>Calculate Cart Totals</h2>
 <p>This API helps you calculate the cart totals.</p>
 <h3 id='http-request-4'>HTTP request</h3>
 <div class="api-endpoint">
@@ -606,7 +621,24 @@ It is important that you use POST and not GET as it will cache and return with a
 <blockquote>
 <p>JSON response example</p>
 </blockquote>
-<pre class="highlight json tab-json"><code></code></pre><h2 id='add-to-cart'>Add to Cart</h2>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"subtotal"</span><span class="p">:</span><span class="s2">"42.00"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"subtotal_tax"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"shipping_total"</span><span class="p">:</span><span class="s2">"0.00"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"shipping_tax"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"shipping_taxes"</span><span class="p">:[],</span><span class="w">
+  </span><span class="s2">"discount_total"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"discount_tax"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"cart_contents_total"</span><span class="p">:</span><span class="s2">"42.00"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"cart_contents_tax"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"cart_contents_taxes"</span><span class="p">:[],</span><span class="w">
+  </span><span class="s2">"fee_total"</span><span class="p">:</span><span class="s2">"0.00"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"fee_tax"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"fee_taxes"</span><span class="p">:[],</span><span class="w">
+  </span><span class="s2">"total"</span><span class="p">:</span><span class="s2">"42.00"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"total_tax"</span><span class="p">:</span><span class="mi">0</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h2 id='add-to-cart'>Add to Cart</h2>
 <p>This API helps you to add an item to the cart.</p>
 <h3 id='add-item-properties'>Add item properties</h3>
 <table><thead>
