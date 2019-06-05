@@ -5,15 +5,15 @@ This API helps you get the cart totals.
 ### HTTP request ###
 
 <div class="api-endpoint">
-	<div class="endpoint-data">
-		<i class="label label-get">GET</i>
-		<h6>/wp-json/cocart/v1/totals</h6>
-	</div>
+  <div class="endpoint-data">
+    <i class="label label-get">GET</i>
+    <h6>/wp-json/cocart/v1/totals</h6>
+  </div>
 </div>
 
 ```shell
 curl -X GET https://example.com/wp-json/cocart/v1/totals \
-	-H "Content-Type: application/json"
+ -H "Content-Type: application/json"
 ```
 
 > JSON response example

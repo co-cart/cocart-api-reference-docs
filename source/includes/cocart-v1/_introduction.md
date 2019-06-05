@@ -1,14 +1,20 @@
-# What is CoCart? #
+# Introduction #
 
-CoCart, also written as co-cart, is a REST API for WooCommerce. Accessing the cart via the REST API was highly requested by mobile and app developers and was missing from the core of WooCommerce.
+CoCart allows the cart to be created, read, updated, and deleted using requests in JSON format and using WordPress REST API Authentication methods and standard HTTP verbs which are understood by most HTTP clients.
 
-So I built it. Tada!
+The current WP REST API integration version is `v1` which takes a first-order position in endpoints.
 
-It allows you to use WooCommerce’s REST API to its full potential providing the option to create a full web or mobile app 📱 for your store powered by WooCommerce.
+The following table shows API versions present in each major version of CoCart:
 
-The current WooCommerce REST API is version `v2`. The same for CoCart. The namespace matches with the current version to keep all endpoints together when [viewing the index](http://woocommerce.github.io/woocommerce-rest-api-docs/#index).
+| API Version | CoCart Version | WC Version | WP Version |
+|-------------|------------|------------|------------|
+| `v1`        | 1.0.x or later | 2.6.x or later | 4.4 or later|
 
-The cart endpoint also registers before WooCommerce endpoints in order for the index of WC REST API to be in alphabetical order.
+Prior to WooCommerce v3.6, CoCart shared WooCommerce's REST API. You can find the documentation about cart support for `/wc-api-v2` API separately.
+
+| API Version | WC Version | WP Version | Documentation |
+|-------------|------------|------------|---------------|
+| `wc-api-v2` | 3.0.x or later | 4.4 or later | [wc-api-v2 docs](wc-api-v2.html) |
 
 ## Requirements ##
 
@@ -20,7 +26,7 @@ To use the latest version of the CoCart you must be using:
 * You may make requests over either HTTP or HTTPS, but HTTPS is recommended where possible.
 
 <aside class="notice">
-Please note that you are <strong>not</strong> required to install the <a href="https://wordpress.org/plugins/rest-api/">WP REST API (WP API)</a> plugin.
+  Please note that you are <strong>not</strong> required to install the <a href="https://wordpress.org/plugins/rest-api/">WP REST API (WP API)</a> plugin.
 </aside>
 
 ## Request/Response Format ##
@@ -55,11 +61,12 @@ Occasionally you might encounter errors when accessing the REST API. There are f
   }
 }
 ```
+
 > CoCart error example
 
 ```json
 {
-  "code": "wc_cart_rest_clear_cart_failed",
+  "code": "cocart_clear_cart_failed",
   "message": "Clearing the cart failed!",
   "data": {
     "status": 500
@@ -71,31 +78,7 @@ Errors return both an appropriate HTTP status code and response object which con
 
 ## Parameters ##
 
-Almost all endpoints accept optional parameters which can be passed as a HTTP query string parameter, e.g. `POST /cart/?cart_item_key=270edd69788dce200a3b395a6da6fdb7&quantity=2`. All parameters are documented along each endpoint.
-
-## Libraries and Tools ##
-
-### Official libraries ###
-
-- [Node.js](https://www.npmjs.com/package/woocommerce-api) Library
-- [PHP](https://packagist.org/packages/automattic/woocommerce) Library
-- [Python](https://pypi.python.org/pypi/WooCommerce) Library
-- [Ruby](https://rubygems.org/gems/woocommerce_api) Library
-
-<aside class="warning">
-	All of the official libraries require authentication so using them for this API is NOT RECOMMENDED.
-</aside>
-
-### Third party libraries ###
-
-- [Angular](https://github.com/michaeldoye/ng2woo) Library
-- [Java](https://github.com/icoderman/wc-api-java) Library
-- [.NET](https://github.com/XiaoFaye/WooCommerce.NET) Library
-- [Swift](https://github.com/minhcasi/WooCommerceSDK) Library
-
-<aside class="notice">
-	I DO NOT offer support for these third party libraries or have tested them personally, so if you have questions about how to use any of this libraries you should contact the respective authors.
-</aside>
+Almost all endpoints accept optional parameters which can be passed as a HTTP query string parameter, e.g. `POST /cocart/v1/item?cart_item_key=270edd69788dce200a3b395a6da6fdb7&quantity=2`. All parameters are documented along each endpoint.
 
 ## Tools ##
 
@@ -107,5 +90,4 @@ Some useful tools you can use to access the API include:
 * [Paw HTTP Client](https://itunes.apple.com/us/app/paw-http-client/id584653203?mt=12) - Another HTTP client for Mac OS X.
 * [RESTClient, a debugger for RESTful web services](https://addons.mozilla.org/en-US/firefox/addon/restclient/) - Free Firefox add-on.
 * [Advanced REST client](https://chrome.google.com/webstore/detail/advanced-rest-client/hgmloofddffdnphfgcellkdfbfbjeloo) - Free Google Chrome extension.
-* [RequestBin](https://requestb.in/) - Allows you test web hooks.
 * [Hookbin](https://hookbin.com/) - Another tool to test web hooks.

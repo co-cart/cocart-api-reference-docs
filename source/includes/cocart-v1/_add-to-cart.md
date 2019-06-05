@@ -16,15 +16,15 @@ This API helps you to add an item to the cart.
 ### HTTP request ###
 
 <div class="api-endpoint">
-	<div class="endpoint-data">
-		<i class="label label-post">POST</i>
-		<h6>/wp-json/cocart/v1/add-item</h6>
-	</div>
+  <div class="endpoint-data">
+    <i class="label label-post">POST</i>
+    <h6>/wp-json/cocart/v1/add-item</h6>
+  </div>
 </div>
 
 ```shell
 curl -X POST https://example.com/wp-json/cocart/v1/add-item \
-	-H "Content-Type: application/json" \
+  -H "Content-Type: application/json" \
   -d '{
     "product_id": 1722,
     "quantity": 1

@@ -9,7 +9,7 @@ Using the individual endpoints and their properties, you can control what you ne
 This API returns the contents of the cart from a logged in customer or guest. You can also ask it to return a specific cart of registered customer.
 
 <aside class="notice">
-Please note that to return a registered customer, you must have persistent cart left enabled in you WooCommerce store for this to work and will only return if it has not expired or is still in session.
+  Please note that to return a registered customer, you must have persistent cart left enabled in you WooCommerce store for this to work and will only return if it has not expired or is still in session.
 </aside>
 
 ### Properties ###
