@@ -2,7 +2,7 @@
 
 This API helps you to update an item in the cart.
 
-### Update item properties ###
+### Properties ###
 
 | Attribute       | Type    | Description       |
 | --------------- | ------- | ----------------- |

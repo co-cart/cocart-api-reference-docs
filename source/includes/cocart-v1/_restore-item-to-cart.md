@@ -2,7 +2,7 @@
 
 This API helps you to restore an item to the cart.
 
-### Restore item properties ###
+### Properties ###
 
 | Attribute       | Type   | Description                                   |
 | --------------- | ------ | --------------------------------------------- |

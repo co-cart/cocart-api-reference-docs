@@ -4,6 +4,10 @@ The cart API has a number of filters that you can use to extend or change the AP
 
 See the [tweaks plugin for more examples](https://github.com/co-cart/co-cart-tweaks).
 
+<aside class="notice">
+Please make sure you are viewing the PHP language to view examples of the filters in use.
+</aside>
+
 ### Change thumbnail size ###
 
 By default the size of the thumbnail uses `woocommerce_thumbnail`. You can change this by filtering the size using `cocart_item_thumbnail_size` filter.

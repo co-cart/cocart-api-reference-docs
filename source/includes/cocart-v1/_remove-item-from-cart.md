@@ -2,7 +2,7 @@
 
 This API helps you to remove an item from the cart.
 
-### Remove item properties ###
+### Properties ###
 
 | Attribute       | Type   | Description                                   |
 | --------------- | ------ | --------------------------------------------- |

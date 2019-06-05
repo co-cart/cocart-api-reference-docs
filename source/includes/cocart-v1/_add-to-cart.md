@@ -2,7 +2,7 @@
 
 This API helps you to add an item to the cart.
 
-### Add item properties ###
+### Properties ###
 
 | Attribute        | Type      | Description       |
 | ---------------- | --------- | ----------------- |

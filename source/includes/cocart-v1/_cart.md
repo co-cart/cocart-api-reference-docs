@@ -1,8 +1,8 @@
-# CoCart API #
+# Cart #
 
 The cart API is powerful and allows you to view the cart in session, add new items, update the quantity of an item and delete individual items from the cart.
 
-Using the individual endpoints and their parameters, you can control what you need and what is returned when the request is finished.
+Using the individual endpoints and their properties, you can control what you need and what is returned when the request is finished.
 
 ## Get Cart Contents ##
 
@@ -12,7 +12,7 @@ This API returns the contents of the cart from a logged in customer or guest. Yo
 Please note that to return a registered customer, you must have persistent cart left enabled in you WooCommerce store for this to work and will only return if it has not expired or is still in session.
 </aside>
 
-### Get Cart Contents Properties ###
+### Properties ###
 
 | Attribute | Type | Description |
 | ------------ | -------------- | ------------ |
@@ -94,7 +94,7 @@ curl -X GET https://example.com/wp-json/cocart/v1/get-cart \
 }
 ```
 
-## Retrieve Customer Cart Contents ##
+## Get Customers Cart Contents ##
 
 <div class="api-endpoint">
   <div class="endpoint-data">
