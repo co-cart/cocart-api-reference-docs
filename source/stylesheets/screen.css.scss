@@ -548,7 +548,6 @@ html, body {
 
   pre {
     @extend %code-font;
-    background: $examples-bg;
     white-space: pre-wrap;
 
     code {
@@ -561,8 +560,6 @@ html, body {
 
   blockquote {
     &>p {
-      background-color: $code-annotation-bg;
-      padding: $code-annotation-padding 2em;
       color: #eee;
     }
   }
@@ -766,6 +763,6 @@ body.has-warning {
   color: #909090;
 }
 
-.highlight, .highlight .w {
+.highlight .w {
   background-color: $code-bg;
 }
