@@ -1,6 +1,6 @@
 # CoCart Documentation
 
-This is the repository for the CoCart documentation.
+Repository for the CoCart REST API.
 
 The documenation is powered by [Slate](https://github.com/lord/slate).
 

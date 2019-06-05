@@ -1,9 +1,8 @@
 ---
-title: CoCart Documentation v1
+title: CoCart Documentation - WC API v2
 
 language_tabs:
  - shell: cURL
- - php: PHP
 
 toc_footers:
   - <a href="https://github.com/co-cart/co-cart">CoCart Repository</a>
@@ -15,21 +14,16 @@ toc_footers:
   - <a href="https://github.com/lord/slate">Documentation Powered by Slate</a>
 
 includes:
-  - cocart-v1/introduction
-  - cocart-v1/errors
-  - cocart-v1/cart
-  - cocart-v1/clear-cart
-  - cocart-v1/count-items
-  - cocart-v1/calculate
-  - cocart-v1/totals
-  - cocart-v1/add-to-cart
-  - cocart-v1/remove-item-from-cart
-  - cocart-v1/restore-item-to-cart
-  - cocart-v1/update-item-in-cart
-  - cocart-v1/hooks
-  - cocart-v1/filters
-  - changelog
-  - contribute
+  - wp-api-v2/introduction
+  - wp-api-v2/errors
+  - wp-api-v2/cart
+  - wp-api-v2/add-to-cart
+  - wp-api-v2/remove-item-from-cart
+  - wp-api-v2/restore-item-to-cart
+  - wp-api-v2/update-item-in-cart
+  - wp-api-v2/changelog
 
 search: true
+
+warning: <i class="info"></i> This documentation is for the WooCommerce API v2 which is now deprecated. <a href="https://co-cart.github.io/co-cart-docs/">Please use the latest REST API version</a>.
 ---
