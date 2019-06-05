@@ -10,7 +10,7 @@ This API helps you to add an item to the cart.
 | `quantity`       | integer   | Set the quantity of the product you want to add to the cart. <i class="label label-info">Default is 1</i> |
 | `variation_id`   | integer   | Used to set the variation of the product being added to the cart. <i class="label label-info">optional</i> |
 | `variation`      | array     | Attribute values |
-| `cart_item_data` | array     | Used to apply extra cart item data we want to pass into the item. <i class="label label-info">optional</i> |
+| `cart_item_data` | array     | Used to apply extra cart item data we want to pass with the item. <i class="label label-info">optional</i> |
 | `return_cart`    | bool      | Used to return the whole cart once item added. |
 
 ### HTTP request ###
@@ -18,12 +18,12 @@ This API helps you to add an item to the cart.
 <div class="api-endpoint">
 	<div class="endpoint-data">
 		<i class="label label-post">POST</i>
-		<h6>/wp-json/cocart/v1/cart/add</h6>
+		<h6>/wp-json/cocart/v1/add-item</h6>
 	</div>
 </div>
 
 ```shell
-curl -X POST https://example.com/wp-json/cocart/v1/cart/add \
+curl -X POST https://example.com/wp-json/cocart/v1/add-item \
 	-H "Content-Type: application/json" \
   -d '{
     "product_id": 1722,

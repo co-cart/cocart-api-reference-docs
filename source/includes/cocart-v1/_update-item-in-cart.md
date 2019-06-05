@@ -15,12 +15,12 @@ This API helps you to update an item in the cart.
 <div class="api-endpoint">
   <div class="endpoint-data">
     <i class="label label-post">POST</i>
-    <h6>/wp-json/cocart/v1/cart/item</h6>
+    <h6>/wp-json/cocart/v1/item</h6>
   </div>
 </div>
 
 ```shell
-curl -X POST https://example.com/wp-json/cocart/v1/cart/item \
+curl -X POST https://example.com/wp-json/cocart/v1/item \
   -H "Content-Type: application/json" \
   -d '{
     "cart_item_key": "404dcc91b2aeaa7caa47487d1483e48a",
