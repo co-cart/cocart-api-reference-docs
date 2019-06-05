@@ -1,4 +1,4 @@
-## Add to Cart ##
+## Add Item to Cart ##
 
 This API helps you to add an item to the cart.
 
