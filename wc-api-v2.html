@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>CoCart Documentation v1</title>
+    <title>CoCart Documentation - WC API v2</title>
 
     <link rel="icon" href="images/favicon-32x32.png" sizes="32x32" />
     <link rel="icon" href="images/favicon-192x192.png" sizes="192x192" />
@@ -206,7 +206,7 @@
       <script src="javascripts/all.js"></script>
   </head>
 
-  <body class="index" data-languages="[&quot;shell&quot;,&quot;php&quot;]">
+  <body class="wc-api-v2" data-languages="[&quot;shell&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -217,7 +217,6 @@
       <img src="images/logo.png" class="logo" alt="Logo" />
         <div class="lang-selector">
               <a href="#" data-language-name="shell">cURL</a>
-              <a href="#" data-language-name="php">PHP</a>
         </div>
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
@@ -225,7 +224,7 @@
         <ul class="search-results"></ul>
       <ul id="toc" class="toc-list-h1">
           <li>
-            <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
+            <a href="#what-is-cocart" class="toc-h1 toc-link" data-title="What is CoCart?">What is CoCart?</a>
               <ul class="toc-list-h2">
                   <li>
                     <a href="#requirements" class="toc-h2 toc-link" data-title="Requirements">Requirements</a>
@@ -240,6 +239,9 @@
                     <a href="#parameters" class="toc-h2 toc-link" data-title="Parameters">Parameters</a>
                   </li>
                   <li>
+                    <a href="#libraries-and-tools" class="toc-h2 toc-link" data-title="Libraries and Tools">Libraries and Tools</a>
+                  </li>
+                  <li>
                     <a href="#tools" class="toc-h2 toc-link" data-title="Tools">Tools</a>
                   </li>
               </ul>
@@ -248,13 +250,10 @@
             <a href="#error-responses" class="toc-h1 toc-link" data-title="Error Responses">Error Responses</a>
           </li>
           <li>
-            <a href="#cart" class="toc-h1 toc-link" data-title="Cart">Cart</a>
+            <a href="#cart-api" class="toc-h1 toc-link" data-title="Cart API">Cart API</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#get-cart-contents" class="toc-h2 toc-link" data-title="Get Cart Contents">Get Cart Contents</a>
-                  </li>
-                  <li>
-                    <a href="#get-customers-cart-contents" class="toc-h2 toc-link" data-title="Get Customers Cart Contents">Get Customers Cart Contents</a>
+                    <a href="#view-cart-contents" class="toc-h2 toc-link" data-title="View Cart Contents">View Cart Contents</a>
                   </li>
                   <li>
                     <a href="#clear-cart" class="toc-h2 toc-link" data-title="Clear Cart">Clear Cart</a>
@@ -268,13 +267,8 @@
                   <li>
                     <a href="#get-cart-totals" class="toc-h2 toc-link" data-title="Get Cart Totals">Get Cart Totals</a>
                   </li>
-              </ul>
-          </li>
-          <li>
-            <a href="#items" class="toc-h1 toc-link" data-title="Items">Items</a>
-              <ul class="toc-list-h2">
                   <li>
-                    <a href="#add-item-to-cart" class="toc-h2 toc-link" data-title="Add Item to Cart">Add Item to Cart</a>
+                    <a href="#add-to-cart" class="toc-h2 toc-link" data-title="Add to Cart">Add to Cart</a>
                   </li>
                   <li>
                     <a href="#remove-item-from-cart" class="toc-h2 toc-link" data-title="Remove Item from Cart">Remove Item from Cart</a>
@@ -288,48 +282,8 @@
               </ul>
           </li>
           <li>
-            <a href="#hooks" class="toc-h1 toc-link" data-title="Hooks">Hooks</a>
-              <ul class="toc-list-h2">
-                  <li>
-                    <a href="#get-cart" class="toc-h2 toc-link" data-title="Get Cart">Get Cart</a>
-                  </li>
-                  <li>
-                    <a href="#clear-cart" class="toc-h2 toc-link" data-title="Clear Cart">Clear Cart</a>
-                  </li>
-                  <li>
-                    <a href="#item-added" class="toc-h2 toc-link" data-title="Item Added">Item Added</a>
-                  </li>
-                  <li>
-                    <a href="#item-removed" class="toc-h2 toc-link" data-title="Item Removed">Item Removed</a>
-                  </li>
-                  <li>
-                    <a href="#item-restored" class="toc-h2 toc-link" data-title="Item Restored">Item Restored</a>
-                  </li>
-                  <li>
-                    <a href="#item-quantity-changed" class="toc-h2 toc-link" data-title="Item Quantity Changed">Item Quantity Changed</a>
-                  </li>
-              </ul>
-          </li>
-          <li>
-            <a href="#filters" class="toc-h1 toc-link" data-title="Filters">Filters</a>
-              <ul class="toc-list-h2">
-                  <li>
-                    <a href="#change-thumbnail-size" class="toc-h2 toc-link" data-title="Change thumbnail size">Change thumbnail size</a>
-                  </li>
-                  <li>
-                    <a href="#return-more-item-details" class="toc-h2 toc-link" data-title="Return more item details">Return more item details</a>
-                  </li>
-                  <li>
-                    <a href="#ok-to-add-item" class="toc-h2 toc-link" data-title="OK to add item?">OK to add item?</a>
-                  </li>
-              </ul>
-          </li>
-          <li>
             <a href="#changelog" class="toc-h1 toc-link" data-title="Changelog">Changelog</a>
               <ul class="toc-list-h2">
-                  <li>
-                    <a href="#doc-version-1-plugin-release-v2" class="toc-h2 toc-link" data-title="Doc Version 1 - Plugin Release v2">Doc Version 1 - Plugin Release v2</a>
-                  </li>
                   <li>
                     <a href="#doc-version-0-5" class="toc-h2 toc-link" data-title="Doc Version 0.5">Doc Version 0.5</a>
                   </li>
@@ -347,9 +301,6 @@
                   </li>
               </ul>
           </li>
-          <li>
-            <a href="#contribute" class="toc-h1 toc-link" data-title="Contribute">Contribute</a>
-          </li>
       </ul>
         <ul class="toc-footer">
             <li><a href="https://github.com/co-cart/co-cart">CoCart Repository</a></li>
@@ -364,46 +315,16 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id='introduction'>Introduction</h1>
-<p>CoCart allows the cart to be created, read, updated, and deleted using requests in JSON format and using WordPress REST API Authentication methods and standard HTTP verbs which are understood by most HTTP clients.</p>
+        <h1 id='what-is-cocart'>What is CoCart?</h1>
+<p>CoCart, also written as co-cart, is a REST API for WooCommerce. Accessing the cart via the REST API was highly requested by mobile and app developers and was missing from the core of WooCommerce.</p>
 
-<p>The current WP REST API integration version is <code>v1</code> which takes a first-order position in endpoints.</p>
+<p>So I built it. Tada!</p>
 
-<p>The following table shows API versions present in each major version of CoCart:</p>
+<p>It allows you to use WooCommerce’s REST API to its full potential providing the option to create a full web or mobile app 📱 for your store powered by WooCommerce.</p>
 
-<table><thead>
-<tr>
-<th>API Version</th>
-<th>CoCart Version</th>
-<th>WC Version</th>
-<th>WP Version</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code>v1</code></td>
-<td>1.0.x or later</td>
-<td>2.6.x or later</td>
-<td>4.4 or later</td>
-</tr>
-</tbody></table>
+<p>The current WooCommerce REST API is version <code>v2</code>. The same for CoCart. The namespace matches with the current version to keep all endpoints together when <a href="http://woocommerce.github.io/woocommerce-rest-api-docs/#index">viewing the index</a>.</p>
 
-<p>Prior to WooCommerce v3.6, CoCart shared WooCommerce&#39;s REST API. You can find the documentation about cart support for <code>/wc-api-v2</code> API separately.</p>
-
-<table><thead>
-<tr>
-<th>API Version</th>
-<th>WC Version</th>
-<th>WP Version</th>
-<th>Documentation</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code>wc-api-v2</code></td>
-<td>3.0.x or later</td>
-<td>4.4 or later</td>
-<td><a href="wc-api-v2.html">wc-api-v2 docs</a></td>
-</tr>
-</tbody></table>
+<p>The cart endpoint also registers before WooCommerce endpoints in order for the index of WC REST API to be in alphabetical order.</p>
 <h2 id='requirements'>Requirements</h2>
 <p>To use the latest version of the CoCart you must be using:</p>
 
@@ -415,7 +336,7 @@
 </ul>
 
 <aside class="notice">
-  Please note that you are <strong>not</strong> required to install the <a href="https://wordpress.org/plugins/rest-api/">WP REST API (WP API)</a> plugin.
+Please note that you are <strong>not</strong> required to install the <a href="https://wordpress.org/plugins/rest-api/">WP REST API (WP API)</a> plugin.
 </aside>
 <h2 id='request-response-format'>Request/Response Format</h2>
 <p>The default response format is JSON. Requests with a message-body use plain JSON to set or update resource attributes. Successful requests will return a <code>200 OK</code> HTTP status.</p>
@@ -469,7 +390,7 @@
 <p>CoCart error example</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cocart_clear_cart_failed"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"wc_cart_rest_clear_cart_failed"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Clearing the cart failed!"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">500</span><span class="w">
@@ -478,7 +399,29 @@
 </span></code></pre>
 <p>Errors return both an appropriate HTTP status code and response object which contains a <code>code</code>, <code>message</code> and <code>data</code> attribute.</p>
 <h2 id='parameters'>Parameters</h2>
-<p>Almost all endpoints accept optional parameters which can be passed as a HTTP query string parameter, e.g. <code>POST /cocart/v1/item?cart_item_key=270edd69788dce200a3b395a6da6fdb7&amp;quantity=2</code>. All parameters are documented along each endpoint.</p>
+<p>Almost all endpoints accept optional parameters which can be passed as a HTTP query string parameter, e.g. <code>POST /cart/?cart_item_key=270edd69788dce200a3b395a6da6fdb7&amp;quantity=2</code>. All parameters are documented along each endpoint.</p>
+<h2 id='libraries-and-tools'>Libraries and Tools</h2><h3 id='official-libraries'>Official libraries</h3>
+<ul>
+<li><a href="https://www.npmjs.com/package/woocommerce-api">Node.js</a> Library</li>
+<li><a href="https://packagist.org/packages/automattic/woocommerce">PHP</a> Library</li>
+<li><a href="https://pypi.python.org/pypi/WooCommerce">Python</a> Library</li>
+<li><a href="https://rubygems.org/gems/woocommerce_api">Ruby</a> Library</li>
+</ul>
+
+<aside class="warning">
+    All of the official libraries require authentication so using them for this API is NOT RECOMMENDED.
+</aside>
+<h3 id='third-party-libraries'>Third party libraries</h3>
+<ul>
+<li><a href="https://github.com/michaeldoye/ng2woo">Angular</a> Library</li>
+<li><a href="https://github.com/icoderman/wc-api-java">Java</a> Library</li>
+<li><a href="https://github.com/XiaoFaye/WooCommerce.NET">.NET</a> Library</li>
+<li><a href="https://github.com/minhcasi/WooCommerceSDK">Swift</a> Library</li>
+</ul>
+
+<aside class="notice">
+    I DO NOT offer support for these third party libraries or have tested them personally, so if you have questions about how to use any of this libraries you should contact the respective authors.
+</aside>
 <h2 id='tools'>Tools</h2>
 <p>Some useful tools you can use to access the API include:</p>
 
@@ -489,10 +432,11 @@
 <li><a href="https://itunes.apple.com/us/app/paw-http-client/id584653203?mt=12">Paw HTTP Client</a> - Another HTTP client for Mac OS X.</li>
 <li><a href="https://addons.mozilla.org/en-US/firefox/addon/restclient/">RESTClient, a debugger for RESTful web services</a> - Free Firefox add-on.</li>
 <li><a href="https://chrome.google.com/webstore/detail/advanced-rest-client/hgmloofddffdnphfgcellkdfbfbjeloo">Advanced REST client</a> - Free Google Chrome extension.</li>
+<li><a href="https://requestb.in/">RequestBin</a> - Allows you test web hooks.</li>
 <li><a href="https://hookbin.com/">Hookbin</a> - Another tool to test web hooks.</li>
 </ul>
 <h1 id='error-responses'>Error Responses</h1>
-<p>You might encounter an error when using CoCart. These error responses explain what might have happened.</p>
+<p>You might encounter errors when using CoCart. These error responses explain what might have happened.</p>
 
 <table><thead>
 <tr>
@@ -501,85 +445,71 @@
 </tr>
 </thead><tbody>
 <tr>
-<td><code>cocart_cannot_read_cart</code></td>
-<td>Cannot read cart!</td>
-</tr>
-<tr>
-<td><code>cocart_customer_missing</code></td>
-<td>Customer ID is required!</td>
-</tr>
-<tr>
-<td><code>cocart_clear_cart_failed</code></td>
+<td><code>wc_cart_rest_clear_cart_failed</code></td>
 <td>Clearing the cart failed!</td>
 </tr>
 <tr>
-<td><code>cocart_product_id_required</code></td>
+<td><code>wc_cart_rest_product_id_required</code></td>
 <td>Product ID number is required!</td>
 </tr>
 <tr>
-<td><code>cocart_product_id_not_numeric</code></td>
+<td><code>wc_cart_rest_product_id_not_numeric</code></td>
 <td>Product ID must be numeric!</td>
 </tr>
 <tr>
-<td><code>cocart_quantity_not_numeric</code></td>
+<td><code>wc_cart_rest_quantity_not_numeric</code></td>
 <td>Quantity must be numeric!</td>
 </tr>
 <tr>
-<td><code>cocart_product_does_not_exist</code></td>
+<td><code>wc_cart_rest_product_does_not_exist</code></td>
 <td>Warning: This product does not exist!</td>
 </tr>
 <tr>
-<td><code>cocart_product_sold_individually</code></td>
+<td><code>wc_cart_rest_product_sold_individually</code></td>
 <td>You cannot add another &quot;%s&quot; to your cart. <i class="label label-info">%s is the product name</i></td>
 </tr>
 <tr>
-<td><code>cocart_cannot_be_purchased</code></td>
+<td><code>wc_cart_rest_cannot_be_purchased</code></td>
 <td>Sorry, this product cannot be purchased.</td>
 </tr>
 <tr>
-<td><code>cocart_product_out_of_stock</code></td>
+<td><code>wc_cart_rest_product_out_of_stock</code></td>
 <td>You cannot add &quot;%s&quot; to the cart because the product is out of stock. <i class="label label-info">%s is the product name</i></td>
 </tr>
 <tr>
-<td><code>cocart_not_enough_in_stock</code></td>
+<td><code>wc_cart_rest_not_enough_in_stock</code></td>
 <td>You cannot add that amount of &quot;%1$s&quot; to the cart because there is not enough stock (%2$s remaining). <i class="label label-info">%1$s is the product name. %2$s is the stock remaining.</i></td>
 </tr>
 <tr>
-<td><code>cocart_not_enough_stock_remaining</code></td>
+<td><code>wc_cart_rest_not_enough_stock_remaining</code></td>
 <td>You cannot add that amount to the cart &mdash; we have %1$s in stock and you already have %2$s in your cart.</td>
 </tr>
 <tr>
-<td><code>cocart_cannot_add_to_cart</code></td>
+<td><code>wc_cart_rest_cannot_add_to_cart</code></td>
 <td>You cannot add &quot;%s&quot; to your cart. <i class="label label-info">%s is the product name</i></td>
 </tr>
 <tr>
-<td><code>cocart_can_not_remove_item</code></td>
+<td><code>wc_cart_rest_can_not_remove_item</code></td>
 <td>Unable to remove item from cart.</td>
 </tr>
 <tr>
-<td><code>cocart_can_not_restore_item</code></td>
+<td><code>wc_cart_rest_can_not_restore_item</code></td>
 <td>Unable to restore item to the cart.</td>
 </tr>
 <tr>
-<td><code>cocart_can_not_update_item</code></td>
-<td>Unable to update item quantity in cart.</td>
-</tr>
-<tr>
-<td><code>cocart_cart_item_key_required</code></td>
+<td><code>wc_cart_rest_cart_item_key_required</code></td>
 <td>Cart item key is required!</td>
 </tr>
+<tr>
+<td><code>wc_cart_rest_can_not_update_item</code></td>
+<td>Unable to update item quantity in cart.</td>
+</tr>
 </tbody></table>
-<h1 id='cart'>Cart</h1>
-<p>The cart API is powerful and allows you to view the cart in session, add new items, update the quantity of an item and delete individual items from the cart.</p>
+<h1 id='cart-api'>Cart API</h1>
+<p>The cart API allows you to add, view, update, and delete individual items for the cart.</p>
+<h2 id='view-cart-contents'>View Cart Contents</h2>
+<p>This API helps you view the contents of the cart.</p>
 
-<p>Using the individual endpoints and their properties, you can control what you need and what is returned when the request is finished.</p>
-<h2 id='get-cart-contents'>Get Cart Contents</h2>
-<p>This API returns the contents of the cart from a logged in customer or guest. You can also ask it to return a specific cart of registered customer.</p>
-
-<aside class="notice">
-  Please note that to return a registered customer, you must have persistent cart left enabled in you WooCommerce store for this to work and will only return if it has not expired or is still in session.
-</aside>
-<h3 id='properties'>Properties</h3>
 <table><thead>
 <tr>
 <th>Attribute</th>
@@ -588,11 +518,6 @@
 </tr>
 </thead><tbody>
 <tr>
-<td><code>id</code></td>
-<td>integer</td>
-<td>Unique identifier for the customer.</td>
-</tr>
-<tr>
 <td><code>thumb</code></td>
 <td>bool</td>
 <td>Returns the product thumbnail for the product.</td>
@@ -600,98 +525,50 @@
 </tbody></table>
 <h3 id='http-request'>HTTP request</h3>
 <div class="api-endpoint">
-  <div class="endpoint-data">
-    <i class="label label-get">GET</i>
-    <h6>/wp-json/cocart/v1/get-cart</h6>
-  </div>
+    <div class="endpoint-data">
+        <i class="label label-get">GET</i>
+        <h6>/wp-json/wc/v2/cart</h6>
+    </div>
 </div>
-<pre class="highlight shell tab-shell"><code>curl -X GET https://example.com/wp-json/cocart/v1/get-cart <span class="se">\</span>
-  -H <span class="s2">"Content-Type: application/json"</span>
+<pre class="highlight shell tab-shell"><code>curl -X GET https://example.com/wp-json/wc/v2/cart <span class="se">\</span>
+    -H <span class="s2">"Content-Type: application/json"</span>
 </code></pre>
 <blockquote>
 <p>JSON response example</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"19ca14e7ea6328a42e0eb13d585e4c22"</span><span class="p">:{</span><span class="w">
-    </span><span class="s2">"key"</span><span class="p">:</span><span class="s2">"19ca14e7ea6328a42e0eb13d585e4c22"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"product_id"</span><span class="p">:</span><span class="mi">36</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"404dcc91b2aeaa7caa47487d1483e48a"</span><span class="p">:{</span><span class="w">
+    </span><span class="s2">"key"</span><span class="p">:</span><span class="s2">"404dcc91b2aeaa7caa47487d1483e48a"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"product_id"</span><span class="p">:</span><span class="mi">1722</span><span class="p">,</span><span class="w">
     </span><span class="s2">"variation_id"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="s2">"variation"</span><span class="p">:[],</span><span class="w">
     </span><span class="s2">"quantity"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"data_hash"</span><span class="p">:</span><span class="s2">"b5c1d5ca8bae6d4896cf1807cdf763f0"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"line_tax_data"</span><span class="p">:{</span><span class="w">
       </span><span class="s2">"subtotal"</span><span class="p">:[],</span><span class="w">
       </span><span class="s2">"total"</span><span class="p">:[]</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="s2">"line_subtotal"</span><span class="p">:</span><span class="mi">18</span><span class="p">,</span><span class="w">
     </span><span class="s2">"line_subtotal_tax"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"line_total"</span><span class="p">:</span><span class="mf">14.4</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"line_total"</span><span class="p">:</span><span class="mi">18</span><span class="p">,</span><span class="w">
     </span><span class="s2">"line_tax"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"data"</span><span class="p">:{},</span><span class="w">
-    </span><span class="s2">"product_name"</span><span class="p">:</span><span class="s2">"Vneck Tshirt"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"product_title"</span><span class="p">:</span><span class="s2">"Vneck Tshirt"</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:{}</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><pre class="highlight shell tab-shell"><code>curl -X GET https://example.com/wp-json/cocart/v1/get-cart <span class="se">\</span>
-  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
-  -d <span class="s1">'{
-    "thumb": true
-  }'</span>
-</code></pre>
-<blockquote>
-<p>JSON response example</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"19ca14e7ea6328a42e0eb13d585e4c22"</span><span class="p">:{</span><span class="w">
-    </span><span class="s2">"key"</span><span class="p">:</span><span class="s2">"19ca14e7ea6328a42e0eb13d585e4c22"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"product_id"</span><span class="p">:</span><span class="mi">36</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"variation_id"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"variation"</span><span class="p">:[],</span><span class="w">
-    </span><span class="s2">"quantity"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"data_hash"</span><span class="p">:</span><span class="s2">"b5c1d5ca8bae6d4896cf1807cdf763f0"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"line_tax_data"</span><span class="p">:{</span><span class="w">
-      </span><span class="s2">"subtotal"</span><span class="p">:[],</span><span class="w">
-      </span><span class="s2">"total"</span><span class="p">:[]</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="s2">"line_subtotal"</span><span class="p">:</span><span class="mi">18</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"line_subtotal_tax"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"line_total"</span><span class="p">:</span><span class="mf">14.4</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"line_tax"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"data"</span><span class="p">:{},</span><span class="w">
-    </span><span class="s2">"product_name"</span><span class="p">:</span><span class="s2">"Vneck Tshirt"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"product_title"</span><span class="p">:</span><span class="s2">"Vneck Tshirt"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"product_image"</span><span class="p">:</span><span class="s2">"http:</span><span class="se">\/\/</span><span class="s2">yourdomain.xyz</span><span class="se">\/</span><span class="s2">wp-content</span><span class="se">\/</span><span class="s2">uploads</span><span class="se">\/</span><span class="s2">2019</span><span class="se">\/</span><span class="s2">06</span><span class="se">\/</span><span class="s2">vneck-tee.jpg"</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre><h2 id='get-customers-cart-contents'>Get Customers Cart Contents</h2>
-<div class="api-endpoint">
-  <div class="endpoint-data">
-    <i class="label label-get">GET</i>
-    <h6>/wp-json/cocart/v1/get-cart/&lt;id&gt;</h6>
-  </div>
-</div>
-<pre class="highlight shell tab-shell"><code>curl -X GET https://example.com/wp-json/cocart/v1/get-cart/123 <span class="se">\</span>
-  -u consumer_key:consumer_secret <span class="se">\</span>
-  -H <span class="s2">"Content-Type: application/json"</span>
-</code></pre>
-<blockquote>
-<p>JSON returns the same responses as the examples above.</p>
-</blockquote>
-<h2 id='clear-cart'>Clear Cart</h2>
+</span></code></pre><h2 id='clear-cart'>Clear Cart</h2>
 <p>This API helps you clear the contents of the cart.</p>
-<h3 id='http-request'>HTTP request</h3>
+<h3 id='http-request-2'>HTTP request</h3>
 <div class="api-endpoint">
-  <div class="endpoint-data">
-    <i class="label label-post">POST</i>
-    <h6>/wp-json/cocart/v1/clear</h6>
-  </div>
+    <div class="endpoint-data">
+        <i class="label label-post">POST</i>
+        <h6>/wp-json/wc/v2/cart/clear</h6>
+    </div>
 </div>
 
 <aside class="notice">
 It is important that you use POST and not GET as it will cache and return with a false response.
 </aside>
-<pre class="highlight shell tab-shell"><code>curl -X POST https://example.com/wp-json/cocart/v1/clear <span class="se">\</span>
-  -H <span class="s2">"Content-Type: application/json"</span>
+<pre class="highlight shell tab-shell"><code>curl -X POST https://example.com/wp-json/wc/v2/cart/clear <span class="se">\</span>
+    -H <span class="s2">"Content-Type: application/json"</span>
 </code></pre>
 <blockquote>
 <p>JSON response example</p>
@@ -699,15 +576,15 @@ It is important that you use POST and not GET as it will cache and return with a
 <pre class="highlight json tab-json"><code><span class="s2">"Cart is cleared."</span><span class="w">
 </span></code></pre><h2 id='count-items'>Count Items</h2>
 <p>This API helps you count the items in the cart.</p>
-<h3 id='http-request'>HTTP request</h3>
+<h3 id='http-request-3'>HTTP request</h3>
 <div class="api-endpoint">
-  <div class="endpoint-data">
-    <i class="label label-get">GET</i>
-    <h6>/wp-json/cocart/v1/count-items</h6>
-  </div>
+    <div class="endpoint-data">
+        <i class="label label-get">GET</i>
+        <h6>/wp-json/wc/v2/cart/count-items</h6>
+    </div>
 </div>
-<pre class="highlight shell tab-shell"><code>curl -X GET https://example.com/wp-json/cocart/v1/count-items <span class="se">\</span>
- -H <span class="s2">"Content-Type: application/json"</span>
+<pre class="highlight shell tab-shell"><code>curl -X GET https://example.com/wp-json/wc/v2/cart/count-items <span class="se">\</span>
+    -H <span class="s2">"Content-Type: application/json"</span>
 </code></pre>
 <blockquote>
 <p>JSON response example</p>
@@ -715,14 +592,14 @@ It is important that you use POST and not GET as it will cache and return with a
 <pre class="highlight json tab-json"><code><span class="mi">1</span><span class="w">
 </span></code></pre><h2 id='calculate-cart-totals'>Calculate Cart Totals</h2>
 <p>This API helps you calculate the cart totals.</p>
-<h3 id='http-request'>HTTP request</h3>
+<h3 id='http-request-4'>HTTP request</h3>
 <div class="api-endpoint">
     <div class="endpoint-data">
         <i class="label label-post">POST</i>
-        <h6>/wp-json/cocart/v1/calculate</h6>
+        <h6>/wp-json/wc/v2/cart/calculate</h6>
     </div>
 </div>
-<pre class="highlight shell tab-shell"><code>curl -X POST https://example.com/wp-json/cocart/v1/calculate <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl -X POST https://example.com/wp-json/wc/v2/cart/calculate <span class="se">\</span>
     -H <span class="s2">"Content-Type: application/json"</span>
 </code></pre>
 <blockquote>
@@ -731,15 +608,15 @@ It is important that you use POST and not GET as it will cache and return with a
 <pre class="highlight json tab-json"><code><span class="s2">"Cart totals have been calculated."</span><span class="w">
 </span></code></pre><h2 id='get-cart-totals'>Get Cart Totals</h2>
 <p>This API helps you get the cart totals.</p>
-<h3 id='http-request'>HTTP request</h3>
+<h3 id='http-request-5'>HTTP request</h3>
 <div class="api-endpoint">
-  <div class="endpoint-data">
-    <i class="label label-get">GET</i>
-    <h6>/wp-json/cocart/v1/totals</h6>
-  </div>
+    <div class="endpoint-data">
+        <i class="label label-get">GET</i>
+        <h6>/wp-json/wc/v2/cart/totals</h6>
+    </div>
 </div>
-<pre class="highlight shell tab-shell"><code>curl -X GET https://example.com/wp-json/cocart/v1/totals <span class="se">\</span>
- -H <span class="s2">"Content-Type: application/json"</span>
+<pre class="highlight shell tab-shell"><code>curl -X GET https://example.com/wp-json/wc/v2/cart/totals <span class="se">\</span>
+    -H <span class="s2">"Content-Type: application/json"</span>
 </code></pre>
 <blockquote>
 <p>JSON response example</p>
@@ -761,15 +638,9 @@ It is important that you use POST and not GET as it will cache and return with a
   </span><span class="s2">"total"</span><span class="p">:</span><span class="s2">"42.00"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"total_tax"</span><span class="p">:</span><span class="mi">0</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h1 id='items'>Items</h1>
-<p>The most important part of CoCart is adding items to the cart.</p>
-
-<p>Once items are in the cart, customers always make decisions on which items they want to buy now, change the quantities of a particular item and which items they should remove.</p>
-
-<p>The following API&#39;s help with all of that.</p>
-<h2 id='add-item-to-cart'>Add Item to Cart</h2>
+</span></code></pre><h2 id='add-to-cart'>Add to Cart</h2>
 <p>This API helps you to add an item to the cart.</p>
-<h3 id='properties'>Properties</h3>
+<h3 id='add-item-properties'>Add item properties</h3>
 <table><thead>
 <tr>
 <th>Attribute</th>
@@ -800,23 +671,18 @@ It is important that you use POST and not GET as it will cache and return with a
 <tr>
 <td><code>cart_item_data</code></td>
 <td>array</td>
-<td>Used to apply extra cart item data we want to pass with the item. <i class="label label-info">optional</i></td>
-</tr>
-<tr>
-<td><code>return_cart</code></td>
-<td>bool</td>
-<td>Used to return the whole cart once item added.</td>
+<td>Used to apply extra cart item data we want to pass into the item. <i class="label label-info">optional</i></td>
 </tr>
 </tbody></table>
 <h3 id='http-request'>HTTP request</h3>
 <div class="api-endpoint">
-  <div class="endpoint-data">
-    <i class="label label-post">POST</i>
-    <h6>/wp-json/cocart/v1/add-item</h6>
-  </div>
+    <div class="endpoint-data">
+        <i class="label label-post">POST</i>
+        <h6>/wp-json/wc/v2/cart/add</h6>
+    </div>
 </div>
-<pre class="highlight shell tab-shell"><code>curl -X POST https://example.com/wp-json/cocart/v1/add-item <span class="se">\</span>
-  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl -X POST https://example.com/wp-json/wc/v2/cart/add <span class="se">\</span>
+    -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
   -d <span class="s1">'{
     "product_id": 1722,
     "quantity": 1
@@ -845,7 +711,7 @@ It is important that you use POST and not GET as it will cache and return with a
 </span><span class="p">}</span><span class="w">
 </span></code></pre><h2 id='remove-item-from-cart'>Remove Item from Cart</h2>
 <p>This API helps you to remove an item from the cart.</p>
-<h3 id='properties'>Properties</h3>
+<h3 id='remove-item-properties'>Remove item properties</h3>
 <table><thead>
 <tr>
 <th>Attribute</th>
@@ -858,21 +724,16 @@ It is important that you use POST and not GET as it will cache and return with a
 <td>string</td>
 <td>The cart item key of the product in the cart. <i class="label label-info">mandatory</i></td>
 </tr>
-<tr>
-<td><code>return_cart</code></td>
-<td>bool</td>
-<td>Used to return the whole cart once item added.</td>
-</tr>
 </tbody></table>
 <h3 id='http-request'>HTTP request</h3>
 <div class="api-endpoint">
-  <div class="endpoint-data">
-    <i class="label label-delete">DELETE</i>
-    <h6>/wp-json/cocart/v1/item</h6>
-  </div>
+    <div class="endpoint-data">
+        <i class="label label-delete">DELETE</i>
+        <h6>/wp-json/wc/v2/cart/cart-item</h6>
+    </div>
 </div>
-<pre class="highlight shell tab-shell"><code>curl -X DELETE https://example.com/wp-json/cocart/v1/item <span class="se">\</span>
-  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl -X DELETE https://example.com/wp-json/wc/v2/cart/cart-item <span class="se">\</span>
+    -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
   -d <span class="s1">'{
     "cart_item_key": 404dcc91b2aeaa7caa47487d1483e48a
   }'</span>
@@ -883,7 +744,7 @@ It is important that you use POST and not GET as it will cache and return with a
 <pre class="highlight json tab-json"><code><span class="s2">"Item has been removed from cart."</span><span class="w">
 </span></code></pre><h2 id='restore-item-to-cart'>Restore Item to Cart</h2>
 <p>This API helps you to restore an item to the cart.</p>
-<h3 id='properties'>Properties</h3>
+<h3 id='restore-item-properties'>Restore item properties</h3>
 <table><thead>
 <tr>
 <th>Attribute</th>
@@ -896,24 +757,19 @@ It is important that you use POST and not GET as it will cache and return with a
 <td>string</td>
 <td>The cart item key of the product that was in the cart recently. <i class="label label-info">mandatory</i></td>
 </tr>
-<tr>
-<td><code>return_cart</code></td>
-<td>bool</td>
-<td>Used to return the whole cart once item added.</td>
-</tr>
 </tbody></table>
 <h3 id='http-request'>HTTP request</h3>
 <div class="api-endpoint">
-  <div class="endpoint-data">
-    <i class="label label-get">GET</i>
-    <h6>/wp-json/cocart/v1/item</h6>
+    <div class="endpoint-data">
+        <i class="label label-get">GET</i>
+        <h6>/wp-json/wc/v2/cart/cart-item</h6>
     </div>
 </div>
-<pre class="highlight shell tab-shell"><code>curl -X DELETE https://example.com/wp-json/cocart/v1/item <span class="se">\</span>
-  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
-  -d <span class="s1">'{
-    "cart_item_key": 404dcc91b2aeaa7caa47487d1483e48a
-  }'</span>
+<pre class="highlight shell tab-shell"><code>curl -X DELETE https://example.com/wp-json/wc/v2/cart/cart-item <span class="se">\</span>
+    -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+    -d <span class="s1">'{
+        "cart_item_key": 404dcc91b2aeaa7caa47487d1483e48a
+    }'</span>
 </code></pre>
 <blockquote>
 <p>JSON response example</p>
@@ -921,7 +777,7 @@ It is important that you use POST and not GET as it will cache and return with a
 <pre class="highlight json tab-json"><code><span class="s2">"Item has been restored to the cart.""
 </span></code></pre><h2 id='update-item-in-cart'>Update Item in Cart</h2>
 <p>This API helps you to update an item in the cart.</p>
-<h3 id='properties'>Properties</h3>
+<h3 id='update-item-properties'>Update item properties</h3>
 <table><thead>
 <tr>
 <th>Attribute</th>
@@ -939,248 +795,27 @@ It is important that you use POST and not GET as it will cache and return with a
 <td>integer</td>
 <td>Set the quantity of the product you want to update in the cart. <i class="label label-info">Default is 1</i></td>
 </tr>
-<tr>
-<td><code>return_cart</code></td>
-<td>bool</td>
-<td>Used to return the whole cart once item added.</td>
-</tr>
 </tbody></table>
 <h3 id='http-request'>HTTP request</h3>
 <div class="api-endpoint">
-  <div class="endpoint-data">
-    <i class="label label-post">POST</i>
-    <h6>/wp-json/cocart/v1/item</h6>
-  </div>
+    <div class="endpoint-data">
+        <i class="label label-post">POST</i>
+        <h6>/wp-json/wc/v2/cart/cart-item</h6>
+    </div>
 </div>
-<pre class="highlight shell tab-shell"><code>curl -X POST https://example.com/wp-json/cocart/v1/item <span class="se">\</span>
-  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
-  -d <span class="s1">'{
-    "cart_item_key": "404dcc91b2aeaa7caa47487d1483e48a",
-    "quantity": 2
-  }'</span>
+<pre class="highlight shell tab-shell"><code>curl -X POST https://example.com/wp-json/wc/v2/cart/cart-item <span class="se">\</span>
+    -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+    -d <span class="s1">'{
+        "cart_item_key": "404dcc91b2aeaa7caa47487d1483e48a",
+        "quantity": 2
+    }'</span>
 </code></pre>
 <blockquote>
 <p>JSON response example</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="s2">"The quantity for 'Woo T-Shirt' has increased to '2'."</span><span class="w">
-</span></code></pre><h1 id='hooks'>Hooks</h1>
-<p>The cart API has a number of action hooks that you can use to extend the API to your needs.</p>
-
-<p>See the <a href="https://github.com/co-cart/co-cart-tweaks">tweaks plugin for examples</a>.</p>
-
-<aside class="notice">
-Please make sure you are viewing the PHP language to view examples of the filters in use.
-</aside>
-<h3 id='get-cart'>Get Cart</h3>
-<p>Perhaps you need to apply something to the whole of the cart before it returns or send a notification. The choice is yours.</p>
-
-<p>Use hook name: <code>cocart_get_cart</code></p>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code>$cart_contents</code></td>
-<td>array</td>
-<td>An array of items added to the cart.</td>
-</tr>
-</tbody></table>
-<h3 id='clear-cart'>Clear Cart</h3>
-<p>Could be used to send a registered customer an email once they have emptied their cart. 😢</p>
-
-<p>Use hook name: <code>cocart_cart_cleared</code></p>
-<h3 id='item-added'>Item Added</h3>
-<p>You can do something once an item has been added to the cart.</p>
-
-<p>Use hook name: <code>cocart_item_added_to_cart</code></p>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code>$item_key</code></td>
-<td>string</td>
-<td>The cart item key of the product in the cart.</td>
-</tr>
-<tr>
-<td><code>$item_added</code></td>
-<td>array</td>
-<td>The details of the added item.</td>
-</tr>
-</tbody></table>
-<h3 id='item-removed'>Item Removed</h3>
-<p>Use hook name: <code>cocart_item_removed</code></p>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code>$current_data</code></td>
-<td>array</td>
-<td>The details of the item removed.</td>
-</tr>
-</tbody></table>
-<h3 id='item-restored'>Item Restored</h3>
-<p>Use hook name: <code>cocart_item_restored</code></p>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code>$current_data</code></td>
-<td>array</td>
-<td>The details of the item restored.</td>
-</tr>
-</tbody></table>
-<h3 id='item-quantity-changed'>Item Quantity Changed</h3>
-<p>Should you need to change some other detail for the updated item.</p>
-
-<p>Use hook name: <code>cocart_item_quantity_changed</code></p>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code>$cart_item_key</code></td>
-<td>string</td>
-<td>The cart item key of the product in the cart.</td>
-</tr>
-<tr>
-<td><code>$new_data</code></td>
-<td>array</td>
-<td>The details of the item updated.</td>
-</tr>
-</tbody></table>
-<h1 id='filters'>Filters</h1>
-<p>The cart API has a number of filters that you can use to extend or change the API.</p>
-
-<p>See the <a href="https://github.com/co-cart/co-cart-tweaks">tweaks plugin for more examples</a>.</p>
-
-<aside class="notice">
-Please make sure you are viewing the PHP language to view examples of the filters in use.
-</aside>
-<h3 id='change-thumbnail-size'>Change thumbnail size</h3>
-<p>By default the size of the thumbnail uses <code>woocommerce_thumbnail</code>. You can change this by filtering the size using <code>cocart_item_thumbnail_size</code> filter.</p>
-<pre class="highlight php tab-php"><code>add_filter( 'cocart_item_thumbnail_size', 'thumbnail_size' );
-
-function thumbnail_size() {
-    return 'thumbnail';
-}
-</code></pre><h3 id='return-more-item-details'>Return more item details</h3>
-<p>Sometimes you just need more product data for the items added. You can do so using <code>cocart_cart_contents</code> filter.</p>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code>$cart_contents</code></td>
-<td>array</td>
-<td>An array of items added to the cart.</td>
-</tr>
-<tr>
-<td><code>$item_key</code></td>
-<td>string</td>
-<td>Unique generated ID for the item in cart.</td>
-</tr>
-<tr>
-<td><code>$cart_item</code></td>
-<td>array</td>
-<td>An array of details of the item in the cart.</td>
-</tr>
-<tr>
-<td><code>$_product</code></td>
-<td>object</td>
-<td>The product data of the item.</td>
-</tr>
-</tbody></table>
-<pre class="highlight php tab-php"><code>add_filter( 'cocart_cart_contents', 'return_product_weight', 4, 15 );
-
-function return_product_sku( $cart_contents, $item_key, $cart_item, $_product ) {
-    $cart_contents[$item_key]['sku'] = $_product-&gt;get_sku();
-
-    return $cart_contents;
-}
-</code></pre><h3 id='ok-to-add-item'>OK to add item?</h3>
-<p>Want to stop an item being added and return a custom message should it require an item not in the cart first.</p>
-
-<p>Use the <code>cocart_ok_to_add</code> and <code>cocart_ok_to_add_response</code> filters.</p>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code>$status</code></td>
-<td>bool</td>
-<td>The status of adding an item to cart.</td>
-</tr>
-<tr>
-<td><code>$response</code></td>
-<td>string</td>
-<td>The returned message.</td>
-</tr>
-<tr>
-<td><code>$product_data</code></td>
-<td>object</td>
-<td>The product data of the item.</td>
-</tr>
-</tbody></table>
-<pre class="highlight php tab-php"><code>add_filter( 'cocart_ok_to_add', 'requires_specific_item', 2, 10 );
-
-function requires_specific_item( $status, $product_data ) {
-    $cart_contents = isset( WC()-&gt;cart ) ? WC()-&gt;cart-&gt;get_cart() : WC()-&gt;session-&gt;cart;
-
-    $required_product_id = '123'; // Replace with real product ID number.
-
-    foreach ( $cart_contents as $item_key =&gt; $cart_item ) { 
-        // If required product ID does not exist return false.
-        if ( $cart_item['id'] != $required_product_id ) {
-            $status = false;
-        }
-    }
-
-    return $status;
-}
-</code></pre><pre class="highlight php tab-php"><code>add_filter( 'cocart_ok_to_add_message', 'requires_specific_item', 2, 10 );
-
-function requires_specific_item_response( $response, $product_data ) {
-    $response = __( 'This item requires a specific item to be added first to the cart.' );
-
-    return $response;
-}
-</code></pre><h1 id='changelog'>Changelog</h1>
+</span></code></pre><h1 id='changelog'>Changelog</h1>
 <p>The Documentation is updated only when needed. Below is the changelog for &quot;CoCart&quot; documentation that matches with the version of the plugin release.</p>
-<h3 id='doc-version-1-plugin-release-v2'>Doc Version 1 - Plugin Release v2</h3>
-<ul>
-<li>Updated for CoCart v2</li>
-</ul>
 <h3 id='doc-version-0-5'>Doc Version 0.5</h3>
 <ul>
 <li>Added attribute table for view cart.</li>
@@ -1208,34 +843,11 @@ function requires_specific_item_response( $response, $product_data ) {
 <ul>
 <li>Initial Commit</li>
 </ul>
-<h1 id='contribute'>Contribute</h1>
-<p>If you or your company use CoCart or appreciate the work I’m doing in open source, please consider supporting me directly so I can continue maintaining it and keep evolving the project.</p>
-
-<p>You&#39;ll be helping to ensure I can spend the time not just fixing bugs, adding features, releasing new versions, but also keeping the project afloat. Any contribution you make is a big help and is greatly appreciated.</p>
-
-<p>Please also consider starring ✨ and sharing 👍 the project repo! This helps the project getting known and grow with the community. 🙏</p>
-
-<p>I accept one-time donations and monthly via <a href="https://www.buymeacoffee.com/sebastien">BuyMeACoffee.com</a></p>
-
-<ul>
-<li><a href="https://www.paypal.me/codebreaker">My PayPal</a></li>
-<li><a href="https://www.buymeacoffee.com/sebastien">BuyMeACoffee.com</a></li>
-<li>Bitcoin (BTC): 3L4cU7VJsXBFckstfJdP2moaNhTHzVDkKQ</li>
-<li>Ethereum (ETH): 0xc6a3C18cf11f5307bFa11F8BCBD51F355b6431cB</li>
-<li>Litecoin (LTC): MNNy3xBK8sM8t1YUA2iAwdi9wRvZp9yRoi</li>
-</ul>
-
-<p>If you have special requirements for a sponsorship, you can <a href="mailme@sebastiendumont.com">email me</a> and we can talk.</p>
-
-<p>If you would like to contribute code to this project then please follow these <a href="https://github.com/co-cart/co-cart/blob/master/CONTRIBUTING.md">contribution guidelines</a>.</p>
-
-<p>Thank you for your support! 🙌</p>
 
       </div>
       <div class="dark-box">
           <div class="lang-selector">
                 <a href="#" data-language-name="shell">cURL</a>
-                <a href="#" data-language-name="php">PHP</a>
           </div>
       </div>
     </div>
