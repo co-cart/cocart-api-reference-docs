@@ -32,7 +32,7 @@ Sometimes you just need more product data for the items added. You can do so usi
 | `$_product` | object | The product data of the item. |
 
 ```php
-add_filter( 'cocart_cart_contents', 'return_product_weight', 4, 15 );
+add_filter( 'cocart_cart_contents', 'return_product_weight', 15, 4 );
 
 function return_product_sku( $cart_contents, $item_key, $cart_item, $_product ) {
     $cart_contents[$item_key]['sku'] = $_product->get_sku();
@@ -54,7 +54,7 @@ Use the `cocart_ok_to_add` and `cocart_ok_to_add_response` filters.
 | `$product_data` | object | The product data of the item. |
 
 ```php
-add_filter( 'cocart_ok_to_add', 'requires_specific_item', 2, 10 );
+add_filter( 'cocart_ok_to_add', 'requires_specific_item', 10, 2 );
 
 function requires_specific_item( $status, $product_data ) {
     $cart_contents = isset( WC()->cart ) ? WC()->cart->get_cart() : WC()->session->cart;
@@ -73,7 +73,7 @@ function requires_specific_item( $status, $product_data ) {
 ```
 
 ```php
-add_filter( 'cocart_ok_to_add_message', 'requires_specific_item', 2, 10 );
+add_filter( 'cocart_ok_to_add_message', 'requires_specific_item', 10, 2 );
 
 function requires_specific_item_response( $response, $product_data ) {
     $response = __( 'This item requires a specific item to be added first to the cart.' );
