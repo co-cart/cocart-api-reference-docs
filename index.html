@@ -322,6 +322,9 @@
                   <li>
                     <a href="#ok-to-add-item" class="toc-h2 toc-link" data-title="OK to add item?">OK to add item?</a>
                   </li>
+                  <li>
+                    <a href="#return-cart-contents" class="toc-h2 toc-link" data-title="Return cart contents">Return cart contents</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -1117,7 +1120,7 @@ function thumbnail_size() {
 <td>The product data of the item.</td>
 </tr>
 </tbody></table>
-<pre class="highlight php tab-php"><code>add_filter( 'cocart_cart_contents', 'return_product_weight', 4, 15 );
+<pre class="highlight php tab-php"><code>add_filter( 'cocart_cart_contents', 'return_product_weight', 15, 4 );
 
 function return_product_sku( $cart_contents, $item_key, $cart_item, $_product ) {
     $cart_contents[$item_key]['sku'] = $_product-&gt;get_sku();
@@ -1152,7 +1155,7 @@ function return_product_sku( $cart_contents, $item_key, $cart_item, $_product ) 
 <td>The product data of the item.</td>
 </tr>
 </tbody></table>
-<pre class="highlight php tab-php"><code>add_filter( 'cocart_ok_to_add', 'requires_specific_item', 2, 10 );
+<pre class="highlight php tab-php"><code>add_filter( 'cocart_ok_to_add', 'requires_specific_item', 10, 2 );
 
 function requires_specific_item( $status, $product_data ) {
     $cart_contents = isset( WC()-&gt;cart ) ? WC()-&gt;cart-&gt;get_cart() : WC()-&gt;session-&gt;cart;
@@ -1168,12 +1171,28 @@ function requires_specific_item( $status, $product_data ) {
 
     return $status;
 }
-</code></pre><pre class="highlight php tab-php"><code>add_filter( 'cocart_ok_to_add_message', 'requires_specific_item', 2, 10 );
+</code></pre><pre class="highlight php tab-php"><code>add_filter( 'cocart_ok_to_add_message', 'requires_specific_item', 10, 2 );
 
 function requires_specific_item_response( $response, $product_data ) {
     $response = __( 'This item requires a specific item to be added first to the cart.' );
 
     return $response;
+}
+</code></pre><h2 id='return-cart-contents'>Return cart contents</h2>
+<p>If you are in need to change the formatting of the returned cart data, this filter is for you.</p>
+
+<p>Use the <code>cocart_return_cart_contents</code> filter. In CoCart Pro you can filter the same results for removed cart contents.</p>
+<pre class="highlight php tab-php"><code>// Returns the cart contents without the cart item key as the parent array.
+add_filter( 'cocart_return_cart_contents', 'remove_parent_cart_item_key', 0 );
+
+function remove_parent_cart_item_key( $cart_contents ) {
+    $new_cart_contents = array();
+
+    foreach ( $cart_contents as $item_key =&gt; $cart_item ) {
+        $new_cart_contents[] = $cart_item;
+    }
+
+    return $new_cart_contents;
 }
 </code></pre><h1 id='changelog'>Changelog</h1>
 <p>The Documentation is updated only when needed. Below is the changelog for &quot;CoCart&quot; documentation that matches with the version of the plugin release.</p>
