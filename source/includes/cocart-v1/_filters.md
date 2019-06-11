@@ -81,3 +81,24 @@ function requires_specific_item_response( $response, $product_data ) {
     return $response;
 }
 ```
+
+## Return cart contents ##
+
+If you are in need to change the formatting of the returned cart data, this filter is for you. Checkout the example below.
+
+Use the `cocart_return_cart_contents` filter. In CoCart Pro you can filter the same results for removed cart contents.
+
+```php
+//Returns the cart contents without the cart item key as the parent array.
+add_filter( 'cocart_return_cart_contents', 'remove_parent_cart_item_key', 0 );
+
+function remove_parent_cart_item_key( $cart_contents ) {
+    $new_cart_contents = array();
+
+    foreach ( $cart_contents as $item_key => $cart_item ) {
+        $new_cart_contents[] = $cart_item;
+    }
+
+    return $new_cart_contents;
+}
+```
