@@ -8,7 +8,7 @@ This API helps you to update an item in the cart.
 | --------------- | ------- | ----------------- |
 | `cart_item_key` | string  | The cart item key of the product in the cart you want to update. <i class="label label-info">mandatory</i> |
 | `quantity`      | integer | Set the quantity of the product you want to update in the cart. <i class="label label-info">Default is 1</i> |
-| `return_cart`   | bool    | Used to return the whole cart once item added. |
+| `return_cart`   | bool    | Used to return the whole cart once item added. <i class="label label-info">optional</i> |
 
 ### HTTP request ###
 

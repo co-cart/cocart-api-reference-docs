@@ -2,6 +2,12 @@
 
 This API helps you calculate the cart totals.
 
+### Properties ###
+
+| Attribute | Type | Description       |
+| --------- | ---- | ----------------- |
+| `return`  | bool | Used to return the totals once calculated. <i class="label label-info">optional</i> |
+
 ### HTTP request ###
 
 <div class="api-endpoint">
