@@ -8,7 +8,7 @@ The following table shows API versions present in each major version of CoCart:
 
 | API Version | CoCart Version | WC Version | WP Version |
 |-------------|------------|------------|------------|
-| `v1`        | 1.0.x or later | 2.6.x or later | 4.4 or later|
+| `v1`        | 1.0.x or later | 3.6.x or later | 4.4 or later|
 
 Prior to WooCommerce v3.6, CoCart shared WooCommerce's REST API. You can find the documentation about cart support for `/wc-api-v2` API separately.
 
@@ -21,7 +21,7 @@ Prior to WooCommerce v3.6, CoCart shared WooCommerce's REST API. You can find th
 To use the latest version of the CoCart you must be using:
 
 * WordPress 4.4 or later.
-* WooCommerce 3.0.x or later.
+* WooCommerce 3.6.x or later.
 * Pretty permalinks in `Settings > Permalinks` so that the custom endpoints are supported. **Default permalinks will not work.**
 * You may make requests over either HTTP or HTTPS, but HTTPS is recommended where possible.
 
