@@ -663,7 +663,7 @@
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><h2 id='get-customers-cart-contents'>Get Customers Cart Contents</h2>
-<p>This API returns the cart contents for a specific registered customer. To use this you must <a href="https://developer.wordpress.org/rest-api/using-the-rest-api/authentication/">authenticate</a>.</p>
+<p>This API returns the cart contents for a specific registered customer. To use this you must <a href="https://developer.wordpress.org/rest-api/using-the-rest-api/authentication/">authenticate</a>. You can also use the <a href="#get-cart-contents">Get Cart Content</a> properties.</p>
 
 <aside class="notice">
   Please note that to return a registered customer, you must have persistent cart left enabled in you WooCommerce store for this to work and will only return if it has not expired or is still in session.
@@ -719,7 +719,7 @@ It is important that you use POST and not GET as it will cache and return with a
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="mi">1</span><span class="w">
 </span></code></pre><h2 id='calculate-cart-totals'>Calculate Cart Totals</h2>
-<p>This API helps you calculate the cart totals.</p>
+<p>This API helps you calculate the cart totals. You can also request to return the totals once calculated to reduce API requests and use the <a href="#get-cart-totals">Get Cart Totals</a> properties.</p>
 <h3 id='properties'>Properties</h3>
 <table><thead>
 <tr>
@@ -731,7 +731,7 @@ It is important that you use POST and not GET as it will cache and return with a
 <tr>
 <td><code>return</code></td>
 <td>bool</td>
-<td>Used to return the totals once calculated. <i class="label label-info">optional</i></td>
+<td>Set as true to return the totals once calculated. <i class="label label-info">optional</i></td>
 </tr>
 </tbody></table>
 <h3 id='http-request'>HTTP request</h3>
@@ -827,7 +827,7 @@ It is important that you use POST and not GET as it will cache and return with a
 
 <p>The following API&#39;s help with all of that.</p>
 <h2 id='add-item-to-cart'>Add Item to Cart</h2>
-<p>This API helps you to add an item to the cart.</p>
+<p>This API helps you to add an item to the cart. You can also request to return the whole cart once item is added to reduce API requests and use the <a href="#get-cart-contents">Get Cart Content</a> properties.</p>
 <h3 id='properties'>Properties</h3>
 <table><thead>
 <tr>
@@ -903,7 +903,7 @@ It is important that you use POST and not GET as it will cache and return with a
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><h2 id='remove-item-from-cart'>Remove Item from Cart</h2>
-<p>This API helps you to remove an item from the cart.</p>
+<p>This API helps you to remove an item from the cart. You can also request to return the whole cart once item is removed to reduce API requests and use the <a href="#get-cart-contents">Get Cart Content</a> properties. </p>
 <h3 id='properties'>Properties</h3>
 <table><thead>
 <tr>
@@ -941,7 +941,7 @@ It is important that you use POST and not GET as it will cache and return with a
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="s2">"Item has been removed from cart."</span><span class="w">
 </span></code></pre><h2 id='restore-item-to-cart'>Restore Item to Cart</h2>
-<p>This API helps you to restore an item to the cart.</p>
+<p>This API helps you to restore an item to the cart. You can also request to return the whole cart once item is restored to reduce API requests and use the <a href="#get-cart-contents">Get Cart Content</a> properties. </p>
 <h3 id='properties'>Properties</h3>
 <table><thead>
 <tr>
@@ -979,7 +979,7 @@ It is important that you use POST and not GET as it will cache and return with a
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="s2">"Item has been restored to the cart.""
 </span></code></pre><h2 id='update-item-in-cart'>Update Item in Cart</h2>
-<p>This API helps you to update an item in the cart.</p>
+<p>This API helps you to update an item in the cart. You can also request to return the whole cart once item is updated to reduce API requests and use the <a href="#get-cart-contents">Get Cart Content</a> properties.</p>
 <h3 id='properties'>Properties</h3>
 <table><thead>
 <tr>
