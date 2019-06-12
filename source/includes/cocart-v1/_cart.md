@@ -92,7 +92,7 @@ curl -X GET https://example.com/wp-json/cocart/v1/get-cart \
 
 ## Get Customers Cart Contents ##
 
-This API returns the cart contents for a specific registered customer. To use this you must [authenticate](https://developer.wordpress.org/rest-api/using-the-rest-api/authentication/).
+This API returns the cart contents for a specific registered customer. To use this you must [authenticate](https://developer.wordpress.org/rest-api/using-the-rest-api/authentication/). You can also use the [Get Cart Content](#get-cart-contents) properties.
 
 <aside class="notice">
   Please note that to return a registered customer, you must have persistent cart left enabled in you WooCommerce store for this to work and will only return if it has not expired or is still in session.
