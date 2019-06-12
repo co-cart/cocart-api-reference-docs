@@ -1,12 +1,12 @@
 ## Calculate Cart Totals ##
 
-This API helps you calculate the cart totals.
+This API helps you calculate the cart totals. You can also request to return the totals once calculated to reduce API requests and use the [Get Cart Totals](#get-cart-totals) properties.
 
 ### Properties ###
 
 | Attribute | Type | Description       |
 | --------- | ---- | ----------------- |
-| `return`  | bool | Used to return the totals once calculated. <i class="label label-info">optional</i> |
+| `return`  | bool | Set as true to return the totals once calculated. <i class="label label-info">optional</i> |
 
 ### HTTP request ###
 

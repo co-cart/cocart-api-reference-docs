@@ -1,6 +1,6 @@
 ## Update Item in Cart ##
 
-This API helps you to update an item in the cart.
+This API helps you to update an item in the cart. You can also request to return the whole cart once item is updated to reduce API requests and use the [Get Cart Content](#get-cart-contents) properties.
 
 ### Properties ###
 

@@ -1,6 +1,6 @@
 ## Remove Item from Cart ##
 
-This API helps you to remove an item from the cart.
+This API helps you to remove an item from the cart. You can also request to return the whole cart once item is removed to reduce API requests and use the [Get Cart Content](#get-cart-contents) properties. 
 
 ### Properties ###
 

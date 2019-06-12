@@ -1,6 +1,6 @@
 ## Add Item to Cart ##
 
-This API helps you to add an item to the cart.
+This API helps you to add an item to the cart. You can also request to return the whole cart once item is added to reduce API requests and use the [Get Cart Content](#get-cart-contents) properties.
 
 ### Properties ###
 
