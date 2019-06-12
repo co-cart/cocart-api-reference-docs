@@ -56,7 +56,7 @@ curl -X GET https://example.com/wp-json/cocart/v1/totals \
 
 ```json
 {
-  "subtotal":"$123.00",
+  "subtotal":"£123.00",
   "subtotal_tax":"£0.00",
   "shipping_total":"£33.00",
   "shipping_tax":"£0.00",
