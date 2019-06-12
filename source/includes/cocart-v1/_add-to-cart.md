@@ -11,7 +11,7 @@ This API helps you to add an item to the cart.
 | `variation_id`   | integer   | Used to set the variation of the product being added to the cart. <i class="label label-info">optional</i> |
 | `variation`      | array     | Attribute values |
 | `cart_item_data` | array     | Used to apply extra cart item data we want to pass with the item. <i class="label label-info">optional</i> |
-| `return_cart`    | bool      | Used to return the whole cart once item added. <i class="label label-info">optional</i> |
+| `return_cart`    | bool      | Set as true to return the whole cart once item added. <i class="label label-info">optional</i> |
 
 ### HTTP request ###
 

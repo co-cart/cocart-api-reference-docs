@@ -7,7 +7,7 @@ This API helps you to remove an item from the cart.
 | Attribute       | Type   | Description                                   |
 | --------------- | ------ | --------------------------------------------- |
 | `cart_item_key` | string | The cart item key of the product in the cart. <i class="label label-info">mandatory</i> |
-| `return_cart`   | bool   | Used to return the whole cart once item added. <i class="label label-info">optional</i> |
+| `return_cart`   | bool   | Set as true to return the whole cart once item added. <i class="label label-info">optional</i> |
 
 ### HTTP request ###
 
