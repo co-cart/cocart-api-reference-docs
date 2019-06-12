@@ -385,7 +385,7 @@
 <tr>
 <td><code>v1</code></td>
 <td>1.0.x or later</td>
-<td>2.6.x or later</td>
+<td>3.6.x or later</td>
 <td>4.4 or later</td>
 </tr>
 </tbody></table>
@@ -412,7 +412,7 @@
 
 <ul>
 <li>WordPress 4.4 or later.</li>
-<li>WooCommerce 3.0.x or later.</li>
+<li>WooCommerce 3.6.x or later.</li>
 <li>Pretty permalinks in <code>Settings &gt; Permalinks</code> so that the custom endpoints are supported. <strong>Default permalinks will not work.</strong></li>
 <li>You may make requests over either HTTP or HTTPS, but HTTPS is recommended where possible.</li>
 </ul>
@@ -577,11 +577,7 @@
 
 <p>Using the individual endpoints and their properties, you can control what you need and what is returned when the request is finished.</p>
 <h2 id='get-cart-contents'>Get Cart Contents</h2>
-<p>This API returns the contents of the cart from a logged in customer or guest. You can also ask it to return a specific cart of registered customer.</p>
-
-<aside class="notice">
-  Please note that to return a registered customer, you must have persistent cart left enabled in you WooCommerce store for this to work and will only return if it has not expired or is still in session.
-</aside>
+<p>This API returns the contents of the cart from a logged in customer or guest.</p>
 <h3 id='properties'>Properties</h3>
 <table><thead>
 <tr>
@@ -593,7 +589,7 @@
 <tr>
 <td><code>id</code></td>
 <td>integer</td>
-<td>Unique identifier for the customer.</td>
+<td>Unique identifier for the customer. <i class="label label-info">read-only</i></td>
 </tr>
 <tr>
 <td><code>thumb</code></td>
@@ -667,6 +663,12 @@
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><h2 id='get-customers-cart-contents'>Get Customers Cart Contents</h2>
+<p>This API returns the cart contents for a specific registered customer. To use this you must <a href="https://developer.wordpress.org/rest-api/using-the-rest-api/authentication/">authenticate</a>.</p>
+
+<aside class="notice">
+  Please note that to return a registered customer, you must have persistent cart left enabled in you WooCommerce store for this to work and will only return if it has not expired or is still in session.
+</aside>
+<h3 id='http-request-2'>HTTP request</h3>
 <div class="api-endpoint">
   <div class="endpoint-data">
     <i class="label label-get">GET</i>
@@ -718,6 +720,20 @@ It is important that you use POST and not GET as it will cache and return with a
 <pre class="highlight json tab-json"><code><span class="mi">1</span><span class="w">
 </span></code></pre><h2 id='calculate-cart-totals'>Calculate Cart Totals</h2>
 <p>This API helps you calculate the cart totals.</p>
+<h3 id='properties'>Properties</h3>
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>return</code></td>
+<td>bool</td>
+<td>Used to return the totals once calculated. <i class="label label-info">optional</i></td>
+</tr>
+</tbody></table>
 <h3 id='http-request'>HTTP request</h3>
 <div class="api-endpoint">
     <div class="endpoint-data">
@@ -749,20 +765,20 @@ It is important that you use POST and not GET as it will cache and return with a
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"subtotal"</span><span class="p">:</span><span class="s2">"42.00"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"subtotal_tax"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"subtotal_tax"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"shipping_total"</span><span class="p">:</span><span class="s2">"0.00"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"shipping_tax"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"shipping_tax"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"shipping_taxes"</span><span class="p">:[],</span><span class="w">
-  </span><span class="s2">"discount_total"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"discount_tax"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"discount_total"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"discount_tax"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"cart_contents_total"</span><span class="p">:</span><span class="s2">"42.00"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"cart_contents_tax"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"cart_contents_tax"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"cart_contents_taxes"</span><span class="p">:[],</span><span class="w">
   </span><span class="s2">"fee_total"</span><span class="p">:</span><span class="s2">"0.00"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"fee_tax"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"fee_tax"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"fee_taxes"</span><span class="p">:[],</span><span class="w">
   </span><span class="s2">"total"</span><span class="p">:</span><span class="s2">"42.00"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"total_tax"</span><span class="p">:</span><span class="mi">0</span><span class="w">
+  </span><span class="s2">"total_tax"</span><span class="p">:</span><span class="s2">"0"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><h1 id='items'>Items</h1>
 <p>The most important part of CoCart is adding items to the cart.</p>
@@ -808,7 +824,7 @@ It is important that you use POST and not GET as it will cache and return with a
 <tr>
 <td><code>return_cart</code></td>
 <td>bool</td>
-<td>Used to return the whole cart once item added.</td>
+<td>Used to return the whole cart once item added. <i class="label label-info">optional</i></td>
 </tr>
 </tbody></table>
 <h3 id='http-request'>HTTP request</h3>
@@ -864,7 +880,7 @@ It is important that you use POST and not GET as it will cache and return with a
 <tr>
 <td><code>return_cart</code></td>
 <td>bool</td>
-<td>Used to return the whole cart once item added.</td>
+<td>Used to return the whole cart once item added. <i class="label label-info">optional</i></td>
 </tr>
 </tbody></table>
 <h3 id='http-request'>HTTP request</h3>
@@ -902,7 +918,7 @@ It is important that you use POST and not GET as it will cache and return with a
 <tr>
 <td><code>return_cart</code></td>
 <td>bool</td>
-<td>Used to return the whole cart once item added.</td>
+<td>Used to return the whole cart once item added. <i class="label label-info">optional</i></td>
 </tr>
 </tbody></table>
 <h3 id='http-request'>HTTP request</h3>
@@ -945,7 +961,7 @@ It is important that you use POST and not GET as it will cache and return with a
 <tr>
 <td><code>return_cart</code></td>
 <td>bool</td>
-<td>Used to return the whole cart once item added.</td>
+<td>Used to return the whole cart once item added. <i class="label label-info">optional</i></td>
 </tr>
 </tbody></table>
 <h3 id='http-request'>HTTP request</h3>
