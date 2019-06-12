@@ -6,18 +6,14 @@ Using the individual endpoints and their properties, you can control what you ne
 
 ## Get Cart Contents ##
 
-This API returns the contents of the cart from a logged in customer or guest. You can also ask it to return a specific cart of registered customer.
-
-<aside class="notice">
-  Please note that to return a registered customer, you must have persistent cart left enabled in you WooCommerce store for this to work and will only return if it has not expired or is still in session.
-</aside>
+This API returns the contents of the cart from a logged in customer or guest.
 
 ### Properties ###
 
 | Attribute | Type | Description |
 | ------------ | -------------- | ------------ |
-`id` | integer | Unique identifier for the customer.
-`thumb` | bool | Returns the product thumbnail for the product.
+| `id` | integer | Unique identifier for the customer. <i class="label label-info">read-only</i> |
+| `thumb` | bool | Returns the product thumbnail for the product. |
 
 ### HTTP request ###
 
@@ -95,6 +91,14 @@ curl -X GET https://example.com/wp-json/cocart/v1/get-cart \
 ```
 
 ## Get Customers Cart Contents ##
+
+This API returns the cart contents for a specific registered customer. To use this you must [authenticate](https://developer.wordpress.org/rest-api/using-the-rest-api/authentication/).
+
+<aside class="notice">
+  Please note that to return a registered customer, you must have persistent cart left enabled in you WooCommerce store for this to work and will only return if it has not expired or is still in session.
+</aside>
+
+### HTTP request ###
 
 <div class="api-endpoint">
   <div class="endpoint-data">
