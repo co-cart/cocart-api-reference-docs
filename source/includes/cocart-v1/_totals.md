@@ -21,19 +21,19 @@ curl -X GET https://example.com/wp-json/cocart/v1/totals \
 ```json
 {
   "subtotal":"42.00",
-  "subtotal_tax":0,
+  "subtotal_tax":"0",
   "shipping_total":"0.00",
-  "shipping_tax":0,
+  "shipping_tax":"0",
   "shipping_taxes":[],
-  "discount_total":0,
-  "discount_tax":0,
+  "discount_total":"0",
+  "discount_tax":"0",
   "cart_contents_total":"42.00",
-  "cart_contents_tax":0,
+  "cart_contents_tax":"0",
   "cart_contents_taxes":[],
   "fee_total":"0.00",
-  "fee_tax":0,
+  "fee_tax":"0",
   "fee_taxes":[],
   "total":"42.00",
-  "total_tax":0
+  "total_tax":"0"
 }
 ```
