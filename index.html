@@ -594,7 +594,7 @@
 <tr>
 <td><code>thumb</code></td>
 <td>bool</td>
-<td>Returns the product thumbnail for the product.</td>
+<td>Set as true to return the product thumbnail for the item.</td>
 </tr>
 </tbody></table>
 <h3 id='http-request'>HTTP request</h3>
@@ -749,7 +749,21 @@ It is important that you use POST and not GET as it will cache and return with a
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="s2">"Cart totals have been calculated."</span><span class="w">
 </span></code></pre><h2 id='get-cart-totals'>Get Cart Totals</h2>
-<p>This API helps you get the cart totals.</p>
+<p>This API helps you get the cart totals. You can also return the totals pre-formatted to save you time applying the currency symbol.</p>
+<h3 id='properties'>Properties</h3>
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>html</code></td>
+<td>bool</td>
+<td>Set as true to return the totals as strings with currency symbol. <i class="label label-info">optional</i></td>
+</tr>
+</tbody></table>
 <h3 id='http-request'>HTTP request</h3>
 <div class="api-endpoint">
   <div class="endpoint-data">
@@ -764,21 +778,47 @@ It is important that you use POST and not GET as it will cache and return with a
 <p>JSON response example</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"subtotal"</span><span class="p">:</span><span class="s2">"42.00"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"subtotal_tax"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"shipping_total"</span><span class="p">:</span><span class="s2">"0.00"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"shipping_tax"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"subtotal"</span><span class="p">:</span><span class="s2">"123.00"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"subtotal_tax"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"shipping_total"</span><span class="p">:</span><span class="s2">"33.00"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"shipping_tax"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
   </span><span class="s2">"shipping_taxes"</span><span class="p">:[],</span><span class="w">
-  </span><span class="s2">"discount_total"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"discount_tax"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"cart_contents_total"</span><span class="p">:</span><span class="s2">"42.00"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"cart_contents_tax"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"discount_total"</span><span class="p">:</span><span class="mf">24.6</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"discount_tax"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"cart_contents_total"</span><span class="p">:</span><span class="s2">"98.40"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"cart_contents_tax"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
   </span><span class="s2">"cart_contents_taxes"</span><span class="p">:[],</span><span class="w">
   </span><span class="s2">"fee_total"</span><span class="p">:</span><span class="s2">"0.00"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"fee_tax"</span><span class="p">:</span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"fee_tax"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
   </span><span class="s2">"fee_taxes"</span><span class="p">:[],</span><span class="w">
-  </span><span class="s2">"total"</span><span class="p">:</span><span class="s2">"42.00"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"total_tax"</span><span class="p">:</span><span class="s2">"0"</span><span class="w">
+  </span><span class="s2">"total"</span><span class="p">:</span><span class="s2">"131.40"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"total_tax"</span><span class="p">:</span><span class="mi">0</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><pre class="highlight shell tab-shell"><code>curl -X GET https://example.com/wp-json/cocart/v1/totals <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -d <span class="s1">'{
+    "html": true
+  }'</span>
+</code></pre>
+<blockquote>
+<p>JSON response example</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"subtotal"</span><span class="p">:</span><span class="s2">"£123.00"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"subtotal_tax"</span><span class="p">:</span><span class="s2">"£0.00"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"shipping_total"</span><span class="p">:</span><span class="s2">"£33.00"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"shipping_tax"</span><span class="p">:</span><span class="s2">"£0.00"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"shipping_taxes"</span><span class="p">:[],</span><span class="w">
+  </span><span class="s2">"discount_total"</span><span class="p">:</span><span class="s2">"£24.60"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"discount_tax"</span><span class="p">:</span><span class="s2">"£0.00"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"cart_contents_total"</span><span class="p">:</span><span class="s2">"£98.40"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"cart_contents_tax"</span><span class="p">:</span><span class="s2">"£0.00"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"cart_contents_taxes"</span><span class="p">:[],</span><span class="w">
+  </span><span class="s2">"fee_total"</span><span class="p">:</span><span class="s2">"£0.00"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"fee_tax"</span><span class="p">:</span><span class="s2">"£0.00"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"fee_taxes"</span><span class="p">:[],</span><span class="w">
+  </span><span class="s2">"total"</span><span class="p">:</span><span class="s2">"£131.40"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"total_tax"</span><span class="p">:</span><span class="s2">"£0.00"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><h1 id='items'>Items</h1>
 <p>The most important part of CoCart is adding items to the cart.</p>
@@ -824,7 +864,7 @@ It is important that you use POST and not GET as it will cache and return with a
 <tr>
 <td><code>return_cart</code></td>
 <td>bool</td>
-<td>Used to return the whole cart once item added. <i class="label label-info">optional</i></td>
+<td>Set as true to return the whole cart once item added. <i class="label label-info">optional</i></td>
 </tr>
 </tbody></table>
 <h3 id='http-request'>HTTP request</h3>
@@ -880,7 +920,7 @@ It is important that you use POST and not GET as it will cache and return with a
 <tr>
 <td><code>return_cart</code></td>
 <td>bool</td>
-<td>Used to return the whole cart once item added. <i class="label label-info">optional</i></td>
+<td>Set as true to return the whole cart once item added. <i class="label label-info">optional</i></td>
 </tr>
 </tbody></table>
 <h3 id='http-request'>HTTP request</h3>
@@ -918,7 +958,7 @@ It is important that you use POST and not GET as it will cache and return with a
 <tr>
 <td><code>return_cart</code></td>
 <td>bool</td>
-<td>Used to return the whole cart once item added. <i class="label label-info">optional</i></td>
+<td>Set as true to return the whole cart once item added. <i class="label label-info">optional</i></td>
 </tr>
 </tbody></table>
 <h3 id='http-request'>HTTP request</h3>
@@ -961,7 +1001,7 @@ It is important that you use POST and not GET as it will cache and return with a
 <tr>
 <td><code>return_cart</code></td>
 <td>bool</td>
-<td>Used to return the whole cart once item added. <i class="label label-info">optional</i></td>
+<td>Set as true to return the whole cart once item added. <i class="label label-info">optional</i></td>
 </tr>
 </tbody></table>
 <h3 id='http-request'>HTTP request</h3>
