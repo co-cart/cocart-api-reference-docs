@@ -19,7 +19,7 @@ This API helps you to restore an item to the cart. You can also request to retur
 </div>
 
 ```shell
-curl -X DELETE https://example.com/wp-json/cocart/v1/item \
+curl -X GET https://example.com/wp-json/cocart/v1/item \
   -H "Content-Type: application/json" \
   -d '{
     "cart_item_key": 404dcc91b2aeaa7caa47487d1483e48a
