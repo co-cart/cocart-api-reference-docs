@@ -1,6 +1,6 @@
 # Introduction #
 
-CoCart Pro adds more power and control to CoCart REST API.
+CoCart Pro completes the API package with more control to the cart.
 
 ## Requirements ##
 
