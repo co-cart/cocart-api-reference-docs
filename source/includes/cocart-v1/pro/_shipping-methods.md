@@ -29,6 +29,28 @@ curl -X GET https://example.com/wp-json/cocart/v1/shipping-methods \
 > JSON response example
 
 ```json
+[
+  {
+    "id": "flat_rate:1",
+    "method_id": "flat_rate",
+    "instance_id": 1,
+    "label": "Flat rate",
+    "cost": "33.00",
+    "html": "Flat rate: £33.00",
+    "taxes": [],
+    "selected": true
+  },
+  {
+    "id": "free_shipping:3",
+    "method_id": "free_shipping",
+    "instance_id": 3,
+    "label": "Free shipping",
+    "cost": "0.00",
+    "html": "Free shipping",
+    "taxes": [],
+    "selected": false
+  }
+]
 ```
 
 ## Set Shipping Method ##
