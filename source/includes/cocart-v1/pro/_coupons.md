@@ -2,7 +2,7 @@
 
 This API helps you get applied coupons, add coupons to cart, remove coupons from cart and check coupons for validation.
 
-### Properties ###
+### Coupon Properties ###
 
 | Attribute | Type   | Description       |
 | --------- | ------ | ----------------- |
