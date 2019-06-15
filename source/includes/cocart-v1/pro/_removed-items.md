@@ -19,4 +19,22 @@ curl -X GET https://example.com/wp-json/cocart/v1/removed-items \
 > JSON response example
 
 ```json
+{
+  "40d8882729aa85d43fe007db12880105": {
+    "key": "40d8882729aa85d43fe007db12880105",
+    "product_id": 34,
+    "variation_id": 0,
+    "variation": [],
+    "quantity": 1,
+    "data_hash": "b5c1d5ca8bae6d4896cf1807cdf763f0",
+    "line_tax_data": {
+      "subtotal": [],
+      "total": []
+    },
+    "line_subtotal": 20,
+    "line_subtotal_tax": 0,
+    "line_total": 16,
+    "line_tax": 0
+  }
+}
 ```

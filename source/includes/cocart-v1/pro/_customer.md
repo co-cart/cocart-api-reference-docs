@@ -19,5 +19,37 @@ curl -X GET https://example.com/wp-json/cocart/v1/customer \
 > JSON response example
 
 ```json
-
+{
+  "user": {
+    "ID": 1,
+    "first_name": "John",
+    "last_name": "Doe"
+  },
+  "billing": {
+    "first_name": "John",
+    "last_name": "Doe",
+    "company": "Company Name LTD",
+    "email": "3naxbgjjttb@thrubay.com",
+    "phone": "070 4502 9873",
+    "country": "GB",
+    "state": "",
+    "postcode": "L23 6ST",
+    "city": "LITTLE CROSBY",
+    "address": "48 Victoria Road",
+    "address_1": "48 Victoria Road",
+    "address_2": ""
+  },
+  "shipping": {
+    "first_name": "John",
+    "last_name": "Doe",
+    "company": "Company Name LTD",
+    "country": "GB",
+    "state": "",
+    "postcode": "L23 6ST",
+    "city": "LITTLE CROSBY",
+    "address": "48 Victoria Road",
+    "address_1": "48 Victoria Road",
+    "address_2": ""
+  }
+}
 ```

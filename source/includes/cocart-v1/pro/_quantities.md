@@ -19,5 +19,9 @@ curl -X GET https://example.com/wp-json/cocart/v1/quantities \
 > JSON response example
 
 ```json
-
+{
+  "31": 1,
+  "32": 1,
+  "36": 2
+}
 ```
