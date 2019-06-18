@@ -2,12 +2,6 @@
 
 This API helps you get and set shipping methods.
 
-### Shipping Method Properties ###
-
-| Attribute   | Type   | Description       |
-| ----------- | ------ | ----------------- |
-| `method_id` | string | The ID of the shipping method. <i class="label label-info">required</i> |
-
 ## Get Shipping Methods  ##
 
 Returns all available shipping methods once the customer has calculated shipping.
@@ -56,6 +50,13 @@ curl -X GET https://example.com/wp-json/cocart/v1/shipping-methods \
 ## Set Shipping Method ##
 
 Apply a shipping method to the cart. Can only apply once the customer has calculated shipping.
+
+### Shipping Method Properties ###
+
+| Attribute   | Type   | Description       |
+| ----------- | ------ | ----------------- |
+| `method_id` | string | The method ID of the shipping method. <i class="label label-info">required</i> |
+| `instance_id` | string | The instance ID of the shipping method. <i class="label label-info">required</i> |
 
 ### HTTP request ###
 
