@@ -235,10 +235,13 @@
             <a href="#cocart-pro" class="toc-h1 toc-link" data-title="CoCart Pro">CoCart Pro</a>
           </li>
           <li>
+            <a href="#error-responses" class="toc-h1 toc-link" data-title="Error Responses">Error Responses</a>
+          </li>
+          <li>
             <a href="#coupons" class="toc-h1 toc-link" data-title="Coupons">Coupons</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#properties" class="toc-h2 toc-link" data-title="Properties">Properties</a>
+                    <a href="#coupon-properties" class="toc-h2 toc-link" data-title="Coupon Properties">Coupon Properties</a>
                   </li>
                   <li>
                     <a href="#applied-coupons" class="toc-h2 toc-link" data-title="Applied Coupons">Applied Coupons</a>
@@ -259,6 +262,41 @@
               <ul class="toc-list-h2">
                   <li>
                     <a href="#http-request" class="toc-h2 toc-link" data-title="HTTP request">HTTP request</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#cart-owner" class="toc-h1 toc-link" data-title="Cart Owner">Cart Owner</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#http-request" class="toc-h2 toc-link" data-title="HTTP request">HTTP request</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#quantities" class="toc-h1 toc-link" data-title="Quantities">Quantities</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#http-request" class="toc-h2 toc-link" data-title="HTTP request">HTTP request</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#removed-items" class="toc-h1 toc-link" data-title="Removed Items">Removed Items</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#http-request" class="toc-h2 toc-link" data-title="HTTP request">HTTP request</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#shipping-methods" class="toc-h1 toc-link" data-title="Shipping Methods">Shipping Methods</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-shipping-methods" class="toc-h2 toc-link" data-title="Get Shipping Methods">Get Shipping Methods</a>
+                  </li>
+                  <li>
+                    <a href="#set-shipping-method" class="toc-h2 toc-link" data-title="Set Shipping Method">Set Shipping Method</a>
                   </li>
               </ul>
           </li>
@@ -298,9 +336,43 @@
 </ul>
 <h1 id='cocart-pro'>CoCart Pro</h1>
 <p>This section of the documentation is for CoCart Pro only! You can access the core of <a href="./">CoCart documentation here</a>.</p>
+<h1 id='error-responses'>Error Responses</h1>
+<p>You might encounter an error when using CoCart Pro. These error responses explain what might have happened.</p>
+
+<table><thead>
+<tr>
+<th>Error Status</th>
+<th>Error Response</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>cocart_pro_coupon_required</code></td>
+<td>Coupon is required in order to apply!</td>
+</tr>
+<tr>
+<td><code>cocart_pro_coupons_expired</code></td>
+<td>The following coupons have expired or no longer valid: %s <i class="label label-info">%s are the coupons expired</i></td>
+</tr>
+<tr>
+<td><code>cocart_pro_shipping_not_enabled</code></td>
+<td>Shipping has not been enabled for this store!</td>
+</tr>
+<tr>
+<td><code>cocart_pro_shipping_not_needed</code></td>
+<td>Cart does not contain an item that requires shipping.</td>
+</tr>
+<tr>
+<td><code>cocart_pro_shipping_not_calculated</code></td>
+<td>Customer has not calculated shipping.</td>
+</tr>
+<tr>
+<td><code>cocart_pro_no_shipping_methods</code></td>
+<td>There are no shipping methods available!</td>
+</tr>
+</tbody></table>
 <h1 id='coupons'>Coupons</h1>
 <p>This API helps you get applied coupons, add coupons to cart, remove coupons from cart and check coupons for validation.</p>
-<h3 id='properties'>Properties</h3>
+<h3 id='coupon-properties'>Coupon Properties</h3>
 <table><thead>
 <tr>
 <th>Attribute</th>
@@ -414,7 +486,185 @@
         </span><span class="s2">"sale_price"</span><span class="p">:</span><span class="s2">"£18.00"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
-</span></code></pre><h1 id='cart-weight'>Cart Weight</h1>
+</span></code></pre><h1 id='cart-owner'>Cart Owner</h1>
+<p>This API helps you get the cart owner&#39;s details of the customer.</p>
+<h3 id='http-request'>HTTP request</h3>
+<div class="api-endpoint">
+    <div class="endpoint-data">
+        <i class="label label-get">GET</i>
+        <h6>/wp-json/cocart/v1/customer</h6>
+    </div>
+</div>
+<pre class="highlight shell tab-shell"><code>curl -X GET https://example.com/wp-json/cocart/v1/customer <span class="se">\</span>
+    -H <span class="s2">"Content-Type: application/json"</span>
+</code></pre>
+<blockquote>
+<p>JSON response example</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"ID"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Doe"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"billing"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Doe"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"company"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Company Name LTD"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3naxbgjjttb@thrubay.com"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"070 4502 9873"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"postcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"L23 6ST"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LITTLE CROSBY"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"48 Victoria Road"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"address_1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"48 Victoria Road"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"address_2"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"shipping"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Doe"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"company"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Company Name LTD"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"postcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"L23 6ST"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"LITTLE CROSBY"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"48 Victoria Road"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"address_1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"48 Victoria Road"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"address_2"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h1 id='quantities'>Quantities</h1>
+<p>This API helps you get the quantities of each product added to the cart.</p>
+<h3 id='http-request'>HTTP request</h3>
+<div class="api-endpoint">
+    <div class="endpoint-data">
+        <i class="label label-get">GET</i>
+        <h6>/wp-json/cocart/v1/quantities</h6>
+    </div>
+</div>
+<pre class="highlight shell tab-shell"><code>curl -X GET https://example.com/wp-json/cocart/v1/quantities <span class="se">\</span>
+    -H <span class="s2">"Content-Type: application/json"</span>
+</code></pre>
+<blockquote>
+<p>JSON response example</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"31"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"32"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"36"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h1 id='removed-items'>Removed Items</h1>
+<p>This API helps you get items removed by the customer. This can be helpful should you wish to remind and allow customers to re-add an item back to the cart.</p>
+<h3 id='http-request'>HTTP request</h3>
+<div class="api-endpoint">
+  <div class="endpoint-data">
+    <i class="label label-get">GET</i>
+    <h6>/wp-json/cocart/v1/removed-items</h6>
+  </div>
+</div>
+<pre class="highlight shell tab-shell"><code>curl -X GET https://example.com/wp-json/cocart/v1/removed-items <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span>
+</code></pre>
+<blockquote>
+<p>JSON response example</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"40d8882729aa85d43fe007db12880105"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"40d8882729aa85d43fe007db12880105"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"product_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">34</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"variation_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"variation"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data_hash"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b5c1d5ca8bae6d4896cf1807cdf763f0"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"line_tax_data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"subtotal"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+      </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"line_subtotal"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"line_subtotal_tax"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"line_total"</span><span class="p">:</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"line_tax"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h1 id='shipping-methods'>Shipping Methods</h1>
+<p>This API helps you get and set shipping methods.</p>
+<h2 id='get-shipping-methods'>Get Shipping Methods</h2>
+<p>Returns all available shipping methods once the customer has calculated shipping.</p>
+<h3 id='http-request'>HTTP request</h3>
+<div class="api-endpoint">
+    <div class="endpoint-data">
+        <i class="label label-get">GET</i>
+        <h6>/wp-json/cocart/v1/shipping-methods</h6>
+    </div>
+</div>
+<pre class="highlight shell tab-shell"><code>curl -X GET https://example.com/wp-json/cocart/v1/shipping-methods <span class="se">\</span>
+    -H <span class="s2">"Content-Type: application/json"</span>
+</code></pre>
+<blockquote>
+<p>JSON response example</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"flat_rate:1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"method_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"flat_rate"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"instance_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Flat rate"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"cost"</span><span class="p">:</span><span class="w"> </span><span class="s2">"33.00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"html"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Flat rate: £33.00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"taxes"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="s2">"chosen_method"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"free_shipping:3"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"method_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"free_shipping"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"instance_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Free shipping"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"cost"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"html"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Free shipping"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"taxes"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="s2">"chosen_method"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre><h2 id='set-shipping-method'>Set Shipping Method</h2>
+<p>Apply a shipping method to the cart. Can only apply once the customer has calculated shipping.</p>
+<h3 id='shipping-method-properties'>Shipping Method Properties</h3>
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>method_id</code></td>
+<td>string</td>
+<td>The method ID of the shipping method. <i class="label label-info">required</i></td>
+</tr>
+<tr>
+<td><code>instance_id</code></td>
+<td>string</td>
+<td>The instance ID of the shipping method. <i class="label label-info">required</i></td>
+</tr>
+</tbody></table>
+<h3 id='http-request-2'>HTTP request</h3>
+<div class="api-endpoint">
+    <div class="endpoint-data">
+        <i class="label label-post">POST</i>
+        <h6>/wp-json/cocart/v1/shipping-methods</h6>
+    </div>
+</div>
+<pre class="highlight shell tab-shell"><code>curl -X POST https://example.com/wp-json/cocart/v1/shipping-method <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -d <span class="s1">'{
+    "method_id": "free_shipping",
+    "instance_id": "3"
+  }'</span>
+</code></pre>
+<blockquote>
+<p>JSON response example.</p>
+</blockquote>
+<pre class="highlight json tab-json"><code></code></pre><h1 id='cart-weight'>Cart Weight</h1>
 <p>This API helps you get the cart weight.</p>
 <h3 id='http-request'>HTTP request</h3>
 <div class="api-endpoint">
