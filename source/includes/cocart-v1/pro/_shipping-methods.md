@@ -38,7 +38,7 @@ curl -X GET https://example.com/wp-json/cocart/v1/shipping-methods \
     "cost": "33.00",
     "html": "Flat rate: £33.00",
     "taxes": [],
-    "selected": true
+    "chosen_method": true
   },
   {
     "id": "free_shipping:3",
@@ -48,7 +48,7 @@ curl -X GET https://example.com/wp-json/cocart/v1/shipping-methods \
     "cost": "0.00",
     "html": "Free shipping",
     "taxes": [],
-    "selected": false
+    "chosen_method": false
   }
 ]
 ```
@@ -70,7 +70,8 @@ Apply a shipping method to the cart. Can only apply once the customer has calcul
 curl -X POST https://example.com/wp-json/cocart/v1/shipping-method \
   -H "Content-Type: application/json" \
   -d '{
-    "method_id": ""
+    "method_id": "free_shipping",
+    "instance_id": "3"
   }'
 ```
 
