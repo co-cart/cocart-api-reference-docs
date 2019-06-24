@@ -8,22 +8,22 @@ Returns all available shipping methods once the customer has calculated shipping
 
 ### Properties ###
 
-| Attribute   | Type   | Description       |
-| ----------- | ------ | ----------------- |
+| Attribute            | Type   | Description       |
+| -------------------- | ------ | ----------------- |
 | `recurring_cart_key` | string | The recurring cart key identifies each subscription in cart. <i class="label label-info">required, only for subscriptions.</i> |
 
 ### HTTP request ###
 
 <div class="api-endpoint">
-	<div class="endpoint-data">
-		<i class="label label-get">GET</i>
-		<h6>/wp-json/cocart/v1/shipping-methods</h6>
-	</div>
+  <div class="endpoint-data">
+    <i class="label label-get">GET</i>
+    <h6>/wp-json/cocart/v1/shipping-methods</h6>
+  </div>
 </div>
 
 ```shell
 curl -X GET https://example.com/wp-json/cocart/v1/shipping-methods \
-	-H "Content-Type: application/json"
+  -H "Content-Type: application/json"
 ```
 
 > JSON response example
@@ -68,10 +68,10 @@ Apply a shipping method to the cart. Can only apply once the customer has calcul
 ### HTTP request ###
 
 <div class="api-endpoint">
-	<div class="endpoint-data">
-		<i class="label label-post">POST</i>
-		<h6>/wp-json/cocart/v1/shipping-methods</h6>
-	</div>
+  <div class="endpoint-data">
+    <i class="label label-post">POST</i>
+    <h6>/wp-json/cocart/v1/shipping-methods</h6>
+  </div>
 </div>
 
 ```shell

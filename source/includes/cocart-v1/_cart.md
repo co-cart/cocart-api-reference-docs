@@ -10,10 +10,10 @@ This API returns the contents of the cart from a logged in customer or guest.
 
 ### Properties ###
 
-| Attribute | Type | Description |
-| ------------ | -------------- | ------------ |
-| `id` | integer | Unique identifier for the customer. <i class="label label-info">read-only</i> |
-| `thumb` | bool | Set as true to return the product thumbnail for the item. |
+| Attribute | Type    | Description |
+| --------- | ------- | ------------ |
+| `id`      | integer | Unique identifier for the customer. <i class="label label-info">read-only</i> |
+| `thumb`   | bool    | Set as true to return the product thumbnail for each item. |
 
 ### HTTP request ###
 

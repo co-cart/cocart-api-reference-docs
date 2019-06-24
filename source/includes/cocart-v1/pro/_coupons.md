@@ -15,22 +15,22 @@ Returns all applied coupons to the cart.
 ### HTTP request ###
 
 <div class="api-endpoint">
-	<div class="endpoint-data">
-		<i class="label label-get">GET</i>
-		<h6>/wp-json/cocart/v1/coupon</h6>
-	</div>
+  <div class="endpoint-data">
+    <i class="label label-get">GET</i>
+    <h6>/wp-json/cocart/v1/coupon</h6>
+  </div>
 </div>
 
 ```shell
 curl -X GET https://example.com/wp-json/cocart/v1/coupon \
-	-H "Content-Type: application/json"
+  -H "Content-Type: application/json"
 ```
 
 > JSON response example for returning already applied coupons.
 
 ```json
 {
-	"summer20"
+  "summer20"
 }
 ```
 
@@ -41,10 +41,10 @@ Apply a coupon to the cart.
 ### HTTP request ###
 
 <div class="api-endpoint">
-	<div class="endpoint-data">
-		<i class="label label-post">POST</i>
-		<h6>/wp-json/cocart/v1/coupon</h6>
-	</div>
+  <div class="endpoint-data">
+    <i class="label label-post">POST</i>
+    <h6>/wp-json/cocart/v1/coupon</h6>
+  </div>
 </div>
 
 ```shell
@@ -59,7 +59,7 @@ curl -X POST https://example.com/wp-json/cocart/v1/coupon \
 
 ```json
 {
-	"summer20"
+  "summer20"
 }
 ```
 
@@ -70,10 +70,10 @@ Remove a coupon from the cart.
 ### HTTP request ###
 
 <div class="api-endpoint">
-	<div class="endpoint-data">
-		<i class="label label-delete">DELETE</i>
-		<h6>/wp-json/cocart/v1/coupon</h6>
-	</div>
+  <div class="endpoint-data">
+    <i class="label label-delete">DELETE</i>
+    <h6>/wp-json/cocart/v1/coupon</h6>
+    </div>
 </div>
 
 ```shell
@@ -99,15 +99,15 @@ Checks applied coupons to see if they are still valid or if they have expired or
 ### HTTP request ###
 
 <div class="api-endpoint">
-	<div class="endpoint-data">
-		<i class="label label-get">GET</i>
-		<h6>/wp-json/cocart/v1/check-coupons</h6>
-	</div>
+  <div class="endpoint-data">
+    <i class="label label-get">GET</i>
+    <h6>/wp-json/cocart/v1/check-coupons</h6>
+  </div>
 </div>
 
 ```shell
 curl -X GET https://example.com/wp-json/cocart/v1/check-coupons \
-	-H "Content-Type: application/json"
+  -H "Content-Type: application/json"
 ```
 
 > JSON response example.
