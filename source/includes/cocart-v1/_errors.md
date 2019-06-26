@@ -21,3 +21,4 @@ You might encounter an error when using CoCart. These error responses explain wh
 | `cocart_can_not_restore_item` | Unable to restore item to the cart. |
 | `cocart_can_not_update_item` | Unable to update item quantity in cart. |
 | `cocart_cart_item_key_required` | Cart item key is required! |
+| `cocart_item_not_in_cart` | Item specified does not exist in cart. |
