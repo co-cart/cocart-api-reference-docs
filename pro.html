@@ -261,6 +261,9 @@
             <a href="#cross-sells" class="toc-h1 toc-link" data-title="Cross Sells">Cross Sells</a>
               <ul class="toc-list-h2">
                   <li>
+                    <a href="#cross-sell-properties" class="toc-h2 toc-link" data-title="Cross Sell Properties">Cross Sell Properties</a>
+                  </li>
+                  <li>
                     <a href="#http-request" class="toc-h2 toc-link" data-title="HTTP request">HTTP request</a>
                   </li>
               </ul>
@@ -390,28 +393,28 @@
 <p>Returns all applied coupons to the cart.</p>
 <h3 id='http-request'>HTTP request</h3>
 <div class="api-endpoint">
-    <div class="endpoint-data">
-        <i class="label label-get">GET</i>
-        <h6>/wp-json/cocart/v1/coupon</h6>
-    </div>
+  <div class="endpoint-data">
+    <i class="label label-get">GET</i>
+    <h6>/wp-json/cocart/v1/coupon</h6>
+  </div>
 </div>
 <pre class="highlight shell tab-shell"><code>curl -X GET https://example.com/wp-json/cocart/v1/coupon <span class="se">\</span>
-    -H <span class="s2">"Content-Type: application/json"</span>
+  -H <span class="s2">"Content-Type: application/json"</span>
 </code></pre>
 <blockquote>
 <p>JSON response example for returning already applied coupons.</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"summer20"</span><span class="w">
+  </span><span class="s2">"summer20"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><h2 id='apply-coupon'>Apply Coupon</h2>
 <p>Apply a coupon to the cart.</p>
 <h3 id='http-request-2'>HTTP request</h3>
 <div class="api-endpoint">
-    <div class="endpoint-data">
-        <i class="label label-post">POST</i>
-        <h6>/wp-json/cocart/v1/coupon</h6>
-    </div>
+  <div class="endpoint-data">
+    <i class="label label-post">POST</i>
+    <h6>/wp-json/cocart/v1/coupon</h6>
+  </div>
 </div>
 <pre class="highlight shell tab-shell"><code>curl -X POST https://example.com/wp-json/cocart/v1/coupon <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
@@ -423,15 +426,15 @@
 <p>JSON response example.</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"summer20"</span><span class="w">
+  </span><span class="s2">"summer20"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><h2 id='remove-coupon'>Remove Coupon</h2>
 <p>Remove a coupon from the cart.</p>
 <h3 id='http-request-3'>HTTP request</h3>
 <div class="api-endpoint">
-    <div class="endpoint-data">
-        <i class="label label-delete">DELETE</i>
-        <h6>/wp-json/cocart/v1/coupon</h6>
+  <div class="endpoint-data">
+    <i class="label label-delete">DELETE</i>
+    <h6>/wp-json/cocart/v1/coupon</h6>
     </div>
 </div>
 <pre class="highlight shell tab-shell"><code>curl -X DELETE https://example.com/wp-json/cocart/v1/coupon <span class="se">\</span>
@@ -450,13 +453,13 @@
 <p>Checks applied coupons to see if they are still valid or if they have expired or no longer valid.</p>
 <h3 id='http-request-4'>HTTP request</h3>
 <div class="api-endpoint">
-    <div class="endpoint-data">
-        <i class="label label-get">GET</i>
-        <h6>/wp-json/cocart/v1/check-coupons</h6>
-    </div>
+  <div class="endpoint-data">
+    <i class="label label-get">GET</i>
+    <h6>/wp-json/cocart/v1/check-coupons</h6>
+  </div>
 </div>
 <pre class="highlight shell tab-shell"><code>curl -X GET https://example.com/wp-json/cocart/v1/check-coupons <span class="se">\</span>
-    -H <span class="s2">"Content-Type: application/json"</span>
+  -H <span class="s2">"Content-Type: application/json"</span>
 </code></pre>
 <blockquote>
 <p>JSON response example.</p>
@@ -464,39 +467,53 @@
 <pre class="highlight json tab-json"><code><span class="s2">"Coupons applied are still valid!"</span><span class="w">
 </span></code></pre><h1 id='cross-sells'>Cross Sells</h1>
 <p>This API helps you get the cross sells. It returns not just the product ID&#39;s but the product name, price, regular price and sale price.</p>
+<h3 id='cross-sell-properties'>Cross Sell Properties</h3>
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>thumb</code></td>
+<td>bool</td>
+<td>Set as true to return the product thumbnail for each item.</td>
+</tr>
+</tbody></table>
 <h3 id='http-request'>HTTP request</h3>
 <div class="api-endpoint">
-    <div class="endpoint-data">
-        <i class="label label-get">GET</i>
-        <h6>/wp-json/cocart/v1/cross-sells</h6>
-    </div>
+  <div class="endpoint-data">
+    <i class="label label-get">GET</i>
+    <h6>/wp-json/cocart/v1/cross-sells</h6>
+  </div>
 </div>
 <pre class="highlight shell tab-shell"><code>curl -X GET https://example.com/wp-json/cocart/v1/cross-sells <span class="se">\</span>
-    -H <span class="s2">"Content-Type: application/json"</span>
+  -H <span class="s2">"Content-Type: application/json"</span>
 </code></pre>
 <blockquote>
 <p>JSON response example</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">35</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"product_name"</span><span class="p">:</span><span class="s2">"Tshirt"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"price"</span><span class="p">:</span><span class="s2">"£18.00"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"regular_price"</span><span class="p">:</span><span class="s2">"£18.00"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"sale_price"</span><span class="p">:</span><span class="s2">"£18.00"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">35</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"product_name"</span><span class="p">:</span><span class="s2">"Tshirt"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"price"</span><span class="p">:</span><span class="s2">"£18.00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"regular_price"</span><span class="p">:</span><span class="s2">"£18.00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"sale_price"</span><span class="p">:</span><span class="s2">"£18.00"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre><h1 id='cart-owner'>Cart Owner</h1>
 <p>This API helps you get the cart owner&#39;s details of the customer.</p>
 <h3 id='http-request'>HTTP request</h3>
 <div class="api-endpoint">
-    <div class="endpoint-data">
-        <i class="label label-get">GET</i>
-        <h6>/wp-json/cocart/v1/customer</h6>
-    </div>
+  <div class="endpoint-data">
+    <i class="label label-get">GET</i>
+    <h6>/wp-json/cocart/v1/customer</h6>
+  </div>
 </div>
 <pre class="highlight shell tab-shell"><code>curl -X GET https://example.com/wp-json/cocart/v1/customer <span class="se">\</span>
-    -H <span class="s2">"Content-Type: application/json"</span>
+  -H <span class="s2">"Content-Type: application/json"</span>
 </code></pre>
 <blockquote>
 <p>JSON response example</p>
@@ -538,13 +555,13 @@
 <p>This API helps you get the quantities of each product added to the cart.</p>
 <h3 id='http-request'>HTTP request</h3>
 <div class="api-endpoint">
-    <div class="endpoint-data">
-        <i class="label label-get">GET</i>
-        <h6>/wp-json/cocart/v1/quantities</h6>
-    </div>
+  <div class="endpoint-data">
+    <i class="label label-get">GET</i>
+    <h6>/wp-json/cocart/v1/quantities</h6>
+  </div>
 </div>
 <pre class="highlight shell tab-shell"><code>curl -X GET https://example.com/wp-json/cocart/v1/quantities <span class="se">\</span>
-    -H <span class="s2">"Content-Type: application/json"</span>
+  -H <span class="s2">"Content-Type: application/json"</span>
 </code></pre>
 <blockquote>
 <p>JSON response example</p>
@@ -591,21 +608,35 @@
 <p>This API helps you get and set shipping methods.</p>
 <h2 id='get-shipping-methods'>Get Shipping Methods</h2>
 <p>Returns all available shipping methods once the customer has calculated shipping.</p>
+<h3 id='properties'>Properties</h3>
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>recurring_cart_key</code></td>
+<td>string</td>
+<td>The recurring cart key identifies each subscription in cart. <i class="label label-info">required, only for subscriptions.</i></td>
+</tr>
+</tbody></table>
 <h3 id='http-request'>HTTP request</h3>
 <div class="api-endpoint">
-    <div class="endpoint-data">
-        <i class="label label-get">GET</i>
-        <h6>/wp-json/cocart/v1/shipping-methods</h6>
-    </div>
+  <div class="endpoint-data">
+    <i class="label label-get">GET</i>
+    <h6>/wp-json/cocart/v1/shipping-methods</h6>
+  </div>
 </div>
 <pre class="highlight shell tab-shell"><code>curl -X GET https://example.com/wp-json/cocart/v1/shipping-methods <span class="se">\</span>
-    -H <span class="s2">"Content-Type: application/json"</span>
+  -H <span class="s2">"Content-Type: application/json"</span>
 </code></pre>
 <blockquote>
 <p>JSON response example</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"flat_rate:1"</span><span class="p">:{</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"flat_rate:1"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"method_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"flat_rate"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"instance_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
@@ -615,7 +646,7 @@
     </span><span class="s2">"taxes"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
     </span><span class="s2">"chosen_method"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
   </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
+  </span><span class="s2">"free_shipping:3"</span><span class="p">:{</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"free_shipping:3"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"method_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"free_shipping"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"instance_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
@@ -625,10 +656,10 @@
     </span><span class="s2">"taxes"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
     </span><span class="s2">"chosen_method"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
   </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
 </span></code></pre><h2 id='set-shipping-method'>Set Shipping Method</h2>
 <p>Apply a shipping method to the cart. Can only apply once the customer has calculated shipping.</p>
-<h3 id='shipping-method-properties'>Shipping Method Properties</h3>
+<h3 id='properties-2'>Properties</h3>
 <table><thead>
 <tr>
 <th>Attribute</th>
@@ -646,13 +677,18 @@
 <td>string</td>
 <td>The instance ID of the shipping method. <i class="label label-info">required</i></td>
 </tr>
+<tr>
+<td><code>recurring_cart_key</code></td>
+<td>string</td>
+<td>The recurring cart key identifies each subscription in cart. <i class="label label-info">required, only for subscriptions.</i></td>
+</tr>
 </tbody></table>
 <h3 id='http-request-2'>HTTP request</h3>
 <div class="api-endpoint">
-    <div class="endpoint-data">
-        <i class="label label-post">POST</i>
-        <h6>/wp-json/cocart/v1/shipping-methods</h6>
-    </div>
+  <div class="endpoint-data">
+    <i class="label label-post">POST</i>
+    <h6>/wp-json/cocart/v1/shipping-methods</h6>
+  </div>
 </div>
 <pre class="highlight shell tab-shell"><code>curl -X POST https://example.com/wp-json/cocart/v1/shipping-method <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
@@ -668,13 +704,13 @@
 <p>This API helps you get the cart weight.</p>
 <h3 id='http-request'>HTTP request</h3>
 <div class="api-endpoint">
-    <div class="endpoint-data">
-        <i class="label label-get">GET</i>
-        <h6>/wp-json/cocart/v1/weight</h6>
-    </div>
+  <div class="endpoint-data">
+    <i class="label label-get">GET</i>
+    <h6>/wp-json/cocart/v1/weight</h6>
+  </div>
 </div>
 <pre class="highlight shell tab-shell"><code>curl -X GET https://example.com/wp-json/cocart/v1/weight <span class="se">\</span>
-    -H <span class="s2">"Content-Type: application/json"</span>
+  -H <span class="s2">"Content-Type: application/json"</span>
 </code></pre>
 <blockquote>
 <p>JSON response example</p>

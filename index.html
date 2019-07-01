@@ -545,7 +545,7 @@
 </tr>
 <tr>
 <td><code>cocart_not_enough_in_stock</code></td>
-<td>You cannot add that amount of &quot;%1$s&quot; to the cart because there is not enough stock (%2$s remaining). <i class="label label-info">%1$s is the product name. %2$s is the stock remaining.</i></td>
+<td>You cannot add a quantity of %1$s for &quot;%2$s&quot; to the cart because there is not enough stock. - only %3$s remaining! <i class="label label-info">%1$s is the quantity requested, %2$s is the product name. %3$s is the stock remaining.</i></td>
 </tr>
 <tr>
 <td><code>cocart_not_enough_stock_remaining</code></td>
@@ -571,6 +571,14 @@
 <td><code>cocart_cart_item_key_required</code></td>
 <td>Cart item key is required!</td>
 </tr>
+<tr>
+<td><code>cocart_no_items</code></td>
+<td>No items in cart.</td>
+</tr>
+<tr>
+<td><code>cocart_item_not_in_cart</code></td>
+<td>Item specified does not exist in cart.</td>
+</tr>
 </tbody></table>
 <h1 id='cart'>Cart</h1>
 <p>The cart API is powerful and allows you to view the cart in session, add new items, update the quantity of an item and delete individual items from the cart.</p>
@@ -594,7 +602,7 @@
 <tr>
 <td><code>thumb</code></td>
 <td>bool</td>
-<td>Set as true to return the product thumbnail for the item.</td>
+<td>Set as true to return the product thumbnail for each item.</td>
 </tr>
 </tbody></table>
 <h3 id='http-request'>HTTP request</h3>
@@ -628,7 +636,8 @@
     </span><span class="s2">"line_tax"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="s2">"data"</span><span class="p">:{},</span><span class="w">
     </span><span class="s2">"product_name"</span><span class="p">:</span><span class="s2">"Vneck Tshirt"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"product_title"</span><span class="p">:</span><span class="s2">"Vneck Tshirt"</span><span class="w">
+    </span><span class="s2">"product_title"</span><span class="p">:</span><span class="s2">"Vneck Tshirt"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"product_price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"£18"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><pre class="highlight shell tab-shell"><code>curl -X GET https://example.com/wp-json/cocart/v1/get-cart <span class="se">\</span>
@@ -659,6 +668,7 @@
     </span><span class="s2">"data"</span><span class="p">:{},</span><span class="w">
     </span><span class="s2">"product_name"</span><span class="p">:</span><span class="s2">"Vneck Tshirt"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"product_title"</span><span class="p">:</span><span class="s2">"Vneck Tshirt"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"product_price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"£18"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"product_image"</span><span class="p">:</span><span class="s2">"http:</span><span class="se">\/\/</span><span class="s2">yourdomain.xyz</span><span class="se">\/</span><span class="s2">wp-content</span><span class="se">\/</span><span class="s2">uploads</span><span class="se">\/</span><span class="s2">2019</span><span class="se">\/</span><span class="s2">06</span><span class="se">\/</span><span class="s2">vneck-tee.jpg"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -680,7 +690,7 @@
   -H <span class="s2">"Content-Type: application/json"</span>
 </code></pre>
 <blockquote>
-<p>JSON returns the same responses as the examples above.</p>
+<p>JSON returns the same response as the examples above.</p>
 </blockquote>
 <h2 id='clear-cart'>Clear Cart</h2>
 <p>This API helps you clear the contents of the cart.</p>
@@ -862,6 +872,11 @@ It is important that you use POST and not GET as it will cache and return with a
 <td>Used to apply extra cart item data we want to pass with the item. <i class="label label-info">optional</i></td>
 </tr>
 <tr>
+<td><code>refresh_totals</code></td>
+<td>bool</td>
+<td>Set as true to refresh the cart totals once item is added. <i class="label label-info">optional</i></td>
+</tr>
+<tr>
 <td><code>return_cart</code></td>
 <td>bool</td>
 <td>Set as true to return the whole cart once item added. <i class="label label-info">optional</i></td>
@@ -920,7 +935,7 @@ It is important that you use POST and not GET as it will cache and return with a
 <tr>
 <td><code>return_cart</code></td>
 <td>bool</td>
-<td>Set as true to return the whole cart once item added. <i class="label label-info">optional</i></td>
+<td>Set as true to return the whole cart once item is removed. <i class="label label-info">optional</i></td>
 </tr>
 </tbody></table>
 <h3 id='http-request'>HTTP request</h3>
@@ -958,7 +973,7 @@ It is important that you use POST and not GET as it will cache and return with a
 <tr>
 <td><code>return_cart</code></td>
 <td>bool</td>
-<td>Set as true to return the whole cart once item added. <i class="label label-info">optional</i></td>
+<td>Set as true to return the whole cart once item is restored. <i class="label label-info">optional</i></td>
 </tr>
 </tbody></table>
 <h3 id='http-request'>HTTP request</h3>
@@ -999,9 +1014,14 @@ It is important that you use POST and not GET as it will cache and return with a
 <td>Set the quantity of the product you want to update in the cart. <i class="label label-info">Default is 1</i></td>
 </tr>
 <tr>
+<td><code>refresh_totals</code></td>
+<td>bool</td>
+<td>Set as true to refresh the cart totals once item quantity has updated. <i class="label label-info">optional</i></td>
+</tr>
+<tr>
 <td><code>return_cart</code></td>
 <td>bool</td>
-<td>Set as true to return the whole cart once item added. <i class="label label-info">optional</i></td>
+<td>Set as true to return the whole cart once item is updated. <i class="label label-info">optional</i></td>
 </tr>
 </tbody></table>
 <h3 id='http-request'>HTTP request</h3>
@@ -1143,7 +1163,7 @@ Please make sure you are viewing the PHP language to view examples of the filter
 <pre class="highlight php tab-php"><code>add_filter( 'cocart_item_thumbnail_size', 'thumbnail_size' );
 
 function thumbnail_size() {
-    return 'thumbnail';
+  return 'thumbnail';
 }
 </code></pre><h3 id='return-more-item-details'>Return more item details</h3>
 <p>Sometimes you just need more product data for the items added. You can do so using <code>cocart_cart_contents</code> filter.</p>
@@ -1179,9 +1199,9 @@ function thumbnail_size() {
 <pre class="highlight php tab-php"><code>add_filter( 'cocart_cart_contents', 'return_product_weight', 15, 4 );
 
 function return_product_sku( $cart_contents, $item_key, $cart_item, $_product ) {
-    $cart_contents[$item_key]['sku'] = $_product-&gt;get_sku();
+  $cart_contents[$item_key]['sku'] = $_product-&gt;get_sku();
 
-    return $cart_contents;
+  return $cart_contents;
 }
 </code></pre><h3 id='ok-to-add-item'>OK to add item?</h3>
 <p>Want to stop an item being added and return a custom message should it require an item not in the cart first.</p>
@@ -1214,25 +1234,25 @@ function return_product_sku( $cart_contents, $item_key, $cart_item, $_product ) 
 <pre class="highlight php tab-php"><code>add_filter( 'cocart_ok_to_add', 'requires_specific_item', 10, 2 );
 
 function requires_specific_item( $status, $product_data ) {
-    $cart_contents = isset( WC()-&gt;cart ) ? WC()-&gt;cart-&gt;get_cart() : WC()-&gt;session-&gt;cart;
+  $cart_contents = isset( WC()-&gt;cart ) ? WC()-&gt;cart-&gt;get_cart() : WC()-&gt;session-&gt;cart;
 
-    $required_product_id = '123'; // Replace with real product ID number.
+  $required_product_id = '123'; // Replace with real product ID number.
 
-    foreach ( $cart_contents as $item_key =&gt; $cart_item ) { 
-        // If required product ID does not exist return false.
-        if ( $cart_item['id'] != $required_product_id ) {
-            $status = false;
-        }
-    }
+  foreach ( $cart_contents as $item_key =&gt; $cart_item ) { 
+      // If required product ID does not exist return false.
+      if ( $cart_item['id'] != $required_product_id ) {
+        $status = false;
+      }
+  }
 
-    return $status;
+  return $status;
 }
 </code></pre><pre class="highlight php tab-php"><code>add_filter( 'cocart_ok_to_add_message', 'requires_specific_item', 10, 2 );
 
 function requires_specific_item_response( $response, $product_data ) {
-    $response = __( 'This item requires a specific item to be added first to the cart.' );
+  $response = __( 'This item requires a specific item to be added first to the cart.' );
 
-    return $response;
+  return $response;
 }
 </code></pre><h2 id='return-cart-contents'>Return cart contents</h2>
 <p>If you are in need to change the formatting of the returned cart data, this filter is for you.</p>
@@ -1242,13 +1262,13 @@ function requires_specific_item_response( $response, $product_data ) {
 add_filter( 'cocart_return_cart_contents', 'remove_parent_cart_item_key', 0 );
 
 function remove_parent_cart_item_key( $cart_contents ) {
-    $new_cart_contents = array();
+  $new_cart_contents = array();
 
-    foreach ( $cart_contents as $item_key =&gt; $cart_item ) {
-        $new_cart_contents[] = $cart_item;
-    }
+  foreach ( $cart_contents as $item_key =&gt; $cart_item ) {
+    $new_cart_contents[] = $cart_item;
+  }
 
-    return $new_cart_contents;
+  return $new_cart_contents;
 }
 </code></pre><h1 id='changelog'>Changelog</h1>
 <p>The Documentation is updated only when needed. Below is the changelog for &quot;CoCart&quot; documentation that matches with the version of the plugin release.</p>
