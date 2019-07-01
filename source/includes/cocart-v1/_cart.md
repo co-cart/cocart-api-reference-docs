@@ -50,7 +50,8 @@ curl -X GET https://example.com/wp-json/cocart/v1/get-cart \
     "line_tax":0,
     "data":{},
     "product_name":"Vneck Tshirt",
-    "product_title":"Vneck Tshirt"
+    "product_title":"Vneck Tshirt",
+    "product_price": "£18"
   }
 }
 ```
@@ -85,6 +86,7 @@ curl -X GET https://example.com/wp-json/cocart/v1/get-cart \
     "data":{},
     "product_name":"Vneck Tshirt",
     "product_title":"Vneck Tshirt",
+    "product_price": "£18",
     "product_image":"http:\/\/yourdomain.xyz\/wp-content\/uploads\/2019\/06\/vneck-tee.jpg"
   }
 }
@@ -113,4 +115,4 @@ curl -X GET https://example.com/wp-json/cocart/v1/get-cart/123 \
   -H "Content-Type: application/json"
 ```
 
-> JSON returns the same responses as the examples above.
+> JSON returns the same response as the examples above.
