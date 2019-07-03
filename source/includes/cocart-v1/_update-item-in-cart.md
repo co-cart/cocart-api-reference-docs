@@ -32,5 +32,8 @@ curl -X POST https://example.com/wp-json/cocart/v1/item \
 > JSON response example
 
 ```json
-"The quantity for 'Woo T-Shirt' has increased to '2'."
+{
+  "message":"The quantity for 'Woo T-Shirt' has increased to '2'.",
+  "quantity":2
+}
 ```
