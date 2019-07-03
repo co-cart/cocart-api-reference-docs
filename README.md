@@ -1,8 +1,10 @@
 # CoCart Documentation
 
-Repository for the CoCart REST API.
+[![WordPress Plugin Page](https://img.shields.io/badge/WordPress-%E2%86%92-lightgrey.svg?style=flat-square)](https://wordpress.org/plugins/cart-rest-api-for-woocommerce/)
+[![WordPress Plugin Version](https://img.shields.io/wordpress/plugin/v/cart-rest-api-for-woocommerce.svg?style=flat)](https://wordpress.org/plugins/cart-rest-api-for-woocommerce/)
+[![WordPress Plugin Downloads](https://img.shields.io/wordpress/plugin/dt/cart-rest-api-for-woocommerce.svg)](https://wordpress.org/plugins/cart-rest-api-for-woocommerce/)
 
-The documenation is powered by [Slate](https://github.com/lord/slate).
+This repository manages the documentation for CoCart.
 
 If you would like to contribute to the documentation to either correct a mistake, maybe add another language or something else. Then please follow these [contribution guidelines](https://github.com/co-cart/co-cart-docs/blob/master/CONTRIBUTING.md).
 
@@ -34,3 +36,4 @@ vagrant up
 
 You can now see the docs at http://localhost:4567.
 
+> The documenation is powered by [Slate](https://github.com/lord/slate).
