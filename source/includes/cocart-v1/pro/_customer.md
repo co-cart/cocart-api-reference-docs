@@ -50,6 +50,8 @@ curl -X GET https://example.com/wp-json/cocart/v1/customer \
     "address": "48 Victoria Road",
     "address_1": "48 Victoria Road",
     "address_2": ""
-  }
+  },
+  "has_calculated_shipping": true,
+  "is_vat_exempt": "no"
 }
 ```
