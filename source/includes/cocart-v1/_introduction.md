@@ -6,15 +6,16 @@ The current WP REST API integration version is `v1` which takes a first-order po
 
 The following table shows API versions present in each major version of CoCart:
 
-| API Version | CoCart Version | WC Version | WP Version |
-|-------------|------------|------------|------------|
-| `v1`        | 1.0.x or later | 3.6.x or later | 4.4 or later|
+| API Version | CoCart Version | WC Version      | WP Version   |
+| ----------- | -------------- | --------------- | ------------ |
+| `v1`        | 2.0.x or later | 3.6.x or later  | 4.4 or later |
 
 Prior to WooCommerce v3.6, CoCart shared WooCommerce's REST API. You can find the documentation about cart support for `/wc-api-v2` API separately.
 
-| API Version | WC Version | WP Version | Documentation |
-|-------------|------------|------------|---------------|
-| `wc-api-v2` | 3.0.x or later | 4.4 or later | [wc-api-v2 docs](wc-api-v2.html) |
+| API Version  | WC Version     | WP Version   | Documentation                    |
+| ------------ | -------------- | ------------ | -------------------------------- |
+| `wc-api-v2`  | 3.0.x or later | 4.4 or later | [wc-api-v2 docs](wc-api-v2.html) |
+
 
 ## Requirements ##
 
