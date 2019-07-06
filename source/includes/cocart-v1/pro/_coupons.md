@@ -58,7 +58,11 @@ curl -X POST https://example.com/wp-json/cocart/v1/coupon \
 > JSON response example.
 
 ```json
-true
+{
+    "message": "Coupon was successfully added to cart.",
+    "coupon": "summer20",
+    "response": true
+}
 ```
 
 ## Remove Coupon ##
@@ -85,7 +89,11 @@ curl -X DELETE https://example.com/wp-json/cocart/v1/coupon \
 > JSON response example.
 
 ```json
-true
+{
+    "message": "Coupon was successfully removed from cart.",
+    "coupon": "summer20",
+    "response": true
+}
 ```
 
 ## Check Coupons ##
