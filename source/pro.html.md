@@ -13,6 +13,7 @@ includes:
   - cocart-v1/pro/introduction
   - cocart-v1/pro/cart-pro
   - cocart-v1/pro/errors
+  - cocart-v1/pro/calculate
   - cocart-v1/pro/coupons
   - cocart-v1/pro/cross-sells
   - cocart-v1/pro/customer
