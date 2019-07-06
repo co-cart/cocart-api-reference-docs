@@ -1,6 +1,6 @@
 # Cart Weight #
 
-This API helps you get the cart weight.
+This API helps you get the cart weight. The weight unit returned is set in your WooCommerce settings.
 
 ### HTTP request ###
 
@@ -19,5 +19,5 @@ curl -X GET https://example.com/wp-json/cocart/v1/weight \
 > JSON response example
 
 ```json
-4
+"4 kg"
 ```
