@@ -224,7 +224,7 @@
         <ul class="search-results"></ul>
       <ul id="toc" class="toc-list-h1">
           <li>
-            <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
+            <a href="#cocart-pro" class="toc-h1 toc-link" data-title="CoCart Pro">CoCart Pro</a>
               <ul class="toc-list-h2">
                   <li>
                     <a href="#requirements" class="toc-h2 toc-link" data-title="Requirements">Requirements</a>
@@ -232,10 +232,15 @@
               </ul>
           </li>
           <li>
-            <a href="#cocart-pro" class="toc-h1 toc-link" data-title="CoCart Pro">CoCart Pro</a>
+            <a href="#error-responses" class="toc-h1 toc-link" data-title="Error Responses">Error Responses</a>
           </li>
           <li>
-            <a href="#error-responses" class="toc-h1 toc-link" data-title="Error Responses">Error Responses</a>
+            <a href="#calculate-shipping" class="toc-h1 toc-link" data-title="Calculate Shipping">Calculate Shipping</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#calculate-shipping-properties" class="toc-h2 toc-link" data-title="Calculate Shipping Properties">Calculate Shipping Properties</a>
+                  </li>
+              </ul>
           </li>
           <li>
             <a href="#coupons" class="toc-h1 toc-link" data-title="Coupons">Coupons</a>
@@ -263,13 +268,18 @@
                   <li>
                     <a href="#cross-sell-properties" class="toc-h2 toc-link" data-title="Cross Sell Properties">Cross Sell Properties</a>
                   </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#cart-owner" class="toc-h1 toc-link" data-title="Cart Owner">Cart Owner</a>
+              <ul class="toc-list-h2">
                   <li>
                     <a href="#http-request" class="toc-h2 toc-link" data-title="HTTP request">HTTP request</a>
                   </li>
               </ul>
           </li>
           <li>
-            <a href="#cart-owner" class="toc-h1 toc-link" data-title="Cart Owner">Cart Owner</a>
+            <a href="#payment-methods" class="toc-h1 toc-link" data-title="Payment Methods">Payment Methods</a>
               <ul class="toc-list-h2">
                   <li>
                     <a href="#http-request" class="toc-h2 toc-link" data-title="HTTP request">HTTP request</a>
@@ -329,16 +339,16 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id='introduction'>Introduction</h1>
+        <h1 id='cocart-pro'>CoCart Pro</h1>
 <p>CoCart Pro completes the API package with more control to the cart.</p>
+
+<p>This section of the documentation is for CoCart Pro only! You can access the core of <a href="./">CoCart documentation here</a>.</p>
 <h2 id='requirements'>Requirements</h2>
 <p>To use the latest version of the CoCart Pro you must be using the same requirements as CoCart including:</p>
 
 <ul>
 <li>CoCart 2.0.x or later</li>
 </ul>
-<h1 id='cocart-pro'>CoCart Pro</h1>
-<p>This section of the documentation is for CoCart Pro only! You can access the core of <a href="./">CoCart documentation here</a>.</p>
 <h1 id='error-responses'>Error Responses</h1>
 <p>You might encounter an error when using CoCart Pro. These error responses explain what might have happened.</p>
 
@@ -373,7 +383,60 @@
 <td>There are no shipping methods available!</td>
 </tr>
 </tbody></table>
-<h1 id='coupons'>Coupons</h1>
+<h1 id='calculate-shipping'>Calculate Shipping</h1>
+<p>This API helps you calculate the shipping costs and get the available methods. You can also request to return the shipping methods once calculated to reduce API requests.</p>
+<h2 id='calculate-shipping-properties'>Calculate Shipping Properties</h2>
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>country</code></td>
+<td>string</td>
+<td>Set the country of the shipping location. <i class="label label-info">required</i></td>
+</tr>
+<tr>
+<td><code>state</code></td>
+<td>string</td>
+<td>Setting the state is optional but maybe required under some circumstances. <i class="label label-info">optional</i></td>
+</tr>
+<tr>
+<td><code>city</code></td>
+<td>string</td>
+<td>Set the city to specify location in country. <i class="label label-info">optional</i></td>
+</tr>
+<tr>
+<td><code>postcode</code></td>
+<td>string</td>
+<td>Enter postcode / ZIP to narrow down location for more accurate shipping cost. <i class="label label-info">optional</i></td>
+</tr>
+<tr>
+<td><code>return_methods</code></td>
+<td>bool</td>
+<td>Set as true to return the shipping methods once calculated. <i class="label label-info">optional</i></td>
+</tr>
+</tbody></table>
+<h3 id='http-request'>HTTP request</h3>
+<div class="api-endpoint">
+  <div class="endpoint-data">
+    <i class="label label-post">POST</i>
+    <h6>/wp-json/cocart/v1/calculate/shipping</h6>
+  </div>
+</div>
+<pre class="highlight shell tab-shell"><code>curl -X POST https://example.com/wp-json/cocart/v1/calculate/shipping <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span>
+  -d <span class="s1">'{
+    "country": "GB"
+  }'</span>
+</code></pre>
+<blockquote>
+<p>JSON response example</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="s2">"Shipping costs updated."</span><span class="w">
+</span></code></pre><h1 id='coupons'>Coupons</h1>
 <p>This API helps you get applied coupons, add coupons to cart, remove coupons from cart and check coupons for validation.</p>
 <h3 id='coupon-properties'>Coupon Properties</h3>
 <table><thead>
@@ -426,7 +489,9 @@
 <p>JSON response example.</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"summer20"</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Coupon was successfully added to cart."</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"coupon"</span><span class="p">:</span><span class="w"> </span><span class="s2">"summer20"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"response"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><h2 id='remove-coupon'>Remove Coupon</h2>
 <p>Remove a coupon from the cart.</p>
@@ -447,7 +512,9 @@
 <p>JSON response example.</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"summer20"</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Coupon was successfully removed from cart."</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"coupon"</span><span class="p">:</span><span class="w"> </span><span class="s2">"summer20"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"response"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><h2 id='check-coupons'>Check Coupons</h2>
 <p>Checks applied coupons to see if they are still valid or if they have expired or no longer valid.</p>
@@ -467,7 +534,7 @@
 <pre class="highlight json tab-json"><code><span class="s2">"Coupons applied are still valid!"</span><span class="w">
 </span></code></pre><h1 id='cross-sells'>Cross Sells</h1>
 <p>This API helps you get the cross sells. It returns not just the product ID&#39;s but the product name, price, regular price and sale price.</p>
-<h3 id='cross-sell-properties'>Cross Sell Properties</h3>
+<h2 id='cross-sell-properties'>Cross Sell Properties</h2>
 <table><thead>
 <tr>
 <th>Attribute</th>
@@ -494,15 +561,32 @@
 <blockquote>
 <p>JSON response example</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">35</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"product_name"</span><span class="p">:</span><span class="s2">"Tshirt"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"price"</span><span class="p">:</span><span class="s2">"£18.00"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"regular_price"</span><span class="p">:</span><span class="s2">"£18.00"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"sale_price"</span><span class="p">:</span><span class="s2">"£18.00"</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"29"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">29</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"product_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hoodie with Logo"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"product_title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hoodie with Logo"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"£45.00"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"regular_price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"£45.00"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"sale_price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"£0.00"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"30"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"product_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hoodie with Pocket"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"product_title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hoodie with Pocket"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"£35.00"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"regular_price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"£45.00"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"sale_price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"£35.00"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"31"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">31</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"product_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hoodie with Zipper"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"product_title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hoodie with Zipper"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"£45.00"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"regular_price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"£45.00"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"sale_price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"£0.00"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="err">```</span><span class="w">
 </span></code></pre><h1 id='cart-owner'>Cart Owner</h1>
 <p>This API helps you get the cart owner&#39;s details of the customer.</p>
 <h3 id='http-request'>HTTP request</h3>
@@ -549,7 +633,100 @@
     </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"48 Victoria Road"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"address_1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"48 Victoria Road"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"address_2"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
-  </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"has_calculated_shipping"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"is_vat_exempt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"no"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h1 id='payment-methods'>Payment Methods</h1>
+<p>This API helps you get the payment methods available.</p>
+<h3 id='http-request'>HTTP request</h3>
+<div class="api-endpoint">
+  <div class="endpoint-data">
+    <i class="label label-get">GET</i>
+    <h6>/wp-json/cocart/v1/payment-methods</h6>
+  </div>
+</div>
+<pre class="highlight shell tab-shell"><code>curl -X GET https://example.com/wp-json/cocart/v1/payment-methods <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span>
+</code></pre>
+<blockquote>
+<p>JSON response example</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"bacs"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bacs"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"method_title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Direct bank transfer"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Direct bank transfer"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order will not be shipped until the funds have cleared in our account."</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"icon"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"has_fields"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"countries"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"availability"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"supports"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="s2">"products"</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"order_button_text"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"chosen_gateway"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"cheque"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cheque"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"method_title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Check payments"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Check payments"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Please send a check to Store Name, Store Street, Store Town, Store State / County, Store Postcode."</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"icon"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"has_fields"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"countries"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"availability"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"supports"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="s2">"products"</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"order_button_text"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"chosen_gateway"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"cod"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cod"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"method_title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cash on delivery"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cash on delivery"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pay with cash upon delivery."</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"icon"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"has_fields"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"countries"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"availability"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"supports"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="s2">"products"</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"order_button_text"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"chosen_gateway"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"stripe"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"stripe"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"method_title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Stripe"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Credit Card (Stripe)"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pay with your credit card via Stripe."</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"icon"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;img src=</span><span class="se">\"</span><span class="s2">https://yourdomain.xyz/wp-content/plugins/woocommerce-gateway-stripe/assets/images/visa.svg</span><span class="se">\"</span><span class="s2"> class=</span><span class="se">\"</span><span class="s2">stripe-visa-icon stripe-icon</span><span class="se">\"</span><span class="s2"> alt=</span><span class="se">\"</span><span class="s2">Visa</span><span class="se">\"</span><span class="s2"> /&gt;&lt;img src=</span><span class="se">\"</span><span class="s2">https://yourdomain.xyz/wp-content/plugins/woocommerce-gateway-stripe/assets/images/amex.svg</span><span class="se">\"</span><span class="s2"> class=</span><span class="se">\"</span><span class="s2">stripe-amex-icon stripe-icon</span><span class="se">\"</span><span class="s2"> alt=</span><span class="se">\"</span><span class="s2">American Express</span><span class="se">\"</span><span class="s2"> /&gt;&lt;img src=</span><span class="se">\"</span><span class="s2">https://yourdomain.xyz/wp-content/plugins/woocommerce-gateway-stripe/assets/images/mastercard.svg</span><span class="se">\"</span><span class="s2"> class=</span><span class="se">\"</span><span class="s2">stripe-mastercard-icon stripe-icon</span><span class="se">\"</span><span class="s2"> alt=</span><span class="se">\"</span><span class="s2">Mastercard</span><span class="se">\"</span><span class="s2"> /&gt;"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"has_fields"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"countries"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"availability"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"supports"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="s2">"products"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"refunds"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"tokenization"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"add_payment_method"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"subscriptions"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"subscription_cancellation"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"subscription_suspension"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"subscription_reactivation"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"subscription_amount_changes"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"subscription_date_changes"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"subscription_payment_method_change"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"subscription_payment_method_change_customer"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"subscription_payment_method_change_admin"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"multiple_subscriptions"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"pre-orders"</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"order_button_text"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"chosen_gateway"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><h1 id='quantities'>Quantities</h1>
 <p>This API helps you get the quantities of each product added to the cart.</p>
@@ -701,7 +878,7 @@
 <p>JSON response example.</p>
 </blockquote>
 <pre class="highlight json tab-json"><code></code></pre><h1 id='cart-weight'>Cart Weight</h1>
-<p>This API helps you get the cart weight.</p>
+<p>This API helps you get the cart weight. The weight unit returned is set in your WooCommerce settings.</p>
 <h3 id='http-request'>HTTP request</h3>
 <div class="api-endpoint">
   <div class="endpoint-data">
@@ -715,7 +892,7 @@
 <blockquote>
 <p>JSON response example</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="mi">4</span><span class="w">
+<pre class="highlight json tab-json"><code><span class="s2">"4 kg"</span><span class="w">
 </span></code></pre><h1 id='changelog'>Changelog</h1>
 <p>The Documentation is updated only when needed. Below is the changelog for &quot;CoCart Pro&quot; documentation that matches with the version of the plugin release.</p>
 <h3 id='doc-version-0-1-plugin-release-v1-0-0'>Doc Version 0.1 - Plugin Release v1.0.0</h3>
