@@ -1,8 +1,8 @@
-## Calculate Shipping ##
+# Calculate Shipping #
 
-This API helps you calculate the shipping costs and available methods. You can also request to return the shipping methods once calculated to reduce API requests.
+This API helps you calculate the shipping costs and get the available methods. You can also request to return the shipping methods once calculated to reduce API requests.
 
-### Properties ###
+## Calculate Shipping Properties ##
 
 | Attribute        | Type   | Description       |
 | ---------------- | ------ | ----------------- |

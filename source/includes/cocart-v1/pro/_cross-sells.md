@@ -2,7 +2,7 @@
 
 This API helps you get the cross sells. It returns not just the product ID's but the product name, price, regular price and sale price.
 
-### Cross Sell Properties ###
+## Cross Sell Properties ##
 
 | Attribute | Type | Description |
 | --------- | ---- | ----------- |

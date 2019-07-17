@@ -1,6 +1,8 @@
-# Introduction #
+# CoCart Pro #
 
 CoCart Pro completes the API package with more control to the cart.
+
+This section of the documentation is for CoCart Pro only! You can access the core of [CoCart documentation here](index.html).
 
 ## Requirements ##
 

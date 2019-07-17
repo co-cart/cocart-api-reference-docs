@@ -1,10 +1,6 @@
 # Payment Methods #
 
-This API helps you get the payment methods.
-
-## Get Payment Methods ##
-
-Returns all available payment methods.
+This API helps you get the payment methods available.
 
 ### HTTP request ###
 
