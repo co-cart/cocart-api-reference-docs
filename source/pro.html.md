@@ -21,6 +21,7 @@ includes:
   - cocart-v1/pro/quantities
   - cocart-v1/pro/removed-items
   - cocart-v1/pro/shipping-methods
+  - cocart-v1/pro/totals
   - cocart-v1/pro/weight
   - cocart-v1/pro/changelog
 
