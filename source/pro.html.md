@@ -3,6 +3,7 @@ title: CoCart Pro Documentation v1
 
 language_tabs:
  - shell: cURL
+ - php: PHP
 
 toc_footers:
   - <a href="https://cocart.xyz">CoCart</a>
@@ -21,6 +22,7 @@ includes:
   - cocart-v1/pro/removed-items
   - cocart-v1/pro/shipping-methods
   - cocart-v1/pro/weight
+  - cocart-v1/pro/filters
   - cocart-v1/pro/changelog
 
 search: true
