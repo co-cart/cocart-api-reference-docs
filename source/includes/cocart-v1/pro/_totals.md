@@ -57,3 +57,211 @@ curl -X GET https://example.com/wp-json/cocart/v1/totals \
   }
 }
 ```
+
+## Get Discount Total ##
+
+### HTTP request ###
+
+<div class="api-endpoint">
+  <div class="endpoint-data">
+    <i class="label label-get">GET</i>
+    <h6>/wp-json/cocart/v1/totals/discount</h6>
+  </div>
+</div>
+
+```shell
+curl -X GET https://example.com/wp-json/cocart/v1/totals/discount \
+ -H "Content-Type: application/json"
+```
+
+> JSON response example
+
+```json
+"£8.40"
+```
+
+## Get Discount Totals ##
+
+### HTTP request ###
+
+<div class="api-endpoint">
+  <div class="endpoint-data">
+    <i class="label label-get">GET</i>
+    <h6>/wp-json/cocart/v1/totals/discount/coupon-totals</h6>
+  </div>
+</div>
+
+```shell
+curl -X GET https://example.com/wp-json/cocart/v1/totals/discount/coupon-totals \
+ -H "Content-Type: application/json"
+```
+
+> JSON response example
+
+```json
+{
+  "blizzard": "£8.40"
+}
+```
+
+## Get Discount Tax Totals ##
+
+### HTTP request ###
+
+<div class="api-endpoint">
+  <div class="endpoint-data">
+    <i class="label label-get">GET</i>
+    <h6>/wp-json/cocart/v1/totals/discount/coupon-tax</h6>
+  </div>
+</div>
+
+```shell
+curl -X GET https://example.com/wp-json/cocart/v1/totals/discount/coupon-tax \
+ -H "Content-Type: application/json"
+```
+
+## Get Fee Total ##
+
+### HTTP request ###
+
+<div class="api-endpoint">
+  <div class="endpoint-data">
+    <i class="label label-get">GET</i>
+    <h6>/wp-json/cocart/v1/totals/fee</h6>
+  </div>
+</div>
+
+```shell
+curl -X GET https://example.com/wp-json/cocart/v1/totals/fee \
+ -H "Content-Type: application/json"
+```
+
+> JSON response example
+
+```json
+"£40.00"
+```
+
+## Get Fee Tax ##
+
+### HTTP request ###
+
+<div class="api-endpoint">
+  <div class="endpoint-data">
+    <i class="label label-get">GET</i>
+    <h6>/wp-json/cocart/v1/totals/fee/tax</h6>
+  </div>
+</div>
+
+```shell
+curl -X GET https://example.com/wp-json/cocart/v1/totals/fee/tax \
+ -H "Content-Type: application/json"
+```
+
+## Get Shipping Total ##
+
+### HTTP request ###
+
+<div class="api-endpoint">
+  <div class="endpoint-data">
+    <i class="label label-get">GET</i>
+    <h6>/wp-json/cocart/v1/totals/shipping</h6>
+  </div>
+</div>
+
+```shell
+curl -X GET https://example.com/wp-json/cocart/v1/totals/shipping \
+ -H "Content-Type: application/json"
+```
+
+## Get Shipping Tax ##
+
+### HTTP request ###
+
+<div class="api-endpoint">
+  <div class="endpoint-data">
+    <i class="label label-get">GET</i>
+    <h6>/wp-json/cocart/v1/totals/shipping/tax/h6>
+  </div>
+</div>
+
+```shell
+curl -X GET https://example.com/wp-json/cocart/v1/totals/shipping/tax \
+ -H "Content-Type: application/json"
+```
+
+## Get Subtotal ##
+
+### HTTP request ###
+
+<div class="api-endpoint">
+  <div class="endpoint-data">
+    <i class="label label-get">GET</i>
+    <h6>/wp-json/cocart/v1/totals/subtotal</h6>
+  </div>
+</div>
+
+```shell
+curl -X GET https://example.com/wp-json/cocart/v1/totals/subtotal \
+ -H "Content-Type: application/json"
+```
+
+> JSON response example
+
+```json
+"£42.00"
+```
+
+## Get Subtotal Tax ##
+
+### HTTP request ###
+
+<div class="api-endpoint">
+  <div class="endpoint-data">
+    <i class="label label-get">GET</i>
+    <h6>/wp-json/cocart/v1/totals/subtotal/tax</h6>
+  </div>
+</div>
+
+```shell
+curl -X GET https://example.com/wp-json/cocart/v1/totals/subtotal/tax \
+ -H "Content-Type: application/json"
+```
+
+## Get Cart Total Tax ##
+
+### HTTP request ###
+
+<div class="api-endpoint">
+  <div class="endpoint-data">
+    <i class="label label-get">GET</i>
+    <h6>/wp-json/cocart/v1/totals/tax</h6>
+  </div>
+</div>
+
+```shell
+curl -X GET https://example.com/wp-json/cocart/v1/totals/tax \
+ -H "Content-Type: application/json"
+```
+
+## Get Cart Total ##
+
+### HTTP request ###
+
+<div class="api-endpoint">
+  <div class="endpoint-data">
+    <i class="label label-get">GET</i>
+    <h6>/wp-json/cocart/v1/totals/total</h6>
+  </div>
+</div>
+
+```shell
+curl -X GET https://example.com/wp-json/cocart/v1/totals/total \
+ -H "Content-Type: application/json"
+```
+
+> JSON response example
+
+```json
+"£33.60"
+```
