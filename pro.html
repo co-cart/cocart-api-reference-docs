@@ -339,6 +339,39 @@
                   <li>
                     <a href="#get-cart-totals" class="toc-h2 toc-link" data-title="Get Cart Totals">Get Cart Totals</a>
                   </li>
+                  <li>
+                    <a href="#get-discount-total" class="toc-h2 toc-link" data-title="Get Discount Total">Get Discount Total</a>
+                  </li>
+                  <li>
+                    <a href="#get-discount-totals" class="toc-h2 toc-link" data-title="Get Discount Totals">Get Discount Totals</a>
+                  </li>
+                  <li>
+                    <a href="#get-discount-tax-totals" class="toc-h2 toc-link" data-title="Get Discount Tax Totals">Get Discount Tax Totals</a>
+                  </li>
+                  <li>
+                    <a href="#get-fee-total" class="toc-h2 toc-link" data-title="Get Fee Total">Get Fee Total</a>
+                  </li>
+                  <li>
+                    <a href="#get-fee-tax" class="toc-h2 toc-link" data-title="Get Fee Tax">Get Fee Tax</a>
+                  </li>
+                  <li>
+                    <a href="#get-shipping-total" class="toc-h2 toc-link" data-title="Get Shipping Total">Get Shipping Total</a>
+                  </li>
+                  <li>
+                    <a href="#get-shipping-tax" class="toc-h2 toc-link" data-title="Get Shipping Tax">Get Shipping Tax</a>
+                  </li>
+                  <li>
+                    <a href="#get-subtotal" class="toc-h2 toc-link" data-title="Get Subtotal">Get Subtotal</a>
+                  </li>
+                  <li>
+                    <a href="#get-subtotal-tax" class="toc-h2 toc-link" data-title="Get Subtotal Tax">Get Subtotal Tax</a>
+                  </li>
+                  <li>
+                    <a href="#get-cart-total-tax" class="toc-h2 toc-link" data-title="Get Cart Total Tax">Get Cart Total Tax</a>
+                  </li>
+                  <li>
+                    <a href="#get-cart-total" class="toc-h2 toc-link" data-title="Get Cart Total">Get Cart Total</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -1142,6 +1175,132 @@
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
+</span></code></pre><h2 id='get-discount-total'>Get Discount Total</h2><h3 id='http-request-2'>HTTP request</h3>
+<div class="api-endpoint">
+  <div class="endpoint-data">
+    <i class="label label-get">GET</i>
+    <h6>/wp-json/cocart/v1/totals/discount</h6>
+  </div>
+</div>
+<pre class="highlight shell tab-shell"><code>curl -X GET https://example.com/wp-json/cocart/v1/totals/discount <span class="se">\</span>
+ -H <span class="s2">"Content-Type: application/json"</span>
+</code></pre>
+<blockquote>
+<p>JSON response example</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="s2">"£8.40"</span><span class="w">
+</span></code></pre><h2 id='get-discount-totals'>Get Discount Totals</h2><h3 id='http-request-3'>HTTP request</h3>
+<div class="api-endpoint">
+  <div class="endpoint-data">
+    <i class="label label-get">GET</i>
+    <h6>/wp-json/cocart/v1/totals/discount/coupon-totals</h6>
+  </div>
+</div>
+<pre class="highlight shell tab-shell"><code>curl -X GET https://example.com/wp-json/cocart/v1/totals/discount/coupon-totals <span class="se">\</span>
+ -H <span class="s2">"Content-Type: application/json"</span>
+</code></pre>
+<blockquote>
+<p>JSON response example</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"blizzard"</span><span class="p">:</span><span class="w"> </span><span class="s2">"£8.40"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h2 id='get-discount-tax-totals'>Get Discount Tax Totals</h2><h3 id='http-request-4'>HTTP request</h3>
+<div class="api-endpoint">
+  <div class="endpoint-data">
+    <i class="label label-get">GET</i>
+    <h6>/wp-json/cocart/v1/totals/discount/coupon-tax</h6>
+  </div>
+</div>
+<pre class="highlight shell tab-shell"><code>curl -X GET https://example.com/wp-json/cocart/v1/totals/discount/coupon-tax <span class="se">\</span>
+ -H <span class="s2">"Content-Type: application/json"</span>
+</code></pre><h2 id='get-fee-total'>Get Fee Total</h2><h3 id='http-request-5'>HTTP request</h3>
+<div class="api-endpoint">
+  <div class="endpoint-data">
+    <i class="label label-get">GET</i>
+    <h6>/wp-json/cocart/v1/totals/fee</h6>
+  </div>
+</div>
+<pre class="highlight shell tab-shell"><code>curl -X GET https://example.com/wp-json/cocart/v1/totals/fee <span class="se">\</span>
+ -H <span class="s2">"Content-Type: application/json"</span>
+</code></pre>
+<blockquote>
+<p>JSON response example</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="s2">"£40.00"</span><span class="w">
+</span></code></pre><h2 id='get-fee-tax'>Get Fee Tax</h2><h3 id='http-request-6'>HTTP request</h3>
+<div class="api-endpoint">
+  <div class="endpoint-data">
+    <i class="label label-get">GET</i>
+    <h6>/wp-json/cocart/v1/totals/fee/tax</h6>
+  </div>
+</div>
+<pre class="highlight shell tab-shell"><code>curl -X GET https://example.com/wp-json/cocart/v1/totals/fee/tax <span class="se">\</span>
+ -H <span class="s2">"Content-Type: application/json"</span>
+</code></pre><h2 id='get-shipping-total'>Get Shipping Total</h2><h3 id='http-request-7'>HTTP request</h3>
+<div class="api-endpoint">
+  <div class="endpoint-data">
+    <i class="label label-get">GET</i>
+    <h6>/wp-json/cocart/v1/totals/shipping</h6>
+  </div>
+</div>
+<pre class="highlight shell tab-shell"><code>curl -X GET https://example.com/wp-json/cocart/v1/totals/shipping <span class="se">\</span>
+ -H <span class="s2">"Content-Type: application/json"</span>
+</code></pre><h2 id='get-shipping-tax'>Get Shipping Tax</h2><h3 id='http-request-8'>HTTP request</h3>
+<div class="api-endpoint">
+  <div class="endpoint-data">
+    <i class="label label-get">GET</i>
+    <h6>/wp-json/cocart/v1/totals/shipping/tax/h6>
+  </div>
+</div>
+<pre class="highlight shell tab-shell"><code>curl -X GET https://example.com/wp-json/cocart/v1/totals/shipping/tax <span class="se">\</span>
+ -H <span class="s2">"Content-Type: application/json"</span>
+</code></pre><h2 id='get-subtotal'>Get Subtotal</h2><h3 id='http-request-9'>HTTP request</h3>
+<div class="api-endpoint">
+  <div class="endpoint-data">
+    <i class="label label-get">GET</i>
+    <h6>/wp-json/cocart/v1/totals/subtotal</h6>
+  </div>
+</div>
+<pre class="highlight shell tab-shell"><code>curl -X GET https://example.com/wp-json/cocart/v1/totals/subtotal <span class="se">\</span>
+ -H <span class="s2">"Content-Type: application/json"</span>
+</code></pre>
+<blockquote>
+<p>JSON response example</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="s2">"£42.00"</span><span class="w">
+</span></code></pre><h2 id='get-subtotal-tax'>Get Subtotal Tax</h2><h3 id='http-request-10'>HTTP request</h3>
+<div class="api-endpoint">
+  <div class="endpoint-data">
+    <i class="label label-get">GET</i>
+    <h6>/wp-json/cocart/v1/totals/subtotal/tax</h6>
+  </div>
+</div>
+<pre class="highlight shell tab-shell"><code>curl -X GET https://example.com/wp-json/cocart/v1/totals/subtotal/tax <span class="se">\</span>
+ -H <span class="s2">"Content-Type: application/json"</span>
+</code></pre><h2 id='get-cart-total-tax'>Get Cart Total Tax</h2><h3 id='http-request-11'>HTTP request</h3>
+<div class="api-endpoint">
+  <div class="endpoint-data">
+    <i class="label label-get">GET</i>
+    <h6>/wp-json/cocart/v1/totals/tax</h6>
+  </div>
+</div>
+<pre class="highlight shell tab-shell"><code>curl -X GET https://example.com/wp-json/cocart/v1/totals/tax <span class="se">\</span>
+ -H <span class="s2">"Content-Type: application/json"</span>
+</code></pre><h2 id='get-cart-total'>Get Cart Total</h2><h3 id='http-request-12'>HTTP request</h3>
+<div class="api-endpoint">
+  <div class="endpoint-data">
+    <i class="label label-get">GET</i>
+    <h6>/wp-json/cocart/v1/totals/total</h6>
+  </div>
+</div>
+<pre class="highlight shell tab-shell"><code>curl -X GET https://example.com/wp-json/cocart/v1/totals/total <span class="se">\</span>
+ -H <span class="s2">"Content-Type: application/json"</span>
+</code></pre>
+<blockquote>
+<p>JSON response example</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="s2">"£33.60"</span><span class="w">
 </span></code></pre><h1 id='cart-weight'>Cart Weight</h1>
 <p>This API helps you get the cart weight. The weight unit returned is set in your WooCommerce settings.</p>
 <h3 id='http-request'>HTTP request</h3>
