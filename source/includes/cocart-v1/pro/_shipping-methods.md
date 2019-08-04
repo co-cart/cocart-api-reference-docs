@@ -37,7 +37,9 @@ curl -X GET https://example.com/wp-json/cocart/v1/shipping-methods \
     "label": "Flat rate",
     "cost": "33.00",
     "html": "Flat rate: £33.00",
-    "taxes": [],
+    "taxes": {
+      "12": 6.6
+    },
     "chosen_method": true
   },
   "free_shipping:3":{
