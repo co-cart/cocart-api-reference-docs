@@ -40,14 +40,18 @@ curl -X GET https://example.com/wp-json/cocart/v1/get-cart \
     "variation":[],
     "quantity":1,
     "data_hash":"b5c1d5ca8bae6d4896cf1807cdf763f0",
-    "line_tax_data":{
-      "subtotal":[],
-      "total":[]
+    "line_tax_data": {
+      "subtotal": {
+        "12": 8.4
+      },
+      "total": {
+        "12": 8.4
+      }
     },
     "line_subtotal":18,
-    "line_subtotal_tax":0,
+    "line_subtotal_tax":8.4,
     "line_total":14.4,
-    "line_tax":0,
+    "line_tax":8.4,
     "data":{},
     "product_name":"Vneck Tshirt",
     "product_title":"Vneck Tshirt",
@@ -75,14 +79,18 @@ curl -X GET https://example.com/wp-json/cocart/v1/get-cart \
     "variation":[],
     "quantity":1,
     "data_hash":"b5c1d5ca8bae6d4896cf1807cdf763f0",
-    "line_tax_data":{
-      "subtotal":[],
-      "total":[]
+    "line_tax_data": {
+      "subtotal": {
+        "12": 8.4
+      },
+      "total": {
+        "12": 8.4
+      }
     },
     "line_subtotal":18,
-    "line_subtotal_tax":0,
+    "line_subtotal_tax":8.4,
     "line_total":14.4,
-    "line_tax":0,
+    "line_tax":8.4,
     "data":{},
     "product_name":"Vneck Tshirt",
     "product_title":"Vneck Tshirt",
