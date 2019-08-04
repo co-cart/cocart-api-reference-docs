@@ -44,9 +44,11 @@ curl -X GET https://example.com/wp-json/cocart/v1/totals \
   "cart_contents_taxes": {
     "12": 8.4
   },
-  "fee_total":"0.00",
-  "fee_tax":0,
-  "fee_taxes":[],
+  "fee_total":"5.00",
+  "fee_tax":0.4,
+  "fee_taxes":{
+    "12": 0.4
+  },
   "total":"146.40",
   "total_tax":15,
   "fees": {
