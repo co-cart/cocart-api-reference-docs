@@ -55,10 +55,10 @@ curl -X GET https://example.com/wp-json/cocart/v1/totals \
     "cocart-extra-package-protection":{
         "id": "cocart-extra-package-protection",
         "name": "Extra Package Protection",
-        "amount": "40",
+        "amount": "5",
         "taxable": false,
         "tax_class": "",
-        "total": 4000
+        "total": 500
     }
   }
 }
