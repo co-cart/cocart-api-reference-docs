@@ -95,7 +95,7 @@ curl -X GET https://example.com/wp-json/cocart/v1/get-cart \
     "product_name":"Vneck Tshirt",
     "product_title":"Vneck Tshirt",
     "product_price": "£18",
-    "product_image":"http:\/\/yourdomain.xyz\/wp-content\/uploads\/2019\/06\/vneck-tee.jpg"
+    "product_image":"http://yourdomain.xyz/wp-content/uploads/2019/06/vneck-tee.jpg"
   }
 }
 ```
