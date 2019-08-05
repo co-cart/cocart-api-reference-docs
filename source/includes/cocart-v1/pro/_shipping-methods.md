@@ -59,6 +59,10 @@ curl -X GET https://example.com/wp-json/cocart/v1/shipping-methods \
 
 Apply a shipping method to the cart. Can only apply once the customer has calculated shipping.
 
+<aside class="notice">
+  CoCart Pro does not support legacy shipping methods so you will not be able to set the shipping method if the <code>instance_id</code> is <b>0</b>.
+</aside>
+
 ### Properties ###
 
 | Attribute            | Type   | Description       |
@@ -88,4 +92,5 @@ curl -X POST https://example.com/wp-json/cocart/v1/shipping-method \
 > JSON response example.
 
 ```json
+true
 ```
