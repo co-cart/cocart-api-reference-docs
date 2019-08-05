@@ -393,6 +393,8 @@
       </ul>
         <ul class="toc-footer">
             <li><a href="https://cocart.xyz">CoCart</a></li>
+            <li><a href="https://github.com/co-cart/co-cart-docs/blob/master/CONTRIBUTING.md">Contribute to Documentation</a></li>
+            <li><a href="http://woocommerce.github.io/woocommerce-rest-api-docs/">WooCommerce REST API Docs</a></li>
             <li><a href="https://sebastiendumont.com">Developed by Sébastien Dumont</a></li>
             <li><a href="https://github.com/lord/slate">Documentation Powered by Slate</a></li>
         </ul>
@@ -461,11 +463,15 @@
 </tr>
 <tr>
 <td><code>cocart_pro_no_payment_gateways</code></td>
-<td></td>
+<td>Please fill in your details above to see available payment methods.</td>
 </tr>
 <tr>
 <td><code>cocart_pro_set_payment_method_failed</code></td>
 <td>The gateway ID is required to set a payment method.</td>
+</tr>
+<tr>
+<td><code>cocart_pro_payment_method_incorrect</code></td>
+<td>The gateway ID is either incorrect or does not exist.</td>
 </tr>
 <tr>
 <td><code>cocart_pro_shipping_not_enabled</code></td>
@@ -482,6 +488,14 @@
 <tr>
 <td><code>cocart_pro_shipping_not_calculated</code></td>
 <td>Customer has not calculated shipping.</td>
+</tr>
+<tr>
+<td><code>cocart_pro_set_shipping_method_failed</code></td>
+<td>Both the method ID and instance ID are required to set a shipping method.</td>
+</tr>
+<tr>
+<td><code>cocart_pro_shipping_method_incorrect</code></td>
+<td>The shipping method is either incorrect or does not exist.</td>
 </tr>
 <tr>
 <td><code>cocart_pro_invalid_postcode</code></td>
@@ -810,10 +824,10 @@
   </span><span class="s2">"cocart-extra-package-protection"</span><span class="p">:{</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cocart-extra-package-protection"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Extra Package Protection"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"40"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"taxable"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
     </span><span class="s2">"tax_class"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">4000</span><span class="w">
+    </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">500</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><h2 id='add-a-fee'>Add a Fee</h2>
@@ -858,7 +872,7 @@
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
   -d <span class="s1">'{
     "name": "Extra Package Protection",
-    "amount": 40
+    "amount": 5
   }'</span>
 </code></pre>
 <blockquote>
@@ -907,6 +921,7 @@
         </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Direct bank transfer"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order will not be shipped until the funds have cleared in our account."</span><span class="p">,</span><span class="w">
         </span><span class="s2">"icon"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"icon_urls"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
         </span><span class="s2">"has_fields"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
         </span><span class="s2">"countries"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
         </span><span class="s2">"availability"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -922,6 +937,7 @@
         </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Check payments"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Please send a check to Store Name, Store Street, Store Town, Store State / County, Store Postcode."</span><span class="p">,</span><span class="w">
         </span><span class="s2">"icon"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"icon_urls"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
         </span><span class="s2">"has_fields"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
         </span><span class="s2">"countries"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
         </span><span class="s2">"availability"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -937,6 +953,7 @@
         </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cash on delivery"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pay with cash upon delivery."</span><span class="p">,</span><span class="w">
         </span><span class="s2">"icon"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"icon_urls"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
         </span><span class="s2">"has_fields"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
         </span><span class="s2">"countries"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
         </span><span class="s2">"availability"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -952,6 +969,11 @@
         </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Credit Card (Stripe)"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pay with your credit card via Stripe."</span><span class="p">,</span><span class="w">
         </span><span class="s2">"icon"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;img src=</span><span class="se">\"</span><span class="s2">https://yourdomain.xyz/wp-content/plugins/woocommerce-gateway-stripe/assets/images/visa.svg</span><span class="se">\"</span><span class="s2"> class=</span><span class="se">\"</span><span class="s2">stripe-visa-icon stripe-icon</span><span class="se">\"</span><span class="s2"> alt=</span><span class="se">\"</span><span class="s2">Visa</span><span class="se">\"</span><span class="s2"> /&gt;&lt;img src=</span><span class="se">\"</span><span class="s2">https://yourdomain.xyz/wp-content/plugins/woocommerce-gateway-stripe/assets/images/amex.svg</span><span class="se">\"</span><span class="s2"> class=</span><span class="se">\"</span><span class="s2">stripe-amex-icon stripe-icon</span><span class="se">\"</span><span class="s2"> alt=</span><span class="se">\"</span><span class="s2">American Express</span><span class="se">\"</span><span class="s2"> /&gt;&lt;img src=</span><span class="se">\"</span><span class="s2">https://yourdomain.xyz/wp-content/plugins/woocommerce-gateway-stripe/assets/images/mastercard.svg</span><span class="se">\"</span><span class="s2"> class=</span><span class="se">\"</span><span class="s2">stripe-mastercard-icon stripe-icon</span><span class="se">\"</span><span class="s2"> alt=</span><span class="se">\"</span><span class="s2">Mastercard</span><span class="se">\"</span><span class="s2"> /&gt;"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"icon_urls"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="s2">"https://yourdomain.xyz/wp-content/plugins/woocommerce-gateway-stripe/assets/images/visa.svg"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"https://yourdomain.xyz/wp-content/plugins/woocommerce-gateway-stripe/assets/images/amex.svg"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"https://yourdomain.xyz/wp-content/plugins/woocommerce-gateway-stripe/assets/images/mastercard.svg"</span><span class="w">
+        </span><span class="p">],</span><span class="w">
         </span><span class="s2">"has_fields"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
         </span><span class="s2">"countries"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
         </span><span class="s2">"availability"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -1068,7 +1090,9 @@
     </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Flat rate"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"cost"</span><span class="p">:</span><span class="w"> </span><span class="s2">"33.00"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"html"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Flat rate: £33.00"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"taxes"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="s2">"taxes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"12"</span><span class="p">:</span><span class="w"> </span><span class="mf">6.6</span><span class="w">
+    </span><span class="p">},</span><span class="w">
     </span><span class="s2">"chosen_method"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="s2">"free_shipping:3"</span><span class="p">:{</span><span class="w">
@@ -1084,6 +1108,10 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre><h2 id='set-shipping-method'>Set Shipping Method</h2>
 <p>Apply a shipping method to the cart. Can only apply once the customer has calculated shipping.</p>
+
+<aside class="notice">
+  CoCart Pro does not support legacy shipping methods so you will not be able to set the shipping method if the <code>instance_id</code> is <b>0</b>.
+</aside>
 <h3 id='properties-2'>Properties</h3>
 <table><thead>
 <tr>
@@ -1125,7 +1153,8 @@
 <blockquote>
 <p>JSON response example.</p>
 </blockquote>
-<pre class="highlight json tab-json"><code></code></pre><h1 id='totals'>Totals</h1>
+<pre class="highlight json tab-json"><code><span class="kc">true</span><span class="w">
+</span></code></pre><h1 id='totals'>Totals</h1>
 <p>This API helps you get all the cart totals including getting them individually.</p>
 <h2 id='get-cart-totals'>Get Cart Totals</h2>
 <p>This API helps you get the cart totals. You can also return the totals pre-formatted to save you time applying the currency symbol. <a href="./#get-cart-totals">Get Cart Totals</a> properties.</p>
@@ -1150,28 +1179,34 @@
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"subtotal"</span><span class="p">:</span><span class="s2">"123.00"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"subtotal_tax"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"subtotal_tax"</span><span class="p">:</span><span class="mf">8.4</span><span class="p">,</span><span class="w">
   </span><span class="s2">"shipping_total"</span><span class="p">:</span><span class="s2">"33.00"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"shipping_tax"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"shipping_taxes"</span><span class="p">:[],</span><span class="w">
+  </span><span class="s2">"shipping_tax"</span><span class="p">:</span><span class="mf">6.6</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"shipping_taxes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"12"</span><span class="p">:</span><span class="w"> </span><span class="mf">6.6</span><span class="w">
+  </span><span class="p">},</span><span class="w">
   </span><span class="s2">"discount_total"</span><span class="p">:</span><span class="mf">24.6</span><span class="p">,</span><span class="w">
   </span><span class="s2">"discount_tax"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
   </span><span class="s2">"cart_contents_total"</span><span class="p">:</span><span class="s2">"98.40"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"cart_contents_tax"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"cart_contents_taxes"</span><span class="p">:[],</span><span class="w">
-  </span><span class="s2">"fee_total"</span><span class="p">:</span><span class="s2">"40.00"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"fee_tax"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"fee_taxes"</span><span class="p">:[],</span><span class="w">
-  </span><span class="s2">"total"</span><span class="p">:</span><span class="s2">"171.40"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"total_tax"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"cart_contents_tax"</span><span class="p">:</span><span class="mf">8.4</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"cart_contents_taxes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"12"</span><span class="p">:</span><span class="w"> </span><span class="mf">8.4</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"fee_total"</span><span class="p">:</span><span class="s2">"5.00"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"fee_tax"</span><span class="p">:</span><span class="mf">0.4</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"fee_taxes"</span><span class="p">:{</span><span class="w">
+    </span><span class="s2">"12"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.4</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"total"</span><span class="p">:</span><span class="s2">"146.40"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"total_tax"</span><span class="p">:</span><span class="mi">15</span><span class="p">,</span><span class="w">
   </span><span class="s2">"fees"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"cocart-extra-package-protection"</span><span class="p">:{</span><span class="w">
         </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cocart-extra-package-protection"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Extra Package Protection"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"40"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"taxable"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
         </span><span class="s2">"tax_class"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">4000</span><span class="w">
+        </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">500</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
