@@ -18,10 +18,6 @@ Prior to WooCommerce v3.6, CoCart shared WooCommerce's REST API. You can find th
 
 ## CoCart Pro ##
 
-<aside class="notice">
-  At this time, only a select few have access to CoCart Pro to test out and provide feedback before launching. The documentation is a WIP (Work in Progress) at this time so if you are not one of the selected then it would be best not to use the documentation at this time.
-</aside>
-
 | API Version | CoCart Pro Version | WC Version      | WP Version   | Documentation        |
 | ----------- | ------------------ | --------------- | ------------ | -------------------- |
 | `v1`        | 1.0.x or later     | 3.6.x or later  | 4.4 or later | [cocart pro docs](pro.html) |
