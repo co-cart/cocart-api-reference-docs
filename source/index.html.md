@@ -23,6 +23,7 @@ includes:
   - cocart-v1/count-items
   - cocart-v1/calculate
   - cocart-v1/totals
+  - cocart-v1/products
   - cocart-v1/items
   - cocart-v1/add-to-cart
   - cocart-v1/remove-item-from-cart
