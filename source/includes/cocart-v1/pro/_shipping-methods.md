@@ -76,7 +76,7 @@ Apply a shipping method to the cart. Can only apply once the customer has calcul
 </div>
 
 ```shell
-curl -X POST https://example.com/wp-json/cocart/v1/shipping-method \
+curl -X POST https://example.com/wp-json/cocart/v1/shipping-methods \
   -H "Content-Type: application/json" \
   -d '{
     "key": "free_shipping:3",
