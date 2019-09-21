@@ -20,7 +20,7 @@ This API lets you retrieve products and view a specific product by ID.
 </div>
 
 ```shell
-curl -X GET https://example.com/wp-json/cocart/v1/products/546 \
+curl -X GET https://example.com/wp-json/cocart/v1/products/987 \
   -H "Content-Type: application/json"
 ```
 
@@ -28,89 +28,105 @@ curl -X GET https://example.com/wp-json/cocart/v1/products/546 \
 
 ```json
 {
-  "product": {
-    "title": "Premium Quality",
-    "id": 546,
-    "created_at": "2015-01-22T19:46:16Z",
-    "updated_at": "2015-01-22T19:46:16Z",
+    "id": 987,
+    "name": "Cupcake",
+    "slug": "cupcake",
+    "date_created": "2019-09-20T19:01:23",
+    "date_created_gmt": "2019-09-20T17:01:23",
+    "date_modified": "2019-09-20T19:01:26",
+    "date_modified_gmt": "2019-09-20T17:01:26",
     "type": "simple",
-    "downloadable": false,
-    "virtual": false,
+    "featured": false,
+    "catalog_visibility": "visible",
+    "description": "",
+    "short_description": "",
     "sku": "",
-    "price": "21.99",
-    "regular_price": "21.99",
-    "sale_price": null,
-    "price_html": "<span class=\"amount\">&#36;&nbsp;21.99</span>",
-    "taxable": true,
+    "price": "£1.29",
+    "regular_price": "£1.29",
+    "sale_price": "",
+    "date_on_sale_from": null,
+    "date_on_sale_from_gmt": null,
+    "date_on_sale_to": null,
+    "date_on_sale_to_gmt": null,
+    "on_sale": false,
+    "purchasable": true,
+    "total_sales": 0,
+    "virtual": false,
+    "downloadable": false,
+    "external_url": "",
+    "button_text": "",
     "tax_status": "taxable",
     "tax_class": "",
-    "managing_stock": false,
-    "stock_quantity": 0,
+    "manage_stock": false,
+    "stock_quantity": null,
     "in_stock": true,
+    "stock_status": "instock",
+    "backorders": "no",
     "backorders_allowed": false,
     "backordered": false,
     "sold_individually": false,
-    "purchaseable": true,
-    "featured": false,
-    "visible": true,
-    "catalog_visibility": "visible",
-    "on_sale": false,
-    "weight": null,
+    "weight": "",
     "dimensions": {
-      "length": "",
-      "width": "",
-      "height": "",
-      "unit": "cm"
+        "length": "",
+        "width": "",
+        "height": ""
     },
     "shipping_required": true,
-    "description": "<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>\n",
-    "short_description": "<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>\n",
     "reviews_allowed": true,
-    "average_rating": "0.00",
+    "average_rating": "0",
     "rating_count": 0,
     "related_ids": [
-      37,
-      47,
-      31,
-      19,
-      22
+        1001,
+        1003
     ],
     "upsell_ids": [],
     "cross_sell_ids": [],
     "parent_id": 0,
     "categories": [
-      "Clothing",
-      "T-shirts"
+        {
+            "id": 42,
+            "name": "Food",
+            "slug": "food"
+        }
     ],
-    "tags": [],
+    "tags": [
+        {
+            "id": 43,
+            "name": "Cupcakes",
+            "slug": "cupcakes"
+        }
+    ],
     "images": [
-      {
-        "id": 547,
-        "created_at": "2015-01-22T19:46:16Z",
-        "updated_at": "2015-01-22T19:46:16Z",
-        "src": "http://example.com/wp-content/uploads/2015/01/premium-quality-front.jpg",
-        "title": "",
-        "alt": "",
-        "position": 0
-      },
-      {
-        "id": 548,
-        "created_at": "2015-01-22T19:46:17Z",
-        "updated_at": "2015-01-22T19:46:17Z",
-        "src": "http://example.com/wp-content/uploads/2015/01/premium-quality-back.jpg",
-        "title": "",
-        "alt": "",
-        "position": 1
-      }
+        {
+            "id": 970,
+            "date_created": "2019-09-20T20:20:55",
+            "date_created_gmt": "2019-09-20T16:20:55",
+            "date_modified": "2019-09-20T20:20:55",
+            "date_modified_gmt": "2019-09-20T16:20:55",
+            "src": "https://example.com/wp-content/uploads/2019/09/jennie-brown-MKBoRZEGeiM-unsplash.jpg",
+            "name": "jennie-brown-MKBoRZEGeiM-unsplash",
+            "alt": "",
+            "position": 0
+        }
     ],
-    "featured_src": "http://example.com/wp-content/uploads/2015/01/premium-quality-front.jpg",
     "attributes": [],
-    "total_sales": 0,
+    "default_attributes": [],
     "variations": [],
-    "parent": [],
     "grouped_products": [],
-    "menu_order": 0
-  }
+    "menu_order": 0,
+    "meta_data": [],
+    "_links": {
+        "self": [
+            {
+                "href": "https://example.com/wp-json/cocart/v1/products/987"
+            }
+        ],
+        "collection": [
+            {
+                "href": "https://example.com/wp-json/cocart/v1/products"
+            }
+        ]
+    }
 }
 ```
 
