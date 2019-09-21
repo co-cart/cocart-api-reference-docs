@@ -2,13 +2,13 @@
 
 Being able to fetch the products without authentication is important.
 
-You can not add items to the cart without know some information about the products.
+You can not add items to the cart without knowing some information about the products.
 
-The products API allows you to get products or and individual product in read-only. If you want to add or alter products then view WooCommerce's REST API Docs under products for that.
+The products API allows you to get products or and individual product in read-only. If you want to add or alter products then view [WooCommerce's REST API Docs](http://woocommerce.github.io/woocommerce-rest-api-docs/?php#products) under products for that.
 
 ## View a Product ##
 
-This API lets you retrieve and view a specific product by ID.
+This API lets you retrieve products and view a specific product by ID.
 
 ### HTTP Request ###
 
