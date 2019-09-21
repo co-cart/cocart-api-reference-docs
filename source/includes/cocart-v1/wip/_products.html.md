@@ -6,9 +6,133 @@ You can not add items to the cart without knowing some information about the pro
 
 The products API allows you to get products or and individual product in read-only. If you want to add or alter products then view [WooCommerce's REST API Docs](http://woocommerce.github.io/woocommerce-rest-api-docs/?php#products) under products for that.
 
-## View a Product ##
+## Product properties ##
 
-This API lets you retrieve products and view a specific product by ID.
+| Attribute               | Type      | Description                                                                                                          |
+|-------------------------|-----------|----------------------------------------------------------------------------------------------------------------------|
+| `id`                    | integer   | The product ID.                                                                                                      |
+| `name`                  | string    | Product name.                                                                                                        |
+| `slug`                  | string    | Product slug.                                                                                                        |
+| `date_created`          | date-time | The date the product was created, in the site's timezone.                                                            |
+| `date_created_gmt`      | date-time | The date the product was created, as GMT.                                                                            |
+| `date_modified`         | date-time | The date the product was last modified, in the site's timezone.                                                      |
+| `date_modified_gmt`     | date-time | The date the product was last modified, as GMT.                                                                      |
+| `type`                  | string    | Product type.                                                                                                        |
+| `featured`              | boolean   | Featured product.                                                                                                    |
+| `catalog_visibility`    | string    | Catalog visibility.                                                                                                  |
+| `description`           | string    | Product description.                                                                                                 |
+| `short_description`     | string    | Product short description.                                                                                           |
+| `sku`                   | string    | Unique identifier.                                                                                                   |
+| `price`                 | string    | Current product price.                                                                                               |
+| `regular_price`         | string    | Product regular price.                                                                                               |
+| `sale_price`            | string    | Product sale price.                                                                                                  |
+| `date_on_sale_from`     | date-time | Start date of sale price, in the site's timezone.                                                                    |
+| `date_on_sale_from_gmt` | date-time | Start date of sale price, as GMT.                                                                                    |
+| `date_on_sale_to`       | date-time | End date of sale price, in the site's timezone.                                                                      |
+| `date_on_sale_to_gmt`   | date-time | End date of sale price, as GMT.                                                                                      |
+| `on_sale`               | boolean   | Shows if the product is on sale.                                                                                     |
+| `purchasable`           | boolean   | Shows if the product can be bought.                                                                                  |
+| `total_sales`           | integer   | Amount of sales.                                                                                                     |
+| `virtual`               | boolean   | If the product is virtual.                                                                                           |
+| `downloadable`          | boolean   | If the product is downloadable.                                                                                      |
+| `external_url`          | string    | Product external URL. Only for external products.                                                                    |
+| `button_text`           | string    | Product external button text. Only for external products.                                                            |
+| `tax_status`            | string    | Tax status.                                                                                                          |
+| `tax_class`             | string    | Tax class.                                                                                                           |
+| `manage_stock`          | boolean   | Stock management at product level.                                                                                   |
+| `stock_quantity`        | integer   | Stock quantity.                                                                                                      |
+| `stock_status`          | string    | Controls the stock status of the product.                                                                            |
+| `backorders`            | string    | Shows if backorders are allowed.                                                                                     |
+| `backorders_allowed`    | boolean   | Shows if backorders are allowed.                                                                                     |
+| `backordered`           | boolean   | Shows if the product is on backordered.                                                                              |
+| `sold_individually`     | boolean   | Allow one item to be bought in a single order.                                                                       |
+| `weight`                | string    | Product weight.                                                                                                      |
+| `dimensions`            | object    | Product dimensions. See [Product - Dimensions properties](#product-dimensions-properties)                            |
+| `shipping_required`     | boolean   | Shows if the product need to be shipped.                                                                             |
+| `reviews_allowed`       | boolean   | Shows if reviews are allowed.                                                                                        |
+| `average_rating`        | string    | Reviews average rating.                                                                                              |
+| `rating_count`          | integer   | Amount of reviews that the product has.                                                                              |
+| `related_ids`           | array     | List of related products IDs.                                                                                        |
+| `upsell_ids`            | array     | List of up-sell products IDs.                                                                                        |
+| `cross_sell_ids`        | array     | List of cross-sell products IDs.                                                                                     |
+| `parent_id`             | integer   | Product parent ID.                                                                                                   |
+| `categories`            | array     | List of categories. See [Product - Categories properties](#product-categories-properties)                            |
+| `tags`                  | array     | List of tags. See [Product - Tags properties](#product-tags-properties)                                              |
+| `images`                | array     | List of images. See [Product - Images properties](#product-images-properties)                                        |
+| `attributes`            | array     | List of attributes. See [Product - Attributes properties](#product-attributes-properties)                            |
+| `default_attributes`    | array     | Defaults variation attributes. See [Product - Default attributes properties](#product-default-attributes-properties) |
+| `variations`            | array     | List of variations IDs.                                                                                              |
+| `grouped_products`      | array     | List of grouped products ID.                                                                                         |
+| `menu_order`            | integer   | Menu order, used to custom sort products.                                                                            |
+| `meta_data`             | array     | Meta data. See [Product - Meta data properties](#product-meta-data-properties)                                       |
+
+### Product - Dimensions properties ###
+
+| Attribute | Type   | Description     |
+|-----------|--------|-----------------|
+| `length`  | string | Product length. |
+| `width`   | string | Product width.  |
+| `height`  | string | Product height. |
+
+### Product - Categories properties ###
+
+| Attribute | Type    | Description    |
+|-----------|---------|----------------|
+| `id`      | integer | Category ID.   |
+| `name`    | string  | Category name. |
+| `slug`    | string  | Category slug. |
+
+### Product - Tags properties ###
+
+| Attribute | Type    | Description |
+|-----------|---------|-------------|
+| `id`      | integer | Tag ID.     |
+| `name`    | string  | Tag name.   |
+| `slug`    | string  | Tag slug.   |
+
+### Product - Images properties ###
+
+| Attribute           | Type      | Description                                                   |
+|---------------------|-----------|---------------------------------------------------------------|
+| `id`                | integer   | Image ID.                                                     |
+| `date_created`      | date-time | The date the image was created, in the site's timezone.       |
+| `date_created_gmt`  | date-time | The date the image was created, as GMT.                       |
+| `date_modified`     | date-time | The date the image was last modified, in the site's timezone. |
+| `date_modified_gmt` | date-time | The date the image was last modified, as GMT.                 |
+| `src`               | string    | Image URL.                                                    |
+| `name`              | string    | Image name.                                                   |
+| `alt`               | string    | Image alternative text.                                       |
+
+### Product - Attributes properties ###
+
+| Attribute   | Type    | Description                                                                                  |
+|-------------|---------|----------------------------------------------------------------------------------------------|
+| `id`        | integer | Attribute ID.                                                                                |
+| `name`      | string  | Attribute name.                                                                              |
+| `position`  | integer | Attribute position.                                                                          |
+| `visible`   | boolean | Shows if the attribute is visible on the "Additional information" tab in the product's page. |
+| `variation` | boolean | Shows if the attribute can be used as variation.                                             |
+| `options`   | array   | List of available term names of the attribute.                                               |
+
+### Product - Default attributes properties ###
+
+| Attribute | Type    | Description                   |
+|-----------|---------|-------------------------------|
+| `id`      | integer | Attribute ID.                 |
+| `name`    | string  | Attribute name.               |
+| `option`  | string  | Selected attribute term name. |
+
+### Product - Meta data properties ###
+
+| Attribute | Type    | Description  |
+|-----------|---------|--------------|
+| `id`      | integer | Meta ID.     |
+| `key`     | string  | Meta key.    |
+| `value`   | string  | Meta value.  |
+
+## Retrieve a Product ##
+
+This API lets you retrieve and view a specific product by ID.
 
 ### HTTP Request ###
 
@@ -130,7 +254,7 @@ curl -X GET https://example.com/wp-json/cocart/v1/products/987 \
 }
 ```
 
-## View List of Products ##
+## List all Products ##
 
 This API helps you to view all the products.
 
