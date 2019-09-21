@@ -22,6 +22,10 @@ Prior to WooCommerce v3.6, CoCart shared WooCommerce's REST API. You can find th
 | ----------- | ------------------ | --------------- | ------------ | -------------------- |
 | `v1`        | 1.0.x or later     | 3.6.x or later  | 4.4 or later | [cocart pro docs](pro.html) |
 
+## Work in Progress ##
+
+[This section provides documentation on future features](wip.html) that are in the works. Only view this section if you are testing beta releases and not using it on production sites.
+
 ## Requirements ##
 
 To use the latest version of the CoCart you must be using:
