@@ -1,10 +1,8 @@
 # Products #
 
-Being able to fetch the products without authentication is important.
+Being able to fetch the products without authentication is important. You can not add items to the cart without products.
 
-You can not add items to the cart without knowing some information about the products.
-
-The products API allows you to get products or and individual product in read-only. If you want to add or alter products then view [WooCommerce's REST API Docs](http://woocommerce.github.io/woocommerce-rest-api-docs/?php#products) under products for that.
+The products API allows you to get products or and individual product in READ-ONLY. If you want to add or alter products then view [WooCommerce's REST API Docs](http://woocommerce.github.io/woocommerce-rest-api-docs/?php#products) under products for that.
 
 ## View a Product ##
 
@@ -114,9 +112,9 @@ curl -X GET https://example.com/wp-json/cocart/v1/products/546 \
 }
 ```
 
-## View List of Products ##
+## List all Products ##
 
-This API helps you to view all the products.
+This API helps you to get all the products.
 
 ### HTTP Request ###
 
@@ -437,7 +435,7 @@ curl -X GET https://example.com/wp-json/cocart/v1/products \
 |      Filter      |  Type  |                     Description                      |
 | ---------------- | ------ | ---------------------------------------------------- |
 | `type`           | string | Products by type. eg: `simple` or `variable`.        |
-| `category`       | string | Products by category.                                |
-| `tag`            | string | Products by tag.                                     |
+| `category`       | string | Products by category slug.                           |
+| `tag`            | string | Products by tag slug.                                |
 | `pa_*`           | string | Products by attributes. eg: `filter[pa_color]=black` |
 | `sku`            | string | Filter a product by SKU.                             |
