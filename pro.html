@@ -249,6 +249,14 @@
               </ul>
           </li>
           <li>
+            <a href="#checkout" class="toc-h1 toc-link" data-title="Checkout">Checkout</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-checkout-data" class="toc-h2 toc-link" data-title="Get Checkout Data">Get Checkout Data</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#coupons" class="toc-h1 toc-link" data-title="Coupons">Coupons</a>
               <ul class="toc-list-h2">
                   <li>
@@ -602,6 +610,285 @@
 <p>JSON response example</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="s2">"Shipping costs updated."</span><span class="w">
+</span></code></pre><h1 id='checkout'>Checkout</h1>
+<p>The following allows you to checkout the cart data, convert it into an order and allow the customer to proceed to payment.</p>
+<h2 id='get-checkout-data'>Get Checkout Data</h2>
+<p>This API helps get information about the checkout setup and the fields.</p>
+<h4 id='http-request'>HTTP request</h4>
+<div class="api-endpoint">
+  <div class="endpoint-data">
+    <i class="label label-get">GET</i>
+    <h6>/wp-json/cocart/v1/checkout</h6>
+  </div>
+</div>
+<pre class="highlight shell tab-shell"><code>curl -X GET https://example.com/wp-json/cocart/v1/checkout <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span>
+</code></pre>
+<blockquote>
+<p>JSON response example</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"is_registration_required"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"is_registration_enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"checkout_fields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"billing"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"billing_first_name"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"First name"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"required"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="s2">"form-row-first"</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"autocomplete"</span><span class="p">:</span><span class="w"> </span><span class="s2">"given-name"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"priority"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"billing_last_name"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Last name"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"required"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="s2">"form-row-last"</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"autocomplete"</span><span class="p">:</span><span class="w"> </span><span class="s2">"family-name"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"priority"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"billing_company"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Company name"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="s2">"form-row-wide"</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"autocomplete"</span><span class="p">:</span><span class="w"> </span><span class="s2">"organization"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"priority"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"required"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"billing_country"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"country"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Country"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"required"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="s2">"form-row-wide"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"address-field"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"update_totals_on_change"</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"autocomplete"</span><span class="p">:</span><span class="w"> </span><span class="s2">"country"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"priority"</span><span class="p">:</span><span class="w"> </span><span class="mi">40</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"billing_address_1"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Street address"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"placeholder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"House number and street name"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"required"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="s2">"form-row-wide"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"address-field"</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"autocomplete"</span><span class="p">:</span><span class="w"> </span><span class="s2">"address-line1"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"priority"</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"billing_address_2"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"placeholder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Apartment, suite, unit etc. (optional)"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="s2">"form-row-wide"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"address-field"</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"autocomplete"</span><span class="p">:</span><span class="w"> </span><span class="s2">"address-line2"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"priority"</span><span class="p">:</span><span class="w"> </span><span class="mi">60</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"required"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Apartment, suite, unit etc. (optional)"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"label_class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"screen-reader-text"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"billing_city"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Town / City"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"required"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="s2">"form-row-wide"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"address-field"</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"autocomplete"</span><span class="p">:</span><span class="w"> </span><span class="s2">"address-level2"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"priority"</span><span class="p">:</span><span class="w"> </span><span class="mi">70</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"billing_state"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"state"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"County"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"required"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="s2">"form-row-wide"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"address-field"</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"validate"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="s2">"state"</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"autocomplete"</span><span class="p">:</span><span class="w"> </span><span class="s2">"address-level1"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"priority"</span><span class="p">:</span><span class="w"> </span><span class="mi">80</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"country_field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"billing_country"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"billing_postcode"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Postcode"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"required"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="s2">"form-row-wide"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"address-field"</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"validate"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="s2">"postcode"</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"autocomplete"</span><span class="p">:</span><span class="w"> </span><span class="s2">"postal-code"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"priority"</span><span class="p">:</span><span class="w"> </span><span class="mi">90</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"billing_phone"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Phone"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"required"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tel"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="s2">"form-row-wide"</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"validate"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="s2">"phone"</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"autocomplete"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tel"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"priority"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"billing_email"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Email address"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"required"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"email"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="s2">"form-row-wide"</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"validate"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="s2">"email"</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"autocomplete"</span><span class="p">:</span><span class="w"> </span><span class="s2">"email"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"priority"</span><span class="p">:</span><span class="w"> </span><span class="mi">110</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"shipping"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"shipping_first_name"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"First name"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"required"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="s2">"form-row-first"</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"autocomplete"</span><span class="p">:</span><span class="w"> </span><span class="s2">"given-name"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"priority"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"shipping_last_name"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Last name"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"required"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="s2">"form-row-last"</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"autocomplete"</span><span class="p">:</span><span class="w"> </span><span class="s2">"family-name"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"priority"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"shipping_company"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Company name"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="s2">"form-row-wide"</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"autocomplete"</span><span class="p">:</span><span class="w"> </span><span class="s2">"organization"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"priority"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"required"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"shipping_country"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"country"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Country"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"required"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="s2">"form-row-wide"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"address-field"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"update_totals_on_change"</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"autocomplete"</span><span class="p">:</span><span class="w"> </span><span class="s2">"country"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"priority"</span><span class="p">:</span><span class="w"> </span><span class="mi">40</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"shipping_address_1"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Street address"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"placeholder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"House number and street name"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"required"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="s2">"form-row-wide"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"address-field"</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"autocomplete"</span><span class="p">:</span><span class="w"> </span><span class="s2">"address-line1"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"priority"</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"shipping_address_2"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"placeholder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Apartment, suite, unit etc. (optional)"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="s2">"form-row-wide"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"address-field"</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"autocomplete"</span><span class="p">:</span><span class="w"> </span><span class="s2">"address-line2"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"priority"</span><span class="p">:</span><span class="w"> </span><span class="mi">60</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"required"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Apartment, suite, unit etc. (optional)"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"label_class"</span><span class="p">:</span><span class="w"> </span><span class="s2">"screen-reader-text"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"shipping_city"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Town / City"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"required"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="s2">"form-row-wide"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"address-field"</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"autocomplete"</span><span class="p">:</span><span class="w"> </span><span class="s2">"address-level2"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"priority"</span><span class="p">:</span><span class="w"> </span><span class="mi">70</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"shipping_state"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"state"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"County"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"required"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="s2">"form-row-wide"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"address-field"</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"validate"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="s2">"state"</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"autocomplete"</span><span class="p">:</span><span class="w"> </span><span class="s2">"address-level1"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"priority"</span><span class="p">:</span><span class="w"> </span><span class="mi">80</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"country_field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"shipping_country"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GB"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"shipping_postcode"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Postcode"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"required"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="s2">"form-row-wide"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"address-field"</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"validate"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="s2">"postcode"</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"autocomplete"</span><span class="p">:</span><span class="w"> </span><span class="s2">"postal-code"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"priority"</span><span class="p">:</span><span class="w"> </span><span class="mi">90</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"account"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"account_username"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"text"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Account username"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"required"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"placeholder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Username"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"account_password"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"password"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Create account password"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"required"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"placeholder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Password"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"order"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"order_comments"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"textarea"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"class"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="s2">"notes"</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Order notes"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"placeholder"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Notes about your order, e.g. special notes for delivery."</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
 </span></code></pre><h1 id='coupons'>Coupons</h1>
 <p>This API helps you get applied coupons, add coupons to cart, remove coupons from cart and check coupons for validation.</p>
 <h3 id='coupon-properties'>Coupon Properties</h3>
@@ -1134,7 +1421,7 @@
     <h6>/wp-json/cocart/v1/shipping-methods</h6>
   </div>
 </div>
-<pre class="highlight shell tab-shell"><code>curl -X POST https://example.com/wp-json/cocart/v1/shipping-method <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl -X POST https://example.com/wp-json/cocart/v1/shipping-methods <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
   -d <span class="s1">'{
     "key": "free_shipping:3",
