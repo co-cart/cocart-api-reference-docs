@@ -8,4 +8,6 @@ It is also possible to authenticate using any of the following WP REST API authe
 
 * [JWT Authentication for WP REST API](https://wordpress.org/plugins/jwt-authentication-for-wp-rest-api/)
 
-> If you have tested other authentication plugins or methods, [please let me know](https://cocart.xyz/feedback/) so that I can add it to the list. Thank you.
+<aside class="notice">
+    If you have tested other authentication plugins or methods, please let me know here: https://cocart.xyz/feedback/ so that I can add it to the list. Thank you. 😄
+</aside>

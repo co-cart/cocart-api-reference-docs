@@ -5,6 +5,7 @@ The Documentation is updated only when needed. Below is the changelog for "CoCar
 ### Doc Version 1.2 ###
 
 * Added Work in Progress section.
+* Added Authentication section.
 
 ### Doc Version 1.1 ###
 
