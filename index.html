@@ -262,6 +262,9 @@
               </ul>
           </li>
           <li>
+            <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
+          </li>
+          <li>
             <a href="#cart" class="toc-h1 toc-link" data-title="Cart">Cart</a>
               <ul class="toc-list-h2">
                   <li>
@@ -1489,7 +1492,21 @@
         </span><span class="p">]</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h1 id='cart'>Cart</h1>
+</span></code></pre><h1 id='authentication'>Authentication</h1>
+<p>CoCart can be authenticated by various methods with the WP REST API, first being via the <a href="http://woocommerce.github.io/woocommerce-rest-api-docs/#rest-api-keys">REST API keys</a> in <a href="http://woocommerce.github.io/woocommerce-rest-api-docs/#authentication">WooCommerce</a>. Though this method is designed for the backend, with some custom coding you can make it work for the frontend.</p>
+
+<p>Checkout my guide on <a href="https://cocart.xyz/authenticating-with-woocommerce-heres-how-you-can-do-it/">how to authenticate with WooCommerce</a>.</p>
+
+<p>It is also possible to authenticate using any of the following WP REST API authentication plugins or methods.</p>
+
+<ul>
+<li><a href="https://wordpress.org/plugins/jwt-authentication-for-wp-rest-api/">JWT Authentication for WP REST API</a></li>
+</ul>
+
+<aside class="notice">
+    If you have tested other authentication plugins or methods, please let me know here: https://cocart.xyz/feedback/ so that I can add it to the list. Thank you. 😄
+</aside>
+<h1 id='cart'>Cart</h1>
 <p>The cart API is powerful and allows you to view the cart in session, add new items, update the quantity of an item and delete individual items from the cart.</p>
 
 <p>Using the individual endpoints and their properties, you can control what you need and what is returned when the request is finished.</p>
@@ -2203,6 +2220,7 @@ function remove_parent_cart_item_key( $cart_contents ) {
 <h3 id='doc-version-1-2'>Doc Version 1.2</h3>
 <ul>
 <li>Added Work in Progress section.</li>
+<li>Added Authentication section.</li>
 </ul>
 <h3 id='doc-version-1-1'>Doc Version 1.1</h3>
 <ul>
