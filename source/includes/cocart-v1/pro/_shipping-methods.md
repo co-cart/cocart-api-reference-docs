@@ -31,17 +31,19 @@ curl -X GET https://example.com/wp-json/cocart/v1/shipping-methods \
 ```json
 {
   "flat_rate:1":{
-    "id": "flat_rate:1",
+    "key": "flat_rate:1",
     "method_id": "flat_rate",
     "instance_id": 1,
     "label": "Flat rate",
     "cost": "33.00",
     "html": "Flat rate: £33.00",
-    "taxes": [],
+    "taxes": {
+      "12": 6.6
+    },
     "chosen_method": true
   },
   "free_shipping:3":{
-    "id": "free_shipping:3",
+    "key": "free_shipping:3",
     "method_id": "free_shipping",
     "instance_id": 3,
     "label": "Free shipping",
@@ -61,8 +63,7 @@ Apply a shipping method to the cart. Can only apply once the customer has calcul
 
 | Attribute            | Type   | Description       |
 | -------------------- | ------ | ----------------- |
-| `method_id`          | string | The method ID of the shipping method. <i class="label label-info">required</i> |
-| `instance_id`        | string | The instance ID of the shipping method. <i class="label label-info">required</i> |
+| `key`                | string | The key of the shipping method. <i class="label label-info">required</i> |
 | `recurring_cart_key` | string | The recurring cart key identifies each subscription in cart. <i class="label label-info">required, only for subscriptions.</i> |
 
 ### HTTP request ###
@@ -75,15 +76,15 @@ Apply a shipping method to the cart. Can only apply once the customer has calcul
 </div>
 
 ```shell
-curl -X POST https://example.com/wp-json/cocart/v1/shipping-method \
+curl -X POST https://example.com/wp-json/cocart/v1/shipping-methods \
   -H "Content-Type: application/json" \
   -d '{
-    "method_id": "free_shipping",
-    "instance_id": "3"
+    "key": "free_shipping:3",
   }'
 ```
 
 > JSON response example.
 
 ```json
+true
 ```

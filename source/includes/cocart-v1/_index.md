@@ -16,7 +16,8 @@ By default, the API provides information about all available endpoints on the si
 </div>
 
 ```shell
-curl https://example.com/wp-json/cocart/v1
+curl -X GET https://example.com/wp-json/cocart/v1 \
+  -H "Content-Type: application/json"
 ```
 
 > JSON response example:
