@@ -229,7 +229,9 @@ $args = array(
 curl_setopt_array( $curl, array(
   CURLOPT_URL => "https://example.com/wp-json/cocart/v1/get-cart/123",
   CURLOPT_CUSTOMREQUEST => "GET",
-  CURLOPT_POSTFIELDS => $args,
+  CURLOPT_HTTPHEADER => [
+    'Authorization: Basic ' . base64_encode($consumer_key . ':' . $consumer_secret)
+  ],
   CURLOPT_RETURNTRANSFER => true
 ) );
 

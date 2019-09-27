@@ -22,6 +22,40 @@ curl -X GET https://example.com/wp-json/cocart/v1/totals \
  -H "Content-Type: application/json"
 ```
 
+```javascript--jquery
+var settings = {
+  "url": "https://example.com/wp-json/cocart/v1/totals",
+  "method": "GET"
+};
+
+$.ajax(settings).done(function (response) {
+  console.log(response);
+});
+```
+
+```php
+<?php
+$curl = curl_init();
+
+curl_setopt_array( $curl, array(
+  CURLOPT_URL => "https://example.com/wp-json/cocart/v1/totals",
+  CURLOPT_CUSTOMREQUEST => "GET",
+  CURLOPT_RETURNTRANSFER => true
+) );
+
+$response = curl_exec($curl);
+
+curl_close($curl);
+
+echo $response;
+```
+
+```php--wp-http-api
+<?php
+$response = wp_remote_get( 'https://example.com/wp-json/cocart/v1/totals' );
+$body = wp_remote_retrieve_body( $response );
+```
+
 > JSON response example
 
 ```json
@@ -48,12 +82,59 @@ curl -X GET https://example.com/wp-json/cocart/v1/totals \
 }
 ```
 
+> Here is what to do to return the totals formatted with currency symbol.
+
 ```shell
 curl -X GET https://example.com/wp-json/cocart/v1/totals \
   -H "Content-Type: application/json" \
   -d '{
     "html": true
   }'
+```
+
+```javascript--jquery
+var settings = {
+  "url": "https://example.com/wp-json/cocart/v1/totals",
+  "method": "GET",
+  "data": {
+    "html" : true
+  }
+};
+
+$.ajax(settings).done(function (response) {
+  console.log(response);
+});
+```
+
+```php
+<?php
+$curl = curl_init();
+
+$args = array(
+  'html' => true
+);
+
+curl_setopt_array( $curl, array(
+  CURLOPT_URL => "https://example.com/wp-json/cocart/v1/totals",
+  CURLOPT_CUSTOMREQUEST => "GET",
+  CURLOPT_POSTFIELDS => $args,
+  CURLOPT_RETURNTRANSFER => true
+) );
+
+$response = curl_exec($curl);
+
+curl_close($curl);
+
+echo $response;
+```
+
+```php--wp-http-api
+<?php
+$args = array(
+  'html' => true
+);
+$response = wp_remote_get( 'https://example.com/wp-json/cocart/v1/totals', $args );
+$body = wp_remote_retrieve_body( $response );
 ```
 
 > JSON response example
