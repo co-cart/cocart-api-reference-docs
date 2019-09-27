@@ -1,9 +1,11 @@
 ---
-title: CoCart Documentation v1
+title: CoCart Documentation v1.1
 
 language_tabs:
  - shell: cURL
+ - javascript--jquery: jQuery
  - php: PHP
+ - php--wp-http-api: WP API
 
 toc_footers:
   - <a href="https://github.com/co-cart/co-cart">CoCart Repository</a>
