@@ -4,9 +4,9 @@ The cart API is powerful and allows you to view the cart in session, add new ite
 
 Using the individual endpoints and their properties, you can control what you need and what is returned when the request is finished.
 
-## Get Cart Contents ##
+## Retrieve Cart Contents ##
 
-This API returns the contents of the cart from a logged in customer or guest.
+This API returns the contents of the cart from a logged in customer or guest customer.
 
 ### Properties ###
 
@@ -181,7 +181,7 @@ $body = wp_remote_retrieve_body( $response );
 }
 ```
 
-## Get Customers Cart Contents ##
+## Retrieve a Customers Cart Contents ##
 
 This API returns the cart contents for a specific registered customer. To use this you must [authenticate](https://developer.wordpress.org/rest-api/using-the-rest-api/authentication/). You can also use the [Get Cart Content](#get-cart-contents) properties.
 

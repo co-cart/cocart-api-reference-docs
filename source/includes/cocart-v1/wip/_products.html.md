@@ -35,8 +35,6 @@ The products API allows you to get products or and individual product in READ-ON
 | `downloadable`          | boolean   | If the product is downloadable.                                                                                      |
 | `external_url`          | string    | Product external URL. Only for external products.                                                                    |
 | `button_text`           | string    | Product external button text. Only for external products.                                                            |
-| `tax_status`            | string    | Tax status.                                                                                                          |
-| `tax_class`             | string    | Tax class.                                                                                                           |
 | `manage_stock`          | boolean   | Stock management at product level.                                                                                   |
 | `stock_quantity`        | integer   | Stock quantity.                                                                                                      |
 | `stock_status`          | string    | Controls the stock status of the product.                                                                            |
@@ -211,8 +209,6 @@ $body = wp_remote_retrieve_body( $response );
     "downloadable": false,
     "external_url": "",
     "button_text": "",
-    "tax_status": "taxable",
-    "tax_class": "",
     "manage_stock": false,
     "stock_quantity": null,
     "in_stock": true,
@@ -370,8 +366,6 @@ $body = wp_remote_retrieve_body( $response );
         "downloadable": false,
         "external_url": "",
         "button_text": "",
-        "tax_status": "taxable",
-        "tax_class": "",
         "manage_stock": false,
         "stock_quantity": null,
         "in_stock": true,
@@ -471,8 +465,6 @@ $body = wp_remote_retrieve_body( $response );
         "downloadable": false,
         "external_url": "",
         "button_text": "",
-        "tax_status": "taxable",
-        "tax_class": "",
         "manage_stock": false,
         "stock_quantity": null,
         "in_stock": true,
@@ -572,8 +564,6 @@ $body = wp_remote_retrieve_body( $response );
         "downloadable": false,
         "external_url": "",
         "button_text": "",
-        "tax_status": "taxable",
-        "tax_class": "",
         "manage_stock": false,
         "stock_quantity": null,
         "in_stock": true,
@@ -673,8 +663,6 @@ $body = wp_remote_retrieve_body( $response );
         "downloadable": false,
         "external_url": "",
         "button_text": "",
-        "tax_status": "taxable",
-        "tax_class": "reduced-rate",
         "manage_stock": false,
         "stock_quantity": null,
         "in_stock": true,
@@ -798,8 +786,6 @@ $body = wp_remote_retrieve_body( $response );
         "downloadable": false,
         "external_url": "",
         "button_text": "",
-        "tax_status": "taxable",
-        "tax_class": "",
         "manage_stock": false,
         "stock_quantity": null,
         "in_stock": true,
@@ -947,8 +933,6 @@ $body = wp_remote_retrieve_body( $response );
         "downloadable": false,
         "external_url": "",
         "button_text": "",
-        "tax_status": "taxable",
-        "tax_class": "",
         "manage_stock": false,
         "stock_quantity": null,
         "in_stock": true,
@@ -1262,8 +1246,6 @@ $body = wp_remote_retrieve_body( $response );
         "downloadable": false,
         "external_url": "",
         "button_text": "",
-        "tax_status": "taxable",
-        "tax_class": "",
         "manage_stock": false,
         "stock_quantity": null,
         "in_stock": true,
@@ -1577,8 +1559,6 @@ $body = wp_remote_retrieve_body( $response );
         "downloadable": false,
         "external_url": "",
         "button_text": "",
-        "tax_status": "taxable",
-        "tax_class": "",
         "manage_stock": false,
         "stock_quantity": null,
         "in_stock": true,
