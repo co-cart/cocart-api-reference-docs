@@ -2,6 +2,10 @@
 
 The Documentation is updated only when needed. Below is the changelog for "CoCart" documentation that matches with the version of the plugin release.
 
+### Doc Version 1.3 ###
+
+* Added languages for jQuery, PHP and WP API.
+
 ### Doc Version 1.2 ###
 
 * Added Work in Progress section.
