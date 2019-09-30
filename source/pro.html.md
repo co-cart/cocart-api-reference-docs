@@ -3,6 +3,9 @@ title: CoCart Pro Documentation v1
 
 language_tabs:
  - shell: cURL
+ - javascript--jquery: jQuery
+ - php: PHP
+ - php--wp-http-api: WP API
 
 toc_footers:
   - <a href="https://cocart.xyz">CoCart</a>
