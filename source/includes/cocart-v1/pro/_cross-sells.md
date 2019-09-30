@@ -22,6 +22,40 @@ curl -X GET https://example.com/wp-json/cocart/v1/cross-sells \
   -H "Content-Type: application/json"
 ```
 
+```javascript--jquery
+var settings = {
+  "url": "https://example.com/wp-json/cocart/v1/cross-sells",
+  "method": "GET"
+};
+
+$.ajax(settings).done(function (response) {
+  console.log(response);
+});
+```
+
+```php
+<?php
+$curl = curl_init();
+
+curl_setopt_array( $curl, array(
+  CURLOPT_URL => "https://example.com/wp-json/cocart/v1/cross-sells",
+  CURLOPT_CUSTOMREQUEST => "GET",
+  CURLOPT_RETURNTRANSFER => true
+) );
+
+$response = curl_exec($curl);
+
+curl_close($curl);
+
+echo $response;
+```
+
+```php--wp-http-api
+<?php
+$response = wp_remote_get( 'https://example.com/wp-json/cocart/v1/cross-sells' );
+$body = wp_remote_retrieve_body( $response );
+```
+
 > JSON response example
 
 ```json
