@@ -32,7 +32,7 @@ The properties are the same except the ID property is used to identify the cart 
 curl -X GET https://example.com/wp-json/cocart/v1/get-cart/saved \
   -H "Content-Type: application/json" \
   -d '{
-    "id": "",
+    "id": "edc0b4345d20d0c6859c919463bdd15d",
   }'
 ```
 
@@ -41,7 +41,7 @@ var settings = {
   "url": "https://example.com/wp-json/cocart/v1/get-cart/saved",
   "method": "GET",
   "data": {
-    "id": ""
+    "id": "edc0b4345d20d0c6859c919463bdd15d"
   }
 };
 
@@ -55,7 +55,7 @@ $.ajax(settings).done(function (response) {
 $curl = curl_init();
 
 $args = array(
-  'id' => ''
+  'id' => 'edc0b4345d20d0c6859c919463bdd15d'
 );
 
 curl_setopt_array( $curl, array(
@@ -75,7 +75,7 @@ echo $response;
 ```php--wp-http-api
 <?php
 $args = array(
-  'id' => ''
+  'id' => 'edc0b4345d20d0c6859c919463bdd15d'
 );
 
 $response = wp_remote_get( 'https://example.com/wp-json/cocart/v1/get-cart/saved', $args );
