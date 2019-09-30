@@ -1,6 +1,6 @@
-## Get Cart Totals ##
+## Retrieve Cart Totals ##
 
-This API helps you get the cart totals. You can also return the totals pre-formatted to save you time applying the currency symbol.
+This API helps you retrieve the cart totals. You can also return the totals pre-formatted to save you time applying the currency symbol.
 
 ### Properties ###
 
