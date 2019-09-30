@@ -29,6 +29,54 @@ curl -X POST https://example.com/wp-json/cocart/v1/item \
   }'
 ```
 
+```javascript--jquery
+var settings = {
+  "url": "https://example.com/wp-json/cocart/v1/item",
+  "method": "POST",
+  "data": {
+    "cart_item_key" : "404dcc91b2aeaa7caa47487d1483e48a",
+    "quantity" : 2
+  }
+};
+
+$.ajax(settings).done(function (response) {
+  console.log(response);
+});
+```
+
+```php
+<?php
+$curl = curl_init();
+
+$args = array(
+  'cart_item_key' => '404dcc91b2aeaa7caa47487d1483e48a',
+  'quantity' => 2
+);
+
+curl_setopt_array( $curl, array(
+  CURLOPT_URL => "https://example.com/wp-json/cocart/v1/item",
+  CURLOPT_CUSTOMREQUEST => "POST",
+  CURLOPT_POSTFIELDS => $args,
+  CURLOPT_RETURNTRANSFER => true
+) );
+
+$response = curl_exec($curl);
+
+curl_close($curl);
+
+echo $response;
+```
+
+```php--wp-http-api
+<?php
+$args = array(
+  'cart_item_key' => '404dcc91b2aeaa7caa47487d1483e48a',
+  'quantity' => 2
+);
+$response = wp_remote_post( 'https://example.com/wp-json/cocart/v1/item', $args );
+$body = wp_remote_retrieve_body( $response );
+```
+
 > JSON response example
 
 ```json

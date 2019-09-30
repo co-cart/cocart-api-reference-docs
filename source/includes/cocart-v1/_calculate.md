@@ -22,6 +22,40 @@ curl -X POST https://example.com/wp-json/cocart/v1/calculate \
 	-H "Content-Type: application/json"
 ```
 
+```javascript--jquery
+var settings = {
+  "url": "https://example.com/wp-json/cocart/v1/calculate",
+  "method": "POST"
+};
+
+$.ajax(settings).done(function (response) {
+  console.log(response);
+});
+```
+
+```php
+<?php
+$curl = curl_init();
+
+curl_setopt_array( $curl, array(
+  CURLOPT_URL => "https://example.com/wp-json/cocart/v1/calculate",
+  CURLOPT_CUSTOMREQUEST => "POST",
+  CURLOPT_RETURNTRANSFER => true
+) );
+
+$response = curl_exec($curl);
+
+curl_close($curl);
+
+echo $response;
+```
+
+```php--wp-http-api
+<?php
+$response = wp_remote_post( 'https://example.com/wp-json/cocart/v1/calculate' );
+$body = wp_remote_retrieve_body( $response );
+```
+
 > JSON response example
 
 ```json

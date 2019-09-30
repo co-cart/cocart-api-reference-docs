@@ -4,9 +4,9 @@ The cart API is powerful and allows you to view the cart in session, add new ite
 
 Using the individual endpoints and their properties, you can control what you need and what is returned when the request is finished.
 
-## Get Cart Contents ##
+## Retrieve Cart Contents ##
 
-This API returns the contents of the cart from a logged in customer or guest.
+This API returns the contents of the cart from a logged in customer or guest customer.
 
 ### Properties ###
 
@@ -27,6 +27,40 @@ This API returns the contents of the cart from a logged in customer or guest.
 ```shell
 curl -X GET https://example.com/wp-json/cocart/v1/get-cart \
   -H "Content-Type: application/json"
+```
+
+```javascript--jquery
+var settings = {
+  "url": "https://example.com/wp-json/cocart/v1/get-cart",
+  "method": "GET"
+};
+
+$.ajax(settings).done(function (response) {
+  console.log(response);
+});
+```
+
+```php
+<?php
+$curl = curl_init();
+
+curl_setopt_array( $curl, array(
+  CURLOPT_URL => "https://example.com/wp-json/cocart/v1/get-cart",
+  CURLOPT_CUSTOMREQUEST => "GET",
+  CURLOPT_RETURNTRANSFER => true
+) );
+
+$response = curl_exec($curl);
+
+curl_close($curl);
+
+echo $response;
+```
+
+```php--wp-http-api
+<?php
+$response = wp_remote_get( 'https://example.com/wp-json/cocart/v1/get-cart' );
+$body = wp_remote_retrieve_body( $response );
 ```
 
 > JSON response example
@@ -60,12 +94,59 @@ curl -X GET https://example.com/wp-json/cocart/v1/get-cart \
 }
 ```
 
+> Here is what to do to include the product thumbnail.
+
 ```shell
 curl -X GET https://example.com/wp-json/cocart/v1/get-cart \
   -H "Content-Type: application/json" \
   -d '{
     "thumb": true
   }'
+```
+
+```javascript--jquery
+var settings = {
+  "url": "https://example.com/wp-json/cocart/v1/get-cart",
+  "method": "GET",
+  "data": {
+    "thumb" : true
+  }
+};
+
+$.ajax(settings).done(function (response) {
+  console.log(response);
+});
+```
+
+```php
+<?php
+$curl = curl_init();
+
+$args = array(
+  'thumb' => true
+);
+
+curl_setopt_array( $curl, array(
+  CURLOPT_URL => "https://example.com/wp-json/cocart/v1/get-cart",
+  CURLOPT_CUSTOMREQUEST => "GET",
+  CURLOPT_POSTFIELDS => $args,
+  CURLOPT_RETURNTRANSFER => true
+) );
+
+$response = curl_exec($curl);
+
+curl_close($curl);
+
+echo $response;
+```
+
+```php--wp-http-api
+<?php
+$args = array(
+  'thumb' => true
+);
+$response = wp_remote_get( 'https://example.com/wp-json/cocart/v1/get-cart', $args );
+$body = wp_remote_retrieve_body( $response );
 ```
 
 > JSON response example
@@ -95,12 +176,12 @@ curl -X GET https://example.com/wp-json/cocart/v1/get-cart \
     "product_name":"Vneck Tshirt",
     "product_title":"Vneck Tshirt",
     "product_price": "£18",
-    "product_image":"http://yourdomain.xyz/wp-content/uploads/2019/06/vneck-tee.jpg"
+    "product_image":"https://example.com/wp-content/uploads/2019/06/vneck-tee.jpg"
   }
 }
 ```
 
-## Get Customers Cart Contents ##
+## Retrieve a Customers Cart Contents ##
 
 This API returns the cart contents for a specific registered customer. To use this you must [authenticate](https://developer.wordpress.org/rest-api/using-the-rest-api/authentication/). You can also use the [Get Cart Content](#get-cart-contents) properties.
 
@@ -123,4 +204,53 @@ curl -X GET https://example.com/wp-json/cocart/v1/get-cart/123 \
   -H "Content-Type: application/json"
 ```
 
-> JSON returns the same response as the examples above.
+```javascript--jquery
+var settings = {
+  "url": "https://example.com/wp-json/cocart/v1/get-cart/123",
+  "method": "GET",
+  "headers": {
+    'Authorization', 'Basic ' + btoa( consumer_key + ':' + consumer_secret ) )
+  }
+};
+
+$.ajax(settings).done(function (response) {
+  console.log(response);
+});
+```
+
+```php
+<?php
+$curl = curl_init();
+
+$args = array(
+  'thumb' => true
+);
+
+curl_setopt_array( $curl, array(
+  CURLOPT_URL => "https://example.com/wp-json/cocart/v1/get-cart/123",
+  CURLOPT_CUSTOMREQUEST => "GET",
+  CURLOPT_HTTPHEADER => [
+    'Authorization: Basic ' . base64_encode($consumer_key . ':' . $consumer_secret)
+  ],
+  CURLOPT_RETURNTRANSFER => true
+) );
+
+$response = curl_exec($curl);
+
+curl_close($curl);
+
+echo $response;
+```
+
+```php--wp-http-api
+<?php
+$args = array(
+  'headers' => array(
+    'Authorization' => 'Basic ' . base64_encode( consumer_key . ':' . consumer_secret )
+  )
+);
+$response = wp_remote_get( 'https://example.com/wp-json/cocart/v1/get-cart/123', $args );
+$body = wp_remote_retrieve_body( $response );
+```
+
+> The JSON response returns the same as the examples above.

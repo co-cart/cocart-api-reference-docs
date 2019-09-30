@@ -3,6 +3,9 @@ title: CoCart (Work in Progress) Documentation
 
 language_tabs:
  - shell: cURL
+ - javascript--jquery: jQuery
+ - php: PHP
+ - php--wp-http-api: WP API
 
 toc_footers:
   - <a href="https://cocart.xyz">CoCart</a>
@@ -13,6 +16,7 @@ toc_footers:
 
 includes:
   - cocart-v1/wip/introduction
+  - cocart-v1/wip/cart
   - cocart-v1/wip/products
   - cocart-v1/wip/changelog
 
