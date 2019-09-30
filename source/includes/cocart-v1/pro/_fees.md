@@ -20,6 +20,40 @@ curl -X GET https://example.com/wp-json/cocart/v1/fees \
   -H "Content-Type: application/json"
 ```
 
+```javascript--jquery
+var settings = {
+  "url": "https://example.com/wp-json/cocart/v1/fees",
+  "method": "GET"
+};
+
+$.ajax(settings).done(function (response) {
+  console.log(response);
+});
+```
+
+```php
+<?php
+$curl = curl_init();
+
+curl_setopt_array( $curl, array(
+  CURLOPT_URL => "https://example.com/wp-json/cocart/v1/fees",
+  CURLOPT_CUSTOMREQUEST => "GET",
+  CURLOPT_RETURNTRANSFER => true
+) );
+
+$response = curl_exec($curl);
+
+curl_close($curl);
+
+echo $response;
+```
+
+```php--wp-http-api
+<?php
+$response = wp_remote_get( 'https://example.com/wp-json/cocart/v1/fees' );
+$body = wp_remote_retrieve_body( $response );
+```
+
 > JSON response example for returning already applied fees.
 
 ```json
@@ -27,10 +61,10 @@ curl -X GET https://example.com/wp-json/cocart/v1/fees \
   "cocart-extra-package-protection":{
     "id": "cocart-extra-package-protection",
     "name": "Extra Package Protection",
-    "amount": "5",
+    "amount": "40",
     "taxable": false,
     "tax_class": "",
-    "total": 500
+    "total": 4000
   }
 }
 ```
@@ -62,8 +96,56 @@ curl -X POST https://example.com/wp-json/cocart/v1/fees \
   -H "Content-Type: application/json" \
   -d '{
     "name": "Extra Package Protection",
-    "amount": 5
+    "amount": "40"
   }'
+```
+
+```javascript--jquery
+var settings = {
+  "url": "https://example.com/wp-json/cocart/v1/fees",
+  "method": "POST",
+  "data": {
+    "name": "Extra Package Protection",
+    "amount": "40"
+  }
+};
+
+$.ajax(settings).done(function (response) {
+  console.log(response);
+});
+```
+
+```php
+<?php
+$curl = curl_init();
+
+$args = array(
+  "name"   => "Extra Package Protection",
+  "amount" => "40"
+);
+
+curl_setopt_array( $curl, array(
+  CURLOPT_URL => "https://example.com/wp-json/cocart/v1/fees",
+  CURLOPT_CUSTOMREQUEST => "POST",
+  CURLOPT_POSTFIELDS => $args,
+  CURLOPT_RETURNTRANSFER => true
+) );
+
+$response = curl_exec($curl);
+
+curl_close($curl);
+
+echo $response;
+```
+
+```php--wp-http-api
+<?php
+$args = array(
+  "name"   => "Extra Package Protection",
+  "amount" => "40"
+);
+$response = wp_remote_post( 'https://example.com/wp-json/cocart/v1/fees', $args );
+$body = wp_remote_retrieve_body( $response );
 ```
 
 > JSON response example.
@@ -90,6 +172,43 @@ Remove all fees from the cart.
 ```shell
 curl -X DELETE https://example.com/wp-json/cocart/v1/fees \
   -H "Content-Type: application/json" \
+```
+
+```javascript--jquery
+var settings = {
+  "url": "https://example.com/wp-json/cocart/v1/fees",
+  "method": "DELETE"
+};
+
+$.ajax(settings).done(function (response) {
+  console.log(response);
+});
+```
+
+```php
+<?php
+$curl = curl_init();
+
+curl_setopt_array( $curl, array(
+  CURLOPT_URL => "https://example.com/wp-json/cocart/v1/fees",
+  CURLOPT_CUSTOMREQUEST => "DELETE",
+  CURLOPT_RETURNTRANSFER => true
+) );
+
+$response = curl_exec($curl);
+
+curl_close($curl);
+
+echo $response;
+```
+
+```php--wp-http-api
+<?php
+$args = array(
+  'method' => 'DELETE'
+);
+$response = wp_remote_request( 'https://example.com/wp-json/cocart/v1/fees', $args );
+$body = wp_remote_retrieve_body( $response );
 ```
 
 > JSON response example.

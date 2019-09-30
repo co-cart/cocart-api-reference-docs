@@ -26,6 +26,40 @@ curl -X GET https://example.com/wp-json/cocart/v1/shipping-methods \
   -H "Content-Type: application/json"
 ```
 
+```javascript--jquery
+var settings = {
+  "url": "https://example.com/wp-json/cocart/v1/shipping-methods",
+  "method": "GET"
+};
+
+$.ajax(settings).done(function (response) {
+  console.log(response);
+});
+```
+
+```php
+<?php
+$curl = curl_init();
+
+curl_setopt_array( $curl, array(
+  CURLOPT_URL => "https://example.com/wp-json/cocart/v1/shipping-methods",
+  CURLOPT_CUSTOMREQUEST => "GET",
+  CURLOPT_RETURNTRANSFER => true
+) );
+
+$response = curl_exec($curl);
+
+curl_close($curl);
+
+echo $response;
+```
+
+```php--wp-http-api
+<?php
+$response = wp_remote_get( 'https://example.com/wp-json/cocart/v1/shipping-methods' );
+$body = wp_remote_retrieve_body( $response );
+```
+
 > JSON response example
 
 ```json
@@ -79,8 +113,53 @@ Apply a shipping method to the cart. Can only apply once the customer has calcul
 curl -X POST https://example.com/wp-json/cocart/v1/shipping-methods \
   -H "Content-Type: application/json" \
   -d '{
-    "key": "free_shipping:3",
+    "key": "free_shipping:3"
   }'
+```
+
+```javascript--jquery
+var settings = {
+  "url": "https://example.com/wp-json/cocart/v1/shipping-methods",
+  "method": "POST",
+  "data": {
+    "key": "free_shipping:3"
+  }
+};
+
+$.ajax(settings).done(function (response) {
+  console.log(response);
+});
+```
+
+```php
+<?php
+$curl = curl_init();
+
+$args = array(
+  "key" => "free_shipping:3"
+);
+
+curl_setopt_array( $curl, array(
+  CURLOPT_URL => "https://example.com/wp-json/cocart/v1/shipping-methods",
+  CURLOPT_CUSTOMREQUEST => "POST",
+  CURLOPT_POSTFIELDS => $args,
+  CURLOPT_RETURNTRANSFER => true
+) );
+
+$response = curl_exec($curl);
+
+curl_close($curl);
+
+echo $response;
+```
+
+```php--wp-http-api
+<?php
+$args = array(
+  "key" => "free_shipping:3"
+);
+$response = wp_remote_post( 'https://example.com/wp-json/cocart/v1/shipping-methods', $args );
+$body = wp_remote_retrieve_body( $response );
 ```
 
 > JSON response example.
