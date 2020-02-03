@@ -2,6 +2,11 @@
 
 The Documentation is updated only when needed. Below is the changelog for "CoCart Pro" documentation that matches with the version of the plugin release.
 
+### Doc Version 0.3 - Plugin Release v1.0.0 ###
+
+* Added missing documentation for setting payment method.
+* Moved Cart Weight under Cart Owner so everthing is in order.
+
 ### Doc Version 0.2 - Plugin Release v1.0.0 ###
 
 * Added languages for jQuery, PHP and WP API.
