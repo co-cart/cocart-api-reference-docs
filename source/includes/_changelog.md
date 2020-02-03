@@ -2,6 +2,12 @@
 
 The Documentation is updated only when needed. Below is the changelog for "CoCart" documentation that matches with the version of the plugin release.
 
+### Doc Version 1.4 ###
+
+* Added live chat so users can ask questions.
+* Made it clearer to understand about retrieving specific customers cart.
+* Improved the introduction a little.
+
 ### Doc Version 1.3 ###
 
 * Added languages for jQuery, PHP and WP API.
@@ -15,7 +21,7 @@ The Documentation is updated only when needed. Below is the changelog for "CoCar
 
 * Added Index API.
 * Linked logo to documentation homepage.
-
+z
 ### Doc Version 1 - Plugin Release v2 ###
 
 * Updated for CoCart v2
