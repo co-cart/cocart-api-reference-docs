@@ -183,7 +183,7 @@ $body = wp_remote_retrieve_body( $response );
 
 ## Retrieve a Customers Cart Contents ##
 
-This API returns the cart contents for a specific registered customer. To use this you must [authenticate](https://developer.wordpress.org/rest-api/using-the-rest-api/authentication/). You can also use the [Get Cart Content](#get-cart-contents) properties.
+This API returns the cart contents for a specific registered customer and is only for testing purposes. To use this you must [cookie authenticate](https://developer.wordpress.org/rest-api/using-the-rest-api/authentication/) as administrator. No other user role has the ability to access this API. You can also use the [Get Cart Content](#get-cart-contents) properties.
 
 <aside class="notice">
   Please note that to return a registered customer, you must have persistent cart left enabled in you WooCommerce store for this to work and will only return if it has not expired or is still in session.
@@ -200,7 +200,7 @@ This API returns the cart contents for a specific registered customer. To use th
 
 ```shell
 curl -X GET https://example.com/wp-json/cocart/v1/get-cart/123 \
-  -u consumer_key:consumer_secret \
+  -u username:password \
   -H "Content-Type: application/json"
 ```
 
@@ -209,7 +209,7 @@ var settings = {
   "url": "https://example.com/wp-json/cocart/v1/get-cart/123",
   "method": "GET",
   "headers": {
-    'Authorization', 'Basic ' + btoa( consumer_key + ':' + consumer_secret ) )
+    'Authorization', 'Basic ' + btoa( username + ':' + password ) )
   }
 };
 
@@ -230,7 +230,7 @@ curl_setopt_array( $curl, array(
   CURLOPT_URL => "https://example.com/wp-json/cocart/v1/get-cart/123",
   CURLOPT_CUSTOMREQUEST => "GET",
   CURLOPT_HTTPHEADER => [
-    'Authorization: Basic ' . base64_encode($consumer_key . ':' . $consumer_secret)
+    'Authorization: Basic ' . base64_encode($username . ':' . $password)
   ],
   CURLOPT_RETURNTRANSFER => true
 ) );
@@ -246,7 +246,7 @@ echo $response;
 <?php
 $args = array(
   'headers' => array(
-    'Authorization' => 'Basic ' . base64_encode( consumer_key . ':' . consumer_secret )
+    'Authorization' => 'Basic ' . base64_encode( username . ':' . password )
   )
 );
 $response = wp_remote_get( 'https://example.com/wp-json/cocart/v1/get-cart/123', $args );
