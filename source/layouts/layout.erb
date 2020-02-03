@@ -35,6 +35,8 @@ under the License.
     <link rel="icon" href="images/favicon-192x192.png" sizes="192x192" />
     <link rel="apple-touch-icon-precomposed" href="images/favicon-180x180.png" />
     <meta name="msapplication-TileImage" content="images/favicon-270x270.png" />
+    <meta name="msapplication-TileColor" content="#6e60cc" />
+    <meta name="theme-color" content="#6e60cc" />
 
     <style>
       <%= Rouge::Themes::MonokaiSublime.render(:scope => '.highlight') %>
@@ -46,7 +48,22 @@ under the License.
     <% else %>
       <%= javascript_include_tag  "all_nosearch" %>
     <% end %>
-  </head>
+
+    <!-- Chatra {literal} -->
+    <script>
+        (function(d, w, c) {
+            w.ChatraID = 'xwyESjfvnFXRtTM3N';
+            var s = d.createElement('script');
+            w[c] = w[c] || function() {
+                (w[c].q = w[c].q || []).push(arguments);
+            };
+            s.async = true;
+            s.src = 'https://call.chatra.io/chatra.js';
+            if (d.head) d.head.appendChild(s);
+        })(document, window, 'Chatra');
+    </script>
+    <!-- /Chatra {/literal} -->
+    </head>
 
   <body class="<%= page_classes %>" data-languages="<%=h language_tabs.map{ |lang| lang.is_a?(Hash) ? lang.keys.first : lang }.to_json %>">
     <a href="#" id="nav-button">
