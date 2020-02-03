@@ -2,6 +2,10 @@
 
 This API helps you get the payment methods available.
 
+## Get Payment Methods ##
+
+Returns all available payment methods once the customer has added an item to the cart and the cart requires payment.
+
 ### HTTP request ###
 
 <div class="api-endpoint">
@@ -137,4 +141,82 @@ $body = wp_remote_retrieve_body( $response );
         "chosen_gateway": false
     }
 }
+```
+
+## Set Payment Method ##
+
+Apply the payment method to the cart. Can only apply once the customer has added an item to the cart.
+
+### Properties ###
+
+| Attribute    | Type   | Description       |
+| ------------ | ------ | ----------------- |
+| `gateway_id` | string | The gateway ID of the payment method. <i class="label label-info">required</i> |
+
+### HTTP request ###
+
+<div class="api-endpoint">
+  <div class="endpoint-data">
+    <i class="label label-post">POST</i>
+    <h6>/wp-json/cocart/v1/payment-methods</h6>
+  </div>
+</div>
+
+```shell
+curl -X POST https://example.com/wp-json/cocart/v1/payment-methods \
+  -H "Content-Type: application/json" \
+  -d '{
+    "gateway_id": "stripe"
+  }'
+```
+
+```javascript--jquery
+var settings = {
+  "url": "https://example.com/wp-json/cocart/v1/payment-methods",
+  "method": "POST",
+  "data": {
+    "gateway_id": "stripe"
+  }
+};
+
+$.ajax(settings).done(function (response) {
+  console.log(response);
+});
+```
+
+```php
+<?php
+$curl = curl_init();
+
+$args = array(
+  "gateway_id" => "stripe"
+);
+
+curl_setopt_array( $curl, array(
+  CURLOPT_URL => "https://example.com/wp-json/cocart/v1/payment-methods",
+  CURLOPT_CUSTOMREQUEST => "POST",
+  CURLOPT_POSTFIELDS => $args,
+  CURLOPT_RETURNTRANSFER => true
+) );
+
+$response = curl_exec($curl);
+
+curl_close($curl);
+
+echo $response;
+```
+
+```php--wp-http-api
+<?php
+$args = array(
+  "gateway_id" => "stripe"
+);
+$response = wp_remote_post( 'https://example.com/wp-json/cocart/v1/payment-methods', $args );
+$body = wp_remote_retrieve_body( $response );
+```
+
+> JSON response example.
+
+```json
+true
 ```
