@@ -2,7 +2,9 @@
 
 CoCart allows the cart to be created, read, updated, and deleted using requests in JSON format and using WordPress REST API Authentication methods and standard HTTP verbs which are understood by most HTTP clients.
 
-The current WP REST API integration version is `v1` which takes a first-order position in endpoints.
+CoCart is designed in mind for those who want to create a headless WordPress site. Read [what does headless mean?](https://cocart.xyz/what-does-headless-mean/)
+
+The current WordPress REST API integration for CoCart is version `v1` which takes a first-order position in endpoints.
 
 The following table shows API versions present in each major version of CoCart:
 
@@ -18,11 +20,13 @@ Prior to WooCommerce v3.6, CoCart shared WooCommerce's REST API. You can find th
 
 ## CoCart Pro ##
 
+If you have purchased CoCart Pro then documentation for it is found here.
+
 | API Version | CoCart Pro Version | WC Version      | WP Version   | Documentation        |
 | ----------- | ------------------ | --------------- | ------------ | -------------------- |
 | `v1`        | 1.0.x or later     | 3.6.x or later  | 4.4 or later | [cocart pro docs](pro.html) |
 
-## Work in Progress ##
+## CoCart - Work in Progress ##
 
 [This section provides documentation on future features](wip.html) that are in the works. Only view this section if you are testing beta releases and not using it on production sites.
 
@@ -101,3 +105,7 @@ Some useful tools you can use to access the API include:
 * [RESTClient, a debugger for RESTful web services](https://addons.mozilla.org/en-US/firefox/addon/restclient/) - Free Firefox add-on.
 * [Advanced REST client](https://chrome.google.com/webstore/detail/advanced-rest-client/hgmloofddffdnphfgcellkdfbfbjeloo) - Free Google Chrome extension.
 * [Hookbin](https://hookbin.com/) - Another tool to test web hooks.
+
+## Learn more ##
+
+Learn more about the REST API checking the <a href="https://developer.wordpress.org/rest-api/" target="_blank">official WordPress REST API documentation</a>.
