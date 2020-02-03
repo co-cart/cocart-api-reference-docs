@@ -11,6 +11,8 @@
     <link rel="icon" href="images/favicon-192x192.png" sizes="192x192" />
     <link rel="apple-touch-icon-precomposed" href="images/favicon-180x180.png" />
     <meta name="msapplication-TileImage" content="images/favicon-270x270.png" />
+    <meta name="msapplication-TileColor" content="#6e60cc" />
+    <meta name="theme-color" content="#6e60cc" />
 
     <style>
       .highlight table td { padding: 5px; }
@@ -204,7 +206,22 @@
     <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
     <link href="stylesheets/print.css" rel="stylesheet" media="print" />
       <script src="javascripts/all.js"></script>
-  </head>
+
+    <!-- Chatra {literal} -->
+    <script>
+        (function(d, w, c) {
+            w.ChatraID = 'xwyESjfvnFXRtTM3N';
+            var s = d.createElement('script');
+            w[c] = w[c] || function() {
+                (w[c].q = w[c].q || []).push(arguments);
+            };
+            s.async = true;
+            s.src = 'https://call.chatra.io/chatra.js';
+            if (d.head) d.head.appendChild(s);
+        })(document, window, 'Chatra');
+    </script>
+    <!-- /Chatra {/literal} -->
+    </head>
 
   <body class="index" data-languages="[&quot;shell&quot;,&quot;javascript--jquery&quot;,&quot;php&quot;,&quot;php--wp-http-api&quot;]">
     <a href="#" id="nav-button">
@@ -233,7 +250,7 @@
                     <a href="#cocart-pro" class="toc-h2 toc-link" data-title="CoCart Pro">CoCart Pro</a>
                   </li>
                   <li>
-                    <a href="#work-in-progress" class="toc-h2 toc-link" data-title="Work in Progress">Work in Progress</a>
+                    <a href="#cocart-work-in-progress" class="toc-h2 toc-link" data-title="CoCart - Work in Progress">CoCart - Work in Progress</a>
                   </li>
                   <li>
                     <a href="#requirements" class="toc-h2 toc-link" data-title="Requirements">Requirements</a>
@@ -249,6 +266,9 @@
                   </li>
                   <li>
                     <a href="#tools" class="toc-h2 toc-link" data-title="Tools">Tools</a>
+                  </li>
+                  <li>
+                    <a href="#learn-more" class="toc-h2 toc-link" data-title="Learn more">Learn more</a>
                   </li>
               </ul>
           </li>
@@ -350,6 +370,9 @@
             <a href="#changelog" class="toc-h1 toc-link" data-title="Changelog">Changelog</a>
               <ul class="toc-list-h2">
                   <li>
+                    <a href="#doc-version-1-4" class="toc-h2 toc-link" data-title="Doc Version 1.4">Doc Version 1.4</a>
+                  </li>
+                  <li>
                     <a href="#doc-version-1-3" class="toc-h2 toc-link" data-title="Doc Version 1.3">Doc Version 1.3</a>
                   </li>
                   <li>
@@ -398,7 +421,9 @@
         <h1 id='introduction'>Introduction</h1>
 <p>CoCart allows the cart to be created, read, updated, and deleted using requests in JSON format and using WordPress REST API Authentication methods and standard HTTP verbs which are understood by most HTTP clients.</p>
 
-<p>The current WP REST API integration version is <code>v1</code> which takes a first-order position in endpoints.</p>
+<p>CoCart is designed in mind for those who want to create a headless WordPress site. Read <a href="https://cocart.xyz/what-does-headless-mean/">what does headless mean?</a></p>
+
+<p>The current WordPress REST API integration for CoCart is version <code>v1</code> which takes a first-order position in endpoints.</p>
 
 <p>The following table shows API versions present in each major version of CoCart:</p>
 
@@ -436,6 +461,8 @@
 </tr>
 </tbody></table>
 <h2 id='cocart-pro'>CoCart Pro</h2>
+<p>If you have purchased CoCart Pro then documentation for it is found here.</p>
+
 <table><thead>
 <tr>
 <th>API Version</th>
@@ -453,7 +480,7 @@
 <td><a href="pro.html">cocart pro docs</a></td>
 </tr>
 </tbody></table>
-<h2 id='work-in-progress'>Work in Progress</h2>
+<h2 id='cocart-work-in-progress'>CoCart - Work in Progress</h2>
 <p><a href="wip.html">This section provides documentation on future features</a> that are in the works. Only view this section if you are testing beta releases and not using it on production sites.</p>
 <h2 id='requirements'>Requirements</h2>
 <p>To use the latest version of the CoCart you must be using:</p>
@@ -542,6 +569,8 @@
 <li><a href="https://chrome.google.com/webstore/detail/advanced-rest-client/hgmloofddffdnphfgcellkdfbfbjeloo">Advanced REST client</a> - Free Google Chrome extension.</li>
 <li><a href="https://hookbin.com/">Hookbin</a> - Another tool to test web hooks.</li>
 </ul>
+<h2 id='learn-more'>Learn more</h2>
+<p>Learn more about the REST API checking the <a href="https://developer.wordpress.org/rest-api/" target="_blank">official WordPress REST API documentation</a>.</p>
 <h1 id='error-responses'>Error Responses</h1>
 <p>You might encounter an error when using CoCart. These error responses explain what might have happened.</p>
 
@@ -1702,7 +1731,7 @@
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><h2 id='retrieve-a-customers-cart-contents'>Retrieve a Customers Cart Contents</h2>
-<p>This API returns the cart contents for a specific registered customer. To use this you must <a href="https://developer.wordpress.org/rest-api/using-the-rest-api/authentication/">authenticate</a>. You can also use the <a href="#get-cart-contents">Get Cart Content</a> properties.</p>
+<p>This API returns the cart contents for a specific registered customer and is only for testing purposes. To use this you must <a href="https://developer.wordpress.org/rest-api/using-the-rest-api/authentication/">cookie authenticate</a> as administrator. No other user role has the ability to access this API. You can also use the <a href="#get-cart-contents">Get Cart Content</a> properties.</p>
 
 <aside class="notice">
   Please note that to return a registered customer, you must have persistent cart left enabled in you WooCommerce store for this to work and will only return if it has not expired or is still in session.
@@ -1715,13 +1744,13 @@
   </div>
 </div>
 <pre class="highlight shell tab-shell"><code>curl -X GET https://example.com/wp-json/cocart/v1/get-cart/123 <span class="se">\</span>
-  -u consumer_key:consumer_secret <span class="se">\</span>
+  -u username:password <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span>
 </code></pre><pre class="highlight javascript tab-javascript--jquery"><code><span class="kd">var</span> <span class="nx">settings</span> <span class="o">=</span> <span class="p">{</span>
   <span class="s2">"url"</span><span class="p">:</span> <span class="s2">"https://example.com/wp-json/cocart/v1/get-cart/123"</span><span class="p">,</span>
   <span class="s2">"method"</span><span class="p">:</span> <span class="s2">"GET"</span><span class="p">,</span>
   <span class="s2">"headers"</span><span class="p">:</span> <span class="p">{</span>
-    <span class="s1">'Authorization'</span><span class="p">,</span> <span class="s1">'Basic '</span> <span class="o">+</span> <span class="nx">btoa</span><span class="p">(</span> <span class="nx">consumer_key</span> <span class="o">+</span> <span class="s1">':'</span> <span class="o">+</span> <span class="nx">consumer_secret</span> <span class="p">)</span> <span class="p">)</span>
+    <span class="s1">'Authorization'</span><span class="p">,</span> <span class="s1">'Basic '</span> <span class="o">+</span> <span class="nx">btoa</span><span class="p">(</span> <span class="nx">username</span> <span class="o">+</span> <span class="s1">':'</span> <span class="o">+</span> <span class="nx">password</span> <span class="p">)</span> <span class="p">)</span>
   <span class="p">}</span>
 <span class="p">};</span>
 
@@ -1739,7 +1768,7 @@
   <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/get-cart/123"</span><span class="p">,</span>
   <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"GET"</span><span class="p">,</span>
   <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="p">[</span>
-    <span class="s1">'Authorization: Basic '</span> <span class="o">.</span> <span class="nb">base64_encode</span><span class="p">(</span><span class="nv">$consumer_key</span> <span class="o">.</span> <span class="s1">':'</span> <span class="o">.</span> <span class="nv">$consumer_secret</span><span class="p">)</span>
+    <span class="s1">'Authorization: Basic '</span> <span class="o">.</span> <span class="nb">base64_encode</span><span class="p">(</span><span class="nv">$username</span> <span class="o">.</span> <span class="s1">':'</span> <span class="o">.</span> <span class="nv">$password</span><span class="p">)</span>
   <span class="p">],</span>
   <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span>
 <span class="p">)</span> <span class="p">);</span>
@@ -1752,7 +1781,7 @@
 </code></pre><pre class="highlight php tab-php--wp-http-api"><code><span class="cp">&lt;?php</span>
 <span class="nv">$args</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
   <span class="s1">'headers'</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
-    <span class="s1">'Authorization'</span> <span class="o">=&gt;</span> <span class="s1">'Basic '</span> <span class="o">.</span> <span class="nb">base64_encode</span><span class="p">(</span> <span class="nx">consumer_key</span> <span class="o">.</span> <span class="s1">':'</span> <span class="o">.</span> <span class="nx">consumer_secret</span> <span class="p">)</span>
+    <span class="s1">'Authorization'</span> <span class="o">=&gt;</span> <span class="s1">'Basic '</span> <span class="o">.</span> <span class="nb">base64_encode</span><span class="p">(</span> <span class="nx">username</span> <span class="o">.</span> <span class="s1">':'</span> <span class="o">.</span> <span class="nx">password</span> <span class="p">)</span>
   <span class="p">)</span>
 <span class="p">);</span>
 <span class="nv">$response</span> <span class="o">=</span> <span class="nx">wp_remote_get</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/get-cart/123'</span><span class="p">,</span> <span class="nv">$args</span> <span class="p">);</span>
@@ -2095,6 +2124,10 @@
 <td>Set as true to return the whole cart once item added. <i class="label label-info">optional</i></td>
 </tr>
 </tbody></table>
+
+<aside class="notice">
+  If you wish to add the item for a specific registered customer then you must <strong>authenticate</strong> as that customer.
+</aside>
 <h3 id='http-request'>HTTP request</h3>
 <div class="api-endpoint">
   <div class="endpoint-data">
@@ -2516,7 +2549,7 @@
 <h1 id='filters'>Filters</h1>
 <p>The cart API has a number of filters that you can use to extend or change the API.</p>
 
-<p>See the <a href="https://github.com/co-cart/co-cart-tweaks">tweaks plugin for more examples</a>.</p>
+<p>See the <a href="https://github.com/co-cart/co-cart-tweaks">tweaks plugin for examples</a>.</p>
 
 <aside class="notice">
 Please make sure you are viewing the PHP language to view examples of the filters in use.
@@ -2635,6 +2668,12 @@ function remove_parent_cart_item_key( $cart_contents ) {
 }
 </code></pre><h1 id='changelog'>Changelog</h1>
 <p>The Documentation is updated only when needed. Below is the changelog for &quot;CoCart&quot; documentation that matches with the version of the plugin release.</p>
+<h3 id='doc-version-1-4'>Doc Version 1.4</h3>
+<ul>
+<li>Added live chat so users can ask questions.</li>
+<li>Made it clearer to understand about retrieving specific customers cart.</li>
+<li>Improved the introduction a little.</li>
+</ul>
 <h3 id='doc-version-1-3'>Doc Version 1.3</h3>
 <ul>
 <li>Added languages for jQuery, PHP and WP API.</li>
@@ -2647,11 +2686,10 @@ function remove_parent_cart_item_key( $cart_contents ) {
 <h3 id='doc-version-1-1'>Doc Version 1.1</h3>
 <ul>
 <li>Added Index API.</li>
-<li>Linked logo to documentation homepage.</li>
-</ul>
-<h3 id='doc-version-1-plugin-release-v2'>Doc Version 1 - Plugin Release v2</h3>
-<ul>
-<li>Updated for CoCart v2</li>
+<li><p>Linked logo to documentation homepage.
+z</p>
+<h3 id='doc-version-1-plugin-release-v2'>Doc Version 1 - Plugin Release v2</h3></li>
+<li><p>Updated for CoCart v2</p></li>
 </ul>
 <h3 id='doc-version-0-5'>Doc Version 0.5</h3>
 <ul>

@@ -11,6 +11,8 @@
     <link rel="icon" href="images/favicon-192x192.png" sizes="192x192" />
     <link rel="apple-touch-icon-precomposed" href="images/favicon-180x180.png" />
     <meta name="msapplication-TileImage" content="images/favicon-270x270.png" />
+    <meta name="msapplication-TileColor" content="#6e60cc" />
+    <meta name="theme-color" content="#6e60cc" />
 
     <style>
       .highlight table td { padding: 5px; }
@@ -204,7 +206,22 @@
     <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
     <link href="stylesheets/print.css" rel="stylesheet" media="print" />
       <script src="javascripts/all.js"></script>
-  </head>
+
+    <!-- Chatra {literal} -->
+    <script>
+        (function(d, w, c) {
+            w.ChatraID = 'xwyESjfvnFXRtTM3N';
+            var s = d.createElement('script');
+            w[c] = w[c] || function() {
+                (w[c].q = w[c].q || []).push(arguments);
+            };
+            s.async = true;
+            s.src = 'https://call.chatra.io/chatra.js';
+            if (d.head) d.head.appendChild(s);
+        })(document, window, 'Chatra');
+    </script>
+    <!-- /Chatra {/literal} -->
+    </head>
 
   <body class="pro" data-languages="[&quot;shell&quot;,&quot;javascript--jquery&quot;,&quot;php&quot;,&quot;php--wp-http-api&quot;]">
     <a href="#" id="nav-button">
@@ -288,6 +305,14 @@
               </ul>
           </li>
           <li>
+            <a href="#cart-weight" class="toc-h1 toc-link" data-title="Cart Weight">Cart Weight</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#http-request" class="toc-h2 toc-link" data-title="HTTP request">HTTP request</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#fees" class="toc-h1 toc-link" data-title="Fees">Fees</a>
               <ul class="toc-list-h2">
                   <li>
@@ -305,7 +330,10 @@
             <a href="#payment-methods" class="toc-h1 toc-link" data-title="Payment Methods">Payment Methods</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#http-request" class="toc-h2 toc-link" data-title="HTTP request">HTTP request</a>
+                    <a href="#get-payment-methods" class="toc-h2 toc-link" data-title="Get Payment Methods">Get Payment Methods</a>
+                  </li>
+                  <li>
+                    <a href="#set-payment-method" class="toc-h2 toc-link" data-title="Set Payment Method">Set Payment Method</a>
                   </li>
               </ul>
           </li>
@@ -378,16 +406,11 @@
               </ul>
           </li>
           <li>
-            <a href="#cart-weight" class="toc-h1 toc-link" data-title="Cart Weight">Cart Weight</a>
-              <ul class="toc-list-h2">
-                  <li>
-                    <a href="#http-request" class="toc-h2 toc-link" data-title="HTTP request">HTTP request</a>
-                  </li>
-              </ul>
-          </li>
-          <li>
             <a href="#changelog" class="toc-h1 toc-link" data-title="Changelog">Changelog</a>
               <ul class="toc-list-h2">
+                  <li>
+                    <a href="#doc-version-0-3-plugin-release-v1-0-0" class="toc-h2 toc-link" data-title="Doc Version 0.3 - Plugin Release v1.0.0">Doc Version 0.3 - Plugin Release v1.0.0</a>
+                  </li>
                   <li>
                     <a href="#doc-version-0-2-plugin-release-v1-0-0" class="toc-h2 toc-link" data-title="Doc Version 0.2 - Plugin Release v1.0.0">Doc Version 0.2 - Plugin Release v1.0.0</a>
                   </li>
@@ -1097,6 +1120,47 @@
   </span><span class="s2">"has_calculated_shipping"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
   </span><span class="s2">"is_vat_exempt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"no"</span><span class="w">
 </span><span class="p">}</span><span class="w">
+</span></code></pre><h1 id='cart-weight'>Cart Weight</h1>
+<p>This API helps you get the cart weight. The weight unit returned is set in your WooCommerce settings.</p>
+<h3 id='http-request'>HTTP request</h3>
+<div class="api-endpoint">
+  <div class="endpoint-data">
+    <i class="label label-get">GET</i>
+    <h6>/wp-json/cocart/v1/weight</h6>
+  </div>
+</div>
+<pre class="highlight shell tab-shell"><code>curl -X GET https://example.com/wp-json/cocart/v1/weight <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span>
+</code></pre><pre class="highlight javascript tab-javascript--jquery"><code><span class="kd">var</span> <span class="nx">settings</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s2">"url"</span><span class="p">:</span> <span class="s2">"https://example.com/wp-json/cocart/v1/weight"</span><span class="p">,</span>
+  <span class="s2">"method"</span><span class="p">:</span> <span class="s2">"GET"</span>
+<span class="p">};</span>
+
+<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">(</span><span class="nx">settings</span><span class="p">).</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+<span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
+
+<span class="nb">curl_setopt_array</span><span class="p">(</span> <span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/weight"</span><span class="p">,</span>
+  <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"GET"</span><span class="p">,</span>
+  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span>
+<span class="p">)</span> <span class="p">);</span>
+
+<span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
+
+<span class="nb">curl_close</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
+
+<span class="k">echo</span> <span class="nv">$response</span><span class="p">;</span>
+</code></pre><pre class="highlight php tab-php--wp-http-api"><code><span class="cp">&lt;?php</span>
+<span class="nv">$response</span> <span class="o">=</span> <span class="nx">wp_remote_get</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/weight'</span> <span class="p">);</span>
+<span class="nv">$body</span> <span class="o">=</span> <span class="nx">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
+</code></pre>
+<blockquote>
+<p>JSON response example</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="s2">"4 kg"</span><span class="w">
 </span></code></pre><h1 id='fees'>Fees</h1>
 <p>This API helps you add a fee to the cart, get all fees added, and remove all fees.</p>
 <h2 id='get-fees'>Get Fees</h2>
@@ -1287,6 +1351,8 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre><h1 id='payment-methods'>Payment Methods</h1>
 <p>This API helps you get the payment methods available.</p>
+<h2 id='get-payment-methods'>Get Payment Methods</h2>
+<p>Returns all available payment methods once the customer has added an item to the cart and the cart requires payment.</p>
 <h3 id='http-request'>HTTP request</h3>
 <div class="api-endpoint">
   <div class="endpoint-data">
@@ -1409,6 +1475,75 @@
         </span><span class="s2">"chosen_gateway"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
+</span></code></pre><h2 id='set-payment-method'>Set Payment Method</h2>
+<p>Apply the payment method to the cart. Can only apply once the customer has added an item to the cart.</p>
+<h3 id='properties'>Properties</h3>
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>gateway_id</code></td>
+<td>string</td>
+<td>The gateway ID of the payment method. <i class="label label-info">required</i></td>
+</tr>
+</tbody></table>
+<h3 id='http-request-2'>HTTP request</h3>
+<div class="api-endpoint">
+  <div class="endpoint-data">
+    <i class="label label-post">POST</i>
+    <h6>/wp-json/cocart/v1/payment-methods</h6>
+  </div>
+</div>
+<pre class="highlight shell tab-shell"><code>curl -X POST https://example.com/wp-json/cocart/v1/payment-methods <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -d <span class="s1">'{
+    "gateway_id": "stripe"
+  }'</span>
+</code></pre><pre class="highlight javascript tab-javascript--jquery"><code><span class="kd">var</span> <span class="nx">settings</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s2">"url"</span><span class="p">:</span> <span class="s2">"https://example.com/wp-json/cocart/v1/payment-methods"</span><span class="p">,</span>
+  <span class="s2">"method"</span><span class="p">:</span> <span class="s2">"POST"</span><span class="p">,</span>
+  <span class="s2">"data"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">"gateway_id"</span><span class="p">:</span> <span class="s2">"stripe"</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">(</span><span class="nx">settings</span><span class="p">).</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+<span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
+
+<span class="nv">$args</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+  <span class="s2">"gateway_id"</span> <span class="o">=&gt;</span> <span class="s2">"stripe"</span>
+<span class="p">);</span>
+
+<span class="nb">curl_setopt_array</span><span class="p">(</span> <span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/payment-methods"</span><span class="p">,</span>
+  <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"POST"</span><span class="p">,</span>
+  <span class="nx">CURLOPT_POSTFIELDS</span> <span class="o">=&gt;</span> <span class="nv">$args</span><span class="p">,</span>
+  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span>
+<span class="p">)</span> <span class="p">);</span>
+
+<span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
+
+<span class="nb">curl_close</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
+
+<span class="k">echo</span> <span class="nv">$response</span><span class="p">;</span>
+</code></pre><pre class="highlight php tab-php--wp-http-api"><code><span class="cp">&lt;?php</span>
+<span class="nv">$args</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+  <span class="s2">"gateway_id"</span> <span class="o">=&gt;</span> <span class="s2">"stripe"</span>
+<span class="p">);</span>
+<span class="nv">$response</span> <span class="o">=</span> <span class="nx">wp_remote_post</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/payment-methods'</span><span class="p">,</span> <span class="nv">$args</span> <span class="p">);</span>
+<span class="nv">$body</span> <span class="o">=</span> <span class="nx">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
+</code></pre>
+<blockquote>
+<p>JSON response example.</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="kc">true</span><span class="w">
 </span></code></pre><h1 id='quantities'>Quantities</h1>
 <p>This API helps you get the quantities of each product added to the cart.</p>
 <h3 id='http-request'>HTTP request</h3>
@@ -2148,49 +2283,13 @@
 <p>JSON response example</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="s2">"£33.60"</span><span class="w">
-</span></code></pre><h1 id='cart-weight'>Cart Weight</h1>
-<p>This API helps you get the cart weight. The weight unit returned is set in your WooCommerce settings.</p>
-<h3 id='http-request'>HTTP request</h3>
-<div class="api-endpoint">
-  <div class="endpoint-data">
-    <i class="label label-get">GET</i>
-    <h6>/wp-json/cocart/v1/weight</h6>
-  </div>
-</div>
-<pre class="highlight shell tab-shell"><code>curl -X GET https://example.com/wp-json/cocart/v1/weight <span class="se">\</span>
-  -H <span class="s2">"Content-Type: application/json"</span>
-</code></pre><pre class="highlight javascript tab-javascript--jquery"><code><span class="kd">var</span> <span class="nx">settings</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="s2">"url"</span><span class="p">:</span> <span class="s2">"https://example.com/wp-json/cocart/v1/weight"</span><span class="p">,</span>
-  <span class="s2">"method"</span><span class="p">:</span> <span class="s2">"GET"</span>
-<span class="p">};</span>
-
-<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">(</span><span class="nx">settings</span><span class="p">).</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span>
-<span class="p">});</span>
-</code></pre><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
-<span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
-
-<span class="nb">curl_setopt_array</span><span class="p">(</span> <span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
-  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/weight"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"GET"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span>
-<span class="p">)</span> <span class="p">);</span>
-
-<span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
-
-<span class="nb">curl_close</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
-
-<span class="k">echo</span> <span class="nv">$response</span><span class="p">;</span>
-</code></pre><pre class="highlight php tab-php--wp-http-api"><code><span class="cp">&lt;?php</span>
-<span class="nv">$response</span> <span class="o">=</span> <span class="nx">wp_remote_get</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/weight'</span> <span class="p">);</span>
-<span class="nv">$body</span> <span class="o">=</span> <span class="nx">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
-</code></pre>
-<blockquote>
-<p>JSON response example</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="s2">"4 kg"</span><span class="w">
 </span></code></pre><h1 id='changelog'>Changelog</h1>
 <p>The Documentation is updated only when needed. Below is the changelog for &quot;CoCart Pro&quot; documentation that matches with the version of the plugin release.</p>
+<h3 id='doc-version-0-3-plugin-release-v1-0-0'>Doc Version 0.3 - Plugin Release v1.0.0</h3>
+<ul>
+<li>Added missing documentation for setting payment method.</li>
+<li>Moved Cart Weight under Cart Owner so everthing is in order.</li>
+</ul>
 <h3 id='doc-version-0-2-plugin-release-v1-0-0'>Doc Version 0.2 - Plugin Release v1.0.0</h3>
 <ul>
 <li>Added languages for jQuery, PHP and WP API.</li>
