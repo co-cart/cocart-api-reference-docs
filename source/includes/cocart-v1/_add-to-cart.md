@@ -14,6 +14,10 @@ This API helps you to add an item to the cart. You can also request to return th
 | `refresh_totals` | bool      | Set as true to refresh the cart totals once item is added. <i class="label label-info">optional</i> |
 | `return_cart`    | bool      | Set as true to return the whole cart once item added. <i class="label label-info">optional</i> |
 
+<aside class="notice">
+  If you wish to add the item for a specific registered customer then you must [#authenticate] as that customer.
+</aside>
+
 ### HTTP request ###
 
 <div class="api-endpoint">
