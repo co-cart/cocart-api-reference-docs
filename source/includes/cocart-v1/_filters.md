@@ -2,7 +2,7 @@
 
 The cart API has a number of filters that you can use to extend or change the API.
 
-See the [tweaks plugin for more examples](https://github.com/co-cart/co-cart-tweaks).
+See the [tweaks plugin for examples](https://github.com/co-cart/co-cart-tweaks).
 
 <aside class="notice">
 Please make sure you are viewing the PHP language to view examples of the filters in use.
