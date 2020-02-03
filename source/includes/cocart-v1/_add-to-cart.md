@@ -15,7 +15,7 @@ This API helps you to add an item to the cart. You can also request to return th
 | `return_cart`    | bool      | Set as true to return the whole cart once item added. <i class="label label-info">optional</i> |
 
 <aside class="notice">
-  If you wish to add the item for a specific registered customer then you must [#authenticate] as that customer.
+  If you wish to add the item for a specific registered customer then you must <strong>authenticate</strong> as that customer.
 </aside>
 
 ### HTTP request ###
