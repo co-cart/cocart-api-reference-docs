@@ -106,3 +106,80 @@ $body = wp_remote_retrieve_body( $response );
   }
 }
 ```
+
+## Add Variation Item to Cart ##
+
+Variation products require two things in order to add to the cart correctly. First is the `variation_id`. The second is the attributes of that `variation`. You need to pass both parameters in order for a valid variable product to be added to the cart. Without the attributes of the variation, there is no way to identify the variation added.
+
+```shell
+curl -X POST https://example.com/wp-json/cocart/v1/add-item \
+  -H "Content-Type: application/json" \
+  -d '{
+    "product_id": 1723,
+    "quantity": 1,
+    "variation_id": 1820,
+    "variation": {
+      "attribute_pa_color": "red",
+    }
+  }'
+```
+
+```javascript--jquery
+var settings = {
+  "url": "https://example.com/wp-json/cocart/v1/add-item",
+  "method": "POST",
+  "data": {
+    "product_id": 1722,
+    "quantity": 1,
+    "variation_id": 1820,
+    "variation": {
+      "attribute_pa_color": "red"
+    }
+  }
+};
+
+$.ajax(settings).done(function (response) {
+  console.log(response);
+});
+```
+
+```php
+<?php
+$curl = curl_init();
+
+$args = array(
+  'product_id' => 1722,
+  'quantity' => 1,
+  'variation_id' => 1820,
+  'variation' => {
+    'attribute_pa_color': 'red'
+  }
+);
+
+curl_setopt_array( $curl, array(
+  CURLOPT_URL => "https://example.com/wp-json/cocart/v1/add-item",
+  CURLOPT_CUSTOMREQUEST => "POST",
+  CURLOPT_POSTFIELDS => $args,
+  CURLOPT_RETURNTRANSFER => true
+) );
+
+$response = curl_exec($curl);
+
+curl_close($curl);
+
+echo $response;
+```
+
+```php--wp-http-api
+<?php
+$args = array(
+  'product_id' => 1722,
+  'quantity' => 1,
+  'variation_id' => 1820,
+  'variation' => {
+    'attribute_pa_color': 'red'
+  }
+);
+$response = wp_remote_post( 'https://example.com/wp-json/cocart/v1/add-item', $args );
+$body = wp_remote_retrieve_body( $response );
+```
