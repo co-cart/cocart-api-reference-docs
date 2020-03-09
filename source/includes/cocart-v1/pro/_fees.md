@@ -75,7 +75,7 @@ Apply a fee to the cart.
 
 ### Properties ###
 
-| Attribute   | Type   | Description       |
+| Property    | Type   | Description       |
 | ----------- | ------ | ----------------- |
 | `name`      | string | Name of the fee. <i class="label label-info">required</i> |
 | `amount`    | string | Amount for the fee. <i class="label label-info">required</i> |

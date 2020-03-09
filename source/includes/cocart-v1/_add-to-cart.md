@@ -4,15 +4,15 @@ This API helps you to add an item to the cart. You can also request to return th
 
 ### Properties ###
 
-| Attribute        | Type      | Description       |
-| ---------------- | --------- | ----------------- |
+| Property         | Type      | Description                                                                                                 |
+| ---------------- | --------- | ----------------------------------------------------------------------------------------------------------- |
 | `product_id`     | integer   | The product ID is required in order to add a product to the cart. <i class="label label-info">mandatory</i> |
-| `quantity`       | integer   | Set the quantity of the product you want to add to the cart. <i class="label label-info">Default is 1</i> |
-| `variation_id`   | integer   | Used to set the variation of the product being added to the cart. <i class="label label-info">optional</i> |
-| `variation`      | array     | Attribute values |
-| `cart_item_data` | array     | Used to apply extra cart item data we want to pass with the item. <i class="label label-info">optional</i> |
-| `refresh_totals` | bool      | Set as true to refresh the cart totals once item is added. <i class="label label-info">optional</i> |
-| `return_cart`    | bool      | Set as true to return the whole cart once item added. <i class="label label-info">optional</i> |
+| `quantity`       | integer   | Set the quantity of the product you want to add to the cart. <i class="label label-info">Default is 1</i>   |
+| `variation_id`   | integer   | Used to set the variation of the product being added to the cart. <i class="label label-info">optional</i>  |
+| `variation`      | array     | Attribute values.                                                                                           |
+| `cart_item_data` | array     | Used to apply extra cart item data we want to pass with the item. <i class="label label-info">optional</i>  |
+| `refresh_totals` | bool      | Set as true to refresh the cart totals once item is added. <i class="label label-info">optional</i>         |
+| `return_cart`    | bool      | Set as true to return the whole cart once item added. <i class="label label-info">optional</i>              |
 
 <aside class="notice">
   If you wish to add the item for a specific registered customer then you must <strong>authenticate</strong> as that customer.

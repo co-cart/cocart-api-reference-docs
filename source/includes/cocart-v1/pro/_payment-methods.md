@@ -149,7 +149,7 @@ Apply the payment method to the cart. Can only apply once the customer has added
 
 ### Properties ###
 
-| Attribute    | Type   | Description       |
+| Property     | Type   | Description       |
 | ------------ | ------ | ----------------- |
 | `gateway_id` | string | The gateway ID of the payment method. <i class="label label-info">required</i> |
 

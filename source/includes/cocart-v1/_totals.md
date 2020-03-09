@@ -4,7 +4,7 @@ This API helps you retrieve the cart totals. You can also return the totals pre-
 
 ### Properties ###
 
-| Attribute | Type | Description       |
+| Property  | Type | Description       |
 | --------- | ---- | ----------------- |
 | `html`    | bool | Set as true to return the totals as strings with currency symbol. <i class="label label-info">optional</i> |
 

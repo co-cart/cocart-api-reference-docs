@@ -4,7 +4,7 @@ This API helps you to restore an item to the cart. You can also request to retur
 
 ### Properties ###
 
-| Attribute       | Type   | Description                                   |
+| Property        | Type   | Description                                   |
 | --------------- | ------ | --------------------------------------------- |
 | `cart_item_key` | string | The cart item key of the product that was in the cart recently. <i class="label label-info">mandatory</i> |
 | `return_cart`   | bool   | Set as true to return the whole cart once item is restored. <i class="label label-info">optional</i> |

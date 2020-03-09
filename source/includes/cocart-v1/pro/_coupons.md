@@ -4,7 +4,7 @@ This API helps you get applied coupons, add coupons to cart, remove coupons from
 
 ### Coupon Properties ###
 
-| Attribute | Type   | Description       |
+| Property  | Type   | Description       |
 | --------- | ------ | ----------------- |
 | `coupon`  | string | Coupon code is required in order to apply it to or remove it from cart. <i class="label label-info">required</i> |
 

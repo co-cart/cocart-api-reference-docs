@@ -8,7 +8,7 @@ Returns all available shipping methods once the customer has calculated shipping
 
 ### Properties ###
 
-| Attribute            | Type   | Description       |
+| Property             | Type   | Description       |
 | -------------------- | ------ | ----------------- |
 | `recurring_cart_key` | string | The recurring cart key identifies each subscription in cart. <i class="label label-info">required, only for subscriptions.</i> |
 
@@ -95,7 +95,7 @@ Apply a shipping method to the cart. Can only apply once the customer has calcul
 
 ### Properties ###
 
-| Attribute            | Type   | Description       |
+| Property             | Type   | Description       |
 | -------------------- | ------ | ----------------- |
 | `key`                | string | The key of the shipping method. <i class="label label-info">required</i> |
 | `recurring_cart_key` | string | The recurring cart key identifies each subscription in cart. <i class="label label-info">required, only for subscriptions.</i> |

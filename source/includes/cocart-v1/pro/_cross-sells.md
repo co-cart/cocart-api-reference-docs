@@ -4,7 +4,7 @@ This API helps you get the cross sells. It returns not just the product ID's but
 
 ## Cross Sell Properties ##
 
-| Attribute | Type | Description |
+| Property  | Type | Description |
 | --------- | ---- | ----------- |
 | `thumb`   | bool | Set as true to return the product thumbnail for each item. |
 
