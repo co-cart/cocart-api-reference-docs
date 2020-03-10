@@ -26,9 +26,17 @@ If you have purchased CoCart Pro then documentation for it is found here.
 | ----------- | ------------------ | --------------- | ------------ | -------------------- |
 | `v1`        | 1.0.x or later     | 3.6.x or later  | 4.4 or later | [cocart pro docs](pro.html) |
 
+### CoCart Pro Add-ons ###
+
+Documentation for CoCart Pro add-ons are found here.
+
+| API Version | CoCart Pro Version | WC Version      | WP Version   | Documentation         |
+| ----------- | ------------------ | --------------- | ------------ | --------------------- |
+| `v1`        | 1.0.x or later     | 3.6.x or later  | 4.4 or later | [cocart products docs](products.html) |
+
 ## CoCart - Work in Progress ##
 
-[This section provides documentation on future features](wip.html) that are in the works. Only view this section if you are testing beta releases and not using it on production sites.
+[This section provides documentation on future features](wip.html) that are in the works. Only view this section if you are testing the latest beta release and not using it on production sites.
 
 ## Requirements ##
 
