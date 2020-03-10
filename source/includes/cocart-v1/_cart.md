@@ -183,7 +183,7 @@ $body = wp_remote_retrieve_body( $response );
 
 ## Retrieve a Customers Cart Contents ##
 
-This API returns the cart contents for a specific registered customer and is only for testing purposes. Only administrator users has the ability to access this API. You can also use the [Get Cart Content](#get-cart-contents) properties.
+This API returns the cart contents for a specific registered customer and is only for testing purposes. Only **administrator users** has the ability to access this API. You can also use the [Get Cart Content](#get-cart-contents) properties.
 
 <aside class="notice">
   Please note that to return a registered customer, you must have persistent cart left enabled in you WooCommerce store for this to work and will only return if it has not expired or the cart is not cleared from the session table.
