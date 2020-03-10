@@ -33,6 +33,7 @@ includes:
   - cocart-v1/update-item-in-cart
   - cocart-v1/hooks
   - cocart-v1/filters
+  - demo
   - changelog
   - contribute
 
