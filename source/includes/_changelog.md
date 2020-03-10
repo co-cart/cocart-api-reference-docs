@@ -2,9 +2,17 @@
 
 The Documentation is updated only when needed. Below is the changelog for "CoCart" documentation that matches with the version of the plugin release.
 
+### Doc Version 1.5 - Plugin Release v2.0.7 ###
+
+* NEW: Added link to products add-on documentation under CoCart Pro.
+* NEW: Added a little section explainging the body types when making a request.
+* NEW: Added example to add item with custom cart item data.
+* NEW: Added Demo section.
+* Improved: Authentication section.
+
 ### Doc Version 1.4 ###
 
-* Added live chat so users can ask questions.
+* NEW: Added live chat so users can ask questions.
 * Made it clearer to understand about retrieving specific customers cart.
 * Improved the introduction a little.
 
@@ -21,7 +29,7 @@ The Documentation is updated only when needed. Below is the changelog for "CoCar
 
 * Added Index API.
 * Linked logo to documentation homepage.
-z
+
 ### Doc Version 1 - Plugin Release v2 ###
 
 * Updated for CoCart v2
