@@ -183,3 +183,80 @@ $args = array(
 $response = wp_remote_post( 'https://example.com/wp-json/cocart/v1/add-item', $args );
 $body = wp_remote_retrieve_body( $response );
 ```
+
+## Add Item to Cart with Custom Data ##
+
+Need to pass custom data? This example will show you how.
+
+```shell
+curl -X POST https://example.com/wp-json/cocart/v1/add-item \
+  -H "Content-Type: application/json" \
+  -d '{
+    "product_id": 1722,
+    "quantity": 1,
+    "cart_item_data": {
+      "engraved_name": "Sébastien Dumont",
+      "engraved_size": "Medium"
+    }
+  }'
+```
+
+```javascript--jquery
+var settings = {
+  "url": "https://example.com/wp-json/cocart/v1/add-item",
+  "method": "POST",
+  "data": {
+    "product_id" : 1722,
+    "quantity" : 1,
+    "cart_item_data" : {
+      "engraved_name" : "Sébastien Dumont",
+      "engraved_size" : "Medium"
+    }
+  }
+};
+
+$.ajax(settings).done(function (response) {
+  console.log(response);
+});
+```
+
+```php
+<?php
+$curl = curl_init();
+
+$args = array(
+  'product_id' => 1722,
+  'quantity' => 1,
+  'cart_item_data' => array(
+    'engraved_name' => 'Sébastien Dumont',
+    'engraved_size' => 'Medium'
+  )
+);
+
+curl_setopt_array( $curl, array(
+  CURLOPT_URL => "https://example.com/wp-json/cocart/v1/add-item",
+  CURLOPT_CUSTOMREQUEST => "POST",
+  CURLOPT_POSTFIELDS => $args,
+  CURLOPT_RETURNTRANSFER => true
+) );
+
+$response = curl_exec($curl);
+
+curl_close($curl);
+
+echo $response;
+```
+
+```php--wp-http-api
+<?php
+$args = array(
+  'product_id' => 1722,
+  'quantity' => 1,
+  'cart_item_data' => array(
+    'engraved_name' => 'Sébastien Dumont',
+    'engraved_size' => 'Medium'
+  )
+);
+$response = wp_remote_post( 'https://example.com/wp-json/cocart/v1/add-item', $args );
+$body = wp_remote_retrieve_body( $response );
+```
