@@ -259,6 +259,9 @@
                     <a href="#request-response-format" class="toc-h2 toc-link" data-title="Request/Response Format">Request/Response Format</a>
                   </li>
                   <li>
+                    <a href="#body-types" class="toc-h2 toc-link" data-title="Body Types">Body Types</a>
+                  </li>
+                  <li>
                     <a href="#errors" class="toc-h2 toc-link" data-title="Errors">Errors</a>
                   </li>
                   <li>
@@ -285,6 +288,14 @@
           </li>
           <li>
             <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#basic-authentication" class="toc-h2 toc-link" data-title="Basic Authentication">Basic Authentication</a>
+                  </li>
+                  <li>
+                    <a href="#jwt-authentication" class="toc-h2 toc-link" data-title="JWT Authentication">JWT Authentication</a>
+                  </li>
+              </ul>
           </li>
           <li>
             <a href="#cart" class="toc-h1 toc-link" data-title="Cart">Cart</a>
@@ -317,6 +328,9 @@
                   </li>
                   <li>
                     <a href="#add-variation-item-to-cart" class="toc-h2 toc-link" data-title="Add Variation Item to Cart">Add Variation Item to Cart</a>
+                  </li>
+                  <li>
+                    <a href="#add-item-to-cart-with-custom-data" class="toc-h2 toc-link" data-title="Add Item to Cart with Custom Data">Add Item to Cart with Custom Data</a>
                   </li>
                   <li>
                     <a href="#remove-item-from-cart" class="toc-h2 toc-link" data-title="Remove Item from Cart">Remove Item from Cart</a>
@@ -370,8 +384,25 @@
               </ul>
           </li>
           <li>
+            <a href="#demo-cocart" class="toc-h1 toc-link" data-title="Demo CoCart">Demo CoCart</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#adding-an-item" class="toc-h2 toc-link" data-title="Adding an item">Adding an item</a>
+                  </li>
+                  <li>
+                    <a href="#authentication" class="toc-h2 toc-link" data-title="Authentication">Authentication</a>
+                  </li>
+                  <li>
+                    <a href="#products" class="toc-h2 toc-link" data-title="Products">Products</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#changelog" class="toc-h1 toc-link" data-title="Changelog">Changelog</a>
               <ul class="toc-list-h2">
+                  <li>
+                    <a href="#doc-version-1-5-plugin-release-v2-0-7" class="toc-h2 toc-link" data-title="Doc Version 1.5 - Plugin Release v2.0.7">Doc Version 1.5 - Plugin Release v2.0.7</a>
+                  </li>
                   <li>
                     <a href="#doc-version-1-4" class="toc-h2 toc-link" data-title="Doc Version 1.4">Doc Version 1.4</a>
                   </li>
@@ -483,8 +514,28 @@
 <td><a href="pro.html">cocart pro docs</a></td>
 </tr>
 </tbody></table>
+<h3 id='cocart-pro-add-ons'>CoCart Pro Add-ons</h3>
+<p>Documentation for CoCart Pro add-ons are found here.</p>
+
+<table><thead>
+<tr>
+<th>API Version</th>
+<th>CoCart Pro Version</th>
+<th>WC Version</th>
+<th>WP Version</th>
+<th>Documentation</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>v1</code></td>
+<td>1.0.x or later</td>
+<td>3.6.x or later</td>
+<td>4.4 or later</td>
+<td><a href="products.html">cocart products docs</a></td>
+</tr>
+</tbody></table>
 <h2 id='cocart-work-in-progress'>CoCart - Work in Progress</h2>
-<p><a href="wip.html">This section provides documentation on future features</a> that are in the works. Only view this section if you are testing beta releases and not using it on production sites.</p>
+<p><a href="wip.html">This section provides documentation on future features</a> that are in the works. Only view this section if you are testing the latest beta release and not using it on production sites.</p>
 <h2 id='requirements'>Requirements</h2>
 <p>To use the latest version of the CoCart you must be using:</p>
 
@@ -508,6 +559,34 @@
 <li>Other amounts, such as item counts, are returned as integers.</li>
 <li>Blank fields are generally included as <code>null</code> instead of being returned as blank strings or omitted.</li>
 </ul>
+<h2 id='body-types'>Body Types</h2>
+<p>There are different types of body types when making a request. Make sure when using either of these body types that you have the correct <code>Content-Type</code> for the header.</p>
+
+<table><thead>
+<tr>
+<th>Body Type</th>
+<th>Content-Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>form-data </td>
+<td>application/json</td>
+</tr>
+<tr>
+<td>raw </td>
+<td>application/json</td>
+</tr>
+<tr>
+<td>x-www-form-urlencoded</td>
+<td>application/x-www-form-urlencoded</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+  Body data must be passed correctly for the CoCart REST API to succeed.
+</aside>
+
+<p>I personally find using <strong>raw</strong> works best if you are passing an array of data for a <code>variation</code> or <code>cart_item_data</code>.</p>
 <h2 id='errors'>Errors</h2>
 <p>Occasionally you might encounter errors when accessing the REST API. There are four possible types:</p>
 
@@ -1555,20 +1634,182 @@
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><h1 id='authentication'>Authentication</h1>
-<p>CoCart can be authenticated by various methods with the WP REST API, first being via the <a href="http://woocommerce.github.io/woocommerce-rest-api-docs/#rest-api-keys">REST API keys</a> in <a href="http://woocommerce.github.io/woocommerce-rest-api-docs/#authentication">WooCommerce</a>. Though this method is designed for the backend, with some custom coding you can make it work for the frontend.</p>
+<p>CoCart can be authenticated by various methods with the WP REST API. First being via the <a href="http://woocommerce.github.io/woocommerce-rest-api-docs/#rest-api-keys">REST API Keys</a> in <a href="http://woocommerce.github.io/woocommerce-rest-api-docs/#authentication">WooCommerce</a>. Though this method is designed for the backend with their REST API, with some custom coding you can make it work for the frontend with CoCart.</p>
 
 <p>Checkout my guide on <a href="https://cocart.xyz/authenticating-with-woocommerce-heres-how-you-can-do-it/">how to authenticate with WooCommerce</a>.</p>
 
-<p>It is also possible to authenticate using any of the following WP REST API authentication plugins or methods.</p>
+<p>It is also possible to authenticate using any of the following WP REST API authentication methods.</p>
 
 <ul>
-<li><a href="https://wordpress.org/plugins/jwt-authentication-for-wp-rest-api/">JWT Authentication for WP REST API</a></li>
+<li><a href="#basic-authentication">Basic Authentication</a></li>
+<li><a href="#jwt-authentication">JWT Authentication for WP REST API</a></li>
 </ul>
 
+<p>The WordPress REST API incorporates a method called <a href="http://codex.wordpress.org/WordPress_Nonces">nonces</a> to deal with <a href="https://en.wikipedia.org/wiki/Cross-site_request_forgery">CSRF</a> issues. This ensures that all activities on the website remain segregated. This is because the WordPress REST API just like the WooCommerce REST API is designed for the bacl-end.</p>
+
+<p>CoCart however, is designed for the front-end so for any CoCart requests made, the <a href="https://developer.wordpress.org/rest-api/using-the-rest-api/authentication/">cookie authentication</a> is disabled allowing the ability to authenticate in any code language without fault.</p>
+
 <aside class="notice">
-    If you have tested other authentication plugins or methods, please let me know here: https://cocart.xyz/feedback/ so that I can add it to the list. Thank you. 😄
+  Authentication is <strong>only</strong> required for registered customers, <strong>not</strong> guest customers and that you will be passing the customers username and password or token depending on the authentication method you are using. If you are authenticating a registered customer, it's important that you keep doing so with all routes from the beginning so the cart in session remains the same. If you only authenticate one request and don't on another, you may find that you will be merging any previous items the customer added previously if they are still available for purchase.
 </aside>
-<h1 id='cart'>Cart</h1>
+
+<p>If you have tested other authentication plugins or methods, please let me know via the <a href="https://cocart.xyz/feedback/">feedback page</a> so that I can add it to the list.</p>
+
+<p>Thank you. 😄</p>
+<h2 id='basic-authentication'>Basic Authentication</h2>
+<p><a href="http://en.wikipedia.org/wiki/Basic_access_authentication">What is the Basic Authentication method?</a></p>
+
+<p>If you use the Basic Authentication method (which you may find the easiest to use for your customers to login with), please make sure that you have SSL enabled when making requests with any of the CoCart API routes. Check out the example adding an item to the cart as a registered customer.</p>
+
+<aside class="notice">
+  Replace the username and password with the customers login details.
+</aside>
+<pre class="highlight shell tab-shell"><code>curl -X POST https://example.com/wp-json/cocart/v1/add-item <span class="se">\</span>
+  -u username:password <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -d <span class="s1">'{
+    "product_id": 1722,
+    "quantity": 1
+  }'</span>
+</code></pre><pre class="highlight javascript tab-javascript--jquery"><code><span class="kd">var</span> <span class="nx">settings</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s2">"url"</span><span class="p">:</span> <span class="s2">"https://example.com/wp-json/cocart/v1/add-item"</span><span class="p">,</span>
+  <span class="s2">"headers"</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s2">"Authorization"</span><span class="p">:</span> <span class="s2">"Basic "</span> <span class="o">+</span> <span class="nx">btoa</span><span class="p">(</span><span class="s1">'username:password'</span><span class="p">),</span>
+  <span class="p">},</span>
+  <span class="s2">"method"</span><span class="p">:</span> <span class="s2">"POST"</span><span class="p">,</span>
+  <span class="s2">"data"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">"product_id"</span> <span class="p">:</span> <span class="mi">1722</span><span class="p">,</span>
+    <span class="s2">"quantity"</span> <span class="p">:</span> <span class="mi">1</span>
+  <span class="p">},</span>
+<span class="p">};</span>
+
+<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">(</span><span class="nx">settings</span><span class="p">).</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+<span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
+
+<span class="nv">$args</span> <span class="o">=</span> <span class="nb">json_encode</span><span class="p">(</span> <span class="k">array</span><span class="p">(</span>
+  <span class="s1">'product_id'</span> <span class="o">=&gt;</span> <span class="mi">1722</span><span class="p">,</span>
+  <span class="s1">'quantity'</span> <span class="o">=&gt;</span> <span class="mi">1</span>
+<span class="p">)</span> <span class="p">);</span>
+
+<span class="nv">$headers</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+  <span class="s1">'Accept: application/json'</span><span class="p">,</span>
+  <span class="s1">'Content-Type: application/json'</span><span class="p">,</span>
+  <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
+  <span class="s1">'Authorization: Basic '</span> <span class="o">.</span> <span class="nb">base64_encode</span><span class="p">(</span><span class="nv">$username</span> <span class="o">.</span> <span class="s1">':'</span> <span class="o">.</span> <span class="nv">$password</span><span class="p">)</span>
+<span class="p">);</span>
+
+<span class="nb">curl_setopt_array</span><span class="p">(</span> <span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/add-item"</span><span class="p">,</span>
+  <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"POST"</span><span class="p">,</span>
+  <span class="nx">CURLOPT_POSTFIELDS</span> <span class="o">=&gt;</span> <span class="nv">$args</span><span class="p">,</span>
+  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="nv">$headers</span>
+<span class="p">)</span> <span class="p">);</span>
+
+<span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
+
+<span class="nb">curl_close</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
+
+<span class="k">echo</span> <span class="nv">$response</span><span class="p">;</span>
+</code></pre><pre class="highlight php tab-php--wp-http-api"><code><span class="cp">&lt;?php</span>
+<span class="nv">$args</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+  <span class="s1">'body'</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span> <span class="s1">'username'</span> <span class="o">=&gt;</span> <span class="s1">'bob'</span><span class="p">,</span> <span class="s1">'password'</span> <span class="o">=&gt;</span> <span class="s1">'1234xyz'</span> <span class="p">),</span>
+  <span class="s1">'product_id'</span> <span class="o">=&gt;</span> <span class="mi">1722</span><span class="p">,</span>
+  <span class="s1">'quantity'</span> <span class="o">=&gt;</span> <span class="mi">1</span>
+<span class="p">);</span>
+<span class="nv">$response</span> <span class="o">=</span> <span class="nx">wp_remote_post</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/add-item'</span><span class="p">,</span> <span class="nv">$args</span> <span class="p">);</span>
+<span class="nv">$body</span> <span class="o">=</span> <span class="nx">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
+</code></pre>
+<blockquote>
+<p>JSON response example</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"404dcc91b2aeaa7caa47487d1483e48a"</span><span class="p">:{</span><span class="w">
+    </span><span class="s2">"key"</span><span class="p">:</span><span class="s2">"404dcc91b2aeaa7caa47487d1483e48a"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"product_id"</span><span class="p">:</span><span class="mi">1722</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"variation_id"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"variation"</span><span class="p">:[],</span><span class="w">
+    </span><span class="s2">"quantity"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"line_tax_data"</span><span class="p">:{</span><span class="w">
+      </span><span class="s2">"subtotal"</span><span class="p">:[],</span><span class="w">
+      </span><span class="s2">"total"</span><span class="p">:[]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"line_subtotal"</span><span class="p">:</span><span class="mi">18</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"line_subtotal_tax"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"line_total"</span><span class="p">:</span><span class="mi">18</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"line_tax"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:{}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='authentication-issues'>Authentication issues?</h3>
+<p>If the authentication header is not passing or authentication is not working you, adding a Rewrite rule to your <code>.htaccess</code> file might help.</p>
+
+<blockquote>
+<p>.htaccess Rewrite rule</p>
+</blockquote>
+<pre class="highlight plaintext"><code>RewriteCond %{HTTP:Authorization} ^(.)
+RewriteRule ^(.) - [E=HTTP_AUTHORIZATION:%1]
+</code></pre><h2 id='jwt-authentication'>JWT Authentication</h2>
+<p>JWT is a simple web token authentication method for WP REST API. To know more about JSON Web Tokens, please visit <a href="http://jwt.io">http://jwt.io</a>.</p>
+
+<p>It&#39;s important that you follow the installation and configurations exactly for this method to work. <a href="https://github.com/Tmeister/wp-api-jwt-auth#installation--configuration">See instructions</a>.</p>
+<h3 id='steps-to-follow'>Steps to follow</h3>
+<ol>
+<li><a href="https://wordpress.org/plugins/jwt-authentication-for-wp-rest-api/">Download and Install JWT Authentication plugin</a> from WordPress.org.</li>
+<li><a href="https://github.com/Tmeister/wp-api-jwt-auth#configurate-the-secret-key">Configure the Secret Key</a>.</li>
+<li><a href="https://github.com/Tmeister/wp-api-jwt-auth#usage">Get your token</a>.</li>
+</ol>
+
+<aside class="notice">
+  Once you get the token, you must store it somewhere in your application, e.g. in a cookie or using localstorage. From this point, you should pass this token to every CoCart API call.
+</aside>
+<pre class="highlight javascript tab-javascript--jquery"><code><span class="kd">var</span> <span class="nx">settings</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s2">"url"</span><span class="p">:</span> <span class="s2">"https://example.com/wp-json/cocart/v1/add-item"</span><span class="p">,</span>
+  <span class="s2">"headers"</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s2">"Authorization"</span><span class="p">:</span> <span class="s2">"Bearer "</span> <span class="o">+</span> <span class="nx">token</span><span class="p">,</span>
+  <span class="p">},</span>
+  <span class="s2">"method"</span><span class="p">:</span> <span class="s2">"POST"</span><span class="p">,</span>
+  <span class="s2">"data"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">"product_id"</span> <span class="p">:</span> <span class="mi">1722</span><span class="p">,</span>
+    <span class="s2">"quantity"</span> <span class="p">:</span> <span class="mi">1</span>
+  <span class="p">},</span>
+<span class="p">};</span>
+
+<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">(</span><span class="nx">settings</span><span class="p">).</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+<span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
+
+<span class="nv">$args</span> <span class="o">=</span> <span class="nb">json_encode</span><span class="p">(</span> <span class="k">array</span><span class="p">(</span>
+  <span class="s1">'product_id'</span> <span class="o">=&gt;</span> <span class="mi">1722</span><span class="p">,</span>
+  <span class="s1">'quantity'</span> <span class="o">=&gt;</span> <span class="mi">1</span>
+<span class="p">)</span> <span class="p">);</span>
+
+<span class="nv">$headers</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+  <span class="s1">'Accept: application/json'</span><span class="p">,</span>
+  <span class="s1">'Content-Type: application/json'</span><span class="p">,</span>
+  <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
+  <span class="s1">'Authorization: Bearer '</span> <span class="o">.</span> <span class="nv">$token</span>
+<span class="p">);</span>
+
+<span class="nb">curl_setopt_array</span><span class="p">(</span> <span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/add-item"</span><span class="p">,</span>
+  <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"POST"</span><span class="p">,</span>
+  <span class="nx">CURLOPT_POSTFIELDS</span> <span class="o">=&gt;</span> <span class="nv">$args</span><span class="p">,</span>
+  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="nv">$headers</span>
+<span class="p">)</span> <span class="p">);</span>
+
+<span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
+
+<span class="nb">curl_close</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
+
+<span class="k">echo</span> <span class="nv">$response</span><span class="p">;</span>
+</code></pre><h1 id='cart'>Cart</h1>
 <p>The cart API is powerful and allows you to view the cart in session, add new items, update the quantity of an item and delete individual items from the cart.</p>
 
 <p>Using the individual endpoints and their properties, you can control what you need and what is returned when the request is finished.</p>
@@ -1577,7 +1818,7 @@
 <h3 id='properties'>Properties</h3>
 <table><thead>
 <tr>
-<th>Attribute</th>
+<th>Property</th>
 <th>Type</th>
 <th>Description</th>
 </tr>
@@ -1734,10 +1975,10 @@
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><h2 id='retrieve-a-customers-cart-contents'>Retrieve a Customers Cart Contents</h2>
-<p>This API returns the cart contents for a specific registered customer and is only for testing purposes. To use this you must <a href="https://developer.wordpress.org/rest-api/using-the-rest-api/authentication/">cookie authenticate</a> as administrator. No other user role has the ability to access this API. You can also use the <a href="#get-cart-contents">Get Cart Content</a> properties.</p>
+<p>This API returns the cart contents for a specific registered customer and is only for testing purposes. Only <strong>administrator users</strong> has the ability to access this API. You can also use the <a href="#get-cart-contents">Get Cart Content</a> properties.</p>
 
 <aside class="notice">
-  Please note that to return a registered customer, you must have persistent cart left enabled in you WooCommerce store for this to work and will only return if it has not expired or is still in session.
+  Please note that to return a registered customer, you must have persistent cart left enabled in you WooCommerce store for this to work and will only return if it has not expired or the cart is not cleared from the session table.
 </aside>
 <h3 id='http-request-2'>HTTP request</h3>
 <div class="api-endpoint">
@@ -1880,7 +2121,7 @@
 <h3 id='properties'>Properties</h3>
 <table><thead>
 <tr>
-<th>Attribute</th>
+<th>Property</th>
 <th>Type</th>
 <th>Description</th>
 </tr>
@@ -1935,7 +2176,7 @@
 <h3 id='properties'>Properties</h3>
 <table><thead>
 <tr>
-<th>Attribute</th>
+<th>Property</th>
 <th>Type</th>
 <th>Description</th>
 </tr>
@@ -2086,7 +2327,7 @@
 <h3 id='properties'>Properties</h3>
 <table><thead>
 <tr>
-<th>Attribute</th>
+<th>Property</th>
 <th>Type</th>
 <th>Description</th>
 </tr>
@@ -2109,7 +2350,7 @@
 <tr>
 <td><code>variation</code></td>
 <td>array</td>
-<td>Attribute values</td>
+<td>Attribute values.</td>
 </tr>
 <tr>
 <td><code>cart_item_data</code></td>
@@ -2268,12 +2509,75 @@
 <span class="p">);</span>
 <span class="nv">$response</span> <span class="o">=</span> <span class="nx">wp_remote_post</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/add-item'</span><span class="p">,</span> <span class="nv">$args</span> <span class="p">);</span>
 <span class="nv">$body</span> <span class="o">=</span> <span class="nx">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
+</code></pre><h2 id='add-item-to-cart-with-custom-data'>Add Item to Cart with Custom Data</h2>
+<p>Need to pass custom data? This example will show you how.</p>
+<pre class="highlight shell tab-shell"><code>curl -X POST https://example.com/wp-json/cocart/v1/add-item <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -d <span class="s1">'{
+    "product_id": 1722,
+    "quantity": 1,
+    "cart_item_data": {
+      "engraved_name": "Sébastien Dumont",
+      "engraved_size": "Medium"
+    }
+  }'</span>
+</code></pre><pre class="highlight javascript tab-javascript--jquery"><code><span class="kd">var</span> <span class="nx">settings</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s2">"url"</span><span class="p">:</span> <span class="s2">"https://example.com/wp-json/cocart/v1/add-item"</span><span class="p">,</span>
+  <span class="s2">"method"</span><span class="p">:</span> <span class="s2">"POST"</span><span class="p">,</span>
+  <span class="s2">"data"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">"product_id"</span> <span class="p">:</span> <span class="mi">1722</span><span class="p">,</span>
+    <span class="s2">"quantity"</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">"cart_item_data"</span> <span class="p">:</span> <span class="p">{</span>
+      <span class="s2">"engraved_name"</span> <span class="p">:</span> <span class="s2">"Sébastien Dumont"</span><span class="p">,</span>
+      <span class="s2">"engraved_size"</span> <span class="p">:</span> <span class="s2">"Medium"</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">(</span><span class="nx">settings</span><span class="p">).</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+<span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
+
+<span class="nv">$args</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+  <span class="s1">'product_id'</span> <span class="o">=&gt;</span> <span class="mi">1722</span><span class="p">,</span>
+  <span class="s1">'quantity'</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span>
+  <span class="s1">'cart_item_data'</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">'engraved_name'</span> <span class="o">=&gt;</span> <span class="s1">'Sébastien Dumont'</span><span class="p">,</span>
+    <span class="s1">'engraved_size'</span> <span class="o">=&gt;</span> <span class="s1">'Medium'</span>
+  <span class="p">)</span>
+<span class="p">);</span>
+
+<span class="nb">curl_setopt_array</span><span class="p">(</span> <span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/add-item"</span><span class="p">,</span>
+  <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"POST"</span><span class="p">,</span>
+  <span class="nx">CURLOPT_POSTFIELDS</span> <span class="o">=&gt;</span> <span class="nv">$args</span><span class="p">,</span>
+  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span>
+<span class="p">)</span> <span class="p">);</span>
+
+<span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
+
+<span class="nb">curl_close</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
+
+<span class="k">echo</span> <span class="nv">$response</span><span class="p">;</span>
+</code></pre><pre class="highlight php tab-php--wp-http-api"><code><span class="cp">&lt;?php</span>
+<span class="nv">$args</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+  <span class="s1">'product_id'</span> <span class="o">=&gt;</span> <span class="mi">1722</span><span class="p">,</span>
+  <span class="s1">'quantity'</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span>
+  <span class="s1">'cart_item_data'</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">'engraved_name'</span> <span class="o">=&gt;</span> <span class="s1">'Sébastien Dumont'</span><span class="p">,</span>
+    <span class="s1">'engraved_size'</span> <span class="o">=&gt;</span> <span class="s1">'Medium'</span>
+  <span class="p">)</span>
+<span class="p">);</span>
+<span class="nv">$response</span> <span class="o">=</span> <span class="nx">wp_remote_post</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/add-item'</span><span class="p">,</span> <span class="nv">$args</span> <span class="p">);</span>
+<span class="nv">$body</span> <span class="o">=</span> <span class="nx">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
 </code></pre><h2 id='remove-item-from-cart'>Remove Item from Cart</h2>
 <p>This API helps you to remove an item from the cart. You can also request to return the whole cart once item is removed to reduce API requests and use the <a href="#get-cart-contents">Get Cart Content</a> properties. </p>
 <h3 id='properties'>Properties</h3>
 <table><thead>
 <tr>
-<th>Attribute</th>
+<th>Property</th>
 <th>Type</th>
 <th>Description</th>
 </tr>
@@ -2348,7 +2652,7 @@
 <h3 id='properties'>Properties</h3>
 <table><thead>
 <tr>
-<th>Attribute</th>
+<th>Property</th>
 <th>Type</th>
 <th>Description</th>
 </tr>
@@ -2422,7 +2726,7 @@
 <h3 id='properties'>Properties</h3>
 <table><thead>
 <tr>
-<th>Attribute</th>
+<th>Property</th>
 <th>Type</th>
 <th>Description</th>
 </tr>
@@ -2732,11 +3036,184 @@ function remove_parent_cart_item_key( $cart_contents ) {
 
   return $new_cart_contents;
 }
-</code></pre><h1 id='changelog'>Changelog</h1>
+</code></pre><h1 id='demo-cocart'>Demo CoCart</h1>
+<p>If you don&#39;t yet have CoCart installed or a WordPress setup ready, you can test the results in your app using the demo site prepared.</p>
+
+<p>When you do make a request, make sure you use <code>https://wp-demo.cocart.xyz/</code> as the domain to use the demo.</p>
+
+<p><a href="https://cocart.xyz/add-ons/get-cart-enhanced/">Get Cart Enhanced</a> add-on is installed so some results may appear different to the results you see in the documentation. It also gives you a look at what is possible using the <a href="#filters">filters</a> available to customize CoCart to your needs.</p>
+<h2 id='adding-an-item'>Adding an item</h2>
+<p>Here is an example of adding a item to the cart via the demo.</p>
+<h3 id='http-request'>HTTP request</h3>
+<div class="api-endpoint">
+  <div class="endpoint-data">
+    <i class="label label-post">POST</i>
+    <h6>/wp-json/cocart/v1/add-item</h6>
+  </div>
+</div>
+
+<p><a href="#add-item-to-cart">View more on add to cart</a></p>
+<pre class="highlight shell tab-shell"><code>curl -X POST https://wp-demo.cocart.xyz/wp-json/cocart/v1/add-item <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -d <span class="s1">'{
+    "product_id": 1722,
+    "quantity": 1
+  }'</span>
+</code></pre><pre class="highlight javascript tab-javascript--jquery"><code><span class="kd">var</span> <span class="nx">settings</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s2">"url"</span><span class="p">:</span> <span class="s2">"https://wp-demo.cocart.xyz/wp-json/cocart/v1/add-item"</span><span class="p">,</span>
+  <span class="s2">"method"</span><span class="p">:</span> <span class="s2">"POST"</span><span class="p">,</span>
+  <span class="s2">"data"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">"product_id"</span> <span class="p">:</span> <span class="mi">1722</span><span class="p">,</span>
+    <span class="s2">"quantity"</span> <span class="p">:</span> <span class="mi">1</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">(</span><span class="nx">settings</span><span class="p">).</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+<span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
+
+<span class="nv">$args</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+  <span class="s1">'product_id'</span> <span class="o">=&gt;</span> <span class="mi">1722</span><span class="p">,</span>
+  <span class="s1">'quantity'</span> <span class="o">=&gt;</span> <span class="mi">1</span>
+<span class="p">);</span>
+
+<span class="nb">curl_setopt_array</span><span class="p">(</span> <span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://wp-demo.cocart.xyz/wp-json/cocart/v1/add-item"</span><span class="p">,</span>
+  <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"POST"</span><span class="p">,</span>
+  <span class="nx">CURLOPT_POSTFIELDS</span> <span class="o">=&gt;</span> <span class="nv">$args</span><span class="p">,</span>
+  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span>
+<span class="p">)</span> <span class="p">);</span>
+
+<span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
+
+<span class="nb">curl_close</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
+
+<span class="k">echo</span> <span class="nv">$response</span><span class="p">;</span>
+</code></pre><pre class="highlight php tab-php--wp-http-api"><code><span class="cp">&lt;?php</span>
+<span class="nv">$args</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+  <span class="s1">'product_id'</span> <span class="o">=&gt;</span> <span class="mi">1722</span><span class="p">,</span>
+  <span class="s1">'quantity'</span> <span class="o">=&gt;</span> <span class="mi">1</span>
+<span class="p">);</span>
+<span class="nv">$response</span> <span class="o">=</span> <span class="nx">wp_remote_post</span><span class="p">(</span> <span class="s1">'https://wp-demo.cocart.xyz/wp-json/cocart/v1/add-item'</span><span class="p">,</span> <span class="nv">$args</span> <span class="p">);</span>
+<span class="nv">$body</span> <span class="o">=</span> <span class="nx">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
+</code></pre><h2 id='authentication'>Authentication</h2>
+<p>Currently on the demo, you can test authentication as a customer via the <a href="#basic-authentication">basic method</a>.</p>
+
+<table><thead>
+<tr>
+<th>Username</th>
+<th>Password</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>demo</code></td>
+<td><code>&amp;nm5y7^sf&amp;hm1D5MwKLgrQeC</code></td>
+</tr>
+</tbody></table>
+
+<p>More authentication methods to test with on the demo will come in the future.</p>
+<h2 id='products'>Products</h2>
+<p>Here is a table of products you can use to test with.</p>
+
+<table><thead>
+<tr>
+<th>ID</th>
+<th>Variation ID</th>
+<th>Name</th>
+<th>Type</th>
+<th>Price</th>
+<th>Sold Indivdually</th>
+<th>Variation</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>183</code></td>
+<td>-</td>
+<td>Beanie with Logo</td>
+<td>Simple</td>
+<td>£18.00</td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>174</code></td>
+<td>-</td>
+<td>Album</td>
+<td>Simple (Virtual)</td>
+<td>£15.00</td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>185</code></td>
+<td>-</td>
+<td>WordPress Pennant</td>
+<td>External</td>
+<td>£11.05</td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>163</code></td>
+<td><code>179</code></td>
+<td>Hoodie</td>
+<td>Variable</td>
+<td>£42.00</td>
+<td>No</td>
+<td><code>&quot;attribute_pa_color&quot;: &quot;red&quot;, &quot;attribute_logo&quot;: &quot;No&quot;</code> <i class="label label-info">mandatory</i></td>
+</tr>
+<tr>
+<td><code>163</code></td>
+<td><code>180</code></td>
+<td>Hoodie</td>
+<td>Variable</td>
+<td>£45.00</td>
+<td>No</td>
+<td><code>&quot;attribute_pa_color&quot;: &quot;green&quot;, &quot;attribute_logo&quot;: &quot;No&quot;</code> <i class="label label-info">mandatory</i></td>
+</tr>
+<tr>
+<td><code>163</code></td>
+<td><code>181</code></td>
+<td>Hoodie</td>
+<td>Variable</td>
+<td>£45.00</td>
+<td>No</td>
+<td><code>&quot;attribute_pa_color&quot;: &quot;blue&quot;, &quot;attribute_logo&quot;: &quot;No&quot;</code> <i class="label label-info">mandatory</i></td>
+</tr>
+<tr>
+<td><code>329</code></td>
+<td>-</td>
+<td>The Last of Us Part 2 -</td>
+<td>Simple (Name Your Price)</td>
+<td>Suggested: £229</td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>Ellie Edition</td>
+<td></td>
+<td>Minimum: £180</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h1 id='changelog'>Changelog</h1>
 <p>The Documentation is updated only when needed. Below is the changelog for &quot;CoCart&quot; documentation that matches with the version of the plugin release.</p>
+<h3 id='doc-version-1-5-plugin-release-v2-0-7'>Doc Version 1.5 - Plugin Release v2.0.7</h3>
+<ul>
+<li>NEW: Added link to products add-on documentation under CoCart Pro.</li>
+<li>NEW: Added a little section explainging the body types when making a request.</li>
+<li>NEW: Added example to add item with custom cart item data.</li>
+<li>NEW: Added Demo section.</li>
+<li>Improved: Authentication section.</li>
+</ul>
 <h3 id='doc-version-1-4'>Doc Version 1.4</h3>
 <ul>
-<li>Added live chat so users can ask questions.</li>
+<li>NEW: Added live chat so users can ask questions.</li>
 <li>Made it clearer to understand about retrieving specific customers cart.</li>
 <li>Improved the introduction a little.</li>
 </ul>
@@ -2752,10 +3229,11 @@ function remove_parent_cart_item_key( $cart_contents ) {
 <h3 id='doc-version-1-1'>Doc Version 1.1</h3>
 <ul>
 <li>Added Index API.</li>
-<li><p>Linked logo to documentation homepage.
-z</p>
-<h3 id='doc-version-1-plugin-release-v2'>Doc Version 1 - Plugin Release v2</h3></li>
-<li><p>Updated for CoCart v2</p></li>
+<li>Linked logo to documentation homepage.</li>
+</ul>
+<h3 id='doc-version-1-plugin-release-v2'>Doc Version 1 - Plugin Release v2</h3>
+<ul>
+<li>Updated for CoCart v2</li>
 </ul>
 <h3 id='doc-version-0-5'>Doc Version 0.5</h3>
 <ul>

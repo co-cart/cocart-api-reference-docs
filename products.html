@@ -1,0 +1,2923 @@
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>CoCart Products Documentation v1</title>
+
+    <link rel="icon" href="images/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" href="images/favicon-192x192.png" sizes="192x192" />
+    <link rel="apple-touch-icon-precomposed" href="images/favicon-180x180.png" />
+    <meta name="msapplication-TileImage" content="images/favicon-270x270.png" />
+    <meta name="msapplication-TileColor" content="#6e60cc" />
+    <meta name="theme-color" content="#6e60cc" />
+
+    <style>
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight .gh {
+  color: #999999;
+}
+.highlight .sr {
+  color: #f6aa11;
+}
+.highlight .go {
+  color: #888888;
+}
+.highlight .gp {
+  color: #555555;
+}
+.highlight .gs {
+}
+.highlight .gu {
+  color: #aaaaaa;
+}
+.highlight .nb {
+  color: #f6aa11;
+}
+.highlight .cm {
+  color: #75715e;
+}
+.highlight .cp {
+  color: #75715e;
+}
+.highlight .c1 {
+  color: #75715e;
+}
+.highlight .cs {
+  color: #75715e;
+}
+.highlight .c, .highlight .cd {
+  color: #75715e;
+}
+.highlight .err {
+  color: #960050;
+}
+.highlight .gr {
+  color: #960050;
+}
+.highlight .gt {
+  color: #960050;
+}
+.highlight .gd {
+  color: #49483e;
+}
+.highlight .gi {
+  color: #49483e;
+}
+.highlight .ge {
+  color: #49483e;
+}
+.highlight .kc {
+  color: #66d9ef;
+}
+.highlight .kd {
+  color: #66d9ef;
+}
+.highlight .kr {
+  color: #66d9ef;
+}
+.highlight .no {
+  color: #66d9ef;
+}
+.highlight .kt {
+  color: #66d9ef;
+}
+.highlight .mf {
+  color: #ae81ff;
+}
+.highlight .mh {
+  color: #ae81ff;
+}
+.highlight .il {
+  color: #ae81ff;
+}
+.highlight .mi {
+  color: #ae81ff;
+}
+.highlight .mo {
+  color: #ae81ff;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #ae81ff;
+}
+.highlight .sc {
+  color: #ae81ff;
+}
+.highlight .se {
+  color: #ae81ff;
+}
+.highlight .ss {
+  color: #ae81ff;
+}
+.highlight .sd {
+  color: #e6db74;
+}
+.highlight .s2 {
+  color: #e6db74;
+}
+.highlight .sb {
+  color: #e6db74;
+}
+.highlight .sh {
+  color: #e6db74;
+}
+.highlight .si {
+  color: #e6db74;
+}
+.highlight .sx {
+  color: #e6db74;
+}
+.highlight .s1 {
+  color: #e6db74;
+}
+.highlight .s {
+  color: #e6db74;
+}
+.highlight .na {
+  color: #a6e22e;
+}
+.highlight .nc {
+  color: #a6e22e;
+}
+.highlight .nd {
+  color: #a6e22e;
+}
+.highlight .ne {
+  color: #a6e22e;
+}
+.highlight .nf {
+  color: #a6e22e;
+}
+.highlight .vc {
+  color: #ffffff;
+}
+.highlight .nn {
+  color: #ffffff;
+}
+.highlight .nl {
+  color: #ffffff;
+}
+.highlight .ni {
+  color: #ffffff;
+}
+.highlight .bp {
+  color: #ffffff;
+}
+.highlight .vg {
+  color: #ffffff;
+}
+.highlight .vi {
+  color: #ffffff;
+}
+.highlight .nv {
+  color: #ffffff;
+}
+.highlight .w {
+  color: #ffffff;
+}
+.highlight {
+  color: #ffffff;
+}
+.highlight .n, .highlight .py, .highlight .nx {
+  color: #ffffff;
+}
+.highlight .ow {
+  color: #f92672;
+}
+.highlight .nt {
+  color: #f92672;
+}
+.highlight .k, .highlight .kv {
+  color: #f92672;
+}
+.highlight .kn {
+  color: #f92672;
+}
+.highlight .kp {
+  color: #f92672;
+}
+.highlight .o {
+  color: #f92672;
+}
+    </style>
+    <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print.css" rel="stylesheet" media="print" />
+      <script src="javascripts/all.js"></script>
+
+    <!-- Chatra {literal} -->
+    <script>
+        (function(d, w, c) {
+            w.ChatraID = 'xwyESjfvnFXRtTM3N';
+            var s = d.createElement('script');
+            w[c] = w[c] || function() {
+                (w[c].q = w[c].q || []).push(arguments);
+            };
+            s.async = true;
+            s.src = 'https://call.chatra.io/chatra.js';
+            if (d.head) d.head.appendChild(s);
+        })(document, window, 'Chatra');
+    </script>
+    <!-- /Chatra {/literal} -->
+    </head>
+
+  <body class="products" data-languages="[&quot;shell&quot;]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="images/navbar.png" alt="Navbar" />
+      </span>
+    </a>
+    <div class="toc-wrapper">
+      <a href="index.html"><img src="images/logo.png" class="logo" alt="Logo" /></a>
+        <div class="lang-selector">
+              <a href="#" data-language-name="shell">cURL</a>
+        </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <ul id="toc" class="toc-list-h1">
+          <li>
+            <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#requirements" class="toc-h2 toc-link" data-title="Requirements">Requirements</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#error-responses" class="toc-h1 toc-link" data-title="Error Responses">Error Responses</a>
+          </li>
+          <li>
+            <a href="#products" class="toc-h1 toc-link" data-title="Products">Products</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#product-attributes" class="toc-h2 toc-link" data-title="Product attributes">Product attributes</a>
+                  </li>
+                  <li>
+                    <a href="#retrieve-a-product" class="toc-h2 toc-link" data-title="Retrieve a product">Retrieve a product</a>
+                  </li>
+                  <li>
+                    <a href="#list-all-products" class="toc-h2 toc-link" data-title="List all products">List all products</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#product-attribute-terms" class="toc-h1 toc-link" data-title="Product attribute terms">Product attribute terms</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#product-attribute-term-attributes" class="toc-h2 toc-link" data-title="Product attribute term attributes">Product attribute term attributes</a>
+                  </li>
+                  <li>
+                    <a href="#retrieve-an-attribute-term" class="toc-h2 toc-link" data-title="Retrieve an attribute term">Retrieve an attribute term</a>
+                  </li>
+                  <li>
+                    <a href="#list-all-attribute-terms" class="toc-h2 toc-link" data-title="List all attribute terms">List all attribute terms</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#product-attributes" class="toc-h1 toc-link" data-title="Product attributes">Product attributes</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#product-attribute-attributes" class="toc-h2 toc-link" data-title="Product attribute attributes">Product attribute attributes</a>
+                  </li>
+                  <li>
+                    <a href="#retrieve-a-product-attribute" class="toc-h2 toc-link" data-title="Retrieve a product attribute">Retrieve a product attribute</a>
+                  </li>
+                  <li>
+                    <a href="#list-all-product-attributes" class="toc-h2 toc-link" data-title="List all product attributes">List all product attributes</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#product-categories" class="toc-h1 toc-link" data-title="Product categories">Product categories</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#product-category-attributes" class="toc-h2 toc-link" data-title="Product category attributes">Product category attributes</a>
+                  </li>
+                  <li>
+                    <a href="#retrieve-a-product-category" class="toc-h2 toc-link" data-title="Retrieve a product category">Retrieve a product category</a>
+                  </li>
+                  <li>
+                    <a href="#list-all-product-categories" class="toc-h2 toc-link" data-title="List all product categories">List all product categories</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#product-tags" class="toc-h1 toc-link" data-title="Product tags">Product tags</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#product-tag-attributes" class="toc-h2 toc-link" data-title="Product tag attributes">Product tag attributes</a>
+                  </li>
+                  <li>
+                    <a href="#retrieve-a-product-tag" class="toc-h2 toc-link" data-title="Retrieve a product tag">Retrieve a product tag</a>
+                  </li>
+                  <li>
+                    <a href="#list-all-product-tags" class="toc-h2 toc-link" data-title="List all product tags">List all product tags</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#product-reviews" class="toc-h1 toc-link" data-title="Product reviews">Product reviews</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#product-review-attributes" class="toc-h2 toc-link" data-title="Product review attributes">Product review attributes</a>
+                  </li>
+                  <li>
+                    <a href="#create-a-product-review" class="toc-h2 toc-link" data-title="Create a product review">Create a product review</a>
+                  </li>
+                  <li>
+                    <a href="#retrieve-a-product-review" class="toc-h2 toc-link" data-title="Retrieve a product review">Retrieve a product review</a>
+                  </li>
+                  <li>
+                    <a href="#list-all-product-reviews" class="toc-h2 toc-link" data-title="List all product reviews">List all product reviews</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#changelog" class="toc-h1 toc-link" data-title="Changelog">Changelog</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#doc-version-0-1-plugin-release-v1-0-0" class="toc-h2 toc-link" data-title="Doc Version 0.1 - Plugin Release v1.0.0">Doc Version 0.1 - Plugin Release v1.0.0</a>
+                  </li>
+              </ul>
+          </li>
+      </ul>
+        <ul class="toc-footer">
+            <li><a href="https://cocart.xyz">CoCart</a></li>
+            <li><a href="https://github.com/co-cart/co-cart-docs/blob/master/CONTRIBUTING.md">Contribute to Documentation</a></li>
+            <li><a href="http://woocommerce.github.io/woocommerce-rest-api-docs/">WooCommerce REST API Docs</a></li>
+            <li><a href="https://sebastiendumont.com">Developed by Sébastien Dumont</a></li>
+            <li><a href="https://github.com/lord/slate">Documentation Powered by Slate</a></li>
+        </ul>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id='introduction'>Introduction</h1>
+<p>CoCart Products allows you to view all and access specific products, attributes, categories, tags and product reviews without authentication required. Only details of the products that customers need to know are returned.</p>
+<h2 id='requirements'>Requirements</h2>
+<p>To use the latest version of the CoCart Products you must be using the following requirements:</p>
+
+<ul>
+<li>CoCart 2.x.x or later</li>
+<li>CoCart Pro v1.x.x or later</li>
+</ul>
+<h1 id='error-responses'>Error Responses</h1>
+<p>You might encounter an error when using CoCart Products. These error responses explain what might have happened.</p>
+
+<table><thead>
+<tr>
+<th>Error Status</th>
+<th>Error Response</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>cocart_product_invalid_id</code></td>
+<td>Invalid product ID.</td>
+</tr>
+<tr>
+<td><code>cocart_review_invalid_id</code></td>
+<td>Invalid review ID.</td>
+</tr>
+<tr>
+<td><code>cocart_cannot_list_resources</code></td>
+<td>Sorry, you cannot list resources.</td>
+</tr>
+<tr>
+<td><code>cocart_cannot_view_resource</code></td>
+<td>Sorry, you cannot view this resource.</td>
+</tr>
+<tr>
+<td><code>cocart_taxonomy_invalid</code></td>
+<td>Taxonomy does not exist.</td>
+</tr>
+<tr>
+<td><code>cocart_term_invalid</code></td>
+<td>Term does not exist.</td>
+</tr>
+<tr>
+<td><code>cocart_cannot_list_attributes</code></td>
+<td>Sorry, you cannot list attributes.</td>
+</tr>
+<tr>
+<td><code>cocart_cannot_view_attribute</code></td>
+<td>Sorry, you cannot view this attribute.</td>
+</tr>
+<tr>
+<td><code>cocart_attribute_invalid</code></td>
+<td>Attribute does not exist.</td>
+</tr>
+<tr>
+<td><code>cocart_cannot_list_reviews</code></td>
+<td>Sorry, you cannot list reviews.</td>
+</tr>
+<tr>
+<td><code>cocart_cannot_view_review</code></td>
+<td>Sorry, you cannot view this review.</td>
+</tr>
+<tr>
+<td><code>cocart_cannot_create</code></td>
+<td>Sorry, you are not allowed to create reviews.</td>
+</tr>
+<tr>
+<td><code>cocart_review_exists</code></td>
+<td>Cannot create existing product review.</td>
+</tr>
+<tr>
+<td><code>cocart_review_content_invalid</code></td>
+<td>Invalid review content.</td>
+</tr>
+<tr>
+<td><code>cocart_comment_author</code></td>
+<td>Product review field exceeds maximum length allowed.</td>
+</tr>
+<tr>
+<td><code>cocart_comment_content</code></td>
+<td>Product review field exceeds maximum length allowed.</td>
+</tr>
+<tr>
+<td><code>cocart_review_failed_create</code></td>
+<td>Creating product review failed.</td>
+</tr>
+</tbody></table>
+<h1 id='products'>Products</h1>
+<p>The products API allows you to view individual or a batch of products.</p>
+<h2 id='product-attributes'>Product attributes</h2>
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>id</code></td>
+<td>integer</td>
+<td>Unique identifier for the product.</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td>string</td>
+<td>Product name.</td>
+</tr>
+<tr>
+<td><code>slug</code></td>
+<td>string</td>
+<td>Product slug.</td>
+</tr>
+<tr>
+<td><code>permalink</code></td>
+<td>string</td>
+<td>Product URL.</td>
+</tr>
+<tr>
+<td><code>date_created</code></td>
+<td>date-time</td>
+<td>The date the product was created, in the site&#39;s timezone.</td>
+</tr>
+<tr>
+<td><code>date_created_gmt</code></td>
+<td>date-time</td>
+<td>The date the product was created, as GMT.</td>
+</tr>
+<tr>
+<td><code>date_modified</code></td>
+<td>date-time</td>
+<td>The date the product was last modified, in the site&#39;s timezone.</td>
+</tr>
+<tr>
+<td><code>date_modified_gmt</code></td>
+<td>date-time</td>
+<td>The date the product was last modified, as GMT.</td>
+</tr>
+<tr>
+<td><code>type</code></td>
+<td>string</td>
+<td>Product type. Options: <code>simple</code>, <code>grouped</code>, <code>external</code> and <code>variable</code>. Default is <code>simple</code>.</td>
+</tr>
+<tr>
+<td><code>featured</code></td>
+<td>boolean</td>
+<td>Featured product. Default is <code>false</code>.</td>
+</tr>
+<tr>
+<td><code>catalog_visibility</code></td>
+<td>string</td>
+<td>Catalog visibility. Options: <code>visible</code>, <code>catalog</code>, <code>search</code> and <code>hidden</code>. Default is <code>visible</code>.</td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td>string</td>
+<td>Product description.</td>
+</tr>
+<tr>
+<td><code>short_description</code></td>
+<td>string</td>
+<td>Product short description.</td>
+</tr>
+<tr>
+<td><code>sku</code></td>
+<td>string</td>
+<td>Unique identifier.</td>
+</tr>
+<tr>
+<td><code>price</code></td>
+<td>string</td>
+<td>Current product price.</td>
+</tr>
+<tr>
+<td><code>regular_price</code></td>
+<td>string</td>
+<td>Product regular price.</td>
+</tr>
+<tr>
+<td><code>sale_price</code></td>
+<td>string</td>
+<td>Product sale price.</td>
+</tr>
+<tr>
+<td><code>date_on_sale_from</code></td>
+<td>date-time</td>
+<td>Start date of sale price, in the site&#39;s timezone.</td>
+</tr>
+<tr>
+<td><code>date_on_sale_from_gmt</code></td>
+<td>date-time</td>
+<td>Start date of sale price, as GMT.</td>
+</tr>
+<tr>
+<td><code>date_on_sale_to</code></td>
+<td>date-time</td>
+<td>End date of sale price, in the site&#39;s timezone.</td>
+</tr>
+<tr>
+<td><code>date_on_sale_to_gmt</code></td>
+<td>date-time</td>
+<td>End date of sale price, as GMT.</td>
+</tr>
+<tr>
+<td><code>on_sale</code></td>
+<td>boolean</td>
+<td>Shows if the product is on sale.</td>
+</tr>
+<tr>
+<td><code>purchasable</code></td>
+<td>boolean</td>
+<td>Shows if the product can be bought.</td>
+</tr>
+<tr>
+<td><code>total_sales</code></td>
+<td>integer</td>
+<td>Amount of sales.</td>
+</tr>
+<tr>
+<td><code>virtual</code></td>
+<td>boolean</td>
+<td>If the product is virtual. Default is <code>false</code>.</td>
+</tr>
+<tr>
+<td><code>downloadable</code></td>
+<td>boolean</td>
+<td>If the product is downloadable. Default is <code>false</code>.</td>
+</tr>
+<tr>
+<td><code>external_url</code></td>
+<td>string</td>
+<td>Product external URL. Only for external products.</td>
+</tr>
+<tr>
+<td><code>button_text</code></td>
+<td>string</td>
+<td>Product external button text. Only for external products.</td>
+</tr>
+<tr>
+<td><code>manage_stock</code></td>
+<td>boolean</td>
+<td>Stock management at product level. Default is <code>false</code>.</td>
+</tr>
+<tr>
+<td><code>stock_quantity</code></td>
+<td>integer</td>
+<td>Stock quantity.</td>
+</tr>
+<tr>
+<td><code>stock_status</code></td>
+<td>string</td>
+<td>Controls the stock status of the product. Options: <code>instock</code>, <code>outofstock</code>, <code>onbackorder</code>. Default is <code>instock</code>.</td>
+</tr>
+<tr>
+<td><code>backorders</code></td>
+<td>string</td>
+<td>If managing stock, this controls if backorders are allowed. Options: <code>no</code>, <code>notify</code> and <code>yes</code>. Default is <code>no</code>.</td>
+</tr>
+<tr>
+<td><code>backorders_allowed</code></td>
+<td>boolean</td>
+<td>Shows if backorders are allowed.</td>
+</tr>
+<tr>
+<td><code>backordered</code></td>
+<td>boolean</td>
+<td>Shows if the product is on backordered.</td>
+</tr>
+<tr>
+<td><code>sold_individually</code></td>
+<td>boolean</td>
+<td>Allow one item to be bought in a single order. Default is <code>false</code>.</td>
+</tr>
+<tr>
+<td><code>weight</code></td>
+<td>string</td>
+<td>Product weight.</td>
+</tr>
+<tr>
+<td><code>dimensions</code></td>
+<td>object</td>
+<td>Product dimensions. See <a href="#product-dimensions-properties">Product - Dimensions properties</a></td>
+</tr>
+<tr>
+<td><code>shipping_required</code></td>
+<td>boolean</td>
+<td>Shows if the product need to be shipped.</td>
+</tr>
+<tr>
+<td><code>reviews_allowed</code></td>
+<td>boolean</td>
+<td>Allow reviews.</td>
+</tr>
+<tr>
+<td><code>average_rating</code></td>
+<td>string</td>
+<td>Reviews average rating.</td>
+</tr>
+<tr>
+<td><code>rating_count</code></td>
+<td>integer</td>
+<td>Amount of reviews that the product have.</td>
+</tr>
+<tr>
+<td><code>reviews</code></td>
+<td>array</td>
+<td>Returns product reviews if queried.</td>
+</tr>
+<tr>
+<td><code>review_count</code></td>
+<td>integer</td>
+<td>Amount of reviews that the product have.</td>
+</tr>
+<tr>
+<td><code>related_ids</code></td>
+<td>array</td>
+<td>List of related products IDs.</td>
+</tr>
+<tr>
+<td><code>upsell_ids</code></td>
+<td>array</td>
+<td>List of up-sell products IDs.</td>
+</tr>
+<tr>
+<td><code>cross_sell_ids</code></td>
+<td>array</td>
+<td>List of cross-sell products IDs.</td>
+</tr>
+<tr>
+<td><code>parent_id</code></td>
+<td>integer</td>
+<td>Product parent ID.</td>
+</tr>
+<tr>
+<td><code>categories</code></td>
+<td>array</td>
+<td>List of categories. See <a href="#product-categories-properties">Product - Categories properties</a></td>
+</tr>
+<tr>
+<td><code>tags</code></td>
+<td>array</td>
+<td>List of tags. See <a href="#product-tags-properties">Product - Tags properties</a></td>
+</tr>
+<tr>
+<td><code>images</code></td>
+<td>array</td>
+<td>List of images. See <a href="#product-images-properties">Product - Images properties</a></td>
+</tr>
+<tr>
+<td><code>attributes</code></td>
+<td>array</td>
+<td>List of attributes. See <a href="#product-attributes-properties">Product - Attributes properties</a></td>
+</tr>
+<tr>
+<td><code>default_attributes</code></td>
+<td>array</td>
+<td>Defaults variation attributes. See <a href="#product-default-attributes-properties">Product - Default attributes properties</a></td>
+</tr>
+<tr>
+<td><code>variations</code></td>
+<td>array</td>
+<td>List of variations IDs or details of each variation.</td>
+</tr>
+<tr>
+<td><code>grouped_products</code></td>
+<td>array</td>
+<td>List of grouped products ID.</td>
+</tr>
+<tr>
+<td><code>menu_order</code></td>
+<td>integer</td>
+<td>Menu order, used to custom sort products.</td>
+</tr>
+<tr>
+<td><code>meta_data</code></td>
+<td>array</td>
+<td>Meta data. See <a href="#product-meta-data-properties">Product - Meta data properties</a></td>
+</tr>
+</tbody></table>
+<h3 id='product-dimensions-properties'>Product - Dimensions properties</h3>
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>length</code></td>
+<td>string</td>
+<td>Product length.</td>
+</tr>
+<tr>
+<td><code>width</code></td>
+<td>string</td>
+<td>Product width.</td>
+</tr>
+<tr>
+<td><code>height</code></td>
+<td>string</td>
+<td>Product height.</td>
+</tr>
+</tbody></table>
+<h3 id='product-categories-properties'>Product - Categories properties</h3>
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>id</code></td>
+<td>integer</td>
+<td>Category ID.</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td>string</td>
+<td>Category name.</td>
+</tr>
+<tr>
+<td><code>slug</code></td>
+<td>string</td>
+<td>Category slug.</td>
+</tr>
+</tbody></table>
+<h3 id='product-tags-properties'>Product - Tags properties</h3>
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>id</code></td>
+<td>integer</td>
+<td>Tag ID.</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td>string</td>
+<td>Tag name.</td>
+</tr>
+<tr>
+<td><code>slug</code></td>
+<td>string</td>
+<td>Tag slug.</td>
+</tr>
+</tbody></table>
+<h3 id='product-images-properties'>Product - Images properties</h3>
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>id</code></td>
+<td>integer</td>
+<td>Image ID.</td>
+</tr>
+<tr>
+<td><code>date_created</code></td>
+<td>date-time</td>
+<td>The date the image was created, in the site&#39;s timezone.</td>
+</tr>
+<tr>
+<td><code>date_created_gmt</code></td>
+<td>date-time</td>
+<td>The date the image was created, as GMT.</td>
+</tr>
+<tr>
+<td><code>date_modified</code></td>
+<td>date-time</td>
+<td>The date the image was last modified, in the site&#39;s timezone.</td>
+</tr>
+<tr>
+<td><code>date_modified_gmt</code></td>
+<td>date-time</td>
+<td>The date the image was last modified, as GMT.</td>
+</tr>
+<tr>
+<td><code>src</code></td>
+<td>string</td>
+<td>Image URL.</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td>string</td>
+<td>Image name.</td>
+</tr>
+<tr>
+<td><code>alt</code></td>
+<td>string</td>
+<td>Image alternative text.</td>
+</tr>
+</tbody></table>
+<h3 id='product-attributes-properties'>Product - Attributes properties</h3>
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>id</code></td>
+<td>integer</td>
+<td>Attribute ID.</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td>string</td>
+<td>Attribute name.</td>
+</tr>
+<tr>
+<td><code>position</code></td>
+<td>integer</td>
+<td>Attribute position.</td>
+</tr>
+<tr>
+<td><code>visible</code></td>
+<td>boolean</td>
+<td>Define if the attribute is visible on the &quot;Additional information&quot; tab in the product&#39;s page. Default is <code>false</code>.</td>
+</tr>
+<tr>
+<td><code>variation</code></td>
+<td>boolean</td>
+<td>Define if the attribute can be used as variation. Default is <code>false</code>.</td>
+</tr>
+<tr>
+<td><code>options</code></td>
+<td>array</td>
+<td>List of available term names of the attribute.</td>
+</tr>
+</tbody></table>
+<h3 id='product-default-attributes-properties'>Product - Default attributes properties</h3>
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>id</code></td>
+<td>integer</td>
+<td>Attribute ID.</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td>string</td>
+<td>Attribute name.</td>
+</tr>
+<tr>
+<td><code>option</code></td>
+<td>string</td>
+<td>Selected attribute term name.</td>
+</tr>
+</tbody></table>
+<h3 id='product-meta-data-properties'>Product - Meta data properties</h3>
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>id</code></td>
+<td>integer</td>
+<td>Meta ID.</td>
+</tr>
+<tr>
+<td><code>key</code></td>
+<td>string</td>
+<td>Meta key.</td>
+</tr>
+<tr>
+<td><code>value</code></td>
+<td>string</td>
+<td>Meta value.</td>
+</tr>
+</tbody></table>
+<h2 id='retrieve-a-product'>Retrieve a product</h2>
+<p>This API lets you retrieve and view a specific product by ID.</p>
+<h3 id='http-request'>HTTP request</h3>
+<div class="api-endpoint">
+    <div class="endpoint-data">
+        <i class="label label-get">GET</i>
+        <h6>/wp-json/cocart/v1/products/&lt;id&gt;</h6>
+    </div>
+</div>
+<pre class="highlight shell tab-shell"><code>curl https://example.com/wp-json/cocart/v1/products/329 <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+</code></pre>
+<blockquote>
+<p>JSON response example:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">329</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The Last of Us Part 2 - Ellie Edition"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"the-last-of-us-part-2-ellie-edition"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"permalink"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://wp-demo.cocart.xyz/product/the-last-of-us-part-2-ellie-edition/"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"date_created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-02-12T17:01:46"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"date_created_gmt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-02-12T16:01:46"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"date_modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-02-12T17:01:46"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"date_modified_gmt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-02-12T16:01:46"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"simple"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"featured"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"catalog_visibility"</span><span class="p">:</span><span class="w"> </span><span class="s2">"visible"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"short_description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"£180.00"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"regular_price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"£180.00"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"sale_price"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"date_on_sale_from"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"date_on_sale_from_gmt"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"date_on_sale_to"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"date_on_sale_to_gmt"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"on_sale"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"purchasable"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"total_sales"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"virtual"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"downloadable"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"external_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"button_text"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"manage_stock"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"stock_quantity"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"in_stock"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"stock_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"instock"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"backorders"</span><span class="p">:</span><span class="w"> </span><span class="s2">"no"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"backorders_allowed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"backordered"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"sold_individually"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"weight"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"dimensions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"length"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"width"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"height"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"shipping_required"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"reviews_allowed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"average_rating"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"rating_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"review_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"rating_html"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"reviews"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+  </span><span class="s2">"related_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+  </span><span class="s2">"upsell_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+  </span><span class="s2">"cross_sell_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+  </span><span class="s2">"parent_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"categories"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">42</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Video Games"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"video-games"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"tags"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+  </span><span class="s2">"images"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">330</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"date_created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-02-12T18:00:39"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"date_created_gmt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-02-12T16:00:39"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"date_modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-02-12T18:00:39"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"date_modified_gmt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-02-12T16:00:39"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"src"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://wp-demo.cocart.xyz/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A-150x150.jpg"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"medium"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://wp-demo.cocart.xyz/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A-169x300.jpg"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"medium_large"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://wp-demo.cocart.xyz/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A-768x1365.jpg"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"large"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://wp-demo.cocart.xyz/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A-576x1024.jpg"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"1536x1536"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://wp-demo.cocart.xyz/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A-864x1536.jpg"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"2048x2048"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://wp-demo.cocart.xyz/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A.jpg"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"woocommerce_thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://wp-demo.cocart.xyz/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A-324x324.jpg"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"woocommerce_single"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://wp-demo.cocart.xyz/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A-416x740.jpg"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"woocommerce_gallery_thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://wp-demo.cocart.xyz/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A-100x100.jpg"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"shop_catalog"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://wp-demo.cocart.xyz/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A-324x324.jpg"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"shop_single"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://wp-demo.cocart.xyz/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A-416x740.jpg"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"shop_thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://wp-demo.cocart.xyz/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A-100x100.jpg"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"full"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://wp-demo.cocart.xyz/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A.jpg"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"custom"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://wp-demo.cocart.xyz/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A.jpg"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TLOU2_WP_DUALITY_1080X1920_002A"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"alt"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"position"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+  </span><span class="s2">"default_attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+  </span><span class="s2">"variations"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+  </span><span class="s2">"grouped_products"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+  </span><span class="s2">"menu_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"meta_data"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+  </span><span class="s2">"yoast_seo_meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"focus_keyword"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"content_score"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"linkdex"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"primary_product_category"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"_links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"self"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"permalink"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://wp-demo.cocart.xyz/product/the-last-of-us-part-2-ellie-edition/"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://wp-demo.cocart.xyz/wp-json/cocart/v1/products/329"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"collection"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"permalink"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://wp-demo.cocart.xyz/"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://wp-demo.cocart.xyz/wp-json/cocart/v1/products"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h2 id='list-all-products'>List all products</h2>
+<p>This API helps you to view all the products.</p>
+<h3 id='http-request-2'>HTTP request</h3>
+<div class="api-endpoint">
+    <div class="endpoint-data">
+        <i class="label label-get">GET</i>
+        <h6>/wp-json/cocart/v1/products</h6>
+    </div>
+</div>
+<pre class="highlight shell tab-shell"><code>curl https://example.com/wp-json/cocart/v1/products <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+</code></pre>
+<blockquote>
+<p>JSON response example:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">329</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The Last of Us Part 2 - Ellie Edition"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"the-last-of-us-part-2-ellie-edition"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"permalink"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://wp-demo.cocart.xyz/product/the-last-of-us-part-2-ellie-edition/"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"date_created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-02-12T17:01:46"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"date_created_gmt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-02-12T16:01:46"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"date_modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-02-12T17:01:46"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"date_modified_gmt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-02-12T16:01:46"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"simple"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"featured"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"catalog_visibility"</span><span class="p">:</span><span class="w"> </span><span class="s2">"visible"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"short_description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"£180.00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"regular_price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"£180.00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"sale_price"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"date_on_sale_from"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"date_on_sale_from_gmt"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"date_on_sale_to"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"date_on_sale_to_gmt"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"on_sale"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"purchasable"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"total_sales"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"virtual"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"downloadable"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"external_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"button_text"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"manage_stock"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"stock_quantity"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"in_stock"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"stock_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"instock"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"backorders"</span><span class="p">:</span><span class="w"> </span><span class="s2">"no"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"backorders_allowed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"backordered"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"sold_individually"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"weight"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"dimensions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"length"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"width"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"height"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"shipping_required"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"reviews_allowed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"average_rating"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"rating_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"review_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"rating_html"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"reviews"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="s2">"related_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="s2">"upsell_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="s2">"cross_sell_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="s2">"parent_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"categories"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">42</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Video Games"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"video-games"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"tags"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="s2">"images"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">330</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"date_created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-02-12T18:00:39"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"date_created_gmt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-02-12T16:00:39"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"date_modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-02-12T18:00:39"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"date_modified_gmt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-02-12T16:00:39"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"src"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://wp-demo.cocart.xyz/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A-150x150.jpg"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"medium"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://wp-demo.cocart.xyz/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A-169x300.jpg"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"medium_large"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://wp-demo.cocart.xyz/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A-768x1365.jpg"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"large"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://wp-demo.cocart.xyz/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A-576x1024.jpg"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"1536x1536"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://wp-demo.cocart.xyz/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A-864x1536.jpg"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"2048x2048"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://wp-demo.cocart.xyz/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A.jpg"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"woocommerce_thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://wp-demo.cocart.xyz/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A-324x324.jpg"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"woocommerce_single"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://wp-demo.cocart.xyz/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A-416x740.jpg"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"woocommerce_gallery_thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://wp-demo.cocart.xyz/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A-100x100.jpg"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"shop_catalog"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://wp-demo.cocart.xyz/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A-324x324.jpg"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"shop_single"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://wp-demo.cocart.xyz/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A-416x740.jpg"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"shop_thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://wp-demo.cocart.xyz/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A-100x100.jpg"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"full"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://wp-demo.cocart.xyz/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A.jpg"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"custom"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://wp-demo.cocart.xyz/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A.jpg"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TLOU2_WP_DUALITY_1080X1920_002A"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"alt"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"position"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="s2">"default_attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="s2">"variations"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="s2">"grouped_products"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="s2">"menu_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"meta_data"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="s2">"yoast_seo_meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"focus_keyword"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"content_score"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"linkdex"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"primary_product_category"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"_links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"self"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"permalink"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://wp-demo.cocart.xyz/product/the-last-of-us-part-2-ellie-edition/"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://wp-demo.cocart.xyz/wp-json/cocart/v1/products/329"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="s2">"collection"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"permalink"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://wp-demo.cocart.xyz/"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://wp-demo.cocart.xyz/wp-json/cocart/v1/products"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">185</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WordPress Pennant"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"wordpress-pennant"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"permalink"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://wp-demo.cocart.xyz/product/wordpress-pennant/"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"date_created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-24T14:55:56"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"date_created_gmt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-24T13:55:56"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"date_modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-24T14:56:40"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"date_modified_gmt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-24T13:56:40"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"external"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"featured"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"catalog_visibility"</span><span class="p">:</span><span class="w"> </span><span class="s2">"visible"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo."</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"short_description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This is an external product."</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"wp-pennant"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"£11.05"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"regular_price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"£11.05"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"sale_price"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"date_on_sale_from"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"date_on_sale_from_gmt"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"date_on_sale_to"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"date_on_sale_to_gmt"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"on_sale"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"purchasable"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"total_sales"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"virtual"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"downloadable"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"external_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://mercantile.wordpress.org/product/wordpress-pennant/"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"button_text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Buy on the WordPress swag store!"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"manage_stock"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"stock_quantity"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"in_stock"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"stock_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"instock"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"backorders"</span><span class="p">:</span><span class="w"> </span><span class="s2">"no"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"backorders_allowed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"backordered"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"sold_individually"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"weight"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"dimensions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"length"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"width"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"height"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"shipping_required"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"reviews_allowed"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"average_rating"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"rating_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"review_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"rating_html"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"reviews"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="s2">"related_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="s2">"upsell_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="s2">"cross_sell_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="s2">"parent_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"categories"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">29</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Decor"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"decor"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"tags"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="s2">"images"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">208</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"date_created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-24T15:56:39"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"date_created_gmt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-24T13:56:39"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"date_modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-24T15:56:39"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"date_modified_gmt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-24T13:56:39"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"src"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://wp-demo.cocart.xyz/wp-content/uploads/2020/01/pennant-1-150x150.jpg"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"medium"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://wp-demo.cocart.xyz/wp-content/uploads/2020/01/pennant-1-300x300.jpg"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"medium_large"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://wp-demo.cocart.xyz/wp-content/uploads/2020/01/pennant-1-768x768.jpg"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"large"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://wp-demo.cocart.xyz/wp-content/uploads/2020/01/pennant-1.jpg"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"1536x1536"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://wp-demo.cocart.xyz/wp-content/uploads/2020/01/pennant-1.jpg"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"2048x2048"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://wp-demo.cocart.xyz/wp-content/uploads/2020/01/pennant-1.jpg"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"woocommerce_thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://wp-demo.cocart.xyz/wp-content/uploads/2020/01/pennant-1-324x324.jpg"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"woocommerce_single"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://wp-demo.cocart.xyz/wp-content/uploads/2020/01/pennant-1-416x416.jpg"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"woocommerce_gallery_thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://wp-demo.cocart.xyz/wp-content/uploads/2020/01/pennant-1-100x100.jpg"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"shop_catalog"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://wp-demo.cocart.xyz/wp-content/uploads/2020/01/pennant-1-324x324.jpg"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"shop_single"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://wp-demo.cocart.xyz/wp-content/uploads/2020/01/pennant-1-416x416.jpg"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"shop_thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://wp-demo.cocart.xyz/wp-content/uploads/2020/01/pennant-1-100x100.jpg"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"full"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://wp-demo.cocart.xyz/wp-content/uploads/2020/01/pennant-1.jpg"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"custom"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://wp-demo.cocart.xyz/wp-content/uploads/2020/01/pennant-1.jpg"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pennant-1.jpg"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"alt"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"position"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="s2">"default_attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="s2">"variations"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="s2">"grouped_products"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="s2">"menu_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"meta_data"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="s2">"yoast_seo_meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"focus_keyword"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"content_score"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"linkdex"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"primary_product_category"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"_links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"self"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"permalink"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://wp-demo.cocart.xyz/product/wordpress-pennant/"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://wp-demo.cocart.xyz/wp-json/cocart/v1/products/185"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="s2">"collection"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"permalink"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://wp-demo.cocart.xyz/"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://wp-demo.cocart.xyz/wp-json/cocart/v1/products"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre><h4 id='available-parameters'>Available parameters</h4>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>page</code></td>
+<td>integer</td>
+<td>Current page of the collection. Default is <code>1</code>.</td>
+</tr>
+<tr>
+<td><code>per_page</code></td>
+<td>integer</td>
+<td>Maximum number of items to be returned in result set. Default is <code>10</code>.</td>
+</tr>
+<tr>
+<td><code>search</code></td>
+<td>string</td>
+<td>Limit results to those matching a string.</td>
+</tr>
+<tr>
+<td><code>after</code></td>
+<td>string</td>
+<td>Limit response to resources published after a given ISO8601 compliant date.</td>
+</tr>
+<tr>
+<td><code>before</code></td>
+<td>string</td>
+<td>Limit response to resources published before a given ISO8601 compliant date.</td>
+</tr>
+<tr>
+<td><code>exclude</code></td>
+<td>array</td>
+<td>Ensure result set excludes specific IDs.</td>
+</tr>
+<tr>
+<td><code>include</code></td>
+<td>array</td>
+<td>Limit result set to specific ids.</td>
+</tr>
+<tr>
+<td><code>offset</code></td>
+<td>integer</td>
+<td>Offset the result set by a specific number of items.</td>
+</tr>
+<tr>
+<td><code>order</code></td>
+<td>string</td>
+<td>Order sort attribute ascending or descending. Options: <code>asc</code> and <code>desc</code>. Default is <code>desc</code>.</td>
+</tr>
+<tr>
+<td><code>orderby</code></td>
+<td>string</td>
+<td>Sort collection by object attribute. Options: <code>date</code>, <code>id</code>, <code>include</code>, <code>title</code> and <code>slug</code>. Default is <code>date</code>.</td>
+</tr>
+<tr>
+<td><code>parent</code></td>
+<td>array</td>
+<td>Limit result set to those of particular parent IDs.</td>
+</tr>
+<tr>
+<td><code>parent_exclude</code></td>
+<td>array</td>
+<td>Limit result set to all items except those of a particular parent ID.</td>
+</tr>
+<tr>
+<td><code>slug</code></td>
+<td>string</td>
+<td>Limit result set to products with a specific slug.</td>
+</tr>
+<tr>
+<td><code>type</code></td>
+<td>string</td>
+<td>Limit result set to products assigned a specific type. Options: <code>simple</code>, <code>grouped</code>, <code>external</code>, <code>variable</code>, <code>simple-subsciption</code> and <code>variable-subscription</code>.</td>
+</tr>
+<tr>
+<td><code>sku</code></td>
+<td>string</td>
+<td>Limit result set to products with a specific SKU.</td>
+</tr>
+<tr>
+<td><code>featured</code></td>
+<td>boolean</td>
+<td>Limit result set to featured products.</td>
+</tr>
+<tr>
+<td><code>category</code></td>
+<td>string</td>
+<td>Limit result set to products assigned a specific category ID.</td>
+</tr>
+<tr>
+<td><code>tag</code></td>
+<td>string</td>
+<td>Limit result set to products assigned a specific tag ID.</td>
+</tr>
+<tr>
+<td><code>attribute</code></td>
+<td>string</td>
+<td>Limit result set to products with a specific attribute.</td>
+</tr>
+<tr>
+<td><code>attribute_term</code></td>
+<td>string</td>
+<td>Limit result set to products with a specific attribute term ID (required an assigned attribute).</td>
+</tr>
+<tr>
+<td><code>on_sale</code></td>
+<td>boolean</td>
+<td>Limit result set to products on sale.</td>
+</tr>
+<tr>
+<td><code>min_price</code></td>
+<td>string</td>
+<td>Limit result set to products based on a minimum price.</td>
+</tr>
+<tr>
+<td><code>max_price</code></td>
+<td>string</td>
+<td>Limit result set to products based on a maximum price.</td>
+</tr>
+<tr>
+<td><code>stock_status</code></td>
+<td>string</td>
+<td>Limit result set to products with specified stock status. Options: <code>instock</code>, <code>outofstock</code> and <code>onbackorder</code>.</td>
+</tr>
+<tr>
+<td><code>show_reviews</code></td>
+<td>boolean</td>
+<td>Set to true to return product reviews.</td>
+</tr>
+<tr>
+<td><code>return_variations</code></td>
+<td>boolean</td>
+<td>Set to true to return the variations of variable products.</td>
+</tr>
+</tbody></table>
+<h1 id='product-attribute-terms'>Product attribute terms</h1>
+<p>The product attribute terms API allows you to view individual attribute terms.</p>
+<h2 id='product-attribute-term-attributes'>Product attribute term attributes</h2>
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>id</code></td>
+<td>integer</td>
+<td>Unique identifier for the attribute terms.</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td>string</td>
+<td>Term name.</td>
+</tr>
+<tr>
+<td><code>slug</code></td>
+<td>string</td>
+<td>An alphanumeric identifier for the attribute terms unique to its type.</td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td>string</td>
+<td>HTML description of the attribute terms.</td>
+</tr>
+<tr>
+<td><code>menu_order</code></td>
+<td>integer</td>
+<td>Menu order, used to custom sort the attribute terms.</td>
+</tr>
+<tr>
+<td><code>count</code></td>
+<td>integer</td>
+<td>Number of published products for the attribute terms.</td>
+</tr>
+</tbody></table>
+<h2 id='retrieve-an-attribute-term'>Retrieve an attribute term</h2>
+<p>This API lets you retrieve a product attribute term by ID.</p>
+
+<div class="api-endpoint">
+    <div class="endpoint-data">
+        <i class="label label-get">GET</i>
+        <h6>/wp-json/cocart/v1/products/attributes/&lt;attribute_id&gt;/terms/&lt;id&gt;</h6>
+    </div>
+</div>
+<pre class="highlight shell tab-shell"><code>curl -X GET https://example.com/wp-json/cocart/v1/products/attributes/2/terms/23 <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+</code></pre>
+<blockquote>
+<p>JSON response example:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">23</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"XXS"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xxs"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"menu_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"_links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"self"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-json/cocart/v1/products/attributes/2/terms/23"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"collection"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-json/cocart/v1/products/attributes/2/terms"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h2 id='list-all-attribute-terms'>List all attribute terms</h2>
+<p>This API lets you retrieve all terms from a product attribute.</p>
+
+<div class="api-endpoint">
+    <div class="endpoint-data">
+        <i class="label label-get">GET</i>
+        <h6>/wp-json/cocart/v1/products/attributes/&lt;attribute_id&gt;/terms</h6>
+    </div>
+</div>
+<pre class="highlight shell tab-shell"><code>curl -X GET https://example.com/wp-json/cocart/v1/products/attributes/2/terms <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+</code></pre>
+<blockquote>
+<p>JSON response example:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">23</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"XXS"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xxs"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"menu_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"_links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"self"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-json/cocart/v1/products/attributes/2/terms/23"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="s2">"collection"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-json/cocart/v1/products/attributes/2/terms"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">22</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"XS"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xs"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"menu_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"_links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"self"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-json/cocart/v1/products/attributes/2/terms/22"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="s2">"collection"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-json/cocart/v1/products/attributes/2/terms"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">17</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"S"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"s"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"menu_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"_links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"self"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-json/cocart/v1/products/attributes/2/terms/17"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="s2">"collection"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-json/cocart/v1/products/attributes/2/terms"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">18</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"M"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"m"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"menu_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"_links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"self"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-json/cocart/v1/products/attributes/2/terms/18"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="s2">"collection"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-json/cocart/v1/products/attributes/2/terms"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">19</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"L"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"l"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"menu_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"_links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"self"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-json/cocart/v1/products/attributes/2/terms/19"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="s2">"collection"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-json/cocart/v1/products/attributes/2/terms"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"XL"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xl"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"menu_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"_links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"self"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-json/cocart/v1/products/attributes/2/terms/20"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="s2">"collection"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-json/cocart/v1/products/attributes/2/terms"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">21</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"XXL"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xxl"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"menu_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"_links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"self"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-json/cocart/v1/products/attributes/2/terms/21"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="s2">"collection"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-json/cocart/v1/products/attributes/2/terms"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre><h4 id='available-parameters'>Available parameters</h4>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>page</code></td>
+<td>integer</td>
+<td>Current page of the collection. Default is <code>1</code>.</td>
+</tr>
+<tr>
+<td><code>per_page</code></td>
+<td>integer</td>
+<td>Maximum number of items to be returned in result set. Default is <code>10</code>.</td>
+</tr>
+<tr>
+<td><code>search</code></td>
+<td>string</td>
+<td>Limit results to those matching a string.</td>
+</tr>
+<tr>
+<td><code>exclude</code></td>
+<td>array</td>
+<td>Ensure result set excludes specific ids.</td>
+</tr>
+<tr>
+<td><code>include</code></td>
+<td>array</td>
+<td>Limit result set to specific ids.</td>
+</tr>
+<tr>
+<td><code>order</code></td>
+<td>string</td>
+<td>Order sort attribute ascending or descending. Options: <code>asc</code> and <code>desc</code>. Default is <code>asc</code>.</td>
+</tr>
+<tr>
+<td><code>orderby</code></td>
+<td>string</td>
+<td>Sort collection by attribute. Options: <code>id</code>, <code>include</code>, <code>name</code>, <code>slug</code>, <code>term_group</code>, <code>description</code> and <code>count</code>. Default is <code>name</code>.</td>
+</tr>
+<tr>
+<td><code>hide_empty</code></td>
+<td>boolean</td>
+<td>Whether to hide attribute terms not assigned to any products. Default is <code>false</code>.</td>
+</tr>
+<tr>
+<td><code>parent</code></td>
+<td>integer</td>
+<td>Limit result set to attribute terms assigned to a specific parent.</td>
+</tr>
+<tr>
+<td><code>product</code></td>
+<td>integer</td>
+<td>Limit result set to attribute terms assigned to a specific product.</td>
+</tr>
+<tr>
+<td><code>slug</code></td>
+<td>string</td>
+<td>Limit result set to attribute terms with a specific slug.</td>
+</tr>
+</tbody></table>
+<h1 id='product-attributes'>Product attributes</h1>
+<p>The product attributes API allows you to view all or individual product attributes.</p>
+<h2 id='product-attribute-attributes'>Product attribute attributes</h2>
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>id</code></td>
+<td>integer</td>
+<td>Unique identifier for the product attribute.</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td>string</td>
+<td>Attribute name.</td>
+</tr>
+<tr>
+<td><code>slug</code></td>
+<td>string</td>
+<td>An alphanumeric identifier for the resource unique to its type.</td>
+</tr>
+<tr>
+<td><code>type</code></td>
+<td>string</td>
+<td>Type of attribute. By default only <code>select</code> is supported.</td>
+</tr>
+<tr>
+<td><code>order_by</code></td>
+<td>string</td>
+<td>Default sort order. Options: <code>menu_order</code>, <code>name</code>, <code>name_num</code> and <code>id</code>. Default is <code>menu_order</code>.</td>
+</tr>
+<tr>
+<td><code>has_archives</code></td>
+<td>boolean</td>
+<td>Enable/Disable attribute archives. Default is <code>false</code>.</td>
+</tr>
+</tbody></table>
+<h2 id='retrieve-a-product-attribute'>Retrieve a product attribute</h2>
+<p>This API lets you retrieve and view a specific product attribute by ID.</p>
+
+<div class="api-endpoint">
+    <div class="endpoint-data">
+        <i class="label label-get">GET</i>
+        <h6>/wp-json/cocart/v1/products/attributes/&lt;id&gt;</h6>
+    </div>
+</div>
+<pre class="highlight shell tab-shell"><code>curl -X GET https://example.com/wp-json/cocart/v1/products/attributes/1 <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+</code></pre>
+<blockquote>
+<p>JSON response example:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Color"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pa_color"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"select"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"order_by"</span><span class="p">:</span><span class="w"> </span><span class="s2">"menu_order"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"has_archives"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"_links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"self"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-json/cocart/v1/products/attributes/6"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"collection"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-json/cocart/v1/products/attributes"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h2 id='list-all-product-attributes'>List all product attributes</h2>
+<p>This API helps you to view all the product attributes.</p>
+<h3 id='http-request'>HTTP request</h3>
+<div class="api-endpoint">
+    <div class="endpoint-data">
+        <i class="label label-get">GET</i>
+        <h6>/wp-json/cocart/v1/products/attributes</h6>
+    </div>
+</div>
+<pre class="highlight shell tab-shell"><code>curl -X GET https://example.com/wp-json/cocart/v1/products/attributes <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+</code></pre>
+<blockquote>
+<p>JSON response example:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Color"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pa_color"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"select"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"order_by"</span><span class="p">:</span><span class="w"> </span><span class="s2">"menu_order"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"has_archives"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"_links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"self"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-json/cocart/v1/products/attributes/6"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="s2">"collection"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-json/cocart/v1/products/attributes"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Size"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pa_size"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"select"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"order_by"</span><span class="p">:</span><span class="w"> </span><span class="s2">"menu_order"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"has_archives"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"_links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"self"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-json/cocart/v1/products/attributes/2"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="s2">"collection"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-json/cocart/v1/products/attributes"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre><h1 id='product-categories'>Product categories</h1>
+<p>The product categories API allows you to view all or individual product categories.</p>
+<h2 id='product-category-attributes'>Product category attributes</h2>
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>id</code></td>
+<td>integer</td>
+<td>Unique identifier for the category.</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td>string</td>
+<td>Category name.</td>
+</tr>
+<tr>
+<td><code>slug</code></td>
+<td>string</td>
+<td>An alphanumeric identifier for the category unique to its type.</td>
+</tr>
+<tr>
+<td><code>parent</code></td>
+<td>integer</td>
+<td>The ID for the parent of the category.</td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td>string</td>
+<td>HTML description of the category.</td>
+</tr>
+<tr>
+<td><code>display</code></td>
+<td>string</td>
+<td>Category archive display type. Options: <code>default</code>, <code>products</code>, <code>subcategories</code> and <code>both</code>. Default is <code>default</code>.</td>
+</tr>
+<tr>
+<td><code>image</code></td>
+<td>object</td>
+<td>Image data. See <a href="#product-category-image-properties">Product category - Image properties</a></td>
+</tr>
+<tr>
+<td><code>menu_order</code></td>
+<td>integer</td>
+<td>Menu order, used to custom sort the category.</td>
+</tr>
+<tr>
+<td><code>count</code></td>
+<td>integer</td>
+<td>Number of published products for the category.</td>
+</tr>
+</tbody></table>
+<h3 id='product-category-image-attributes'>Product category - Image attributes</h3>
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>id</code></td>
+<td>integer</td>
+<td>Image ID.</td>
+</tr>
+<tr>
+<td><code>date_created</code></td>
+<td>date-time</td>
+<td>The date the image was created, in the site&#39;s timezone.</td>
+</tr>
+<tr>
+<td><code>date_created_gmt</code></td>
+<td>date-time</td>
+<td>The date the image was created, as GMT</td>
+</tr>
+<tr>
+<td><code>date_modified</code></td>
+<td>date-time</td>
+<td>The date the image was last modified, in the site&#39;s timezone.</td>
+</tr>
+<tr>
+<td><code>date_modified_gmt</code></td>
+<td>date-time</td>
+<td>The date the image was last modified, as GMT.</td>
+</tr>
+<tr>
+<td><code>src</code></td>
+<td>string</td>
+<td>Image URL.</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td>string</td>
+<td>Image name.</td>
+</tr>
+<tr>
+<td><code>alt</code></td>
+<td>string</td>
+<td>Image alternative text.</td>
+</tr>
+</tbody></table>
+<h2 id='retrieve-a-product-category'>Retrieve a product category</h2>
+<p>This API lets you retrieve a product category by ID.</p>
+
+<div class="api-endpoint">
+    <div class="endpoint-data">
+        <i class="label label-get">GET</i>
+        <h6>/wp-json/cocart/v1/products/categories/&lt;id&gt;</h6>
+    </div>
+</div>
+<pre class="highlight shell tab-shell"><code>curl https://example.com/wp-json/cocart/v1/products/categories/9 <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+</code></pre>
+<blockquote>
+<p>JSON response example:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Clothing"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"clothing"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"parent"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"display"</span><span class="p">:</span><span class="w"> </span><span class="s2">"default"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">730</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"date_created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-03-23T00:01:07"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"date_created_gmt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-03-23T03:01:07"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"date_modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-03-23T00:01:07"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"date_modified_gmt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-03-23T03:01:07"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"src"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-content/uploads/2017/03/T_2_front.jpg"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"alt"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"menu_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">36</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"_links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"self"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-json/cocart/v1/products/categories/9"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"collection"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-json/cocart/v1/products/categories"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h2 id='list-all-product-categories'>List all product categories</h2>
+<p>This API lets you retrieve all product categories.</p>
+
+<div class="api-endpoint">
+    <div class="endpoint-data">
+        <i class="label label-get">GET</i>
+        <h6>/wp-json/cocart/v1/products/categories</h6>
+    </div>
+</div>
+<pre class="highlight shell tab-shell"><code>curl https://example.com/wp-json/cocart/v1/products/categories <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+</code></pre>
+<blockquote>
+<p>JSON response example:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Albums"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"albums"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"parent"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"display"</span><span class="p">:</span><span class="w"> </span><span class="s2">"default"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="s2">"menu_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"_links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"self"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-json/cocart/v1/products/categories/15"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="s2">"collection"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-json/cocart/v1/products/categories"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="s2">"up"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-json/cocart/v1/products/categories/11"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Clothing"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"clothing"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"parent"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"display"</span><span class="p">:</span><span class="w"> </span><span class="s2">"default"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">730</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"date_created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-03-23T00:01:07"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"date_created_gmt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-03-23T03:01:07"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"date_modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-03-23T00:01:07"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"date_modified_gmt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-03-23T03:01:07"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"src"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-content/uploads/2017/03/T_2_front.jpg"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"alt"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"menu_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">36</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"_links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"self"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example/wp-json/cocart/v1/products/categories/9"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="s2">"collection"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example/wp-json/cocart/v1/products/categories"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hoodies"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hoodies"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"parent"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"display"</span><span class="p">:</span><span class="w"> </span><span class="s2">"default"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="s2">"menu_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"_links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"self"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-json/cocart/v1/products/categories/10"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="s2">"collection"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-json/cocart/v1/products/categories"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="s2">"up"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-json/cocart/v1/products/categories/9"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Music"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"music"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"parent"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"display"</span><span class="p">:</span><span class="w"> </span><span class="s2">"default"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="s2">"menu_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"_links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"self"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-json/cocart/v1/products/categories/11"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="s2">"collection"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-json/cocart/v1/products/categories"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Posters"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"posters"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"parent"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"display"</span><span class="p">:</span><span class="w"> </span><span class="s2">"default"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="s2">"menu_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"_links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"self"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-json/cocart/v1/products/categories/12"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="s2">"collection"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-json/cocart/v1/products/categories"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">13</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Singles"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"singles"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"parent"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"display"</span><span class="p">:</span><span class="w"> </span><span class="s2">"default"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="s2">"menu_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"_links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"self"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-json/cocart/v1/products/categories/13"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="s2">"collection"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-json/cocart/v1/products/categories"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="s2">"up"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-json/cocart/v1/products/categories/11"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"T-shirts"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"t-shirts"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"parent"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"display"</span><span class="p">:</span><span class="w"> </span><span class="s2">"default"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="s2">"menu_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"_links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"self"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-json/cocart/v1/products/categories/14"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="s2">"collection"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-json/cocart/v1/products/categories"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="s2">"up"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-json/cocart/v1/products/categories/9"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre><h4 id='available-parameters'>Available parameters</h4>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>page</code></td>
+<td>integer</td>
+<td>Current page of the collection. Default is <code>1</code>.</td>
+</tr>
+<tr>
+<td><code>per_page</code></td>
+<td>integer</td>
+<td>Maximum number of items to be returned in result set. Default is <code>10</code>.</td>
+</tr>
+<tr>
+<td><code>search</code></td>
+<td>string</td>
+<td>Limit results to those matching a string.</td>
+</tr>
+<tr>
+<td><code>exclude</code></td>
+<td>array</td>
+<td>Ensure result set excludes specific ids.</td>
+</tr>
+<tr>
+<td><code>include</code></td>
+<td>array</td>
+<td>Limit result set to specific ids.</td>
+</tr>
+<tr>
+<td><code>order</code></td>
+<td>string</td>
+<td>Order sort attribute ascending or descending. Options: <code>asc</code> and <code>desc</code>. Default is <code>asc</code>.</td>
+</tr>
+<tr>
+<td><code>orderby</code></td>
+<td>string</td>
+<td>Sort collection by category attribute. Options: <code>id</code>, <code>include</code>, <code>name</code>, <code>slug</code>, <code>term_group</code>, <code>description</code> and <code>count</code>. Default is <code>name</code>.</td>
+</tr>
+<tr>
+<td><code>hide_empty</code></td>
+<td>boolean</td>
+<td>Whether to hide categories not assigned to any products. Default is <code>false</code>.</td>
+</tr>
+<tr>
+<td><code>parent</code></td>
+<td>integer</td>
+<td>Limit result set to categories assigned to a specific parent.</td>
+</tr>
+<tr>
+<td><code>product</code></td>
+<td>integer</td>
+<td>Limit result set to categories assigned to a specific product.</td>
+</tr>
+<tr>
+<td><code>slug</code></td>
+<td>string</td>
+<td>Limit result set to categories with a specific slug.</td>
+</tr>
+</tbody></table>
+<h1 id='product-tags'>Product tags</h1>
+<p>The product tags API allows you to view all or individual product tags.</p>
+<h2 id='product-tag-attributes'>Product tag attributes</h2>
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>id</code></td>
+<td>integer</td>
+<td>Unique identifier for the tag.</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td>string</td>
+<td>Tag name.</td>
+</tr>
+<tr>
+<td><code>slug</code></td>
+<td>string</td>
+<td>An alphanumeric identifier for the resource unique to its type.</td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td>string</td>
+<td>HTML description of the resource.</td>
+</tr>
+<tr>
+<td><code>count</code></td>
+<td>integer</td>
+<td>Number of published products for the tag.</td>
+</tr>
+</tbody></table>
+<h2 id='retrieve-a-product-tag'>Retrieve a product tag</h2>
+<p>This API lets you retrieve a product tag by ID.</p>
+
+<div class="api-endpoint">
+    <div class="endpoint-data">
+        <i class="label label-get">GET</i>
+        <h6>/wp-json/cocart/v1/products/tags/&lt;id&gt;</h6>
+    </div>
+</div>
+<pre class="highlight shell tab-shell"><code>curl https://example.com/wp-json/cocart/v1/products/tags/34 <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+</code></pre>
+<blockquote>
+<p>JSON response example:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">34</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Leather Shoes"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"leather-shoes"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"_links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"self"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-json/cocart/v1/products/tags/34"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"collection"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-json/cocart/v1/products/tags"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h2 id='list-all-product-tags'>List all product tags</h2>
+<p>This API lets you retrieve all product tag.</p>
+
+<div class="api-endpoint">
+    <div class="endpoint-data">
+        <i class="label label-get">GET</i>
+        <h6>/wp-json/cocart/v1/products/tags</h6>
+    </div>
+</div>
+<pre class="highlight shell tab-shell"><code>curl https://example.com/wp-json/cocart/v1/products/tags <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+</code></pre>
+<blockquote>
+<p>JSON response example:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">34</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Leather Shoes"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"leather-shoes"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"_links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"self"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-json/cocart/v1/products/tags/34"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="s2">"collection"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-json/cocart/v1/products/tags"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">35</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Oxford Shoes"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"oxford-shoes"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"_links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"self"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-json/cocart/v1/products/tags/35"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="s2">"collection"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-json/cocart/v1/products/tags"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre><h4 id='available-parameters'>Available parameters</h4>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>page</code></td>
+<td>integer</td>
+<td>Current page of the collection. Default is <code>1</code>.</td>
+</tr>
+<tr>
+<td><code>per_page</code></td>
+<td>integer</td>
+<td>Maximum number of items to be returned in result set. Default is <code>10</code>.</td>
+</tr>
+<tr>
+<td><code>search</code></td>
+<td>string</td>
+<td>Limit results to those matching a string.</td>
+</tr>
+<tr>
+<td><code>exclude</code></td>
+<td>array</td>
+<td>Ensure result set excludes specific ids.</td>
+</tr>
+<tr>
+<td><code>include</code></td>
+<td>array</td>
+<td>Limit result set to specific ids.</td>
+</tr>
+<tr>
+<td><code>offset</code></td>
+<td>integer</td>
+<td>Offset the result set by a specific number of items.</td>
+</tr>
+<tr>
+<td><code>order</code></td>
+<td>string</td>
+<td>Order sort attribute ascending or descending. Options: <code>asc</code> and <code>desc</code>. Default is <code>asc</code>.</td>
+</tr>
+<tr>
+<td><code>orderby</code></td>
+<td>string</td>
+<td>Sort collection by tag attribute. Options: <code>id</code>, <code>include</code>, <code>name</code>, <code>slug</code>, <code>term_group</code>, <code>description</code> and <code>count</code>. Default is <code>name</code>.</td>
+</tr>
+<tr>
+<td><code>hide_empty</code></td>
+<td>boolean</td>
+<td>Whether to hide tags not assigned to any products. Default is <code>false</code>.</td>
+</tr>
+<tr>
+<td><code>product</code></td>
+<td>integer</td>
+<td>Limit result set to tags assigned to a specific product.</td>
+</tr>
+<tr>
+<td><code>slug</code></td>
+<td>string</td>
+<td>Limit result set to tags with a specific slug.</td>
+</tr>
+</tbody></table>
+<h1 id='product-reviews'>Product reviews</h1>
+<p>The product reviews API allows you to view product reviews and create a product review.</p>
+<h2 id='product-review-attributes'>Product review attributes</h2>
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>id</code></td>
+<td>integer</td>
+<td>Unique identifier for the product review.</td>
+</tr>
+<tr>
+<td><code>date_created</code></td>
+<td>string</td>
+<td>The date the review was created, in the site&#39;s timezone.</td>
+</tr>
+<tr>
+<td><code>date_created_gmt</code></td>
+<td>string</td>
+<td>The date the review was created, as GMT.</td>
+</tr>
+<tr>
+<td><code>product_id</code></td>
+<td>integer</td>
+<td>Unique identifier for the product that the review belongs to.</td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td>string</td>
+<td>Status of the review. Options: <code>approved</code> and <code>hold</code>. Defaults to <code>approved</code>.</td>
+</tr>
+<tr>
+<td><code>reviewer</code></td>
+<td>string</td>
+<td>Reviewer name.</td>
+</tr>
+<tr>
+<td><code>reviewer_email</code></td>
+<td>string</td>
+<td>Reviewer email.</td>
+</tr>
+<tr>
+<td><code>review</code></td>
+<td>string</td>
+<td>The content of the review.</td>
+</tr>
+<tr>
+<td><code>rating</code></td>
+<td>integer</td>
+<td>Review rating (0 to 5).</td>
+</tr>
+<tr>
+<td><code>verified</code></td>
+<td>boolean</td>
+<td>Shows if the reviewer bought the product or not.</td>
+</tr>
+</tbody></table>
+<h2 id='create-a-product-review'>Create a product review</h2>
+<p>This API helps you to create a new product review. Either submit the review as the customer or as adminisitrator on behalf of the customer. Must use the same email address used on the customers account at the time the product being reviewed was ordered.</p>
+<h3 id='http-request'>HTTP request</h3>
+<div class="api-endpoint">
+    <div class="endpoint-data">
+        <i class="label label-post">POST</i>
+        <h6>/wp-json/cocart/v1/products/reviews</h6>
+    </div>
+</div>
+
+<blockquote>
+<p>Example of how to create a product review:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X POST https://example.com/wp-json/cocart/v1/products/reviews <span class="se">\</span>
+    -u consumer_key:consumer_secret <span class="se">\</span>
+    -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+    -d <span class="s1">'{
+    "product_id": 22,
+    "review": "Nice album!",
+    "reviewer": "John Doe",
+    "reviewer_email": "john.doe@example.com",
+    "rating": 5
+}'</span>
+</code></pre>
+<blockquote>
+<p>JSON response example:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">22</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"date_created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-10-18T17:59:17"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"date_created_gmt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-10-18T20:59:17"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"product_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">22</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"approved"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"reviewer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John Doe"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"reviewer_email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"john.doe@example.com"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"review"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nice album!"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"rating"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"verified"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"reviewer_avatar_urls"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"24"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://secure.gravatar.com/avatar/8eb1b522f60d11fa897de1dc6351b7e8?s=24&amp;d=mm&amp;r=g"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"48"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://secure.gravatar.com/avatar/8eb1b522f60d11fa897de1dc6351b7e8?s=48&amp;d=mm&amp;r=g"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"96"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://secure.gravatar.com/avatar/8eb1b522f60d11fa897de1dc6351b7e8?s=96&amp;d=mm&amp;r=g"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"_links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"self"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-json/cocart/v1/products/reviews/22"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"collection"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-json/cocart/v1/products/reviews"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"up"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-json/cocart/v1/products/22"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h2 id='retrieve-a-product-review'>Retrieve a product review</h2>
+<p>This API lets you retrieve a product review by ID.</p>
+
+<div class="api-endpoint">
+    <div class="endpoint-data">
+        <i class="label label-get">GET</i>
+        <h6>/wp-json/cocart/v1/products/reviews/&lt;id&gt;</h6>
+    </div>
+</div>
+<pre class="highlight shell tab-shell"><code>curl -X GET https://example.com/wp-json/cocart/v1/products/reviews/22 <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+</code></pre>
+<blockquote>
+<p>JSON response example:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">22</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"date_created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-10-18T17:59:17"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"date_created_gmt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-10-18T20:59:17"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"product_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">22</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"approved"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"reviewer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John Doe"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"review"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nice album!"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"rating"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"verified"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"reviewer_avatar_urls"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"24"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://secure.gravatar.com/avatar/8eb1b522f60d11fa897de1dc6351b7e8?s=24&amp;d=mm&amp;r=g"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"48"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://secure.gravatar.com/avatar/8eb1b522f60d11fa897de1dc6351b7e8?s=48&amp;d=mm&amp;r=g"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"96"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://secure.gravatar.com/avatar/8eb1b522f60d11fa897de1dc6351b7e8?s=96&amp;d=mm&amp;r=g"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"_links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"self"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-json/cocart/v1/products/reviews/22"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"collection"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-json/cocart/v1/products/reviews"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"up"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-json/cocart/v1/products/22"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h2 id='list-all-product-reviews'>List all product reviews</h2>
+<p>This API lets you retrieve all product reviews.</p>
+
+<div class="api-endpoint">
+    <div class="endpoint-data">
+        <i class="label label-get">GET</i>
+        <h6>/wp-json/cocart/v1/products/reviews</h6>
+    </div>
+</div>
+<pre class="highlight shell tab-shell"><code>curl -X GET https://example.com/wp-json/cocart/v1/products/reviews <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+</code></pre>
+<blockquote>
+<p>JSON response example:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">22</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"date_created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-10-18T17:59:17"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"date_created_gmt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-10-18T20:59:17"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"product_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">22</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"approved"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"reviewer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John Doe"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"review"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;p&gt;Nice album!&lt;/p&gt;</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"rating"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"verified"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"reviewer_avatar_urls"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"24"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://secure.gravatar.com/avatar/8eb1b522f60d11fa897de1dc6351b7e8?s=24&amp;d=mm&amp;r=g"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"48"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://secure.gravatar.com/avatar/8eb1b522f60d11fa897de1dc6351b7e8?s=48&amp;d=mm&amp;r=g"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"96"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://secure.gravatar.com/avatar/8eb1b522f60d11fa897de1dc6351b7e8?s=96&amp;d=mm&amp;r=g"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"_links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"self"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-json/cocart/v1/products/reviews/22"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="s2">"collection"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-json/cocart/v1/products/reviews"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="s2">"up"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-json/cocart/v1/products/22"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"date_created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-09-08T21:47:19"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"date_created_gmt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-09-09T00:47:19"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"product_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">31</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"approved"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"reviewer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Claudio Sanches"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"review"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;p&gt;Now works just fine.&lt;/p&gt;</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"rating"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"verified"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"reviewer_avatar_urls"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"24"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://secure.gravatar.com/avatar/908480753c07509e76322dc17d305c8b?s=24&amp;d=mm&amp;r=g"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"48"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://secure.gravatar.com/avatar/908480753c07509e76322dc17d305c8b?s=48&amp;d=mm&amp;r=g"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"96"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://secure.gravatar.com/avatar/908480753c07509e76322dc17d305c8b?s=96&amp;d=mm&amp;r=g"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"_links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"self"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-json/cocart/v1/products/reviews/20"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="s2">"collection"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-json/cocart/v1/products/reviews"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="s2">"up"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-json/cocart/v1/products/31"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="s2">"reviewer"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"embeddable"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-json/wp/v2/users/1"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre><h4 id='available-parameters'>Available parameters</h4>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>context</code></td>
+<td>string</td>
+<td>Scope under which the request is made; determines fields present in response. Options: <code>view</code> and <code>edit</code>. Default is <code>view</code>.</td>
+</tr>
+<tr>
+<td><code>page</code></td>
+<td>integer</td>
+<td>Current page of the collection. Default is <code>1</code>.</td>
+</tr>
+<tr>
+<td><code>per_page</code></td>
+<td>integer</td>
+<td>Maximum number of items to be returned in result set. Default is <code>10</code>.</td>
+</tr>
+<tr>
+<td><code>search</code></td>
+<td>string</td>
+<td>Limit results to those matching a string.</td>
+</tr>
+<tr>
+<td><code>after</code></td>
+<td>string</td>
+<td>Limit response to reviews published after a given ISO8601 compliant date.</td>
+</tr>
+<tr>
+<td><code>before</code></td>
+<td>string</td>
+<td>Limit response to reviews published before a given ISO8601 compliant date.</td>
+</tr>
+<tr>
+<td><code>exclude</code></td>
+<td>array</td>
+<td>Ensure result set excludes specific ids.</td>
+</tr>
+<tr>
+<td><code>include</code></td>
+<td>array</td>
+<td>Limit result set to specific ids.</td>
+</tr>
+<tr>
+<td><code>offset</code></td>
+<td>integer</td>
+<td>Offset the result set by a specific number of items.</td>
+</tr>
+<tr>
+<td><code>order</code></td>
+<td>string</td>
+<td>Order sort attribute ascending or descending. Options: <code>asc</code> and <code>desc</code>. Default is <code>desc</code>.</td>
+</tr>
+<tr>
+<td><code>orderby</code></td>
+<td>string</td>
+<td>Sort collection by resource attribute. Options: <code>date</code>, <code>date_gmt</code>, <code>id</code>, <code>slug</code>, <code>include</code> and <code>product</code>. Default is <code>date_gmt</code>.</td>
+</tr>
+<tr>
+<td><code>reviewer</code></td>
+<td>array</td>
+<td>Limit result set to reviews assigned to specific user IDs.</td>
+</tr>
+<tr>
+<td><code>reviewer_exclude</code></td>
+<td>array</td>
+<td>Ensure result set excludes reviews assigned to specific user IDs.</td>
+</tr>
+<tr>
+<td><code>reviewer_email</code></td>
+<td>array</td>
+<td>Limit result set to that from a specific author email.</td>
+</tr>
+<tr>
+<td><code>product</code></td>
+<td>array</td>
+<td>Limit result set to reviews assigned to specific product IDs.</td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td>string</td>
+<td>Limit result set to reviews assigned a specific status. Options: <code>all</code>, <code>hold</code> and <code>approved</code>. Default is <code>approved</code>.</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>JSON response example:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"date_created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-09-08T21:47:19"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"date_created_gmt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-09-09T00:47:19"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"product_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">31</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"approved"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"reviewer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Claudio Sanches"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"review"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Now works just fine."</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"rating"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"verified"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"reviewer_avatar_urls"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"24"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://secure.gravatar.com/avatar/908480753c07509e76322dc17d305c8b?s=24&amp;d=mm&amp;r=g"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"48"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://secure.gravatar.com/avatar/908480753c07509e76322dc17d305c8b?s=48&amp;d=mm&amp;r=g"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"96"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://secure.gravatar.com/avatar/908480753c07509e76322dc17d305c8b?s=96&amp;d=mm&amp;r=g"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"_links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"self"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-json/cocart/v1/products/reviews/20"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"collection"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-json/cocart/v1/products/reviews"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"up"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-json/cocart/v1/products/31"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"reviewer"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"embeddable"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-json/wp/v2/users/1"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h1 id='changelog'>Changelog</h1>
+<p>The Documentation is updated only when needed. Below is the changelog for &quot;CoCart Products&quot; documentation that matches with the version of the plugin release.</p>
+<h3 id='doc-version-0-1-plugin-release-v1-0-0'>Doc Version 0.1 - Plugin Release v1.0.0</h3>
+<ul>
+<li>Initial version</li>
+</ul>
+
+      </div>
+      <div class="dark-box">
+          <div class="lang-selector">
+                <a href="#" data-language-name="shell">cURL</a>
+          </div>
+      </div>
+    </div>
+  </body>
+</html>

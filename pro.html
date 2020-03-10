@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>CoCart Pro Documentation v1</title>
+    <title>CoCart Pro Documentation v1.1</title>
 
     <link rel="icon" href="images/favicon-32x32.png" sizes="32x32" />
     <link rel="icon" href="images/favicon-192x192.png" sizes="192x192" />
@@ -406,6 +406,14 @@
               </ul>
           </li>
           <li>
+            <a href="#filters" class="toc-h1 toc-link" data-title="Filters">Filters</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#cross-sells" class="toc-h2 toc-link" data-title="Cross Sells">Cross Sells</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#changelog" class="toc-h1 toc-link" data-title="Changelog">Changelog</a>
               <ul class="toc-list-h2">
                   <li>
@@ -751,7 +759,7 @@
 <h3 id='coupon-properties'>Coupon Properties</h3>
 <table><thead>
 <tr>
-<th>Attribute</th>
+<th>Property</th>
 <th>Type</th>
 <th>Description</th>
 </tr>
@@ -970,7 +978,7 @@
 <h2 id='cross-sell-properties'>Cross Sell Properties</h2>
 <table><thead>
 <tr>
-<th>Attribute</th>
+<th>Property</th>
 <th>Type</th>
 <th>Description</th>
 </tr>
@@ -1218,7 +1226,7 @@
 <h3 id='properties'>Properties</h3>
 <table><thead>
 <tr>
-<th>Attribute</th>
+<th>Property</th>
 <th>Type</th>
 <th>Description</th>
 </tr>
@@ -1480,7 +1488,7 @@
 <h3 id='properties'>Properties</h3>
 <table><thead>
 <tr>
-<th>Attribute</th>
+<th>Property</th>
 <th>Type</th>
 <th>Description</th>
 </tr>
@@ -1654,7 +1662,7 @@
 <h3 id='properties'>Properties</h3>
 <table><thead>
 <tr>
-<th>Attribute</th>
+<th>Property</th>
 <th>Type</th>
 <th>Description</th>
 </tr>
@@ -1732,7 +1740,7 @@
 <h3 id='properties-2'>Properties</h3>
 <table><thead>
 <tr>
-<th>Attribute</th>
+<th>Property</th>
 <th>Type</th>
 <th>Description</th>
 </tr>
@@ -2283,7 +2291,62 @@
 <p>JSON response example</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="s2">"£33.60"</span><span class="w">
-</span></code></pre><h1 id='changelog'>Changelog</h1>
+</span></code></pre><h1 id='filters'>Filters</h1>
+<p>The cart API has a number of filters that you can use to extend or change the API.</p>
+
+<p>See the <a href="https://github.com/co-cart/co-cart-tweaks">tweaks plugin for examples</a>.</p>
+
+<aside class="notice">
+Please make sure you are viewing the PHP language to view examples of the filters in use.
+</aside>
+<h2 id='cross-sells'>Cross Sells</h2>
+<p>These filters are altering the results of the Cross Sell items.</p>
+<h3 id='change-thumbnail-size'>Change Thumbnail Size</h3>
+<p>By default the size of the thumbnail uses <code>woocommerce_thumbnail</code>. You can change this by filtering the size using <code>cocart_cross_sell_item_thumbnail_size</code> filter.</p>
+<pre class="highlight php tab-php"><code>add_filter( 'cocart_cross_sell_item_thumbnail_size', 'thumbnail_size' );
+
+function thumbnail_size() {
+  return 'thumbnail';
+}
+</code></pre><h3 id='return-more-item-details'>Return more item details</h3>
+<p>Sometimes you just need more product data for the items added. You can do so using <code>cocart_cart_contents</code> filter.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>$cart_contents</code></td>
+<td>array</td>
+<td>An array of items added to the cart.</td>
+</tr>
+<tr>
+<td><code>$item_key</code></td>
+<td>string</td>
+<td>Unique generated ID for the item in cart.</td>
+</tr>
+<tr>
+<td><code>$cart_item</code></td>
+<td>array</td>
+<td>An array of details of the item in the cart.</td>
+</tr>
+<tr>
+<td><code>$_product</code></td>
+<td>object</td>
+<td>The product data of the item.</td>
+</tr>
+</tbody></table>
+<pre class="highlight php tab-php"><code>add_filter( 'cocart_cart_contents', 'return_product_weight', 15, 4 );
+
+function return_product_sku( $cart_contents, $item_key, $cart_item, $_product ) {
+  $cart_contents[$item_key]['sku'] = $_product-&gt;get_sku();
+
+  return $cart_contents;
+}
+</code></pre><h1 id='changelog'>Changelog</h1>
 <p>The Documentation is updated only when needed. Below is the changelog for &quot;CoCart Pro&quot; documentation that matches with the version of the plugin release.</p>
 <h3 id='doc-version-0-3-plugin-release-v1-0-0'>Doc Version 0.3 - Plugin Release v1.0.0</h3>
 <ul>
