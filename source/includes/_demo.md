@@ -102,19 +102,3 @@ Here is a table of products you can use to test with.
 | `163` | `181`        | Hoodie                  | Variable                 | £45.00          | No               | `"attribute_pa_color": "blue", "attribute_logo": "No"` <i class="label label-info">mandatory</i> |
 | `329` | -            | The Last of Us Part 2 - | Simple (Name Your Price) | Suggested: £229 | No               |            |
 |       |              | Ellie Edition           |                          | Minimum: £180   |                  |            |
-
-## Body Types ##
-
-Make sure when using either of these body types that you have the correct `Content-Type` for the header.
-
-| Body Type             | Content-Type                      |
-| --------------------- | --------------------------------- |
-| form-data             | application/json                  |
-| raw                   | application/json                  |
-| x-www-form-urlencoded | application/x-www-form-urlencoded |
-
-<aside class="notice">
-  Body data must be passed correctly for the CoCart REST API to succeed.
-</aside>
-
-I personally find using **raw** works best if you are passing an array of data for a `variation` or `cart_item_data`.

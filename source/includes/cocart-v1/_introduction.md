@@ -61,6 +61,22 @@ Some general information about response:
 * Other amounts, such as item counts, are returned as integers.
 * Blank fields are generally included as `null` instead of being returned as blank strings or omitted.
 
+## Body Types ##
+
+There are different types of body types when making a request. Make sure when using either of these body types that you have the correct `Content-Type` for the header.
+
+| Body Type             | Content-Type                      |
+| --------------------- | --------------------------------- |
+| form-data             | application/json                  |
+| raw                   | application/json                  |
+| x-www-form-urlencoded | application/x-www-form-urlencoded |
+
+<aside class="notice">
+  Body data must be passed correctly for the CoCart REST API to succeed.
+</aside>
+
+I personally find using **raw** works best if you are passing an array of data for a `variation` or `cart_item_data`.
+
 ## Errors ##
 
 Occasionally you might encounter errors when accessing the REST API. There are four possible types:
