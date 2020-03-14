@@ -549,7 +549,7 @@ curl https://example.com/wp-json/cocart/v1/products \
 | `parent`            | array   | Limit result set to those of particular parent IDs.                                                                                                            |
 | `parent_exclude`    | array   | Limit result set to all items except those of a particular parent ID.                                                                                          |
 | `slug`              | string  | Limit result set to products with a specific slug.                                                                                                             |
-| `type`              | string  | Limit result set to products assigned a specific type. Options: `simple`, `grouped`, `external`, `variable`, `simple-subsciption` and `variable-subscription`. |
+| `type`              | string  | Limit result set to products assigned a specific type. Options: `simple`, `grouped`, `external`, `variable`, `subscription` and `variable-subscription`.       |
 | `sku`               | string  | Limit result set to products with a specific SKU.                                                                                                              |
 | `featured`          | boolean | Limit result set to featured products.                                                                                                                         |
 | `category`          | string  | Limit result set to products assigned a specific category ID.                                                                                                  |
