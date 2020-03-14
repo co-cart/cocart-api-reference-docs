@@ -1,6 +1,6 @@
 # Authentication #
 
-CoCart can be authenticated by various methods with the WP REST API. First being via the [REST API Keys](http://woocommerce.github.io/woocommerce-rest-api-docs/#rest-api-keys) in [WooCommerce](http://woocommerce.github.io/woocommerce-rest-api-docs/#authentication). Though this method is designed for the backend with their REST API, with some custom coding you can make it work for the frontend with CoCart.
+CoCart can be authenticated by various methods with the WP REST API. First being via the [REST API Keys](https://woocommerce.github.io/woocommerce-rest-api-docs/#rest-api-keys) in [WooCommerce](https://woocommerce.github.io/woocommerce-rest-api-docs/#authentication). Though this method is designed for the backend with their REST API, with some custom coding you can make it work for the frontend with CoCart.
 
 Checkout my guide on [how to authenticate with WooCommerce](https://cocart.xyz/authenticating-with-woocommerce-heres-how-you-can-do-it/).
 
@@ -9,7 +9,7 @@ It is also possible to authenticate using any of the following WP REST API authe
 * [Basic Authentication](#basic-authentication)
 * [JWT Authentication for WP REST API](#jwt-authentication)
 
-The WordPress REST API incorporates a method called [nonces](http://codex.wordpress.org/WordPress_Nonces) to deal with [CSRF](https://en.wikipedia.org/wiki/Cross-site_request_forgery) issues. This ensures that all activities on the website remain segregated. This is because the WordPress REST API just like the WooCommerce REST API is designed for the bacl-end.
+The WordPress REST API incorporates a method called [nonces](https://codex.wordpress.org/WordPress_Nonces) to deal with [CSRF](https://en.wikipedia.org/wiki/Cross-site_request_forgery) issues. This ensures that all activities on the website remain segregated. This is because the WordPress REST API just like the WooCommerce REST API is designed for the bacl-end.
 
 CoCart however, is designed for the front-end so for any CoCart requests made, the [cookie authentication](https://developer.wordpress.org/rest-api/using-the-rest-api/authentication/) is disabled allowing the ability to authenticate in any code language without fault.
 
@@ -23,7 +23,7 @@ Thank you. 😄
 
 ## Basic Authentication ##
 
-[What is the Basic Authentication method?](http://en.wikipedia.org/wiki/Basic_access_authentication)
+[What is the Basic Authentication method?](https://en.wikipedia.org/wiki/Basic_access_authentication)
 
 If you use the Basic Authentication method (which you may find the easiest to use for your customers to login with), please make sure that you have SSL enabled when making requests with any of the CoCart API routes. Check out the example adding an item to the cart as a registered customer.
 
@@ -137,7 +137,7 @@ RewriteRule ^(.) - [E=HTTP_AUTHORIZATION:%1]
 
 ## JWT Authentication ##
 
-JWT is a simple web token authentication method for WP REST API. To know more about JSON Web Tokens, please visit [http://jwt.io](http://jwt.io).
+JWT is a simple web token authentication method for WP REST API. To know more about JSON Web Tokens, please visit [https://jwt.io](https://jwt.io).
 
 It's important that you follow the installation and configurations exactly for this method to work. [See instructions](https://github.com/Tmeister/wp-api-jwt-auth#installation--configuration).
 
