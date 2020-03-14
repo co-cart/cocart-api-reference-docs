@@ -1,6 +1,6 @@
 # Products #
 
-The products API allows you to view individual or a batch of products.
+The products API allows you to view individual or a batch of products. Below lists the global product attributes each product returns. Certain product types will provide additional attributes so it's important that when developing, you check that those product attributes exist before using them.
 
 ## Product attributes ##
 
@@ -62,6 +62,7 @@ The products API allows you to view individual or a batch of products.
 | `grouped_products`      | array     | List of grouped products ID.                                                                                                         |
 | `menu_order`            | integer   | Menu order, used to custom sort products.                                                                                            |
 | `meta_data`             | array     | Meta data. See [Product - Meta data properties](#product-meta-data-properties)                                                       |
+| `subscription`          | array     | Subscription data. See [Product - Subscription properties](#product-subscription-properties) Only returns for subscription products. |
 
 ### Product - Dimensions properties ###
 
@@ -126,6 +127,23 @@ The products API allows you to view individual or a batch of products.
 | `id`      | integer | Meta ID.     |
 | `key`     | string  | Meta key.    |
 | `value`   | string  | Meta value.  |
+
+### Product - Subscription properties ###
+
+These attributes are only returned for a subscription product.
+
+| Attribute           | Type    | Description                                               |
+| --------------------|---------|-----------------------------------------------------------|
+| `price`             | string  | Subscription price.                                       |
+| `period`            | string  | Subscription period.                                      |
+| `period_interval`   | string  | Subscription period interval.                             |
+| `length`            | string  | Subscription length.                                      |
+| `trial_period`      | string  | Subscription trial period.                                |
+| `trial_length`      | string  | Subscription trial length.                                |
+| `sign_up_fee`       | string  | Subscription sign up fee.                                 |
+| `one_time_shipping` | string  | Subscription one time shipping.                           |
+| `limit`             | string  | Subscription limit.                                       |
+| `regular_price`     | string  | Subscription regular price. Returns for variations only.  |
 
 ## Retrieve a product ##
 
