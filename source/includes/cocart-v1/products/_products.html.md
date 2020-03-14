@@ -96,7 +96,7 @@ The products API allows you to view individual or a batch of products.
 | `date_created_gmt`  | date-time | The date the image was created, as GMT.                       |
 | `date_modified`     | date-time | The date the image was last modified, in the site's timezone. |
 | `date_modified_gmt` | date-time | The date the image was last modified, as GMT.                 |
-| `src`               | string    | Image URL.                                                    |
+| `src`               | array     | All registered image sizes for the image are returned.        |
 | `name`              | string    | Image name.                                                   |
 | `alt`               | string    | Image alternative text.                                       |
 
@@ -107,8 +107,8 @@ The products API allows you to view individual or a batch of products.
 | `id`        | integer | Attribute ID.                                                                                                     |
 | `name`      | string  | Attribute name.                                                                                                   |
 | `position`  | integer | Attribute position.                                                                                               |
-| `visible`   | boolean | Define if the attribute is visible on the "Additional information" tab in the product's page. Default is `false`. |
-| `variation` | boolean | Define if the attribute can be used as variation. Default is `false`.                                             |
+| `visible`   | boolean | Identifies if the attribute is visible on the "Additional information" tab in the product's page.                 |
+| `variation` | boolean | Identifies if the attribute can be used as a variation.                                                           |
 | `options`   | array   | List of available term names of the attribute.                                                                    |
 
 ### Product - Default attributes properties ###
