@@ -4,7 +4,7 @@ If you don't yet have CoCart installed or a WordPress setup ready, you can test 
 
 When you do make a request, make sure you use `https://wp-demo.cocart.xyz/` as the domain to use the demo.
 
-[Get Cart Enhanced](https://cocart.xyz/add-ons/get-cart-enhanced/) add-on is installed so some results may appear different to the results you see in the documentation. It also gives you a look at what is possible using the [filters](#filters) available to customize CoCart to your needs.
+[Get Cart Enhanced](https://cocart.xyz/add-ons/get-cart-enhanced/) add-on is installed so some results may appear different to the example results you see throughout the documentation. It also gives you a look at what is possible using the [filters](#filters) available to customize CoCart to your needs.
 
 ## Adding an item ##
 
@@ -25,7 +25,7 @@ Here is an example of adding a item to the cart via the demo.
 curl -X POST https://wp-demo.cocart.xyz/wp-json/cocart/v1/add-item \
   -H "Content-Type: application/json" \
   -d '{
-    "product_id": 1722,
+    "product_id": 183,
     "quantity": 1
   }'
 ```
@@ -35,7 +35,7 @@ var settings = {
   "url": "https://wp-demo.cocart.xyz/wp-json/cocart/v1/add-item",
   "method": "POST",
   "data": {
-    "product_id" : 1722,
+    "product_id" : 183,
     "quantity" : 1
   }
 };
@@ -50,7 +50,7 @@ $.ajax(settings).done(function (response) {
 $curl = curl_init();
 
 $args = array(
-  'product_id' => 1722,
+  'product_id' => 183,
   'quantity' => 1
 );
 
@@ -71,14 +71,14 @@ echo $response;
 ```php--wp-http-api
 <?php
 $args = array(
-  'product_id' => 1722,
+  'product_id' => 183,
   'quantity' => 1
 );
 $response = wp_remote_post( 'https://wp-demo.cocart.xyz/wp-json/cocart/v1/add-item', $args );
 $body = wp_remote_retrieve_body( $response );
 ```
 
-## Authentication ##
+## Authenticate Customer ##
 
 Currently on the demo, you can test authentication as a customer via the [basic method](#basic-authentication).
 
@@ -92,13 +92,23 @@ More authentication methods to test with on the demo will come in the future.
 
 Here is a table of products you can use to test with.
 
-| ID    | Variation ID | Name                    | Type                     | Price           | Sold Indivdually | Variation  |
-| ----- | ------------ | ----------------------- | ------------------------ | --------------- | ---------------- | ---------- |
-| `183` | -            | Beanie with Logo        | Simple                   | £18.00          | Yes              |            |
-| `174` | -            | Album                   | Simple (Virtual)         | £15.00          | No               |            |
-| `185` | -            | WordPress Pennant       | External                 | £11.05          | No               |            |
-| `163` | `179`        | Hoodie                  | Variable                 | £42.00          | No               | `"attribute_pa_color": "red", "attribute_logo": "No"` <i class="label label-info">mandatory</i> |
-| `163` | `180`        | Hoodie                  | Variable                 | £45.00          | No               | `"attribute_pa_color": "green", "attribute_logo": "No"` <i class="label label-info">mandatory</i> |
-| `163` | `181`        | Hoodie                  | Variable                 | £45.00          | No               | `"attribute_pa_color": "blue", "attribute_logo": "No"` <i class="label label-info">mandatory</i> |
-| `329` | -            | The Last of Us Part 2 - | Simple (Name Your Price) | Suggested: £229 | No               |            |
-|       |              | Ellie Edition           |                          | Minimum: £180   |                  |            |
+| ID    | Variation ID | Name                    | Type                     | Price                                   | Sold Individually | Variation                                                                                         |
+| ----- | ------------ | ----------------------- | ------------------------ | --------------------------------------- | ----------------- | ------------------------------------------------------------------------------------------------- |
+| `183` | -            | Beanie with Logo        | Simple                   | £18.00                                  | Yes               |                                                                                                   |
+| `174` | -            | Album                   | Simple (Virtual)         | £15.00                                  | No                |                                                                                                   |
+| `185` | -            | WordPress Pennant       | External                 | £11.05                                  | No                |                                                                                                   |
+| `163` | `179`        | Hoodie                  | Variable                 | £42.00                                  | No                | `"attribute_pa_color": "red", "attribute_logo": "No"` <i class="label label-info">mandatory</i>   |
+| `163` | `180`        | Hoodie                  | Variable                 | £45.00                                  | No                | `"attribute_pa_color": "green", "attribute_logo": "No"` <i class="label label-info">mandatory</i> |
+| `163` | `181`        | Hoodie                  | Variable                 | £45.00                                  | No                | `"attribute_pa_color": "blue", "attribute_logo": "No"` <i class="label label-info">mandatory</i>  |
+| `329` | -            | The Last of Us Part 2 - | Simple (Name Your Price) | Suggested: £229                         | No                |                                                                                                   |
+|       |              | Ellie Edition           |                          | Minimum: £180                           |                   |                                                                                                   |
+| `744` | -            | Netfoobar               | Simple Subscription      | £5.99 / month with a 14-day free trial. | Yes               |                                                                                                   |
+
+## Coupons ##
+
+Here is a table of coupons you can use to test with.
+
+| Code           | Coupon Type         | Coupon Amount | Description                   |
+| -------------- | ------------------- | ------------- | ----------------------------- |
+| `get10offcart` | Percentage discount | 10            | Takes 10% off the cart total. |
+| `£25OFF`       | Fixed cart discount | 25            | Takes £25 off the cart total. |
