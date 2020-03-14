@@ -5,63 +5,63 @@ The products API allows you to view individual or a batch of products.
 ## Product attributes ##
 
 | Attribute               | Type      | Description                                                                                                          |
-|-------------------------|-----------|----------------------------------------------------------------------------------------------------------------------|
-| `id`                    | integer   | Unique identifier for the product.                                                                                   |
-| `name`                  | string    | Product name.                                                                                                        |
-| `slug`                  | string    | Product slug.                                                                                                        |
-| `permalink`             | string    | Product URL.                                                                                                         |
-| `date_created`          | date-time | The date the product was created, in the site's timezone.                                                            |
-| `date_created_gmt`      | date-time | The date the product was created, as GMT.                                                                            |
-| `date_modified`         | date-time | The date the product was last modified, in the site's timezone.                                                      |
-| `date_modified_gmt`     | date-time | The date the product was last modified, as GMT.                                                                      |
-| `type`                  | string    | Product type. Options: `simple`, `grouped`, `external` and `variable`. Default is `simple`.                          |
-| `featured`              | boolean   | Featured product. Default is `false`.                                                                                |
-| `catalog_visibility`    | string    | Catalog visibility. Options: `visible`, `catalog`, `search` and `hidden`. Default is `visible`.                      |
-| `description`           | string    | Product description.                                                                                                 |
-| `short_description`     | string    | Product short description.                                                                                           |
-| `sku`                   | string    | Unique identifier.                                                                                                   |
-| `price`                 | string    | Current product price.                                                                                               |
-| `regular_price`         | string    | Product regular price.                                                                                               |
-| `sale_price`            | string    | Product sale price.                                                                                                  |
-| `date_on_sale_from`     | date-time | Start date of sale price, in the site's timezone.                                                                    |
-| `date_on_sale_from_gmt` | date-time | Start date of sale price, as GMT.                                                                                    |
-| `date_on_sale_to`       | date-time | End date of sale price, in the site's timezone.                                                                      |
-| `date_on_sale_to_gmt`   | date-time | End date of sale price, as GMT.                                                                                      |
-| `on_sale`               | boolean   | Shows if the product is on sale.                                                                                     |
-| `purchasable`           | boolean   | Shows if the product can be bought.                                                                                  |
-| `total_sales`           | integer   | Amount of sales.                                                                                                     |
-| `virtual`               | boolean   | If the product is virtual. Default is `false`.                                                                       |
-| `downloadable`          | boolean   | If the product is downloadable. Default is `false`.                                                                  |
-| `external_url`          | string    | Product external URL. Only for external products.                                                                    |
-| `button_text`           | string    | Product external button text. Only for external products.                                                            |
-| `manage_stock`          | boolean   | Stock management at product level. Default is `false`.                                                               |
-| `stock_quantity`        | integer   | Stock quantity.                                                                                                      |
-| `stock_status`          | string    | Controls the stock status of the product. Options: `instock`, `outofstock`, `onbackorder`. Default is `instock`.     |
-| `backorders`            | string    | If managing stock, this controls if backorders are allowed. Options: `no`, `notify` and `yes`. Default is `no`.      |
-| `backorders_allowed`    | boolean   | Shows if backorders are allowed.                                                                                     |
-| `backordered`           | boolean   | Shows if the product is on backordered.                                                                              |
-| `sold_individually`     | boolean   | Allow one item to be bought in a single order. Default is `false`.                                                   |
-| `weight`                | string    | Product weight.                                                                                                      |
-| `dimensions`            | object    | Product dimensions. See [Product - Dimensions properties](#product-dimensions-properties)                            |
-| `shipping_required`     | boolean   | Shows if the product need to be shipped.                                                                             |
-| `reviews_allowed`       | boolean   | Allow reviews.                                                                                                       |
-| `average_rating`        | string    | Reviews average rating.                                                                                              |
-| `rating_count`          | integer   | Amount of reviews that the product have.                                                                             |
-| `reviews`               | array     | Returns product reviews if queried.                                                                                  |
-| `review_count`          | integer   | Amount of reviews that the product have.                                                                             |
-| `related_ids`           | array     | List of related products IDs.                                                                                        |
-| `upsell_ids`            | array     | List of up-sell products IDs.                                                                                        |
-| `cross_sell_ids`        | array     | List of cross-sell products IDs.                                                                                     |
-| `parent_id`             | integer   | Product parent ID.                                                                                                   |
-| `categories`            | array     | List of categories. See [Product - Categories properties](#product-categories-properties)                            |
-| `tags`                  | array     | List of tags. See [Product - Tags properties](#product-tags-properties)                                              |
-| `images`                | array     | List of images. See [Product - Images properties](#product-images-properties)                                        |
-| `attributes`            | array     | List of attributes. See [Product - Attributes properties](#product-attributes-properties)                            |
-| `default_attributes`    | array     | Defaults variation attributes. See [Product - Default attributes properties](#product-default-attributes-properties) |
-| `variations`            | array     | List of variations IDs or details of each variation.                                                                 |
-| `grouped_products`      | array     | List of grouped products ID.                                                                                         |
-| `menu_order`            | integer   | Menu order, used to custom sort products.                                                                            |
-| `meta_data`             | array     | Meta data. See [Product - Meta data properties](#product-meta-data-properties)                                       |
+|-------------------------|-----------|--------------------------------------------------------------------------------------------------------------------------------------|
+| `id`                    | integer   | Unique identifier for the product.                                                                                                   |
+| `name`                  | string    | Product name.                                                                                                                        |
+| `slug`                  | string    | Product slug.                                                                                                                        |
+| `permalink`             | string    | Product URL.                                                                                                                         |
+| `date_created`          | date-time | The date the product was created, in the site's timezone.                                                                            |
+| `date_created_gmt`      | date-time | The date the product was created, as GMT.                                                                                            |
+| `date_modified`         | date-time | The date the product was last modified, in the site's timezone.                                                                      |
+| `date_modified_gmt`     | date-time | The date the product was last modified, as GMT.                                                                                      |
+| `type`                  | string    | Product type.                                                                                                                        |
+| `featured`              | boolean   | Identifies if the product is featured.                                                                                               |
+| `catalog_visibility`    | string    | Catalogue visibility.                                                                                                                |
+| `description`           | string    | Product description.                                                                                                                 |
+| `short_description`     | string    | Product short description.                                                                                                           |
+| `sku`                   | string    | Unique sku identifier for the product.                                                                                               |
+| `price`                 | string    | Current product price.                                                                                                               |
+| `regular_price`         | string    | Product regular price.                                                                                                               |
+| `sale_price`            | string    | Product sale price.                                                                                                                  |
+| `date_on_sale_from`     | date-time | Start date of sale price, in the site's time zone.                                                                                   |
+| `date_on_sale_from_gmt` | date-time | Start date of sale price, as GMT.                                                                                                    |
+| `date_on_sale_to`       | date-time | End date of sale price, in the site's time zone.                                                                                     |
+| `date_on_sale_to_gmt`   | date-time | End date of sale price, as GMT.                                                                                                      |
+| `on_sale`               | boolean   | Identifies if the product is on sale.                                                                                                |
+| `purchasable`           | boolean   | Identifies if the product can be bought.                                                                                             |
+| `total_sales`           | integer   | Amount of sales.                                                                                                                     |
+| `virtual`               | boolean   | Identifies if the product is virtual.                                                                                                |
+| `downloadable`          | boolean   | Identifies if the product is downloadable.                                                                                           |
+| `external_url`          | string    | Product external URL.                                                                                                                |
+| `button_text`           | string    | Product external button text. Only used for external products.                                                                       |
+| `manage_stock`          | boolean   | Identifies the stock management at product level.                                                                                    |
+| `stock_quantity`        | integer   | Stock quantity.                                                                                                                      |
+| `stock_status`          | string    | Stock status of the product.                                                                                                         |
+| `backorders`            | string    | Returns the backorder status.                                                                                                        |
+| `backorders_allowed`    | boolean   | Identifies if backorders are allowed.                                                                                                |
+| `backordered`           | boolean   | Identifies if the product is on backordered.                                                                                         |
+| `sold_individually`     | boolean   | Identifies if only one of the item can be bought in a single order.                                                                  |
+| `weight`                | string    | Product weight.                                                                                                                      |
+| `dimensions`            | object    | Product dimensions. See [Product - Dimensions properties](#product-dimensions-properties)                                            |
+| `shipping_required`     | boolean   | Identifies if the product needs to be shipped.                                                                                       |
+| `reviews_allowed`       | boolean   | Identifies if the product allows reviews.                                                                                            |
+| `average_rating`        | string    | Reviews average rating.                                                                                                              |
+| `rating_count`          | integer   | Amount of reviews that the product have.                                                                                             |
+| `reviews`               | array     | Returns product reviews if queried.                                                                                                  |
+| `review_count`          | integer   | Amount of reviews that the product have.                                                                                             |
+| `related_ids`           | array     | List of related products IDs.                                                                                                        |
+| `upsell_ids`            | array     | List of up-sell products IDs.                                                                                                        |
+| `cross_sell_ids`        | array     | List of cross-sell products IDs.                                                                                                     |
+| `parent_id`             | integer   | Product parent ID.                                                                                                                   |
+| `categories`            | array     | List of categories. See [Product - Categories properties](#product-categories-properties)                                            |
+| `tags`                  | array     | List of tags. See [Product - Tags properties](#product-tags-properties)                                                              |
+| `images`                | array     | List of images. See [Product - Images properties](#product-images-properties)                                                        |
+| `attributes`            | array     | List of attributes. See [Product - Attributes properties](#product-attributes-properties)                                            |
+| `default_attributes`    | array     | Defaults variation attributes. See [Product - Default attributes properties](#product-default-attributes-properties)                 |
+| `variations`            | array     | List of variations IDs or details of each variation.                                                                                 |
+| `grouped_products`      | array     | List of grouped products ID.                                                                                                         |
+| `menu_order`            | integer   | Menu order, used to custom sort products.                                                                                            |
+| `meta_data`             | array     | Meta data. See [Product - Meta data properties](#product-meta-data-properties)                                                       |
 
 ### Product - Dimensions properties ###
 
