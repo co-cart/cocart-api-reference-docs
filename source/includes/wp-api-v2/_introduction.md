@@ -6,7 +6,7 @@ So I built it. Tada!
 
 It allows you to use WooCommerce’s REST API to its full potential providing the option to create a full web or mobile app 📱 for your store powered by WooCommerce.
 
-The current WooCommerce REST API is version `v2`. The same for CoCart. The namespace matches with the current version to keep all endpoints together when [viewing the index](http://woocommerce.github.io/woocommerce-rest-api-docs/#index).
+The current WooCommerce REST API is version `v2`. The same for CoCart. The namespace matches with the current version to keep all endpoints together when [viewing the index](https://woocommerce.github.io/woocommerce-rest-api-docs/#index).
 
 The cart endpoint also registers before WooCommerce endpoints in order for the index of WC REST API to be in alphabetical order.
 
@@ -103,7 +103,7 @@ Some useful tools you can use to access the API include:
 
 * [Postman](https://www.getpostman.com/) - A multi platform REST API GUI client (using Google Chrome or installing the app on Mac OS X or Windows).
 * [Insomnia](https://insomnia.rest/) - Similar to Postman using an app on Mac OS X, Windows or Ubuntu.
-* [CocoaRestClient](http://mmattozzi.github.io/cocoa-rest-client/) - A Mac OS X GUI client for interacting with the API.
+* [CocoaRestClient](https://mmattozzi.github.io/cocoa-rest-client/) - A Mac OS X GUI client for interacting with the API.
 * [Paw HTTP Client](https://itunes.apple.com/us/app/paw-http-client/id584653203?mt=12) - Another HTTP client for Mac OS X.
 * [RESTClient, a debugger for RESTful web services](https://addons.mozilla.org/en-US/firefox/addon/restclient/) - Free Firefox add-on.
 * [Advanced REST client](https://chrome.google.com/webstore/detail/advanced-rest-client/hgmloofddffdnphfgcellkdfbfbjeloo) - Free Google Chrome extension.
