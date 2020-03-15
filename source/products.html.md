@@ -15,6 +15,7 @@ includes:
   - cocart-v1/products/introduction
   - cocart-v1/products/errors
   - cocart-v1/products/products
+  - cocart-v1/products/product-variations
   - cocart-v1/products/product-attribute-terms
   - cocart-v1/products/product-attributes
   - cocart-v1/products/product-categories
