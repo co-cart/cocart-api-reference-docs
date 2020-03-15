@@ -103,14 +103,14 @@ The products API allows you to view individual or a batch of products. Below lis
 
 ### Product - Attributes properties ###
 
-| Attribute   | Type    | Description                                                                                                       |
-|-------------|---------|-------------------------------------------------------------------------------------------------------------------|
-| `id`        | integer | Attribute ID.                                                                                                     |
-| `name`      | string  | Attribute name.                                                                                                   |
-| `position`  | integer | Attribute position.                                                                                               |
-| `visible`   | boolean | Identifies if the attribute is visible on the "Additional information" tab in the product's page.                 |
-| `variation` | boolean | Identifies if the attribute can be used as a variation.                                                           |
-| `options`   | array   | List of available term names of the attribute.                                                                    |
+| Attribute   | Type    | Description                                                                                       |
+|-------------|---------|---------------------------------------------------------------------------------------------------|
+| `id`        | integer | Attribute ID.                                                                                     |
+| `name`      | string  | Attribute name.                                                                                   |
+| `position`  | integer | Attribute position.                                                                               |
+| `visible`   | boolean | Identifies if the attribute is visible on the "Additional information" tab in the product's page. |
+| `variation` | boolean | Identifies if the attribute can be used as a variation.                                           |
+| `options`   | array   | List of available term names of the attribute.                                                    |
 
 ### Product - Default attributes properties ###
 
@@ -122,28 +122,28 @@ The products API allows you to view individual or a batch of products. Below lis
 
 ### Product - Meta data properties ###
 
-| Attribute | Type    | Description  |
-|-----------|---------|--------------|
-| `id`      | integer | Meta ID.     |
-| `key`     | string  | Meta key.    |
-| `value`   | string  | Meta value.  |
+| Attribute | Type    | Description |
+|-----------|---------|-------------|
+| `id`      | integer | Meta ID.    |
+| `key`     | string  | Meta key.   |
+| `value`   | string  | Meta value. |
 
 ### Product - Subscription properties ###
 
 These attributes are only returned for a subscription product.
 
-| Attribute           | Type    | Description                                               |
-| --------------------|---------|-----------------------------------------------------------|
-| `price`             | string  | Subscription price.                                       |
-| `period`            | string  | Subscription period.                                      |
-| `period_interval`   | string  | Subscription period interval.                             |
-| `length`            | string  | Subscription length.                                      |
-| `trial_period`      | string  | Subscription trial period.                                |
-| `trial_length`      | string  | Subscription trial length.                                |
-| `sign_up_fee`       | string  | Subscription sign up fee.                                 |
-| `one_time_shipping` | string  | Subscription one time shipping.                           |
-| `limit`             | string  | Subscription limit.                                       |
-| `regular_price`     | string  | Subscription regular price. Returns for variations only.  |
+| Attribute           | Type    | Description                                              |
+|---------------------|---------|----------------------------------------------------------|
+| `price`             | string  | Subscription price.                                      |
+| `period`            | string  | Subscription period.                                     |
+| `period_interval`   | string  | Subscription period interval.                            |
+| `length`            | string  | Subscription length.                                     |
+| `trial_period`      | string  | Subscription trial period.                               |
+| `trial_length`      | string  | Subscription trial length.                               |
+| `sign_up_fee`       | string  | Subscription sign up fee.                                |
+| `one_time_shipping` | string  | Subscription one time shipping.                          |
+| `limit`             | string  | Subscription limit.                                      |
+| `regular_price`     | string  | Subscription regular price. Returns for variations only. |
 
 ## Retrieve a product ##
 
@@ -159,7 +159,7 @@ This API lets you retrieve and view a specific product by ID.
 </div>
 
 ```shell
-curl https://example.com/wp-json/cocart/v1/products/329 \
+curl -X GET https://example.com/wp-json/cocart/v1/products/329 \
   -H "Content-Type: application/json" \
 ```
 
@@ -170,7 +170,7 @@ curl https://example.com/wp-json/cocart/v1/products/329 \
   "id": 329,
   "name": "The Last of Us Part 2 - Ellie Edition",
   "slug": "the-last-of-us-part-2-ellie-edition",
-  "permalink": "https://wp-demo.cocart.xyz/product/the-last-of-us-part-2-ellie-edition/",
+  "permalink": "https://example.com/product/the-last-of-us-part-2-ellie-edition/",
   "date_created": "2020-02-12T17:01:46",
   "date_created_gmt": "2020-02-12T16:01:46",
   "date_modified": "2020-02-12T17:01:46",
@@ -236,20 +236,20 @@ curl https://example.com/wp-json/cocart/v1/products/329 \
       "date_modified": "2020-02-12T18:00:39",
       "date_modified_gmt": "2020-02-12T16:00:39",
       "src": {
-        "thumbnail": "https://wp-demo.cocart.xyz/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A-150x150.jpg",
-        "medium": "https://wp-demo.cocart.xyz/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A-169x300.jpg",
-        "medium_large": "https://wp-demo.cocart.xyz/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A-768x1365.jpg",
-        "large": "https://wp-demo.cocart.xyz/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A-576x1024.jpg",
-        "1536x1536": "https://wp-demo.cocart.xyz/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A-864x1536.jpg",
-        "2048x2048": "https://wp-demo.cocart.xyz/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A.jpg",
-        "woocommerce_thumbnail": "https://wp-demo.cocart.xyz/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A-324x324.jpg",
-        "woocommerce_single": "https://wp-demo.cocart.xyz/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A-416x740.jpg",
-        "woocommerce_gallery_thumbnail": "https://wp-demo.cocart.xyz/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A-100x100.jpg",
-        "shop_catalog": "https://wp-demo.cocart.xyz/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A-324x324.jpg",
-        "shop_single": "https://wp-demo.cocart.xyz/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A-416x740.jpg",
-        "shop_thumbnail": "https://wp-demo.cocart.xyz/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A-100x100.jpg",
-        "full": "https://wp-demo.cocart.xyz/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A.jpg",
-        "custom": "https://wp-demo.cocart.xyz/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A.jpg"
+        "thumbnail": "https://example.com/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A-150x150.jpg",
+        "medium": "https://example.com/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A-169x300.jpg",
+        "medium_large": "https://example.com/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A-768x1365.jpg",
+        "large": "https://example.com/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A-576x1024.jpg",
+        "1536x1536": "https://example.com/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A-864x1536.jpg",
+        "2048x2048": "https://example.com/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A.jpg",
+        "woocommerce_thumbnail": "https://example.com/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A-324x324.jpg",
+        "woocommerce_single": "https://example.com/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A-416x740.jpg",
+        "woocommerce_gallery_thumbnail": "https://example.com/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A-100x100.jpg",
+        "shop_catalog": "https://example.com/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A-324x324.jpg",
+        "shop_single": "https://example.com/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A-416x740.jpg",
+        "shop_thumbnail": "https://example.com/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A-100x100.jpg",
+        "full": "https://example.com/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A.jpg",
+        "custom": "https://example.com/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A.jpg"
       },
       "name": "TLOU2_WP_DUALITY_1080X1920_002A",
       "alt": "",
@@ -273,14 +273,14 @@ curl https://example.com/wp-json/cocart/v1/products/329 \
   "_links": {
     "self": [
       {
-        "permalink": "https://wp-demo.cocart.xyz/product/the-last-of-us-part-2-ellie-edition/",
-        "href": "https://wp-demo.cocart.xyz/wp-json/cocart/v1/products/329"
+        "permalink": "https://example.com/product/the-last-of-us-part-2-ellie-edition/",
+        "href": "https://example.com/wp-json/cocart/v1/products/329"
       }
     ],
     "collection": [
       {
-        "permalink": "https://wp-demo.cocart.xyz/",
-        "href": "https://wp-demo.cocart.xyz/wp-json/cocart/v1/products"
+        "permalink": "https://example.com/",
+        "href": "https://example.com/wp-json/cocart/v1/products"
       }
     ]
   }
@@ -301,7 +301,7 @@ This API helps you to view all the products.
 </div>
 
 ```shell
-curl https://example.com/wp-json/cocart/v1/products \
+curl -X GET https://example.com/wp-json/cocart/v1/products \
   -H "Content-Type: application/json" \
 ```
 
@@ -313,7 +313,7 @@ curl https://example.com/wp-json/cocart/v1/products \
     "id": 329,
     "name": "The Last of Us Part 2 - Ellie Edition",
     "slug": "the-last-of-us-part-2-ellie-edition",
-    "permalink": "https://wp-demo.cocart.xyz/product/the-last-of-us-part-2-ellie-edition/",
+    "permalink": "https://example.com/product/the-last-of-us-part-2-ellie-edition/",
     "date_created": "2020-02-12T17:01:46",
     "date_created_gmt": "2020-02-12T16:01:46",
     "date_modified": "2020-02-12T17:01:46",
@@ -379,20 +379,20 @@ curl https://example.com/wp-json/cocart/v1/products \
         "date_modified": "2020-02-12T18:00:39",
         "date_modified_gmt": "2020-02-12T16:00:39",
         "src": {
-          "thumbnail": "https://wp-demo.cocart.xyz/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A-150x150.jpg",
-          "medium": "https://wp-demo.cocart.xyz/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A-169x300.jpg",
-          "medium_large": "https://wp-demo.cocart.xyz/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A-768x1365.jpg",
-          "large": "https://wp-demo.cocart.xyz/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A-576x1024.jpg",
-          "1536x1536": "https://wp-demo.cocart.xyz/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A-864x1536.jpg",
-          "2048x2048": "https://wp-demo.cocart.xyz/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A.jpg",
-          "woocommerce_thumbnail": "https://wp-demo.cocart.xyz/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A-324x324.jpg",
-          "woocommerce_single": "https://wp-demo.cocart.xyz/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A-416x740.jpg",
-          "woocommerce_gallery_thumbnail": "https://wp-demo.cocart.xyz/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A-100x100.jpg",
-          "shop_catalog": "https://wp-demo.cocart.xyz/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A-324x324.jpg",
-          "shop_single": "https://wp-demo.cocart.xyz/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A-416x740.jpg",
-          "shop_thumbnail": "https://wp-demo.cocart.xyz/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A-100x100.jpg",
-          "full": "https://wp-demo.cocart.xyz/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A.jpg",
-          "custom": "https://wp-demo.cocart.xyz/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A.jpg"
+          "thumbnail": "https://example.com/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A-150x150.jpg",
+          "medium": "https://example.com/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A-169x300.jpg",
+          "medium_large": "https://example.com/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A-768x1365.jpg",
+          "large": "https://example.com/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A-576x1024.jpg",
+          "1536x1536": "https://example.com/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A-864x1536.jpg",
+          "2048x2048": "https://example.com/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A.jpg",
+          "woocommerce_thumbnail": "https://example.com/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A-324x324.jpg",
+          "woocommerce_single": "https://example.com/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A-416x740.jpg",
+          "woocommerce_gallery_thumbnail": "https://example.com/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A-100x100.jpg",
+          "shop_catalog": "https://example.com/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A-324x324.jpg",
+          "shop_single": "https://example.com/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A-416x740.jpg",
+          "shop_thumbnail": "https://example.com/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A-100x100.jpg",
+          "full": "https://example.com/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A.jpg",
+          "custom": "https://example.com/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A.jpg"
         },
         "name": "TLOU2_WP_DUALITY_1080X1920_002A",
         "alt": "",
@@ -416,14 +416,14 @@ curl https://example.com/wp-json/cocart/v1/products \
     "_links": {
       "self": [
         {
-          "permalink": "https://wp-demo.cocart.xyz/product/the-last-of-us-part-2-ellie-edition/",
-          "href": "https://wp-demo.cocart.xyz/wp-json/cocart/v1/products/329"
+          "permalink": "https://example.com/product/the-last-of-us-part-2-ellie-edition/",
+          "href": "https://example.com/wp-json/cocart/v1/products/329"
         }
       ],
       "collection": [
         {
-          "permalink": "https://wp-demo.cocart.xyz/",
-          "href": "https://wp-demo.cocart.xyz/wp-json/cocart/v1/products"
+          "permalink": "https://example.com/",
+          "href": "https://example.com/wp-json/cocart/v1/products"
         }
       ]
     }
@@ -432,7 +432,7 @@ curl https://example.com/wp-json/cocart/v1/products \
     "id": 185,
     "name": "WordPress Pennant",
     "slug": "wordpress-pennant",
-    "permalink": "https://wp-demo.cocart.xyz/product/wordpress-pennant/",
+    "permalink": "https://example.com/product/wordpress-pennant/",
     "date_created": "2020-01-24T14:55:56",
     "date_created_gmt": "2020-01-24T13:55:56",
     "date_modified": "2020-01-24T14:56:40",
@@ -498,20 +498,20 @@ curl https://example.com/wp-json/cocart/v1/products \
         "date_modified": "2020-01-24T15:56:39",
         "date_modified_gmt": "2020-01-24T13:56:39",
         "src": {
-          "thumbnail": "https://wp-demo.cocart.xyz/wp-content/uploads/2020/01/pennant-1-150x150.jpg",
-          "medium": "https://wp-demo.cocart.xyz/wp-content/uploads/2020/01/pennant-1-300x300.jpg",
-          "medium_large": "https://wp-demo.cocart.xyz/wp-content/uploads/2020/01/pennant-1-768x768.jpg",
-          "large": "https://wp-demo.cocart.xyz/wp-content/uploads/2020/01/pennant-1.jpg",
-          "1536x1536": "https://wp-demo.cocart.xyz/wp-content/uploads/2020/01/pennant-1.jpg",
-          "2048x2048": "https://wp-demo.cocart.xyz/wp-content/uploads/2020/01/pennant-1.jpg",
-          "woocommerce_thumbnail": "https://wp-demo.cocart.xyz/wp-content/uploads/2020/01/pennant-1-324x324.jpg",
-          "woocommerce_single": "https://wp-demo.cocart.xyz/wp-content/uploads/2020/01/pennant-1-416x416.jpg",
-          "woocommerce_gallery_thumbnail": "https://wp-demo.cocart.xyz/wp-content/uploads/2020/01/pennant-1-100x100.jpg",
-          "shop_catalog": "https://wp-demo.cocart.xyz/wp-content/uploads/2020/01/pennant-1-324x324.jpg",
-          "shop_single": "https://wp-demo.cocart.xyz/wp-content/uploads/2020/01/pennant-1-416x416.jpg",
-          "shop_thumbnail": "https://wp-demo.cocart.xyz/wp-content/uploads/2020/01/pennant-1-100x100.jpg",
-          "full": "https://wp-demo.cocart.xyz/wp-content/uploads/2020/01/pennant-1.jpg",
-          "custom": "https://wp-demo.cocart.xyz/wp-content/uploads/2020/01/pennant-1.jpg"
+          "thumbnail": "https://example.com/wp-content/uploads/2020/01/pennant-1-150x150.jpg",
+          "medium": "https://example.com/wp-content/uploads/2020/01/pennant-1-300x300.jpg",
+          "medium_large": "https://example.com/wp-content/uploads/2020/01/pennant-1-768x768.jpg",
+          "large": "https://example.com/wp-content/uploads/2020/01/pennant-1.jpg",
+          "1536x1536": "https://example.com/wp-content/uploads/2020/01/pennant-1.jpg",
+          "2048x2048": "https://example.com/wp-content/uploads/2020/01/pennant-1.jpg",
+          "woocommerce_thumbnail": "https://example.com/wp-content/uploads/2020/01/pennant-1-324x324.jpg",
+          "woocommerce_single": "https://example.com/wp-content/uploads/2020/01/pennant-1-416x416.jpg",
+          "woocommerce_gallery_thumbnail": "https://example.com/wp-content/uploads/2020/01/pennant-1-100x100.jpg",
+          "shop_catalog": "https://example.com/wp-content/uploads/2020/01/pennant-1-324x324.jpg",
+          "shop_single": "https://example.com/wp-content/uploads/2020/01/pennant-1-416x416.jpg",
+          "shop_thumbnail": "https://example.com/wp-content/uploads/2020/01/pennant-1-100x100.jpg",
+          "full": "https://example.com/wp-content/uploads/2020/01/pennant-1.jpg",
+          "custom": "https://example.com/wp-content/uploads/2020/01/pennant-1.jpg"
         },
         "name": "pennant-1.jpg",
         "alt": "",
@@ -535,14 +535,14 @@ curl https://example.com/wp-json/cocart/v1/products \
     "_links": {
       "self": [
         {
-          "permalink": "https://wp-demo.cocart.xyz/product/wordpress-pennant/",
-          "href": "https://wp-demo.cocart.xyz/wp-json/cocart/v1/products/185"
+          "permalink": "https://example.com/product/wordpress-pennant/",
+          "href": "https://example.com/wp-json/cocart/v1/products/185"
         }
       ],
       "collection": [
         {
-          "permalink": "https://wp-demo.cocart.xyz/",
-          "href": "https://wp-demo.cocart.xyz/wp-json/cocart/v1/products"
+          "permalink": "https://example.com/",
+          "href": "https://example.com/wp-json/cocart/v1/products"
         }
       ]
     }
