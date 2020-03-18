@@ -266,6 +266,20 @@
               </ul>
           </li>
           <li>
+            <a href="#product-variations" class="toc-h1 toc-link" data-title="Product variations">Product variations</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#product-variation-attributes" class="toc-h2 toc-link" data-title="Product variation attributes">Product variation attributes</a>
+                  </li>
+                  <li>
+                    <a href="#retrieve-a-product-variation" class="toc-h2 toc-link" data-title="Retrieve a product variation">Retrieve a product variation</a>
+                  </li>
+                  <li>
+                    <a href="#list-all-product-variations" class="toc-h2 toc-link" data-title="List all product variations">List all product variations</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#product-attribute-terms" class="toc-h1 toc-link" data-title="Product attribute terms">Product attribute terms</a>
               <ul class="toc-list-h2">
                   <li>
@@ -350,7 +364,7 @@
         <ul class="toc-footer">
             <li><a href="https://cocart.xyz">CoCart</a></li>
             <li><a href="https://github.com/co-cart/co-cart-docs/blob/master/CONTRIBUTING.md">Contribute to Documentation</a></li>
-            <li><a href="http://woocommerce.github.io/woocommerce-rest-api-docs/">WooCommerce REST API Docs</a></li>
+            <li><a href="https://woocommerce.github.io/woocommerce-rest-api-docs/">WooCommerce REST API Docs</a></li>
             <li><a href="https://sebastiendumont.com">Developed by Sébastien Dumont</a></li>
             <li><a href="https://github.com/lord/slate">Documentation Powered by Slate</a></li>
         </ul>
@@ -446,7 +460,7 @@
 </tr>
 </tbody></table>
 <h1 id='products'>Products</h1>
-<p>The products API allows you to view individual or a batch of products.</p>
+<p>The products API allows you to view individual or a batch of products. Below lists the global product attributes each product returns. Certain product types will provide additional attributes so it&#39;s important that when developing, you check that those product attributes exist before using them.</p>
 <h2 id='product-attributes'>Product attributes</h2>
 <table><thead>
 <tr>
@@ -498,17 +512,17 @@
 <tr>
 <td><code>type</code></td>
 <td>string</td>
-<td>Product type. Options: <code>simple</code>, <code>grouped</code>, <code>external</code> and <code>variable</code>. Default is <code>simple</code>.</td>
+<td>Product type.</td>
 </tr>
 <tr>
 <td><code>featured</code></td>
 <td>boolean</td>
-<td>Featured product. Default is <code>false</code>.</td>
+<td>Identifies if the product is featured.</td>
 </tr>
 <tr>
 <td><code>catalog_visibility</code></td>
 <td>string</td>
-<td>Catalog visibility. Options: <code>visible</code>, <code>catalog</code>, <code>search</code> and <code>hidden</code>. Default is <code>visible</code>.</td>
+<td>Catalogue visibility.</td>
 </tr>
 <tr>
 <td><code>description</code></td>
@@ -523,7 +537,7 @@
 <tr>
 <td><code>sku</code></td>
 <td>string</td>
-<td>Unique identifier.</td>
+<td>Unique sku identifier for the product.</td>
 </tr>
 <tr>
 <td><code>price</code></td>
@@ -543,7 +557,7 @@
 <tr>
 <td><code>date_on_sale_from</code></td>
 <td>date-time</td>
-<td>Start date of sale price, in the site&#39;s timezone.</td>
+<td>Start date of sale price, in the site&#39;s time zone.</td>
 </tr>
 <tr>
 <td><code>date_on_sale_from_gmt</code></td>
@@ -553,7 +567,7 @@
 <tr>
 <td><code>date_on_sale_to</code></td>
 <td>date-time</td>
-<td>End date of sale price, in the site&#39;s timezone.</td>
+<td>End date of sale price, in the site&#39;s time zone.</td>
 </tr>
 <tr>
 <td><code>date_on_sale_to_gmt</code></td>
@@ -563,12 +577,12 @@
 <tr>
 <td><code>on_sale</code></td>
 <td>boolean</td>
-<td>Shows if the product is on sale.</td>
+<td>Identifies if the product is on sale.</td>
 </tr>
 <tr>
 <td><code>purchasable</code></td>
 <td>boolean</td>
-<td>Shows if the product can be bought.</td>
+<td>Identifies if the product can be bought.</td>
 </tr>
 <tr>
 <td><code>total_sales</code></td>
@@ -578,27 +592,27 @@
 <tr>
 <td><code>virtual</code></td>
 <td>boolean</td>
-<td>If the product is virtual. Default is <code>false</code>.</td>
+<td>Identifies if the product is virtual.</td>
 </tr>
 <tr>
 <td><code>downloadable</code></td>
 <td>boolean</td>
-<td>If the product is downloadable. Default is <code>false</code>.</td>
+<td>Identifies if the product is downloadable.</td>
 </tr>
 <tr>
 <td><code>external_url</code></td>
 <td>string</td>
-<td>Product external URL. Only for external products.</td>
+<td>Product external URL.</td>
 </tr>
 <tr>
 <td><code>button_text</code></td>
 <td>string</td>
-<td>Product external button text. Only for external products.</td>
+<td>Product external button text. Only used for external products.</td>
 </tr>
 <tr>
 <td><code>manage_stock</code></td>
 <td>boolean</td>
-<td>Stock management at product level. Default is <code>false</code>.</td>
+<td>Identifies the stock management at product level.</td>
 </tr>
 <tr>
 <td><code>stock_quantity</code></td>
@@ -608,27 +622,27 @@
 <tr>
 <td><code>stock_status</code></td>
 <td>string</td>
-<td>Controls the stock status of the product. Options: <code>instock</code>, <code>outofstock</code>, <code>onbackorder</code>. Default is <code>instock</code>.</td>
+<td>Stock status of the product.</td>
 </tr>
 <tr>
 <td><code>backorders</code></td>
 <td>string</td>
-<td>If managing stock, this controls if backorders are allowed. Options: <code>no</code>, <code>notify</code> and <code>yes</code>. Default is <code>no</code>.</td>
+<td>Returns the backorder status.</td>
 </tr>
 <tr>
 <td><code>backorders_allowed</code></td>
 <td>boolean</td>
-<td>Shows if backorders are allowed.</td>
+<td>Identifies if backorders are allowed.</td>
 </tr>
 <tr>
 <td><code>backordered</code></td>
 <td>boolean</td>
-<td>Shows if the product is on backordered.</td>
+<td>Identifies if the product is on backordered.</td>
 </tr>
 <tr>
 <td><code>sold_individually</code></td>
 <td>boolean</td>
-<td>Allow one item to be bought in a single order. Default is <code>false</code>.</td>
+<td>Identifies if only one of the item can be bought in a single order.</td>
 </tr>
 <tr>
 <td><code>weight</code></td>
@@ -643,12 +657,12 @@
 <tr>
 <td><code>shipping_required</code></td>
 <td>boolean</td>
-<td>Shows if the product need to be shipped.</td>
+<td>Identifies if the product needs to be shipped.</td>
 </tr>
 <tr>
 <td><code>reviews_allowed</code></td>
 <td>boolean</td>
-<td>Allow reviews.</td>
+<td>Identifies if the product allows reviews.</td>
 </tr>
 <tr>
 <td><code>average_rating</code></td>
@@ -734,6 +748,11 @@
 <td><code>meta_data</code></td>
 <td>array</td>
 <td>Meta data. See <a href="#product-meta-data-properties">Product - Meta data properties</a></td>
+</tr>
+<tr>
+<td><code>subscription</code></td>
+<td>array</td>
+<td>Subscription data. See <a href="#product-subscription-properties">Product - Subscription properties</a> Only returns for subscription products.</td>
 </tr>
 </tbody></table>
 <h3 id='product-dimensions-properties'>Product - Dimensions properties</h3>
@@ -843,8 +862,8 @@
 </tr>
 <tr>
 <td><code>src</code></td>
-<td>string</td>
-<td>Image URL.</td>
+<td>array</td>
+<td>All registered image sizes for the image are returned.</td>
 </tr>
 <tr>
 <td><code>name</code></td>
@@ -883,12 +902,12 @@
 <tr>
 <td><code>visible</code></td>
 <td>boolean</td>
-<td>Define if the attribute is visible on the &quot;Additional information&quot; tab in the product&#39;s page. Default is <code>false</code>.</td>
+<td>Identifies if the attribute is visible on the &quot;Additional information&quot; tab in the product&#39;s page.</td>
 </tr>
 <tr>
 <td><code>variation</code></td>
 <td>boolean</td>
-<td>Define if the attribute can be used as variation. Default is <code>false</code>.</td>
+<td>Identifies if the attribute can be used as a variation.</td>
 </tr>
 <tr>
 <td><code>options</code></td>
@@ -944,6 +963,67 @@
 <td>Meta value.</td>
 </tr>
 </tbody></table>
+<h3 id='product-subscription-properties'>Product - Subscription properties</h3>
+<p>These attributes are only returned for a subscription product.</p>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>price</code></td>
+<td>string</td>
+<td>Subscription price.</td>
+</tr>
+<tr>
+<td><code>period</code></td>
+<td>string</td>
+<td>Subscription period.</td>
+</tr>
+<tr>
+<td><code>period_interval</code></td>
+<td>string</td>
+<td>Subscription period interval.</td>
+</tr>
+<tr>
+<td><code>length</code></td>
+<td>string</td>
+<td>Subscription length.</td>
+</tr>
+<tr>
+<td><code>trial_period</code></td>
+<td>string</td>
+<td>Subscription trial period.</td>
+</tr>
+<tr>
+<td><code>trial_length</code></td>
+<td>string</td>
+<td>Subscription trial length.</td>
+</tr>
+<tr>
+<td><code>sign_up_fee</code></td>
+<td>string</td>
+<td>Subscription sign up fee.</td>
+</tr>
+<tr>
+<td><code>one_time_shipping</code></td>
+<td>string</td>
+<td>Subscription one time shipping.</td>
+</tr>
+<tr>
+<td><code>limit</code></td>
+<td>string</td>
+<td>Subscription limit.</td>
+</tr>
+<tr>
+<td><code>regular_price</code></td>
+<td>string</td>
+<td>Subscription regular price. Returns for variations only.</td>
+</tr>
+</tbody></table>
 <h2 id='retrieve-a-product'>Retrieve a product</h2>
 <p>This API lets you retrieve and view a specific product by ID.</p>
 <h3 id='http-request'>HTTP request</h3>
@@ -953,7 +1033,7 @@
         <h6>/wp-json/cocart/v1/products/&lt;id&gt;</h6>
     </div>
 </div>
-<pre class="highlight shell tab-shell"><code>curl https://example.com/wp-json/cocart/v1/products/329 <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl -X GET https://example.com/wp-json/cocart/v1/products/329 <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
 </code></pre>
 <blockquote>
@@ -963,7 +1043,7 @@
   </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">329</span><span class="p">,</span><span class="w">
   </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The Last of Us Part 2 - Ellie Edition"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"the-last-of-us-part-2-ellie-edition"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"permalink"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://wp-demo.cocart.xyz/product/the-last-of-us-part-2-ellie-edition/"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"permalink"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/product/the-last-of-us-part-2-ellie-edition/"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"date_created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-02-12T17:01:46"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"date_created_gmt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-02-12T16:01:46"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"date_modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-02-12T17:01:46"</span><span class="p">,</span><span class="w">
@@ -1029,20 +1109,20 @@
       </span><span class="s2">"date_modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-02-12T18:00:39"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"date_modified_gmt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-02-12T16:00:39"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"src"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://wp-demo.cocart.xyz/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A-150x150.jpg"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"medium"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://wp-demo.cocart.xyz/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A-169x300.jpg"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"medium_large"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://wp-demo.cocart.xyz/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A-768x1365.jpg"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"large"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://wp-demo.cocart.xyz/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A-576x1024.jpg"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"1536x1536"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://wp-demo.cocart.xyz/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A-864x1536.jpg"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"2048x2048"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://wp-demo.cocart.xyz/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A.jpg"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"woocommerce_thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://wp-demo.cocart.xyz/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A-324x324.jpg"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"woocommerce_single"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://wp-demo.cocart.xyz/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A-416x740.jpg"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"woocommerce_gallery_thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://wp-demo.cocart.xyz/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A-100x100.jpg"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"shop_catalog"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://wp-demo.cocart.xyz/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A-324x324.jpg"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"shop_single"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://wp-demo.cocart.xyz/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A-416x740.jpg"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"shop_thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://wp-demo.cocart.xyz/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A-100x100.jpg"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"full"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://wp-demo.cocart.xyz/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A.jpg"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"custom"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://wp-demo.cocart.xyz/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A.jpg"</span><span class="w">
+        </span><span class="s2">"thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A-150x150.jpg"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"medium"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A-169x300.jpg"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"medium_large"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A-768x1365.jpg"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"large"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A-576x1024.jpg"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"1536x1536"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A-864x1536.jpg"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"2048x2048"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A.jpg"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"woocommerce_thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A-324x324.jpg"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"woocommerce_single"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A-416x740.jpg"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"woocommerce_gallery_thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A-100x100.jpg"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"shop_catalog"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A-324x324.jpg"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"shop_single"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A-416x740.jpg"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"shop_thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A-100x100.jpg"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"full"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A.jpg"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"custom"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A.jpg"</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TLOU2_WP_DUALITY_1080X1920_002A"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"alt"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
@@ -1066,14 +1146,14 @@
   </span><span class="s2">"_links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"self"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
       </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"permalink"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://wp-demo.cocart.xyz/product/the-last-of-us-part-2-ellie-edition/"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://wp-demo.cocart.xyz/wp-json/cocart/v1/products/329"</span><span class="w">
+        </span><span class="s2">"permalink"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/product/the-last-of-us-part-2-ellie-edition/"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-json/cocart/v1/products/329"</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">],</span><span class="w">
     </span><span class="s2">"collection"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
       </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"permalink"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://wp-demo.cocart.xyz/"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://wp-demo.cocart.xyz/wp-json/cocart/v1/products"</span><span class="w">
+        </span><span class="s2">"permalink"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-json/cocart/v1/products"</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
   </span><span class="p">}</span><span class="w">
@@ -1087,7 +1167,7 @@
         <h6>/wp-json/cocart/v1/products</h6>
     </div>
 </div>
-<pre class="highlight shell tab-shell"><code>curl https://example.com/wp-json/cocart/v1/products <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl -X GET https://example.com/wp-json/cocart/v1/products <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
 </code></pre>
 <blockquote>
@@ -1098,7 +1178,7 @@
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">329</span><span class="p">,</span><span class="w">
     </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The Last of Us Part 2 - Ellie Edition"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"the-last-of-us-part-2-ellie-edition"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"permalink"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://wp-demo.cocart.xyz/product/the-last-of-us-part-2-ellie-edition/"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"permalink"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/product/the-last-of-us-part-2-ellie-edition/"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"date_created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-02-12T17:01:46"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"date_created_gmt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-02-12T16:01:46"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"date_modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-02-12T17:01:46"</span><span class="p">,</span><span class="w">
@@ -1164,20 +1244,20 @@
         </span><span class="s2">"date_modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-02-12T18:00:39"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"date_modified_gmt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-02-12T16:00:39"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"src"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://wp-demo.cocart.xyz/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A-150x150.jpg"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"medium"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://wp-demo.cocart.xyz/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A-169x300.jpg"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"medium_large"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://wp-demo.cocart.xyz/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A-768x1365.jpg"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"large"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://wp-demo.cocart.xyz/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A-576x1024.jpg"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"1536x1536"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://wp-demo.cocart.xyz/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A-864x1536.jpg"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"2048x2048"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://wp-demo.cocart.xyz/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A.jpg"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"woocommerce_thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://wp-demo.cocart.xyz/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A-324x324.jpg"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"woocommerce_single"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://wp-demo.cocart.xyz/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A-416x740.jpg"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"woocommerce_gallery_thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://wp-demo.cocart.xyz/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A-100x100.jpg"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"shop_catalog"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://wp-demo.cocart.xyz/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A-324x324.jpg"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"shop_single"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://wp-demo.cocart.xyz/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A-416x740.jpg"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"shop_thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://wp-demo.cocart.xyz/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A-100x100.jpg"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"full"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://wp-demo.cocart.xyz/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A.jpg"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"custom"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://wp-demo.cocart.xyz/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A.jpg"</span><span class="w">
+          </span><span class="s2">"thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A-150x150.jpg"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"medium"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A-169x300.jpg"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"medium_large"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A-768x1365.jpg"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"large"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A-576x1024.jpg"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"1536x1536"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A-864x1536.jpg"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"2048x2048"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A.jpg"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"woocommerce_thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A-324x324.jpg"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"woocommerce_single"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A-416x740.jpg"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"woocommerce_gallery_thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A-100x100.jpg"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"shop_catalog"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A-324x324.jpg"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"shop_single"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A-416x740.jpg"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"shop_thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A-100x100.jpg"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"full"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A.jpg"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"custom"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-content/uploads/2020/02/TLOU2_WP_DUALITY_1080X1920_002A.jpg"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TLOU2_WP_DUALITY_1080X1920_002A"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"alt"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
@@ -1201,14 +1281,14 @@
     </span><span class="s2">"_links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="s2">"self"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"permalink"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://wp-demo.cocart.xyz/product/the-last-of-us-part-2-ellie-edition/"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://wp-demo.cocart.xyz/wp-json/cocart/v1/products/329"</span><span class="w">
+          </span><span class="s2">"permalink"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/product/the-last-of-us-part-2-ellie-edition/"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-json/cocart/v1/products/329"</span><span class="w">
         </span><span class="p">}</span><span class="w">
       </span><span class="p">],</span><span class="w">
       </span><span class="s2">"collection"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"permalink"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://wp-demo.cocart.xyz/"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://wp-demo.cocart.xyz/wp-json/cocart/v1/products"</span><span class="w">
+          </span><span class="s2">"permalink"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-json/cocart/v1/products"</span><span class="w">
         </span><span class="p">}</span><span class="w">
       </span><span class="p">]</span><span class="w">
     </span><span class="p">}</span><span class="w">
@@ -1217,7 +1297,7 @@
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">185</span><span class="p">,</span><span class="w">
     </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WordPress Pennant"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"wordpress-pennant"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"permalink"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://wp-demo.cocart.xyz/product/wordpress-pennant/"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"permalink"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/product/wordpress-pennant/"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"date_created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-24T14:55:56"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"date_created_gmt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-24T13:55:56"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"date_modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-24T14:56:40"</span><span class="p">,</span><span class="w">
@@ -1283,20 +1363,20 @@
         </span><span class="s2">"date_modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-24T15:56:39"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"date_modified_gmt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-24T13:56:39"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"src"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://wp-demo.cocart.xyz/wp-content/uploads/2020/01/pennant-1-150x150.jpg"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"medium"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://wp-demo.cocart.xyz/wp-content/uploads/2020/01/pennant-1-300x300.jpg"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"medium_large"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://wp-demo.cocart.xyz/wp-content/uploads/2020/01/pennant-1-768x768.jpg"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"large"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://wp-demo.cocart.xyz/wp-content/uploads/2020/01/pennant-1.jpg"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"1536x1536"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://wp-demo.cocart.xyz/wp-content/uploads/2020/01/pennant-1.jpg"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"2048x2048"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://wp-demo.cocart.xyz/wp-content/uploads/2020/01/pennant-1.jpg"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"woocommerce_thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://wp-demo.cocart.xyz/wp-content/uploads/2020/01/pennant-1-324x324.jpg"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"woocommerce_single"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://wp-demo.cocart.xyz/wp-content/uploads/2020/01/pennant-1-416x416.jpg"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"woocommerce_gallery_thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://wp-demo.cocart.xyz/wp-content/uploads/2020/01/pennant-1-100x100.jpg"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"shop_catalog"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://wp-demo.cocart.xyz/wp-content/uploads/2020/01/pennant-1-324x324.jpg"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"shop_single"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://wp-demo.cocart.xyz/wp-content/uploads/2020/01/pennant-1-416x416.jpg"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"shop_thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://wp-demo.cocart.xyz/wp-content/uploads/2020/01/pennant-1-100x100.jpg"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"full"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://wp-demo.cocart.xyz/wp-content/uploads/2020/01/pennant-1.jpg"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"custom"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://wp-demo.cocart.xyz/wp-content/uploads/2020/01/pennant-1.jpg"</span><span class="w">
+          </span><span class="s2">"thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-content/uploads/2020/01/pennant-1-150x150.jpg"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"medium"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-content/uploads/2020/01/pennant-1-300x300.jpg"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"medium_large"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-content/uploads/2020/01/pennant-1-768x768.jpg"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"large"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-content/uploads/2020/01/pennant-1.jpg"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"1536x1536"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-content/uploads/2020/01/pennant-1.jpg"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"2048x2048"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-content/uploads/2020/01/pennant-1.jpg"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"woocommerce_thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-content/uploads/2020/01/pennant-1-324x324.jpg"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"woocommerce_single"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-content/uploads/2020/01/pennant-1-416x416.jpg"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"woocommerce_gallery_thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-content/uploads/2020/01/pennant-1-100x100.jpg"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"shop_catalog"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-content/uploads/2020/01/pennant-1-324x324.jpg"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"shop_single"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-content/uploads/2020/01/pennant-1-416x416.jpg"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"shop_thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-content/uploads/2020/01/pennant-1-100x100.jpg"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"full"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-content/uploads/2020/01/pennant-1.jpg"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"custom"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-content/uploads/2020/01/pennant-1.jpg"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pennant-1.jpg"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"alt"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
@@ -1320,14 +1400,14 @@
     </span><span class="s2">"_links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="s2">"self"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"permalink"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://wp-demo.cocart.xyz/product/wordpress-pennant/"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://wp-demo.cocart.xyz/wp-json/cocart/v1/products/185"</span><span class="w">
+          </span><span class="s2">"permalink"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/product/wordpress-pennant/"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-json/cocart/v1/products/185"</span><span class="w">
         </span><span class="p">}</span><span class="w">
       </span><span class="p">],</span><span class="w">
       </span><span class="s2">"collection"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"permalink"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://wp-demo.cocart.xyz/"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://wp-demo.cocart.xyz/wp-json/cocart/v1/products"</span><span class="w">
+          </span><span class="s2">"permalink"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-json/cocart/v1/products"</span><span class="w">
         </span><span class="p">}</span><span class="w">
       </span><span class="p">]</span><span class="w">
     </span><span class="p">}</span><span class="w">
@@ -1389,7 +1469,7 @@
 <tr>
 <td><code>orderby</code></td>
 <td>string</td>
-<td>Sort collection by object attribute. Options: <code>date</code>, <code>id</code>, <code>include</code>, <code>title</code> and <code>slug</code>. Default is <code>date</code>.</td>
+<td>Sort collection by object attribute. Options: <code>date</code>, <code>id</code>, <code>include</code>, <code>title</code> and <code>slug</code>. Default is your WooCommerce default catalogue setting.</td>
 </tr>
 <tr>
 <td><code>parent</code></td>
@@ -1409,7 +1489,7 @@
 <tr>
 <td><code>type</code></td>
 <td>string</td>
-<td>Limit result set to products assigned a specific type. Options: <code>simple</code>, <code>grouped</code>, <code>external</code>, <code>variable</code>, <code>simple-subsciption</code> and <code>variable-subscription</code>.</td>
+<td>Limit result set to products assigned a specific type. Options: <code>simple</code>, <code>grouped</code>, <code>external</code>, <code>variable</code>, <code>subscription</code> and <code>variable-subscription</code>.</td>
 </tr>
 <tr>
 <td><code>sku</code></td>
@@ -1470,6 +1550,769 @@
 <td><code>return_variations</code></td>
 <td>boolean</td>
 <td>Set to true to return the variations of variable products.</td>
+</tr>
+</tbody></table>
+<h1 id='product-variations'>Product variations</h1>
+<p>The product variations API allows you to view individual or a batch of product variations.</p>
+<h2 id='product-variation-attributes'>Product variation attributes</h2>
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>id</code></td>
+<td>integer</td>
+<td>Unique identifier for the variation.</td>
+</tr>
+<tr>
+<td><code>date_created</code></td>
+<td>date-time</td>
+<td>The date the variation was created, in the site&#39;s timezone.</td>
+</tr>
+<tr>
+<td><code>date_created_gmt</code></td>
+<td>date-time</td>
+<td>The date the variation was created, as GMT.</td>
+</tr>
+<tr>
+<td><code>date_modified</code></td>
+<td>date-time</td>
+<td>The date the variation was last modified, in the site&#39;s timezone.</td>
+</tr>
+<tr>
+<td><code>date_modified_gmt</code></td>
+<td>date-time</td>
+<td>The date the variation was last modified, as GMT.</td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td>string</td>
+<td>Variation description.</td>
+</tr>
+<tr>
+<td><code>permalink</code></td>
+<td>string</td>
+<td>Variation URL.</td>
+</tr>
+<tr>
+<td><code>sku</code></td>
+<td>string</td>
+<td>Unique identifier.</td>
+</tr>
+<tr>
+<td><code>price</code></td>
+<td>string</td>
+<td>Current variation price.</td>
+</tr>
+<tr>
+<td><code>regular_price</code></td>
+<td>string</td>
+<td>Variation regular price.</td>
+</tr>
+<tr>
+<td><code>sale_price</code></td>
+<td>string</td>
+<td>Variation sale price.</td>
+</tr>
+<tr>
+<td><code>date_on_sale_from</code></td>
+<td>date-time</td>
+<td>Start date of sale price, in the site&#39;s timezone.</td>
+</tr>
+<tr>
+<td><code>date_on_sale_from_gmt</code></td>
+<td>date-time</td>
+<td>Start date of sale price, as GMT.</td>
+</tr>
+<tr>
+<td><code>date_on_sale_to</code></td>
+<td>date-time</td>
+<td>End date of sale price, in the site&#39;s timezone.</td>
+</tr>
+<tr>
+<td><code>date_on_sale_to_gmt</code></td>
+<td>date-time</td>
+<td>End date of sale price, as GMT.</td>
+</tr>
+<tr>
+<td><code>on_sale</code></td>
+<td>boolean</td>
+<td>Identifies if the variation is on sale.</td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td>string</td>
+<td>Variation status.</td>
+</tr>
+<tr>
+<td><code>purchasable</code></td>
+<td>boolean</td>
+<td>Identifies if the product can be bought.</td>
+</tr>
+<tr>
+<td><code>virtual</code></td>
+<td>boolean</td>
+<td>Identifies if the variation is a virtual product.</td>
+</tr>
+<tr>
+<td><code>downloadable</code></td>
+<td>boolean</td>
+<td>Identifies if the variation is a downloadable product.</td>
+</tr>
+<tr>
+<td><code>manage_stock</code></td>
+<td>boolean</td>
+<td>Identifies the stock management at product level.</td>
+</tr>
+<tr>
+<td><code>stock_quantity</code></td>
+<td>integer</td>
+<td>Stock quantity.</td>
+</tr>
+<tr>
+<td><code>stock_status</code></td>
+<td>string</td>
+<td>Controls the stock status of the product.</td>
+</tr>
+<tr>
+<td><code>backorders</code></td>
+<td>string</td>
+<td>Returns the backorder status.</td>
+</tr>
+<tr>
+<td><code>backorders_allowed</code></td>
+<td>boolean</td>
+<td>Identifies if backorders are allowed.</td>
+</tr>
+<tr>
+<td><code>backordered</code></td>
+<td>boolean</td>
+<td>Identifies if the product is on backordered.</td>
+</tr>
+<tr>
+<td><code>weight</code></td>
+<td>string</td>
+<td>Variation weight.</td>
+</tr>
+<tr>
+<td><code>dimensions</code></td>
+<td>object</td>
+<td>Variation dimensions. See <a href="#product-variation-dimensions-properties">Product variation - Dimensions properties</a></td>
+</tr>
+<tr>
+<td><code>image</code></td>
+<td>object</td>
+<td>Variation image data. See <a href="#product-variation-image-properties">Product variation - Image properties</a></td>
+</tr>
+<tr>
+<td><code>attributes</code></td>
+<td>array</td>
+<td>List of attributes. See <a href="#product-variation-attributes-properties">Product variation - Attributes properties</a></td>
+</tr>
+<tr>
+<td><code>menu_order</code></td>
+<td>integer</td>
+<td>Menu order, used to custom sort products.</td>
+</tr>
+<tr>
+<td><code>meta_data</code></td>
+<td>array</td>
+<td>Meta data. See <a href="#product-variation-meta-data-properties">Product variation - Meta data properties</a></td>
+</tr>
+</tbody></table>
+<h3 id='product-variation-dimensions-properties'>Product variation - Dimensions properties</h3>
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>length</code></td>
+<td>string</td>
+<td>Variation length.</td>
+</tr>
+<tr>
+<td><code>width</code></td>
+<td>string</td>
+<td>Variation width.</td>
+</tr>
+<tr>
+<td><code>height</code></td>
+<td>string</td>
+<td>Variation height.</td>
+</tr>
+</tbody></table>
+<h3 id='product-variation-image-properties'>Product variation - Image properties</h3>
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>id</code></td>
+<td>integer</td>
+<td>Image ID.</td>
+</tr>
+<tr>
+<td><code>date_created</code></td>
+<td>date-time</td>
+<td>The date the image was created, in the site&#39;s timezone.</td>
+</tr>
+<tr>
+<td><code>date_created_gmt</code></td>
+<td>date-time</td>
+<td>The date the image was created, as GMT.</td>
+</tr>
+<tr>
+<td><code>date_modified</code></td>
+<td>date-time</td>
+<td>The date the image was last modified, in the site&#39;s timezone.</td>
+</tr>
+<tr>
+<td><code>date_modified_gmt</code></td>
+<td>date-time</td>
+<td>The date the image was last modified, as GMT.</td>
+</tr>
+<tr>
+<td><code>src</code></td>
+<td>array</td>
+<td>All registered image sizes for the image are returned.</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td>string</td>
+<td>Image name.</td>
+</tr>
+<tr>
+<td><code>alt</code></td>
+<td>string</td>
+<td>Image alternative text.</td>
+</tr>
+</tbody></table>
+<h3 id='product-variation-attributes-properties'>Product variation - Attributes properties</h3>
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>id</code></td>
+<td>integer</td>
+<td>Attribute ID.</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td>string</td>
+<td>Attribute name.</td>
+</tr>
+<tr>
+<td><code>option</code></td>
+<td>string</td>
+<td>Selected attribute term name.</td>
+</tr>
+</tbody></table>
+<h3 id='product-variation-meta-data-properties'>Product variation - Meta data properties</h3>
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>id</code></td>
+<td>integer</td>
+<td>Meta ID.</td>
+</tr>
+<tr>
+<td><code>key</code></td>
+<td>string</td>
+<td>Meta key.</td>
+</tr>
+<tr>
+<td><code>value</code></td>
+<td>string</td>
+<td>Meta value.</td>
+</tr>
+</tbody></table>
+<h2 id='retrieve-a-product-variation'>Retrieve a product variation</h2>
+<p>This API lets you retrieve and view a specific product variation by ID.</p>
+<h3 id='http-request'>HTTP request</h3>
+<div class="api-endpoint">
+    <div class="endpoint-data">
+        <i class="label label-get">GET</i>
+        <h6>/wp-json/cocart/v1/products/&lt;product_id&gt;/variations/&lt;id&gt;</h6>
+    </div>
+</div>
+<pre class="highlight shell tab-shell"><code>curl -X GET https://example.com/wp-json/cocart/v1/products/162/variations/176 <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+</code></pre>
+<blockquote>
+<p>JSON response example:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">176</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"date_created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-24T14:55:54"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"date_created_gmt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-24T13:55:54"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"date_modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-24T14:56:30"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"date_modified_gmt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-24T13:56:30"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sagittis orci ac odio dictum tincidunt. Donec ut metus leo. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed luctus, dui eu sagittis sodales, nulla nibh sagittis augue, vel porttitor diam enim non metus. Vestibulum aliquam augue neque. Phasellus tincidunt odio eget ullamcorper efficitur. Cras placerat ut turpis pellentesque vulputate. Nam sed consequat tortor. Curabitur finibus sapien dolor. Ut eleifend tellus nec erat pulvinar dignissim. Nam non arcu purus. Vivamus et massa massa.&lt;/p&gt;</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"permalink"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/product/v-neck-t-shirt/?attribute_pa_color=red"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"woo-vneck-tee-red"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"regular_price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"sale_price"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"date_on_sale_from"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"date_on_sale_from_gmt"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"date_on_sale_to"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"date_on_sale_to_gmt"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"on_sale"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"purchasable"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"virtual"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"downloadable"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"manage_stock"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"stock_quantity"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"stock_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"instock"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"backorders"</span><span class="p">:</span><span class="w"> </span><span class="s2">"no"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"backorders_allowed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"backordered"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"weight"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"dimensions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"length"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"width"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"height"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">187</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"date_created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-24T15:55:58"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"date_created_gmt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-24T13:55:58"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"date_modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-24T15:55:58"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"date_modified_gmt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-24T13:55:58"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"src"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-content/uploads/2020/01/vneck-tee-2-150x150.jpg"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"medium"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-content/uploads/2020/01/vneck-tee-2-300x300.jpg"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"medium_large"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-content/uploads/2020/01/vneck-tee-2-768x767.jpg"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"large"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-content/uploads/2020/01/vneck-tee-2.jpg"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"1536x1536"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-content/uploads/2020/01/vneck-tee-2.jpg"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"2048x2048"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-content/uploads/2020/01/vneck-tee-2.jpg"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"woocommerce_thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-content/uploads/2020/01/vneck-tee-2-324x324.jpg"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"woocommerce_single"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-content/uploads/2020/01/vneck-tee-2-416x415.jpg"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"woocommerce_gallery_thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-content/uploads/2020/01/vneck-tee-2-100x100.jpg"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"shop_catalog"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-content/uploads/2020/01/vneck-tee-2-324x324.jpg"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"shop_single"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-content/uploads/2020/01/vneck-tee-2-416x415.jpg"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"shop_thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-content/uploads/2020/01/vneck-tee-2-100x100.jpg"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"full"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-content/uploads/2020/01/vneck-tee-2.jpg"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"custom"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-content/uploads/2020/01/vneck-tee-2.jpg"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"vneck-tee-2.jpg"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"alt"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"attribute_pa_color"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Color"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"option"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Red"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"menu_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"meta_data"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+  </span><span class="s2">"_links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"self"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-json/cocart/v1/products/162/variations/176"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"collection"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-json/cocart/v1/products/162/variations"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"parent_product"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"permalink"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/product/v-neck-t-shirt/"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-json/cocart/v1/products/162"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h2 id='list-all-product-variations'>List all product variations</h2>
+<p>This API helps you to view all the product variations.</p>
+<h3 id='http-request-2'>HTTP request</h3>
+<div class="api-endpoint">
+    <div class="endpoint-data">
+        <i class="label label-get">GET</i>
+        <h6>/wp-json/cocart/v1/products/&lt;product_id&gt;/variations</h6>
+    </div>
+</div>
+<pre class="highlight shell tab-shell"><code>curl -X GET https://example.com/wp-json/cocart/v1/products/22/variations <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+</code></pre>
+<blockquote>
+<p>JSON response example:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">176</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"date_created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-24T14:55:54"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"date_created_gmt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-24T13:55:54"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"date_modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-24T14:56:30"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"date_modified_gmt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-24T13:56:30"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sagittis orci ac odio dictum tincidunt. Donec ut metus leo. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed luctus, dui eu sagittis sodales, nulla nibh sagittis augue, vel porttitor diam enim non metus. Vestibulum aliquam augue neque. Phasellus tincidunt odio eget ullamcorper efficitur. Cras placerat ut turpis pellentesque vulputate. Nam sed consequat tortor. Curabitur finibus sapien dolor. Ut eleifend tellus nec erat pulvinar dignissim. Nam non arcu purus. Vivamus et massa massa.&lt;/p&gt;</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"permalink"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/product/v-neck-t-shirt/?attribute_pa_color=red"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"woo-vneck-tee-red"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"regular_price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"sale_price"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"date_on_sale_from"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"date_on_sale_from_gmt"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"date_on_sale_to"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"date_on_sale_to_gmt"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"on_sale"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"purchasable"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"virtual"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"downloadable"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"manage_stock"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"stock_quantity"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"stock_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"instock"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"backorders"</span><span class="p">:</span><span class="w"> </span><span class="s2">"no"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"backorders_allowed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"backordered"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"weight"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"dimensions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"length"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"width"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"height"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">187</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"date_created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-24T15:55:58"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"date_created_gmt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-24T13:55:58"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"date_modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-24T15:55:58"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"date_modified_gmt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-24T13:55:58"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"src"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-content/uploads/2020/01/vneck-tee-2-150x150.jpg"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"medium"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-content/uploads/2020/01/vneck-tee-2-300x300.jpg"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"medium_large"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-content/uploads/2020/01/vneck-tee-2-768x767.jpg"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"large"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-content/uploads/2020/01/vneck-tee-2.jpg"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"1536x1536"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-content/uploads/2020/01/vneck-tee-2.jpg"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"2048x2048"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-content/uploads/2020/01/vneck-tee-2.jpg"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"woocommerce_thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-content/uploads/2020/01/vneck-tee-2-324x324.jpg"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"woocommerce_single"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-content/uploads/2020/01/vneck-tee-2-416x415.jpg"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"woocommerce_gallery_thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-content/uploads/2020/01/vneck-tee-2-100x100.jpg"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"shop_catalog"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-content/uploads/2020/01/vneck-tee-2-324x324.jpg"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"shop_single"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-content/uploads/2020/01/vneck-tee-2-416x415.jpg"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"shop_thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-content/uploads/2020/01/vneck-tee-2-100x100.jpg"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"full"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-content/uploads/2020/01/vneck-tee-2.jpg"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"custom"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-content/uploads/2020/01/vneck-tee-2.jpg"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"vneck-tee-2.jpg"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"alt"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"attribute_pa_color"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Color"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"option"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Red"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"menu_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"meta_data"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="s2">"_links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"self"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-json/cocart/v1/products/162/variations/176"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="s2">"collection"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-json/cocart/v1/products/162/variations"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="s2">"parent_product"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"permalink"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/product/v-neck-t-shirt/"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-json/cocart/v1/products/162"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">177</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"date_created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-24T14:55:54"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"date_created_gmt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-24T13:55:54"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"date_modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-24T14:56:31"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"date_modified_gmt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-24T13:56:31"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sagittis orci ac odio dictum tincidunt. Donec ut metus leo. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed luctus, dui eu sagittis sodales, nulla nibh sagittis augue, vel porttitor diam enim non metus. Vestibulum aliquam augue neque. Phasellus tincidunt odio eget ullamcorper efficitur. Cras placerat ut turpis pellentesque vulputate. Nam sed consequat tortor. Curabitur finibus sapien dolor. Ut eleifend tellus nec erat pulvinar dignissim. Nam non arcu purus. Vivamus et massa massa.&lt;/p&gt;</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"permalink"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/product/v-neck-t-shirt/?attribute_pa_color=green"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"woo-vneck-tee-green"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"regular_price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"sale_price"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"date_on_sale_from"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"date_on_sale_from_gmt"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"date_on_sale_to"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"date_on_sale_to_gmt"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"on_sale"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"purchasable"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"virtual"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"downloadable"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"manage_stock"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"stock_quantity"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"stock_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"instock"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"backorders"</span><span class="p">:</span><span class="w"> </span><span class="s2">"no"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"backorders_allowed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"backordered"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"weight"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"dimensions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"length"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"width"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"height"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">188</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"date_created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-24T15:55:59"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"date_created_gmt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-24T13:55:59"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"date_modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-24T15:55:59"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"date_modified_gmt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-24T13:55:59"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"src"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-content/uploads/2020/01/vnech-tee-green-1-150x150.jpg"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"medium"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-content/uploads/2020/01/vnech-tee-green-1-300x300.jpg"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"medium_large"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-content/uploads/2020/01/vnech-tee-green-1-768x768.jpg"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"large"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-content/uploads/2020/01/vnech-tee-green-1.jpg"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"1536x1536"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-content/uploads/2020/01/vnech-tee-green-1.jpg"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"2048x2048"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-content/uploads/2020/01/vnech-tee-green-1.jpg"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"woocommerce_thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-content/uploads/2020/01/vnech-tee-green-1-324x324.jpg"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"woocommerce_single"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-content/uploads/2020/01/vnech-tee-green-1-416x416.jpg"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"woocommerce_gallery_thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-content/uploads/2020/01/vnech-tee-green-1-100x100.jpg"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"shop_catalog"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-content/uploads/2020/01/vnech-tee-green-1-324x324.jpg"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"shop_single"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-content/uploads/2020/01/vnech-tee-green-1-416x416.jpg"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"shop_thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-content/uploads/2020/01/vnech-tee-green-1-100x100.jpg"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"full"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-content/uploads/2020/01/vnech-tee-green-1.jpg"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"custom"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-content/uploads/2020/01/vnech-tee-green-1.jpg"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"vnech-tee-green-1.jpg"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"alt"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"attribute_pa_color"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Color"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"option"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Green"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"menu_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"meta_data"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="s2">"_links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"self"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-json/cocart/v1/products/162/variations/177"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="s2">"collection"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-json/cocart/v1/products/162/variations"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="s2">"parent_product"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"permalink"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/product/v-neck-t-shirt/"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-json/cocart/v1/products/162"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">178</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"date_created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-24T14:55:54"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"date_created_gmt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-24T13:55:54"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"date_modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-24T14:56:32"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"date_modified_gmt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-24T13:56:32"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sagittis orci ac odio dictum tincidunt. Donec ut metus leo. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed luctus, dui eu sagittis sodales, nulla nibh sagittis augue, vel porttitor diam enim non metus. Vestibulum aliquam augue neque. Phasellus tincidunt odio eget ullamcorper efficitur. Cras placerat ut turpis pellentesque vulputate. Nam sed consequat tortor. Curabitur finibus sapien dolor. Ut eleifend tellus nec erat pulvinar dignissim. Nam non arcu purus. Vivamus et massa massa.&lt;/p&gt;</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"permalink"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/product/v-neck-t-shirt/?attribute_pa_color=blue"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"woo-vneck-tee-blue"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"15"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"regular_price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"15"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"sale_price"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"date_on_sale_from"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"date_on_sale_from_gmt"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"date_on_sale_to"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"date_on_sale_to_gmt"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"on_sale"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"purchasable"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"virtual"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"downloadable"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"manage_stock"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"stock_quantity"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"stock_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"instock"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"backorders"</span><span class="p">:</span><span class="w"> </span><span class="s2">"no"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"backorders_allowed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"backordered"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"weight"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"dimensions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"length"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"width"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"height"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">189</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"date_created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-24T15:56:00"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"date_created_gmt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-24T13:56:00"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"date_modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-24T15:56:00"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"date_modified_gmt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-01-24T13:56:00"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"src"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-content/uploads/2020/01/vnech-tee-blue-1-150x150.jpg"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"medium"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-content/uploads/2020/01/vnech-tee-blue-1-300x300.jpg"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"medium_large"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-content/uploads/2020/01/vnech-tee-blue-1-768x768.jpg"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"large"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-content/uploads/2020/01/vnech-tee-blue-1.jpg"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"1536x1536"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-content/uploads/2020/01/vnech-tee-blue-1.jpg"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"2048x2048"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-content/uploads/2020/01/vnech-tee-blue-1.jpg"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"woocommerce_thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-content/uploads/2020/01/vnech-tee-blue-1-324x324.jpg"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"woocommerce_single"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-content/uploads/2020/01/vnech-tee-blue-1-416x416.jpg"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"woocommerce_gallery_thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-content/uploads/2020/01/vnech-tee-blue-1-100x100.jpg"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"shop_catalog"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-content/uploads/2020/01/vnech-tee-blue-1-324x324.jpg"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"shop_single"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-content/uploads/2020/01/vnech-tee-blue-1-416x416.jpg"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"shop_thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-content/uploads/2020/01/vnech-tee-blue-1-100x100.jpg"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"full"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-content/uploads/2020/01/vnech-tee-blue-1.jpg"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"custom"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-content/uploads/2020/01/vnech-tee-blue-1.jpg"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"vnech-tee-blue-1.jpg"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"alt"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"attribute_pa_color"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Color"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"option"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Blue"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"menu_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"meta_data"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="s2">"_links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"self"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-json/cocart/v1/products/162/variations/178"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="s2">"collection"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-json/cocart/v1/products/162/variations"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="s2">"parent_product"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"permalink"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/product/v-neck-t-shirt/"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-json/cocart/v1/products/162"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre><h4 id='available-parameters'>Available parameters</h4>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>page</code></td>
+<td>integer</td>
+<td>Current page of the collection. Default is <code>1</code>.</td>
+</tr>
+<tr>
+<td><code>per_page</code></td>
+<td>integer</td>
+<td>Maximum number of items to be returned in result set. Default is <code>10</code>.</td>
+</tr>
+<tr>
+<td><code>search</code></td>
+<td>string</td>
+<td>Limit results to those matching a string.</td>
+</tr>
+<tr>
+<td><code>after</code></td>
+<td>string</td>
+<td>Limit response to resources published after a given ISO8601 compliant date.</td>
+</tr>
+<tr>
+<td><code>before</code></td>
+<td>string</td>
+<td>Limit response to resources published before a given ISO8601 compliant date.</td>
+</tr>
+<tr>
+<td><code>exclude</code></td>
+<td>array</td>
+<td>Ensure result set excludes specific IDs.</td>
+</tr>
+<tr>
+<td><code>include</code></td>
+<td>array</td>
+<td>Limit result set to specific ids.</td>
+</tr>
+<tr>
+<td><code>offset</code></td>
+<td>integer</td>
+<td>Offset the result set by a specific number of items.</td>
+</tr>
+<tr>
+<td><code>order</code></td>
+<td>string</td>
+<td>Order sort attribute ascending or descending. Options: <code>asc</code> and <code>desc</code>. Default is <code>desc</code>.</td>
+</tr>
+<tr>
+<td><code>orderby</code></td>
+<td>string</td>
+<td>Sort collection by object attribute. Options: <code>date</code>, <code>id</code>, <code>include</code>, <code>title</code> and <code>slug</code>. Default is your WooCommerce default catalogue setting.</td>
+</tr>
+<tr>
+<td><code>parent</code></td>
+<td>array</td>
+<td>Limit result set to those of particular parent IDs.</td>
+</tr>
+<tr>
+<td><code>parent_exclude</code></td>
+<td>array</td>
+<td>Limit result set to all items except those of a particular parent ID.</td>
+</tr>
+<tr>
+<td><code>slug</code></td>
+<td>string</td>
+<td>Limit result set to products with a specific slug.</td>
+</tr>
+<tr>
+<td><code>sku</code></td>
+<td>string</td>
+<td>Limit result set to products with a specific SKU.</td>
+</tr>
+<tr>
+<td><code>on_sale</code></td>
+<td>boolean</td>
+<td>Limit result set to products on sale.</td>
+</tr>
+<tr>
+<td><code>min_price</code></td>
+<td>string</td>
+<td>Limit result set to products based on a minimum price.</td>
+</tr>
+<tr>
+<td><code>max_price</code></td>
+<td>string</td>
+<td>Limit result set to products based on a maximum price.</td>
+</tr>
+<tr>
+<td><code>stock_status</code></td>
+<td>string</td>
+<td>Limit result set to products with specified stock status. Options: <code>instock</code>, <code>outofstock</code> and <code>onbackorder</code>.</td>
 </tr>
 </tbody></table>
 <h1 id='product-attribute-terms'>Product attribute terms</h1>
