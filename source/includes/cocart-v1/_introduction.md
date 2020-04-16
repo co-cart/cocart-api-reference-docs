@@ -18,31 +18,11 @@ Prior to WooCommerce v3.6, CoCart shared WooCommerce's REST API. You can find th
 | ------------ | -------------- | ------------ | -------------------------------- |
 | `wc-api-v2`  | 3.0.x or later | 4.4 or later | [wc-api-v2 docs](wc-api-v2.html) |
 
-## CoCart Pro ##
-
-If you have purchased CoCart Pro then documentation for it is found here.
-
-| API Version | CoCart Pro Version | WC Version      | WP Version   | Documentation        |
-| ----------- | ------------------ | --------------- | ------------ | -------------------- |
-| `v1`        | 1.0.x or later     | 3.6.x or later  | 4.4 or later | [cocart pro docs](pro.html) |
-
-### CoCart Pro Add-ons ###
-
-Documentation for CoCart Pro add-ons are found here.
-
-| API Version | CoCart Pro Version | WC Version      | WP Version   | Documentation         |
-| ----------- | ------------------ | --------------- | ------------ | --------------------- |
-| `v1`        | 1.0.x or later     | 3.6.x or later  | 4.4 or later | [cocart products docs](products.html) |
-
-## CoCart - Work in Progress ##
-
-[This section provides documentation on future features](wip.html) that are in the works. Only view this section if you are testing the latest beta release and not using it on production sites.
-
 ## Requirements ##
 
 To use the latest version of the CoCart you must be using:
 
-* WordPress 4.4 or later.
+* WordPress 5.0 or later.
 * WooCommerce 3.6.x or later.
 * Pretty permalinks in `Settings > Permalinks` so that the custom endpoints are supported. **Default permalinks will not work.**
 * You may make requests over either HTTP or HTTPS, but HTTPS is recommended where possible.
@@ -53,7 +33,7 @@ To use the latest version of the CoCart you must be using:
 
 ## Request/Response Format ##
 
-The default response format is JSON. Requests with a message-body use plain JSON to set or update resource attributes. Successful requests will return a `200 OK` HTTP status.
+The default response format is in JSON. Requests with a message-body use plain JSON to set or update resource attributes. Successful requests will return a `200 OK` HTTP status.
 
 Some general information about response:
 
@@ -117,19 +97,3 @@ Errors return both an appropriate HTTP status code and response object which con
 ## Parameters ##
 
 Almost all endpoints accept optional parameters which can be passed as a HTTP query string parameter, e.g. `POST /cocart/v1/item?cart_item_key=270edd69788dce200a3b395a6da6fdb7&quantity=2`. All parameters are documented along each endpoint.
-
-## Tools ##
-
-Some useful tools you can use to access the API include:
-
-* [Postman](https://www.getpostman.com/) - A multi platform REST API GUI client (using Google Chrome or installing the app on Mac OS X or Windows).
-* [Insomnia](https://insomnia.rest/) - Similar to Postman using an app on Mac OS X, Windows or Ubuntu.
-* [CocoaRestClient](https://mmattozzi.github.io/cocoa-rest-client/) - A Mac OS X GUI client for interacting with the API.
-* [Paw HTTP Client](https://itunes.apple.com/us/app/paw-http-client/id584653203?mt=12) - Another HTTP client for Mac OS X.
-* [RESTClient, a debugger for RESTful web services](https://addons.mozilla.org/en-US/firefox/addon/restclient/) - Free Firefox add-on.
-* [Advanced REST client](https://chrome.google.com/webstore/detail/advanced-rest-client/hgmloofddffdnphfgcellkdfbfbjeloo) - Free Google Chrome extension.
-* [Hookbin](https://hookbin.com/) - Another tool to test web hooks.
-
-## Learn more ##
-
-Learn more about the REST API checking the <a href="https://developer.wordpress.org/rest-api/" target="_blank">official WordPress REST API documentation</a>.

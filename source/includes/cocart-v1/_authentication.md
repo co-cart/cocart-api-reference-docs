@@ -1,5 +1,9 @@
 # Authentication #
 
+<aside class="warning">
+  Authentication is <strong>ONLY</strong> required for registered customers, <strong>NOT</strong> guest customers and that you will be passing the customers username and password or token depending on the authentication method you are using. If you are authenticating a registered customer, it's important that you keep doing so with <strong>all routes</strong> from the beginning so the cart in session remains the same. If you only authenticate one request and don't on another, you may find that you will be merging any previous items the customer added previously if they are still available for purchase.
+</aside>
+
 CoCart can be authenticated by various methods with the WP REST API. First being via the [REST API Keys](https://woocommerce.github.io/woocommerce-rest-api-docs/#rest-api-keys) in [WooCommerce](https://woocommerce.github.io/woocommerce-rest-api-docs/#authentication). Though this method is designed for the backend with their REST API, with some custom coding you can make it work for the frontend with CoCart.
 
 Checkout my guide on [how to authenticate with WooCommerce](https://cocart.xyz/authenticating-with-woocommerce-heres-how-you-can-do-it/).
@@ -12,10 +16,6 @@ It is also possible to authenticate using any of the following WP REST API authe
 The WordPress REST API incorporates a method called [nonces](https://codex.wordpress.org/WordPress_Nonces) to deal with [CSRF](https://en.wikipedia.org/wiki/Cross-site_request_forgery) issues. This ensures that all activities on the website remain segregated. This is because the WordPress REST API just like the WooCommerce REST API is designed for the bacl-end.
 
 CoCart however, is designed for the front-end so for any CoCart requests made, the [cookie authentication](https://developer.wordpress.org/rest-api/using-the-rest-api/authentication/) is disabled allowing the ability to authenticate in any code language without fault.
-
-<aside class="notice">
-  Authentication is <strong>only</strong> required for registered customers, <strong>not</strong> guest customers and that you will be passing the customers username and password or token depending on the authentication method you are using. If you are authenticating a registered customer, it's important that you keep doing so with all routes from the beginning so the cart in session remains the same. If you only authenticate one request and don't on another, you may find that you will be merging any previous items the customer added previously if they are still available for purchase.
-</aside>
 
 If you have tested other authentication plugins or methods, please let me know via the [feedback page](https://cocart.xyz/feedback/) so that I can add it to the list.
 

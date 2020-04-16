@@ -1,5 +1,5 @@
 ---
-title: CoCart Documentation v1.1
+title: CoCart Documentation v1.6
 
 language_tabs:
  - shell: cURL
@@ -33,7 +33,10 @@ includes:
   - cocart-v1/update-item-in-cart
   - cocart-v1/hooks
   - cocart-v1/filters
+  - cocart-products
+  - cocart-pro
   - demo
+  - tools
   - changelog
   - contribute
 

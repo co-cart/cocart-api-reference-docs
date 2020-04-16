@@ -766,3 +766,13 @@ body.has-warning {
 .highlight .w {
   background-color: $code-bg;
 }
+
+////////////////////////////////////////////////////////////////////////////////
+// CoCart Documentation Customizations
+////////////////////////////////////////////////////////////////////////////////
+
+a[data-title="CoCart Products"],
+a[data-title="CoCart Pro"],
+a[data-title="Demo CoCart"] {
+  margin-top: 10px;
+}

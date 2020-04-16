@@ -2,10 +2,19 @@
 
 The Documentation is updated only when needed. Below is the changelog for "CoCart" documentation that matches with the version of the plugin release.
 
+### Doc Version 1.6 - Plugin Release v2.0.13 ###
+
+* Added: `cocart_return_empty_cart` filter and example.
+* Added: `cocart_add_to_cart_sold_individually_quantity`and example.
+* Changed: Quantity parameter type to `float`.
+* Tweaked: Authentication notice moved to the top of it's sections content.
+* Tweaked: Menu, content and added helpful links.
+* Tweaked: Filter examples to be code highlighted correctly.
+
 ### Doc Version 1.5 - Plugin Release v2.0.7 ###
 
 * NEW: Added link to products add-on documentation under CoCart Pro.
-* NEW: Added a little section explainging the body types when making a request.
+* NEW: Added a little section explaining the body types when making a request.
 * NEW: Added example to add item with custom cart item data.
 * NEW: Added Demo section.
 * Improved: Authentication section.

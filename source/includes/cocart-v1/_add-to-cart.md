@@ -4,15 +4,14 @@ This API helps you to add an item to the cart. You can also request to return th
 
 ### Properties ###
 
-| Property         | Type      | Description                                                                                                 |
-| ---------------- | --------- | ----------------------------------------------------------------------------------------------------------- |
-| `product_id`     | integer   | The product ID is required in order to add a product to the cart. <i class="label label-info">mandatory</i> |
-| `quantity`       | integer   | Set the quantity of the product you want to add to the cart. <i class="label label-info">Default is 1</i>   |
-| `variation_id`   | integer   | Used to set the variation of the product being added to the cart. <i class="label label-info">optional</i>  |
-| `variation`      | array     | Attribute values.                                                                                           |
-| `cart_item_data` | array     | Used to apply extra cart item data we want to pass with the item. <i class="label label-info">optional</i>  |
-| `refresh_totals` | bool      | Set as true to refresh the cart totals once item is added. <i class="label label-info">optional</i>         |
-| `return_cart`    | bool      | Set as true to return the whole cart once item added. <i class="label label-info">optional</i>              |
+| Property         | Type    | Description                                                                                                 |
+| ---------------- | ------- | ----------------------------------------------------------------------------------------------------------- |
+| `product_id`     | integer | The product ID is required in order to add a product to the cart. <i class="label label-info">mandatory</i> |
+| `quantity`       | float   | Set the quantity of the product you want to add to the cart. <i class="label label-info">Default is 1</i>   |
+| `variation_id`   | integer | Used to set the variation of the product being added to the cart. <i class="label label-info">optional</i>  |
+| `variation`      | array   | Attribute values.                                                                                           |
+| `cart_item_data` | array   | Used to apply extra cart item data we want to pass with the item. <i class="label label-info">optional</i>  |
+| `return_cart`    | bool    | Set as true to return the whole cart once item added. <i class="label label-info">optional</i>              |
 
 <aside class="notice">
   If you wish to add the item for a specific registered customer then you must <strong>authenticate</strong> as that customer.
@@ -110,6 +109,16 @@ $body = wp_remote_retrieve_body( $response );
 ## Add Variation Item to Cart ##
 
 Variation products require two things in order to add to the cart correctly. First is the `variation_id`. The second is the attributes of that `variation`. You need to pass both parameters in order for a valid variable product to be added to the cart. Without the attributes of the variation, there is no way to identify the variation added.
+
+### What are attributes? ###
+
+Attributes are what identify a variation of a variable product from the colour of a t-shirt to the size.
+
+Attributes can be managed in two ways. Globally or via the product if they are custom. It's important to know what attributes are used for the variation of the product as a global attribute has this prefix `attribute_pa_` while a custom attribute is just  `attribute_`.
+
+<aside class="warning">
+  You can not add a simple product with attributes like a variation! If you wish to pass attribute date for a simple product, use the `cart_item_data` parameter instead.
+</aside>
 
 ```shell
 curl -X POST https://example.com/wp-json/cocart/v1/add-item \

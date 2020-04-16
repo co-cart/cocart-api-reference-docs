@@ -4,7 +4,7 @@ The cart API is powerful and allows you to view the cart in session, add new ite
 
 Using the individual endpoints and their properties, you can control what you need and what is returned when the request is finished.
 
-## Retrieve Cart Contents ##
+## Get Cart Contents ##
 
 This API returns the contents of the cart from a logged in customer or guest customer.
 
