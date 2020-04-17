@@ -246,6 +246,15 @@
                   <li>
                     <a href="#requirements" class="toc-h2 toc-link" data-title="Requirements">Requirements</a>
                   </li>
+                  <li>
+                    <a href="#request-response-format" class="toc-h2 toc-link" data-title="Request/Response Format">Request/Response Format</a>
+                  </li>
+                  <li>
+                    <a href="#body-types" class="toc-h2 toc-link" data-title="Body Types">Body Types</a>
+                  </li>
+                  <li>
+                    <a href="#errors" class="toc-h2 toc-link" data-title="Errors">Errors</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -364,7 +373,6 @@
         <ul class="toc-footer">
             <li><a href="https://cocart.xyz">CoCart</a></li>
             <li><a href="https://github.com/co-cart/co-cart-docs/blob/master/CONTRIBUTING.md">Contribute to Documentation</a></li>
-            <li><a href="https://woocommerce.github.io/woocommerce-rest-api-docs/">WooCommerce REST API Docs</a></li>
             <li><a href="https://sebastiendumont.com">Developed by Sébastien Dumont</a></li>
             <li><a href="https://github.com/lord/slate">Documentation Powered by Slate</a></li>
         </ul>
@@ -375,12 +383,107 @@
         <h1 id='introduction'>Introduction</h1>
 <p>CoCart Products allows you to view all and access specific products, attributes, categories, tags and product reviews without authentication required. Only details of the products that customers need to know are returned.</p>
 <h2 id='requirements'>Requirements</h2>
-<p>To use the latest version of the CoCart Products you must be using the following requirements:</p>
+<p>To use the latest version of the CoCart Pro you must be using:</p>
 
 <ul>
-<li>CoCart 2.x.x or later</li>
-<li>CoCart Pro v1.x.x or later</li>
+<li>WordPress <strong>5.0 or later</strong>.</li>
+<li>WooCommerce <strong>3.6.x or later</strong>.</li>
+<li>CoCart <strong>2.0.x or later</strong></li>
+<li>Pretty permalinks in <code>Settings &gt; Permalinks</code> so that the custom endpoints are supported. <strong>Default permalinks will not work.</strong></li>
+<li>You may make requests over either HTTP or HTTPS, but HTTPS is recommended where possible.</li>
 </ul>
+
+<aside class="notice">
+  Please note that you are <strong>not</strong> required to install the <a href="https://wordpress.org/plugins/rest-api/">WP REST API (WP API)</a> plugin.
+</aside>
+<h2 id='request-response-format'>Request/Response Format</h2>
+<p>The default response format is in JSON. Requests with a message-body use plain JSON to set or update resource attributes. Successful requests will return a <code>200 OK</code> HTTP status.</p>
+
+<p>Some general information about response:</p>
+
+<ul>
+<li>Resource IDs are returned as integers.</li>
+<li>Other amounts, such as item counts, are returned as integers.</li>
+<li>Blank fields are generally included as <code>null</code> instead of being returned as blank strings or omitted.</li>
+</ul>
+<h2 id='body-types'>Body Types</h2>
+<p>There are different types of body types when making a request. Make sure when using either of these body types that you have the correct <code>Content-Type</code> for the header.</p>
+
+<table><thead>
+<tr>
+<th>Body Type</th>
+<th>Content-Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>form-data </td>
+<td>application/json</td>
+</tr>
+<tr>
+<td>raw </td>
+<td>application/json</td>
+</tr>
+<tr>
+<td>x-www-form-urlencoded</td>
+<td>application/x-www-form-urlencoded</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+  Body data must be passed correctly for the CoCart REST API to succeed.
+</aside>
+
+<p>I personally find using <strong>raw</strong> works best if you are passing an array of data for a <code>variation</code> or <code>cart_item_data</code>.</p>
+<h2 id='errors'>Errors</h2>
+<p>Occasionally you might encounter errors when accessing the REST API. There are four possible types:</p>
+
+<table><thead>
+<tr>
+<th>Error Code</th>
+<th>Error Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>400 Bad Request</code></td>
+<td>Invalid request, e.g. using an unsupported HTTP method</td>
+</tr>
+<tr>
+<td><code>401 Unauthorized</code></td>
+<td>Authentication or permission error, e.g. incorrect API keys</td>
+</tr>
+<tr>
+<td><code>404 Not Found</code></td>
+<td>Requests to resources that don&#39;t exist or are missing</td>
+</tr>
+<tr>
+<td><code>500 Internal Server Error</code></td>
+<td>Server error</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>WP REST API error example</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rest_no_route"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"No route was found matching the URL and request method"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">404</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>CoCart error example</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cocart_clear_cart_failed"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Clearing the cart failed!"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">500</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Errors return both an appropriate HTTP status code and response object which contains a <code>code</code>, <code>message</code> and <code>data</code> attribute.</p>
 <h1 id='error-responses'>Error Responses</h1>
 <p>You might encounter an error when using CoCart Products. These error responses explain what might have happened.</p>
 
@@ -1469,7 +1572,7 @@
 <tr>
 <td><code>orderby</code></td>
 <td>string</td>
-<td>Sort collection by object attribute. Options: <code>date</code>, <code>id</code>, <code>include</code>, <code>title</code> and <code>slug</code>. Default is your WooCommerce default catalogue setting.</td>
+<td>Sort collection by object attribute. Options: <code>date</code>, <code>id</code>, <code>include</code>, <code>title</code>, <code>slug</code> <code>alphabetical</code>, <code>reverse_alpha</code>, <code>by_stock</code>, <code>review_count</code>, <code>on_sale_first</code>, <code>featured_first</code>, <code>price_asc</code>, <code>price_desc</code>, <code>sales</code> and <code>rating</code>. Default is your WooCommerce default catalogue setting.</td>
 </tr>
 <tr>
 <td><code>parent</code></td>
