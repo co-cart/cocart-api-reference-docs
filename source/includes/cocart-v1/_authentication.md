@@ -13,7 +13,7 @@ It is also possible to authenticate using any of the following WP REST API authe
 * [Basic Authentication](#basic-authentication)
 * [JWT Authentication for WP REST API](#jwt-authentication)
 
-The WordPress REST API incorporates a method called [nonces](https://codex.wordpress.org/WordPress_Nonces) to deal with [CSRF](https://en.wikipedia.org/wiki/Cross-site_request_forgery) issues. This ensures that all activities on the website remain segregated. This is because the WordPress REST API just like the WooCommerce REST API is designed for the bacl-end.
+The WordPress REST API incorporates a method called [nonces](https://codex.wordpress.org/WordPress_Nonces) to deal with [CSRF](https://en.wikipedia.org/wiki/Cross-site_request_forgery) issues. This ensures that all activities on the website remain segregated. This is because the WordPress REST API just like the WooCommerce REST API is designed for the back-end.
 
 CoCart however, is designed for the front-end so for any CoCart requests made, the [cookie authentication](https://developer.wordpress.org/rest-api/using-the-rest-api/authentication/) is disabled allowing the ability to authenticate in any code language without fault.
 
