@@ -1,6 +1,6 @@
 # Tools #
 
-<img src="images/github.svg" width="20" height="20" alt="GitHub Mark Logo"> [Edit on GitHub](https://github.com/co-cart/co-cart-docs/blob/master/source/_tools.md)
+<img src="images/github.svg" width="20" height="20" alt="GitHub Mark Logo"> [Edit on GitHub](https://github.com/co-cart/co-cart-docs/blob/master/source/includes/_tools.md)
 
 Some useful tools you can use to access the API include:
 

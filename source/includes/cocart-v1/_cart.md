@@ -1,5 +1,7 @@
 # Cart #
 
+<img src="images/github.svg" width="20" height="20" alt="GitHub Mark Logo"> [Edit on GitHub](https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v1/_cart.md)
+
 The cart API is powerful and allows you to view the cart in session, add new items, update the quantity of an item and delete individual items from the cart.
 
 Using the individual endpoints and their properties, you can control what you need and what is returned when the request is finished.
