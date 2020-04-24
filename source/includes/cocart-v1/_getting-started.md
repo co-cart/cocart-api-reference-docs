@@ -31,5 +31,5 @@ Add the downloaded/cloned plugin to your WordPress plugin directory. On a typica
 <aside class="notice">
     <strong>Install Directory</strong>
 
-    To minimize risk of unintended behaviour, it’s best for your plugin directory to be "cart-rest-api-for-woocommerce" and not something else, like "cart-rest-api-for-woocommerce-master" or "cart-rest-api-for-woocommerce-develop".
+    To minimize risk of unintended behavior, it’s best for your plugin directory to be "cart-rest-api-for-woocommerce" and not something else, like "cart-rest-api-for-woocommerce-master" or "cart-rest-api-for-woocommerce-develop".
 </aside>
