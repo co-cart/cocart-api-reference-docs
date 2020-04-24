@@ -1,5 +1,7 @@
 # Introduction #
 
+<img src="images/github.svg" width="20" height="20" alt="GitHub Mark Logo"> [Edit on GitHub](https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v1/pro/_introduction.md)
+
 Welcome to CoCart Pro. An extension that completes the CoCart API package with more control over the cart from coupons, shipping methods to additional fees and more.
 
 This section of the documentation is for **CoCart Pro** only so if you are looking for the core features in the CoCart API then you can access that part of the [CoCart documentation here](index.html).

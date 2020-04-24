@@ -1,5 +1,7 @@
 # Cart Owner #
 
+<img src="images/github.svg" width="20" height="20" alt="GitHub Mark Logo"> [Edit on GitHub](https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v1/pro/_customers.md)
+
 This API helps you get the cart owner's details of the customer.
 
 ### HTTP request ###

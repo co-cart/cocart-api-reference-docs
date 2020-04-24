@@ -1,10 +1,12 @@
 # Introduction #
 
+<img src="images/github.svg" width="20" height="20" alt="GitHub Mark Logo"> [Edit on GitHub](https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v1/_introduction.md)
+
 Welcome to the documentation site for CoCart, the free, open-source WordPress plugin that brings the power of WooCommerce's shopping cart via the REST API.
 
-CoCart allows the cart to be created, read, updated, and deleted using requests in JSON format and standard HTTP verbs which are understood by most HTTP clients.
-
 CoCart is designed in mind for those who want to create a headless WordPress site. Read [what does headless mean?](https://cocart.xyz/what-does-headless-mean/)
+
+CoCart allows the cart to be created, read, updated, and deleted using requests in JSON format and standard HTTP verbs which are understood by most HTTP clients.
 
 The current WordPress REST API integration for CoCart is version `v1` which takes a first-order position in endpoints.
 

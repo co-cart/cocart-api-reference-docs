@@ -1,5 +1,7 @@
 # Cross Sells #
 
+<img src="images/github.svg" width="20" height="20" alt="GitHub Mark Logo"> [Edit on GitHub](https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v1/pro/_cross-sells.md)
+
 This API helps you get the cross sells. It returns not just the product ID's but the product name, price, regular price and sale price.
 
 ## Cross Sell Properties ##

@@ -1,5 +1,7 @@
 # Fees #
 
+<img src="images/github.svg" width="20" height="20" alt="GitHub Mark Logo"> [Edit on GitHub](https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v1/pro/_fees.md)
+
 This API helps you add a fee to the cart, get all fees added, and remove all fees.
 
 ## Get Fees ##

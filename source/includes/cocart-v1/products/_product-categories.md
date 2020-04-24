@@ -1,5 +1,7 @@
 # Product categories #
 
+<img src="images/github.svg" width="20" height="20" alt="GitHub Mark Logo"> [Edit on GitHub](https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v1/products/_product-categories.md)
+
 The product categories API allows you to view all or individual product categories.
 
 ## Product category attributes ##

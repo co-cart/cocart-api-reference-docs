@@ -1,5 +1,7 @@
 ## Hooks ##
 
+<img src="images/github.svg" width="20" height="20" alt="GitHub Mark Logo"> [Edit on GitHub](https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v1/_hooks.md)
+
 The cart API has a number of action hooks that you can use to extend the API to your needs.
 
 See the [tweaks plugin for examples](https://github.com/co-cart/co-cart-tweaks).

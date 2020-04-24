@@ -1,5 +1,7 @@
 # Calculate #
 
+<img src="images/github.svg" width="20" height="20" alt="GitHub Mark Logo"> [Edit on GitHub](https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v1/pro/_calculate.md)
+
 The following allow you to calculate fees, shipping and the totals of the cart.
 
 ## Calculate Cart Totals ##
