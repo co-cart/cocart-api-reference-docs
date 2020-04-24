@@ -1,5 +1,5 @@
 ---
-title: CoCart Documentation v1.6
+title: CoCart Documentation v1.7
 
 language_tabs:
  - shell: cURL
@@ -18,6 +18,7 @@ toc_footers:
 
 includes:
   - cocart-v1/introduction
+  - cocart-v1/getting-started
   - cocart-v1/errors
   - cocart-v1/index
   - cocart-v1/authentication
@@ -31,8 +32,10 @@ includes:
   - cocart-v1/remove-item-from-cart
   - cocart-v1/restore-item-to-cart
   - cocart-v1/update-item-in-cart
-  - cocart-v1/hooks
+  - cocart-v1/extending
   - cocart-v1/filters
+  - cocart-v1/hooks
+  - extensions
   - cocart-products
   - cocart-pro
   - demo

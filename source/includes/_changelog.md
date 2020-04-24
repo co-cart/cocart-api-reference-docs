@@ -2,10 +2,18 @@
 
 The Documentation is updated only when needed. Below is the changelog for "CoCart" documentation that matches with the version of the plugin release.
 
+### Doc Version 1.7 ##
+
+* NEW: Added links to edit documentation at the top of each section.
+* NEW: Added Getting Started section for those new to WordPress.
+* Corrected: Typos.
+* Tweaked: Menu
+* Tweaked: Brand colours and updated favicons.
+
 ### Doc Version 1.6 - Plugin Release v2.0.13 ###
 
-* Added: `cocart_return_empty_cart` filter and example.
-* Added: `cocart_add_to_cart_sold_individually_quantity`and example.
+* NEW: Added `cocart_return_empty_cart` filter and example.
+* NEW: Added `cocart_add_to_cart_sold_individually_quantity`and example.
 * Changed: Quantity parameter type to `float`.
 * Tweaked: Authentication notice moved to the top of it's sections content.
 * Tweaked: Menu, content and added helpful links.

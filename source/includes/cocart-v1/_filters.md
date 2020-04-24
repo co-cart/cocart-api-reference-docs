@@ -119,7 +119,7 @@ function requires_specific_item_response( $response, $product_data ) {
 }
 ```
 
-## Return cart contents ##
+### Return cart contents ###
 
 If you are in need to change the formatting of the returned cart data, this filter is for you.
 
