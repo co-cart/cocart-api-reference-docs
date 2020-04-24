@@ -246,7 +246,44 @@
             <a href="#cart" class="toc-h1 toc-link" data-title="Cart">Cart</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#retrieve-cart-contents-saved" class="toc-h2 toc-link" data-title="Retrieve Cart Contents Saved">Retrieve Cart Contents Saved</a>
+                    <a href="#retrieve-a-cart" class="toc-h2 toc-link" data-title="Retrieve a Cart">Retrieve a Cart</a>
+                  </li>
+                  <li>
+                    <a href="#retrieve-a-customers-cart-saved-via-persistent-cart" class="toc-h2 toc-link" data-title="Retrieve a Customers Cart saved via Persistent Cart">Retrieve a Customers Cart saved via Persistent Cart</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#load-cart-to-web" class="toc-h1 toc-link" data-title="Load Cart to Web">Load Cart to Web</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#properties" class="toc-h2 toc-link" data-title="Properties">Properties</a>
+                  </li>
+                  <li>
+                    <a href="#usage" class="toc-h2 toc-link" data-title="Usage">Usage</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#filters" class="toc-h1 toc-link" data-title="Filters">Filters</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#add-to-cart-validation" class="toc-h2 toc-link" data-title="Add to cart validation">Add to cart validation</a>
+                  </li>
+                  <li>
+                    <a href="#override-product-name" class="toc-h2 toc-link" data-title="Override product name">Override product name</a>
+                  </li>
+                  <li>
+                    <a href="#override-product-title" class="toc-h2 toc-link" data-title="Override product title">Override product title</a>
+                  </li>
+                  <li>
+                    <a href="#override-product-thumbnail-source" class="toc-h2 toc-link" data-title="Override product thumbnail source">Override product thumbnail source</a>
+                  </li>
+                  <li>
+                    <a href="#override-product-quantity" class="toc-h2 toc-link" data-title="Override product quantity">Override product quantity</a>
+                  </li>
+                  <li>
+                    <a href="#add-cart-item-data" class="toc-h2 toc-link" data-title="Add cart item data">Add cart item data</a>
                   </li>
               </ul>
           </li>
@@ -254,7 +291,7 @@
             <a href="#changelog" class="toc-h1 toc-link" data-title="Changelog">Changelog</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#v2-1-beta-4" class="toc-h2 toc-link" data-title="v2.1 - Beta 4">v2.1 - Beta 4</a>
+                    <a href="#v2-1-rc-1" class="toc-h2 toc-link" data-title="v2.1 - RC 1">v2.1 - RC 1</a>
                   </li>
               </ul>
           </li>
@@ -270,16 +307,20 @@
       <div class="dark-box"></div>
       <div class="content">
         <h1 id='introduction'>Introduction</h1>
-<p>This section of the documentation is for features that are a work in progress that may or may not be added to CoCart in the next release. You can access the current release of <a href="./">CoCart documentation here</a>.</p>
+<p>Welcome to CoCart work in progress documentation. This section of the documentation is for features or changes made in CoCart that may or may not be added based on user feedback and practical usage before the next release.</p>
+
+<p>You can access the stable release of <a href="./">CoCart documentation here</a>.</p>
+
+<p>WIP Version: <strong>2.1</strong></p>
 <h1 id='cart'>Cart</h1>
-<p>A new addition to carts is coming in the next release.</p>
-<h2 id='retrieve-cart-contents-saved'>Retrieve Cart Contents Saved</h2>
-<p>This API allows you to retrieve a cart stored in the database that is in session. This is mainly designed for guest customers and for certain frameworks that have trouble with retreiving data in session the normal way.</p>
+<p>A new addition to carts is the ability to view any cart in session.</p>
+<h2 id='retrieve-a-cart'>Retrieve a Cart</h2>
+<p>This API allows you to retrieve a cart stored in the database that is in session.</p>
 
 <p>The properties are the same except the ID property is used to identify the cart key in the database instead and is required in order to use this API.</p>
 
 <aside class="notice">
-  If the cart you request does not return then the cart in session either does not exist or has expired. By default, carts are stored in the database for 2 days from the last cart update.
+  If the cart you requested does not return. Then the cart in session either does not exist or has expired. By default, carts are stored in the database for 30 days from the last cart update.
 </aside>
 <h3 id='properties'>Properties</h3>
 <table><thead>
@@ -291,7 +332,7 @@
 </thead><tbody>
 <tr>
 <td><code>id</code></td>
-<td>integer</td>
+<td>string</td>
 <td>Unique identifier for the cart. <i class="label label-info">required</i></td>
 </tr>
 <tr>
@@ -353,12 +394,189 @@
 <blockquote>
 <p>JSON response example</p>
 </blockquote>
-<h1 id='changelog'>Changelog</h1>
-<p>The changelog below will provide updates on what is being worked on and the outcome of these features been added to future releases. Checkout the CoCart blog for updates on beta releases. Feedback is always appreciated. 😄</p>
-<h2 id='v2-1-beta-4'>v2.1 - Beta 4</h2>
+<h2 id='retrieve-a-customers-cart-saved-via-persistent-cart'>Retrieve a Customers Cart saved via Persistent Cart</h2>
+<aside class="warning">
+Only the route of this endpoint has changed in this release in order to support getting carts in session better. Was previously <em>/get-cart/1</em>, now changed to <em>/get-cart/customer/1</em>.
+</aside>
+
+<p>This API returns the cart contents for a specific registered customer and is mainly for testing purposes. Only <strong>administrator users</strong> has the ability to access this API.</p>
+
+<aside class="notice">
+  Please note that to return a registered customer, you must have <strong>persistent cart</strong> left enabled in you WooCommerce store for this to work and will only return cart data if one exists for that customer.
+</aside>
+<h3 id='properties-2'>Properties</h3>
+<table><thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>id</code></td>
+<td>integer</td>
+<td>Unique identifier for the customer. <i class="label label-info">read-only</i></td>
+</tr>
+<tr>
+<td><code>thumb</code></td>
+<td>bool</td>
+<td>Set as true to return the product thumbnail for each item.</td>
+</tr>
+</tbody></table>
+<h3 id='http-request-2'>HTTP request</h3>
+<div class="api-endpoint">
+  <div class="endpoint-data">
+    <i class="label label-get">GET</i>
+    <h6>/wp-json/cocart/v1/get-cart/customer/&lt;id&gt;</h6>
+  </div>
+</div>
+<pre class="highlight shell tab-shell"><code>curl -X GET https://example.com/wp-json/cocart/v1/get-cart/customer/123 <span class="se">\</span>
+  -u username:password <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span>
+</code></pre><pre class="highlight javascript tab-javascript--jquery"><code><span class="kd">var</span> <span class="nx">settings</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s2">"url"</span><span class="p">:</span> <span class="s2">"https://example.com/wp-json/cocart/v1/get-cart/customer/123"</span><span class="p">,</span>
+  <span class="s2">"method"</span><span class="p">:</span> <span class="s2">"GET"</span><span class="p">,</span>
+  <span class="s2">"headers"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s1">'Authorization'</span><span class="p">,</span> <span class="s1">'Basic '</span> <span class="o">+</span> <span class="nx">btoa</span><span class="p">(</span> <span class="nx">username</span> <span class="o">+</span> <span class="s1">':'</span> <span class="o">+</span> <span class="nx">password</span> <span class="p">)</span> <span class="p">)</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">(</span><span class="nx">settings</span><span class="p">).</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+<span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
+
+<span class="nv">$args</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+  <span class="s1">'thumb'</span> <span class="o">=&gt;</span> <span class="kc">true</span>
+<span class="p">);</span>
+
+<span class="nb">curl_setopt_array</span><span class="p">(</span> <span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/get-cart/customer/123"</span><span class="p">,</span>
+  <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"GET"</span><span class="p">,</span>
+  <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="p">[</span>
+    <span class="s1">'Authorization: Basic '</span> <span class="o">.</span> <span class="nb">base64_encode</span><span class="p">(</span><span class="nv">$username</span> <span class="o">.</span> <span class="s1">':'</span> <span class="o">.</span> <span class="nv">$password</span><span class="p">)</span>
+  <span class="p">],</span>
+  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span>
+<span class="p">)</span> <span class="p">);</span>
+
+<span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
+
+<span class="nb">curl_close</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
+
+<span class="k">echo</span> <span class="nv">$response</span><span class="p">;</span>
+</code></pre><pre class="highlight php tab-php--wp-http-api"><code><span class="cp">&lt;?php</span>
+<span class="nv">$args</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+  <span class="s1">'headers'</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">'Authorization'</span> <span class="o">=&gt;</span> <span class="s1">'Basic '</span> <span class="o">.</span> <span class="nb">base64_encode</span><span class="p">(</span> <span class="nx">username</span> <span class="o">.</span> <span class="s1">':'</span> <span class="o">.</span> <span class="nx">password</span> <span class="p">)</span>
+  <span class="p">)</span>
+<span class="p">);</span>
+<span class="nv">$response</span> <span class="o">=</span> <span class="nx">wp_remote_get</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/get-cart/customer/123'</span><span class="p">,</span> <span class="nv">$args</span> <span class="p">);</span>
+<span class="nv">$body</span> <span class="o">=</span> <span class="nx">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
+</code></pre>
+<blockquote>
+<p>The JSON response returns similar as the example above.</p>
+</blockquote>
+<h1 id='load-cart-to-web'>Load Cart to Web</h1>
+<p>Load cart to web is a new feature that allows you to transfer the cart over to the web version of your store. This allows the customer to continue shopping or checkout what they have added via your app if you don&#39;t yet have a checkout system in your app.</p>
+
+<p>When a cart is loaded to the web, the original session handler in the core of WooCommerce will be used to handle the cart. You can choose to override the cart (if anything is set) via the web or merge the data together.</p>
+
+<aside class="notice">
+    FYI: It does not matter if your customer is logged in or not already via the web version of your store. Only the cart data will be set. Customer details are not set.
+</aside>
+<h3 id='properties'>Properties</h3>
+<table><thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>cocart-load-cart</code></td>
+<td>string</td>
+<td>Set as true to return the product thumbnail for each item. <i class="label label-info">mandatory</i></td>
+</tr>
+<tr>
+<td><code>notify</code></td>
+<td>bool</td>
+<td>Set as true to notify customers once arrived on the web version of your store. <i class="label label-info">Default is false</i></td>
+</tr>
+<tr>
+<td><code>keep-cart</code></td>
+<td>bool</td>
+<td>Set as false to merge cart data. <i class="label label-info">Default is true</i></td>
+</tr>
+<tr>
+<td><code>redirect</code></td>
+<td>bool</td>
+<td>Set as true to redirect to cart page. <i class="label label-info">Default is false</i></td>
+</tr>
+</tbody></table>
+<h2 id='usage'>Usage</h2>
+<p>To load the cart to the web, you must use the properties above to query your website.</p>
+
+<p>e.g. <code>https://example.com/?cocart-load-cart=bbfa8e97ac9cff4c861d62a109e83bb6</code></p>
+<h4 id='things-to-improve-on'>Things to improve on</h4>
+<p>If the same item already exists in cart and you are merging the two carts together, that item will not change. It will not increase or decrease the quantity if the item hash key are the same.</p>
+<h1 id='filters'>Filters</h1>
+<p>These are new filters added to cart API to manipulate data and returned response messages.</p>
+
+<aside class="notice">
+Please make sure you are viewing the PHP language to view examples of the filters in use.
+</aside>
+<h3 id='add-to-cart-validation'>Add to cart validation</h3>
+<p>This filter allows plugin developers to pass their own validation before item is added to the cart.</p>
+<pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+<span class="nx">add_filter</span><span class="p">(</span> <span class="s1">'cocart_add_to_cart_validation'</span><span class="p">,</span> <span class="s1">'add_to_cart_validation'</span> <span class="p">);</span>
+
+<span class="k">function</span> <span class="nf">add_to_cart_validation</span><span class="p">(</span> <span class="nv">$passed_validation</span><span class="p">,</span> <span class="nv">$product_id</span><span class="p">,</span> <span class="nv">$quantity</span><span class="p">,</span> <span class="nv">$variation_id</span><span class="p">,</span> <span class="nv">$variation</span><span class="p">,</span> <span class="nv">$cart_item_data</span><span class="p">,</span> <span class="nv">$product_type</span> <span class="p">)</span> <span class="p">{</span>
+    <span class="sd">/**
+     * Developer Notes
+     *
+     * Unlike the `woocommerce_add_to_cart_validation` filter, you can not pass form requests.
+     * If you have custom data for the product that must be validated, 
+     * it must be passed via `$cart_item_data` and checked to see if it exists.
+     *
+     * In addition, to save time identifying the product type it is passed through automatically 
+     * for you via `$product_type` which saves a database request and increases loading speed.
+     *
+     * TODO: Add your validation here and simply return true|false.
+     */</span>
+
+    <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre><h3 id='override-product-name'>Override product name</h3><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+<span class="nx">add_filter</span><span class="p">(</span> <span class="s1">'cocart_product_name'</span><span class="p">,</span> <span class="s1">''</span> <span class="p">);</span>
+
+</code></pre><h3 id='override-product-title'>Override product title</h3><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+<span class="nx">add_filter</span><span class="p">(</span> <span class="s1">'cocart_product_title'</span><span class="p">,</span> <span class="s1">''</span> <span class="p">);</span>
+
+</code></pre><h3 id='override-product-thumbnail-source'>Override product thumbnail source</h3><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+<span class="nx">add_filter</span><span class="p">(</span> <span class="s1">'cocart_item_thumbnail_src'</span><span class="p">,</span> <span class="s1">''</span> <span class="p">);</span>
+
+</code></pre><h3 id='override-product-quantity'>Override product quantity</h3><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+<span class="nx">add_filter</span><span class="p">(</span> <span class="s1">'cocart_add_to_cart_quantity'</span><span class="p">,</span> <span class="s1">''</span> <span class="p">);</span>
+
+</code></pre><h3 id='add-cart-item-data'>Add cart item data</h3><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+<span class="nx">add_filter</span><span class="p">(</span> <span class="s1">'cocart_add_cart_item_data'</span><span class="p">,</span> <span class="s1">''</span> <span class="p">);</span>
+
+</code></pre><h1 id='changelog'>Changelog</h1>
+<p>The changelog below will provide updates on what is being worked on and the outcome of these features been added to future releases. Checkout the <a href="https://cocart.xyz/news/">CoCart blog</a> for updates on new coming releases. Feedback is always appreciated. 😄</p>
+<h2 id='v2-1-rc-1'>v2.1 - RC 1</h2>
 <ul>
-<li>NEW: Added a new endpoint for fetching products or a singular product in READ-ONLY. No authentication required.</li>
 <li>NEW: Added support for guest carts with a new endpoint to retrieve those carts.</li>
+<li>NEW: Able to transfer a cart from your headless store to the web.</li>
+<li>NEW: Can now add items to cart using a products SKU ID.</li>
+<li>NEW: When an item is updated, removed or restored... the cart totals are re-calculated.</li>
+<li>Dev: Added filter <code>cocart_add_to_cart_validation</code> to allow plugin developers to pass their own validation before item is added to the cart.</li>
+<li>Dev: Added filters to override the product name <code>cocart_product_name</code> and product title <code>cocart_product_title</code> when getting the cart contents.</li>
+<li>Dev: Added filter <code>cocart_item_thumbnail_src</code> to override the source URL of the product thumbnail when getting the cart contents.</li>
+<li>Dev: Added filter <code>cocart_add_to_cart_quantity</code> to override the quantity when adding an item.</li>
+<li>Dev: Added filter <code>cocart_add_cart_item_data</code> so other plugins can pass cart item data when adding an item.</li>
+<li>Dev: Added filters so the returned response messages can be changed.</li>
+<li>Dev: Added conditional filter for returning a cart item.</li>
 </ul>
 
       </div>
