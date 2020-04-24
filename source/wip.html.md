@@ -16,6 +16,8 @@ toc_footers:
 includes:
   - cocart-v1/wip/introduction
   - cocart-v1/wip/cart
+  - cocart-v1/wip/load-cart-to-web
+  - cocart-v1/wip/filters
   - cocart-v1/wip/changelog
 
 search: false
