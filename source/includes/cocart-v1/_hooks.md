@@ -1,4 +1,4 @@
-# Hooks #
+## Hooks ##
 
 The cart API has a number of action hooks that you can use to extend the API to your needs.
 

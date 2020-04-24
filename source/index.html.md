@@ -36,8 +36,8 @@ includes:
   - cocart-v1/filters
   - cocart-v1/hooks
   - extensions
-  - cocart-products
   - cocart-pro
+  - cocart-products
   - demo
   - tools
   - changelog

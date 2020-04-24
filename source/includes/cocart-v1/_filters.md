@@ -1,4 +1,4 @@
-# Filters #
+## Filters ##
 
 The cart API has a number of filters that you can use to extend or change the API.
 

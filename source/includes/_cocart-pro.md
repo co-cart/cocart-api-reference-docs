@@ -1,4 +1,4 @@
-# CoCart Pro #
+## CoCart Pro ##
 
 CoCart Pro, an extension that completes the CoCart API package with more control over the cart from coupons, shipping methods to additional fees and more.
 
