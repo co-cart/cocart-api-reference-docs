@@ -289,18 +289,15 @@ html, body {
     padding: 10px 20px;
     line-height: 40px;
     outline: 0;
-    border-top: 4px solid $lang-select-bg;;
 
     &:active, &:focus, &:hover {
       background-color: $lang-select-pressed-bg;
       color: $lang-select-pressed-text;
-      /*border-top-color: #484389;*/
     }
 
     &.active {
       background-color: $lang-select-active-bg;
       color: $lang-select-active-text;
-      border-top-color: #a27aff;
     }
   }
 

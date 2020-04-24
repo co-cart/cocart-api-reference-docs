@@ -28,12 +28,12 @@ $examples-bg: #393939;
 $code-bg: #292929;
 $code-annotation-bg: #191D1F !default;
 $nav-subitem-bg: #f7f7f7;
-$nav-active-bg: #484389;
+$nav-active-bg: #9a6fc4;
 $nav-active-parent-bg: #1E2224 !default; // parent links of the current section
 $lang-select-border: #000;
-$lang-select-bg: #484389;
+$lang-select-bg: #9a6fc4;
 $lang-select-active-bg: #6e60cc;
-$lang-select-pressed-bg: #a27aff;
+$lang-select-pressed-bg: #9a6fc4;
 $main-bg: #ffffff;
 $aside-notice-bg: #484389;
 $aside-warning-bg: #ca4949;
@@ -63,7 +63,7 @@ $nav-padding: 20px; // padding to left and right of navbar
 $nav-v-padding: 10px; // padding used vertically around search boxes and results
 $nav-indent: 10px !default; // extra padding for ToC subitems
 $code-annotation-padding: 13px !default; // padding inside code annotations
-$h1-margin-bottom: 21px; // padding under the largest header tags
+$h1-margin-bottom: 20px; // padding under the largest header tags
 $tablet-width: 930px; // min width before reverting to tablet size
 $phone-width: $tablet-width - $nav-width; // min width before reverting to mobile size
 
@@ -96,7 +96,7 @@ $nav-embossed-border-bottom: #939393;
 $main-embossed-text-shadow: 0px 1px 0px #fff;
 $search-box-border-color: #666;
 
-$bg-code-samples: linear-gradient(165deg,#6e60cc,#484389);
+$bg-code-samples: #6e60cc;
 
 ////////////////////////////////////////////////////////////////////////////////
 // INTERNAL
