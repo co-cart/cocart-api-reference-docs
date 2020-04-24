@@ -1,5 +1,7 @@
 # Index #
 
+<img src="images/github.svg" width="20" height="20" alt="GitHub Mark Logo"> [Edit on GitHub](https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v1/_index.md)
+
 By default, the API provides information about all available endpoints on the site. Authentication is not required to access the API index.
 
 <aside class="notice">

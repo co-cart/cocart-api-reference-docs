@@ -1,5 +1,7 @@
 # Coupons #
 
+<img src="images/github.svg" width="20" height="20" alt="GitHub Mark Logo"> [Edit on GitHub](https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v1/pro/_coupons.md)
+
 This API helps you get applied coupons, add coupons to cart, remove coupons from cart and check coupons for validation.
 
 ### Coupon Properties ###

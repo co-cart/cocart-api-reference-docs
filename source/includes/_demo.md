@@ -1,5 +1,7 @@
 # Demo CoCart #
 
+<img src="images/github.svg" width="20" height="20" alt="GitHub Mark Logo"> [Edit on GitHub](https://github.com/co-cart/co-cart-docs/blob/master/source/_demo.md)
+
 If you don't yet have CoCart installed or a WordPress setup ready, you can test the results in your app using the demo site prepared.
 
 When you do make a request, make sure you use `https://wp-demo.cocart.xyz/` as the domain to use the demo.

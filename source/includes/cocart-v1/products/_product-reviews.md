@@ -1,5 +1,7 @@
 # Product reviews #
 
+<img src="images/github.svg" width="20" height="20" alt="GitHub Mark Logo"> [Edit on GitHub](https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v1/products/_product-reviews.md)
+
 The product reviews API allows you to view product reviews and create a product review.
 
 ## Product review attributes ##

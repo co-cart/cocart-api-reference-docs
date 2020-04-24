@@ -1,5 +1,7 @@
 # Products #
 
+<img src="images/github.svg" width="20" height="20" alt="GitHub Mark Logo"> [Edit on GitHub](https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v1/products/_products.md)
+
 The products API allows you to view individual or a batch of products. Below lists the global product attributes each product returns. Certain product types will provide additional attributes so it's important that when developing, you check that those product attributes exist before using them.
 
 ## Product attributes ##

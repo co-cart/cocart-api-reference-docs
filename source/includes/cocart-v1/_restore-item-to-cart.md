@@ -1,5 +1,7 @@
 ## Restore Item to Cart ##
 
+<img src="images/github.svg" width="20" height="20" alt="GitHub Mark Logo"> [Edit on GitHub](https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v1/_restore-item-to-cart.md)
+
 This API helps you to restore an item to the cart. You can also request to return the whole cart once item is restored to reduce API requests and use the [Get Cart Content](#get-cart-contents) properties. 
 
 ### Properties ###

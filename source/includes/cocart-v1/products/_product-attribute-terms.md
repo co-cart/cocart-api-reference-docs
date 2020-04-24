@@ -1,5 +1,7 @@
 # Product attribute terms #
 
+<img src="images/github.svg" width="20" height="20" alt="GitHub Mark Logo"> [Edit on GitHub](https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v1/products/_product-attribute-terms.md)
+
 The product attribute terms API allows you to view individual attribute terms.
 
 ## Product attribute term attributes ##

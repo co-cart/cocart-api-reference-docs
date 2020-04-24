@@ -1,5 +1,7 @@
 # Removed Items #
 
+<img src="images/github.svg" width="20" height="20" alt="GitHub Mark Logo"> [Edit on GitHub](https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v1/pro/_removed-items.md)
+
 This API helps you get items removed by the customer. This can be helpful should you wish to remind and allow customers to re-add an item back to the cart.
 
 ### HTTP request ###
