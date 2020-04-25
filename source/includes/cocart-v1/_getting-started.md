@@ -1,6 +1,8 @@
 # Getting Started #
 
-## Install and Activate ##
+<img src="images/github.svg" width="20" height="20" alt="GitHub Mark Logo"> [Edit on GitHub](https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v1/_getting-started.md)
+
+## Install and Activate ## 
 
 How to install and activate the CoCart plugin.
 
