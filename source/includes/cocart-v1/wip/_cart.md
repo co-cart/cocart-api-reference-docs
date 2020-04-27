@@ -1,6 +1,10 @@
 # Cart #
 
-A new addition to cart API is the ability to view any cart in session.
+A new addition to cart API is the ability to view any cart in session now that support for guest customers is available.
+
+## Guest Customers ##
+
+No documentation required for guest customers. Just know that once a new customer has added the first item, a cookie is generated that stores a cart key. This cookie is used to retrieve the cart key in order to load the cart again for that individual customer.
 
 ## Retrieve a Cart ##
 
