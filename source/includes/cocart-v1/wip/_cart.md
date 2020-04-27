@@ -7,11 +7,11 @@ A new addition to cart API is the ability to view any cart in session.
 This API allows you to retrieve a cart stored in the database that is in session.
 
 <aside class="warning">
-  This API does not load the cart into session for the customer. Carts for guest customers are loaded via a cookie stored on their device. Carts for registered customers are loaded via the database. No parameters are needed.
+	This API does not load the cart into session for the customer. Carts for guest customers are loaded via a cookie stored on their device. Carts for registered customers are loaded via the database. No parameters are needed.
 </aside>
 
 <aside class="notice">
-  If the cart you requested does not return. Then the cart in session either does not exist or has expired. By default, carts are stored in the database for 30 days from the last cart update.
+	If the cart you requested does not return. Then the cart in session either does not exist or has expired. By default, carts are stored in the database for 30 days from the last cart update.
 </aside>
 
 ### Properties ###
@@ -103,13 +103,13 @@ $body = wp_remote_retrieve_body( $response );
 ## Retrieve a Customers Cart saved via Persistent Cart ##
 
 <aside class="warning">
-  Only the route of this endpoint has changed in this release in order to support getting carts in session better. Was previously <strong><em>/get-cart/1</em></strong>, now changed to <strong><em>/get-cart/customer/1</em></strong>.
+	Only the route of this endpoint has changed in this release in order to support getting carts in session better. Was previously <strong><em>/get-cart/1</em></strong>, now changed to <strong><em>/get-cart/customer/1</em></strong>.
 </aside>
 
 This API returns the cart contents for a specific registered customer and is mainly for testing purposes. Only **administrator users** has the ability to access this API.
 
 <aside class="notice">
-  Please note that to return a registered customer, you must have <strong>persistent cart</strong> left enabled in you WooCommerce store for this to work and will only return cart data if one exists for that customer.
+	Please note that to return a registered customer, you must have <strong>persistent cart</strong> left enabled in you WooCommerce store for this to work and will only return cart data if one exists for that customer.
 </aside>
 
 ### Properties ###
