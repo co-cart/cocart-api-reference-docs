@@ -15,3 +15,7 @@ The changelog below will provide updates on what is being worked on and the outc
 * Dev: Added filter `cocart_add_cart_item_data` so other plugins can pass cart item data when adding an item.
 * Dev: Added filters so the returned response messages can be changed.
 * Dev: Added conditional filter for returning a cart item.
+* Dev: Added hook `cocart_user_switched` to allow something to happen if a user has switched.
+* Dev: Added hook `cocart_load_cart` to manipulate the merged cart before it set in session.
+* Dev: Added hook `cocart_load_cart_override` to manipulate the overriding cart before it set in session.
+* Dev: Added hook `cocart_item_added_updated_in_cart` for when an item was added again but updated in cart.
