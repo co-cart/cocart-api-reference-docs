@@ -114,16 +114,6 @@ function override_product_quantity( $quantity, $product_id, $variation_id, $vari
 }
 ```
 
-### Add cart item data ###
-
-> Add cart item data
-
-```php
-<?php
-add_filter( 'cocart_add_cart_item_data', '' );
-
-```
-
 ### Return Cart Session Contents ###
 
 Identical to `cocart_return_cart_contents` filter, only this one is used to filter the cart contents returned for a cart in session.
