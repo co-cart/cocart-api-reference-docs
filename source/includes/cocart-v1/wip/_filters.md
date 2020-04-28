@@ -16,6 +16,8 @@ It allows you to override the product type to trigger the product handler before
 
 This is handy if you don't need to provide your own product handler for your custom product type but just need to use a handler already in the core of CoCart. In CoCart Pro this filter is used so simple subscriptions and variable subscriptions can be added as a simple or variable product as there is not difference between the two when being added to the cart.
 
+> Add to Cart Handler
+
 ```php
 <?php
 add_filter( 'cocart_add_to_cart_handler', 'my_add_to_cart_handler' );
@@ -26,14 +28,13 @@ function my_add_to_cart_handler( $handler ) {
 }
 ```
 
-	
-}
-
 ### Add to Cart Validation ###
 
 This filter allows plugin developers to pass their own validation before an item is added to the cart. Unlike the `woocommerce_add_to_cart_validation` filter, you can not pass form requests. If you have custom data for the product that must be validated, it must be passed via `$cart_item_data` and checked to see if it exists.
 
 In addition, to save time identifying the product type it is passed through automatically for you via `$product_type` which saves a database request and increases loading speed.
+
+> Add to Cart Validation
 
 ```php
 <?php
@@ -48,6 +49,8 @@ function my_add_to_cart_validation( $passed_validation, $product_id, $quantity, 
 
 ### Override product name ###
 
+> Override product name
+
 ```php
 <?php
 add_filter( 'cocart_product_name', 'override_product_name', 10, 3 );
@@ -57,6 +60,8 @@ function override_product_name( $_product, $cart_item, $item_key ) {
 ```
 
 ### Override product title ###
+
+> Override product title
 
 ```php
 <?php
@@ -75,6 +80,8 @@ This filter in particular allows you to change the source image for a specific i
 	The filter is triggered after the <code>cocart_item_thumbnail_size</code> filter so you will need to have the new source image in the size you want.
 </aside>
 
+> Override product thumbnail source
+
 ```php
 <?php
 add_filter( 'cocart_item_thumbnail_src', 'override_item_thumbail_src', 10, 3 );
@@ -90,6 +97,8 @@ You could use this filter to force certain products to be added to the cart with
 <aside class="warning">
 	The quantity however will not change if you have the product setup to only allow only one.
 </aside>
+
+> Override product quantity
 
 ```php
 <?php
@@ -107,6 +116,8 @@ function override_product_quantity( $quantity, $product_id, $variation_id, $vari
 
 ### Add cart item data ###
 
+> Add cart item data
+
 ```php
 <?php
 add_filter( 'cocart_add_cart_item_data', '' );
@@ -116,6 +127,8 @@ add_filter( 'cocart_add_cart_item_data', '' );
 ### Return Cart Session Contents ###
 
 Identical to `cocart_return_cart_contents` filter, only this one is used to filter the cart contents returned for a cart in session.
+
+> Return Cart Session Contents
 
 ```php
 <?php
@@ -133,9 +146,13 @@ function remove_parent_cart_item_key( $cart_contents ) {
 
 ## Response Messages ##
 
-If you need or want to override the response messages, use the following filters.
+If you need or want to override the response messages, use the following filters. There are more, I just haven't got round to listing all the filters just yet.
 
 ### Cannot Add Product Type to Cart Message ###
+
+This filter was introduced with the improved product validation. For example this message is returned if you try to add an external product to the cart.
+
+> Cannot Add Product Type to Cart Message
 
 ```php
 <?php
@@ -147,6 +164,8 @@ function cannot_add_product_type_to_cart_message() {
 ```
 
 ### Cart Item Removed Message ###
+
+> Cart Item Removed Message
 
 ```php
 <?php
@@ -166,6 +185,8 @@ This could be changed to include your store brand name.
 	Recommend that you at least leave in place the <strong>COOKIEHASH</strong> which by default is your site URL encrypted. It is used to guarantee unique hash for cookies.
 </aside>
 
+> Change cart session cookie name
+
 ```php
 <?php
 add_filter( 'cocart_cookie', 'my_cocart_cookie_name' );
@@ -178,6 +199,8 @@ function my_cocart_cookie_name() {
 ### Should cart cookie be secure? ###
 
 Be default this will set as true if your site has SSL enabled. Otherwise it will return false. Filtering will force it.
+
+> Should cart cookie be secure?
 
 ```php
 <?php
@@ -192,6 +215,8 @@ There are two filters for cart expiration. The first is used to detect if we are
 	Close to expiration by default is 29 days. Cart expiration by default is 30 days.
 </aside>
 
+> Cart Expiration
+
 ```php
 <?php
 add_filter( 'cocart_cart_expiring', function() { return DAY_IN_SECONDS * 6; });
@@ -202,6 +227,8 @@ add_filter( 'cocart_cart_expiration', function() { return DAY_IN_SECONDS * 7; })
 
 This filter allows you to change the expiration of an empty cart. Default value is 6 hours.
 
+> Empty Cart Expiration
+
 ```php
 <?php
 add_filter( 'cocart_empty_cart_expiration', function() { return HOUR_IN_SECONDS * 1; });
@@ -210,6 +237,8 @@ add_filter( 'cocart_empty_cart_expiration', function() { return HOUR_IN_SECONDS 
 ### Generated Customer ID ###
 
 This filter allows you to change the generated customer ID for the guest customer. Use this filter with caution. Can not be longer than 32 characters for the database.
+
+> Generated Customer ID
 
 ```php
 <?php
@@ -223,6 +252,8 @@ function my_custom_generate_customer_id( $hasher ) {
 
 ### Cart Loaded Successful Message ###
 
+> Cart Loaded Susccessful Message
+
 ```php
 <?php
 add_filter( 'cocart_cart_loaded_successful_message', 'cart_loaded_successful_message' );
@@ -235,12 +266,15 @@ function cart_loaded_successful_message( $message ) {
 
 This filter allows you to change how the items are merged together before loaded into session when requesting to keep the current cart via the web.
 
-@param `$new_cart_content` - Returns the cart items merged from both cart in session and the cart requested to load.
-@param `$new_cart` - Returns the requested cart to load.
-@param `$cart_in_session` - Returns the current cart contents, if any.
+> Merge Cart Items
 
 ```php
 <?php
+/**
+ * @param `$new_cart_content` - Returns the cart items merged from both cart in session and the cart requested to load.
+ * @param `$new_cart` - Returns the requested cart to load.
+ * @param `$cart_in_session` - Returns the current cart contents, if any.
+ */
 add_filter( 'cocart_merge_cart_content', 'merge_cart_contents', 10, 3 );
 function merge_cart_contents( $new_cart_content, $new_cart, $cart_in_session ) {
 	return $new_cart_content;
@@ -248,6 +282,8 @@ function merge_cart_contents( $new_cart_content, $new_cart, $cart_in_session ) {
 ```
 
 ## CoCart Logging ##
+
+> CoCart Logging
 
 ```php
 <?php
