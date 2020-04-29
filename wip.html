@@ -294,6 +294,9 @@
             <a href="#changelog" class="toc-h1 toc-link" data-title="Changelog">Changelog</a>
               <ul class="toc-list-h2">
                   <li>
+                    <a href="#v2-1-rc-2" class="toc-h2 toc-link" data-title="v2.1 - RC 2">v2.1 - RC 2</a>
+                  </li>
+                  <li>
                     <a href="#v2-1-rc-1" class="toc-h2 toc-link" data-title="v2.1 - RC 1">v2.1 - RC 1</a>
                   </li>
               </ul>
@@ -314,16 +317,40 @@
 
 <p>You can access the stable release of <a href="./">CoCart documentation here</a>.</p>
 
-<p>WIP Version: <strong>2.1-rc.1</strong></p>
+<p>WIP Version: <strong>2.1-rc.2</strong></p>
 <h1 id='cart'>Cart</h1>
 <p>A new addition to cart API is the ability to view any cart in session now that support for guest customers is available.</p>
 <h2 id='guest-customers'>Guest Customers</h2>
-<p>No documentation required for guest customers. Just know that once a new customer has added the first item, a cookie is generated that stores a cart key. This cookie is used to retrieve the cart key in order to load the cart again for that individual customer.</p>
+<p>For guest customers there are two methods available for developers to use. The first method uses a cookie and handles everything for you. The second method allows you to set the cart ID yourself.</p>
+<h3 id='cookie-method'>Cookie Method</h3>
+<p>Once a new customer has added the first item, a cookie is generated that stores a cart key. This cookie is used to retrieve the cart key and cart expiration in order to load the cart again for that individual customer. No parameters are required to pass as it is all done in the background.</p>
+<h3 id='set-cart-id-method'>Set Cart ID Method</h3>
+<p>This method allows you to set the cart key yourself via the <code>id</code> parameter which must be passed with each API request made. This sets the ID in session allowing to fetch the cart before changes are made.</p>
+
+<aside class="warning">
+    Unlike the cookie method, the downside to this method is that the cart expiration does not update.
+</aside>
+
+<p>Here are a few examples on how to pass the cart ID with each API request.</p>
+
+<div class="api-endpoint">
+  <div class="endpoint-data">
+    <i class="label label-get">GET CART</i>
+    <h6>/wp-json/cocart/v1/get-cart/?id=9e18904482b4faf8762361836a83b93d</h6>
+  </div>
+</div>
+
+<div class="api-endpoint">
+  <div class="endpoint-data">
+    <i class="label label-post">ADD ITEM</i>
+    <h6>/wp-json/cocart/v1/add-item/?id=9e18904482b4faf8762361836a83b93d&product_id=32</h6>
+  </div>
+</div>
 <h2 id='retrieve-a-cart'>Retrieve a Cart</h2>
 <p>This API allows you to retrieve a cart stored in the database that is in session.</p>
 
 <aside class="warning">
-    This API does not load the cart into session for the customer. Carts for guest customers are loaded via a cookie stored on their device. Carts for registered customers are loaded via the database. No parameters are needed.
+    This API does not load the cart into session for the customer. Carts for guest customers are loaded via a cookie stored on their device or set by a cart ID. Carts for registered customers are loaded via the database as normal. See <a href="#guest-customers">Guest Customers</a> for more details.
 </aside>
 
 <aside class="notice">
@@ -544,7 +571,7 @@
 <p>These are new filters added to cart API to manipulate data and returned response messages. Some examples show the default response.</p>
 
 <aside class="notice">
-Please make sure you are viewing the PHP language to view examples of the filters in use.
+    Please make sure you are viewing the PHP language to view examples of the filters in use.
 </aside>
 <h2 id='product-validation'>Product Validation</h2><h3 id='add-to-cart-handler'>Add to Cart Handler</h3>
 <p>A new feature is to have support for other product types besides simple and variable products.</p>
@@ -672,7 +699,11 @@ Please make sure you are viewing the PHP language to view examples of the filter
 <span class="k">function</span> <span class="nf">cart_item_removed_message</span><span class="p">(</span> <span class="nv">$message</span><span class="p">,</span> <span class="nv">$_product</span> <span class="p">)</span> <span class="p">{</span>
     <span class="k">return</span> <span class="nb">sprintf</span><span class="p">(</span> <span class="s1">'%s has been removed from your cart because it can no longer be purchased. Please contact us if you need assistance.'</span><span class="p">,</span> <span class="nv">$_product</span><span class="o">-&gt;</span><span class="na">get_name</span><span class="p">()</span> <span class="p">);</span>
 <span class="p">}</span>
-</code></pre><h2 id='session'>Session</h2><h3 id='change-cart-session-cookie-name'>Change cart session cookie name</h3>
+</code></pre><h2 id='session'>Session</h2><h3 id='cookie-supported'>Cookie Supported?</h3>
+<p>This filter allows you to disable the cookie support for handling the session for guest customers. This is so you don&#39;t overload the cart database when the session is initialized if you are using the alternative method for guest customers.</p>
+<pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+<span class="nx">add_filter</span><span class="p">(</span> <span class="s1">'cocart_cookie_supported'</span><span class="p">,</span> <span class="k">function</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="kc">true</span><span class="p">;</span> <span class="p">});</span>
+</code></pre><h3 id='change-cart-session-cookie-name'>Change cart session cookie name</h3>
 <p>This could be changed to include your store brand name.</p>
 
 <aside class="notice">
@@ -761,6 +792,12 @@ Please make sure you are viewing the PHP language to view examples of the filter
 <span class="nx">add_filter</span><span class="p">(</span> <span class="s1">'cocart_logging'</span><span class="p">,</span> <span class="k">function</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="kc">true</span><span class="p">;</span> <span class="p">});</span>
 </code></pre><h1 id='changelog'>Changelog</h1>
 <p>The changelog below will provide updates on what is being worked on and the outcome of these features been added to future releases. Checkout the <a href="https://cocart.xyz/news/">CoCart blog</a> for updates on new coming releases. Feedback is always appreciated. 😄</p>
+<h2 id='v2-1-rc-2'>v2.1 - RC 2</h2>
+<ul>
+<li>NEW: Added the ability to pass cart key via the <code>id</code> parameter for all API requests if cookie support is not an option.</li>
+<li>Dev: Added filter <code>cocart_cookie_supported</code> to allow developers to disable cookie session support if they don&#39;t/can&#39;t support cookies within their app.</li>
+<li>Tweaked: Increased <code>cart_key</code> column for cart database to store 42 characters instead of 32.</li>
+</ul>
 <h2 id='v2-1-rc-1'>v2.1 - RC 1</h2>
 <ul>
 <li>NEW: Added support for guest carts with a new endpoint to retrieve those carts.</li>
