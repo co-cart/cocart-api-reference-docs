@@ -34,19 +34,12 @@ Here are a few examples on how to pass the cart ID with each API request.
   </div>
 </div>
 
-<div class="api-endpoint">
-  <div class="endpoint-data">
-    <i class="label label-post">UPDATE ITEM</i>
-    <h6>/wp-json/cocart/v1/item/?id=9e18904482b4faf8762361836a83b93d&cart_item_key=6364d3f0f495b6ab9dcf8d3b5c6e0b01&quantity=2</h6>
-  </div>
-</div>
-
 ## Retrieve a Cart ##
 
 This API allows you to retrieve a cart stored in the database that is in session.
 
 <aside class="warning">
-	This API does not load the cart into session for the customer. Carts for guest customers are loaded via a cookie stored on their device. Carts for registered customers are loaded via the database. No parameters are needed.
+	This API does not load the cart into session for the customer. Carts for guest customers are loaded via a cookie stored on their device or set by a cart ID. Carts for registered customers are loaded via the database as normal. See <a href="#guest-customers">Guest Customers</a> for more details.
 </aside>
 
 <aside class="notice">
