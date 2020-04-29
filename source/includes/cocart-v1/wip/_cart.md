@@ -4,7 +4,42 @@ A new addition to cart API is the ability to view any cart in session now that s
 
 ## Guest Customers ##
 
-No documentation required for guest customers. Just know that once a new customer has added the first item, a cookie is generated that stores a cart key. This cookie is used to retrieve the cart key in order to load the cart again for that individual customer.
+For guest customers there are two methods available for developers to use. The first method uses a cookie and handles everything for you. The second method allows you to set the cart ID yourself.
+
+### Cookie Method ###
+
+Once a new customer has added the first item, a cookie is generated that stores a cart key. This cookie is used to retrieve the cart key and cart expiration in order to load the cart again for that individual customer. No parameters are required to pass as it is all done in the background.
+
+### Set Cart ID Method ###
+
+This method allows you to set the cart key yourself via the `id` parameter which must be passed with each API request made. This sets the ID in session allowing to fetch the cart before changes are made.
+
+<aside class="warning">
+	Unlike the cookie method, the downside to this method is that the cart expiration does not update.
+</aside>
+
+Here are a few examples on how to pass the cart ID with each API request.
+
+<div class="api-endpoint">
+  <div class="endpoint-data">
+    <i class="label label-get">GET CART</i>
+    <h6>/wp-json/cocart/v1/get-cart/?id=9e18904482b4faf8762361836a83b93d</h6>
+  </div>
+</div>
+
+<div class="api-endpoint">
+  <div class="endpoint-data">
+    <i class="label label-post">ADD ITEM</i>
+    <h6>/wp-json/cocart/v1/add-item/?id=9e18904482b4faf8762361836a83b93d&product_id=32</h6>
+  </div>
+</div>
+
+<div class="api-endpoint">
+  <div class="endpoint-data">
+    <i class="label label-post">UPDATE ITEM</i>
+    <h6>/wp-json/cocart/v1/item/?id=9e18904482b4faf8762361836a83b93d&cart_item_key=6364d3f0f495b6ab9dcf8d3b5c6e0b01&quantity=2</h6>
+  </div>
+</div>
 
 ## Retrieve a Cart ##
 

@@ -3,7 +3,7 @@
 These are new filters added to cart API to manipulate data and returned response messages. Some examples show the default response.
 
 <aside class="notice">
-Please make sure you are viewing the PHP language to view examples of the filters in use.
+	Please make sure you are viewing the PHP language to view examples of the filters in use.
 </aside>
 
 ## Product Validation ##
@@ -166,6 +166,15 @@ function cart_item_removed_message( $message, $_product ) {
 ```
 
 ## Session ##
+
+### Cookie Supported? ###
+
+This filter allows you to disable the cookie support for handling the session for guest customers. This is so you don't overload the cart database when the session is initialized if you are using the alternative method for guest customers.
+
+```php
+<?php
+add_filter( 'cocart_cookie_supported', function() { return true; });
+```
 
 ### Change cart session cookie name ###
 

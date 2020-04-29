@@ -2,6 +2,12 @@
 
 The changelog below will provide updates on what is being worked on and the outcome of these features been added to future releases. Checkout the [CoCart blog](https://cocart.xyz/news/) for updates on new coming releases. Feedback is always appreciated. 😄
 
+## v2.1 - RC 2 ##
+
+* NEW: Added the ability to pass cart key via the `id` parameter for all API requests if cookie support is not an option.
+* Dev: Added filter `cocart_cookie_supported` to allow developers to disable cookie session support if they don't/can't support cookies within their app.
+* Tweaked: Increased `cart_key` column for cart database to store 42 characters instead of 32.
+
 ## v2.1 - RC 1 ##
 
 * NEW: Added support for guest carts with a new endpoint to retrieve those carts.
