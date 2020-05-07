@@ -33,6 +33,10 @@ If you use the Basic Authentication method (which you may find the easiest to us
   Replace the username and password with the customers login details.
 </aside>
 
+### Steps to follow ###
+
+1. [Download and Install Basic Auth plugin](https://github.com/WP-API/Basic-Auth)
+
 ```shell
 curl -X POST https://example.com/wp-json/cocart/v1/add-item \
   -u username:password \
@@ -133,9 +137,12 @@ If the authentication header is not passing or authentication is not working you
 > .htaccess Rewrite rule
 
 ```.htaccess
-RewriteCond %{HTTP:Authorization} ^(.)
-RewriteRule ^(.) - [E=HTTP_AUTHORIZATION:%1]
-````
+<IfModule mod_rewrite.c>
+RewriteEngine on
+RewriteCond %{HTTP:Authorization} ^(.*)
+RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
+</IfModule>
+```
 
 ## JWT Authentication ##
 
