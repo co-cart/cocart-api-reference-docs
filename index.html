@@ -452,7 +452,6 @@
         </ul>
     </div>
     <div class="page-wrapper">
-      <div class="dark-box"></div>
       <div class="content">
         <h1 id='introduction'>Introduction</h1>
 <p><img src="images/github.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v1/_introduction.md">Edit on GitHub</a></p>
@@ -727,7 +726,7 @@
 <p>By default, the API provides information about all available endpoints on the site. Authentication is not required to access the API index.</p>
 
 <aside class="notice">
-    Some endpoints are only available in CoCart Pro.
+    Some endpoints are only available in CoCart Pro or via add-on.
 </aside>
 <h3 id='http-request'>HTTP request</h3>
 <div class="api-endpoint">
@@ -1621,7 +1620,7 @@
 <p><img src="images/github.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v1/_authentication.md">Edit on GitHub</a></p>
 
 <aside class="warning">
-  Authentication is <strong>ONLY</strong> required for registered customers, <strong>NOT</strong> guest customers and that you will be passing the customers username and password or token depending on the authentication method you are using. If you are authenticating a registered customer, it's important that you keep doing so with <strong>all routes</strong> from the beginning so the cart in session remains the same. If you only authenticate one request and don't on another, you may find that you will be merging any previous items the customer added previously if they are still available for purchase.
+  Authentication is <strong>ONLY</strong> required for registered customers, <strong>NOT</strong> guest customers and that you will be passing the customers username and password or token depending on the authentication method you are using. If you are authenticating a registered customer, it's important that you keep doing so with <strong>all routes</strong> from the beginning so the cart in session remains the same. If you <strong>DO NOT</strong> logout of the customer before authenticate another customer, you will still be seeing the previous customers cart and details.
 </aside>
 
 <p>CoCart can be authenticated by various methods with the WP REST API. First being via the <a href="https://woocommerce.github.io/woocommerce-rest-api-docs/#rest-api-keys">REST API Keys</a> in <a href="https://woocommerce.github.io/woocommerce-rest-api-docs/#authentication">WooCommerce</a>. Though this method is designed for the backend with their REST API, with some custom coding you can make it work for the frontend with CoCart.</p>
@@ -1650,6 +1649,10 @@
 <aside class="notice">
   Replace the username and password with the customers login details.
 </aside>
+<h3 id='steps-to-follow'>Steps to follow</h3>
+<ol>
+<li><a href="https://github.com/WP-API/Basic-Auth">Download and Install Basic Auth plugin</a></li>
+</ol>
 <pre class="highlight shell tab-shell"><code>curl -X POST https://example.com/wp-json/cocart/v1/add-item <span class="se">\</span>
   -u username:password <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
@@ -1736,13 +1739,16 @@
 <blockquote>
 <p>.htaccess Rewrite rule</p>
 </blockquote>
-<pre class="highlight plaintext"><code>RewriteCond %{HTTP:Authorization} ^(.)
-RewriteRule ^(.) - [E=HTTP_AUTHORIZATION:%1]
+<pre class="highlight plaintext"><code>&lt;IfModule mod_rewrite.c&gt;
+RewriteEngine on
+RewriteCond %{HTTP:Authorization} ^(.*)
+RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
+&lt;/IfModule&gt;
 </code></pre><h2 id='jwt-authentication'>JWT Authentication</h2>
 <p>JWT is a simple web token authentication method for WP REST API. To know more about JSON Web Tokens, please visit <a href="https://jwt.io">https://jwt.io</a>.</p>
 
 <p>It&#39;s important that you follow the installation and configurations exactly for this method to work. <a href="https://github.com/Tmeister/wp-api-jwt-auth#installation--configuration">See instructions</a>.</p>
-<h3 id='steps-to-follow'>Steps to follow</h3>
+<h3 id='steps-to-follow-2'>Steps to follow</h3>
 <ol>
 <li><a href="https://wordpress.org/plugins/jwt-authentication-for-wp-rest-api/">Download and Install JWT Authentication plugin</a> from WordPress.org.</li>
 <li><a href="https://github.com/Tmeister/wp-api-jwt-auth#configurate-the-secret-key">Configure the Secret Key</a>.</li>
