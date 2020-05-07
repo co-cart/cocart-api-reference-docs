@@ -5,7 +5,7 @@
 By default, the API provides information about all available endpoints on the site. Authentication is not required to access the API index.
 
 <aside class="notice">
-    Some endpoints are only available in CoCart Pro.
+    Some endpoints are only available in CoCart Pro or via add-on.
 </aside>
 
 ### HTTP request ###
