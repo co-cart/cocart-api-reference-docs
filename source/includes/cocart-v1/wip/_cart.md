@@ -14,10 +14,6 @@ Once a new customer has added the first item, a cookie is generated that stores 
 
 This method allows you to set the cart key yourself via the `id` parameter which must be passed with each API request made. This sets the ID in session allowing to fetch the cart before changes are made.
 
-<aside class="warning">
-	Unlike the cookie method, the downside to this method is that the cart expiration does not update.
-</aside>
-
 Here are a few examples on how to pass the cart ID with each API request.
 
 <div class="api-endpoint">
