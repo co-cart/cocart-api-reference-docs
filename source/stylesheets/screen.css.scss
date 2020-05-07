@@ -693,6 +693,10 @@ html, body {
   background: #ca4949;
 }
 
+.label-example {
+  background: #9a6fc4;
+}
+
 .label-info {
   background: #efefef;
   color: #999;
@@ -771,4 +775,16 @@ body.has-warning {
 a[data-title="Extensions"],
 a[data-title="Demo CoCart"] {
   margin-top: 10px;
+}
+
+.new {
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  background: #9a6fc4;
+  color: #fff;
+  margin-left: 4px;
+  padding: 1px 8px 2px 8px;
+  margin: 2px;
+  border-radius: 20px;
 }
