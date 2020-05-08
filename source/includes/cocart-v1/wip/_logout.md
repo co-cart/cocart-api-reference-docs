@@ -2,8 +2,6 @@
 
 <span class="new">New API</span>
 
-<img src="images/github.svg" width="20" height="20" alt="GitHub Mark Logo"> [Edit on GitHub](https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v1/wip/_logout.md)
-
 This API logs out your customers. This will clear all session cookies for WordPress and CoCart.
 
 ### HTTP request ###
