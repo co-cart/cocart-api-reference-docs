@@ -1,19 +1,38 @@
 # Changelog #
 
-The Documentation is updated only when needed. Below is the changelog for "CoCart" documentation that matches with the version of the plugin release.
+Below is the changelog for "CoCart" documentation that matches with the version of the plugin release.
 
-### Doc Version 1.7 ##
+## Doc Version 1.8 - Plugin Release v2.1 ##
 
-* NEW: Added links to edit documentation at the top of each section.
-* NEW: Added Getting Started section for those new to WordPress.
+* **NEW**: Added support for guest carts with a new endpoint to retrieve those carts.
+* **NEW**: Added ability to transfer a cart from your headless store to the web.
+* **NEW**: Can now add items to cart using a products SKU ID.
+* **NEW**: When an item is updated, removed or restored... the cart totals are re-calculated.
+* Dev: Added filter `cocart_add_to_cart_validation` to allow plugin developers to pass their own validation before item is added to the cart.
+* Dev: Added filters to override the product name `cocart_product_name` and product title `cocart_product_title` when getting the cart contents.
+* Dev: Added filter `cocart_item_thumbnail_src` to override the source URL of the product thumbnail when getting the cart contents.
+* Dev: Added filter `cocart_add_to_cart_quantity` to override the quantity when adding an item.
+* Dev: Added filter `cocart_add_cart_item_data` so other plugins can pass cart item data when adding an item.
+* Dev: Added filters so the returned response messages can be changed.
+* Dev: Added conditional filter for returning a cart item.
+* Dev: Added hook `cocart_user_switched` to allow something to happen if a user has switched.
+* Dev: Added hook `cocart_load_cart` to manipulate the merged cart before it set in session.
+* Dev: Added hook `cocart_load_cart_override` to manipulate the overriding cart before it set in session.
+* Dev: Added hook `cocart_item_added_updated_in_cart` for when an item was added again but updated in cart.
+* Dev: Added filter `cocart_cookie_supported` to allow developers to disable cookie session support if they don't/can't support cookies within their app.
+
+### Doc Version 1.7 ###
+
+* **NEW**: Added links to edit documentation at the top of each section.
+* **NEW**: Added Getting Started section for those new to WordPress.
 * Corrected: Typos.
 * Tweaked: Menu
 * Tweaked: Brand colours and updated favicons.
 
 ### Doc Version 1.6 - Plugin Release v2.0.13 ###
 
-* NEW: Added `cocart_return_empty_cart` filter and example.
-* NEW: Added `cocart_add_to_cart_sold_individually_quantity`and example.
+* **NEW**: Added `cocart_return_empty_cart` filter and example.
+* **NEW**: Added `cocart_add_to_cart_sold_individually_quantity`and example.
 * Changed: Quantity parameter type to `float`.
 * Tweaked: Authentication notice moved to the top of it's sections content.
 * Tweaked: Menu, content and added helpful links.
@@ -21,15 +40,15 @@ The Documentation is updated only when needed. Below is the changelog for "CoCar
 
 ### Doc Version 1.5 - Plugin Release v2.0.7 ###
 
-* NEW: Added link to products add-on documentation under CoCart Pro.
-* NEW: Added a little section explaining the body types when making a request.
-* NEW: Added example to add item with custom cart item data.
-* NEW: Added Demo section.
+* **NEW**: Added link to products add-on documentation under CoCart Pro.
+* **NEW**: Added a little section explaining the body types when making a request.
+* **NEW**: Added example to add item with custom cart item data.
+* **NEW**: Added Demo section.
 * Improved: Authentication section.
 
 ### Doc Version 1.4 ###
 
-* NEW: Added live chat so users can ask questions.
+* **NEW**: Added live chat so users can ask questions.
 * Made it clearer to understand about retrieving specific customers cart.
 * Improved the introduction a little.
 
