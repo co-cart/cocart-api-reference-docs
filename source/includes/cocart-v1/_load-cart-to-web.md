@@ -16,9 +16,9 @@ When a cart is loaded to the web, the original session handler in the core of Wo
 	FYI: It does not matter if your customer is logged in or not already via the web version of your store. Only the cart data will be set. Customer details are <strong>not transferred</strong>.
 </aside>
 
-### Properties ###
+## Parameters ##
 
-| Property           | Type   | Description                                                                                                                     |
+| Parameter           | Type   | Description                                                                                                                     |
 | ------------------ | ------ | ------------------------------------------------------------------------------------------------------------------------------- |
 | `cocart-load-cart` | string | Set the cart key of the cart you wish to load to the web. <i class="label label-info">mandatory</i>                             |
 | `notify`           | bool   | Set as true to notify customers once arrived on the web version of your store. <i class="label label-info">Default is false</i> |
@@ -27,7 +27,7 @@ When a cart is loaded to the web, the original session handler in the core of Wo
 
 ## Usage ##
 
-To load the cart to the web, you must use the properties above to query your website.
+To load the cart to the web, you must use the parameters above to query your website.
 
 <div class="api-endpoint">
   <div class="endpoint-data">
