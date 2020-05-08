@@ -13,8 +13,6 @@ Below is the changelog for "CoCart" documentation that matches with the version 
 * Dev: Added filter `cocart_item_thumbnail_src` to override the source URL of the product thumbnail when getting the cart contents.
 * Dev: Added filter `cocart_add_to_cart_quantity` to override the quantity when adding an item.
 * Dev: Added filter `cocart_add_cart_item_data` so other plugins can pass cart item data when adding an item.
-* Dev: Added filters so the returned response messages can be changed.
-* Dev: Added conditional filter for returning a cart item.
 * Dev: Added hook `cocart_user_switched` to allow something to happen if a user has switched.
 * Dev: Added hook `cocart_load_cart` to manipulate the merged cart before it set in session.
 * Dev: Added hook `cocart_load_cart_override` to manipulate the overriding cart before it set in session.
