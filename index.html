@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>CoCart Documentation v1.8</title>
+    <title>CoCart Documentation v1.9</title>
 
     <link rel="icon" href="images/favicon-32x32.png" sizes="32x32" />
     <link rel="icon" href="images/favicon-192x192.png" sizes="192x192" />
@@ -209,6 +209,15 @@
 
     <!-- Chatra {literal} -->
     <script>
+    window.ChatraSetup = {
+        colors: {
+            buttonText: '#fff',
+            buttonBg: '#9a6fc4',
+            disabledOnMobile: true
+        }
+    };
+    </script>
+    <script>
         (function(d, w, c) {
             w.ChatraID = 'xwyESjfvnFXRtTM3N';
             var s = d.createElement('script');
@@ -355,7 +364,7 @@
               </ul>
           </li>
           <li>
-            <a href="#load-cart-to-web" class="toc-h1 toc-link" data-title="Load Cart to Web">Load Cart to Web</a>
+            <a href="#load-cart-from-session" class="toc-h1 toc-link" data-title="Load Cart from Session">Load Cart from Session</a>
               <ul class="toc-list-h2">
                   <li>
                     <a href="#parameters" class="toc-h2 toc-link" data-title="Parameters">Parameters</a>
@@ -421,6 +430,9 @@
           <li>
             <a href="#changelog" class="toc-h1 toc-link" data-title="Changelog">Changelog</a>
               <ul class="toc-list-h2">
+                  <li>
+                    <a href="#doc-version-1-9-plugin-release-v2-1-2" class="toc-h2 toc-link" data-title="Doc Version 1.9 - Plugin Release v2.1.2">Doc Version 1.9 - Plugin Release v2.1.2</a>
+                  </li>
                   <li>
                     <a href="#doc-version-1-8-plugin-release-v2-1" class="toc-h2 toc-link" data-title="Doc Version 1.8 - Plugin Release v2.1">Doc Version 1.8 - Plugin Release v2.1</a>
                   </li>
@@ -1807,7 +1819,7 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 </tr>
 </thead><tbody>
 <tr>
-<td><code>id</code></td>
+<td><code>cart_key</code></td>
 <td>string</td>
 <td>Unique identifier for the cart. <i class="label label-info">optional</i></td>
 </tr>
@@ -2183,6 +2195,20 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <p><img src="images/github.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v1/_count-items.md">Edit on GitHub</a></p>
 
 <p>This API helps you count the items in the cart.</p>
+<h3 id='properties'>Properties</h3>
+<table><thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>cart_key</code></td>
+<td>string</td>
+<td>Unique identifier for the cart. <i class="label label-info">optional</i></td>
+</tr>
+</tbody></table>
 <h3 id='http-request'>HTTP request</h3>
 <div class="api-endpoint">
   <div class="endpoint-data">
@@ -2234,6 +2260,11 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <th>Description</th>
 </tr>
 </thead><tbody>
+<tr>
+<td><code>cart_key</code></td>
+<td>string</td>
+<td>Unique identifier for the cart. <i class="label label-info">optional</i></td>
+</tr>
 <tr>
 <td><code>return</code></td>
 <td>bool</td>
@@ -2291,6 +2322,11 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <th>Description</th>
 </tr>
 </thead><tbody>
+<tr>
+<td><code>cart_key</code></td>
+<td>string</td>
+<td>Unique identifier for the cart. <i class="label label-info">optional</i></td>
+</tr>
 <tr>
 <td><code>html</code></td>
 <td>bool</td>
@@ -2446,6 +2482,11 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <th>Description</th>
 </tr>
 </thead><tbody>
+<tr>
+<td><code>cart_key</code></td>
+<td>string</td>
+<td>Unique identifier for the cart. <i class="label label-info">optional</i></td>
+</tr>
 <tr>
 <td><code>product_id</code></td>
 <td>integer</td>
@@ -2698,6 +2739,11 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 </tr>
 </thead><tbody>
 <tr>
+<td><code>cart_key</code></td>
+<td>string</td>
+<td>Unique identifier for the cart. <i class="label label-info">optional</i></td>
+</tr>
+<tr>
 <td><code>cart_item_key</code></td>
 <td>string</td>
 <td>The cart item key of the product in the cart. <i class="label label-info">mandatory</i></td>
@@ -2775,6 +2821,11 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 </tr>
 </thead><tbody>
 <tr>
+<td><code>cart_key</code></td>
+<td>string</td>
+<td>Unique identifier for the cart. <i class="label label-info">optional</i></td>
+</tr>
+<tr>
 <td><code>cart_item_key</code></td>
 <td>string</td>
 <td>The cart item key of the product that was in the cart recently. <i class="label label-info">mandatory</i></td>
@@ -2851,6 +2902,11 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 </tr>
 </thead><tbody>
 <tr>
+<td><code>cart_key</code></td>
+<td>string</td>
+<td>Unique identifier for the cart. <i class="label label-info">optional</i></td>
+</tr>
+<tr>
 <td><code>cart_item_key</code></td>
 <td>string</td>
 <td>The cart item key of the product in the cart you want to update. <i class="label label-info">mandatory</i></td>
@@ -2926,14 +2982,18 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
   </span><span class="s2">"message"</span><span class="p">:</span><span class="s2">"The quantity for 'Woo T-Shirt' has increased to '2'."</span><span class="p">,</span><span class="w">
   </span><span class="s2">"quantity"</span><span class="p">:</span><span class="mi">2</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h1 id='load-cart-to-web'>Load Cart to Web</h1>
+</span></code></pre><h1 id='load-cart-from-session'>Load Cart from Session</h1>
 <p><span class="new">New Feature</span></p>
 
-<p><img src="images/github.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v1/_load-cart-to-web.md">Edit on GitHub</a></p>
+<p><img src="images/github.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v1/_load-cart-from-session.md">Edit on GitHub</a></p>
 
-<p>Load cart to web allows you to transfer the cart over to the web version of your store. This allows the customer to continue shopping or checkout what they have added via your app if you don&#39;t yet have a checkout system in your app.</p>
+<p>Load cart from session allows the cart of your choosing to be set before anything WooCommerce handles.</p>
 
-<p>When a cart is loaded to the web, the original session handler in the core of WooCommerce will be used to handle the cart from then on. You can choose to override the cart (if anything is set) via the web or merge the data together.</p>
+<p>For example if you have a returning customer that started as a guest and then logs in to their account. WooCommerce will then merge the carts together should the customer already have a saved cart.</p>
+
+<p>It can also be used to transfer the cart over to the web version of your store. This allows the customer to continue shopping or checkout what they have added via your app if you don&#39;t yet have a checkout system in your app.</p>
+
+<p>When a cart is loaded, the original session handler in the core of WooCommerce will be used to handle the cart from then on. You can choose to override the cart (if anything is set) via the web or merge the data together.</p>
 
 <aside class="warning">
     Any changes made to the cart once loaded is not updated to the cart stored by CoCart.
@@ -3925,10 +3985,15 @@ even reviews without the need to authenticate. Designed more suited for the fron
 </ul>
 <h1 id='changelog'>Changelog</h1>
 <p>Below is the changelog for &quot;CoCart&quot; documentation that matches with the version of the plugin release.</p>
+<h2 id='doc-version-1-9-plugin-release-v2-1-2'>Doc Version 1.9 - Plugin Release v2.1.2</h2>
+<ul>
+<li>Added: <code>cart_key</code> parameter to all API property tables.</li>
+<li>Tweaked: Load Cart from Session.</li>
+</ul>
 <h2 id='doc-version-1-8-plugin-release-v2-1'>Doc Version 1.8 - Plugin Release v2.1</h2>
 <ul>
 <li><strong>NEW</strong>: Added support for guest carts with a new endpoint to retrieve those carts.</li>
-<li><strong>NEW</strong>: Added ability to transfer a cart from your headless store to the web.</li>
+<li><strong>NEW</strong>: Added ability to load a cart from session.</li>
 <li><strong>NEW</strong>: Can now add items to cart using a products SKU ID.</li>
 <li><strong>NEW</strong>: When an item is updated, removed or restored... the cart totals are re-calculated.</li>
 <li>Dev: Added filter <code>cocart_add_to_cart_validation</code> to allow plugin developers to pass their own validation before item is added to the cart.</li>
