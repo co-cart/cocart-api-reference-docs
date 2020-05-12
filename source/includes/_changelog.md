@@ -5,7 +5,7 @@ Below is the changelog for "CoCart" documentation that matches with the version 
 ## Doc Version 1.8 - Plugin Release v2.1 ##
 
 * **NEW**: Added support for guest carts with a new endpoint to retrieve those carts.
-* **NEW**: Added ability to transfer a cart from your headless store to the web.
+* **NEW**: Added ability to load a cart from session.
 * **NEW**: Can now add items to cart using a products SKU ID.
 * **NEW**: When an item is updated, removed or restored... the cart totals are re-calculated.
 * Dev: Added filter `cocart_add_to_cart_validation` to allow plugin developers to pass their own validation before item is added to the cart.
