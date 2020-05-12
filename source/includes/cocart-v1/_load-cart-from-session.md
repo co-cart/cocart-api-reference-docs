@@ -8,7 +8,7 @@ Load cart from session allows the cart of your choosing to be set before anythin
 
 For example if you have a returning customer that started as a guest and then logs in to their account. WooCommerce will then merge the carts together should the customer already have a saved cart.
 
-It can also be used to transfer the cart over to the web version of your store. This allows the customer to continue shopping or checkout what they have added via your app if you don't yet have a checkout system in your app.
+It can also be used to transfer the cart over to the web version of your store. This allows the customer to continue shopping or checkout what they already have in the cart added via your app. Handy if you don't yet have a checkout system in your app.
 
 When a cart is loaded, the original session handler in the core of WooCommerce will be used to handle the cart from then on. You can choose to override the cart (if anything is set) via the web or merge the data together.
 
@@ -20,18 +20,18 @@ When a cart is loaded, the original session handler in the core of WooCommerce w
 	FYI: It does not matter if your customer is logged in or not already via the web version of your store. Only the cart data will be set. Customer details are <strong>not transferred</strong>.
 </aside>
 
-## Parameters ##
+## Properties ##
 
-| Parameter           | Type   | Description                                                                                                                     |
+| Property           | Type   | Description                                                                                                                     |
 | ------------------ | ------ | ------------------------------------------------------------------------------------------------------------------------------- |
-| `cocart-load-cart` | string | Set the cart key of the cart you wish to load to the web. <i class="label label-info">mandatory</i>                             |
+| `cocart-load-cart` | string | Set the cart key of the cart you wish to load. <i class="label label-info">mandatory</i>                                        |
 | `notify`           | bool   | Set as true to notify customers once arrived on the web version of your store. <i class="label label-info">Default is false</i> |
 | `keep-cart`        | bool   | Set as false to merge cart data. <i class="label label-info">Default is true</i>                                                |
-| `redirect`         | bool   | Set as true to redirect to cart page. <i class="label label-info">Default is false</i>                                          |
+| `redirect`         | bool   | Set as true to redirect to cart page. <i class="label label-info">Default is false. Web Only!</i>                               |
 
-## Usage ##
+## Load for the Web ##
 
-To load the cart to the web, you must use the parameters above to query your website.
+To load the cart from session for the web, you must use the properties above to query your website.
 
 <div class="api-endpoint">
   <div class="endpoint-data">
