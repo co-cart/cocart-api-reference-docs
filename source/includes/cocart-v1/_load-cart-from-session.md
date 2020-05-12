@@ -1,12 +1,16 @@
-# Load Cart to Web #
+# Load Cart from Session #
 
 <span class="new">New Feature</span>
 
-<img src="images/github.svg" width="20" height="20" alt="GitHub Mark Logo"> [Edit on GitHub](https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v1/_load-cart-to-web.md)
+<img src="images/github.svg" width="20" height="20" alt="GitHub Mark Logo"> [Edit on GitHub](https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v1/_load-cart-from-session.md)
 
-Load cart to web allows you to transfer the cart over to the web version of your store. This allows the customer to continue shopping or checkout what they have added via your app if you don't yet have a checkout system in your app.
+Load cart from session allows the cart of your choosing to be set before anything WooCommerce handles.
 
-When a cart is loaded to the web, the original session handler in the core of WooCommerce will be used to handle the cart from then on. You can choose to override the cart (if anything is set) via the web or merge the data together.
+For example if you have a returning customer that started as a guest and then logs in to their account. WooCommerce will then merge the carts together should the customer already have a saved cart.
+
+It can also be used to transfer the cart over to the web version of your store. This allows the customer to continue shopping or checkout what they have added via your app if you don't yet have a checkout system in your app.
+
+When a cart is loaded, the original session handler in the core of WooCommerce will be used to handle the cart from then on. You can choose to override the cart (if anything is set) via the web or merge the data together.
 
 <aside class="warning">
 	Any changes made to the cart once loaded is not updated to the cart stored by CoCart.

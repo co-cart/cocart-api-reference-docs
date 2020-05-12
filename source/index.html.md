@@ -1,5 +1,5 @@
 ---
-title: CoCart Documentation v1.8
+title: CoCart Documentation v1.9
 
 language_tabs:
  - shell: cURL
@@ -32,7 +32,7 @@ includes:
   - cocart-v1/remove-item-from-cart
   - cocart-v1/restore-item-to-cart
   - cocart-v1/update-item-in-cart
-  - cocart-v1/load-cart-to-web
+  - cocart-v1/load-cart-from-session
   - cocart-v1/logout
   - cocart-v1/extending
   - cocart-v1/filters
