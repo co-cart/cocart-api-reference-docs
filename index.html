@@ -367,10 +367,10 @@
             <a href="#load-cart-from-session" class="toc-h1 toc-link" data-title="Load Cart from Session">Load Cart from Session</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#parameters" class="toc-h2 toc-link" data-title="Parameters">Parameters</a>
+                    <a href="#properties" class="toc-h2 toc-link" data-title="Properties">Properties</a>
                   </li>
                   <li>
-                    <a href="#usage" class="toc-h2 toc-link" data-title="Usage">Usage</a>
+                    <a href="#load-for-the-web" class="toc-h2 toc-link" data-title="Load for the Web">Load for the Web</a>
                   </li>
               </ul>
           </li>
@@ -2991,7 +2991,7 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 
 <p>For example if you have a returning customer that started as a guest and then logs in to their account. WooCommerce will then merge the carts together should the customer already have a saved cart.</p>
 
-<p>It can also be used to transfer the cart over to the web version of your store. This allows the customer to continue shopping or checkout what they have added via your app if you don&#39;t yet have a checkout system in your app.</p>
+<p>It can also be used to transfer the cart over to the web version of your store. This allows the customer to continue shopping or checkout what they already have in the cart added via your app. Handy if you don&#39;t yet have a checkout system in your app.</p>
 
 <p>When a cart is loaded, the original session handler in the core of WooCommerce will be used to handle the cart from then on. You can choose to override the cart (if anything is set) via the web or merge the data together.</p>
 
@@ -3002,10 +3002,10 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <aside class="notice">
     FYI: It does not matter if your customer is logged in or not already via the web version of your store. Only the cart data will be set. Customer details are <strong>not transferred</strong>.
 </aside>
-<h2 id='parameters'>Parameters</h2>
+<h2 id='properties'>Properties</h2>
 <table><thead>
 <tr>
-<th>Parameter</th>
+<th>Property</th>
 <th>Type</th>
 <th>Description</th>
 </tr>
@@ -3013,7 +3013,7 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <tr>
 <td><code>cocart-load-cart</code></td>
 <td>string</td>
-<td>Set the cart key of the cart you wish to load to the web. <i class="label label-info">mandatory</i></td>
+<td>Set the cart key of the cart you wish to load. <i class="label label-info">mandatory</i></td>
 </tr>
 <tr>
 <td><code>notify</code></td>
@@ -3028,11 +3028,11 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <tr>
 <td><code>redirect</code></td>
 <td>bool</td>
-<td>Set as true to redirect to cart page. <i class="label label-info">Default is false</i></td>
+<td>Set as true to redirect to cart page. <i class="label label-info">Default is false. Web Only!</i></td>
 </tr>
 </tbody></table>
-<h2 id='usage'>Usage</h2>
-<p>To load the cart to the web, you must use the parameters above to query your website.</p>
+<h2 id='load-for-the-web'>Load for the Web</h2>
+<p>To load the cart from session for the web, you must use the properties above to query your website.</p>
 
 <div class="api-endpoint">
   <div class="endpoint-data">
