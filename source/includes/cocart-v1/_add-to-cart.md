@@ -8,7 +8,7 @@ This API helps you to add an item to the cart. You can also request to return th
 
 | Property         | Type    | Description                                                                                                 |
 | ---------------- | ------- | ----------------------------------------------------------------------------------------------------------- |
-| `cart_key`       | string  | Unique identifier for the cart. <i class="label label-info">optional</i>                                    |
+| `id`             | string  | Unique identifier for the cart. <i class="label label-info">optional</i>                                    |
 | `product_id`     | integer | The product ID is required in order to add a product to the cart. <i class="label label-info">mandatory</i> |
 | `quantity`       | float   | Set the quantity of the product you want to add to the cart. <i class="label label-info">Default is 1</i>   |
 | `variation_id`   | integer | Used to set the variation of the product being added to the cart. <i class="label label-info">optional</i>  |

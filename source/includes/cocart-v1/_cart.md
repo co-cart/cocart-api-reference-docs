@@ -12,10 +12,10 @@ This API returns the contents of the cart for a guest customer or logged in cust
 
 ### Properties ###
 
-| Attribute  | Type   | Description                                                              |
-| ---------- | ------ | ------------------------------------------------------------------------ |
-| `cart_key` | string | Unique identifier for the cart. <i class="label label-info">optional</i> |
-| `thumb`    | bool   | Set as true to return the product thumbnail for each item.               |
+| Property | Type   | Description                                                              |
+| -------- | ------ | ------------------------------------------------------------------------ |
+| `id`     | string | Unique identifier for the cart. <i class="label label-info">optional</i> |
+| `thumb`  | bool   | Set as true to return the product thumbnail for each item.               |
 
 ### HTTP request ###
 
@@ -316,10 +316,10 @@ This API returns the cart contents for a specific registered customer and is mai
 
 ### Properties ###
 
-| Property  | Type    | Description                                                                   |
-| --------- | ------- | ----------------------------------------------------------------------------- |
-| `id`      | integer | Unique identifier for the customer. <i class="label label-info">mandatory, read-only</i> |
-| `thumb`   | bool    | Set as true to return the product thumbnail for each item.                    |
+| Property | Type    | Description                                                                   |
+| -------- | ------- | ----------------------------------------------------------------------------- |
+| `id`     | integer | Unique identifier for the customer. <i class="label label-info">mandatory, read-only</i> |
+| `thumb`  | bool    | Set as true to return the product thumbnail for each item.                    |
 
 ### HTTP request ###
 

@@ -8,7 +8,7 @@ This API helps you retrieve the cart totals. You can also return the totals pre-
 
 | Property   | Type   | Description                                                                                                |
 | ---------- | ------ | ---------------------------------------------------------------------------------------------------------- |
-| `cart_key` | string | Unique identifier for the cart. <i class="label label-info">optional</i>                                   |
+| `id`       | string | Unique identifier for the cart. <i class="label label-info">optional</i>                                   |
 | `html`     | bool   | Set as true to return the totals as strings with currency symbol. <i class="label label-info">optional</i> |
 
 ### HTTP request ###
