@@ -4,4 +4,4 @@ Welcome to CoCart work in progress documentation. This section of the documentat
 
 You can access the stable release of [CoCart documentation here](index.html).
 
-WIP Version: **2.1-rc.4**
+WIP Version: **2.1.2-rc.1**
