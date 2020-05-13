@@ -418,14 +418,14 @@ add_filter( 'cocart_empty_cart_expiration', function() { return HOUR_IN_SECONDS 
 
 ### Generated Customer ID ###
 
-This filter allows you to change the generated customer ID for the guest customer. Use this filter with caution. Can not be longer than 32 characters for the database.
+This filter allows you to change the generated customer ID for the guest customer. Use this filter with caution. Can not be longer than 42 characters for the database.
 
 ```php
 <?php
 add_filter( 'cocart_customer_id', 'my_custom_generate_customer_id' );
 
 function my_custom_generate_customer_id( $hasher ) {
-  return md5( $hasher->get_random_bytes( 32 ) );
+  return md5( $hasher->get_random_bytes( 42 ) );
 }
 ```
 
