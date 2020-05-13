@@ -431,9 +431,6 @@
             <a href="#changelog" class="toc-h1 toc-link" data-title="Changelog">Changelog</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#doc-version-1-9-plugin-release-v2-1-2" class="toc-h2 toc-link" data-title="Doc Version 1.9 - Plugin Release v2.1.2">Doc Version 1.9 - Plugin Release v2.1.2</a>
-                  </li>
-                  <li>
                     <a href="#doc-version-1-8-plugin-release-v2-1" class="toc-h2 toc-link" data-title="Doc Version 1.8 - Plugin Release v2.1">Doc Version 1.8 - Plugin Release v2.1</a>
                   </li>
               </ul>
@@ -1813,13 +1810,13 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <h3 id='properties'>Properties</h3>
 <table><thead>
 <tr>
-<th>Attribute</th>
+<th>Property</th>
 <th>Type</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td><code>cart_key</code></td>
+<td><code>id</code></td>
 <td>string</td>
 <td>Unique identifier for the cart. <i class="label label-info">optional</i></td>
 </tr>
@@ -2152,6 +2149,20 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <p><img src="images/github.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v1/_clear-cart.md">Edit on GitHub</a></p>
 
 <p>This API helps you clear the contents of the cart.</p>
+<h3 id='properties'>Properties</h3>
+<table><thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>id</code></td>
+<td>string</td>
+<td>Unique identifier for the cart. <i class="label label-info">optional</i></td>
+</tr>
+</tbody></table>
 <h3 id='http-request'>HTTP request</h3>
 <div class="api-endpoint">
   <div class="endpoint-data">
@@ -2204,7 +2215,7 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 </tr>
 </thead><tbody>
 <tr>
-<td><code>cart_key</code></td>
+<td><code>id</code></td>
 <td>string</td>
 <td>Unique identifier for the cart. <i class="label label-info">optional</i></td>
 </tr>
@@ -2261,7 +2272,7 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 </tr>
 </thead><tbody>
 <tr>
-<td><code>cart_key</code></td>
+<td><code>id</code></td>
 <td>string</td>
 <td>Unique identifier for the cart. <i class="label label-info">optional</i></td>
 </tr>
@@ -2323,7 +2334,7 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 </tr>
 </thead><tbody>
 <tr>
-<td><code>cart_key</code></td>
+<td><code>id</code></td>
 <td>string</td>
 <td>Unique identifier for the cart. <i class="label label-info">optional</i></td>
 </tr>
@@ -2483,7 +2494,7 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 </tr>
 </thead><tbody>
 <tr>
-<td><code>cart_key</code></td>
+<td><code>id</code></td>
 <td>string</td>
 <td>Unique identifier for the cart. <i class="label label-info">optional</i></td>
 </tr>
@@ -2739,7 +2750,7 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 </tr>
 </thead><tbody>
 <tr>
-<td><code>cart_key</code></td>
+<td><code>id</code></td>
 <td>string</td>
 <td>Unique identifier for the cart. <i class="label label-info">optional</i></td>
 </tr>
@@ -2821,7 +2832,7 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 </tr>
 </thead><tbody>
 <tr>
-<td><code>cart_key</code></td>
+<td><code>id</code></td>
 <td>string</td>
 <td>Unique identifier for the cart. <i class="label label-info">optional</i></td>
 </tr>
@@ -2902,7 +2913,7 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 </tr>
 </thead><tbody>
 <tr>
-<td><code>cart_key</code></td>
+<td><code>id</code></td>
 <td>string</td>
 <td>Unique identifier for the cart. <i class="label label-info">optional</i></td>
 </tr>
@@ -3568,12 +3579,12 @@ Please make sure you are viewing the PHP language to view examples of the filter
 </code></pre>
 <div style="clear: both;"></div>
 <h3 id='generated-customer-id'>Generated Customer ID</h3>
-<p>This filter allows you to change the generated customer ID for the guest customer. Use this filter with caution. Can not be longer than 32 characters for the database.</p>
+<p>This filter allows you to change the generated customer ID for the guest customer. Use this filter with caution. Can not be longer than 42 characters for the database.</p>
 <pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
 <span class="nx">add_filter</span><span class="p">(</span> <span class="s1">'cocart_customer_id'</span><span class="p">,</span> <span class="s1">'my_custom_generate_customer_id'</span> <span class="p">);</span>
 
 <span class="k">function</span> <span class="nf">my_custom_generate_customer_id</span><span class="p">(</span> <span class="nv">$hasher</span> <span class="p">)</span> <span class="p">{</span>
-  <span class="k">return</span> <span class="nb">md5</span><span class="p">(</span> <span class="nv">$hasher</span><span class="o">-&gt;</span><span class="na">get_random_bytes</span><span class="p">(</span> <span class="mi">32</span> <span class="p">)</span> <span class="p">);</span>
+  <span class="k">return</span> <span class="nb">md5</span><span class="p">(</span> <span class="nv">$hasher</span><span class="o">-&gt;</span><span class="na">get_random_bytes</span><span class="p">(</span> <span class="mi">42</span> <span class="p">)</span> <span class="p">);</span>
 <span class="p">}</span>
 </code></pre>
 <div style="clear: both;"></div>
@@ -3985,11 +3996,6 @@ even reviews without the need to authenticate. Designed more suited for the fron
 </ul>
 <h1 id='changelog'>Changelog</h1>
 <p>Below is the changelog for &quot;CoCart&quot; documentation that matches with the version of the plugin release.</p>
-<h2 id='doc-version-1-9-plugin-release-v2-1-2'>Doc Version 1.9 - Plugin Release v2.1.2</h2>
-<ul>
-<li>Added: <code>cart_key</code> parameter to all API property tables.</li>
-<li>Tweaked: Load Cart from Session.</li>
-</ul>
 <h2 id='doc-version-1-8-plugin-release-v2-1'>Doc Version 1.8 - Plugin Release v2.1</h2>
 <ul>
 <li><strong>NEW</strong>: Added support for guest carts with a new endpoint to retrieve those carts.</li>
