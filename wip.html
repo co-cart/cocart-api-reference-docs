@@ -269,10 +269,7 @@
             <a href="#changelog" class="toc-h1 toc-link" data-title="Changelog">Changelog</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#v2-1-rc-2" class="toc-h2 toc-link" data-title="v2.1 - RC 2">v2.1 - RC 2</a>
-                  </li>
-                  <li>
-                    <a href="#v2-1-rc-1" class="toc-h2 toc-link" data-title="v2.1 - RC 1">v2.1 - RC 1</a>
+                    <a href="#v2-1-2" class="toc-h2 toc-link" data-title="v2.1.2">v2.1.2</a>
                   </li>
               </ul>
           </li>
@@ -490,30 +487,15 @@
 <span class="nv">$body</span> <span class="o">=</span> <span class="nx">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
 </code></pre><h1 id='changelog'>Changelog</h1>
 <p>The changelog below will provide updates on what is being worked on and the outcome of these features been added to future releases. Checkout the <a href="https://cocart.xyz/news/">CoCart blog</a> for updates on new coming releases. Feedback is always appreciated. 😄</p>
-<h2 id='v2-1-rc-2'>v2.1 - RC 2</h2>
+<h2 id='v2-1-2'>v2.1.2</h2>
 <ul>
-<li>NEW: Added the ability to pass cart key via the <code>id</code> parameter for all API requests if cookie support is not an option.</li>
-<li>Dev: Added filter <code>cocart_cookie_supported</code> to allow developers to disable cookie session support if they don&#39;t/can&#39;t support cookies within their app.</li>
-<li>Tweaked: Increased <code>cart_key</code> column for cart database to store 42 characters instead of 32.</li>
+<li>NEW: Carts are now in sync across the web version of your store and your headless store.</li>
+<li>Changed: Parameter used to set cart key. Previously <code>id</code> now <code>cart_key</code>. <code>id</code> used as fallback if still used.</li>
 </ul>
-<h2 id='v2-1-rc-1'>v2.1 - RC 1</h2>
-<ul>
-<li>NEW: Added support for guest carts with a new endpoint to retrieve those carts.</li>
-<li>NEW: Able to transfer a cart from your headless store to the web.</li>
-<li>NEW: Can now add items to cart using a products SKU ID.</li>
-<li>NEW: When an item is updated, removed or restored... the cart totals are re-calculated.</li>
-<li>Dev: Added filter <code>cocart_add_to_cart_validation</code> to allow plugin developers to pass their own validation before item is added to the cart.</li>
-<li>Dev: Added filters to override the product name <code>cocart_product_name</code> and product title <code>cocart_product_title</code> when getting the cart contents.</li>
-<li>Dev: Added filter <code>cocart_item_thumbnail_src</code> to override the source URL of the product thumbnail when getting the cart contents.</li>
-<li>Dev: Added filter <code>cocart_add_to_cart_quantity</code> to override the quantity when adding an item.</li>
-<li>Dev: Added filter <code>cocart_add_cart_item_data</code> so other plugins can pass cart item data when adding an item.</li>
-<li>Dev: Added filters so the returned response messages can be changed.</li>
-<li>Dev: Added conditional filter for returning a cart item.</li>
-<li>Dev: Added hook <code>cocart_user_switched</code> to allow something to happen if a user has switched.</li>
-<li>Dev: Added hook <code>cocart_load_cart</code> to manipulate the merged cart before it set in session.</li>
-<li>Dev: Added hook <code>cocart_load_cart_override</code> to manipulate the overriding cart before it set in session.</li>
-<li>Dev: Added hook <code>cocart_item_added_updated_in_cart</code> for when an item was added again but updated in cart.</li>
-</ul>
+
+<blockquote>
+<p>This update replaces WooCommerce core session handler with CoCart&#39;s. 100% compatible.</p>
+</blockquote>
 
       </div>
       <div class="dark-box">
