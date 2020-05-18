@@ -1,6 +1,6 @@
 # Logout #
 
-<span class="new">New API</span>
+<span class="new">New API in v2.1</span>
 
 <img src="images/github.svg" width="20" height="20" alt="GitHub Mark Logo"> [Edit on GitHub](https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v1/_logout.md)
 
