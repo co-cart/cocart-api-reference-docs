@@ -2,6 +2,10 @@
 
 Below is the changelog for "CoCart" documentation that matches with the version of the plugin release.
 
+## Doc Version 1.9 ##
+
+* **NEW**: Cookie section.
+
 ## Doc Version 1.8 - Plugin Release v2.1 ##
 
 * **NEW**: Added support for guest carts with a new endpoint to retrieve those carts.

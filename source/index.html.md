@@ -22,6 +22,7 @@ includes:
   - cocart-v1/errors
   - cocart-v1/index
   - cocart-v1/authentication
+  - cocart-v1/cookie
   - cocart-v1/cart
   - cocart-v1/clear-cart
   - cocart-v1/count-items
