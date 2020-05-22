@@ -1,5 +1,7 @@
 # Cookie #
 
+<img src="images/github.svg" width="20" height="20" alt="GitHub Mark Logo"> [Edit on GitHub](https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v1/_cookie.md)
+
 CoCart only creates and uses one cookie per session/customer/device. The cookie name starts with `wp_cocart_session_` followed by the WordPress **COOKIEHASH**. The cookie name can be changed using [this filter](#change-cart-session-cookie-name).
 
 If left [enabled](#cookie-supported), this cookie will be used to identity the customers cart if they are not logged in. The cookie is read on the server and returns the cart stored in the cookie.
