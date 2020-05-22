@@ -1810,6 +1810,8 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 
 <span class="k">echo</span> <span class="nv">$response</span><span class="p">;</span>
 </code></pre><h1 id='cookie'>Cookie</h1>
+<p><img src="images/github.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v1/_cookie.md">Edit on GitHub</a></p>
+
 <p>CoCart only creates and uses one cookie per session/customer/device. The cookie name starts with <code>wp_cocart_session_</code> followed by the WordPress <strong>COOKIEHASH</strong>. The cookie name can be changed using <a href="#change-cart-session-cookie-name">this filter</a>.</p>
 
 <p>If left <a href="#cookie-supported">enabled</a>, this cookie will be used to identity the customers cart if they are not logged in. The cookie is read on the server and returns the cart stored in the cookie.</p>
