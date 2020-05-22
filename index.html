@@ -312,6 +312,9 @@
               </ul>
           </li>
           <li>
+            <a href="#cookie" class="toc-h1 toc-link" data-title="Cookie">Cookie</a>
+          </li>
+          <li>
             <a href="#cart" class="toc-h1 toc-link" data-title="Cart">Cart</a>
               <ul class="toc-list-h2">
                   <li>
@@ -430,6 +433,9 @@
           <li>
             <a href="#changelog" class="toc-h1 toc-link" data-title="Changelog">Changelog</a>
               <ul class="toc-list-h2">
+                  <li>
+                    <a href="#doc-version-1-9" class="toc-h2 toc-link" data-title="Doc Version 1.9">Doc Version 1.9</a>
+                  </li>
                   <li>
                     <a href="#doc-version-1-8-plugin-release-v2-1" class="toc-h2 toc-link" data-title="Doc Version 1.8 - Plugin Release v2.1">Doc Version 1.8 - Plugin Release v2.1</a>
                   </li>
@@ -1803,7 +1809,27 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <span class="nb">curl_close</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
 
 <span class="k">echo</span> <span class="nv">$response</span><span class="p">;</span>
-</code></pre><h1 id='cart'>Cart</h1>
+</code></pre><h1 id='cookie'>Cookie</h1>
+<p>CoCart only creates and uses one cookie per session/customer/device. The cookie name starts with <code>wp_cocart_session_</code> followed by the WordPress <strong>COOKIEHASH</strong>. The cookie name can be changed using <a href="#change-cart-session-cookie-name">this filter</a>.</p>
+
+<p>If left <a href="#cookie-supported">enabled</a>, this cookie will be used to identity the customers cart if they are not logged in. The cookie is read on the server and returns the cart stored in the cookie.</p>
+
+<p>The cookie stores <strong>4</strong> key values.</p>
+
+<ul>
+<li>Cart Key/Customer ID</li>
+<li>Cart expiring timestamp.</li>
+<li>Cart expiration timestamp.</li>
+<li>Cart hash (Customer ID and Cart Expiration Timestamp encrypted).</li>
+</ul>
+
+<p>If the framework your using is not able to read the cookie, then there are a few things you can do.</p>
+
+<ol>
+<li>Look for a cookie support add-on for your framework. React for example has one called <a href="https://www.npmjs.com/package/react-cookies">react-cookies</a>.</li>
+<li>Read the cookie value yourself and explode it by <code>||</code> and get the first key value. Once you have that value you can use it to set the <code>cart_key</code> parameter on all API requests. This will use the <a href="#set-cart-id-method">Set Cart ID Method</a>.</li>
+</ol>
+<h1 id='cart'>Cart</h1>
 <p><img src="images/github.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v1/_cart.md">Edit on GitHub</a></p>
 
 <p>The cart API is powerful and allows you to view the cart in session, add new items, update the quantity of an item and delete individual items from the cart.</p>
@@ -4000,6 +4026,10 @@ even reviews without the need to authenticate. Designed more suited for the fron
 </ul>
 <h1 id='changelog'>Changelog</h1>
 <p>Below is the changelog for &quot;CoCart&quot; documentation that matches with the version of the plugin release.</p>
+<h2 id='doc-version-1-9'>Doc Version 1.9</h2>
+<ul>
+<li><strong>NEW</strong>: Cookie section.</li>
+</ul>
 <h2 id='doc-version-1-8-plugin-release-v2-1'>Doc Version 1.8 - Plugin Release v2.1</h2>
 <ul>
 <li><strong>NEW</strong>: Added support for guest carts with a new endpoint to retrieve those carts.</li>
