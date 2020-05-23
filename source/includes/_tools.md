@@ -12,6 +12,8 @@ Some useful tools you can use to access the API include:
 * [Advanced REST client](https://chrome.google.com/webstore/detail/advanced-rest-client/hgmloofddffdnphfgcellkdfbfbjeloo) - Free Google Chrome extension.
 * [Hookbin](https://hookbin.com/) - Another tool to test web hooks.
 
+If you use **Postman** you can use [these collections](https://github.com/co-cart/cocart-postman-collections) made ready for you.
+
 # Learn more #
 
 Learn more about the REST API by checking the <a href="https://developer.wordpress.org/rest-api/" target="_blank">official WordPress REST API documentation</a>.
