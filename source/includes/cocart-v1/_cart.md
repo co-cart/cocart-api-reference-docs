@@ -185,6 +185,8 @@ $body = wp_remote_retrieve_body( $response );
 
 ## Guest Customers ##
 
+<span class="new">Supported in v2.1</span>
+
 For guest customers there are two methods available for developers to use. The first method uses a cookie and handles everything for you. The second method allows you to set the cart ID yourself.
 
 ### Cookie Method ###
