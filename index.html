@@ -327,9 +327,6 @@
                     <a href="#retrieve-a-cart" class="toc-h2 toc-link" data-title="Retrieve a Cart">Retrieve a Cart</a>
                   </li>
                   <li>
-                    <a href="#retrieve-via-persistent-cart" class="toc-h2 toc-link" data-title="Retrieve via Persistent Cart">Retrieve via Persistent Cart</a>
-                  </li>
-                  <li>
                     <a href="#clear-cart" class="toc-h2 toc-link" data-title="Clear Cart">Clear Cart</a>
                   </li>
                   <li>
@@ -1999,6 +1996,8 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><h2 id='guest-customers'>Guest Customers</h2>
+<p><span class="new">Supported in v2.1</span></p>
+
 <p>For guest customers there are two methods available for developers to use. The first method uses a cookie and handles everything for you. The second method allows you to set the cart ID yourself.</p>
 <h3 id='cookie-method'>Cookie Method</h3>
 <p>Once a new customer has added the first item, a cookie is generated that stores the cart key and cart expiration. This cookie is used in order to load the cart again for that individual customer. No parameters are required to pass as it is all done in the background.</p>
@@ -2094,90 +2093,7 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
     </span><span class="s2">"product_price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"£18"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h2 id='retrieve-via-persistent-cart'>Retrieve via Persistent Cart</h2>
-<aside class="warning">
-  Route of this endpoint has changed to support getting carts in session better. Was previously <strong><em>/get-cart/1</em></strong>, now changed to <strong><em>/get-cart/customer/1</em></strong>.
-</aside>
-
-<p>This API returns the cart contents for a specific registered customer and is mainly for testing purposes. Only <strong>administrator users</strong> have the ability to access this API.</p>
-
-<aside class="notice">
-  Please note that to return a registered customer, you must have <strong>persistent cart</strong> left enabled in you WooCommerce store for this to work and will only return cart data if one exists for that customer.
-</aside>
-<h3 id='properties-2'>Properties</h3>
-<table><thead>
-<tr>
-<th>Property</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code>id</code></td>
-<td>integer</td>
-<td>Unique identifier for the customer. <i class="label label-info">mandatory, read-only</i></td>
-</tr>
-<tr>
-<td><code>thumb</code></td>
-<td>bool</td>
-<td>Set as true to return the product thumbnail for each item.</td>
-</tr>
-</tbody></table>
-<h3 id='http-request-3'>HTTP request</h3>
-<div class="api-endpoint">
-  <div class="endpoint-data">
-    <i class="label label-get">GET</i>
-    <h6>/wp-json/cocart/v1/get-cart/customer/&lt;id&gt;</h6>
-  </div>
-</div>
-<pre class="highlight shell tab-shell"><code>curl -X GET https://example.com/wp-json/cocart/v1/get-cart/customer/123 <span class="se">\</span>
-  -u username:password <span class="se">\</span>
-  -H <span class="s2">"Content-Type: application/json"</span>
-</code></pre><pre class="highlight javascript tab-javascript--jquery"><code><span class="kd">var</span> <span class="nx">settings</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="s2">"url"</span><span class="p">:</span> <span class="s2">"https://example.com/wp-json/cocart/v1/get-cart/customer/123"</span><span class="p">,</span>
-  <span class="s2">"method"</span><span class="p">:</span> <span class="s2">"GET"</span><span class="p">,</span>
-  <span class="s2">"headers"</span><span class="p">:</span> <span class="p">{</span>
-    <span class="s1">'Authorization'</span><span class="p">,</span> <span class="s1">'Basic '</span> <span class="o">+</span> <span class="nx">btoa</span><span class="p">(</span> <span class="nx">username</span> <span class="o">+</span> <span class="s1">':'</span> <span class="o">+</span> <span class="nx">password</span> <span class="p">)</span> <span class="p">)</span>
-  <span class="p">}</span>
-<span class="p">};</span>
-
-<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">(</span><span class="nx">settings</span><span class="p">).</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span>
-<span class="p">});</span>
-</code></pre><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
-<span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
-
-<span class="nv">$args</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
-  <span class="s1">'thumb'</span> <span class="o">=&gt;</span> <span class="kc">true</span>
-<span class="p">);</span>
-
-<span class="nb">curl_setopt_array</span><span class="p">(</span> <span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
-  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/get-cart/customer/123"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"GET"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="p">[</span>
-    <span class="s1">'Authorization: Basic '</span> <span class="o">.</span> <span class="nb">base64_encode</span><span class="p">(</span><span class="nv">$username</span> <span class="o">.</span> <span class="s1">':'</span> <span class="o">.</span> <span class="nv">$password</span><span class="p">)</span>
-  <span class="p">],</span>
-  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span>
-<span class="p">)</span> <span class="p">);</span>
-
-<span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
-
-<span class="nb">curl_close</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
-
-<span class="k">echo</span> <span class="nv">$response</span><span class="p">;</span>
-</code></pre><pre class="highlight php tab-php--wp-http-api"><code><span class="cp">&lt;?php</span>
-<span class="nv">$args</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
-  <span class="s1">'headers'</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
-    <span class="s1">'Authorization'</span> <span class="o">=&gt;</span> <span class="s1">'Basic '</span> <span class="o">.</span> <span class="nb">base64_encode</span><span class="p">(</span> <span class="nx">username</span> <span class="o">.</span> <span class="s1">':'</span> <span class="o">.</span> <span class="nx">password</span> <span class="p">)</span>
-  <span class="p">)</span>
-<span class="p">);</span>
-<span class="nv">$response</span> <span class="o">=</span> <span class="nx">wp_remote_get</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/get-cart/customer/123'</span><span class="p">,</span> <span class="nv">$args</span> <span class="p">);</span>
-<span class="nv">$body</span> <span class="o">=</span> <span class="nx">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
-</code></pre>
-<blockquote>
-<p>The JSON response returns the same as the examples above.</p>
-</blockquote>
-<h2 id='clear-cart'>Clear Cart</h2>
+</span></code></pre><h2 id='clear-cart'>Clear Cart</h2>
 <p><img src="images/github.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v1/_clear-cart.md">Edit on GitHub</a></p>
 
 <p>This API helps you clear the contents of the cart.</p>
@@ -4032,7 +3948,10 @@ even reviews without the need to authenticate. Designed more suited for the fron
 <p>Below is the changelog for &quot;CoCart&quot; documentation that matches with the version of the plugin release.</p>
 <h2 id='doc-version-1-9'>Doc Version 1.9</h2>
 <ul>
-<li><strong>NEW</strong>: Cookie section.</li>
+<li><strong>NEW</strong>: Added Cookie section.</li>
+<li><strong>NEW</strong>: Added link to Postman collections.</li>
+<li>Tweaked: Certain features or API&#39;s are tagged to identify that they are only available in v2.1</li>
+<li>Removed: Persistent Cart documentation.</li>
 </ul>
 <h2 id='doc-version-1-8-plugin-release-v2-1'>Doc Version 1.8 - Plugin Release v2.1</h2>
 <ul>
