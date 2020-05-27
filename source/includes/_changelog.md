@@ -4,7 +4,10 @@ Below is the changelog for "CoCart" documentation that matches with the version 
 
 ## Doc Version 1.9 ##
 
-* **NEW**: Cookie section.
+* **NEW**: Added Cookie section.
+* **NEW**: Added link to Postman collections.
+* Tweaked: Certain features or API's are tagged to identify that they are only available in v2.1
+* Removed: Persistent Cart documentation.
 
 ## Doc Version 1.8 - Plugin Release v2.1 ##
 
