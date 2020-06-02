@@ -67,9 +67,14 @@ echo $response;
 
 ```php--wp-http-api
 <?php
-$args = array(
-  'cart_item_key' => '404dcc91b2aeaa7caa47487d1483e48a'
+  'headers' => array(
+    'Content-Type' => 'application/json; charset=utf-8',
+  ),
+  'body' => wp_json_encode( [
+    'cart_item_key' => '404dcc91b2aeaa7caa47487d1483e48a'
+  ] )
 );
+
 $response = wp_remote_get( 'https://example.com/wp-json/cocart/v1/item', $args );
 $body = wp_remote_retrieve_body( $response );
 ```

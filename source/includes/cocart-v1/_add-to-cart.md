@@ -14,7 +14,7 @@ This API helps you to add an item to the cart. You can also request to return th
 | `variation_id`   | integer | Used to set the variation of the product being added to the cart. <i class="label label-info">optional</i>  |
 | `variation`      | array   | Attribute values.                                                                                           |
 | `cart_item_data` | array   | Used to apply extra cart item data we want to pass with the item. <i class="label label-info">optional</i>  |
-| `return_cart`    | bool    | Set as true to return the whole cart once item added. <i class="label label-info">optional</i>              |
+| `return_cart`    | bool    | Set as true to return the cart once item added. <i class="label label-info">optional</i>              |
 
 ### HTTP request ###
 
@@ -75,9 +75,16 @@ echo $response;
 ```php--wp-http-api
 <?php
 $args = array(
-  'product_id' => 1722,
-  'quantity' => 1
+  'headers' => array(
+    'Content-Type' => 'application/json; charset=utf-8',
+  ),
+  'body' => wp_json_encode( [
+    'product_id' => 1722,
+    'quantity' => 1
+  ] ),
+  'timeout' => 90
 );
+
 $response = wp_remote_post( 'https://example.com/wp-json/cocart/v1/add-item', $args );
 $body = wp_remote_retrieve_body( $response );
 ```
@@ -181,13 +188,20 @@ echo $response;
 ```php--wp-http-api
 <?php
 $args = array(
-  'product_id' => 1722,
-  'quantity' => 1,
-  'variation_id' => 1820,
-  'variation' => {
-    'attribute_pa_color': 'red'
-  }
+  'headers' => array(
+    'Content-Type' => 'application/json; charset=utf-8',
+  ),
+  'body' => wp_json_encode( [
+    'product_id' => 1722,
+    'quantity' => 1
+    'variation_id' => 1820,
+    'variation' => {
+      'attribute_pa_color': 'red'
+    }
+  ] ),
+  'timeout' => 90
 );
+
 $response = wp_remote_post( 'https://example.com/wp-json/cocart/v1/add-item', $args );
 $body = wp_remote_retrieve_body( $response );
 ```
@@ -258,12 +272,18 @@ echo $response;
 ```php--wp-http-api
 <?php
 $args = array(
-  'product_id' => 1722,
-  'quantity' => 1,
-  'cart_item_data' => array(
-    'engraved_name' => 'Sébastien Dumont',
-    'engraved_size' => 'Medium'
-  )
+  'headers' => array(
+    'Content-Type' => 'application/json; charset=utf-8',
+  ),
+  'body' => wp_json_encode( [
+    'product_id' => 1722,
+    'quantity' => 1
+    'cart_item_data' => array(
+      'engraved_name' => 'Sébastien Dumont',
+      'engraved_size' => 'Medium'
+    )
+  ] ),
+  'timeout' => 90
 );
 $response = wp_remote_post( 'https://example.com/wp-json/cocart/v1/add-item', $args );
 $body = wp_remote_retrieve_body( $response );

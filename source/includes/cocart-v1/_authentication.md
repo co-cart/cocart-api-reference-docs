@@ -99,10 +99,17 @@ echo $response;
 ```php--wp-http-api
 <?php
 $args = array(
-  'body' => array( 'username' => 'bob', 'password' => '1234xyz' ),
-  'product_id' => 1722,
-  'quantity' => 1
+  'headers' => array(
+    'Authorization' => 'Basic ' . base64_encode( 'bob:1234xyz'),
+    'Content-Type' => 'application/json; charset=utf-8',
+  ),
+  'body' => wp_json_encode( [
+    'product_id' => 1722,
+    'quantity' => 1
+  ] ),
+  'timeout' => 90
 );
+
 $response = wp_remote_post( 'https://example.com/wp-json/cocart/v1/add-item', $args );
 $body = wp_remote_retrieve_body( $response );
 ```

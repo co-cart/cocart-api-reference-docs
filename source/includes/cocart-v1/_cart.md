@@ -145,8 +145,14 @@ echo $response;
 ```php--wp-http-api
 <?php
 $args = array(
-  'thumb' => true
+  'headers' => array(
+    'Content-Type' => 'application/json; charset=utf-8',
+  ),
+  'body' => wp_json_encode( [
+    'thumb' => true
+  ] )
 );
+
 $response = wp_remote_get( 'https://example.com/wp-json/cocart/v1/get-cart', $args );
 $body = wp_remote_retrieve_body( $response );
 ```
