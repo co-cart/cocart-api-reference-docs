@@ -1710,10 +1710,17 @@
 <span class="k">echo</span> <span class="nv">$response</span><span class="p">;</span>
 </code></pre><pre class="highlight php tab-php--wp-http-api"><code><span class="cp">&lt;?php</span>
 <span class="nv">$args</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
-  <span class="s1">'body'</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span> <span class="s1">'username'</span> <span class="o">=&gt;</span> <span class="s1">'bob'</span><span class="p">,</span> <span class="s1">'password'</span> <span class="o">=&gt;</span> <span class="s1">'1234xyz'</span> <span class="p">),</span>
-  <span class="s1">'product_id'</span> <span class="o">=&gt;</span> <span class="mi">1722</span><span class="p">,</span>
-  <span class="s1">'quantity'</span> <span class="o">=&gt;</span> <span class="mi">1</span>
+  <span class="s1">'headers'</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">'Authorization'</span> <span class="o">=&gt;</span> <span class="s1">'Basic '</span> <span class="o">.</span> <span class="nb">base64_encode</span><span class="p">(</span> <span class="s1">'bob:1234xyz'</span><span class="p">),</span>
+    <span class="s1">'Content-Type'</span> <span class="o">=&gt;</span> <span class="s1">'application/json; charset=utf-8'</span><span class="p">,</span>
+  <span class="p">),</span>
+  <span class="s1">'body'</span> <span class="o">=&gt;</span> <span class="nx">wp_json_encode</span><span class="p">(</span> <span class="p">[</span>
+    <span class="s1">'product_id'</span> <span class="o">=&gt;</span> <span class="mi">1722</span><span class="p">,</span>
+    <span class="s1">'quantity'</span> <span class="o">=&gt;</span> <span class="mi">1</span>
+  <span class="p">]</span> <span class="p">),</span>
+  <span class="s1">'timeout'</span> <span class="o">=&gt;</span> <span class="mi">90</span>
 <span class="p">);</span>
+
 <span class="nv">$response</span> <span class="o">=</span> <span class="nx">wp_remote_post</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/add-item'</span><span class="p">,</span> <span class="nv">$args</span> <span class="p">);</span>
 <span class="nv">$body</span> <span class="o">=</span> <span class="nx">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
 </code></pre>
@@ -1960,8 +1967,14 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <span class="k">echo</span> <span class="nv">$response</span><span class="p">;</span>
 </code></pre><pre class="highlight php tab-php--wp-http-api"><code><span class="cp">&lt;?php</span>
 <span class="nv">$args</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
-  <span class="s1">'thumb'</span> <span class="o">=&gt;</span> <span class="kc">true</span>
+  <span class="s1">'headers'</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">'Content-Type'</span> <span class="o">=&gt;</span> <span class="s1">'application/json; charset=utf-8'</span><span class="p">,</span>
+  <span class="p">),</span>
+  <span class="s1">'body'</span> <span class="o">=&gt;</span> <span class="nx">wp_json_encode</span><span class="p">(</span> <span class="p">[</span>
+    <span class="s1">'thumb'</span> <span class="o">=&gt;</span> <span class="kc">true</span>
+  <span class="p">]</span> <span class="p">)</span>
 <span class="p">);</span>
+
 <span class="nv">$response</span> <span class="o">=</span> <span class="nx">wp_remote_get</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/get-cart'</span><span class="p">,</span> <span class="nv">$args</span> <span class="p">);</span>
 <span class="nv">$body</span> <span class="o">=</span> <span class="nx">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
 </code></pre>
@@ -2474,7 +2487,7 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <tr>
 <td><code>return_cart</code></td>
 <td>bool</td>
-<td>Set as true to return the whole cart once item added. <i class="label label-info">optional</i></td>
+<td>Set as true to return the cart once item added. <i class="label label-info">optional</i></td>
 </tr>
 </tbody></table>
 <h3 id='http-request'>HTTP request</h3>
@@ -2524,9 +2537,16 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <span class="k">echo</span> <span class="nv">$response</span><span class="p">;</span>
 </code></pre><pre class="highlight php tab-php--wp-http-api"><code><span class="cp">&lt;?php</span>
 <span class="nv">$args</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
-  <span class="s1">'product_id'</span> <span class="o">=&gt;</span> <span class="mi">1722</span><span class="p">,</span>
-  <span class="s1">'quantity'</span> <span class="o">=&gt;</span> <span class="mi">1</span>
+  <span class="s1">'headers'</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">'Content-Type'</span> <span class="o">=&gt;</span> <span class="s1">'application/json; charset=utf-8'</span><span class="p">,</span>
+  <span class="p">),</span>
+  <span class="s1">'body'</span> <span class="o">=&gt;</span> <span class="nx">wp_json_encode</span><span class="p">(</span> <span class="p">[</span>
+    <span class="s1">'product_id'</span> <span class="o">=&gt;</span> <span class="mi">1722</span><span class="p">,</span>
+    <span class="s1">'quantity'</span> <span class="o">=&gt;</span> <span class="mi">1</span>
+  <span class="p">]</span> <span class="p">),</span>
+  <span class="s1">'timeout'</span> <span class="o">=&gt;</span> <span class="mi">90</span>
 <span class="p">);</span>
+
 <span class="nv">$response</span> <span class="o">=</span> <span class="nx">wp_remote_post</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/add-item'</span><span class="p">,</span> <span class="nv">$args</span> <span class="p">);</span>
 <span class="nv">$body</span> <span class="o">=</span> <span class="nx">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
 </code></pre>
@@ -2613,13 +2633,20 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <span class="k">echo</span> <span class="nv">$response</span><span class="p">;</span>
 </code></pre><pre class="highlight php tab-php--wp-http-api"><code><span class="cp">&lt;?php</span>
 <span class="nv">$args</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
-  <span class="s1">'product_id'</span> <span class="o">=&gt;</span> <span class="mi">1722</span><span class="p">,</span>
-  <span class="s1">'quantity'</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span>
-  <span class="s1">'variation_id'</span> <span class="o">=&gt;</span> <span class="mi">1820</span><span class="p">,</span>
-  <span class="s1">'variation'</span> <span class="o">=&gt;</span> <span class="p">{</span>
-    <span class="s1">'attribute_pa_color'</span><span class="o">:</span> <span class="s1">'red'</span>
-  <span class="p">}</span>
+  <span class="s1">'headers'</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">'Content-Type'</span> <span class="o">=&gt;</span> <span class="s1">'application/json; charset=utf-8'</span><span class="p">,</span>
+  <span class="p">),</span>
+  <span class="s1">'body'</span> <span class="o">=&gt;</span> <span class="nx">wp_json_encode</span><span class="p">(</span> <span class="p">[</span>
+    <span class="s1">'product_id'</span> <span class="o">=&gt;</span> <span class="mi">1722</span><span class="p">,</span>
+    <span class="s1">'quantity'</span> <span class="o">=&gt;</span> <span class="mi">1</span>
+    <span class="s1">'variation_id'</span> <span class="o">=&gt;</span> <span class="mi">1820</span><span class="p">,</span>
+    <span class="s1">'variation'</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="s1">'attribute_pa_color'</span><span class="o">:</span> <span class="s1">'red'</span>
+    <span class="p">}</span>
+  <span class="p">]</span> <span class="p">),</span>
+  <span class="s1">'timeout'</span> <span class="o">=&gt;</span> <span class="mi">90</span>
 <span class="p">);</span>
+
 <span class="nv">$response</span> <span class="o">=</span> <span class="nx">wp_remote_post</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/add-item'</span><span class="p">,</span> <span class="nv">$args</span> <span class="p">);</span>
 <span class="nv">$body</span> <span class="o">=</span> <span class="nx">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
 </code></pre><h2 id='add-item-to-cart-with-custom-data'>Add Item to Cart with Custom Data</h2>
@@ -2676,12 +2703,18 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <span class="k">echo</span> <span class="nv">$response</span><span class="p">;</span>
 </code></pre><pre class="highlight php tab-php--wp-http-api"><code><span class="cp">&lt;?php</span>
 <span class="nv">$args</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
-  <span class="s1">'product_id'</span> <span class="o">=&gt;</span> <span class="mi">1722</span><span class="p">,</span>
-  <span class="s1">'quantity'</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span>
-  <span class="s1">'cart_item_data'</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
-    <span class="s1">'engraved_name'</span> <span class="o">=&gt;</span> <span class="s1">'Sébastien Dumont'</span><span class="p">,</span>
-    <span class="s1">'engraved_size'</span> <span class="o">=&gt;</span> <span class="s1">'Medium'</span>
-  <span class="p">)</span>
+  <span class="s1">'headers'</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">'Content-Type'</span> <span class="o">=&gt;</span> <span class="s1">'application/json; charset=utf-8'</span><span class="p">,</span>
+  <span class="p">),</span>
+  <span class="s1">'body'</span> <span class="o">=&gt;</span> <span class="nx">wp_json_encode</span><span class="p">(</span> <span class="p">[</span>
+    <span class="s1">'product_id'</span> <span class="o">=&gt;</span> <span class="mi">1722</span><span class="p">,</span>
+    <span class="s1">'quantity'</span> <span class="o">=&gt;</span> <span class="mi">1</span>
+    <span class="s1">'cart_item_data'</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+      <span class="s1">'engraved_name'</span> <span class="o">=&gt;</span> <span class="s1">'Sébastien Dumont'</span><span class="p">,</span>
+      <span class="s1">'engraved_size'</span> <span class="o">=&gt;</span> <span class="s1">'Medium'</span>
+    <span class="p">)</span>
+  <span class="p">]</span> <span class="p">),</span>
+  <span class="s1">'timeout'</span> <span class="o">=&gt;</span> <span class="mi">90</span>
 <span class="p">);</span>
 <span class="nv">$response</span> <span class="o">=</span> <span class="nx">wp_remote_post</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/add-item'</span><span class="p">,</span> <span class="nv">$args</span> <span class="p">);</span>
 <span class="nv">$body</span> <span class="o">=</span> <span class="nx">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
@@ -2757,9 +2790,16 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <span class="k">echo</span> <span class="nv">$response</span><span class="p">;</span>
 </code></pre><pre class="highlight php tab-php--wp-http-api"><code><span class="cp">&lt;?php</span>
 <span class="nv">$args</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+  <span class="s1">'headers'</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">'Content-Type'</span> <span class="o">=&gt;</span> <span class="s1">'application/json; charset=utf-8'</span><span class="p">,</span>
+  <span class="p">),</span>
+  <span class="s1">'body'</span> <span class="o">=&gt;</span> <span class="nx">wp_json_encode</span><span class="p">(</span> <span class="p">[</span>
+    <span class="s1">'cart_item_key'</span> <span class="o">=&gt;</span> <span class="s1">'404dcc91b2aeaa7caa47487d1483e48a'</span>
+  <span class="p">]</span> <span class="p">),</span>
   <span class="s1">'method'</span> <span class="o">=&gt;</span> <span class="s1">'DELETE'</span><span class="p">,</span>
-  <span class="s1">'cart_item_key'</span> <span class="o">=&gt;</span> <span class="s1">'404dcc91b2aeaa7caa47487d1483e48a'</span>
+  <span class="s1">'timeout'</span> <span class="o">=&gt;</span> <span class="mi">90</span>
 <span class="p">);</span>
+
 <span class="nv">$response</span> <span class="o">=</span> <span class="nx">wp_remote_request</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/item'</span><span class="p">,</span> <span class="nv">$args</span> <span class="p">);</span>
 <span class="nv">$body</span> <span class="o">=</span> <span class="nx">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
 </code></pre>
@@ -2838,9 +2878,14 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 
 <span class="k">echo</span> <span class="nv">$response</span><span class="p">;</span>
 </code></pre><pre class="highlight php tab-php--wp-http-api"><code><span class="cp">&lt;?php</span>
-<span class="nv">$args</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
-  <span class="s1">'cart_item_key'</span> <span class="o">=&gt;</span> <span class="s1">'404dcc91b2aeaa7caa47487d1483e48a'</span>
+  <span class="s1">'headers'</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">'Content-Type'</span> <span class="o">=&gt;</span> <span class="s1">'application/json; charset=utf-8'</span><span class="p">,</span>
+  <span class="p">),</span>
+  <span class="s1">'body'</span> <span class="o">=&gt;</span> <span class="nx">wp_json_encode</span><span class="p">(</span> <span class="p">[</span>
+    <span class="s1">'cart_item_key'</span> <span class="o">=&gt;</span> <span class="s1">'404dcc91b2aeaa7caa47487d1483e48a'</span>
+  <span class="p">]</span> <span class="p">)</span>
 <span class="p">);</span>
+
 <span class="nv">$response</span> <span class="o">=</span> <span class="nx">wp_remote_get</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/item'</span><span class="p">,</span> <span class="nv">$args</span> <span class="p">);</span>
 <span class="nv">$body</span> <span class="o">=</span> <span class="nx">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
 </code></pre>
@@ -2928,9 +2973,16 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <span class="k">echo</span> <span class="nv">$response</span><span class="p">;</span>
 </code></pre><pre class="highlight php tab-php--wp-http-api"><code><span class="cp">&lt;?php</span>
 <span class="nv">$args</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
-  <span class="s1">'cart_item_key'</span> <span class="o">=&gt;</span> <span class="s1">'404dcc91b2aeaa7caa47487d1483e48a'</span><span class="p">,</span>
-  <span class="s1">'quantity'</span> <span class="o">=&gt;</span> <span class="mi">2</span>
+  <span class="s1">'headers'</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">'Content-Type'</span> <span class="o">=&gt;</span> <span class="s1">'application/json; charset=utf-8'</span><span class="p">,</span>
+  <span class="p">),</span>
+  <span class="s1">'body'</span> <span class="o">=&gt;</span> <span class="nx">wp_json_encode</span><span class="p">(</span> <span class="p">[</span>
+    <span class="s1">'cart_item_key'</span> <span class="o">=&gt;</span> <span class="s1">'404dcc91b2aeaa7caa47487d1483e48a'</span><span class="p">,</span>
+    <span class="s1">'quantity'</span> <span class="o">=&gt;</span> <span class="mi">2</span>
+  <span class="p">]</span> <span class="p">),</span>
+  <span class="s1">'timeout'</span> <span class="o">=&gt;</span> <span class="mi">90</span>
 <span class="p">);</span>
+
 <span class="nv">$response</span> <span class="o">=</span> <span class="nx">wp_remote_post</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/item'</span><span class="p">,</span> <span class="nv">$args</span> <span class="p">);</span>
 <span class="nv">$body</span> <span class="o">=</span> <span class="nx">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
 </code></pre>
