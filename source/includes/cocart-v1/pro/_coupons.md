@@ -130,8 +130,15 @@ echo $response;
 ```php--wp-http-api
 <?php
 $args = array(
-  'coupon' => 'summer20'
+  'headers' => array(
+    'Content-Type' => 'application/json; charset=utf-8',
+  ),
+  'body' => wp_json_encode( [
+    'coupon' => 'summer20'
+  ] ),
+  'timeout' => 90
 );
+
 $response = wp_remote_post( 'https://example.com/wp-json/cocart/v1/coupon', $args );
 $body = wp_remote_retrieve_body( $response );
 ```
@@ -206,9 +213,16 @@ echo $response;
 ```php--wp-http-api
 <?php
 $args = array(
+  'headers' => array(
+    'Content-Type' => 'application/json; charset=utf-8',
+  ),
+  'body' => wp_json_encode( [
+    'coupon' => 'summer20'
+  ] ),
   'method' => 'DELETE',
-  'coupon' => 'summer20'
+  'timeout' => 90
 );
+
 $response = wp_remote_request( 'https://example.com/wp-json/cocart/v1/coupon', $args );
 $body = wp_remote_retrieve_body( $response );
 ```

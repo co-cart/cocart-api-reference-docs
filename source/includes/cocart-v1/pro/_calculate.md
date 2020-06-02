@@ -207,7 +207,13 @@ echo $response;
 ```php--wp-http-api
 <?php
 $args = array(
-  'country' => 'GB',
+  'headers' => array(
+    'Content-Type' => 'application/json; charset=utf-8',
+  ),
+  'body' => wp_json_encode( [
+    'country' => 'GB',
+  ] ),
+  'timeout' => 90
 );
 
 $response = wp_remote_post( 'https://example.com/wp-json/cocart/v1/calculate/shipping', $args );

@@ -211,8 +211,15 @@ echo $response;
 ```php--wp-http-api
 <?php
 $args = array(
-  "gateway_id" => "stripe"
+  'headers' => array(
+    'Content-Type' => 'application/json; charset=utf-8',
+  ),
+  'body' => wp_json_encode( [
+    'gateway_id' => 'stripe'
+  ] ),
+  'timeout' => 90
 );
+
 $response = wp_remote_post( 'https://example.com/wp-json/cocart/v1/payment-methods', $args );
 $body = wp_remote_retrieve_body( $response );
 ```

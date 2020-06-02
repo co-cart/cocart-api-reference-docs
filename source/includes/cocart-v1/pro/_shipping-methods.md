@@ -158,8 +158,15 @@ echo $response;
 ```php--wp-http-api
 <?php
 $args = array(
-  "key" => "free_shipping:3"
+  'headers' => array(
+    'Content-Type' => 'application/json; charset=utf-8',
+  ),
+  'body' => wp_json_encode( [
+    "key" => "free_shipping:3"
+  ] ),
+  'timeout' => 90
 );
+
 $response = wp_remote_post( 'https://example.com/wp-json/cocart/v1/shipping-methods', $args );
 $body = wp_remote_retrieve_body( $response );
 ```
