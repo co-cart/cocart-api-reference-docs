@@ -2,6 +2,11 @@
 
 Below is the changelog for "CoCart" documentation that matches with the version of the plugin release.
 
+## Doc Version 2.0 - Plugin Release v2.1.2 ##
+
+* Tweaked: WP API examples.
+* Removed: Warning notice in the introduction section.
+
 ## Doc Version 1.9 ##
 
 * **NEW**: Added Cookie section.

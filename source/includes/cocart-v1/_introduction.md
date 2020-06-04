@@ -2,10 +2,6 @@
 
 <img src="images/github.svg" width="20" height="20" alt="GitHub Mark Logo"> [Edit on GitHub](https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v1/_introduction.md)
 
-<aside class="warning">
-  ⚠️ Stable version reverted to <strong>2.0.13</strong> due to unforeseen issues in version 2.1 so some documentation will be new but everything else still functions the same. If you have any questions or want to clarify something, just contact me via the chat and I will get back to you asap. Thank you.
-</aside>
-
 Welcome to the documentation site for CoCart, the free, open-source WordPress plugin that brings the power of WooCommerce's shopping cart via the REST API.
 
 CoCart is designed in mind for those who want to create a headless WordPress site. Read [what does headless mean?](https://cocart.xyz/what-does-headless-mean/)
