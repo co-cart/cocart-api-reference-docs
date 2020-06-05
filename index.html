@@ -1851,7 +1851,7 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 </tr>
 </thead><tbody>
 <tr>
-<td><code>id</code></td>
+<td><code>cart_key</code></td>
 <td>string</td>
 <td>Unique identifier for the cart. <i class="label label-info">optional</i></td>
 </tr>
@@ -2014,21 +2014,21 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <h3 id='cookie-method'>Cookie Method</h3>
 <p>Once a new customer has added the first item, a cookie is generated that stores the cart key and cart expiration. This cookie is used in order to load the cart again for that individual customer. No parameters are required to pass as it is all done in the background.</p>
 <h3 id='set-cart-id-method'>Set Cart ID Method</h3>
-<p>This method allows you to set the cart key yourself via the <code>id</code> parameter which must be passed with each API request made. This sets the ID in session allowing to fetch the cart before changes are made.</p>
+<p>This method allows you to set the cart key yourself via the <code>cart_key</code> parameter which must be passed with each API request made. This sets the ID in session allowing to fetch the cart before changes are made.</p>
 
 <p>Here are a few examples on how to pass the cart ID with each API request.</p>
 
 <div class="api-endpoint">
   <div class="endpoint-data">
     <i class="label label-get">GET CART</i>
-    <h6>/wp-json/cocart/v1/get-cart/?id=9e18904482b4faf8762361836a83b93d</h6>
+    <h6>/wp-json/cocart/v1/get-cart/?cart_key=9e18904482b4faf8762361836a83b93d</h6>
   </div>
 </div>
 
 <div class="api-endpoint">
   <div class="endpoint-data">
     <i class="label label-post">ADD ITEM</i>
-    <h6>/wp-json/cocart/v1/add-item/?id=9e18904482b4faf8762361836a83b93d&product_id=32</h6>
+    <h6>/wp-json/cocart/v1/add-item/?cart_key=9e18904482b4faf8762361836a83b93d&product_id=32</h6>
   </div>
 </div>
 <h2 id='retrieve-a-cart'>Retrieve a Cart</h2>
@@ -2118,7 +2118,7 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 </tr>
 </thead><tbody>
 <tr>
-<td><code>id</code></td>
+<td><code>cart_key</code></td>
 <td>string</td>
 <td>Unique identifier for the cart. <i class="label label-info">optional</i></td>
 </tr>
@@ -2175,7 +2175,7 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 </tr>
 </thead><tbody>
 <tr>
-<td><code>id</code></td>
+<td><code>cart_key</code></td>
 <td>string</td>
 <td>Unique identifier for the cart. <i class="label label-info">optional</i></td>
 </tr>
@@ -2232,7 +2232,7 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 </tr>
 </thead><tbody>
 <tr>
-<td><code>id</code></td>
+<td><code>cart_key</code></td>
 <td>string</td>
 <td>Unique identifier for the cart. <i class="label label-info">optional</i></td>
 </tr>
@@ -2454,7 +2454,7 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 </tr>
 </thead><tbody>
 <tr>
-<td><code>id</code></td>
+<td><code>cart_key</code></td>
 <td>string</td>
 <td>Unique identifier for the cart. <i class="label label-info">optional</i></td>
 </tr>
@@ -2730,7 +2730,7 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 </tr>
 </thead><tbody>
 <tr>
-<td><code>id</code></td>
+<td><code>cart_key</code></td>
 <td>string</td>
 <td>Unique identifier for the cart. <i class="label label-info">optional</i></td>
 </tr>
@@ -2819,7 +2819,7 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 </tr>
 </thead><tbody>
 <tr>
-<td><code>id</code></td>
+<td><code>cart_key</code></td>
 <td>string</td>
 <td>Unique identifier for the cart. <i class="label label-info">optional</i></td>
 </tr>
@@ -2905,7 +2905,7 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 </tr>
 </thead><tbody>
 <tr>
-<td><code>id</code></td>
+<td><code>cart_key</code></td>
 <td>string</td>
 <td>Unique identifier for the cart. <i class="label label-info">optional</i></td>
 </tr>
