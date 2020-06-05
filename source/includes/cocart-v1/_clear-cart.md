@@ -6,9 +6,9 @@ This API helps you clear the contents of the cart.
 
 ### Properties ###
 
-| Property | Type   | Description                                                              |
-| -------- | ------ | ------------------------------------------------------------------------ |
-| `id`     | string | Unique identifier for the cart. <i class="label label-info">optional</i> |
+| Property   | Type   | Description                                                              |
+| ---------- | ------ | ------------------------------------------------------------------------ |
+| `cart_key` | string | Unique identifier for the cart. <i class="label label-info">optional</i> |
 
 ### HTTP request ###
 
