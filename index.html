@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>CoCart Documentation v2.0</title>
+    <title>CoCart Documentation v2.1</title>
 
     <link rel="icon" href="images/favicon-32x32.png" sizes="32x32" />
     <link rel="icon" href="images/favicon-192x192.png" sizes="192x192" />
@@ -350,7 +350,10 @@
                     <a href="#add-variation-item-to-cart" class="toc-h2 toc-link" data-title="Add Variation Item to Cart">Add Variation Item to Cart</a>
                   </li>
                   <li>
-                    <a href="#add-item-to-cart-with-custom-data" class="toc-h2 toc-link" data-title="Add Item to Cart with Custom Data">Add Item to Cart with Custom Data</a>
+                    <a href="#add-item-to-cart-custom-data" class="toc-h2 toc-link" data-title="Add Item to Cart + Custom Data">Add Item to Cart + Custom Data</a>
+                  </li>
+                  <li>
+                    <a href="#add-item-to-cart-nyp" class="toc-h2 toc-link" data-title="Add Item to Cart + NYP">Add Item to Cart + NYP</a>
                   </li>
                   <li>
                     <a href="#remove-item-from-cart" class="toc-h2 toc-link" data-title="Remove Item from Cart">Remove Item from Cart</a>
@@ -430,6 +433,9 @@
           <li>
             <a href="#changelog" class="toc-h1 toc-link" data-title="Changelog">Changelog</a>
               <ul class="toc-list-h2">
+                  <li>
+                    <a href="#doc-version-2-1-plugin-release-v2-1-3" class="toc-h2 toc-link" data-title="Doc Version 2.1 - Plugin Release v2.1.3">Doc Version 2.1 - Plugin Release v2.1.3</a>
+                  </li>
                   <li>
                     <a href="#doc-version-2-0-plugin-release-v2-1-2" class="toc-h2 toc-link" data-title="Doc Version 2.0 - Plugin Release v2.1.2">Doc Version 2.0 - Plugin Release v2.1.2</a>
                   </li>
@@ -2648,7 +2654,7 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 
 <span class="nv">$response</span> <span class="o">=</span> <span class="nx">wp_remote_post</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/add-item'</span><span class="p">,</span> <span class="nv">$args</span> <span class="p">);</span>
 <span class="nv">$body</span> <span class="o">=</span> <span class="nx">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
-</code></pre><h2 id='add-item-to-cart-with-custom-data'>Add Item to Cart with Custom Data</h2>
+</code></pre><h2 id='add-item-to-cart-custom-data'>Add Item to Cart + Custom Data</h2>
 <p>Need to pass custom data? This example will show you how.</p>
 <pre class="highlight shell tab-shell"><code>curl -X POST https://example.com/wp-json/cocart/v1/add-item <span class="se">\</span>
   -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
@@ -2711,6 +2717,75 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
     <span class="s1">'cart_item_data'</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
       <span class="s1">'engraved_name'</span> <span class="o">=&gt;</span> <span class="s1">'Sébastien Dumont'</span><span class="p">,</span>
       <span class="s1">'engraved_size'</span> <span class="o">=&gt;</span> <span class="s1">'Medium'</span>
+    <span class="p">)</span>
+  <span class="p">]</span> <span class="p">),</span>
+  <span class="s1">'timeout'</span> <span class="o">=&gt;</span> <span class="mi">90</span>
+<span class="p">);</span>
+<span class="nv">$response</span> <span class="o">=</span> <span class="nx">wp_remote_post</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/add-item'</span><span class="p">,</span> <span class="nv">$args</span> <span class="p">);</span>
+<span class="nv">$body</span> <span class="o">=</span> <span class="nx">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
+</code></pre><h2 id='add-item-to-cart-nyp'>Add Item to Cart + NYP</h2>
+<p>If you have setup the popular &quot;<a href="https://woocommerce.com/products/name-your-price/">Name Your Price</a>&quot; WooCommerce extension for particular products. Here is how you can apply the customers requested price for the product when adding to cart.</p>
+
+<aside class="notice">
+  You must be using <strong>Name Your Price v3.1.0</strong> or above.
+</aside>
+<pre class="highlight shell tab-shell"><code>curl -X POST https://example.com/wp-json/cocart/v1/add-item <span class="se">\</span>
+  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  -d <span class="s1">'{
+    "product_id": 129,
+    "quantity": 1,
+    "cart_item_data": {
+      "nyp": 24
+    }
+  }'</span>
+</code></pre><pre class="highlight javascript tab-javascript--jquery"><code><span class="kd">var</span> <span class="nx">settings</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s2">"url"</span><span class="p">:</span> <span class="s2">"https://example.com/wp-json/cocart/v1/add-item"</span><span class="p">,</span>
+  <span class="s2">"method"</span><span class="p">:</span> <span class="s2">"POST"</span><span class="p">,</span>
+  <span class="s2">"data"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">"product_id"</span><span class="p">:</span> <span class="mi">129</span><span class="p">,</span>
+    <span class="s2">"quantity"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">"cart_item_data"</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s2">"nyp"</span><span class="p">:</span> <span class="mi">24</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">(</span><span class="nx">settings</span><span class="p">).</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+<span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
+
+<span class="nv">$args</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+  <span class="s1">'product_id'</span> <span class="o">=&gt;</span> <span class="mi">129</span><span class="p">,</span>
+  <span class="s1">'quantity'</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span>
+  <span class="s1">'cart_item_data'</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">'nyp'</span> <span class="o">=&gt;</span> <span class="mi">24</span>
+  <span class="p">)</span>
+<span class="p">);</span>
+
+<span class="nb">curl_setopt_array</span><span class="p">(</span> <span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/add-item"</span><span class="p">,</span>
+  <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"POST"</span><span class="p">,</span>
+  <span class="nx">CURLOPT_POSTFIELDS</span> <span class="o">=&gt;</span> <span class="nv">$args</span><span class="p">,</span>
+  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span>
+<span class="p">)</span> <span class="p">);</span>
+
+<span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
+
+<span class="nb">curl_close</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
+
+<span class="k">echo</span> <span class="nv">$response</span><span class="p">;</span>
+</code></pre><pre class="highlight php tab-php--wp-http-api"><code><span class="cp">&lt;?php</span>
+<span class="nv">$args</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+  <span class="s1">'headers'</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">'Content-Type'</span> <span class="o">=&gt;</span> <span class="s1">'application/json; charset=utf-8'</span><span class="p">,</span>
+  <span class="p">),</span>
+  <span class="s1">'body'</span> <span class="o">=&gt;</span> <span class="nx">wp_json_encode</span><span class="p">(</span> <span class="p">[</span>
+    <span class="s1">'product_id'</span> <span class="o">=&gt;</span> <span class="mi">129</span><span class="p">,</span>
+    <span class="s1">'quantity'</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s1">'cart_item_data'</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+      <span class="s1">'nyp'</span> <span class="o">=&gt;</span> <span class="mi">24</span>
     <span class="p">)</span>
   <span class="p">]</span> <span class="p">),</span>
   <span class="s1">'timeout'</span> <span class="o">=&gt;</span> <span class="mi">90</span>
@@ -3997,6 +4072,10 @@ even reviews without the need to authenticate. Designed more suited for the fron
 </ul>
 <h1 id='changelog'>Changelog</h1>
 <p>Below is the changelog for &quot;CoCart&quot; documentation that matches with the version of the plugin release.</p>
+<h2 id='doc-version-2-1-plugin-release-v2-1-3'>Doc Version 2.1 - Plugin Release v2.1.3</h2>
+<ul>
+<li><strong>NEW</strong>: Added example for adding product with <a href="https://woocommerce.com/products/name-your-price/">Name Your Price</a> WooCommerce extension.</li>
+</ul>
 <h2 id='doc-version-2-0-plugin-release-v2-1-2'>Doc Version 2.0 - Plugin Release v2.1.2</h2>
 <ul>
 <li>Tweaked: WP API examples.</li>
