@@ -2,6 +2,10 @@
 
 Below is the changelog for "CoCart" documentation that matches with the version of the plugin release.
 
+## Doc Version 2.1 - Plugin Release v2.1.3 ##
+
+* **NEW**: Added example for adding product with [Name Your Price](https://woocommerce.com/products/name-your-price/) WooCommerce extension.
+
 ## Doc Version 2.0 - Plugin Release v2.1.2 ##
 
 * Tweaked: WP API examples.
