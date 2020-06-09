@@ -206,7 +206,7 @@ $response = wp_remote_post( 'https://example.com/wp-json/cocart/v1/add-item', $a
 $body = wp_remote_retrieve_body( $response );
 ```
 
-## Add Item to Cart with Custom Data ##
+## Add Item to Cart + Custom Data ##
 
 Need to pass custom data? This example will show you how.
 
@@ -281,6 +281,90 @@ $args = array(
     'cart_item_data' => array(
       'engraved_name' => 'Sébastien Dumont',
       'engraved_size' => 'Medium'
+    )
+  ] ),
+  'timeout' => 90
+);
+$response = wp_remote_post( 'https://example.com/wp-json/cocart/v1/add-item', $args );
+$body = wp_remote_retrieve_body( $response );
+```
+
+## Add Item to Cart + NYP ##
+
+If you have setup the popular "[Name Your Price](https://woocommerce.com/products/name-your-price/)" WooCommerce extension for particular products. Here is how you can apply the customers requested price for the product when adding to cart.
+
+<aside class="notice">
+  You must be using <strong>Name Your Price v3.1.0</strong> or above.
+</aside>
+
+
+```shell
+curl -X POST https://example.com/wp-json/cocart/v1/add-item \
+  -H "Content-Type: application/json" \
+  -d '{
+    "product_id": 129,
+    "quantity": 1,
+    "cart_item_data": {
+      "nyp": 24
+    }
+  }'
+```
+
+```javascript--jquery
+var settings = {
+  "url": "https://example.com/wp-json/cocart/v1/add-item",
+  "method": "POST",
+  "data": {
+    "product_id": 129,
+    "quantity": 1,
+    "cart_item_data": {
+      "nyp": 24
+    }
+  }
+};
+
+$.ajax(settings).done(function (response) {
+  console.log(response);
+});
+```
+
+```php
+<?php
+$curl = curl_init();
+
+$args = array(
+  'product_id' => 129,
+  'quantity' => 1,
+  'cart_item_data' => array(
+    'nyp' => 24
+  )
+);
+
+curl_setopt_array( $curl, array(
+  CURLOPT_URL => "https://example.com/wp-json/cocart/v1/add-item",
+  CURLOPT_CUSTOMREQUEST => "POST",
+  CURLOPT_POSTFIELDS => $args,
+  CURLOPT_RETURNTRANSFER => true
+) );
+
+$response = curl_exec($curl);
+
+curl_close($curl);
+
+echo $response;
+```
+
+```php--wp-http-api
+<?php
+$args = array(
+  'headers' => array(
+    'Content-Type' => 'application/json; charset=utf-8',
+  ),
+  'body' => wp_json_encode( [
+    'product_id' => 129,
+    'quantity' => 1,
+    'cart_item_data' => array(
+      'nyp' => 24
     )
   ] ),
   'timeout' => 90
