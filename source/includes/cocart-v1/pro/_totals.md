@@ -46,7 +46,13 @@ $curl = curl_init();
 curl_setopt_array( $curl, array(
   CURLOPT_URL => "https://example.com/wp-json/cocart/v1/totals",
   CURLOPT_CUSTOMREQUEST => "GET",
-  CURLOPT_RETURNTRANSFER => true
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_TIMEOUT => 90,
+  CURLOPT_HTTPHEADER => array(
+    'Accept: application/json',
+    'Content-Type: application/json',
+    'User-Agent: CoCart API/v1',
+  )
 ) );
 
 $response = curl_exec($curl);
@@ -134,7 +140,13 @@ $curl = curl_init();
 curl_setopt_array( $curl, array(
   CURLOPT_URL => "https://example.com/wp-json/cocart/v1/totals/discount",
   CURLOPT_CUSTOMREQUEST => "GET",
-  CURLOPT_RETURNTRANSFER => true
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_TIMEOUT => 90,
+  CURLOPT_HTTPHEADER => array(
+    'Accept: application/json',
+    'Content-Type: application/json',
+    'User-Agent: CoCart API/v1',
+  )
 ) );
 
 $response = curl_exec($curl);
@@ -190,7 +202,13 @@ $curl = curl_init();
 curl_setopt_array( $curl, array(
   CURLOPT_URL => "https://example.com/wp-json/cocart/v1/totals/discount/coupon-totals",
   CURLOPT_CUSTOMREQUEST => "GET",
-  CURLOPT_RETURNTRANSFER => true
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_TIMEOUT => 90,
+  CURLOPT_HTTPHEADER => array(
+    'Accept: application/json',
+    'Content-Type: application/json',
+    'User-Agent: CoCart API/v1',
+  )
 ) );
 
 $response = curl_exec($curl);
@@ -248,7 +266,13 @@ $curl = curl_init();
 curl_setopt_array( $curl, array(
   CURLOPT_URL => "https://example.com/wp-json/cocart/v1/totals/discount/coupon-tax",
   CURLOPT_CUSTOMREQUEST => "GET",
-  CURLOPT_RETURNTRANSFER => true
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_TIMEOUT => 90,
+  CURLOPT_HTTPHEADER => array(
+    'Accept: application/json',
+    'Content-Type: application/json',
+    'User-Agent: CoCart API/v1',
+  )
 ) );
 
 $response = curl_exec($curl);
@@ -298,7 +322,13 @@ $curl = curl_init();
 curl_setopt_array( $curl, array(
   CURLOPT_URL => "https://example.com/wp-json/cocart/v1/totals/fee",
   CURLOPT_CUSTOMREQUEST => "GET",
-  CURLOPT_RETURNTRANSFER => true
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_TIMEOUT => 90,
+  CURLOPT_HTTPHEADER => array(
+    'Accept: application/json',
+    'Content-Type: application/json',
+    'User-Agent: CoCart API/v1',
+  )
 ) );
 
 $response = curl_exec($curl);
@@ -354,7 +384,13 @@ $curl = curl_init();
 curl_setopt_array( $curl, array(
   CURLOPT_URL => "https://example.com/wp-json/cocart/v1/totals/fee/tax",
   CURLOPT_CUSTOMREQUEST => "GET",
-  CURLOPT_RETURNTRANSFER => true
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_TIMEOUT => 90,
+  CURLOPT_HTTPHEADER => array(
+    'Accept: application/json',
+    'Content-Type: application/json',
+    'User-Agent: CoCart API/v1',
+  )
 ) );
 
 $response = curl_exec($curl);
@@ -404,7 +440,13 @@ $curl = curl_init();
 curl_setopt_array( $curl, array(
   CURLOPT_URL => "https://example.com/wp-json/cocart/v1/totals/shipping",
   CURLOPT_CUSTOMREQUEST => "GET",
-  CURLOPT_RETURNTRANSFER => true
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_TIMEOUT => 90,
+  CURLOPT_HTTPHEADER => array(
+    'Accept: application/json',
+    'Content-Type: application/json',
+    'User-Agent: CoCart API/v1',
+  )
 ) );
 
 $response = curl_exec($curl);
@@ -454,7 +496,13 @@ $curl = curl_init();
 curl_setopt_array( $curl, array(
   CURLOPT_URL => "https://example.com/wp-json/cocart/v1/totals/shipping/tax",
   CURLOPT_CUSTOMREQUEST => "GET",
-  CURLOPT_RETURNTRANSFER => true
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_TIMEOUT => 90,
+  CURLOPT_HTTPHEADER => array(
+    'Accept: application/json',
+    'Content-Type: application/json',
+    'User-Agent: CoCart API/v1',
+  )
 ) );
 
 $response = curl_exec($curl);
@@ -504,7 +552,13 @@ $curl = curl_init();
 curl_setopt_array( $curl, array(
   CURLOPT_URL => "https://example.com/wp-json/cocart/v1/totals/subtotal",
   CURLOPT_CUSTOMREQUEST => "GET",
-  CURLOPT_RETURNTRANSFER => true
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_TIMEOUT => 90,
+  CURLOPT_HTTPHEADER => array(
+    'Accept: application/json',
+    'Content-Type: application/json',
+    'User-Agent: CoCart API/v1',
+  )
 ) );
 
 $response = curl_exec($curl);
@@ -560,7 +614,13 @@ $curl = curl_init();
 curl_setopt_array( $curl, array(
   CURLOPT_URL => "https://example.com/wp-json/cocart/v1/totals/subtotal/tax",
   CURLOPT_CUSTOMREQUEST => "GET",
-  CURLOPT_RETURNTRANSFER => true
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_TIMEOUT => 90,
+  CURLOPT_HTTPHEADER => array(
+    'Accept: application/json',
+    'Content-Type: application/json',
+    'User-Agent: CoCart API/v1',
+  )
 ) );
 
 $response = curl_exec($curl);
@@ -610,7 +670,13 @@ $curl = curl_init();
 curl_setopt_array( $curl, array(
   CURLOPT_URL => "https://example.com/wp-json/cocart/v1/totals/tax",
   CURLOPT_CUSTOMREQUEST => "GET",
-  CURLOPT_RETURNTRANSFER => true
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_TIMEOUT => 90,
+  CURLOPT_HTTPHEADER => array(
+    'Accept: application/json',
+    'Content-Type: application/json',
+    'User-Agent: CoCart API/v1',
+  )
 ) );
 
 $response = curl_exec($curl);
@@ -660,7 +726,13 @@ $curl = curl_init();
 curl_setopt_array( $curl, array(
   CURLOPT_URL => "https://example.com/wp-json/cocart/v1/totals/total",
   CURLOPT_CUSTOMREQUEST => "GET",
-  CURLOPT_RETURNTRANSFER => true
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_TIMEOUT => 90,
+  CURLOPT_HTTPHEADER => array(
+    'Accept: application/json',
+    'Content-Type: application/json',
+    'User-Agent: CoCart API/v1',
+  )
 ) );
 
 $response = curl_exec($curl);

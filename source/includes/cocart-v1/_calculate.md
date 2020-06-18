@@ -43,7 +43,13 @@ $curl = curl_init();
 curl_setopt_array( $curl, array(
   CURLOPT_URL => "https://example.com/wp-json/cocart/v1/calculate",
   CURLOPT_CUSTOMREQUEST => "POST",
-  CURLOPT_RETURNTRANSFER => true
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_TIMEOUT => 90,
+  CURLOPT_HTTPHEADER => array(
+    'Accept: application/json',
+    'Content-Type: application/json',
+    'User-Agent: CoCart API/v1',
+  )
 ) );
 
 $response = curl_exec($curl);

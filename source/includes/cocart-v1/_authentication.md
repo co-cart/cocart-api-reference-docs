@@ -86,6 +86,7 @@ curl_setopt_array( $curl, array(
   CURLOPT_CUSTOMREQUEST => "POST",
   CURLOPT_POSTFIELDS => $args,
   CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_TIMEOUT => 90,
   CURLOPT_HTTPHEADER => $headers
 ) );
 
@@ -206,6 +207,7 @@ curl_setopt_array( $curl, array(
   CURLOPT_CUSTOMREQUEST => "POST",
   CURLOPT_POSTFIELDS => $args,
   CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_TIMEOUT => 90,
   CURLOPT_HTTPHEADER => $headers
 ) );
 
