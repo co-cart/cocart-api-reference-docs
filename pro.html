@@ -701,7 +701,13 @@
 <span class="nb">curl_setopt_array</span><span class="p">(</span> <span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
   <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/calculate"</span><span class="p">,</span>
   <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"POST"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span>
+  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">90</span><span class="p">,</span>
+  <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">'Accept: application/json'</span><span class="p">,</span>
+    <span class="s1">'Content-Type: application/json'</span><span class="p">,</span>
+    <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
+  <span class="p">)</span>
 <span class="p">)</span> <span class="p">);</span>
 
 <span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
@@ -761,7 +767,13 @@
 <span class="nb">curl_setopt_array</span><span class="p">(</span> <span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
   <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/calculate/fees"</span><span class="p">,</span>
   <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"POST"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span>
+  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">90</span><span class="p">,</span>
+  <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">'Accept: application/json'</span><span class="p">,</span>
+    <span class="s1">'Content-Type: application/json'</span><span class="p">,</span>
+    <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
+  <span class="p">)</span>
 <span class="p">)</span> <span class="p">);</span>
 
 <span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
@@ -847,7 +859,13 @@
   <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/calculate/shipping"</span><span class="p">,</span>
   <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"POST"</span><span class="p">,</span>
   <span class="nx">CURLOPT_POSTFIELDS</span> <span class="o">=&gt;</span> <span class="nv">$args</span><span class="p">,</span>
-  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span>
+  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">90</span><span class="p">,</span>
+  <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">'Accept: application/json'</span><span class="p">,</span>
+    <span class="s1">'Content-Type: application/json'</span><span class="p">,</span>
+    <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
+  <span class="p">)</span>
 <span class="p">)</span> <span class="p">);</span>
 
 <span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
@@ -916,7 +934,13 @@
 <span class="nb">curl_setopt_array</span><span class="p">(</span> <span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
   <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/coupon"</span><span class="p">,</span>
   <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"GET"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span>
+  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">90</span><span class="p">,</span>
+  <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">'Accept: application/json'</span><span class="p">,</span>
+    <span class="s1">'Content-Type: application/json'</span><span class="p">,</span>
+    <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
+  <span class="p">)</span>
 <span class="p">)</span> <span class="p">);</span>
 
 <span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
@@ -970,7 +994,13 @@
   <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/coupon"</span><span class="p">,</span>
   <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"POST"</span><span class="p">,</span>
   <span class="nx">CURLOPT_POSTFIELDS</span> <span class="o">=&gt;</span> <span class="nv">$args</span><span class="p">,</span>
-  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span>
+  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">90</span><span class="p">,</span>
+  <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">'Accept: application/json'</span><span class="p">,</span>
+    <span class="s1">'Content-Type: application/json'</span><span class="p">,</span>
+    <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
+  <span class="p">)</span>
 <span class="p">)</span> <span class="p">);</span>
 
 <span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
@@ -1036,7 +1066,13 @@
   <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/coupon"</span><span class="p">,</span>
   <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"DELETE"</span><span class="p">,</span>
   <span class="nx">CURLOPT_POSTFIELDS</span> <span class="o">=&gt;</span> <span class="nv">$args</span><span class="p">,</span>
-  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span>
+  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">90</span><span class="p">,</span>
+  <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">'Accept: application/json'</span><span class="p">,</span>
+    <span class="s1">'Content-Type: application/json'</span><span class="p">,</span>
+    <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
+  <span class="p">)</span>
 <span class="p">)</span> <span class="p">);</span>
 
 <span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
@@ -1092,7 +1128,13 @@
 <span class="nb">curl_setopt_array</span><span class="p">(</span> <span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
   <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/check-coupons"</span><span class="p">,</span>
   <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"GET"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span>
+  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">90</span><span class="p">,</span>
+  <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">'Accept: application/json'</span><span class="p">,</span>
+    <span class="s1">'Content-Type: application/json'</span><span class="p">,</span>
+    <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
+  <span class="p">)</span>
 <span class="p">)</span> <span class="p">);</span>
 
 <span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
@@ -1149,7 +1191,13 @@
 <span class="nb">curl_setopt_array</span><span class="p">(</span> <span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
   <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/cross-sells"</span><span class="p">,</span>
   <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"GET"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span>
+  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">90</span><span class="p">,</span>
+  <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">'Accept: application/json'</span><span class="p">,</span>
+    <span class="s1">'Content-Type: application/json'</span><span class="p">,</span>
+    <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
+  <span class="p">)</span>
 <span class="p">)</span> <span class="p">);</span>
 
 <span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
@@ -1217,7 +1265,13 @@
 <span class="nb">curl_setopt_array</span><span class="p">(</span> <span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
   <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/customer"</span><span class="p">,</span>
   <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"GET"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span>
+  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">90</span><span class="p">,</span>
+  <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">'Accept: application/json'</span><span class="p">,</span>
+    <span class="s1">'Content-Type: application/json'</span><span class="p">,</span>
+    <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
+  <span class="p">)</span>
 <span class="p">)</span> <span class="p">);</span>
 
 <span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
@@ -1294,7 +1348,13 @@
 <span class="nb">curl_setopt_array</span><span class="p">(</span> <span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
   <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/weight"</span><span class="p">,</span>
   <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"GET"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span>
+  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">90</span><span class="p">,</span>
+  <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">'Accept: application/json'</span><span class="p">,</span>
+    <span class="s1">'Content-Type: application/json'</span><span class="p">,</span>
+    <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
+  <span class="p">)</span>
 <span class="p">)</span> <span class="p">);</span>
 
 <span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
@@ -1339,7 +1399,13 @@
 <span class="nb">curl_setopt_array</span><span class="p">(</span> <span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
   <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/fees"</span><span class="p">,</span>
   <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"GET"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span>
+  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">90</span><span class="p">,</span>
+  <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">'Accept: application/json'</span><span class="p">,</span>
+    <span class="s1">'Content-Type: application/json'</span><span class="p">,</span>
+    <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
+  <span class="p">)</span>
 <span class="p">)</span> <span class="p">);</span>
 
 <span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
@@ -1432,7 +1498,13 @@
   <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/fees"</span><span class="p">,</span>
   <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"POST"</span><span class="p">,</span>
   <span class="nx">CURLOPT_POSTFIELDS</span> <span class="o">=&gt;</span> <span class="nv">$args</span><span class="p">,</span>
-  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span>
+  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">90</span><span class="p">,</span>
+  <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">'Accept: application/json'</span><span class="p">,</span>
+    <span class="s1">'Content-Type: application/json'</span><span class="p">,</span>
+    <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
+  <span class="p">)</span>
 <span class="p">)</span> <span class="p">);</span>
 
 <span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
@@ -1479,7 +1551,13 @@
 <span class="nb">curl_setopt_array</span><span class="p">(</span> <span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
   <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/fees"</span><span class="p">,</span>
   <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"DELETE"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span>
+  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">90</span><span class="p">,</span>
+  <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">'Accept: application/json'</span><span class="p">,</span>
+    <span class="s1">'Content-Type: application/json'</span><span class="p">,</span>
+    <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
+  <span class="p">)</span>
 <span class="p">)</span> <span class="p">);</span>
 
 <span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
@@ -1529,7 +1607,13 @@
 <span class="nb">curl_setopt_array</span><span class="p">(</span> <span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
   <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/payment-methods"</span><span class="p">,</span>
   <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"GET"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span>
+  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">90</span><span class="p">,</span>
+  <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">'Accept: application/json'</span><span class="p">,</span>
+    <span class="s1">'Content-Type: application/json'</span><span class="p">,</span>
+    <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
+  <span class="p">)</span>
 <span class="p">)</span> <span class="p">);</span>
 
 <span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
@@ -1678,7 +1762,13 @@
   <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/payment-methods"</span><span class="p">,</span>
   <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"POST"</span><span class="p">,</span>
   <span class="nx">CURLOPT_POSTFIELDS</span> <span class="o">=&gt;</span> <span class="nv">$args</span><span class="p">,</span>
-  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span>
+  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">90</span><span class="p">,</span>
+  <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">'Accept: application/json'</span><span class="p">,</span>
+    <span class="s1">'Content-Type: application/json'</span><span class="p">,</span>
+    <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
+  <span class="p">)</span>
 <span class="p">)</span> <span class="p">);</span>
 
 <span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
@@ -1731,7 +1821,13 @@
 <span class="nb">curl_setopt_array</span><span class="p">(</span> <span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
   <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/quantities"</span><span class="p">,</span>
   <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"GET"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span>
+  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">90</span><span class="p">,</span>
+  <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">'Accept: application/json'</span><span class="p">,</span>
+    <span class="s1">'Content-Type: application/json'</span><span class="p">,</span>
+    <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
+  <span class="p">)</span>
 <span class="p">)</span> <span class="p">);</span>
 
 <span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
@@ -1778,7 +1874,13 @@
 <span class="nb">curl_setopt_array</span><span class="p">(</span> <span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
   <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/removed-items"</span><span class="p">,</span>
   <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"GET"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span>
+  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">90</span><span class="p">,</span>
+  <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">'Accept: application/json'</span><span class="p">,</span>
+    <span class="s1">'Content-Type: application/json'</span><span class="p">,</span>
+    <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
+  <span class="p">)</span>
 <span class="p">)</span> <span class="p">);</span>
 
 <span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
@@ -1854,7 +1956,13 @@
 <span class="nb">curl_setopt_array</span><span class="p">(</span> <span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
   <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/shipping-methods"</span><span class="p">,</span>
   <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"GET"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span>
+  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">90</span><span class="p">,</span>
+  <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">'Accept: application/json'</span><span class="p">,</span>
+    <span class="s1">'Content-Type: application/json'</span><span class="p">,</span>
+    <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
+  <span class="p">)</span>
 <span class="p">)</span> <span class="p">);</span>
 
 <span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
@@ -1948,7 +2056,13 @@
   <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/shipping-methods"</span><span class="p">,</span>
   <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"POST"</span><span class="p">,</span>
   <span class="nx">CURLOPT_POSTFIELDS</span> <span class="o">=&gt;</span> <span class="nv">$args</span><span class="p">,</span>
-  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span>
+  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">90</span><span class="p">,</span>
+  <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">'Accept: application/json'</span><span class="p">,</span>
+    <span class="s1">'Content-Type: application/json'</span><span class="p">,</span>
+    <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
+  <span class="p">)</span>
 <span class="p">)</span> <span class="p">);</span>
 
 <span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
@@ -2009,7 +2123,13 @@
 <span class="nb">curl_setopt_array</span><span class="p">(</span> <span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
   <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/totals"</span><span class="p">,</span>
   <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"GET"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span>
+  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">90</span><span class="p">,</span>
+  <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">'Accept: application/json'</span><span class="p">,</span>
+    <span class="s1">'Content-Type: application/json'</span><span class="p">,</span>
+    <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
+  <span class="p">)</span>
 <span class="p">)</span> <span class="p">);</span>
 
 <span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
@@ -2080,7 +2200,13 @@
 <span class="nb">curl_setopt_array</span><span class="p">(</span> <span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
   <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/totals/discount"</span><span class="p">,</span>
   <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"GET"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span>
+  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">90</span><span class="p">,</span>
+  <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">'Accept: application/json'</span><span class="p">,</span>
+    <span class="s1">'Content-Type: application/json'</span><span class="p">,</span>
+    <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
+  <span class="p">)</span>
 <span class="p">)</span> <span class="p">);</span>
 
 <span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
@@ -2119,7 +2245,13 @@
 <span class="nb">curl_setopt_array</span><span class="p">(</span> <span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
   <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/totals/discount/coupon-totals"</span><span class="p">,</span>
   <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"GET"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span>
+  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">90</span><span class="p">,</span>
+  <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">'Accept: application/json'</span><span class="p">,</span>
+    <span class="s1">'Content-Type: application/json'</span><span class="p">,</span>
+    <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
+  <span class="p">)</span>
 <span class="p">)</span> <span class="p">);</span>
 
 <span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
@@ -2160,7 +2292,13 @@
 <span class="nb">curl_setopt_array</span><span class="p">(</span> <span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
   <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/totals/discount/coupon-tax"</span><span class="p">,</span>
   <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"GET"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span>
+  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">90</span><span class="p">,</span>
+  <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">'Accept: application/json'</span><span class="p">,</span>
+    <span class="s1">'Content-Type: application/json'</span><span class="p">,</span>
+    <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
+  <span class="p">)</span>
 <span class="p">)</span> <span class="p">);</span>
 
 <span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
@@ -2194,7 +2332,13 @@
 <span class="nb">curl_setopt_array</span><span class="p">(</span> <span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
   <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/totals/fee"</span><span class="p">,</span>
   <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"GET"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span>
+  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">90</span><span class="p">,</span>
+  <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">'Accept: application/json'</span><span class="p">,</span>
+    <span class="s1">'Content-Type: application/json'</span><span class="p">,</span>
+    <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
+  <span class="p">)</span>
 <span class="p">)</span> <span class="p">);</span>
 
 <span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
@@ -2233,7 +2377,13 @@
 <span class="nb">curl_setopt_array</span><span class="p">(</span> <span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
   <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/totals/fee/tax"</span><span class="p">,</span>
   <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"GET"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span>
+  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">90</span><span class="p">,</span>
+  <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">'Accept: application/json'</span><span class="p">,</span>
+    <span class="s1">'Content-Type: application/json'</span><span class="p">,</span>
+    <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
+  <span class="p">)</span>
 <span class="p">)</span> <span class="p">);</span>
 
 <span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
@@ -2267,7 +2417,13 @@
 <span class="nb">curl_setopt_array</span><span class="p">(</span> <span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
   <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/totals/shipping"</span><span class="p">,</span>
   <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"GET"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span>
+  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">90</span><span class="p">,</span>
+  <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">'Accept: application/json'</span><span class="p">,</span>
+    <span class="s1">'Content-Type: application/json'</span><span class="p">,</span>
+    <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
+  <span class="p">)</span>
 <span class="p">)</span> <span class="p">);</span>
 
 <span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
@@ -2301,7 +2457,13 @@
 <span class="nb">curl_setopt_array</span><span class="p">(</span> <span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
   <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/totals/shipping/tax"</span><span class="p">,</span>
   <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"GET"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span>
+  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">90</span><span class="p">,</span>
+  <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">'Accept: application/json'</span><span class="p">,</span>
+    <span class="s1">'Content-Type: application/json'</span><span class="p">,</span>
+    <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
+  <span class="p">)</span>
 <span class="p">)</span> <span class="p">);</span>
 
 <span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
@@ -2335,7 +2497,13 @@
 <span class="nb">curl_setopt_array</span><span class="p">(</span> <span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
   <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/totals/subtotal"</span><span class="p">,</span>
   <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"GET"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span>
+  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">90</span><span class="p">,</span>
+  <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">'Accept: application/json'</span><span class="p">,</span>
+    <span class="s1">'Content-Type: application/json'</span><span class="p">,</span>
+    <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
+  <span class="p">)</span>
 <span class="p">)</span> <span class="p">);</span>
 
 <span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
@@ -2374,7 +2542,13 @@
 <span class="nb">curl_setopt_array</span><span class="p">(</span> <span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
   <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/totals/subtotal/tax"</span><span class="p">,</span>
   <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"GET"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span>
+  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">90</span><span class="p">,</span>
+  <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">'Accept: application/json'</span><span class="p">,</span>
+    <span class="s1">'Content-Type: application/json'</span><span class="p">,</span>
+    <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
+  <span class="p">)</span>
 <span class="p">)</span> <span class="p">);</span>
 
 <span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
@@ -2408,7 +2582,13 @@
 <span class="nb">curl_setopt_array</span><span class="p">(</span> <span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
   <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/totals/tax"</span><span class="p">,</span>
   <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"GET"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span>
+  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">90</span><span class="p">,</span>
+  <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">'Accept: application/json'</span><span class="p">,</span>
+    <span class="s1">'Content-Type: application/json'</span><span class="p">,</span>
+    <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
+  <span class="p">)</span>
 <span class="p">)</span> <span class="p">);</span>
 
 <span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
@@ -2442,7 +2622,13 @@
 <span class="nb">curl_setopt_array</span><span class="p">(</span> <span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
   <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/totals/total"</span><span class="p">,</span>
   <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"GET"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span>
+  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">90</span><span class="p">,</span>
+  <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">'Accept: application/json'</span><span class="p">,</span>
+    <span class="s1">'Content-Type: application/json'</span><span class="p">,</span>
+    <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
+  <span class="p">)</span>
 <span class="p">)</span> <span class="p">);</span>
 
 <span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
