@@ -37,5 +37,5 @@ You can download the plugin or clone the plugin from GitHub.
 Add the downloaded/cloned plugin to your WordPress plugin directory. On a typical WordPress install, this is located at `/wp-content/plugins`.
 
 <aside class="notice">
-    <strong>Install Directory</strong><br/><br/>To minimize risk of unintended behavior, it’s best for your plugin directory to be "cart-rest-api-for-woocommerce" and not something else, like "cart-rest-api-for-woocommerce-master" or "cart-rest-api-for-woocommerce-develop".
+    <strong>Install Directory</strong><br/><br/>To minimize risk of unintended behaviour, it’s best for your plugin directory to be "cart-rest-api-for-woocommerce" and not something else, like "cart-rest-api-for-woocommerce-master" or "cart-rest-api-for-woocommerce-develop".
 </aside>
