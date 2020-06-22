@@ -523,6 +523,10 @@ html, body {
 // This is all the stuff that appears in the right half of the page
 
 .content {
+  &>div.highlight {
+    clear:none;
+  }
+
   pre, blockquote {
     color: #fff;
     margin: 0 0 20px;
