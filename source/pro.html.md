@@ -30,4 +30,6 @@ includes:
   - cocart-v1/pro/changelog
 
 search: true
+
+code_clipboard: true
 ---

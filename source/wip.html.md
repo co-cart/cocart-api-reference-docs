@@ -19,4 +19,6 @@ includes:
   - cocart-v1/wip/changelog
 
 search: false
+
+code_clipboard: true
 ---

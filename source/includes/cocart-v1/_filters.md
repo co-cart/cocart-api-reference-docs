@@ -199,17 +199,29 @@ function my_add_to_cart_validation( $passed_validation, $product_id, $quantity, 
 
 ### Override product name ###
 
-| Parameter    | Type       | Description       |
-| ------------ | ---------- | ----------------- |
-| `$_product`  | WC_Product | The product data. |
-| `$cart_item` | array      | Cart item.        |
-| `$item_key`  | string     | Cart item key.    |
+You can override the product name when cart is returned or just added to the cart.
+
+| Parameter    | Type       | Description               |
+| ------------ | ---------- | ------------------------- |
+| `$name`      | string     | Original name of product. |
+| `$_product`  | WC_Product | The product data.         |
+| `$cart_item` | array      | Cart item.                |
+| `$item_key`  | string     | Cart item key.            |
 
 ```php
 <?php
-add_filter( 'cocart_product_name', 'override_product_name', 10, 3 );
+add_filter( 'cocart_product_name', 'override_product_name', 10, 4 );
 
-function override_product_name( $_product, $cart_item, $item_key ) {
+function override_product_name( $name, $_product, $cart_item, $item_key ) {
+  return 'This product is special';
+}
+```
+
+```php
+<?php
+add_filter( 'cocart_item_added_product_name', 'override_product_name', 10, 3 );
+
+function override_product_name( $name, $_product, $item_key ) {
   return 'This product is special';
 }
 ```
@@ -218,17 +230,29 @@ function override_product_name( $_product, $cart_item, $item_key ) {
 
 ### Override product title ###
 
-| Parameter    | Type       | Description       |
-| ------------ | ---------- | ----------------- |
-| `$_product`  | WC_Product | The product data. |
-| `$cart_item` | array      | Cart item.        |
-| `$item_key`  | string     | Cart item key.    |
+You can override the product title when cart is returned or just added to the cart.
+
+| Parameter    | Type       | Description               |
+| ------------ | ---------- | ------------------------- |
+| `$name`      | string     | Original name of product. |
+| `$_product`  | WC_Product | The product data.         |
+| `$cart_item` | array      | Cart item.                |
+| `$item_key`  | string     | Cart item key.            |
 
 ```php
 <?php
-add_filter( 'cocart_product_title', 'override_product_title', 10, 3 );
+add_filter( 'cocart_product_title', 'override_product_title', 10, 4 );
 
-function override_product_title( $_product, $cart_item, $item_key ) {
+function override_product_title( $name, $_product, $cart_item, $item_key ) {
+  return 'This product is awesome';
+}
+```
+
+```php
+<?php
+add_filter( 'cocart_item_added_product_title', 'override_product_title', 10, 3 );
+
+function override_product_title( $name, $_product, $item_key ) {
   return 'This product is awesome';
 }
 ```
@@ -466,7 +490,20 @@ function merge_cart_contents( $new_cart_content, $new_cart, $cart_in_session ) {
 
 ### CoCart Logging ###
 
+If you are debugging CoCart during your development, enabling the logger is a great tool to have.
+
 ```php
 <?php
 add_filter( 'cocart_logging', function() { return true; });
+```
+
+### Allowing all cross origin headers ###
+
+<span class="new">New Filter in v2.2</span>
+
+If you are getting a warning about cross origin headers then you may need to enable support for it. Simply apply this filter and the headers will set for you with no further configuration.
+
+```php
+<?php
+add_filter( 'cocart_disable_all_cors', function() { return false; });
 ```
