@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>CoCart Documentation v2.1</title>
+    <title>CoCart Documentation v2.2</title>
 
     <link rel="icon" href="images/favicon-32x32.png" sizes="32x32" />
     <link rel="icon" href="images/favicon-192x192.png" sizes="192x192" />
@@ -386,7 +386,7 @@
               </ul>
           </li>
           <li>
-            <a href="#extending" class="toc-h1 toc-link" data-title="Extending">Extending</a>
+            <a href="#extending-cocart" class="toc-h1 toc-link" data-title="Extending CoCart">Extending CoCart</a>
               <ul class="toc-list-h2">
                   <li>
                     <a href="#filters" class="toc-h2 toc-link" data-title="Filters">Filters</a>
@@ -397,7 +397,7 @@
               </ul>
           </li>
           <li>
-            <a href="#extensions" class="toc-h1 toc-link" data-title="Extensions">Extensions</a>
+            <a href="#cocart-add-ons" class="toc-h1 toc-link" data-title="CoCart Add-ons">CoCart Add-ons</a>
               <ul class="toc-list-h2">
                   <li>
                     <a href="#cocart-pro" class="toc-h2 toc-link" data-title="CoCart Pro">CoCart Pro</a>
@@ -434,6 +434,9 @@
             <a href="#changelog" class="toc-h1 toc-link" data-title="Changelog">Changelog</a>
               <ul class="toc-list-h2">
                   <li>
+                    <a href="#doc-version-2-2-plugin-release-v2-2" class="toc-h2 toc-link" data-title="Doc Version 2.2 - Plugin Release v2.2">Doc Version 2.2 - Plugin Release v2.2</a>
+                  </li>
+                  <li>
                     <a href="#doc-version-2-1-plugin-release-v2-1-3" class="toc-h2 toc-link" data-title="Doc Version 2.1 - Plugin Release v2.1.3">Doc Version 2.1 - Plugin Release v2.1.3</a>
                   </li>
                   <li>
@@ -456,7 +459,6 @@
             <li><a href="https://github.com/co-cart/co-cart/issues?page=1&amp;state=open">CoCart Issues</a></li>
             <li><a href="https://github.com/co-cart/co-cart/blob/master/CONTRIBUTING.md">Contribute to CoCart</a></li>
             <li><a href="https://github.com/co-cart/co-cart-docs/blob/master/CONTRIBUTING.md">Contribute to Documentation</a></li>
-            <li><a href="https://woocommerce.github.io/woocommerce-rest-api-docs/">WooCommerce REST API Docs</a></li>
             <li><a href="https://sebastiendumont.com">Developed by Sébastien Dumont</a></li>
             <li><a href="https://github.com/lord/slate">Documentation Powered by Slate</a></li>
         </ul>
@@ -3267,7 +3269,7 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 </code></pre><pre class="highlight php tab-php--wp-http-api"><code><span class="cp">&lt;?php</span>
 <span class="nv">$response</span> <span class="o">=</span> <span class="nx">wp_remote_post</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/logout'</span> <span class="p">);</span>
 <span class="nv">$body</span> <span class="o">=</span> <span class="nx">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
-</code></pre><h1 id='extending'>Extending</h1>
+</code></pre><h1 id='extending-cocart'>Extending CoCart</h1>
 <p>CoCart is developer friendly. Every part of the API allows a developer to make changes to their needs so the API works according to their code design.</p>
 <h2 id='filters'>Filters</h2>
 <p><img src="images/github.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v1/_filters.md">Edit on GitHub</a></p>
@@ -3498,6 +3500,8 @@ Please make sure you are viewing the PHP language to view examples of the filter
 </code></pre>
 <div style="clear: both;"></div>
 <h3 id='override-product-name'>Override product name</h3>
+<p>You can override the product name when cart is returned or just added to the cart.</p>
+
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -3505,6 +3509,11 @@ Please make sure you are viewing the PHP language to view examples of the filter
 <th>Description</th>
 </tr>
 </thead><tbody>
+<tr>
+<td><code>$name</code></td>
+<td>string</td>
+<td>Original name of product.</td>
+</tr>
 <tr>
 <td><code>$_product</code></td>
 <td>WC_Product</td>
@@ -3522,14 +3531,22 @@ Please make sure you are viewing the PHP language to view examples of the filter
 </tr>
 </tbody></table>
 <pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
-<span class="nx">add_filter</span><span class="p">(</span> <span class="s1">'cocart_product_name'</span><span class="p">,</span> <span class="s1">'override_product_name'</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">3</span> <span class="p">);</span>
+<span class="nx">add_filter</span><span class="p">(</span> <span class="s1">'cocart_product_name'</span><span class="p">,</span> <span class="s1">'override_product_name'</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">4</span> <span class="p">);</span>
 
-<span class="k">function</span> <span class="nf">override_product_name</span><span class="p">(</span> <span class="nv">$_product</span><span class="p">,</span> <span class="nv">$cart_item</span><span class="p">,</span> <span class="nv">$item_key</span> <span class="p">)</span> <span class="p">{</span>
+<span class="k">function</span> <span class="nf">override_product_name</span><span class="p">(</span> <span class="nv">$name</span><span class="p">,</span> <span class="nv">$_product</span><span class="p">,</span> <span class="nv">$cart_item</span><span class="p">,</span> <span class="nv">$item_key</span> <span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="s1">'This product is special'</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+<span class="nx">add_filter</span><span class="p">(</span> <span class="s1">'cocart_item_added_product_name'</span><span class="p">,</span> <span class="s1">'override_product_name'</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">3</span> <span class="p">);</span>
+
+<span class="k">function</span> <span class="nf">override_product_name</span><span class="p">(</span> <span class="nv">$name</span><span class="p">,</span> <span class="nv">$_product</span><span class="p">,</span> <span class="nv">$item_key</span> <span class="p">)</span> <span class="p">{</span>
   <span class="k">return</span> <span class="s1">'This product is special'</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre>
 <div style="clear: both;"></div>
 <h3 id='override-product-title'>Override product title</h3>
+<p>You can override the product title when cart is returned or just added to the cart.</p>
+
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -3537,6 +3554,11 @@ Please make sure you are viewing the PHP language to view examples of the filter
 <th>Description</th>
 </tr>
 </thead><tbody>
+<tr>
+<td><code>$name</code></td>
+<td>string</td>
+<td>Original name of product.</td>
+</tr>
 <tr>
 <td><code>$_product</code></td>
 <td>WC_Product</td>
@@ -3554,9 +3576,15 @@ Please make sure you are viewing the PHP language to view examples of the filter
 </tr>
 </tbody></table>
 <pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
-<span class="nx">add_filter</span><span class="p">(</span> <span class="s1">'cocart_product_title'</span><span class="p">,</span> <span class="s1">'override_product_title'</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">3</span> <span class="p">);</span>
+<span class="nx">add_filter</span><span class="p">(</span> <span class="s1">'cocart_product_title'</span><span class="p">,</span> <span class="s1">'override_product_title'</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">4</span> <span class="p">);</span>
 
-<span class="k">function</span> <span class="nf">override_product_title</span><span class="p">(</span> <span class="nv">$_product</span><span class="p">,</span> <span class="nv">$cart_item</span><span class="p">,</span> <span class="nv">$item_key</span> <span class="p">)</span> <span class="p">{</span>
+<span class="k">function</span> <span class="nf">override_product_title</span><span class="p">(</span> <span class="nv">$name</span><span class="p">,</span> <span class="nv">$_product</span><span class="p">,</span> <span class="nv">$cart_item</span><span class="p">,</span> <span class="nv">$item_key</span> <span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="s1">'This product is awesome'</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+<span class="nx">add_filter</span><span class="p">(</span> <span class="s1">'cocart_item_added_product_title'</span><span class="p">,</span> <span class="s1">'override_product_title'</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">3</span> <span class="p">);</span>
+
+<span class="k">function</span> <span class="nf">override_product_title</span><span class="p">(</span> <span class="nv">$name</span><span class="p">,</span> <span class="nv">$_product</span><span class="p">,</span> <span class="nv">$item_key</span> <span class="p">)</span> <span class="p">{</span>
   <span class="k">return</span> <span class="s1">'This product is awesome'</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre>
@@ -3783,8 +3811,16 @@ Please make sure you are viewing the PHP language to view examples of the filter
 <span class="p">}</span>
 </code></pre>
 <div style="clear: both;"></div>
-<h3 id='cocart-logging'>CoCart Logging</h3><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+<h3 id='cocart-logging'>CoCart Logging</h3>
+<p>If you are debugging CoCart during your development, enabling the logger is a great tool to have.</p>
+<pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
 <span class="nx">add_filter</span><span class="p">(</span> <span class="s1">'cocart_logging'</span><span class="p">,</span> <span class="k">function</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="kc">true</span><span class="p">;</span> <span class="p">});</span>
+</code></pre><h3 id='allowing-all-cross-origin-headers'>Allowing all cross origin headers</h3>
+<p><span class="new">New Filter in v2.2</span></p>
+
+<p>If you are getting a warning about cross origin headers then you may need to enable support for it. Simply apply this filter and the headers will set for you with no further configuration.</p>
+<pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+<span class="nx">add_filter</span><span class="p">(</span> <span class="s1">'cocart_disable_all_cors'</span><span class="p">,</span> <span class="k">function</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="kc">false</span><span class="p">;</span> <span class="p">});</span>
 </code></pre><h2 id='hooks'>Hooks</h2>
 <p><img src="images/github.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v1/_hooks.md">Edit on GitHub</a></p>
 
@@ -3891,7 +3927,9 @@ Please make sure you are viewing the PHP language to view examples of the filter
 <td>The details of the item updated.</td>
 </tr>
 </tbody></table>
-<h1 id='extensions'>Extensions</h1><h2 id='cocart-pro'>CoCart Pro</h2>
+<h1 id='cocart-add-ons'>CoCart Add-ons</h1>
+<p>CoCart Lite is just the tip of the iceberg.</p>
+<h2 id='cocart-pro'>CoCart Pro</h2>
 <p><img src="images/github.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart-docs/blob/master/source/includes/_cocart-pro.md">Edit on GitHub</a></p>
 
 <p>CoCart Pro, an extension that completes the CoCart API package with more control over the cart from coupons, shipping methods to additional fees and more.</p>
@@ -4171,6 +4209,12 @@ even reviews without the need to authenticate. Designed more suited for the fron
 </ul>
 <h1 id='changelog'>Changelog</h1>
 <p>Below is the changelog for &quot;CoCart&quot; documentation that matches with the version of the plugin release.</p>
+<h2 id='doc-version-2-2-plugin-release-v2-2'>Doc Version 2.2 - Plugin Release v2.2</h2>
+<ul>
+<li>Dev: Added <code>cocart_disable_all_cors</code> filter to enable all cross origin headers.</li>
+<li>Dev: Added filters to override the product name <code>cocart_item_added_product_name</code> and product title <code>cocart_item_added_product_title</code> when adding item to cart.</li>
+<li>Dev: Added <code>cocart_item_added</code> filter to allow additional data to be returned when item is added to cart.</li>
+</ul>
 <h2 id='doc-version-2-1-plugin-release-v2-1-3'>Doc Version 2.1 - Plugin Release v2.1.3</h2>
 <ul>
 <li><strong>NEW</strong>: Added example for adding product with <a href="https://woocommerce.com/products/name-your-price/">Name Your Price</a> WooCommerce extension.</li>
