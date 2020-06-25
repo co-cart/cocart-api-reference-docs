@@ -23,4 +23,6 @@ includes:
   - cocart-v1/products/changelog
 
 search: true
+
+code_clipboard: true
 ---

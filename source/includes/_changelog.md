@@ -2,6 +2,16 @@
 
 Below is the changelog for "CoCart" documentation that matches with the version of the plugin release.
 
+## Doc Version 2.3 ##
+
+* Fixed: Corrected typo.
+
+## Doc Version 2.2 - Plugin Release v2.2 ##
+
+* Dev: Added `cocart_disable_all_cors` filter to enable all cross origin headers.
+* Dev: Added filters to override the product name `cocart_item_added_product_name` and product title `cocart_item_added_product_title` when adding item to cart.
+* Dev: Added `cocart_item_added` filter to allow additional data to be returned when item is added to cart.
+
 ## Doc Version 2.1 - Plugin Release v2.1.3 ##
 
 * **NEW**: Added example for adding product with [Name Your Price](https://woocommerce.com/products/name-your-price/) WooCommerce extension.
