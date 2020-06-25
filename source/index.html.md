@@ -47,4 +47,6 @@ includes:
   - contribute
 
 search: true
+
+code_clipboard: true
 ---
