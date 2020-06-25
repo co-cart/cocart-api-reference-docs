@@ -2,6 +2,7 @@
 @import 'normalize';
 @import 'variables';
 @import 'icon-font';
+@import 'custom';
 // @import 'rtl'; // uncomment to switch to RTL format
 
 /*
@@ -618,147 +619,10 @@ html, body {
   }
 }
 
-////////////////////////////////////////////////////////////////////////////////
-// CUSTOM CONTENT STYLES
-////////////////////////////////////////////////////////////////////////////////
-.content {
-  a {
-    color: $link-color;
-    text-decoration: none;
 
-    &:hover {
-      text-decoration: underline;
-    }
-  }
-}
 
-///////////////////////////////////////////////////////////////////////////////////
-// API ENDPOINT
-////////////////////////////////////////////////////////////////////////////////
-.api-endpoint {
-  margin-right: $examples-width;
-  padding: 0 $main-padding;
-  box-sizing: (border-box);
-  display: block;
-  clear: none !important;
-  @extend %left-col;
 
-  .endpoint-data {
-    background-color: $code-bg;
-    color: #fff;
-    border-radius: 5px;
-    border-top: 1px solid #000;
-    border-bottom: 1px solid #404040;
-    text-shadow: (0px 1px 2px rgba(0,0,0,0.4));
-    margin: 15px 0;
-    height: 38px;
 
-    i {
-      display: inline-block;
-      margin: 5px;
-      padding: 4px 12px;
-      line-height: 20px;
-    }
-
-    h6 {
-      display: inline-block;
-      margin: 0;
-      @extend %code-font;
-      text-transform: lowercase;
-      font-weight: 400;
-    }
-  }
-}
-
-////////////////////////////////////////////////////////////////////////////////
-// LABEL
-////////////////////////////////////////////////////////////////////////////////
-.label {
-  border-radius: 2px;
-  text-transform: uppercase;
-  font-style: normal;
-  white-space: nowrap;
-}
-
-.label-get {
-  background: #008000;
-}
-
-.label-post,
-.label-put {
-  background: #4e92d7;
-}
-
-.label-delete {
-  background: #ca4949;
-}
-
-.label-example {
-  background: #9a6fc4;
-}
-
-.label-info {
-  background: #efefef;
-  color: #999;
-  float: right;
-  font-weight: 700;
-  font-size: 70%;
-  padding: 2px 4px;
-  margin-left: 5px;
-}
-
-////////////////////////////////////////////////////////////////////////////////
-// PAGE WARNING
-////////////////////////////////////////////////////////////////////////////////
-
-body.has-warning {
-  margin-top: 33px;
-
-  .tocify-wrapper {
-    top: 33px;
-  }
-}
-
-#warning-top {
-  text-shadow: (0 1px 0 lighten($aside-warning-bg, 5%));
-  box-shadow: 0 0 5px black;
-  font-weight: bold;
-  left: 0;
-  line-height: 2.5;
-  overflow: hidden;
-  position: fixed;
-  right: 0;
-  text-align: center;
-  top: 0;
-  z-index: 99999;
-  background-color: $aside-warning-bg;
-  color: lighten($aside-notice-bg, 80%);
-
-  a {
-    color: lighten($aside-notice-bg, 80%);
-    text-decoration: underline;
-  }
-
-  .info:before {
-    @extend %icon-exclamation-sign;
-    font-size: 14px;
-    padding-right: 0.5em;
-    vertical-align: middle;
-  }
-}
-
-////////////////////////////////////////////////////////////////////////////////
-// GITHUB BUTTONS
-////////////////////////////////////////////////////////////////////////////////
-
-.github-buttons {
-  padding-top: 10px;
-
-  iframe {
-    display: block;
-    margin-bottom: 5px;
-  }
-}
 
 .highlight .c, .highlight .cm, .highlight .c1, .highlight .cs {
   color: #909090;
@@ -766,25 +630,4 @@ body.has-warning {
 
 .highlight .w {
   background-color: $code-bg;
-}
-
-////////////////////////////////////////////////////////////////////////////////
-// CoCart Documentation Customizations
-////////////////////////////////////////////////////////////////////////////////
-
-a[data-title="Extensions"],
-a[data-title="Demo CoCart"] {
-  margin-top: 10px;
-}
-
-.new {
-  font-size: 14px;
-  font-weight: 700;
-  text-transform: uppercase;
-  background: #9a6fc4;
-  color: #fff;
-  margin-left: 4px;
-  padding: 1px 8px 2px 8px;
-  margin: 2px;
-  border-radius: 20px;
 }
