@@ -129,7 +129,7 @@ Attributes are what identify a variation of a variable product from the colour o
 Attributes can be managed in two ways. Globally or via the product if they are custom. It's important to know what attributes are used for the variation of the product as a global attribute has this prefix `attribute_pa_` while a custom attribute is just  `attribute_`.
 
 <aside class="warning">
-  You can not add a simple product with attributes like a variation! If you wish to pass attribute date for a simple product, use the `cart_item_data` parameter instead.
+  You can not add a simple product with attributes like a variation! If you wish to pass attribute data for a simple product, use the `cart_item_data` parameter instead.
 </aside>
 
 ```shell

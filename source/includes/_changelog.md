@@ -2,6 +2,10 @@
 
 Below is the changelog for "CoCart" documentation that matches with the version of the plugin release.
 
+## Doc Version 2.3 ##
+
+* Fixed: Corrected typo.
+
 ## Doc Version 2.2 - Plugin Release v2.2 ##
 
 * Dev: Added `cocart_disable_all_cors` filter to enable all cross origin headers.
