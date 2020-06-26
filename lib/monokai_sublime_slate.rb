@@ -11,7 +11,7 @@ module Rouge
 
         palette :black          => '#000000'
         palette :bright_green   => '#a6e22e'
-        palette :bright_pink    => '#f92672'
+        palette :purple         => '#bb7cf9'
         palette :carmine        => '#960050'
         palette :dark           => '#49483e'
         palette :dark_grey      => '#888888'
@@ -83,13 +83,13 @@ module Rouge
               Text::Whitespace,
               Text,
               Name,                             :fg => :white
-        style Name::Label,                      :fg => :bright_pink
+        style Name::Label,                      :fg => :purple
         style Operator::Word,
               Name::Tag,
               Keyword,
               Keyword::Namespace,
               Keyword::Pseudo,
-              Operator,                         :fg => :bright_pink
+              Operator,                         :fg => :purple
       end
     end
   end
