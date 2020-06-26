@@ -6,7 +6,7 @@ CoCart Pro, an extension that completes the CoCart API package with more control
 
 [Purchase here](https://cocart.xyz/pro/)
 
-The following table shows API versions present in each major version of CoCart:
+The following table shows API versions present in each major version of CoCart Pro:
 
 | API Version | CoCart Pro Version | WC Version      | WP Version   | Documentation        |
 | ----------- | ------------------ | --------------- | ------------ | -------------------- |

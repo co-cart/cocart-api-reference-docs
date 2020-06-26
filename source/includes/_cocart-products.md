@@ -2,8 +2,7 @@
 
 <img src="images/github.svg" width="20" height="20" alt="GitHub Mark Logo"> [Edit on GitHub](https://github.com/co-cart/co-cart-docs/blob/master/source/includes/_cocart-products.md)
 
-CoCart Products provides a public API version of accessing products, categories, tags, attributes and 
-even reviews without the need to authenticate. Designed more suited for the frontend so none of the shop manager only features are exploited and it comes with a few more parameters to filter and return the products the way you want or need.
+CoCart Products provides a public API version of accessing products, categories, tags, attributes and even reviews without the need to authenticate. Designed more suited for the frontend so none of the shop manager only features are exploited and it comes with a few more parameters to filter and return the products the way you want or need.
 
 [Purchase here](https://cocart.xyz/add-ons/products/)
 
