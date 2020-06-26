@@ -36,4 +36,4 @@ vagrant up
 
 You can now see the docs at http://localhost:4567.
 
-> The documenation is powered by [Slate](https://github.com/lord/slate).
+> The documentation is powered by [Slate](https://github.com/lord/slate).
