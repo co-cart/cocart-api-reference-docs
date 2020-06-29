@@ -11,8 +11,9 @@ This section of the documentation is for **CoCart Pro** only so if you are looki
 To use the latest version of the CoCart Pro you must be using:
 
 * WordPress **5.0 or later**.
-* WooCommerce **3.6.x or later**.
-* CoCart **2.0.x or later**
+* WooCommerce **3.6 or later**.
+* PHP **5.6 or later**.
+* CoCart **2.0 or later**
 * Pretty permalinks in `Settings > Permalinks` so that the custom endpoints are supported. **Default permalinks will not work.**
 * You may make requests over either HTTP or HTTPS, but HTTPS is recommended where possible.
 

@@ -6,7 +6,7 @@ The following allow you to calculate fees, shipping and the totals of the cart.
 
 ## Calculate Cart Totals ##
 
-This API helps you calculate the cart totals. You can also request to return the totals once calculated to reduce API requests and use the [Get Cart Totals](index.html#get-cart-totals) properties.
+This API helps you calculate the cart totals. You can also request to retrieve the totals once calculated to reduce API requests and use the [Retrieve Cart Totals](index.html#cart-retrieve-cart-totals) properties.
 
 <aside class="notice">
   CoCart Pro overrides the calculation endpoint in order to also calculate fees and shipping costs before the totals.
@@ -51,7 +51,7 @@ curl_setopt_array( $curl, array(
   CURLOPT_URL => "https://example.com/wp-json/cocart/v1/calculate",
   CURLOPT_CUSTOMREQUEST => "POST",
   CURLOPT_RETURNTRANSFER => true,
-  CURLOPT_TIMEOUT => 90,
+  CURLOPT_TIMEOUT => 30,
   CURLOPT_HTTPHEADER => array(
     'Accept: application/json',
     'Content-Type: application/json',
@@ -122,7 +122,7 @@ curl_setopt_array( $curl, array(
   CURLOPT_URL => "https://example.com/wp-json/cocart/v1/calculate/fees",
   CURLOPT_CUSTOMREQUEST => "POST",
   CURLOPT_RETURNTRANSFER => true,
-  CURLOPT_TIMEOUT => 90,
+  CURLOPT_TIMEOUT => 30,
   CURLOPT_HTTPHEADER => array(
     'Accept: application/json',
     'Content-Type: application/json',
@@ -207,7 +207,7 @@ curl_setopt_array( $curl, array(
   CURLOPT_CUSTOMREQUEST => "POST",
   CURLOPT_POSTFIELDS => $args,
   CURLOPT_RETURNTRANSFER => true,
-  CURLOPT_TIMEOUT => 90,
+  CURLOPT_TIMEOUT => 30,
   CURLOPT_HTTPHEADER => array(
     'Accept: application/json',
     'Content-Type: application/json',
@@ -231,7 +231,7 @@ $args = array(
   'body' => wp_json_encode( [
     'country' => 'GB',
   ] ),
-  'timeout' => 90
+  'timeout' => 30
 );
 
 $response = wp_remote_post( 'https://example.com/wp-json/cocart/v1/calculate/shipping', $args );

@@ -6,13 +6,13 @@ This API helps you get all the cart totals including getting them individually.
 
 ## Get Cart Totals ##
 
-This API helps you get the cart totals. You can also return the totals pre-formatted to save you time applying the currency symbol. [Get Cart Totals](index.html#get-cart-totals) properties.
+This API helps you get the cart totals. You can also retrieve the totals pre-formatted to save you time applying the currency symbol. [Retrieve Cart Totals](index.html#cart-retrieve-cart-totals) properties.
 
 <aside class="notice">
   With CoCart Pro, fees added are appended to the totals.
 </aside>
 
-The `fee_total`, `fee_tax` and `fee_taxes` are only updated if the [fees are calculated](#calculate-fees) or the [totals are calculated](#calculate-cart-totals) once the [fees have been added](#add-a-fee).
+The `fee_total`, `fee_tax` and `fee_taxes` are only updated if the [fees are calculated](#calculate-calculate-fees) or the [totals are calculated](#calculate-calculate-cart-totals) once the [fees have been added](#fees-add-a-fee).
 
 ### HTTP request ###
 
@@ -47,7 +47,7 @@ curl_setopt_array( $curl, array(
   CURLOPT_URL => "https://example.com/wp-json/cocart/v1/totals",
   CURLOPT_CUSTOMREQUEST => "GET",
   CURLOPT_RETURNTRANSFER => true,
-  CURLOPT_TIMEOUT => 90,
+  CURLOPT_TIMEOUT => 30,
   CURLOPT_HTTPHEADER => array(
     'Accept: application/json',
     'Content-Type: application/json',
@@ -141,7 +141,7 @@ curl_setopt_array( $curl, array(
   CURLOPT_URL => "https://example.com/wp-json/cocart/v1/totals/discount",
   CURLOPT_CUSTOMREQUEST => "GET",
   CURLOPT_RETURNTRANSFER => true,
-  CURLOPT_TIMEOUT => 90,
+  CURLOPT_TIMEOUT => 30,
   CURLOPT_HTTPHEADER => array(
     'Accept: application/json',
     'Content-Type: application/json',
@@ -203,7 +203,7 @@ curl_setopt_array( $curl, array(
   CURLOPT_URL => "https://example.com/wp-json/cocart/v1/totals/discount/coupon-totals",
   CURLOPT_CUSTOMREQUEST => "GET",
   CURLOPT_RETURNTRANSFER => true,
-  CURLOPT_TIMEOUT => 90,
+  CURLOPT_TIMEOUT => 30,
   CURLOPT_HTTPHEADER => array(
     'Accept: application/json',
     'Content-Type: application/json',
@@ -267,7 +267,7 @@ curl_setopt_array( $curl, array(
   CURLOPT_URL => "https://example.com/wp-json/cocart/v1/totals/discount/coupon-tax",
   CURLOPT_CUSTOMREQUEST => "GET",
   CURLOPT_RETURNTRANSFER => true,
-  CURLOPT_TIMEOUT => 90,
+  CURLOPT_TIMEOUT => 30,
   CURLOPT_HTTPHEADER => array(
     'Accept: application/json',
     'Content-Type: application/json',
@@ -323,7 +323,7 @@ curl_setopt_array( $curl, array(
   CURLOPT_URL => "https://example.com/wp-json/cocart/v1/totals/fee",
   CURLOPT_CUSTOMREQUEST => "GET",
   CURLOPT_RETURNTRANSFER => true,
-  CURLOPT_TIMEOUT => 90,
+  CURLOPT_TIMEOUT => 30,
   CURLOPT_HTTPHEADER => array(
     'Accept: application/json',
     'Content-Type: application/json',
@@ -385,7 +385,7 @@ curl_setopt_array( $curl, array(
   CURLOPT_URL => "https://example.com/wp-json/cocart/v1/totals/fee/tax",
   CURLOPT_CUSTOMREQUEST => "GET",
   CURLOPT_RETURNTRANSFER => true,
-  CURLOPT_TIMEOUT => 90,
+  CURLOPT_TIMEOUT => 30,
   CURLOPT_HTTPHEADER => array(
     'Accept: application/json',
     'Content-Type: application/json',
@@ -441,7 +441,7 @@ curl_setopt_array( $curl, array(
   CURLOPT_URL => "https://example.com/wp-json/cocart/v1/totals/shipping",
   CURLOPT_CUSTOMREQUEST => "GET",
   CURLOPT_RETURNTRANSFER => true,
-  CURLOPT_TIMEOUT => 90,
+  CURLOPT_TIMEOUT => 30,
   CURLOPT_HTTPHEADER => array(
     'Accept: application/json',
     'Content-Type: application/json',
@@ -497,7 +497,7 @@ curl_setopt_array( $curl, array(
   CURLOPT_URL => "https://example.com/wp-json/cocart/v1/totals/shipping/tax",
   CURLOPT_CUSTOMREQUEST => "GET",
   CURLOPT_RETURNTRANSFER => true,
-  CURLOPT_TIMEOUT => 90,
+  CURLOPT_TIMEOUT => 30,
   CURLOPT_HTTPHEADER => array(
     'Accept: application/json',
     'Content-Type: application/json',
@@ -553,7 +553,7 @@ curl_setopt_array( $curl, array(
   CURLOPT_URL => "https://example.com/wp-json/cocart/v1/totals/subtotal",
   CURLOPT_CUSTOMREQUEST => "GET",
   CURLOPT_RETURNTRANSFER => true,
-  CURLOPT_TIMEOUT => 90,
+  CURLOPT_TIMEOUT => 30,
   CURLOPT_HTTPHEADER => array(
     'Accept: application/json',
     'Content-Type: application/json',
@@ -615,7 +615,7 @@ curl_setopt_array( $curl, array(
   CURLOPT_URL => "https://example.com/wp-json/cocart/v1/totals/subtotal/tax",
   CURLOPT_CUSTOMREQUEST => "GET",
   CURLOPT_RETURNTRANSFER => true,
-  CURLOPT_TIMEOUT => 90,
+  CURLOPT_TIMEOUT => 30,
   CURLOPT_HTTPHEADER => array(
     'Accept: application/json',
     'Content-Type: application/json',
@@ -671,7 +671,7 @@ curl_setopt_array( $curl, array(
   CURLOPT_URL => "https://example.com/wp-json/cocart/v1/totals/tax",
   CURLOPT_CUSTOMREQUEST => "GET",
   CURLOPT_RETURNTRANSFER => true,
-  CURLOPT_TIMEOUT => 90,
+  CURLOPT_TIMEOUT => 30,
   CURLOPT_HTTPHEADER => array(
     'Accept: application/json',
     'Content-Type: application/json',
@@ -727,7 +727,7 @@ curl_setopt_array( $curl, array(
   CURLOPT_URL => "https://example.com/wp-json/cocart/v1/totals/total",
   CURLOPT_CUSTOMREQUEST => "GET",
   CURLOPT_RETURNTRANSFER => true,
-  CURLOPT_TIMEOUT => 90,
+  CURLOPT_TIMEOUT => 30,
   CURLOPT_HTTPHEADER => array(
     'Accept: application/json',
     'Content-Type: application/json',

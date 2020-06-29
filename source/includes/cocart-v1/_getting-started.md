@@ -10,7 +10,7 @@ How to install and activate the CoCart plugin.
     <strong>New to WordPress?</strong><br/><br/>If you're new to WordPress I recommend getting started by downloading and using <a href="https://localwp.com/" target="_blank">Local</a>.
 </aside>
 
-Visit the [WooCommerce server requirements documentation](https://docs.woocommerce.com/document/server-requirements/) for a detailed list of server requirements.
+List of server [requirements](#introduction-requirements).
 
 ### Automatic installation ###
 

@@ -41,7 +41,7 @@ curl_setopt_array( $curl, array(
   CURLOPT_URL => "https://example.com/wp-json/cocart/v1",
   CURLOPT_CUSTOMREQUEST => "GET",
   CURLOPT_RETURNTRANSFER => true,
-  CURLOPT_TIMEOUT => 90,
+  CURLOPT_TIMEOUT => 30,
   CURLOPT_HTTPHEADER => array(
     'Accept: application/json',
     'Content-Type: application/json',

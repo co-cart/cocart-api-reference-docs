@@ -41,7 +41,7 @@ curl_setopt_array( $curl, array(
   CURLOPT_URL => "https://example.com/wp-json/cocart/v1/payment-methods",
   CURLOPT_CUSTOMREQUEST => "GET",
   CURLOPT_RETURNTRANSFER => true,
-  CURLOPT_TIMEOUT => 90,
+  CURLOPT_TIMEOUT => 30,
   CURLOPT_HTTPHEADER => array(
     'Accept: application/json',
     'Content-Type: application/json',
@@ -205,7 +205,7 @@ curl_setopt_array( $curl, array(
   CURLOPT_CUSTOMREQUEST => "POST",
   CURLOPT_POSTFIELDS => $args,
   CURLOPT_RETURNTRANSFER => true,
-  CURLOPT_TIMEOUT => 90,
+  CURLOPT_TIMEOUT => 30,
   CURLOPT_HTTPHEADER => array(
     'Accept: application/json',
     'Content-Type: application/json',
@@ -229,7 +229,7 @@ $args = array(
   'body' => wp_json_encode( [
     'gateway_id' => 'stripe'
   ] ),
-  'timeout' => 90
+  'timeout' => 30
 );
 
 $response = wp_remote_post( 'https://example.com/wp-json/cocart/v1/payment-methods', $args );

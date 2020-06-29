@@ -12,8 +12,8 @@ Checkout my guide on [how to authenticate with WooCommerce](https://cocart.xyz/a
 
 It is also possible to authenticate using any of the following WP REST API authentication methods.
 
-* [Basic Authentication](#basic-authentication)
-* [JWT Authentication for WP REST API](#jwt-authentication)
+* [Basic Authentication](#authentication-basic-authentication)
+* [JWT Authentication for WP REST API](#authentication-jwt-authentication)
 
 The WordPress REST API incorporates a method called [nonces](https://codex.wordpress.org/WordPress_Nonces) to deal with [CSRF](https://en.wikipedia.org/wiki/Cross-site_request_forgery) issues. This ensures that all activities on the website remain segregated. This is because the WordPress REST API just like the WooCommerce REST API is designed for the back-end.
 
@@ -86,7 +86,7 @@ curl_setopt_array( $curl, array(
   CURLOPT_CUSTOMREQUEST => "POST",
   CURLOPT_POSTFIELDS => $args,
   CURLOPT_RETURNTRANSFER => true,
-  CURLOPT_TIMEOUT => 90,
+  CURLOPT_TIMEOUT => 30,
   CURLOPT_HTTPHEADER => $headers
 ) );
 
@@ -108,7 +108,7 @@ $args = array(
     'product_id' => 1722,
     'quantity' => 1
   ] ),
-  'timeout' => 90
+  'timeout' => 30
 );
 
 $response = wp_remote_post( 'https://example.com/wp-json/cocart/v1/add-item', $args );
@@ -207,7 +207,7 @@ curl_setopt_array( $curl, array(
   CURLOPT_CUSTOMREQUEST => "POST",
   CURLOPT_POSTFIELDS => $args,
   CURLOPT_RETURNTRANSFER => true,
-  CURLOPT_TIMEOUT => 90,
+  CURLOPT_TIMEOUT => 30,
   CURLOPT_HTTPHEADER => $headers
 ) );
 

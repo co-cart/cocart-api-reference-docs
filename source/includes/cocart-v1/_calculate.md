@@ -2,7 +2,7 @@
 
 <img src="images/github.svg" width="20" height="20" alt="GitHub Mark Logo"> [Edit on GitHub](https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v1/_calculate.md)
 
-This API helps you calculate the cart totals. You can also request to return the totals once calculated to reduce API requests and use the [Get Cart Totals](#get-cart-totals) properties.
+This API helps you calculate the cart totals. You can also request to return the totals once calculated to reduce API requests and use the [Retrieve Cart Totals](#cart-retrieve-cart-totals) properties.
 
 ### Properties ###
 
@@ -44,7 +44,7 @@ curl_setopt_array( $curl, array(
   CURLOPT_URL => "https://example.com/wp-json/cocart/v1/calculate",
   CURLOPT_CUSTOMREQUEST => "POST",
   CURLOPT_RETURNTRANSFER => true,
-  CURLOPT_TIMEOUT => 90,
+  CURLOPT_TIMEOUT => 30,
   CURLOPT_HTTPHEADER => array(
     'Accept: application/json',
     'Content-Type: application/json',

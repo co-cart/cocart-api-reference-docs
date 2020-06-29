@@ -2,7 +2,7 @@
 
 <img src="images/github.svg" width="20" height="20" alt="GitHub Mark Logo"> [Edit on GitHub](https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v1/_restore-item-to-cart.md)
 
-This API helps you to restore an item to the cart. You can also request to return the whole cart once item is restored to reduce API requests and use the [Get Cart Content](#get-cart-contents) properties. 
+This API helps you to restore an item to the cart. You can also request to return the whole cart once item is restored to reduce API requests and use the [Get Cart Content](#cart-get-cart-contents) properties.
 
 ### Properties ###
 
@@ -56,7 +56,7 @@ curl_setopt_array( $curl, array(
   CURLOPT_CUSTOMREQUEST => "GET",
   CURLOPT_POSTFIELDS => $args,
   CURLOPT_RETURNTRANSFER => true,
-  CURLOPT_TIMEOUT => 90,
+  CURLOPT_TIMEOUT => 30,
   CURLOPT_HTTPHEADER => array(
     'Accept: application/json',
     'Content-Type: application/json',

@@ -4,7 +4,13 @@ Below is the changelog for "CoCart" documentation that matches with the version 
 
 ## Doc Version 2.3 ##
 
-* Fixed: Corrected typo.
+* Added: New error responses.
+* Fixed: Corrected typos.
+* Tweaked: Improved code highlight theme for accessibility.
+* Tweaked: Links are now unique. Fixes issue with similar links generated.
+* Tweaked: Menu now has more padding.
+* Update: Plugin requirements for CoCart.
+* Update: Slate script to v2.7.0 which introduces the ability to copy code to clipboard.
 
 ## Doc Version 2.2 - Plugin Release v2.2 ##
 

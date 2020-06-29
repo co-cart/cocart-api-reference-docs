@@ -2,7 +2,7 @@
 
 <img src="images/github.svg" width="20" height="20" alt="GitHub Mark Logo"> [Edit on GitHub](https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v1/_add-to-cart.md)
 
-This API helps you to add an item to the cart. You can also request to return the whole cart once item is added to reduce API requests and use the [Get Cart Content](#get-cart-contents) properties.
+This API helps you to add an item to the cart. You can also request to return the whole cart once item is added to reduce API requests and use the [Get Cart Content](#cart-get-cart-contents) properties.
 
 ### Properties ###
 
@@ -63,7 +63,7 @@ curl_setopt_array( $curl, array(
   CURLOPT_CUSTOMREQUEST => "POST",
   CURLOPT_POSTFIELDS => $args,
   CURLOPT_RETURNTRANSFER => true,
-  CURLOPT_TIMEOUT => 90,
+  CURLOPT_TIMEOUT => 30,
   CURLOPT_HTTPHEADER => array(
     'Accept: application/json',
     'Content-Type: application/json',
@@ -88,7 +88,7 @@ $args = array(
     'product_id' => 1722,
     'quantity' => 1
   ] ),
-  'timeout' => 90
+  'timeout' => 30
 );
 
 $response = wp_remote_post( 'https://example.com/wp-json/cocart/v1/add-item', $args );
@@ -182,7 +182,7 @@ curl_setopt_array( $curl, array(
   CURLOPT_CUSTOMREQUEST => "POST",
   CURLOPT_POSTFIELDS => $args,
   CURLOPT_RETURNTRANSFER => true,
-  CURLOPT_TIMEOUT => 90,
+  CURLOPT_TIMEOUT => 30,
   CURLOPT_HTTPHEADER => array(
     'Accept: application/json',
     'Content-Type: application/json',
@@ -211,7 +211,7 @@ $args = array(
       'attribute_pa_color': 'red'
     }
   ] ),
-  'timeout' => 90
+  'timeout' => 30
 );
 
 $response = wp_remote_post( 'https://example.com/wp-json/cocart/v1/add-item', $args );
@@ -272,7 +272,7 @@ curl_setopt_array( $curl, array(
   CURLOPT_CUSTOMREQUEST => "POST",
   CURLOPT_POSTFIELDS => $args,
   CURLOPT_RETURNTRANSFER => true,
-  CURLOPT_TIMEOUT => 90,
+  CURLOPT_TIMEOUT => 30,
   CURLOPT_HTTPHEADER => array(
     'Accept: application/json',
     'Content-Type: application/json',
@@ -301,7 +301,7 @@ $args = array(
       'engraved_size' => 'Medium'
     )
   ] ),
-  'timeout' => 90
+  'timeout' => 30
 );
 $response = wp_remote_post( 'https://example.com/wp-json/cocart/v1/add-item', $args );
 $body = wp_remote_retrieve_body( $response );
@@ -363,7 +363,7 @@ curl_setopt_array( $curl, array(
   CURLOPT_CUSTOMREQUEST => "POST",
   CURLOPT_POSTFIELDS => $args,
   CURLOPT_RETURNTRANSFER => true,
-  CURLOPT_TIMEOUT => 90,
+  CURLOPT_TIMEOUT => 30,
   CURLOPT_HTTPHEADER => array(
     'Accept: application/json',
     'Content-Type: application/json',
@@ -391,7 +391,7 @@ $args = array(
       'nyp' => 24
     )
   ] ),
-  'timeout' => 90
+  'timeout' => 30
 );
 $response = wp_remote_post( 'https://example.com/wp-json/cocart/v1/add-item', $args );
 $body = wp_remote_retrieve_body( $response );
