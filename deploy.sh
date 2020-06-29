@@ -210,7 +210,13 @@ filter() {
   sed -e "s|$repo|\$repo|g"
 }
 
-if [[ $1 = --source-only ]]; then
+sanitize() {
+  "$@" 2>(filter 1>&2) | filter
+}
+
+parse_args "$@"
+
+if [[ ${source_only} ]]; then
   run_build
 elif [[ ${push_only} ]]; then
   main "$@"
