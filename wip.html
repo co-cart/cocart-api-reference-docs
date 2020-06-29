@@ -7,14 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>CoCart (Work in Progress) Documentation</title>
 
-    <link rel="icon" href="images/favicon-32x32.png" sizes="32x32" />
-    <link rel="icon" href="images/favicon-192x192.png" sizes="192x192" />
-    <link rel="apple-touch-icon-precomposed" href="images/favicon-180x180.png" />
-    <meta name="msapplication-TileImage" content="images/favicon-270x270.png" />
+    <link rel="icon" href="images/favicon-32x32-334932c6.png" sizes="32x32" />
+    <link rel="icon" href="images/favicon-192x192-734db461.png" sizes="192x192" />
+    <link rel="apple-touch-icon-precomposed" href="images/favicon-180x180-1326dbc6.png" />
+    <meta name="msapplication-TileImage" content="images/favicon-270x270-efce6de3.png" />
     <meta name="msapplication-TileColor" content="#6e60cc" />
     <meta name="theme-color" content="#6e60cc" />
 
-    <style>
+    <style media="screen">
       .highlight table td { padding: 5px; }
 .highlight table pre { margin: 0; }
 .highlight .gh {
@@ -49,7 +49,7 @@
 .highlight .cs {
   color: #75715e;
 }
-.highlight .c, .highlight .cd {
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cpf {
   color: #75715e;
 }
 .highlight .err {
@@ -113,28 +113,28 @@
   color: #ae81ff;
 }
 .highlight .sd {
-  color: #e6db74;
+  color: #f8ea35;
 }
 .highlight .s2 {
-  color: #e6db74;
+  color: #f8ea35;
 }
 .highlight .sb {
-  color: #e6db74;
+  color: #f8ea35;
 }
 .highlight .sh {
-  color: #e6db74;
+  color: #f8ea35;
 }
 .highlight .si {
-  color: #e6db74;
+  color: #f8ea35;
 }
 .highlight .sx {
-  color: #e6db74;
+  color: #f8ea35;
 }
 .highlight .s1 {
-  color: #e6db74;
+  color: #f8ea35;
 }
-.highlight .s {
-  color: #e6db74;
+.highlight .s, .highlight .sa, .highlight .dl {
+  color: #f8ea35;
 }
 .highlight .na {
   color: #a6e22e;
@@ -148,16 +148,13 @@
 .highlight .ne {
   color: #a6e22e;
 }
-.highlight .nf {
+.highlight .nf, .highlight .fm {
   color: #a6e22e;
 }
 .highlight .vc {
   color: #ffffff;
 }
 .highlight .nn {
-  color: #ffffff;
-}
-.highlight .nl {
   color: #ffffff;
 }
 .highlight .ni {
@@ -172,7 +169,7 @@
 .highlight .vi {
   color: #ffffff;
 }
-.highlight .nv {
+.highlight .nv, .highlight .vm {
   color: #ffffff;
 }
 .highlight .w {
@@ -184,28 +181,118 @@
 .highlight .n, .highlight .py, .highlight .nx {
   color: #ffffff;
 }
+.highlight .nl {
+  color: #bb7cf9;
+}
 .highlight .ow {
-  color: #f92672;
+  color: #bb7cf9;
 }
 .highlight .nt {
-  color: #f92672;
+  color: #bb7cf9;
 }
 .highlight .k, .highlight .kv {
-  color: #f92672;
+  color: #bb7cf9;
 }
 .highlight .kn {
-  color: #f92672;
+  color: #bb7cf9;
 }
 .highlight .kp {
-  color: #f92672;
+  color: #bb7cf9;
 }
 .highlight .o {
-  color: #f92672;
+  color: #bb7cf9;
 }
     </style>
-    <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
-    <link href="stylesheets/print.css" rel="stylesheet" media="print" />
-      <script src="javascripts/all_nosearch.js"></script>
+    <style media="print">
+      * {
+        -webkit-transition:none!important;
+        transition:none!important;
+      }
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight, .highlight .w {
+  color: #586e75;
+}
+.highlight .err {
+  color: #002b36;
+  background-color: #dc322f;
+}
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cm, .highlight .cpf, .highlight .c1, .highlight .cs {
+  color: #657b83;
+}
+.highlight .cp {
+  color: #b58900;
+}
+.highlight .nt {
+  color: #b58900;
+}
+.highlight .o, .highlight .ow {
+  color: #93a1a1;
+}
+.highlight .p, .highlight .pi {
+  color: #93a1a1;
+}
+.highlight .gi {
+  color: #859900;
+}
+.highlight .gd {
+  color: #dc322f;
+}
+.highlight .gh {
+  color: #268bd2;
+  background-color: #002b36;
+  font-weight: bold;
+}
+.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+  color: #6c71c4;
+}
+.highlight .kc {
+  color: #cb4b16;
+}
+.highlight .kt {
+  color: #cb4b16;
+}
+.highlight .kd {
+  color: #cb4b16;
+}
+.highlight .s, .highlight .sa, .highlight .sb, .highlight .sc, .highlight .dl, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+  color: #859900;
+}
+.highlight .sr {
+  color: #2aa198;
+}
+.highlight .si {
+  color: #d33682;
+}
+.highlight .se {
+  color: #d33682;
+}
+.highlight .nn {
+  color: #b58900;
+}
+.highlight .nc {
+  color: #b58900;
+}
+.highlight .no {
+  color: #b58900;
+}
+.highlight .na {
+  color: #268bd2;
+}
+.highlight .m, .highlight .mb, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mx {
+  color: #859900;
+}
+.highlight .ss {
+  color: #859900;
+}
+    </style>
+    <link href="stylesheets/screen-528acbf1.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print-46df3289.css" rel="stylesheet" media="print" />
+      <script src="javascripts/all_nosearch-ea811c3e.js"></script>
+
+    <script>
+      $(function() { setupCodeCopy(); });
+    </script>
 
     <!-- Chatra {literal} -->
     <script>
@@ -230,17 +317,17 @@
         })(document, window, 'Chatra');
     </script>
     <!-- /Chatra {/literal} -->
-    </head>
+  </head>
 
   <body class="wip" data-languages="[&quot;shell&quot;,&quot;javascript--jquery&quot;,&quot;php&quot;,&quot;php--wp-http-api&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
-        <img src="images/navbar.png" alt="Navbar" />
+        <img src="images/navbar-cad8cdcb.png" alt="" />
       </span>
     </a>
     <div class="toc-wrapper">
-      <a href="index.html"><img src="images/logo.png" class="logo" alt="Logo" /></a>
+      <a href="index.html"><img src="images/logo-c0541af7.png" class="logo" alt="" /></a>
         <div class="lang-selector">
               <a href="#" data-language-name="shell">cURL</a>
               <a href="#" data-language-name="javascript--jquery">jQuery</a>
@@ -255,13 +342,13 @@
             <a href="#cart" class="toc-h1 toc-link" data-title="Cart">Cart</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#guest-customers" class="toc-h2 toc-link" data-title="Guest Customers">Guest Customers</a>
+                    <a href="#cart-guest-customers" class="toc-h2 toc-link" data-title="Guest Customers">Guest Customers</a>
                   </li>
                   <li>
-                    <a href="#retrieve-a-cart" class="toc-h2 toc-link" data-title="Retrieve a Cart">Retrieve a Cart</a>
+                    <a href="#cart-retrieve-a-cart" class="toc-h2 toc-link" data-title="Retrieve a Cart">Retrieve a Cart</a>
                   </li>
                   <li>
-                    <a href="#retrieve-a-customers-cart-saved-via-persistent-cart" class="toc-h2 toc-link" data-title="Retrieve a Customers Cart saved via Persistent Cart">Retrieve a Customers Cart saved via Persistent Cart</a>
+                    <a href="#cart-retrieve-a-customers-cart-saved-via-persistent-cart" class="toc-h2 toc-link" data-title="Retrieve a Customers Cart saved via Persistent Cart">Retrieve a Customers Cart saved via Persistent Cart</a>
                   </li>
               </ul>
           </li>
@@ -269,7 +356,7 @@
             <a href="#changelog" class="toc-h1 toc-link" data-title="Changelog">Changelog</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#v2-1-2" class="toc-h2 toc-link" data-title="v2.1.2">v2.1.2</a>
+                    <a href="#changelog-v2-1-2" class="toc-h2 toc-link" data-title="v2.1.2">v2.1.2</a>
                   </li>
               </ul>
           </li>
@@ -278,7 +365,7 @@
             <li><a href="https://cocart.xyz">CoCart</a></li>
             <li><a href="https://github.com/co-cart/co-cart-docs/blob/master/CONTRIBUTING.md">Contribute to Documentation</a></li>
             <li><a href="https://sebastiendumont.com">Developed by Sébastien Dumont</a></li>
-            <li><a href="https://github.com/lord/slate">Documentation Powered by Slate</a></li>
+            <li><a href="https://github.com/slatedocs/slate">Documentation Powered by Slate</a></li>
         </ul>
     </div>
     <div class="page-wrapper">
@@ -291,11 +378,11 @@
 <p>WIP Version: <strong>2.1.2-rc.3</strong></p>
 <h1 id='cart'>Cart</h1>
 <p>A new addition to cart API is the ability to view any cart in session now that support for guest customers is available.</p>
-<h2 id='guest-customers'>Guest Customers</h2>
+<h2 id='cart-guest-customers'>Guest Customers</h2>
 <p>For guest customers there are two methods available for developers to use. The first method uses a cookie and handles everything for you. The second method allows you to set the cart ID yourself.</p>
-<h3 id='cookie-method'>Cookie Method</h3>
+<h3 id='cart-guest-customers-cookie-method'>Cookie Method</h3>
 <p>Once a new customer has added the first item, a cookie is generated that stores a cart key. This cookie is used to retrieve the cart key and cart expiration in order to load the cart again for that individual customer. No parameters are required to pass as it is all done in the background.</p>
-<h3 id='set-cart-id-method'>Set Cart ID Method</h3>
+<h3 id='cart-guest-customers-set-cart-id-method'>Set Cart ID Method</h3>
 <p>This method allows you to set the cart key yourself via the <code>cart_key</code> parameter which must be passed with each API request made. This sets the ID in session allowing to fetch the cart before changes are made.</p>
 
 <p>Here are a few examples on how to pass the cart ID with each API request.</p>
@@ -313,7 +400,7 @@
     <h6>/wp-json/cocart/v1/add-item/?cart_key=9e18904482b4faf8762361836a83b93d&product_id=32</h6>
   </div>
 </div>
-<h2 id='retrieve-a-cart'>Retrieve a Cart</h2>
+<h2 id='cart-retrieve-a-cart'>Retrieve a Cart</h2>
 <p>This API allows you to retrieve a cart stored in the database that is in session.</p>
 
 <aside class="warning">
@@ -323,7 +410,7 @@
 <aside class="notice">
     If the cart you requested does not return. Then the cart in session either does not exist or has expired. By default, carts are stored in the database for 30 days from the last cart update.
 </aside>
-<h3 id='properties'>Properties</h3>
+<h3 id='cart-retrieve-a-cart-properties'>Properties</h3>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -342,24 +429,24 @@
 <td>Set as true to return the product thumbnail for each item.</td>
 </tr>
 </tbody></table>
-<h3 id='http-request'>HTTP request</h3>
+<h3 id='cart-retrieve-a-cart-http-request'>HTTP request</h3>
 <div class="api-endpoint">
   <div class="endpoint-data">
     <i class="label label-get">GET</i>
     <h6>/wp-json/cocart/v1/get-cart/9e18904482b4faf8762361836a83b93d</h6>
   </div>
 </div>
-<pre class="highlight shell tab-shell"><code>curl -X GET https://example.com/wp-json/cocart/v1/get-cart/9e18904482b4faf8762361836a83b93d <span class="se">\</span>
-  -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
-</code></pre><pre class="highlight javascript tab-javascript--jquery"><code><span class="kd">var</span> <span class="nx">settings</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="s2">"url"</span><span class="p">:</span> <span class="s2">"https://example.com/wp-json/cocart/v1/get-cart/9e18904482b4faf8762361836a83b93d"</span><span class="p">,</span>
-  <span class="s2">"method"</span><span class="p">:</span> <span class="s2">"GET"</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET https://example.com/wp-json/cocart/v1/get-cart/9e18904482b4faf8762361836a83b93d <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript--jquery"><code><span class="kd">var</span> <span class="nx">settings</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="dl">"</span><span class="s2">url</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">https://example.com/wp-json/cocart/v1/get-cart/9e18904482b4faf8762361836a83b93d</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">method</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">GET</span><span class="dl">"</span>
 <span class="p">};</span>
 
 <span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">(</span><span class="nx">settings</span><span class="p">).</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span>
 <span class="p">});</span>
-</code></pre><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+</code></pre></div><div class="highlight"><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
 <span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
 
 <span class="nb">curl_setopt_array</span><span class="p">(</span> <span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
@@ -373,40 +460,40 @@
 <span class="nb">curl_close</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
 
 <span class="k">echo</span> <span class="nv">$response</span><span class="p">;</span>
-</code></pre><pre class="highlight php tab-php--wp-http-api"><code><span class="cp">&lt;?php</span>
+</code></pre></div><div class="highlight"><pre class="highlight php tab-php--wp-http-api"><code><span class="cp">&lt;?php</span>
 <span class="nv">$response</span> <span class="o">=</span> <span class="nx">wp_remote_get</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/get-cart/9e18904482b4faf8762361836a83b93d'</span> <span class="p">);</span>
 <span class="nv">$body</span> <span class="o">=</span> <span class="nx">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
-</code></pre>
+</code></pre></div>
 <blockquote>
 <p>JSON response example</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"19ca14e7ea6328a42e0eb13d585e4c22"</span><span class="p">:{</span><span class="w">
-    </span><span class="s2">"key"</span><span class="p">:</span><span class="s2">"19ca14e7ea6328a42e0eb13d585e4c22"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"product_id"</span><span class="p">:</span><span class="mi">36</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"variation_id"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"variation"</span><span class="p">:[],</span><span class="w">
-    </span><span class="s2">"quantity"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"data_hash"</span><span class="p">:</span><span class="s2">"b5c1d5ca8bae6d4896cf1807cdf763f0"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"line_tax_data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"subtotal"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"12"</span><span class="p">:</span><span class="w"> </span><span class="mf">8.4</span><span class="w">
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"19ca14e7ea6328a42e0eb13d585e4c22"</span><span class="p">:{</span><span class="w">
+    </span><span class="nl">"key"</span><span class="p">:</span><span class="s2">"19ca14e7ea6328a42e0eb13d585e4c22"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"product_id"</span><span class="p">:</span><span class="mi">36</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"variation_id"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"variation"</span><span class="p">:[],</span><span class="w">
+    </span><span class="nl">"quantity"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"data_hash"</span><span class="p">:</span><span class="s2">"b5c1d5ca8bae6d4896cf1807cdf763f0"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"line_tax_data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"subtotal"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"12"</span><span class="p">:</span><span class="w"> </span><span class="mf">8.4</span><span class="w">
       </span><span class="p">},</span><span class="w">
-      </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"12"</span><span class="p">:</span><span class="w"> </span><span class="mf">8.4</span><span class="w">
+      </span><span class="nl">"total"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"12"</span><span class="p">:</span><span class="w"> </span><span class="mf">8.4</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">},</span><span class="w">
-    </span><span class="s2">"line_subtotal"</span><span class="p">:</span><span class="mi">18</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"line_subtotal_tax"</span><span class="p">:</span><span class="mf">8.4</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"line_total"</span><span class="p">:</span><span class="mf">14.4</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"line_tax"</span><span class="p">:</span><span class="mf">8.4</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"data"</span><span class="p">:{},</span><span class="w">
-    </span><span class="s2">"product_name"</span><span class="p">:</span><span class="s2">"Vneck Tshirt"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"product_title"</span><span class="p">:</span><span class="s2">"Vneck Tshirt"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"product_price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"£18"</span><span class="w">
+    </span><span class="nl">"line_subtotal"</span><span class="p">:</span><span class="mi">18</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"line_subtotal_tax"</span><span class="p">:</span><span class="mf">8.4</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"line_total"</span><span class="p">:</span><span class="mf">14.4</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"line_tax"</span><span class="p">:</span><span class="mf">8.4</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"data"</span><span class="p">:{},</span><span class="w">
+    </span><span class="nl">"product_name"</span><span class="p">:</span><span class="s2">"Vneck Tshirt"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"product_title"</span><span class="p">:</span><span class="s2">"Vneck Tshirt"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"product_price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"£18"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h2 id='retrieve-a-customers-cart-saved-via-persistent-cart'>Retrieve a Customers Cart saved via Persistent Cart</h2>
+</span></code></pre></div><h2 id='cart-retrieve-a-customers-cart-saved-via-persistent-cart'>Retrieve a Customers Cart saved via Persistent Cart</h2>
 <aside class="warning">
     Only the route of this endpoint has changed in this release in order to support getting carts in session better. Was previously <strong><em>/get-cart/1</em></strong>, now changed to <strong><em>/get-cart/customer/1</em></strong>.
 </aside>
@@ -416,7 +503,7 @@
 <aside class="notice">
     Please note that to return a registered customer, you must have <strong>persistent cart</strong> left enabled in you WooCommerce store for this to work and will only return cart data if one exists for that customer.
 </aside>
-<h3 id='properties-2'>Properties</h3>
+<h3 id='cart-retrieve-a-customers-cart-saved-via-persistent-cart-properties'>Properties</h3>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -435,28 +522,28 @@
 <td>Set as true to return the product thumbnail for each item.</td>
 </tr>
 </tbody></table>
-<h3 id='http-request-2'>HTTP request</h3>
+<h3 id='cart-retrieve-a-customers-cart-saved-via-persistent-cart-http-request'>HTTP request</h3>
 <div class="api-endpoint">
   <div class="endpoint-data">
     <i class="label label-get">GET</i>
     <h6>/wp-json/cocart/v1/get-cart/customer/&lt;id&gt;</h6>
   </div>
 </div>
-<pre class="highlight shell tab-shell"><code>curl -X GET https://example.com/wp-json/cocart/v1/get-cart/customer/123 <span class="se">\</span>
-  -u username:password <span class="se">\</span>
-  -H <span class="s2">"Content-Type: application/json"</span>
-</code></pre><pre class="highlight javascript tab-javascript--jquery"><code><span class="kd">var</span> <span class="nx">settings</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="s2">"url"</span><span class="p">:</span> <span class="s2">"https://example.com/wp-json/cocart/v1/get-cart/customer/123"</span><span class="p">,</span>
-  <span class="s2">"method"</span><span class="p">:</span> <span class="s2">"GET"</span><span class="p">,</span>
-  <span class="s2">"headers"</span><span class="p">:</span> <span class="p">{</span>
-    <span class="s1">'Authorization'</span><span class="p">,</span> <span class="s1">'Basic '</span> <span class="o">+</span> <span class="nx">btoa</span><span class="p">(</span> <span class="nx">username</span> <span class="o">+</span> <span class="s1">':'</span> <span class="o">+</span> <span class="nx">password</span> <span class="p">)</span> <span class="p">)</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET https://example.com/wp-json/cocart/v1/get-cart/customer/123 <span class="se">\</span>
+  <span class="nt">-u</span> username:password <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript--jquery"><code><span class="kd">var</span> <span class="nx">settings</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="dl">"</span><span class="s2">url</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">https://example.com/wp-json/cocart/v1/get-cart/customer/123</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">method</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">GET</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">headers</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">'</span><span class="s1">Authorization</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">Basic </span><span class="dl">'</span> <span class="o">+</span> <span class="nx">btoa</span><span class="p">(</span> <span class="nx">username</span> <span class="o">+</span> <span class="dl">'</span><span class="s1">:</span><span class="dl">'</span> <span class="o">+</span> <span class="nx">password</span> <span class="p">)</span> <span class="p">)</span>
   <span class="p">}</span>
 <span class="p">};</span>
 
 <span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">(</span><span class="nx">settings</span><span class="p">).</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span>
 <span class="p">});</span>
-</code></pre><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+</code></pre></div><div class="highlight"><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
 <span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
 
 <span class="nv">$args</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
@@ -477,7 +564,7 @@
 <span class="nb">curl_close</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
 
 <span class="k">echo</span> <span class="nv">$response</span><span class="p">;</span>
-</code></pre><pre class="highlight php tab-php--wp-http-api"><code><span class="cp">&lt;?php</span>
+</code></pre></div><div class="highlight"><pre class="highlight php tab-php--wp-http-api"><code><span class="cp">&lt;?php</span>
 <span class="nv">$args</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
   <span class="s1">'headers'</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
     <span class="s1">'Authorization'</span> <span class="o">=&gt;</span> <span class="s1">'Basic '</span> <span class="o">.</span> <span class="nb">base64_encode</span><span class="p">(</span> <span class="nx">username</span> <span class="o">.</span> <span class="s1">':'</span> <span class="o">.</span> <span class="nx">password</span> <span class="p">)</span>
@@ -485,9 +572,9 @@
 <span class="p">);</span>
 <span class="nv">$response</span> <span class="o">=</span> <span class="nx">wp_remote_get</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/get-cart/customer/123'</span><span class="p">,</span> <span class="nv">$args</span> <span class="p">);</span>
 <span class="nv">$body</span> <span class="o">=</span> <span class="nx">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
-</code></pre><h1 id='changelog'>Changelog</h1>
+</code></pre></div><h1 id='changelog'>Changelog</h1>
 <p>The changelog below will provide updates on what is being worked on and the outcome of these features been added to future releases. Checkout the <a href="https://cocart.xyz/news/">CoCart blog</a> for updates on new coming releases. Feedback is always appreciated. 😄</p>
-<h2 id='v2-1-2'>v2.1.2</h2>
+<h2 id='changelog-v2-1-2'>v2.1.2</h2>
 <ul>
 <li>NEW: Carts are now in sync across the web version of your store and your headless store.</li>
 <li>Changed: Parameter used to set cart key. Previously <code>id</code> now <code>cart_key</code>. <code>id</code> used as fallback if still used.</li>
