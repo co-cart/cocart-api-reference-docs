@@ -24,3 +24,6 @@ The cookies for Woocommerce and therefore the cart key is supplied through respo
 Cookies received via Set-Cookie-headers is stored in the browser for the domain upon which holds the API, meaning you can encounter problems reading the cookie values from your frontend.
 
 If using a package like [axios](https://github.com/axios/axios), make sure to supply the correct config parameters that enables cookies in requests to the server. As an example, axios has a config parameter called `withAuthorization`. With the flag set to true, cookies previous set will be sent in the request.
+
+### Cart key in the response payload ###
+Sometimes you need to avoid cookies. It's possible to return the cart key when using the `get_cart`-endpoint. Simply download and activate the [Get Cart Enhanced-plugin](https://wordpress.org/plugins/cocart-get-cart-enhanced/) and you're good-to-go.
