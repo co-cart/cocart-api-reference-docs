@@ -307,14 +307,13 @@ $response = wp_remote_post( 'https://example.com/wp-json/cocart/v1/add-item', $a
 $body = wp_remote_retrieve_body( $response );
 ```
 
-## Add Item to Cart + NYP ##
+## Add Item to Cart + Custom Price ##
 
 If you have setup the popular "[Name Your Price](https://woocommerce.com/products/name-your-price/)" WooCommerce extension for particular products. Here is how you can apply the customers requested price for the product when adding to cart.
 
 <aside class="notice">
   You must be using <strong>Name Your Price v3.1.0</strong> or above.
 </aside>
-
 
 ```shell
 curl -X POST https://example.com/wp-json/cocart/v1/add-item \
