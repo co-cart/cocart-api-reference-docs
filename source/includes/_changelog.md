@@ -2,6 +2,10 @@
 
 Below is the changelog for "CoCart" documentation that matches with the version of the plugin release.
 
+## Doc Version 2.4 ##
+
+* **NEW**: WooCommerce Extensions section added with Mix and Match Products being the first.
+
 ## Doc Version 2.3 ##
 
 * Added: New error responses.

@@ -1,5 +1,5 @@
 ---
-title: CoCart Documentation v2.3
+title: CoCart Documentation v2.4
 
 language_tabs:
  - shell: cURL
@@ -40,6 +40,7 @@ includes:
   - add-ons
   - cocart-pro
   - cocart-products
+  - woocommerce-extensions
   - demo
   - tools
   - changelog
