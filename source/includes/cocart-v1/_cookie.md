@@ -28,4 +28,4 @@ If using a package like [axios](https://github.com/axios/axios), make sure to su
 
 ### Return Cart Key in Cart Response ###
 
-Sometimes you need to avoid cookies. It's possible to do so by return the cart key when you return the cart endpoint `/wp-json/cocart/v1/get-cart`. Simply download and activate the [Get Cart Enhanced add-on plugin](https://wordpress.org/plugins/cocart-get-cart-enhanced/) and you're good-to-go.
+Sometimes you need to avoid cookies. It's possible to do so by return the cart key when you return the cart endpoint. Simply download and activate the [Get Cart Enhanced add-on plugin](https://wordpress.org/plugins/cocart-get-cart-enhanced/) and you're good-to-go.
