@@ -154,7 +154,7 @@ $body = wp_remote_retrieve_body( $response );
 
 ### Retrieve a product ###
 
-If you are using [CoCart Products](https://docs.cocart.xyz/products.html) API, any Mix and Match Product will return additional product data under a new variable.
+If you are using [CoCart Products](products.html) API, any Mix and Match Product will return additional product data under a new array variable `mnm_data`. [View example](products.html#woocommerce-extensions-mix-and-match-products).
 
 ## Name Your Price ##
 
