@@ -20,6 +20,7 @@ includes:
   - cocart-v1/products/product-categories
   - cocart-v1/products/product-tags
   - cocart-v1/products/product-reviews
+  - cocart-v1/products/woocommerce-extensions
   - cocart-v1/products/changelog
 
 search: true

@@ -4,42 +4,42 @@ Below is the changelog for "CoCart" documentation that matches with the version 
 
 ## Doc Version 2.4 ##
 
-* **NEW**: WooCommerce Extensions section added with Mix and Match Products being the first.
+* **NEW**: WooCommerce Extensions section added with Mix and Match Products and Name Your Price being the first.
 * Updated: Cookies section.
 
-## Doc Version 2.3 ##
+### Doc Version 2.3 ###
 
 * Added: New error responses.
 * Fixed: Corrected typos.
 * Tweaked: Improved code highlight theme for accessibility.
 * Tweaked: Links are now unique. Fixes issue with similar links generated.
 * Tweaked: Menu now has more padding.
-* Update: Plugin requirements for CoCart.
-* Update: Slate script to v2.7.0 which introduces the ability to copy code to clipboard.
+* Updated: Plugin requirements for CoCart.
+* Updated: Slate script to v2.7.0 which introduces the ability to copy code to clipboard.
 
-## Doc Version 2.2 - Plugin Release v2.2 ##
+### Doc Version 2.2 - Plugin Release v2.2 ###
 
 * Dev: Added `cocart_disable_all_cors` filter to enable all cross origin headers.
 * Dev: Added filters to override the product name `cocart_item_added_product_name` and product title `cocart_item_added_product_title` when adding item to cart.
 * Dev: Added `cocart_item_added` filter to allow additional data to be returned when item is added to cart.
 
-## Doc Version 2.1 - Plugin Release v2.1.3 ##
+### Doc Version 2.1 - Plugin Release v2.1.3 ###
 
 * **NEW**: Added example for adding product with [Name Your Price](https://woocommerce.com/products/name-your-price/) WooCommerce extension.
 
-## Doc Version 2.0 - Plugin Release v2.1.2 ##
+### Doc Version 2.0 - Plugin Release v2.1.2 ###
 
 * Tweaked: WP API examples.
 * Removed: Warning notice in the introduction section.
 
-## Doc Version 1.9 ##
+### Doc Version 1.9 ###
 
 * **NEW**: Added Cookie section.
 * **NEW**: Added link to Postman collections.
 * Tweaked: Certain features or API's are tagged to identify that they are only available in v2.1
 * Removed: Persistent Cart documentation.
 
-## Doc Version 1.8 - Plugin Release v2.1 ##
+### Doc Version 1.8 - Plugin Release v2.1 ###
 
 * **NEW**: Added support for guest carts with a new endpoint to retrieve those carts.
 * **NEW**: Added ability to load a cart from session.
