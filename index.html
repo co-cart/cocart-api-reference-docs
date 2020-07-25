@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>CoCart Documentation v2.3</title>
+    <title>CoCart Documentation v2.4</title>
 
     <link rel="icon" href="images/favicon-32x32-334932c6.png" sizes="32x32" />
     <link rel="icon" href="images/favicon-192x192-734db461.png" sizes="192x192" />
@@ -343,6 +343,12 @@
             <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
               <ul class="toc-list-h2">
                   <li>
+                    <a href="#introduction-what-is-a-rest-api" class="toc-h2 toc-link" data-title="What is a REST API?">What is a REST API?</a>
+                  </li>
+                  <li>
+                    <a href="#introduction-api-versions" class="toc-h2 toc-link" data-title="API Versions">API Versions</a>
+                  </li>
+                  <li>
                     <a href="#introduction-requirements" class="toc-h2 toc-link" data-title="Requirements">Requirements</a>
                   </li>
                   <li>
@@ -400,6 +406,14 @@
           </li>
           <li>
             <a href="#cookie" class="toc-h1 toc-link" data-title="Cookie">Cookie</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#cookie-jwt-authentication-set-cookie-headers" class="toc-h2 toc-link" data-title="Set-Cookie-headers">Set-Cookie-headers</a>
+                  </li>
+                  <li>
+                    <a href="#cookie-jwt-authentication-return-cart-key-in-cart-response" class="toc-h2 toc-link" data-title="Return Cart Key in Cart Response">Return Cart Key in Cart Response</a>
+                  </li>
+              </ul>
           </li>
           <li>
             <a href="#cart" class="toc-h1 toc-link" data-title="Cart">Cart</a>
@@ -438,9 +452,6 @@
                   </li>
                   <li>
                     <a href="#items-add-item-to-cart-custom-data" class="toc-h2 toc-link" data-title="Add Item to Cart + Custom Data">Add Item to Cart + Custom Data</a>
-                  </li>
-                  <li>
-                    <a href="#items-add-item-to-cart-nyp" class="toc-h2 toc-link" data-title="Add Item to Cart + NYP">Add Item to Cart + NYP</a>
                   </li>
                   <li>
                     <a href="#items-remove-item-from-cart" class="toc-h2 toc-link" data-title="Remove Item from Cart">Remove Item from Cart</a>
@@ -495,6 +506,17 @@
               </ul>
           </li>
           <li>
+            <a href="#woocommerce-extensions" class="toc-h1 toc-link" data-title="WooCommerce Extensions">WooCommerce Extensions</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#woocommerce-extensions-mix-and-match-products" class="toc-h2 toc-link" data-title="Mix and Match Products">Mix and Match Products</a>
+                  </li>
+                  <li>
+                    <a href="#woocommerce-extensions-name-your-price" class="toc-h2 toc-link" data-title="Name Your Price">Name Your Price</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#demo-cocart" class="toc-h1 toc-link" data-title="Demo CoCart">Demo CoCart</a>
               <ul class="toc-list-h2">
                   <li>
@@ -521,22 +543,7 @@
             <a href="#changelog" class="toc-h1 toc-link" data-title="Changelog">Changelog</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#changelog-doc-version-2-3" class="toc-h2 toc-link" data-title="Doc Version 2.3">Doc Version 2.3</a>
-                  </li>
-                  <li>
-                    <a href="#changelog-doc-version-2-2-plugin-release-v2-2" class="toc-h2 toc-link" data-title="Doc Version 2.2 - Plugin Release v2.2">Doc Version 2.2 - Plugin Release v2.2</a>
-                  </li>
-                  <li>
-                    <a href="#changelog-doc-version-2-1-plugin-release-v2-1-3" class="toc-h2 toc-link" data-title="Doc Version 2.1 - Plugin Release v2.1.3">Doc Version 2.1 - Plugin Release v2.1.3</a>
-                  </li>
-                  <li>
-                    <a href="#changelog-doc-version-2-0-plugin-release-v2-1-2" class="toc-h2 toc-link" data-title="Doc Version 2.0 - Plugin Release v2.1.2">Doc Version 2.0 - Plugin Release v2.1.2</a>
-                  </li>
-                  <li>
-                    <a href="#changelog-doc-version-1-9" class="toc-h2 toc-link" data-title="Doc Version 1.9">Doc Version 1.9</a>
-                  </li>
-                  <li>
-                    <a href="#changelog-doc-version-1-8-plugin-release-v2-1" class="toc-h2 toc-link" data-title="Doc Version 1.8 - Plugin Release v2.1">Doc Version 1.8 - Plugin Release v2.1</a>
+                    <a href="#changelog-doc-version-2-4" class="toc-h2 toc-link" data-title="Doc Version 2.4">Doc Version 2.4</a>
                   </li>
               </ul>
           </li>
@@ -559,12 +566,14 @@
 <p><img src="images/github-633266a3.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v1/_introduction.md">Edit on GitHub</a></p>
 
 <p>Welcome to the documentation site for CoCart, the free, open-source WordPress plugin that brings the power of WooCommerce&#39;s shopping cart via the REST API.</p>
+<h2 id='introduction-what-is-a-rest-api'>What is a REST API?</h2>
+<p>REST is an acronym for Representational State Transfer — an almost meaningless description of the most-used web service technology! REST is a way for two computer systems to communicate over HTTP in a similar way to web browsers and servers.</p>
 
-<p>CoCart is designed in mind for those who want to create a headless WordPress site. Read <a href="https://cocart.xyz/what-does-headless-mean/">what does headless mean?</a></p>
+<p>CoCart is a REST API designed in mind for those who want to create a headless e-commerce site powered by WooCommerce. Read <a href="https://cocart.xyz/what-does-headless-mean/">what does headless mean?</a></p>
 
-<p>CoCart allows the cart to be created, read, updated, and deleted using requests in JSON format and standard HTTP verbs which are understood by most HTTP clients.</p>
-
-<p>The current WordPress REST API integration for CoCart is version <code>v1</code> which takes a first-order position in endpoints.</p>
+<p>CoCart allows developers to provide a shopping cart in their app that stores the customers items, coupons applied, shipping methods available and much more. Carts can be created, read, updated, and deleted using the requests available that return a response in JSON format and standard HTTP verbs which are understood by most HTTP clients.</p>
+<h2 id='introduction-api-versions'>API Versions</h2>
+<p>The current WordPress REST API integration for CoCart is version <code>v1</code> which takes a first-order position in the endpoints.</p>
 
 <p>The following table shows API versions present in each major version of CoCart:</p>
 
@@ -1985,6 +1994,14 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <li>Look for a cookie support add-on for your framework. React for example has one called <a href="https://www.npmjs.com/package/react-cookies">react-cookies</a>.</li>
 <li>Read the cookie value yourself and explode it by <code>||</code> and get the first key value. Once you have that value you can use it to set the <code>cart_key</code> parameter on all API requests. This will use the <a href="#cart-guest-customers-set-cart-id-method">Set Cart ID Method</a>.</li>
 </ol>
+<h3 id='cookie-jwt-authentication-set-cookie-headers'>Set-Cookie-headers</h3>
+<p>The cookie for CoCart and therefore the cart key is supplied through response headers, so called <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie">Set-Cookie-headers</a>.</p>
+
+<p>Cookies received via Set-Cookie-headers is stored in the browser for the domain upon which holds the API, meaning you can encounter problems reading the cookie values from your frontend.</p>
+
+<p>If using a package like <a href="https://github.com/axios/axios">axios</a>, make sure to supply the correct config parameters that enables cookies in requests to the server. As an example, axios has a config parameter called <code>withAuthorization</code>. With the flag set to true, cookies previous set will be sent in the request.</p>
+<h3 id='cookie-jwt-authentication-return-cart-key-in-cart-response'>Return Cart Key in Cart Response</h3>
+<p>Sometimes you need to avoid cookies. It&#39;s possible to do so by return the cart key when you return the cart endpoint. Simply download and activate the <a href="https://wordpress.org/plugins/cocart-get-cart-enhanced/">Get Cart Enhanced add-on plugin</a> and you&#39;re good-to-go.</p>
 <h1 id='cart'>Cart</h1>
 <p><img src="images/github-633266a3.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v1/_cart.md">Edit on GitHub</a></p>
 
@@ -2922,81 +2939,6 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
     <span class="s1">'cart_item_data'</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
       <span class="s1">'engraved_name'</span> <span class="o">=&gt;</span> <span class="s1">'Sébastien Dumont'</span><span class="p">,</span>
       <span class="s1">'engraved_size'</span> <span class="o">=&gt;</span> <span class="s1">'Medium'</span>
-    <span class="p">)</span>
-  <span class="p">]</span> <span class="p">),</span>
-  <span class="s1">'timeout'</span> <span class="o">=&gt;</span> <span class="mi">30</span>
-<span class="p">);</span>
-<span class="nv">$response</span> <span class="o">=</span> <span class="nx">wp_remote_post</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/add-item'</span><span class="p">,</span> <span class="nv">$args</span> <span class="p">);</span>
-<span class="nv">$body</span> <span class="o">=</span> <span class="nx">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
-</code></pre></div><h2 id='items-add-item-to-cart-nyp'>Add Item to Cart + NYP</h2>
-<p>If you have setup the popular &quot;<a href="https://woocommerce.com/products/name-your-price/">Name Your Price</a>&quot; WooCommerce extension for particular products. Here is how you can apply the customers requested price for the product when adding to cart.</p>
-
-<aside class="notice">
-  You must be using <strong>Name Your Price v3.1.0</strong> or above.
-</aside>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST https://example.com/wp-json/cocart/v1/add-item <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
-  <span class="nt">-d</span> <span class="s1">'{
-    "product_id": 129,
-    "quantity": 1,
-    "cart_item_data": {
-      "nyp": 24
-    }
-  }'</span>
-</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript--jquery"><code><span class="kd">var</span> <span class="nx">settings</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="dl">"</span><span class="s2">url</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">https://example.com/wp-json/cocart/v1/add-item</span><span class="dl">"</span><span class="p">,</span>
-  <span class="dl">"</span><span class="s2">method</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">POST</span><span class="dl">"</span><span class="p">,</span>
-  <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
-    <span class="dl">"</span><span class="s2">product_id</span><span class="dl">"</span><span class="p">:</span> <span class="mi">129</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">quantity</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-    <span class="dl">"</span><span class="s2">cart_item_data</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
-      <span class="dl">"</span><span class="s2">nyp</span><span class="dl">"</span><span class="p">:</span> <span class="mi">24</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
-<span class="p">};</span>
-
-<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">(</span><span class="nx">settings</span><span class="p">).</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span>
-<span class="p">});</span>
-</code></pre></div><div class="highlight"><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
-<span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
-
-<span class="nv">$args</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
-  <span class="s1">'product_id'</span> <span class="o">=&gt;</span> <span class="mi">129</span><span class="p">,</span>
-  <span class="s1">'quantity'</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span>
-  <span class="s1">'cart_item_data'</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
-    <span class="s1">'nyp'</span> <span class="o">=&gt;</span> <span class="mi">24</span>
-  <span class="p">)</span>
-<span class="p">);</span>
-
-<span class="nb">curl_setopt_array</span><span class="p">(</span> <span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
-  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/add-item"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"POST"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_POSTFIELDS</span> <span class="o">=&gt;</span> <span class="nv">$args</span><span class="p">,</span>
-  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
-  <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
-    <span class="s1">'Accept: application/json'</span><span class="p">,</span>
-    <span class="s1">'Content-Type: application/json'</span><span class="p">,</span>
-    <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
-  <span class="p">)</span>
-<span class="p">)</span> <span class="p">);</span>
-
-<span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
-
-<span class="nb">curl_close</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
-
-<span class="k">echo</span> <span class="nv">$response</span><span class="p">;</span>
-</code></pre></div><div class="highlight"><pre class="highlight php tab-php--wp-http-api"><code><span class="cp">&lt;?php</span>
-<span class="nv">$args</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
-  <span class="s1">'headers'</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
-    <span class="s1">'Content-Type'</span> <span class="o">=&gt;</span> <span class="s1">'application/json; charset=utf-8'</span><span class="p">,</span>
-  <span class="p">),</span>
-  <span class="s1">'body'</span> <span class="o">=&gt;</span> <span class="nx">wp_json_encode</span><span class="p">(</span> <span class="p">[</span>
-    <span class="s1">'product_id'</span> <span class="o">=&gt;</span> <span class="mi">129</span><span class="p">,</span>
-    <span class="s1">'quantity'</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span>
-    <span class="s1">'cart_item_data'</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
-      <span class="s1">'nyp'</span> <span class="o">=&gt;</span> <span class="mi">24</span>
     <span class="p">)</span>
   <span class="p">]</span> <span class="p">),</span>
   <span class="s1">'timeout'</span> <span class="o">=&gt;</span> <span class="mi">30</span>
@@ -4116,7 +4058,222 @@ Please make sure you are viewing the PHP language to view examples of the filter
 <td><a href="products.html">view api documentation</a></td>
 </tr>
 </tbody></table>
-<h1 id='demo-cocart'>Demo CoCart</h1>
+<h1 id='woocommerce-extensions'>WooCommerce Extensions</h1>
+<p><img src="images/github-633266a3.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart-docs/blob/master/source/includes/_woocommerce-extensions.md">Edit on GitHub</a></p>
+
+<p><a href="https://cocart.xyz/woocommerce-extensions/">These extensions</a> either support CoCart or is supported in <a href="#cocart-add-ons-cocart-pro">CoCart Pro</a>.</p>
+
+<aside class="notice">
+  Extensions are documented with examples only if they have there own configuration.
+</aside>
+<h2 id='woocommerce-extensions-mix-and-match-products'>Mix and Match Products</h2>
+<p>Selling cases of wine? A dozen donuts? Fruit baskets? Six-packs of T-shirts? <a href="https://woocommerce.com/products/woocommerce-mix-and-match-products/">Mix and Match Products</a> is ideal for offering similar products in bulk containers. Perfect for encouraging customers to buy in bulk without forcing them to buy items that don’t interest them.</p>
+
+<aside class="notice">
+  Mix and Match Products supports CoCart since <strong>v1.10.0</strong>.
+</aside>
+<h3 id='woocommerce-extensions-mix-and-match-products-add-item-to-cart'>Add item to Cart</h3>
+<p>Once you have setup &quot;<a href="https://woocommerce.com/products/woocommerce-mix-and-match-products/">Mix and Match Products</a>&quot; WooCommerce extension. Here is how you can add a container with the customers selected items and quantity.</p>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST https://example.com/wp-json/cocart/v1/add-item <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  <span class="nt">-d</span> <span class="s1">'{
+    "product_id": 1102,
+    "quantity": 2,
+    "cart_item_data": {
+        "mnm_config": [
+            {
+                "product_id": 987,
+                "quantity": 1
+            },
+            {
+                "product_id": 1001,
+                "quantity": 2
+            },
+            {
+                "product_id": 1003,
+                "quantity": 3
+            }
+        ]
+    }
+}'</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript--jquery"><code><span class="kd">var</span> <span class="nx">settings</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="dl">"</span><span class="s2">url</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">https://example.com/wp-json/cocart/v1/add-item</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">method</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">POST</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">"</span><span class="s2">product_id</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1102</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">quantity</span><span class="dl">"</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">cart_item_data</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">mnm_config</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="dl">"</span><span class="s2">product_id</span><span class="dl">"</span><span class="p">:</span> <span class="mi">987</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">quantity</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="dl">"</span><span class="s2">product_id</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1001</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">quantity</span><span class="dl">"</span><span class="p">:</span> <span class="mi">2</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="dl">"</span><span class="s2">product_id</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1003</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">quantity</span><span class="dl">"</span><span class="p">:</span> <span class="mi">3</span>
+            <span class="p">}</span>
+        <span class="p">]</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">(</span><span class="nx">settings</span><span class="p">).</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div><div class="highlight"><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+<span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
+
+<span class="nv">$args</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+  <span class="s1">'product_id'</span> <span class="o">=&gt;</span> <span class="mi">1102</span><span class="p">,</span>
+  <span class="s1">'quantity'</span> <span class="o">=&gt;</span> <span class="mi">5</span><span class="p">,</span>
+  <span class="s1">'cart_item_data'</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+      <span class="s1">'mnm_config'</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+          <span class="k">array</span><span class="p">(</span>
+              <span class="s1">'product_id'</span> <span class="o">=&gt;</span> <span class="mi">987</span><span class="p">,</span>
+              <span class="s1">'quantity'</span> <span class="o">=&gt;</span> <span class="mi">1</span>
+          <span class="p">),</span>
+          <span class="k">array</span><span class="p">(</span>
+              <span class="s1">'product_id'</span> <span class="o">=&gt;</span> <span class="mi">1001</span><span class="p">,</span>
+              <span class="s1">'quantity'</span> <span class="o">=&gt;</span> <span class="mi">2</span>
+          <span class="p">),</span>
+          <span class="k">array</span><span class="p">(</span>
+              <span class="s1">'product_id'</span> <span class="o">=&gt;</span> <span class="mi">1003</span><span class="p">,</span>
+              <span class="s1">'quantity'</span> <span class="o">=&gt;</span> <span class="mi">3</span>
+          <span class="p">)</span>
+      <span class="p">)</span>
+  <span class="p">)</span>
+<span class="p">);</span>
+
+<span class="nb">curl_setopt_array</span><span class="p">(</span> <span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/add-item"</span><span class="p">,</span>
+  <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"POST"</span><span class="p">,</span>
+  <span class="nx">CURLOPT_POSTFIELDS</span> <span class="o">=&gt;</span> <span class="nv">$args</span><span class="p">,</span>
+  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
+  <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">'Accept: application/json'</span><span class="p">,</span>
+    <span class="s1">'Content-Type: application/json'</span><span class="p">,</span>
+    <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
+  <span class="p">)</span>
+<span class="p">)</span> <span class="p">);</span>
+
+<span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
+
+<span class="nb">curl_close</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
+
+<span class="k">echo</span> <span class="nv">$response</span><span class="p">;</span>
+</code></pre></div><div class="highlight"><pre class="highlight php tab-php--wp-http-api"><code><span class="cp">&lt;?php</span>
+<span class="nv">$args</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+  <span class="s1">'headers'</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">'Content-Type'</span> <span class="o">=&gt;</span> <span class="s1">'application/json; charset=utf-8'</span><span class="p">,</span>
+  <span class="p">),</span>
+  <span class="s1">'body'</span> <span class="o">=&gt;</span> <span class="nx">wp_json_encode</span><span class="p">(</span> <span class="p">[</span>
+    <span class="s1">'product_id'</span> <span class="o">=&gt;</span> <span class="mi">1102</span><span class="p">,</span>
+    <span class="s1">'quantity'</span> <span class="o">=&gt;</span> <span class="mi">5</span><span class="p">,</span>
+    <span class="s1">'cart_item_data'</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+        <span class="s1">'mnm_config'</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+            <span class="k">array</span><span class="p">(</span>
+                <span class="s1">'product_id'</span> <span class="o">=&gt;</span> <span class="mi">987</span><span class="p">,</span>
+                <span class="s1">'quantity'</span> <span class="o">=&gt;</span> <span class="mi">1</span>
+            <span class="p">),</span>
+            <span class="k">array</span><span class="p">(</span>
+                <span class="s1">'product_id'</span> <span class="o">=&gt;</span> <span class="mi">1001</span><span class="p">,</span>
+                <span class="s1">'quantity'</span> <span class="o">=&gt;</span> <span class="mi">2</span>
+            <span class="p">),</span>
+            <span class="k">array</span><span class="p">(</span>
+                <span class="s1">'product_id'</span> <span class="o">=&gt;</span> <span class="mi">1003</span><span class="p">,</span>
+                <span class="s1">'quantity'</span> <span class="o">=&gt;</span> <span class="mi">3</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
+    <span class="p">)</span>
+  <span class="p">]</span> <span class="p">),</span>
+  <span class="s1">'timeout'</span> <span class="o">=&gt;</span> <span class="mi">30</span>
+<span class="p">);</span>
+<span class="nv">$response</span> <span class="o">=</span> <span class="nx">wp_remote_post</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/add-item'</span><span class="p">,</span> <span class="nv">$args</span> <span class="p">);</span>
+<span class="nv">$body</span> <span class="o">=</span> <span class="nx">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
+</code></pre></div><h3 id='woocommerce-extensions-mix-and-match-products-retrieve-a-product'>Retrieve a product</h3>
+<p>If you are using <a href="products.html">CoCart Products</a> API, any Mix and Match Product will return additional product data under a new array variable <code>mnm_data</code>. <a href="products.html#woocommerce-extensions-mix-and-match-products">View example</a>.</p>
+<h2 id='woocommerce-extensions-name-your-price'>Name Your Price</h2>
+<p>The <a href="https://woocommerce.com/products/name-your-price/">Name Your Price</a> plugin extension lets you be flexible in what price you are willing to accept for selected products. You can use this plugin to accept donations or to take a new approach to selling products. You can suggest a price to your customers and optionally enforce a minimum acceptable price, or leave it entirely in the hands of the customer.</p>
+
+<aside class="notice">
+  Name Your Price supports CoCart since <strong>v3.1.0</strong>.
+</aside>
+<h3 id='woocommerce-extensions-name-your-price-add-item-to-cart'>Add item to Cart</h3>
+<p>Once you have setup &quot;<a href="https://woocommerce.com/products/name-your-price/">Name Your Price</a>&quot; for your particular products. Here is how you can apply the customers requested price for the product when adding to cart.</p>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST https://example.com/wp-json/cocart/v1/add-item <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  <span class="nt">-d</span> <span class="s1">'{
+    "product_id": 129,
+    "quantity": 1,
+    "cart_item_data": {
+      "nyp": 24
+    }
+  }'</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript--jquery"><code><span class="kd">var</span> <span class="nx">settings</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="dl">"</span><span class="s2">url</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">https://example.com/wp-json/cocart/v1/add-item</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">method</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">POST</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">"</span><span class="s2">product_id</span><span class="dl">"</span><span class="p">:</span> <span class="mi">129</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">quantity</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">cart_item_data</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+      <span class="dl">"</span><span class="s2">nyp</span><span class="dl">"</span><span class="p">:</span> <span class="mi">24</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">(</span><span class="nx">settings</span><span class="p">).</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div><div class="highlight"><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+<span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
+
+<span class="nv">$args</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+  <span class="s1">'product_id'</span> <span class="o">=&gt;</span> <span class="mi">129</span><span class="p">,</span>
+  <span class="s1">'quantity'</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span>
+  <span class="s1">'cart_item_data'</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">'nyp'</span> <span class="o">=&gt;</span> <span class="mi">24</span>
+  <span class="p">)</span>
+<span class="p">);</span>
+
+<span class="nb">curl_setopt_array</span><span class="p">(</span> <span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/add-item"</span><span class="p">,</span>
+  <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"POST"</span><span class="p">,</span>
+  <span class="nx">CURLOPT_POSTFIELDS</span> <span class="o">=&gt;</span> <span class="nv">$args</span><span class="p">,</span>
+  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
+  <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">'Accept: application/json'</span><span class="p">,</span>
+    <span class="s1">'Content-Type: application/json'</span><span class="p">,</span>
+    <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
+  <span class="p">)</span>
+<span class="p">)</span> <span class="p">);</span>
+
+<span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
+
+<span class="nb">curl_close</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
+
+<span class="k">echo</span> <span class="nv">$response</span><span class="p">;</span>
+</code></pre></div><div class="highlight"><pre class="highlight php tab-php--wp-http-api"><code><span class="cp">&lt;?php</span>
+<span class="nv">$args</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+  <span class="s1">'headers'</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">'Content-Type'</span> <span class="o">=&gt;</span> <span class="s1">'application/json; charset=utf-8'</span><span class="p">,</span>
+  <span class="p">),</span>
+  <span class="s1">'body'</span> <span class="o">=&gt;</span> <span class="nx">wp_json_encode</span><span class="p">(</span> <span class="p">[</span>
+    <span class="s1">'product_id'</span> <span class="o">=&gt;</span> <span class="mi">129</span><span class="p">,</span>
+    <span class="s1">'quantity'</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s1">'cart_item_data'</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+      <span class="s1">'nyp'</span> <span class="o">=&gt;</span> <span class="mi">24</span>
+    <span class="p">)</span>
+  <span class="p">]</span> <span class="p">),</span>
+  <span class="s1">'timeout'</span> <span class="o">=&gt;</span> <span class="mi">30</span>
+<span class="p">);</span>
+<span class="nv">$response</span> <span class="o">=</span> <span class="nx">wp_remote_post</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/add-item'</span><span class="p">,</span> <span class="nv">$args</span> <span class="p">);</span>
+<span class="nv">$body</span> <span class="o">=</span> <span class="nx">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
+</code></pre></div><h1 id='demo-cocart'>Demo CoCart</h1>
 <p><img src="images/github-633266a3.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart-docs/blob/master/source/includes/_demo.md">Edit on GitHub</a></p>
 
 <p>If you don&#39;t yet have CoCart installed or a WordPress setup ready, you can test the results in your app using the demo site prepared.</p>
@@ -4343,39 +4500,44 @@ Please make sure you are viewing the PHP language to view examples of the filter
 </ul>
 <h1 id='changelog'>Changelog</h1>
 <p>Below is the changelog for &quot;CoCart&quot; documentation that matches with the version of the plugin release.</p>
-<h2 id='changelog-doc-version-2-3'>Doc Version 2.3</h2>
+<h2 id='changelog-doc-version-2-4'>Doc Version 2.4</h2>
+<ul>
+<li><strong>NEW</strong>: WooCommerce Extensions section added with Mix and Match Products and Name Your Price being the first.</li>
+<li>Updated: Cookies section.</li>
+</ul>
+<h3 id='changelog-doc-version-2-4-doc-version-2-3'>Doc Version 2.3</h3>
 <ul>
 <li>Added: New error responses.</li>
 <li>Fixed: Corrected typos.</li>
 <li>Tweaked: Improved code highlight theme for accessibility.</li>
 <li>Tweaked: Links are now unique. Fixes issue with similar links generated.</li>
 <li>Tweaked: Menu now has more padding.</li>
-<li>Update: Plugin requirements for CoCart.</li>
-<li>Update: Slate script to v2.7.0 which introduces the ability to copy code to clipboard.</li>
+<li>Updated: Plugin requirements for CoCart.</li>
+<li>Updated: Slate script to v2.7.0 which introduces the ability to copy code to clipboard.</li>
 </ul>
-<h2 id='changelog-doc-version-2-2-plugin-release-v2-2'>Doc Version 2.2 - Plugin Release v2.2</h2>
+<h3 id='changelog-doc-version-2-4-doc-version-2-2-plugin-release-v2-2'>Doc Version 2.2 - Plugin Release v2.2</h3>
 <ul>
 <li>Dev: Added <code>cocart_disable_all_cors</code> filter to enable all cross origin headers.</li>
 <li>Dev: Added filters to override the product name <code>cocart_item_added_product_name</code> and product title <code>cocart_item_added_product_title</code> when adding item to cart.</li>
 <li>Dev: Added <code>cocart_item_added</code> filter to allow additional data to be returned when item is added to cart.</li>
 </ul>
-<h2 id='changelog-doc-version-2-1-plugin-release-v2-1-3'>Doc Version 2.1 - Plugin Release v2.1.3</h2>
+<h3 id='changelog-doc-version-2-4-doc-version-2-1-plugin-release-v2-1-3'>Doc Version 2.1 - Plugin Release v2.1.3</h3>
 <ul>
 <li><strong>NEW</strong>: Added example for adding product with <a href="https://woocommerce.com/products/name-your-price/">Name Your Price</a> WooCommerce extension.</li>
 </ul>
-<h2 id='changelog-doc-version-2-0-plugin-release-v2-1-2'>Doc Version 2.0 - Plugin Release v2.1.2</h2>
+<h3 id='changelog-doc-version-2-4-doc-version-2-0-plugin-release-v2-1-2'>Doc Version 2.0 - Plugin Release v2.1.2</h3>
 <ul>
 <li>Tweaked: WP API examples.</li>
 <li>Removed: Warning notice in the introduction section.</li>
 </ul>
-<h2 id='changelog-doc-version-1-9'>Doc Version 1.9</h2>
+<h3 id='changelog-doc-version-2-4-doc-version-1-9'>Doc Version 1.9</h3>
 <ul>
 <li><strong>NEW</strong>: Added Cookie section.</li>
 <li><strong>NEW</strong>: Added link to Postman collections.</li>
 <li>Tweaked: Certain features or API&#39;s are tagged to identify that they are only available in v2.1</li>
 <li>Removed: Persistent Cart documentation.</li>
 </ul>
-<h2 id='changelog-doc-version-1-8-plugin-release-v2-1'>Doc Version 1.8 - Plugin Release v2.1</h2>
+<h3 id='changelog-doc-version-2-4-doc-version-1-8-plugin-release-v2-1'>Doc Version 1.8 - Plugin Release v2.1</h3>
 <ul>
 <li><strong>NEW</strong>: Added support for guest carts with a new endpoint to retrieve those carts.</li>
 <li><strong>NEW</strong>: Added ability to load a cart from session.</li>
@@ -4392,7 +4554,7 @@ Please make sure you are viewing the PHP language to view examples of the filter
 <li>Dev: Added hook <code>cocart_item_added_updated_in_cart</code> for when an item was added again but updated in cart.</li>
 <li>Dev: Added filter <code>cocart_cookie_supported</code> to allow developers to disable cookie session support if they don&#39;t/can&#39;t support cookies within their app.</li>
 </ul>
-<h3 id='changelog-doc-version-1-8-plugin-release-v2-1-doc-version-1-7'>Doc Version 1.7</h3>
+<h3 id='changelog-doc-version-2-4-doc-version-1-7'>Doc Version 1.7</h3>
 <ul>
 <li><strong>NEW</strong>: Added links to edit documentation at the top of each section.</li>
 <li><strong>NEW</strong>: Added Getting Started section for those new to WordPress.</li>
@@ -4400,7 +4562,7 @@ Please make sure you are viewing the PHP language to view examples of the filter
 <li>Tweaked: Menu</li>
 <li>Tweaked: Brand colours and updated favicons.</li>
 </ul>
-<h3 id='changelog-doc-version-1-8-plugin-release-v2-1-doc-version-1-6-plugin-release-v2-0-13'>Doc Version 1.6 - Plugin Release v2.0.13</h3>
+<h3 id='changelog-doc-version-2-4-doc-version-1-6-plugin-release-v2-0-13'>Doc Version 1.6 - Plugin Release v2.0.13</h3>
 <ul>
 <li><strong>NEW</strong>: Added <code>cocart_return_empty_cart</code> filter and example.</li>
 <li><strong>NEW</strong>: Added <code>cocart_add_to_cart_sold_individually_quantity</code>and example.</li>
@@ -4409,7 +4571,7 @@ Please make sure you are viewing the PHP language to view examples of the filter
 <li>Tweaked: Menu, content and added helpful links.</li>
 <li>Tweaked: Filter examples to be code highlighted correctly.</li>
 </ul>
-<h3 id='changelog-doc-version-1-8-plugin-release-v2-1-doc-version-1-5-plugin-release-v2-0-7'>Doc Version 1.5 - Plugin Release v2.0.7</h3>
+<h3 id='changelog-doc-version-2-4-doc-version-1-5-plugin-release-v2-0-7'>Doc Version 1.5 - Plugin Release v2.0.7</h3>
 <ul>
 <li><strong>NEW</strong>: Added link to products add-on documentation under CoCart Pro.</li>
 <li><strong>NEW</strong>: Added a little section explaining the body types when making a request.</li>
@@ -4417,36 +4579,36 @@ Please make sure you are viewing the PHP language to view examples of the filter
 <li><strong>NEW</strong>: Added Demo section.</li>
 <li>Improved: Authentication section.</li>
 </ul>
-<h3 id='changelog-doc-version-1-8-plugin-release-v2-1-doc-version-1-4'>Doc Version 1.4</h3>
+<h3 id='changelog-doc-version-2-4-doc-version-1-4'>Doc Version 1.4</h3>
 <ul>
 <li><strong>NEW</strong>: Added live chat so users can ask questions.</li>
 <li>Made it clearer to understand about retrieving specific customers cart.</li>
 <li>Improved the introduction a little.</li>
 </ul>
-<h3 id='changelog-doc-version-1-8-plugin-release-v2-1-doc-version-1-3'>Doc Version 1.3</h3>
+<h3 id='changelog-doc-version-2-4-doc-version-1-3'>Doc Version 1.3</h3>
 <ul>
 <li>Added languages for jQuery, PHP and WP API.</li>
 </ul>
-<h3 id='changelog-doc-version-1-8-plugin-release-v2-1-doc-version-1-2'>Doc Version 1.2</h3>
+<h3 id='changelog-doc-version-2-4-doc-version-1-2'>Doc Version 1.2</h3>
 <ul>
 <li>Added Work in Progress section.</li>
 <li>Added Authentication section.</li>
 </ul>
-<h3 id='changelog-doc-version-1-8-plugin-release-v2-1-doc-version-1-1'>Doc Version 1.1</h3>
+<h3 id='changelog-doc-version-2-4-doc-version-1-1'>Doc Version 1.1</h3>
 <ul>
 <li>Added Index API.</li>
 <li>Linked logo to documentation homepage.</li>
 </ul>
-<h3 id='changelog-doc-version-1-8-plugin-release-v2-1-doc-version-1-plugin-release-v2'>Doc Version 1 - Plugin Release v2</h3>
+<h3 id='changelog-doc-version-2-4-doc-version-1-plugin-release-v2'>Doc Version 1 - Plugin Release v2</h3>
 <ul>
 <li>Updated for CoCart v2</li>
 </ul>
-<h3 id='changelog-doc-version-1-8-plugin-release-v2-1-doc-version-0-5'>Doc Version 0.5</h3>
+<h3 id='changelog-doc-version-2-4-doc-version-0-5'>Doc Version 0.5</h3>
 <ul>
 <li>Added attribute table for view cart.</li>
 <li>Added missing examples for count items and get cart totals.</li>
 </ul>
-<h3 id='changelog-doc-version-1-8-plugin-release-v2-1-doc-version-0-4-plugin-release-1-0-5'>Doc Version 0.4 - Plugin Release 1.0.5</h3>
+<h3 id='changelog-doc-version-2-4-doc-version-0-4-plugin-release-1-0-5'>Doc Version 0.4 - Plugin Release 1.0.5</h3>
 <ul>
 <li>Project renamed to CoCart.</li>
 <li>Changed support to contribution.</li>
@@ -4454,17 +4616,17 @@ Please make sure you are viewing the PHP language to view examples of the filter
 <li>Added Insomnia as another tool you can use to access the API with.</li>
 <li>Removed all languages except for cURL showing examples on how to use with official library wrappers due to authentication required whic CoCart does not.</li>
 </ul>
-<h3 id='changelog-doc-version-1-8-plugin-release-v2-1-doc-version-0-3-plugin-release-1-0-4'>Doc Version 0.3 - Plugin Release 1.0.4</h3>
+<h3 id='changelog-doc-version-2-4-doc-version-0-3-plugin-release-1-0-4'>Doc Version 0.3 - Plugin Release 1.0.4</h3>
 <ul>
 <li>Official libraries are not supported as they require authentication which this API does not.</li>
 <li>Removed installation instruction for official libraries.</li>
 <li>Replaced logo to prevent confusion with the official REST API documentation.</li>
 </ul>
-<h3 id='changelog-doc-version-1-8-plugin-release-v2-1-doc-version-0-2-plugin-release-1-0-1'>Doc Version 0.2 - Plugin Release 1.0.1</h3>
+<h3 id='changelog-doc-version-2-4-doc-version-0-2-plugin-release-1-0-1'>Doc Version 0.2 - Plugin Release 1.0.1</h3>
 <ul>
 <li>Updated endpoint for updating, restoring and removing items.</li>
 </ul>
-<h3 id='changelog-doc-version-1-8-plugin-release-v2-1-doc-version-0-1-plugin-release-1-0-0'>Doc Version 0.1 - Plugin Release 1.0.0</h3>
+<h3 id='changelog-doc-version-2-4-doc-version-0-1-plugin-release-1-0-0'>Doc Version 0.1 - Plugin Release 1.0.0</h3>
 <ul>
 <li>Initial Commit</li>
 </ul>

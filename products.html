@@ -458,10 +458,18 @@
               </ul>
           </li>
           <li>
+            <a href="#woocommerce-extensions" class="toc-h1 toc-link" data-title="WooCommerce Extensions">WooCommerce Extensions</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#woocommerce-extensions-mix-and-match-products" class="toc-h2 toc-link" data-title="Mix and Match Products">Mix and Match Products</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#changelog" class="toc-h1 toc-link" data-title="Changelog">Changelog</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#changelog-list-all-product-reviews-doc-version-0-1-plugin-release-v1-0-0" class="toc-h2 toc-link" data-title="Doc Version 0.1 - Plugin Release v1.0.0">Doc Version 0.1 - Plugin Release v1.0.0</a>
+                    <a href="#changelog-doc-version-0-2-plugin-release-v1-0-0" class="toc-h2 toc-link" data-title="Doc Version 0.2 - Plugin Release v1.0.0">Doc Version 0.2 - Plugin Release v1.0.0</a>
                   </li>
               </ul>
           </li>
@@ -3965,9 +3973,205 @@
         </span><span class="p">]</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
+</span></code></pre></div><h1 id='woocommerce-extensions'>WooCommerce Extensions</h1>
+<p><img src="images/github-633266a3.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v1/products/_woocommerce-extensions.md">Edit on GitHub</a></p>
+
+<p><a href="https://cocart.xyz/woocommerce-extensions/">These extensions</a> either support CoCart Products or is supported in CoCart Products.</p>
+<h2 id='woocommerce-extensions-mix-and-match-products'>Mix and Match Products</h2>
+<p>Selling cases of wine? A dozen donuts? Fruit baskets? Six-packs of T-shirts? <a href="https://woocommerce.com/products/woocommerce-mix-and-match-products/">Mix and Match Products</a> is ideal for offering similar products in bulk containers. Perfect for encouraging customers to buy in bulk without forcing them to buy items that don’t interest them.</p>
+
+<aside class="notice">
+  Mix and Match Products supports CoCart Products since <strong>v1.10.0</strong>.
+</aside>
+<h3 id='woocommerce-extensions-mix-and-match-products-retrieve-a-product'>Retrieve a product</h3>
+<p>Any Mix and Match Product will return additional product data under a new array variable <code>mnm_data</code>.</p>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1102</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mix and Match Products"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mix-and-match-products"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"permalink"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/product/mix-and-match-products/"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"date_created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-10-03T21:41:45"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"date_created_gmt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-10-03T19:41:45"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"date_modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-07-15T21:53:43"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"date_modified_gmt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-07-15T19:53:43"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mix-and-match"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"featured"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"catalog_visibility"</span><span class="p">:</span><span class="w"> </span><span class="s2">"visible"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"short_description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"£2.00"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"regular_price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"£2.00"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"sale_price"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"date_on_sale_from"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"date_on_sale_from_gmt"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"date_on_sale_to"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"date_on_sale_to_gmt"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"on_sale"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"purchasable"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"total_sales"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"virtual"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"downloadable"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"external_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"button_text"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"manage_stock"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"stock_quantity"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"in_stock"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"stock_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"instock"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"backorders"</span><span class="p">:</span><span class="w"> </span><span class="s2">"no"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"backorders_allowed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"backordered"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"sold_individually"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"weight"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"dimensions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"length"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"width"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"height"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"shipping_required"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"reviews_allowed"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"average_rating"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"rating_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"review_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"rating_html"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"reviews"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="nl">"related_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="mi">1122</span><span class="p">,</span><span class="w">
+        </span><span class="mi">1992</span><span class="p">,</span><span class="w">
+        </span><span class="mi">1003</span><span class="p">,</span><span class="w">
+        </span><span class="mi">1957</span><span class="p">,</span><span class="w">
+        </span><span class="mi">1888</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"upsell_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="nl">"cross_sell_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="nl">"parent_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"categories"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">42</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Food"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"food"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"tags"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="nl">"images"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"date_created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-07-25T20:45:15"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"date_created_gmt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-07-25T16:45:15"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"date_modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-07-25T20:45:15"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"date_modified_gmt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-07-25T16:45:15"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"src"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-content/uploads/woocommerce-placeholder-150x150.png"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"medium"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-content/uploads/woocommerce-placeholder-300x300.png"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"medium_large"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-content/uploads/woocommerce-placeholder-768x768.png"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"large"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-content/uploads/woocommerce-placeholder-1024x1024.png"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"1536x1536"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-content/uploads/woocommerce-placeholder.png"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"2048x2048"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-content/uploads/woocommerce-placeholder.png"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"woocommerce_thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-content/uploads/woocommerce-placeholder-324x324.png"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"woocommerce_single"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-content/uploads/woocommerce-placeholder-416x416.png"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"woocommerce_gallery_thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-content/uploads/woocommerce-placeholder-100x100.png"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"shop_catalog"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-content/uploads/woocommerce-placeholder-324x324.png"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"shop_single"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-content/uploads/woocommerce-placeholder-416x416.png"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"shop_thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-content/uploads/woocommerce-placeholder-100x100.png"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"full"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-content/uploads/woocommerce-placeholder.png"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"custom"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-content/uploads/woocommerce-placeholder.png"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Placeholder"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"alt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Placeholder"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"position"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="nl">"default_attributes"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="nl">"variations"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="nl">"grouped_products"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="nl">"menu_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"meta_data"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="nl">"mnm_data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"base_raw_price"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"base_raw_regular_price"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"base_raw_sale_price"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"base_price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"£2.00"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"base_regular_price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"£2.00"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"base_sale_price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"£0.00"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"has_discount"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"min_raw_price"</span><span class="p">:</span><span class="w"> </span><span class="mf">4.5671</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"min_raw_regular_price"</span><span class="p">:</span><span class="w"> </span><span class="mf">4.58</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"max_raw_price"</span><span class="p">:</span><span class="w"> </span><span class="mf">9.7013</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"max_raw_regular_price"</span><span class="p">:</span><span class="w"> </span><span class="mf">9.74</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"min_price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"£4.57"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"min_regular_price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"£4.58"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"max_price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"£9.70"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"max_regular_price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"£9.74"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"min_container_size"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"max_container_size"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"products"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"child_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">987</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"product_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">987</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"variation_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cupcake"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"raw_price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.28355"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"raw_regular_price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.29"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"raw_sale_price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.28355"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"£1.28"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"regular_price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"£1.29"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"sale_price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"£1.28"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"on_sale"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"child_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1001</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"product_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1001</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"variation_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Turquoise Cupcake"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"raw_price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.28355"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"raw_regular_price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.29"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"raw_sale_price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.28355"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"£1.28"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"regular_price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"£1.29"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"sale_price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"£1.28"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"on_sale"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"child_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1003</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"product_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1003</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"variation_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Buttercup and Bumblebee Cupcakes"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"raw_price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.28355"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"raw_regular_price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.29"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"raw_sale_price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.28355"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"£1.28"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"regular_price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"£1.29"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"sale_price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"£1.28"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"on_sale"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nl">"per_product_pricing"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"per_product_discount"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.5</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"per_product_shipping"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"_links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"self"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"permalink"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/product/mix-and-match-products/"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-json/cocart/v1/products/1102"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nl">"collection"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"permalink"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/shop/"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-json/cocart/v1/products"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
 </span></code></pre></div><h1 id='changelog'>Changelog</h1>
 <p>The Documentation is updated only when needed. Below is the changelog for &quot;CoCart Products&quot; documentation that matches with the version of the plugin release.</p>
-<h3 id='changelog-list-all-product-reviews-doc-version-0-1-plugin-release-v1-0-0'>Doc Version 0.1 - Plugin Release v1.0.0</h3>
+<h2 id='changelog-doc-version-0-2-plugin-release-v1-0-0'>Doc Version 0.2 - Plugin Release v1.0.0</h2>
+<ul>
+<li><strong>NEW</strong>: WooCommerce Extensions section added with Mix and Match Products being the first.</li>
+</ul>
+<h3 id='changelog-doc-version-0-2-plugin-release-v1-0-0-doc-version-0-1-plugin-release-v1-0-0'>Doc Version 0.1 - Plugin Release v1.0.0</h3>
 <ul>
 <li>Initial version</li>
 </ul>
