@@ -650,7 +650,7 @@ Please note that you are <strong>not</strong> required to install the <a href="h
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"404dcc91b2aeaa7caa47487d1483e48a"</span><span class="p">:{</span><span class="w">
     </span><span class="nl">"key"</span><span class="p">:</span><span class="s2">"404dcc91b2aeaa7caa47487d1483e48a"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"product_id"</span><span class="p">:</span><span class="mi">1722</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"product_id"</span><span class="p">:</span><span class="mi">32</span><span class="p">,</span><span class="w">
     </span><span class="nl">"variation_id"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="nl">"variation"</span><span class="p">:[],</span><span class="w">
     </span><span class="nl">"quantity"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
@@ -793,9 +793,9 @@ It is important that you use POST and not GET as it will cache and return with a
     </div>
 </div>
 <div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST https://example.com/wp-json/wc/v2/cart/add <span class="se">\</span>
-    <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
   <span class="nt">-d</span> <span class="s1">'{
-    "product_id": 1722,
+    "product_id": 32,
     "quantity": 1
   }'</span>
 </code></pre></div>
@@ -805,7 +805,7 @@ It is important that you use POST and not GET as it will cache and return with a
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"404dcc91b2aeaa7caa47487d1483e48a"</span><span class="p">:{</span><span class="w">
     </span><span class="nl">"key"</span><span class="p">:</span><span class="s2">"404dcc91b2aeaa7caa47487d1483e48a"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"product_id"</span><span class="p">:</span><span class="mi">1722</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"product_id"</span><span class="p">:</span><span class="mi">32</span><span class="p">,</span><span class="w">
     </span><span class="nl">"variation_id"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="nl">"variation"</span><span class="p">:[],</span><span class="w">
     </span><span class="nl">"quantity"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
