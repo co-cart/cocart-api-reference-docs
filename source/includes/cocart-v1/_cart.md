@@ -12,10 +12,10 @@ This API returns the contents of the cart for a guest customer or logged in cust
 
 ### Properties ###
 
-| Property | Type   | Description                                                              |
+| Property   | Type   | Description                                                              |
 | ---------- | ------ | ------------------------------------------------------------------------ |
 | `cart_key` | string | Unique identifier for the cart. <i class="label label-info">optional</i> |
-| `thumb`    | bool   | Set as true to return the product thumbnail for each item.                 |
+| `thumb`    | bool   | Set as true to return the product thumbnail for each item.               |
 
 ### HTTP request ###
 
@@ -213,7 +213,11 @@ Once a new customer has added the first item, a cookie is generated that stores 
 
 ### Set Cart ID Method ###
 
-This method allows you to set the cart key yourself via the `cart_key` parameter which must be passed with each API request made. This sets the ID in session allowing to fetch the cart before changes are made.
+This method allows you to set the cart key yourself via the `cart_key` parameter which must be passed with each API request made. This sets the ID in session allowing to create/fetch the cart before changes are made.
+
+<aside class="notice">
+  The cart ID can not be longer than 42 characters as that is the limit for the database.
+</aside>
 
 Here are a few examples on how to pass the cart ID with each API request.
 

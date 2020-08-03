@@ -152,6 +152,115 @@ $response = wp_remote_post( 'https://example.com/wp-json/cocart/v1/add-item', $a
 $body = wp_remote_retrieve_body( $response );
 ```
 
+> JSON response example
+
+```json
+{
+    "6563b32f054b00c7ed83ce4c9bb9eedd": {
+        "mnm_config": {
+            "987": {
+                "product_id": 987,
+                "quantity": 1
+            },
+            "1001": {
+                "product_id": 1001,
+                "quantity": 2
+            },
+            "1003": {
+                "product_id": 1003,
+                "quantity": 3
+            }
+        },
+        "mnm_contents": [
+            "8e9868e336b9bafe4722c31ade00a8f6",
+            "a29fe85f04188ccc5a7106dec6f5ca89",
+            "4531239fed8c9875e0cce609b86be85a"
+        ],
+        "key": "6563b32f054b00c7ed83ce4c9bb9eedd",
+        "product_id": 1102,
+        "variation_id": 0,
+        "variation": [],
+        "quantity": 1,
+        "data_hash": "d88f7e7e5dfa45731252a34e3e64325c",
+        "line_tax_data": {
+            "subtotal": [],
+            "total": []
+        },
+        "line_subtotal": 9.7013,
+        "line_subtotal_tax": 0,
+        "line_total": 9.7013,
+        "line_tax": 0,
+        "data": {
+            "product_type": "mix-and-match",
+            "is_nyp": false
+        },
+        "product_name": "Mix and Match Products",
+        "product_title": "Mix and Match Products",
+        "product_price": "£2.00"
+    },
+    "8e9868e336b9bafe4722c31ade00a8f6": {
+        "mnm_container": "6563b32f054b00c7ed83ce4c9bb9eedd",
+        "mnm_child_id": 1102,
+        "product_id": 987,
+        "variation_id": 0,
+        "variation": [],
+        "quantity": 1,
+        "line_tax_data": {
+            "subtotal": [],
+            "total": []
+        },
+        "line_subtotal": 1.28355,
+        "line_subtotal_tax": 0,
+        "line_total": 1.28355,
+        "line_tax": 0,
+        "data": {},
+        "product_name": "Cupcake",
+        "product_title": "Cupcake",
+        "product_price": "£1.28"
+    },
+    "a29fe85f04188ccc5a7106dec6f5ca89": {
+        "mnm_container": "6563b32f054b00c7ed83ce4c9bb9eedd",
+        "mnm_child_id": 1102,
+        "product_id": 1001,
+        "variation_id": 0,
+        "variation": [],
+        "quantity": 2,
+        "line_tax_data": {
+            "subtotal": [],
+            "total": []
+        },
+        "line_subtotal": 2.5671,
+        "line_subtotal_tax": 0,
+        "line_total": 1.28355,
+        "line_tax": 0,
+        "data": {},
+        "product_name": "Turquoise Cupcake",
+        "product_title": "Turquoise Cupcake",
+        "product_price": "£1.28"
+    },
+    "4531239fed8c9875e0cce609b86be85a": {
+        "mnm_container": "6563b32f054b00c7ed83ce4c9bb9eedd",
+        "mnm_child_id": 1102,
+        "product_id": 1003,
+        "variation_id": 0,
+        "variation": [],
+        "quantity": 3,
+        "line_tax_data": {
+            "subtotal": [],
+            "total": []
+        },
+        "line_subtotal": 3.85065,
+        "line_subtotal_tax": 0,
+        "line_total": 1.28355,
+        "line_tax": 0,
+        "data": {},
+        "product_name": "Buttercup and Bumblebee Cupcakes",
+        "product_title": "Buttercup and Bumblebee Cupcakes",
+        "product_price": "£1.28"
+    }
+}
+```
+
 ### Retrieve a product ###
 
 If you are using [CoCart Products](products.html) API, any Mix and Match Product will return additional product data under a new array variable `mnm_data`. [View example](products.html#woocommerce-extensions-mix-and-match-products).
@@ -247,4 +356,30 @@ $args = array(
 );
 $response = wp_remote_post( 'https://example.com/wp-json/cocart/v1/add-item', $args );
 $body = wp_remote_retrieve_body( $response );
+```
+
+> JSON response example
+
+```json
+{
+    "nyp": "24",
+    "key": "1dc5e4af26b22d63451acb95d2b9deba",
+    "product_id": 129,
+    "variation_id": 0,
+    "variation": [],
+    "quantity": 1,
+    "data": {},
+    "data_hash": "b5c1d5ca8bae6d4896cf1807cdf763f0",
+    "line_tax_data": {
+        "subtotal": [],
+        "total": []
+    },
+    "line_subtotal": 24,
+    "line_subtotal_tax": 0,
+    "line_total": 24,
+    "line_tax": 0,
+    "product_name": "Name your price",
+    "product_title": "Name your price",
+    "product_price": "£24.00"
+}
 ```

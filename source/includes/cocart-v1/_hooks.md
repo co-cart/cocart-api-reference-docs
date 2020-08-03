@@ -12,8 +12,8 @@ Perhaps you need to apply something to the whole of the cart before it returns o
 
 Use hook name: `cocart_get_cart`
 
-| Parameter | Type | Description |
-| ------------ | -------------- | ------------ |
+| Parameter        | Type  | Description                          |
+| ---------------- | ----- | ------------------------------------ |
 | `$cart_contents` | array | An array of items added to the cart. |
 
 ### Clear Cart ###
@@ -28,25 +28,25 @@ You can do something once an item has been added to the cart.
 
 Use hook name: `cocart_item_added_to_cart`
 
-| Parameter | Type | Description |
-| ------------ | -------------- | ------------ |
-| `$item_key` | string | The cart item key of the product in the cart. |
-| `$item_added` | array | The details of the added item. |
+| Parameter     | Type   | Description                                   |
+| ------------- | ------ | --------------------------------------------- |
+| `$item_key`   | string | The cart item key of the product in the cart. |
+| `$item_added` | array  | The details of the added item.                |
 
 ### Item Removed ###
 
 Use hook name: `cocart_item_removed`
 
-| Parameter | Type | Description |
-| ------------ | -------------- | ------------ |
+| Parameter       | Type  | Description                      |
+| --------------- | ----- | -------------------------------- |
 | `$current_data` | array | The details of the item removed. |
 
 ### Item Restored ###
 
 Use hook name: `cocart_item_restored`
 
-| Parameter | Type | Description |
-| ------------ | -------------- | ------------ |
+| Parameter       | Type  | Description                       |
+| --------------- |------ | --------------------------------- |
 | `$current_data` | array | The details of the item restored. |
 
 ### Item Quantity Changed ###
@@ -55,7 +55,7 @@ Should you need to change some other detail for the updated item.
 
 Use hook name: `cocart_item_quantity_changed`
 
-| Parameter | Type | Description |
-| ------------ | -------------- | ------------ |
+| Parameter        | Type   | Description                                   |
+| ---------------- | ------ | --------------------------------------------- |
 | `$cart_item_key` | string | The cart item key of the product in the cart. |
-| `$new_data` | array | The details of the item updated. |
+| `$new_data`      | array  | The details of the item updated.              |

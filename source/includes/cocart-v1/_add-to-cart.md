@@ -14,7 +14,7 @@ This API helps you to add an item to the cart. You can also request to return th
 | `variation_id`   | integer | Used to set the variation of the product being added to the cart. <i class="label label-info">optional</i>  |
 | `variation`      | array   | Attribute values.                                                                                           |
 | `cart_item_data` | array   | Used to apply extra cart item data we want to pass with the item. <i class="label label-info">optional</i>  |
-| `return_cart`    | bool    | Set as true to return the cart once item added. <i class="label label-info">optional</i>              |
+| `return_cart`    | bool    | Set as true to return the cart once item added. <i class="label label-info">optional</i>                    |
 
 ### HTTP request ###
 
@@ -29,7 +29,7 @@ This API helps you to add an item to the cart. You can also request to return th
 curl -X POST https://example.com/wp-json/cocart/v1/add-item \
   -H "Content-Type: application/json" \
   -d '{
-    "product_id": 1722,
+    "product_id": 32,
     "quantity": 1
   }'
 ```
@@ -39,7 +39,7 @@ var settings = {
   "url": "https://example.com/wp-json/cocart/v1/add-item",
   "method": "POST",
   "data": {
-    "product_id" : 1722,
+    "product_id" : 32,
     "quantity" : 1
   }
 };
@@ -54,7 +54,7 @@ $.ajax(settings).done(function (response) {
 $curl = curl_init();
 
 $args = array(
-  'product_id' => 1722,
+  'product_id' => 32,
   'quantity' => 1
 );
 
@@ -85,7 +85,7 @@ $args = array(
     'Content-Type' => 'application/json; charset=utf-8',
   ),
   'body' => wp_json_encode( [
-    'product_id' => 1722,
+    'product_id' => 32,
     'quantity' => 1
   ] ),
   'timeout' => 30
@@ -101,7 +101,7 @@ $body = wp_remote_retrieve_body( $response );
 {
   "404dcc91b2aeaa7caa47487d1483e48a":{
     "key":"404dcc91b2aeaa7caa47487d1483e48a",
-    "product_id":1722,
+    "product_id":32,
     "variation_id":0,
     "variation":[],
     "quantity":1,
@@ -126,7 +126,9 @@ Variation products require two things in order to add to the cart correctly. Fir
 
 Attributes are what identify a variation of a variable product from the colour of a t-shirt to the size.
 
-Attributes can be managed in two ways. Globally or via the product if they are custom. It's important to know what attributes are used for the variation of the product as a global attribute has this prefix `attribute_pa_` while a custom attribute is just  `attribute_`.
+Attributes can be managed in two ways. Globally or via the product if they are custom. It's important to know what attributes are used for the variation of the product.
+
+All attributes start with a prefix `attribute_`. A global attribute extends the prefix like so `attribute_pa_`, while a custom attribute just has the prefix `attribute_`. Both are followed by the attribute slug. See the examples for comparison.
 
 <aside class="warning">
   You can not add a simple product with attributes like a variation! If you wish to pass attribute data for a simple product, use the `cart_item_data` parameter instead.
@@ -140,7 +142,8 @@ curl -X POST https://example.com/wp-json/cocart/v1/add-item \
     "quantity": 1,
     "variation_id": 1820,
     "variation": {
-      "attribute_pa_color": "red",
+      "attribute_colours": "Red",
+      "attribute_pa_size": "2x-large"
     }
   }'
 ```
@@ -154,7 +157,8 @@ var settings = {
     "quantity": 1,
     "variation_id": 1820,
     "variation": {
-      "attribute_pa_color": "red"
+      "attribute_colours": "Red",
+      "attribute_pa_size": "2x-large"
     }
   }
 };
@@ -173,7 +177,8 @@ $args = array(
   'quantity' => 1,
   'variation_id' => 1820,
   'variation' => {
-    'attribute_pa_color': 'red'
+    'attribute_colours': 'Red',
+    'attribute_pa_size': '2x-large'
   }
 );
 
@@ -208,7 +213,8 @@ $args = array(
     'quantity' => 1
     'variation_id' => 1820,
     'variation' => {
-      'attribute_pa_color': 'red'
+      'attribute_colours': 'Red',
+      'attribute_pa_size': '2x-large'
     }
   ] ),
   'timeout' => 30
@@ -216,6 +222,34 @@ $args = array(
 
 $response = wp_remote_post( 'https://example.com/wp-json/cocart/v1/add-item', $args );
 $body = wp_remote_retrieve_body( $response );
+```
+
+> JSON response example
+
+```json
+{
+    "key": "2c698d686c6cd8872e825fd9b05bd322",
+    "product_id": 1722,
+    "variation_id": 1820,
+    "variation": {
+        "attribute_colours": "Red",
+        "attribute_pa_size": "2x-large"
+    },
+    "quantity": 1,
+    "data": {},
+    "data_hash": "89f41c195ac99955ca64fafcc1225796",
+    "line_tax_data": {
+        "subtotal": [],
+        "total": []
+    },
+    "line_subtotal": 12,
+    "line_subtotal_tax": 0,
+    "line_total": 12,
+    "line_tax": 0,
+    "product_name": "T-shirt - Red",
+    "product_title": "T-shirt",
+    "product_price": "£12.00"
+}
 ```
 
 ## Add Item to Cart + Custom Data ##
@@ -226,7 +260,7 @@ Need to pass custom data? This example will show you how.
 curl -X POST https://example.com/wp-json/cocart/v1/add-item \
   -H "Content-Type: application/json" \
   -d '{
-    "product_id": 1722,
+    "product_id": 3008,
     "quantity": 1,
     "cart_item_data": {
       "engraved_name": "Sébastien Dumont",
@@ -240,7 +274,7 @@ var settings = {
   "url": "https://example.com/wp-json/cocart/v1/add-item",
   "method": "POST",
   "data": {
-    "product_id" : 1722,
+    "product_id" : 3008,
     "quantity" : 1,
     "cart_item_data" : {
       "engraved_name" : "Sébastien Dumont",
@@ -259,7 +293,7 @@ $.ajax(settings).done(function (response) {
 $curl = curl_init();
 
 $args = array(
-  'product_id' => 1722,
+  'product_id' => 3008,
   'quantity' => 1,
   'cart_item_data' => array(
     'engraved_name' => 'Sébastien Dumont',
@@ -294,7 +328,7 @@ $args = array(
     'Content-Type' => 'application/json; charset=utf-8',
   ),
   'body' => wp_json_encode( [
-    'product_id' => 1722,
+    'product_id' => 3008,
     'quantity' => 1
     'cart_item_data' => array(
       'engraved_name' => 'Sébastien Dumont',
@@ -305,4 +339,35 @@ $args = array(
 );
 $response = wp_remote_post( 'https://example.com/wp-json/cocart/v1/add-item', $args );
 $body = wp_remote_retrieve_body( $response );
+```
+
+> JSON response example
+
+```json
+{
+    "engraved_name": "Sébastien Dumont",
+    "engraved_size": "Medium",
+    "key": "b440b5368da5b3e3a6eb1f40fa666279",
+    "product_id": 3008,
+    "variation_id": 0,
+    "variation": [],
+    "quantity": 1,
+    "data": {},
+    "data_hash": "b5c1d5ca8bae6d4896cf1807cdf763f0",
+    "line_tax_data": {
+        "subtotal": {
+            "13": 8.4
+        },
+        "total": {
+            "13": 8.4
+        }
+    },
+    "line_subtotal": 42,
+    "line_subtotal_tax": 8.4,
+    "line_total": 42,
+    "line_tax": 8.4,
+    "product_name": "Silver Ring",
+    "product_title": "Silver Ring",
+    "product_price": "£80.00"
+}
 ```

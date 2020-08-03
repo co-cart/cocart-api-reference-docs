@@ -2,7 +2,17 @@
 
 Below is the changelog for "CoCart" documentation that matches with the version of the plugin release.
 
-## Doc Version 2.4 ##
+## Doc Version 2.5 ##
+
+* Added: More detail for setting a cart key.
+* Added: More JSON response examples that were missing.
+* Corrected: Same product ID used for all product type examples.
+* Improved: Add variable item to cart examples.
+* Improved: Table layouts in the Markdown source files.
+* Removed: Context that is no longer valid with current version of CoCart.
+* Updated: API versions table and Requirements.
+
+### Doc Version 2.4 ###
 
 * **NEW**: WooCommerce Extensions section added with Mix and Match Products and Name Your Price being the first.
 * Updated: Cookies section.

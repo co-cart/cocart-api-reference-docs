@@ -6,9 +6,9 @@ The cart API allows you to add, view, update, and delete individual items for th
 
 This API helps you view the contents of the cart.
 
-| Attribute | Type | Description |
-| ------------ | -------------- | ------------ |
-`thumb` | bool | Returns the product thumbnail for the product.
+| Attribute | Type | Description                                    |
+| --------- | ---- | ---------------------------------------------- |
+| `thumb`   | bool | Returns the product thumbnail for the product. |
 
 ### HTTP request ###
 
@@ -30,7 +30,7 @@ curl -X GET https://example.com/wp-json/wc/v2/cart \
 {
   "404dcc91b2aeaa7caa47487d1483e48a":{
     "key":"404dcc91b2aeaa7caa47487d1483e48a",
-    "product_id":1722,
+    "product_id":32,
     "variation_id":0,
     "variation":[],
     "quantity":1,

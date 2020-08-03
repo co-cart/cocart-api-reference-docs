@@ -42,7 +42,7 @@ curl -X POST https://example.com/wp-json/cocart/v1/add-item \
   -u username:password \
   -H "Content-Type: application/json" \
   -d '{
-    "product_id": 1722,
+    "product_id": 32,
     "quantity": 1
   }'
 ```
@@ -55,7 +55,7 @@ var settings = {
   },
   "method": "POST",
   "data": {
-    "product_id" : 1722,
+    "product_id" : 32,
     "quantity" : 1
   },
 };
@@ -70,7 +70,7 @@ $.ajax(settings).done(function (response) {
 $curl = curl_init();
 
 $args = json_encode( array(
-  'product_id' => 1722,
+  'product_id' => 32,
   'quantity' => 1
 ) );
 
@@ -105,7 +105,7 @@ $args = array(
     'Content-Type' => 'application/json; charset=utf-8',
   ),
   'body' => wp_json_encode( [
-    'product_id' => 1722,
+    'product_id' => 32,
     'quantity' => 1
   ] ),
   'timeout' => 30
@@ -121,7 +121,7 @@ $body = wp_remote_retrieve_body( $response );
 {
   "404dcc91b2aeaa7caa47487d1483e48a":{
     "key":"404dcc91b2aeaa7caa47487d1483e48a",
-    "product_id":1722,
+    "product_id":32,
     "variation_id":0,
     "variation":[],
     "quantity":1,
@@ -176,7 +176,7 @@ var settings = {
   },
   "method": "POST",
   "data": {
-    "product_id" : 1722,
+    "product_id" : 32,
     "quantity" : 1
   },
 };
@@ -191,7 +191,7 @@ $.ajax(settings).done(function (response) {
 $curl = curl_init();
 
 $args = json_encode( array(
-  'product_id' => 1722,
+  'product_id' => 32,
   'quantity' => 1
 ) );
 

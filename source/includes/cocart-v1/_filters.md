@@ -378,7 +378,7 @@ This filter allows you to disable the cookie support for handling the session fo
 
 ```php
 <?php
-add_filter( 'cocart_cookie_supported', function() { return true; });
+add_filter( 'cocart_cookie_supported', function() { return false; });
 ```
 
 <div style="clear: both;"></div>

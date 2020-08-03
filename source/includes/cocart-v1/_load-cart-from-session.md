@@ -10,11 +10,7 @@ For example if you have a returning customer that started as a guest and then lo
 
 It can also be used to transfer the cart over to the web version of your store. This allows the customer to continue shopping or checkout what they already have in the cart added via your app. Handy if you don't yet have a checkout system in your app.
 
-When a cart is loaded, the original session handler in the core of WooCommerce will be used to handle the cart from then on. You can choose to override the cart (if anything is set) via the web or merge the data together.
-
-<aside class="warning">
-	Any changes made to the cart once loaded is not updated to the cart stored by CoCart.
-</aside>
+You can choose to override the cart (if anything is set) via the web or merge the data together.
 
 <aside class="notice">
 	FYI: It does not matter if your customer is logged in or not already via the web version of your store. Only the cart data will be set. Customer details are <strong>not transferred</strong>.

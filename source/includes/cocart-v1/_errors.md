@@ -4,35 +4,35 @@
 
 You might encounter an error when using CoCart. These error responses explain what might have happened.
 
-| Error Status | Error Response |
-| ------------ | -------------- |
-| `cocart_cannot_read_cart` | Cannot read cart! |
-| `cocart_customer_missing` | Customer ID is required! |
-| `cocart_cart_id_missing` | Cart ID is required! |
-| `cocart_cart_in_session_not_valid` | Cart in session is not valid! |
-| `cocart_clear_cart_failed` | Clearing the cart failed! |
-| `cocart_product_id_required` | Product ID number is required! |
-| `cocart_product_id_not_numeric` | Product ID must be numeric! |
-| `cocart_quantity_not_numeric` | Quantity must be numeric! |
-| `cocart_product_does_not_exist` | Warning: This product does not exist! |
-| `cocart_product_sold_individually` | You cannot add another "`%s`" to your cart. <i class="label label-info">%s is the product name</i> |
-| `cocart_cannot_be_purchased` | Sorry, this product cannot be purchased. |
-| `cocart_product_out_of_stock` | You cannot add &quot;%s&quot; to the cart because the product is out of stock. <i class="label label-info">%s is the product name</i> |
-| `cocart_not_enough_in_stock` | You cannot add a quantity of `%1$s` for "`%2$s`" to the cart because there is not enough stock. - only `%3$s` remaining! <i class="label label-info">%1$s: quantity requested, %2$s: product name, %3$s: stock remaining.</i> |
-| `cocart_not_enough_stock_remaining` | You cannot add that amount to the cart &mdash; we have `%1$s` in stock and you already have `%2$s` in your cart. |
-| `cocart_cannot_add_to_cart` | You cannot add "`%s`" to your cart. <i class="label label-info">%s is the product name</i> |
-| `cocart_can_not_remove_item` | Unable to remove item from cart. |
-| `cocart_can_not_restore_item` | Unable to restore item to the cart. |
-| `cocart_can_not_update_item` | Unable to update item quantity in cart. |
-| `cocart_cart_item_key_required` | Cart item key is required! |
-| `cocart_no_items` | No items in cart. |
-| `cocart_item_not_in_cart` | Item specified does not exist in cart. |
-| `cocart_cannot_add_product_type_to_cart` | You cannot add "`%1$s`" to your cart as it is an "`%2$s`" product. <i class="label label-info">%1$s: product name, %2$s: product type</i> |
-| `cocart_invalid_variation_data` | Invalid value posted for `%1$s`. Allowed values: `%2$s` <i class="label label-info">%1$s: Attribute name, %2$s: Allowed values</i> |
-| `cocart_missing_variation_data` | Missing variation data for variable product. `%s` is a required field. <i class="label label-info">%s: Attribute name.</i> |
-| `cocart_missing_variation_data` | Missing variation data for variable product. `%s` are required fields. <i class="label label-info">%s: Attribute name.</i> |
-| `cocart_no_variation_found` | No matching variation found. |
-| `cocart_cart_invalid_parent_product` | This product cannot be added to the cart. |
-| `cocart_product_failed_validation` | Product did not pass validation! |
-| `cocart_product_sold_individually` | You cannot add another "`%s`" to your cart. |
-| `cocart_can_not_increase_quantity` | You can only have 1 `%s` in your cart. <i class="label label-info">%s is the product name</i> |
+| Error Status                             | Error Response                                                                                                                                                                                                                |
+| ---------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `cocart_cannot_read_cart`                | Cannot read cart!                                                                                                                                                                                                             |
+| `cocart_customer_missing`                | Customer ID is required!                                                                                                                                                                                                      |
+| `cocart_cart_id_missing`                 | Cart ID is required!                                                                                                                                                                                                          |
+| `cocart_cart_in_session_not_valid`       | Cart in session is not valid!                                                                                                                                                                                                 |
+| `cocart_clear_cart_failed`               | Clearing the cart failed!                                                                                                                                                                                                     |
+| `cocart_product_id_required`             | Product ID number is required!                                                                                                                                                                                                |
+| `cocart_product_id_not_numeric`          | Product ID must be numeric!                                                                                                                                                                                                   |
+| `cocart_quantity_not_numeric`            | Quantity must be numeric!                                                                                                                                                                                                     |
+| `cocart_product_does_not_exist`          | Warning: This product does not exist!                                                                                                                                                                                         |
+| `cocart_product_sold_individually`       | You cannot add another "`%s`" to your cart. <i class="label label-info">%s is the product name</i>                                                                                                                            |
+| `cocart_cannot_be_purchased`             | Sorry, this product cannot be purchased.                                                                                                                                                                                      |
+| `cocart_product_out_of_stock`            | You cannot add &quot;%s&quot; to the cart because the product is out of stock. <i class="label label-info">%s is the product name</i>                                                                                         |
+| `cocart_not_enough_in_stock`             | You cannot add a quantity of `%1$s` for "`%2$s`" to the cart because there is not enough stock. - only `%3$s` remaining! <i class="label label-info">%1$s: quantity requested, %2$s: product name, %3$s: stock remaining.</i> |
+| `cocart_not_enough_stock_remaining`      | You cannot add that amount to the cart &mdash; we have `%1$s` in stock and you already have `%2$s` in your cart.                                                                                                              |
+| `cocart_cannot_add_to_cart`              | You cannot add "`%s`" to your cart. <i class="label label-info">%s is the product name</i>                                                                                                                                    |
+| `cocart_can_not_remove_item`             | Unable to remove item from cart.                                                                                                                                                                                              |
+| `cocart_can_not_restore_item`            | Unable to restore item to the cart.                                                                                                                                                                                           |
+| `cocart_can_not_update_item`             | Unable to update item quantity in cart.                                                                                                                                                                                       |
+| `cocart_cart_item_key_required`          | Cart item key is required!                                                                                                                                                                                                    |
+| `cocart_no_items`                        | No items in cart.                                                                                                                                                                                                             |
+| `cocart_item_not_in_cart`                | Item specified does not exist in cart.                                                                                                                                                                                        |
+| `cocart_cannot_add_product_type_to_cart` | You cannot add "`%1$s`" to your cart as it is an "`%2$s`" product. <i class="label label-info">%1$s: product name, %2$s: product type</i>                                                                                     |
+| `cocart_invalid_variation_data`          | Invalid value posted for `%1$s`. Allowed values: `%2$s` <i class="label label-info">%1$s: Attribute name, %2$s: Allowed values</i>                                                                                            |
+| `cocart_missing_variation_data`          | Missing variation data for variable product. `%s` is a required field. <i class="label label-info">%s: Attribute name.</i>                                                                                                    |
+| `cocart_missing_variation_data`          | Missing variation data for variable product. `%s` are required fields. <i class="label label-info">%s: Attribute name.</i>                                                                                                    |
+| `cocart_no_variation_found`              | No matching variation found.                                                                                                                                                                                                  |
+| `cocart_cart_invalid_parent_product`     | This product cannot be added to the cart.                                                                                                                                                                                     |
+| `cocart_product_failed_validation`       | Product did not pass validation!                                                                                                                                                                                              |
+| `cocart_product_sold_individually`       | You cannot add another "`%s`" to your cart.                                                                                                                                                                                   |
+| `cocart_can_not_increase_quantity`       | You can only have 1 `%s` in your cart. <i class="label label-info">%s is the product name</i>                                                                                                                                 |

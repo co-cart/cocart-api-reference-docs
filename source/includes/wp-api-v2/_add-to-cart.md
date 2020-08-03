@@ -4,13 +4,13 @@ This API helps you to add an item to the cart.
 
 ### Add item properties ###
 
-| Attribute        | Type      | Description       |
-| ---------------- | --------- | ----------------- |
+| Attribute        | Type      | Description                                                                                                 |
+| ---------------- | --------- | ----------------------------------------------------------------------------------------------------------- |
 | `product_id`     | integer   | The product ID is required in order to add a product to the cart. <i class="label label-info">mandatory</i> |
-| `quantity`       | integer   | Set the quantity of the product you want to add to the cart. <i class="label label-info">Default is 1</i> |
-| `variation_id`   | integer   | Used to set the variation of the product being added to the cart. <i class="label label-info">optional</i> |
-| `variation`      | array     | Attribute values |
-| `cart_item_data` | array     | Used to apply extra cart item data we want to pass into the item. <i class="label label-info">optional</i> |
+| `quantity`       | integer   | Set the quantity of the product you want to add to the cart. <i class="label label-info">Default is 1</i>   |
+| `variation_id`   | integer   | Used to set the variation of the product being added to the cart. <i class="label label-info">optional</i>  |
+| `variation`      | array     | Attribute values                                                                                            |
+| `cart_item_data` | array     | Used to apply extra cart item data we want to pass into the item. <i class="label label-info">optional</i>  |
 
 ### HTTP request ###
 
@@ -23,9 +23,9 @@ This API helps you to add an item to the cart.
 
 ```shell
 curl -X POST https://example.com/wp-json/wc/v2/cart/add \
-	-H "Content-Type: application/json" \
+  -H "Content-Type: application/json" \
   -d '{
-    "product_id": 1722,
+    "product_id": 32,
     "quantity": 1
   }'
 ```
@@ -36,7 +36,7 @@ curl -X POST https://example.com/wp-json/wc/v2/cart/add \
 {
   "404dcc91b2aeaa7caa47487d1483e48a":{
     "key":"404dcc91b2aeaa7caa47487d1483e48a",
-    "product_id":1722,
+    "product_id":32,
     "variation_id":0,
     "variation":[],
     "quantity":1,

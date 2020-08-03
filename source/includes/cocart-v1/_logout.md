@@ -59,3 +59,9 @@ echo $response;
 $response = wp_remote_post( 'https://example.com/wp-json/cocart/v1/logout' );
 $body = wp_remote_retrieve_body( $response );
 ```
+
+> JSON response example
+
+```json
+true
+```
