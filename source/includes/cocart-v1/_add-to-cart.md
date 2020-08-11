@@ -12,7 +12,7 @@ This API helps you to add an item to the cart. You can also request to return th
 | `product_id`     | integer | The product ID is required in order to add a product to the cart. <i class="label label-info">mandatory</i> |
 | `quantity`       | float   | Set the quantity of the product you want to add to the cart. <i class="label label-info">Default is 1</i>   |
 | `variation_id`   | integer | Used to set the variation of the product being added to the cart. <i class="label label-info">optional</i>  |
-| `variation`      | array   | Attribute values.                                                                                           |
+| `variation`      | array   | Attribute values.                                                 <i class="label label-info">optional</i>  |
 | `cart_item_data` | array   | Used to apply extra cart item data we want to pass with the item. <i class="label label-info">optional</i>  |
 | `return_cart`    | bool    | Set as true to return the cart once item added. <i class="label label-info">optional</i>                    |
 
@@ -120,7 +120,9 @@ $body = wp_remote_retrieve_body( $response );
 
 ## Add Variation Item to Cart ##
 
-Variation products require two things in order to add to the cart correctly. First is the `variation_id`. The second is the attributes of that `variation`. You need to pass both parameters in order for a valid variable product to be added to the cart. Without the attributes of the variation, there is no way to identify the variation added.
+Adding a variation of a product to the cart is easy. All you need is to identify the attributes and which attribute your customer has selected.
+
+While the `variation_id` is important, it is not required to be know as the API will look it up for you based on the attributes passed. Without the attributes of the variation, there is no way to identify the variation added.
 
 ### What are attributes? ###
 
@@ -129,6 +131,10 @@ Attributes are what identify a variation of a variable product from the colour o
 Attributes can be managed in two ways. Globally or via the product if they are custom. It's important to know what attributes are used for the variation of the product.
 
 All attributes start with a prefix `attribute_`. A global attribute extends the prefix like so `attribute_pa_`, while a custom attribute just has the prefix `attribute_`. Both are followed by the attribute slug. See the examples for comparison.
+
+<aside class="notice">
+  If any of your attributes are set for "Any" in the backend, your customer will still be required to select the attribute in order to add the variation to the cart.
+</aside>
 
 <aside class="warning">
   You can not add a simple product with attributes like a variation! If you wish to pass attribute data for a simple product, use the `cart_item_data` parameter instead.
