@@ -6,7 +6,7 @@ This API helps you get and set shipping methods.
 
 ## Get Shipping Methods ##
 
-Returns all available shipping methods once the customer has calculated shipping.
+Returns all available shipping methods once the customer has [calculated shipping](#calculate-calculate-shipping).
 
 ### Properties ###
 
