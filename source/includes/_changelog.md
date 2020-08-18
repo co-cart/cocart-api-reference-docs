@@ -2,7 +2,11 @@
 
 Below is the changelog for "CoCart" documentation that matches with the version of the plugin release.
 
-## Doc Version v2.6 - Plugin Release v2.5 ##
+## Doc Version v2.7 - Plugin Release v2.5.1 ##
+
+* Dev: Added filter `cocart_allow_origin` to set the origin header for added layer of security when you go into production.
+
+### Doc Version v2.6 - Plugin Release v2.5 ###
 
 * Improved: Information about adding a variation to the cart.
 

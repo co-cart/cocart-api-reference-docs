@@ -507,3 +507,14 @@ If you are getting a warning about cross origin headers then you may need to ena
 <?php
 add_filter( 'cocart_disable_all_cors', function() { return false; });
 ```
+
+### Set Allow Origin Header ###
+
+<span class="new">New Filter in v2.5.1</span>
+
+For added security when you go into production. Set **'Access-Control-Allow-Origin'** header. All cross origin headers must be enabled first as shown above.
+
+```php
+<?php
+add_filter( 'cocart_allow_origin', function() { return 'https://wp-demo.cocart.xyz'; });
+```
