@@ -543,7 +543,7 @@
             <a href="#changelog" class="toc-h1 toc-link" data-title="Changelog">Changelog</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#changelog-doc-version-v2-6-plugin-release-v2-5" class="toc-h2 toc-link" data-title="Doc Version v2.6 - Plugin Release v2.5">Doc Version v2.6 - Plugin Release v2.5</a>
+                    <a href="#changelog-doc-version-v2-7-plugin-release-v2-5-1" class="toc-h2 toc-link" data-title="Doc Version v2.7 - Plugin Release v2.5.1">Doc Version v2.7 - Plugin Release v2.5.1</a>
                   </li>
               </ul>
           </li>
@@ -3974,6 +3974,12 @@ Please make sure you are viewing the PHP language to view examples of the filter
 <p>If you are getting a warning about cross origin headers then you may need to enable support for it. Simply apply this filter and the headers will set for you with no further configuration.</p>
 <div class="highlight"><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
 <span class="nx">add_filter</span><span class="p">(</span> <span class="s1">'cocart_disable_all_cors'</span><span class="p">,</span> <span class="k">function</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="kc">false</span><span class="p">;</span> <span class="p">});</span>
+</code></pre></div><h3 id='extending-cocart-filters-set-allow-origin-header'>Set Allow Origin Header</h3>
+<p><span class="new">New Filter in v2.5.1</span></p>
+
+<p>For added security when you go into production. Set <strong>&#39;Access-Control-Allow-Origin&#39;</strong> header. All cross origin headers must be enabled first as shown above.</p>
+<div class="highlight"><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+<span class="nx">add_filter</span><span class="p">(</span> <span class="s1">'cocart_allow_origin'</span><span class="p">,</span> <span class="k">function</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="s1">'https://wp-demo.cocart.xyz'</span><span class="p">;</span> <span class="p">});</span>
 </code></pre></div><h2 id='extending-cocart-hooks'>Hooks</h2>
 <p><img src="images/github-633266a3.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v1/_hooks.md">Edit on GitHub</a></p>
 
@@ -4709,11 +4715,15 @@ Please make sure you are viewing the PHP language to view examples of the filter
 </ul>
 <h1 id='changelog'>Changelog</h1>
 <p>Below is the changelog for &quot;CoCart&quot; documentation that matches with the version of the plugin release.</p>
-<h2 id='changelog-doc-version-v2-6-plugin-release-v2-5'>Doc Version v2.6 - Plugin Release v2.5</h2>
+<h2 id='changelog-doc-version-v2-7-plugin-release-v2-5-1'>Doc Version v2.7 - Plugin Release v2.5.1</h2>
+<ul>
+<li>Dev: Added filter <code>cocart_allow_origin</code> to set the origin header for added layer of security when you go into production.</li>
+</ul>
+<h3 id='changelog-doc-version-v2-7-plugin-release-v2-5-1-doc-version-v2-6-plugin-release-v2-5'>Doc Version v2.6 - Plugin Release v2.5</h3>
 <ul>
 <li>Improved: Information about adding a variation to the cart.</li>
 </ul>
-<h3 id='changelog-doc-version-v2-6-plugin-release-v2-5-doc-version-v2-5'>Doc Version v2.5</h3>
+<h3 id='changelog-doc-version-v2-7-plugin-release-v2-5-1-doc-version-v2-5'>Doc Version v2.5</h3>
 <ul>
 <li>Added: More detail for setting a cart key.</li>
 <li>Added: More JSON response examples that were missing.</li>
@@ -4723,12 +4733,12 @@ Please make sure you are viewing the PHP language to view examples of the filter
 <li>Removed: Context that is no longer valid with current version of CoCart.</li>
 <li>Updated: API versions table and Requirements.</li>
 </ul>
-<h3 id='changelog-doc-version-v2-6-plugin-release-v2-5-doc-version-v2-4'>Doc Version v2.4</h3>
+<h3 id='changelog-doc-version-v2-7-plugin-release-v2-5-1-doc-version-v2-4'>Doc Version v2.4</h3>
 <ul>
 <li><strong>NEW</strong>: WooCommerce Extensions section added with Mix and Match Products and Name Your Price being the first.</li>
 <li>Updated: Cookies section.</li>
 </ul>
-<h3 id='changelog-doc-version-v2-6-plugin-release-v2-5-doc-version-v2-3'>Doc Version v2.3</h3>
+<h3 id='changelog-doc-version-v2-7-plugin-release-v2-5-1-doc-version-v2-3'>Doc Version v2.3</h3>
 <ul>
 <li>Added: New error responses.</li>
 <li>Fixed: Corrected typos.</li>
@@ -4738,29 +4748,29 @@ Please make sure you are viewing the PHP language to view examples of the filter
 <li>Updated: Plugin requirements for CoCart.</li>
 <li>Updated: Slate script to v2.7.0 which introduces the ability to copy code to clipboard.</li>
 </ul>
-<h3 id='changelog-doc-version-v2-6-plugin-release-v2-5-doc-version-v2-2-plugin-release-v2-2'>Doc Version v2.2 - Plugin Release v2.2</h3>
+<h3 id='changelog-doc-version-v2-7-plugin-release-v2-5-1-doc-version-v2-2-plugin-release-v2-2'>Doc Version v2.2 - Plugin Release v2.2</h3>
 <ul>
 <li>Dev: Added <code>cocart_disable_all_cors</code> filter to enable all cross origin headers.</li>
 <li>Dev: Added filters to override the product name <code>cocart_item_added_product_name</code> and product title <code>cocart_item_added_product_title</code> when adding item to cart.</li>
 <li>Dev: Added <code>cocart_item_added</code> filter to allow additional data to be returned when item is added to cart.</li>
 </ul>
-<h3 id='changelog-doc-version-v2-6-plugin-release-v2-5-doc-version-v2-1-plugin-release-v2-1-3'>Doc Version v2.1 - Plugin Release v2.1.3</h3>
+<h3 id='changelog-doc-version-v2-7-plugin-release-v2-5-1-doc-version-v2-1-plugin-release-v2-1-3'>Doc Version v2.1 - Plugin Release v2.1.3</h3>
 <ul>
 <li><strong>NEW</strong>: Added example for adding product with <a href="https://woocommerce.com/products/name-your-price/">Name Your Price</a> WooCommerce extension.</li>
 </ul>
-<h3 id='changelog-doc-version-v2-6-plugin-release-v2-5-doc-version-v2-0-plugin-release-v2-1-2'>Doc Version v2.0 - Plugin Release v2.1.2</h3>
+<h3 id='changelog-doc-version-v2-7-plugin-release-v2-5-1-doc-version-v2-0-plugin-release-v2-1-2'>Doc Version v2.0 - Plugin Release v2.1.2</h3>
 <ul>
 <li>Tweaked: WP API examples.</li>
 <li>Removed: Warning notice in the introduction section.</li>
 </ul>
-<h3 id='changelog-doc-version-v2-6-plugin-release-v2-5-doc-version-v1-9'>Doc Version v1.9</h3>
+<h3 id='changelog-doc-version-v2-7-plugin-release-v2-5-1-doc-version-v1-9'>Doc Version v1.9</h3>
 <ul>
 <li><strong>NEW</strong>: Added Cookie section.</li>
 <li><strong>NEW</strong>: Added link to Postman collections.</li>
 <li>Tweaked: Certain features or API&#39;s are tagged to identify that they are only available in v2.1</li>
 <li>Removed: Persistent Cart documentation.</li>
 </ul>
-<h3 id='changelog-doc-version-v2-6-plugin-release-v2-5-doc-version-v1-8-plugin-release-v2-1'>Doc Version v1.8 - Plugin Release v2.1</h3>
+<h3 id='changelog-doc-version-v2-7-plugin-release-v2-5-1-doc-version-v1-8-plugin-release-v2-1'>Doc Version v1.8 - Plugin Release v2.1</h3>
 <ul>
 <li><strong>NEW</strong>: Added support for guest carts with a new endpoint to retrieve those carts.</li>
 <li><strong>NEW</strong>: Added ability to load a cart from session.</li>
@@ -4777,7 +4787,7 @@ Please make sure you are viewing the PHP language to view examples of the filter
 <li>Dev: Added hook <code>cocart_item_added_updated_in_cart</code> for when an item was added again but updated in cart.</li>
 <li>Dev: Added filter <code>cocart_cookie_supported</code> to allow developers to disable cookie session support if they don&#39;t/can&#39;t support cookies within their app.</li>
 </ul>
-<h3 id='changelog-doc-version-v2-6-plugin-release-v2-5-doc-version-v1-7'>Doc Version v1.7</h3>
+<h3 id='changelog-doc-version-v2-7-plugin-release-v2-5-1-doc-version-v1-7'>Doc Version v1.7</h3>
 <ul>
 <li><strong>NEW</strong>: Added links to edit documentation at the top of each section.</li>
 <li><strong>NEW</strong>: Added Getting Started section for those new to WordPress.</li>
@@ -4785,7 +4795,7 @@ Please make sure you are viewing the PHP language to view examples of the filter
 <li>Tweaked: Menu</li>
 <li>Tweaked: Brand colours and updated favicons.</li>
 </ul>
-<h3 id='changelog-doc-version-v2-6-plugin-release-v2-5-doc-version-v1-6-plugin-release-v2-0-13'>Doc Version v1.6 - Plugin Release v2.0.13</h3>
+<h3 id='changelog-doc-version-v2-7-plugin-release-v2-5-1-doc-version-v1-6-plugin-release-v2-0-13'>Doc Version v1.6 - Plugin Release v2.0.13</h3>
 <ul>
 <li><strong>NEW</strong>: Added <code>cocart_return_empty_cart</code> filter and example.</li>
 <li><strong>NEW</strong>: Added <code>cocart_add_to_cart_sold_individually_quantity</code>and example.</li>
@@ -4794,7 +4804,7 @@ Please make sure you are viewing the PHP language to view examples of the filter
 <li>Tweaked: Menu, content and added helpful links.</li>
 <li>Tweaked: Filter examples to be code highlighted correctly.</li>
 </ul>
-<h3 id='changelog-doc-version-v2-6-plugin-release-v2-5-doc-version-v1-5-plugin-release-v2-0-7'>Doc Version v1.5 - Plugin Release v2.0.7</h3>
+<h3 id='changelog-doc-version-v2-7-plugin-release-v2-5-1-doc-version-v1-5-plugin-release-v2-0-7'>Doc Version v1.5 - Plugin Release v2.0.7</h3>
 <ul>
 <li><strong>NEW</strong>: Added link to products add-on documentation under CoCart Pro.</li>
 <li><strong>NEW</strong>: Added a little section explaining the body types when making a request.</li>
@@ -4802,36 +4812,36 @@ Please make sure you are viewing the PHP language to view examples of the filter
 <li><strong>NEW</strong>: Added Demo section.</li>
 <li>Improved: Authentication section.</li>
 </ul>
-<h3 id='changelog-doc-version-v2-6-plugin-release-v2-5-doc-version-v1-4'>Doc Version v1.4</h3>
+<h3 id='changelog-doc-version-v2-7-plugin-release-v2-5-1-doc-version-v1-4'>Doc Version v1.4</h3>
 <ul>
 <li><strong>NEW</strong>: Added live chat so users can ask questions.</li>
 <li>Made it clearer to understand about retrieving specific customers cart.</li>
 <li>Improved the introduction a little.</li>
 </ul>
-<h3 id='changelog-doc-version-v2-6-plugin-release-v2-5-doc-version-v1-3'>Doc Version v1.3</h3>
+<h3 id='changelog-doc-version-v2-7-plugin-release-v2-5-1-doc-version-v1-3'>Doc Version v1.3</h3>
 <ul>
 <li>Added languages for jQuery, PHP and WP API.</li>
 </ul>
-<h3 id='changelog-doc-version-v2-6-plugin-release-v2-5-doc-version-v1-2'>Doc Version v1.2</h3>
+<h3 id='changelog-doc-version-v2-7-plugin-release-v2-5-1-doc-version-v1-2'>Doc Version v1.2</h3>
 <ul>
 <li>Added Work in Progress section.</li>
 <li>Added Authentication section.</li>
 </ul>
-<h3 id='changelog-doc-version-v2-6-plugin-release-v2-5-doc-version-v1-1'>Doc Version v1.1</h3>
+<h3 id='changelog-doc-version-v2-7-plugin-release-v2-5-1-doc-version-v1-1'>Doc Version v1.1</h3>
 <ul>
 <li>Added Index API.</li>
 <li>Linked logo to documentation homepage.</li>
 </ul>
-<h3 id='changelog-doc-version-v2-6-plugin-release-v2-5-doc-version-v1-plugin-release-v2'>Doc Version v1 - Plugin Release v2</h3>
+<h3 id='changelog-doc-version-v2-7-plugin-release-v2-5-1-doc-version-v1-plugin-release-v2'>Doc Version v1 - Plugin Release v2</h3>
 <ul>
 <li>Updated for CoCart v2</li>
 </ul>
-<h3 id='changelog-doc-version-v2-6-plugin-release-v2-5-doc-version-v0-5'>Doc Version v0.5</h3>
+<h3 id='changelog-doc-version-v2-7-plugin-release-v2-5-1-doc-version-v0-5'>Doc Version v0.5</h3>
 <ul>
 <li>Added attribute table for view cart.</li>
 <li>Added missing examples for count items and get cart totals.</li>
 </ul>
-<h3 id='changelog-doc-version-v2-6-plugin-release-v2-5-doc-version-v0-4-plugin-release-v1-0-5'>Doc Version v0.4 - Plugin Release v1.0.5</h3>
+<h3 id='changelog-doc-version-v2-7-plugin-release-v2-5-1-doc-version-v0-4-plugin-release-v1-0-5'>Doc Version v0.4 - Plugin Release v1.0.5</h3>
 <ul>
 <li>Project renamed to CoCart.</li>
 <li>Changed support to contribution.</li>
@@ -4839,17 +4849,17 @@ Please make sure you are viewing the PHP language to view examples of the filter
 <li>Added Insomnia as another tool you can use to access the API with.</li>
 <li>Removed all languages except for cURL showing examples on how to use with official library wrappers due to authentication required whic CoCart does not.</li>
 </ul>
-<h3 id='changelog-doc-version-v2-6-plugin-release-v2-5-doc-version-v0-3-plugin-release-v1-0-4'>Doc Version v0.3 - Plugin Release v1.0.4</h3>
+<h3 id='changelog-doc-version-v2-7-plugin-release-v2-5-1-doc-version-v0-3-plugin-release-v1-0-4'>Doc Version v0.3 - Plugin Release v1.0.4</h3>
 <ul>
 <li>Official libraries are not supported as they require authentication which this API does not.</li>
 <li>Removed installation instruction for official libraries.</li>
 <li>Replaced logo to prevent confusion with the official REST API documentation.</li>
 </ul>
-<h3 id='changelog-doc-version-v2-6-plugin-release-v2-5-doc-version-v0-2-plugin-release-v1-0-1'>Doc Version v0.2 - Plugin Release v1.0.1</h3>
+<h3 id='changelog-doc-version-v2-7-plugin-release-v2-5-1-doc-version-v0-2-plugin-release-v1-0-1'>Doc Version v0.2 - Plugin Release v1.0.1</h3>
 <ul>
 <li>Updated endpoint for updating, restoring and removing items.</li>
 </ul>
-<h3 id='changelog-doc-version-v2-6-plugin-release-v2-5-doc-version-v0-1-plugin-release-v1-0-0'>Doc Version v0.1 - Plugin Release v1.0.0</h3>
+<h3 id='changelog-doc-version-v2-7-plugin-release-v2-5-1-doc-version-v0-1-plugin-release-v1-0-0'>Doc Version v0.1 - Plugin Release v1.0.0</h3>
 <ul>
 <li>Initial Commit</li>
 </ul>
