@@ -8,6 +8,6 @@ CoCart Pro, an extension that completes the CoCart API package with more control
 
 The following table shows API versions present in each major version of CoCart Pro:
 
-| API Version | CoCart Pro Version | WC Version      | WP Version   | Documentation        |
-| ----------- | ------------------ | --------------- | ------------ | -------------------- |
-| `v1`        | 1.0.x or later     | 3.6.x or later  | 4.4 or later | [view api documentation](pro.html) |
+| API Version | CoCart Pro Version | WC Version     | WP Version   | Documentation        |
+| ----------- | ------------------ | -------------- | ------------ | -------------------- |
+| `v1`        | 1.0.x or later     | 4.0.x or later | 4.4 or later | [view api documentation](pro.html) |

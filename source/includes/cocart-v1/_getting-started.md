@@ -7,7 +7,7 @@
 How to install and activate the CoCart plugin.
 
 <aside class="notice">
-    <strong>New to WordPress?</strong><br/><br/>If you're new to WordPress I recommend getting started by downloading and using <a href="https://localwp.com/" target="_blank">Local</a>.
+    <strong>New to WordPress?</strong><br/><br/>If you're new to WordPress development, I recommend getting started by downloading and using <a href="https://localwp.com/" target="_blank">Local</a>.
 </aside>
 
 List of server [requirements](#introduction-requirements).
@@ -32,7 +32,7 @@ Of course, as new features are in development, feel free to check out the latest
 
 CoCart is available on GitHub: <https://github.com/co-cart/co-cart>
 
-You can download the plugin or clone the plugin from GitHub.
+You can [download the latest release](https://github.com/co-cart/co-cart/releases/latest) or clone the plugin from GitHub.
 
 Add the downloaded/cloned plugin to your WordPress plugin directory. On a typical WordPress install, this is located at `/wp-content/plugins`.
 

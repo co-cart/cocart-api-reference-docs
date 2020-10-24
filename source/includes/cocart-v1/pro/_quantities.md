@@ -4,6 +4,12 @@
 
 This API helps you get the quantities of each product added to the cart.
 
+## Properties ##
+
+| Property   | Type   | Description                                                             |
+| ---------- | ------ | ----------------------------------------------------------------------- |
+| `cart_key` | string | Unique identifier for the cart. <i class="label label-info">optional</> |
+
 ### HTTP request ###
 
 <div class="api-endpoint">

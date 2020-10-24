@@ -2,7 +2,7 @@
 
 <img src="images/github.svg" width="20" height="20" alt="GitHub Mark Logo"> [Edit on GitHub](https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v1/_update-item-in-cart.md)
 
-This API helps you to update an item in the cart. You can also request to return the whole cart once item is updated to reduce API requests and use the [Get Cart Content](#cart-get-cart-contents) properties.
+This API helps you to update an item in the cart. You can also request to return the whole cart once item is updated to reduce API requests and use the [Get Cart Contents](#get-cart-get-cart-contents) properties.
 
 ### Properties ###
 

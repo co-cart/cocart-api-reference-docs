@@ -1,10 +1,14 @@
 # Logout #
 
-<span class="new">New API in v2.1</span>
+<span class="new">New API since v2.1</span>
 
 <img src="images/github.svg" width="20" height="20" alt="GitHub Mark Logo"> [Edit on GitHub](https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v1/_logout.md)
 
 This API logs out your customers. This will clear all session cookies for WordPress and CoCart.
+
+<aside class="warning">
+  Do not authenticate as the customer you are logging out for.
+</aside>
 
 ### HTTP request ###
 

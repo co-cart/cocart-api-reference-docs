@@ -1,4 +1,4 @@
-# Cart #
+# Get Cart #
 
 <img src="images/github.svg" width="20" height="20" alt="GitHub Mark Logo"> [Edit on GitHub](https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v1/_cart.md)
 
@@ -6,9 +6,15 @@ The cart API is powerful and allows you to view the cart in session, add new ite
 
 Using the individual endpoints and their properties, you can control what you need and what is returned when the request is finished.
 
+ * [Get Cart Contents](#get-cart-get-cart-contents)
+ * [Cart for Guest Customers](#get-cart-cart-for-guest-customers)
+ * [Retrieve a Cart in Session](#get-cart-retrieve-a-cart-in-session)
+ * [Clear Cart](#get-cart-clear-cart)
+ * [Count Items](#get-cart-count-items)
+
 ## Get Cart Contents ##
 
-This API returns the contents of the cart for a guest customer or logged in customer.
+This API returns the contents of the cart for a guest customer or logged in registered customer.
 
 ### Properties ###
 
@@ -201,46 +207,99 @@ $body = wp_remote_retrieve_body( $response );
 }
 ```
 
-## Guest Customers ##
+## Cart for Guest Customers ##
 
-<span class="new">Supported in v2.1</span>
+<span class="new">Supported since v2.1</span>
 
-For guest customers there are two methods available for developers to use. The first method uses a cookie and handles everything for you. The second method allows you to set the cart ID yourself.
+For guest customers there are two methods available for developers to use. The first method uses a cookie and handles everything for you. The second method allows you to set the cart key yourself.
 
 ### Cookie Method ###
 
 Once a new customer has added the first item, a cookie is generated that stores the cart key and cart expiration. This cookie is used in order to load the cart again for that individual customer. No parameters are required to pass as it is all done in the background.
 
-### Set Cart ID Method ###
+### Cart Key Method ###
 
 This method allows you to set the cart key yourself via the `cart_key` parameter which must be passed with each API request made. This sets the ID in session allowing to create/fetch the cart before changes are made.
 
 <aside class="notice">
-  The cart ID can not be longer than 42 characters as that is the limit for the database.
+  The cart key cannot be longer than <strong>42 characters</strong> as that is the limit for the database.
 </aside>
 
-Here are a few examples on how to pass the cart ID with each API request.
+> Example of getting the cart for a guest customer.
 
-<div class="api-endpoint">
-  <div class="endpoint-data">
-    <i class="label label-get">GET CART</i>
-    <h6>/wp-json/cocart/v1/get-cart/?cart_key=9e18904482b4faf8762361836a83b93d</h6>
-  </div>
-</div>
+```shell
+curl -X GET https://example.com/wp-json/cocart/v1/get-cart \
+  -H "Content-Type: application/json" \
+  -d '{
+    "cart_key": "9e18904482b4faf8762361836a83b93d"
+  }'
+```
 
-<div class="api-endpoint">
-  <div class="endpoint-data">
-    <i class="label label-post">ADD ITEM</i>
-    <h6>/wp-json/cocart/v1/add-item/?cart_key=9e18904482b4faf8762361836a83b93d&product_id=32</h6>
-  </div>
-</div>
+```javascript--jquery
+var settings = {
+  "url": "https://example.com/wp-json/cocart/v1/get-cart",
+  "method": "GET",
+  "data": {
+    "cart_key": "9e18904482b4faf8762361836a83b93d"
+  }
+};
 
-## Retrieve a Cart ##
+$.ajax(settings).done(function (response) {
+  console.log(response);
+});
+```
+
+```php
+<?php
+$curl = curl_init();
+
+$args = array(
+  'cart_key': '9e18904482b4faf8762361836a83b93d'
+);
+
+curl_setopt_array( $curl, array(
+  CURLOPT_URL => "https://example.com/wp-json/cocart/v1/get-cart",
+  CURLOPT_CUSTOMREQUEST => "GET",
+  CURLOPT_POSTFIELDS => $args,
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_TIMEOUT => 30,
+  CURLOPT_HTTPHEADER => array(
+    'Accept: application/json',
+    'Content-Type: application/json',
+    'User-Agent: CoCart API/v1',
+  )
+) );
+
+$response = curl_exec($curl);
+
+curl_close($curl);
+
+echo $response;
+```
+
+```php--wp-http-api
+<?php
+$args = array(
+  'headers' => array(
+    'Content-Type' => 'application/json; charset=utf-8',
+  ),
+  'body' => wp_json_encode( [
+    'cart_key': '9e18904482b4faf8762361836a83b93d'
+  ] )
+);
+
+$response = wp_remote_get( 'https://example.com/wp-json/cocart/v1/get-cart', $args );
+$body = wp_remote_retrieve_body( $response );
+```
+
+> JSON response is the same as the example above.
+
+## Retrieve a Cart in Session ##
 
 This API allows you to retrieve a cart stored in the database that is in session.
 
 <aside class="warning">
-  This API does not load the cart into session for the customer. Carts for guest customers are loaded via a cookie stored on their device or set by a cart ID. Carts for registered customers are loaded via the database as normal. See <a href="#guest-customers">Guest Customers</a> for more details.
+  This API does not load the cart into session for the customer. Carts for guest customers are loaded via a cookie stored on their device or set by a cart key. Carts for registered customers are loaded via the database as normal when authenticated. See <a href="#guest-customers">Guest Customers</a> for more details.
 </aside>
 
 <aside class="notice">
@@ -331,3 +390,13 @@ $body = wp_remote_retrieve_body( $response );
   }
 }
 ```
+
+### Accessing the Cart Key ###
+
+If cookies don't work for you due to the limitations the framework your building with has then don't worry. The cart key created for the customer is returned via the returned headers once the first API request has been made. This is helpful for supporting guest customers.
+
+Look for `X-CoCart-API` and you will see the value of the cart key returned. You can then use this to set the CoCart API to load this cart when required.
+
+### Cart Key in Cart Response ###
+
+It's possible to do so by return the cart key when you return the cart endpoint. Simply download and activate the [Get Cart Enhanced add-on plugin](https://wordpress.org/plugins/cocart-get-cart-enhanced/) and you're good-to-go.

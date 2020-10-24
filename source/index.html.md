@@ -1,5 +1,5 @@
 ---
-title: CoCart Documentation v2.7
+title: CoCart Documentation v2.8
 
 language_tabs:
  - shell: cURL
@@ -25,15 +25,15 @@ includes:
   - cocart-v1/cart
   - cocart-v1/clear-cart
   - cocart-v1/count-items
-  - cocart-v1/calculate
-  - cocart-v1/totals
-  - cocart-v1/items
   - cocart-v1/add-to-cart
+  - cocart-v1/items
   - cocart-v1/remove-item-from-cart
   - cocart-v1/restore-item-to-cart
   - cocart-v1/update-item-in-cart
-  - cocart-v1/load-cart-from-session
+  - cocart-v1/totals
+  - cocart-v1/calculate
   - cocart-v1/logout
+  - cocart-v1/load-cart-from-session
   - cocart-v1/extending
   - cocart-v1/filters
   - cocart-v1/hooks
@@ -41,6 +41,7 @@ includes:
   - cocart-pro
   - cocart-products
   - woocommerce-extensions
+  - wp-config.php
   - demo
   - tools
   - changelog

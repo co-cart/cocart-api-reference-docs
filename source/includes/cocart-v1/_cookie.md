@@ -25,7 +25,3 @@ The cookie for CoCart and therefore the cart key is supplied through response he
 Cookies received via Set-Cookie-headers is stored in the browser for the domain upon which holds the API, meaning you can encounter problems reading the cookie values from your frontend.
 
 If using a package like [axios](https://github.com/axios/axios), make sure to supply the correct config parameters that enables cookies in requests to the server. As an example, axios has a config parameter called `withAuthorization`. With the flag set to true, cookies previous set will be sent in the request.
-
-### Return Cart Key in Cart Response ###
-
-Sometimes you need to avoid cookies. It's possible to do so by return the cart key when you return the cart endpoint. Simply download and activate the [Get Cart Enhanced add-on plugin](https://wordpress.org/plugins/cocart-get-cart-enhanced/) and you're good-to-go.

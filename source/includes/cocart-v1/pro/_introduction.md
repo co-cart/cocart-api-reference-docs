@@ -10,9 +10,9 @@ This section of the documentation is for **CoCart Pro** only so if you are looki
 
 To use the latest version of the CoCart Pro you must be using:
 
-* WordPress **5.0 or later**.
+* WordPress **5.2 or later**.
 * WooCommerce **3.6 or later**.
-* PHP **5.6 or later**.
+* PHP **7.0 or later**.
 * CoCart **2.0 or later**
 * Pretty permalinks in `Settings > Permalinks` so that the custom endpoints are supported. **Default permalinks will not work.**
 * You may make requests over either HTTP or HTTPS, but HTTPS is recommended where possible.
@@ -49,14 +49,16 @@ I personally find using **raw** works best if you are passing an array of data f
 
 ## Errors ##
 
-Occasionally you might encounter errors when accessing the REST API. There are four possible types:
+Occasionally you might encounter errors when accessing the REST API. Here are the possible types:
 
-| Error Code | Error Type |
-|------------|------------|
-| `400 Bad Request` | Invalid request, e.g. using an unsupported HTTP method |
-| `401 Unauthorized` | Authentication or permission error, e.g. incorrect API keys |
-| `404 Not Found` | Requests to resources that don't exist or are missing |
-| `500 Internal Server Error` | Server error |
+| Error Code                  | Error Type                                                    |
+| --------------------------- |-------------------------------------------------------------- |
+| `400 Bad Request`           | Invalid request, e.g. using an unsupported HTTP method        |
+| `401 Unauthorized`          | Authentication or permission error, e.g. incorrect login      |
+| `403 Forbidden`             | Not allowed to process this action or have permission.        |
+| `404 Not Found`             | Requests to resources that don't exist or are missing         |
+| `405 Method Not Allowed`    | A request method is not supported for the requested resource. |
+| `500 Internal Server Error` | Server error                                                  |
 
 > WP REST API error example
 
@@ -83,4 +85,3 @@ Occasionally you might encounter errors when accessing the REST API. There are f
 ```
 
 Errors return both an appropriate HTTP status code and response object which contains a `code`, `message` and `data` attribute.
-

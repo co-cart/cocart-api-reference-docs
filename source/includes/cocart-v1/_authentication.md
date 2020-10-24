@@ -2,17 +2,21 @@
 
 <img src="images/github.svg" width="20" height="20" alt="GitHub Mark Logo"> [Edit on GitHub](https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v1/_authentication.md)
 
-<aside class="warning">
-  Authentication is <strong>ONLY</strong> required for registered customers, <strong>NOT</strong> guest customers and that you will be passing the customers username and password or token depending on the authentication method you are using. If you are authenticating a registered customer, it's important that you keep doing so with <strong>all routes</strong> from the beginning so the cart in session remains the same. If you <strong>DO NOT</strong> logout of the customer before authenticate another customer, you will still be seeing the previous customers cart and details.
+<aside class="notice">
+  For those who don't know what "Authentication" means, it's equivalent to a user logging in.
 </aside>
 
-CoCart can be authenticated by various methods with the WP REST API. First being via the [REST API Keys](https://woocommerce.github.io/woocommerce-rest-api-docs/#rest-api-keys) in [WooCommerce](https://woocommerce.github.io/woocommerce-rest-api-docs/#authentication). Though this method is designed for the backend with their REST API, with some custom coding you can make it work for the frontend with CoCart.
+<aside class="warning">
+  Authentication is <strong>ONLY</strong> required for registered customers. In order for a registered customer to access their cart, you will be required to pass the customers username and password or token depending on the authentication method you are using. It's important that you keep authenticating with <strong>all routes</strong> from the beginning so the cart in session remains the same. <strong>NOT</strong> doing so will cause another cart to be created and lose track of the items added. If you have any questions, please ask away in the chat window below.
+</aside>
+
+CoCart can be authenticated by various methods with the WordPress REST API. First being via the [REST API Keys](https://woocommerce.github.io/woocommerce-rest-api-docs/#rest-api-keys) in [WooCommerce](https://woocommerce.github.io/woocommerce-rest-api-docs/#authentication). Though this method is designed for the backend with their REST API, with some custom coding you can make it work for the frontend with CoCart.
 
 Checkout my guide on [how to authenticate with WooCommerce](https://cocart.xyz/authenticating-with-woocommerce-heres-how-you-can-do-it/).
 
 It is also possible to authenticate using any of the following WP REST API authentication methods.
 
-* [Basic Authentication](#authentication-basic-authentication)
+* [Basic Authentication](#authentication-basic-authentication) (Recommended with SSL Only!)
 * [JWT Authentication for WP REST API](#authentication-jwt-authentication)
 
 The WordPress REST API incorporates a method called [nonces](https://codex.wordpress.org/WordPress_Nonces) to deal with [CSRF](https://en.wikipedia.org/wiki/Cross-site_request_forgery) issues. This ensures that all activities on the website remain segregated. This is because the WordPress REST API just like the WooCommerce REST API is designed for the back-end.
@@ -37,12 +41,14 @@ If you use the Basic Authentication method (which you may find the easiest to us
 
 1. [Download and Install Basic Auth plugin](https://github.com/WP-API/Basic-Auth)
 
+> Adding an item to the cart as a customer.
+
 ```shell
 curl -X POST https://example.com/wp-json/cocart/v1/add-item \
   -u username:password \
   -H "Content-Type: application/json" \
   -d '{
-    "product_id": 32,
+    "product_id": "32",
     "quantity": 1
   }'
 ```
@@ -55,7 +61,7 @@ var settings = {
   },
   "method": "POST",
   "data": {
-    "product_id" : 32,
+    "product_id" : "32",
     "quantity" : 1
   },
 };
@@ -70,7 +76,7 @@ $.ajax(settings).done(function (response) {
 $curl = curl_init();
 
 $args = json_encode( array(
-  'product_id' => 32,
+  'product_id' => "32",
   'quantity' => 1
 ) );
 
@@ -101,11 +107,11 @@ echo $response;
 <?php
 $args = array(
   'headers' => array(
-    'Authorization' => 'Basic ' . base64_encode( 'bob:1234xyz'),
+    'Authorization' => 'Basic ' . base64_encode( 'username:password'),
     'Content-Type' => 'application/json; charset=utf-8',
   ),
   'body' => wp_json_encode( [
-    'product_id' => 32,
+    'product_id' => "32",
     'quantity' => 1
   ] ),
   'timeout' => 30

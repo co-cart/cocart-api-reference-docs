@@ -4,6 +4,12 @@
 
 This API helps you get items removed by the customer. This can be helpful should you wish to remind and allow customers to re-add an item back to the cart.
 
+## Properties ##
+
+| Property   | Type   | Description                                                             |
+| ---------- | ------ | ----------------------------------------------------------------------- |
+| `cart_key` | string | Unique identifier for the cart. <i class="label label-info">optional</> |
+
 ### HTTP request ###
 
 <div class="api-endpoint">

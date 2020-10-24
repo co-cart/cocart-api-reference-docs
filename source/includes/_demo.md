@@ -6,7 +6,7 @@ If you don't yet have CoCart installed or a WordPress setup ready, you can test 
 
 When you do make a request, make sure you use `https://wp-demo.cocart.xyz/` as the domain to use the demo.
 
-[Get Cart Enhanced](https://cocart.xyz/add-ons/get-cart-enhanced/) add-on is installed so some results may appear different to the example results you see throughout the documentation. It also gives you a look at what is possible using the [filters](#extending-cocart-filters) available to customize CoCart to your needs.
+[Get Cart Enhanced](https://cocart.xyz/add-ons/get-cart-enhanced/) add-on is installed so some results may appear different to the example results you see throughout the documentation. It also gives you a look at what is possible using the [filters](#filters) available to customize CoCart to your needs.
 
 ## Adding an item ##
 
@@ -27,7 +27,7 @@ Here is an example of adding a item to the cart via the demo.
 curl -X POST https://wp-demo.cocart.xyz/wp-json/cocart/v1/add-item \
   -H "Content-Type: application/json" \
   -d '{
-    "product_id": 183,
+    "product_id": "183",
     "quantity": 1
   }'
 ```
@@ -37,7 +37,7 @@ var settings = {
   "url": "https://wp-demo.cocart.xyz/wp-json/cocart/v1/add-item",
   "method": "POST",
   "data": {
-    "product_id" : 183,
+    "product_id" : "183",
     "quantity" : 1
   }
 };
@@ -52,7 +52,7 @@ $.ajax(settings).done(function (response) {
 $curl = curl_init();
 
 $args = array(
-  'product_id' => 183,
+  'product_id' => '183',
   'quantity' => 1
 );
 
@@ -73,7 +73,7 @@ echo $response;
 ```php--wp-http-api
 <?php
 $args = array(
-  'product_id' => 183,
+  'product_id' => '183',
   'quantity' => 1
 );
 $response = wp_remote_post( 'https://wp-demo.cocart.xyz/wp-json/cocart/v1/add-item', $args );

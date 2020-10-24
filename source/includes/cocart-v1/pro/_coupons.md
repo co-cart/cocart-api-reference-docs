@@ -4,11 +4,12 @@
 
 This API helps you get applied coupons, add coupons to cart, remove coupons from cart and check coupons for validation.
 
-### Coupon Properties ###
+### Properties ###
 
-| Property  | Type   | Description       |
-| --------- | ------ | ----------------- |
-| `coupon`  | string | Coupon code is required in order to apply it to or remove it from cart. <i class="label label-info">required</i> |
+| Property   | Type   | Description                                                                                                      |
+| ---------- | ------ | ---------------------------------------------------------------------------------------------------------------- |
+| `cart_key` | string | Unique identifier for the cart. <i class="label label-info">optional</i>                                         |
+| `coupon`   | string | Coupon code is required in order to apply it to or remove it from cart. <i class="label label-info">required</i> |
 
 ## Applied Coupons ##
 

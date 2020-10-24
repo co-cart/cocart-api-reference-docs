@@ -1,18 +1,75 @@
-## Filters ##
+# Filters #
 
 <img src="images/github.svg" width="20" height="20" alt="GitHub Mark Logo"> [Edit on GitHub](https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v1/_filters.md)
 
-The cart API has a number of filters that you can use to extend or change the API.
+The cart API has a number of filters that you can use to change or control the API to your needs.
 
 See the [tweaks plugin for examples](https://github.com/co-cart/co-cart-tweaks).
 
 <aside class="notice">
-Please make sure you are viewing the PHP language to view examples of the filters in use.
+  Please make sure you are viewing the PHP language to view examples of the filters in use.
 </aside>
 
-### Change empty response ###
+ * [Cart Data](#filters-cart-data)
+ * [Overrides](#filters-overrides)
+ * [Session Management](#filters-session-management)
+ * [API Access](#filters-api-access)
+ * [Misc](#filters-misc)
+
+## Cart Data ##
+
+### Return Cart Contents ###
+
+If you are in need to change the formatting of the returned cart contents, this filter `cocart_return_cart_contents` is for you.
+
+In CoCart Pro you can filter the same results for removed cart contents.
+
+If you have [Get Cart Enhanced](https://wordpress.org/plugins/cocart-get-cart-enhanced/) add-on installed, this filter will already be used but can still be used again to apply your own.
+
+```php
+<?php
+// Returns the cart contents without the cart item key as the parent array.
+add_filter( 'cocart_return_cart_contents', 'remove_parent_cart_item_key', 0 );
+
+function remove_parent_cart_item_key( $cart_contents ) {
+  $new_cart_contents = array();
+
+  foreach ( $cart_contents as $item_key => $cart_item ) {
+    $new_cart_contents[] = $cart_item;
+  }
+
+  return $new_cart_contents;
+}
+```
+
+<div style="clear: both;"></div>
+
+### Return Cart Contents in Session ###
+
+Identical to `cocart_return_cart_contents` filter, only this one is used to filter the cart contents returned for a cart in session that you have [requested to view specifically](#cart-retrieve-a-cart).
+
+```php
+<?php
+add_filter( 'cocart_return_cart_session_contents', 'remove_parent_cart_item_key' );
+
+function remove_parent_cart_item_key( $cart_contents ) {
+  $new_cart_contents = array();
+
+  foreach ( $cart_contents as $item_key => $cart_item ) {
+    $new_cart_contents[] = $cart_item;
+  }
+
+  return $new_cart_contents;
+}
+```
+
+<div style="clear: both;"></div>
+
+### Empty Cart ###
 
 If you don't want to return an empty array when the cart is empty, you can return a custom response instead.
+
+If you have [Get Cart Enhanced](https://wordpress.org/plugins/cocart-get-cart-enhanced/) add-on installed, this filter will already be used but can still be used again to apply your own.
 
 ```php
 <?php
@@ -25,9 +82,9 @@ function empty_cart_message() {
 
 <div style="clear: both;"></div>
 
-### Change thumbnail size ###
+### Thumbnail size ###
 
-By default the size of the thumbnail uses `woocommerce_thumbnail`. You can change this by filtering the size using `cocart_item_thumbnail_size` filter.
+By default, the product thumbnail returns using `woocommerce_thumbnail` image size. You can change this simply by returning the image size registered on your WordPress installation with this filter `cocart_item_thumbnail_size`.
 
 ```php
 <?php
@@ -64,7 +121,13 @@ function return_product_sku( $cart_contents, $item_key, $cart_item, $_product ) 
 
 <div style="clear: both;"></div>
 
-### Sold Individually Quantity Override ###
+## Overrides ##
+
+<aside class="notice">
+Some of these overrides require that you also filter the overrides available in the core of WooCommerce in order to match.
+</aside>
+
+### Sold Individually ###
 
 With this filter you can force items sold individually to have more or less.
 
@@ -124,80 +187,7 @@ function requires_specific_item_response( $response, $product_data ) {
 
 <div style="clear: both;"></div>
 
-### Return cart contents ###
-
-If you are in need to change the formatting of the returned cart data, this filter is for you.
-
-Use the `cocart_return_cart_contents` filter. In CoCart Pro you can filter the same results for removed cart contents.
-
-```php
-<?php
-// Returns the cart contents without the cart item key as the parent array.
-add_filter( 'cocart_return_cart_contents', 'remove_parent_cart_item_key', 0 );
-
-function remove_parent_cart_item_key( $cart_contents ) {
-  $new_cart_contents = array();
-
-  foreach ( $cart_contents as $item_key => $cart_item ) {
-    $new_cart_contents[] = $cart_item;
-  }
-
-  return $new_cart_contents;
-}
-```
-
-<div style="clear: both;"></div>
-
-### Add to Cart Handler ###
-
-The handler allows support for other product types besides simple and variable products.
-
-It allows you to override the product type to trigger the product handler before the item is added to the cart.
-
-This is handy if you don't need to provide your own product handler for your custom product type but just need to use a handler already in the core of CoCart. In CoCart Pro this filter is used so simple subscriptions and variable subscriptions can be added as a simple or variable product as there is not difference between the two when being added to the cart.
-
-```php
-<?php
-add_filter( 'cocart_add_to_cart_handler', 'my_add_to_cart_handler' );
-
-function my_add_to_cart_handler( $handler ) {
-  if ( $handler == 'my-custom-product-type' ) {
-    return 'simple';
-  }
-}
-```
-
-<div style="clear: both;"></div>
-
-### Add to Cart Validation ###
-
-This filter allows plugin developers to pass their own validation before an item is added to the cart. Unlike the `woocommerce_add_to_cart_validation` filter, you can not pass form requests. If you have custom data for the product that must be validated, it must be passed via `$cart_item_data` and checked to see if it exists.
-
-In addition, to save time identifying the product type it is passed through automatically for you via `$product_type` which saves a database request and increases loading speed.
-
-| Parameter            | Type    | Description                                                                            |
-| -------------------- | ------- | -------------------------------------------------------------------------------------- |
-| `$passed_validation` | bool    | The status of adding an item to cart. <i class="label label-info">Default is true.</i> |
-| `$product_id`        | integer | The product ID.                                                                        |
-| `$quantity`          | float   | The quantity of the product.                                                           |
-| `$variation_id`      | integer | The variation of the product being added to the cart.                                  |
-| `$variation`         | array   | Attribute values.                                                                      |
-| `$cart_item_data`    | array   | Cart item data passed with the item.                                                   |
-| `$product_type`      | string  | The product type.                                                                      |
-
-```php
-<?php
-add_filter( 'cocart_add_to_cart_validation', 'my_add_to_cart_validation', 10, 7 );
-
-function my_add_to_cart_validation( $passed_validation, $product_id, $quantity, $variation_id, $variation, $cart_item_data, $product_type ) {
-  // Add your validation here and simply return true|false.
-  return true;
-}
-```
-
-<div style="clear: both;"></div>
-
-### Override product name ###
+### Product name ###
 
 You can override the product name when cart is returned or just added to the cart.
 
@@ -228,7 +218,7 @@ function override_product_name( $name, $_product, $item_key ) {
 
 <div style="clear: both;"></div>
 
-### Override product title ###
+### Product title ###
 
 You can override the product title when cart is returned or just added to the cart.
 
@@ -259,9 +249,9 @@ function override_product_title( $name, $_product, $item_key ) {
 
 <div style="clear: both;"></div>
 
-### Override product thumbnail source ###
+### Product thumbnail source ###
 
-This filter in particular allows you to change the source image for a specific item. The source could be external for example.
+This filter in particular allows you to change the source of the image for a specific item. The source could be external for example.
 
 <aside class="warning">
   The filter is triggered after the <code>cocart_item_thumbnail_size</code> filter so you will need to have the new source image in the size you want.
@@ -284,7 +274,7 @@ function override_item_thumbail_src( $thumbnail_src, $cart_item, $item_key ) {
 
 <div style="clear: both;"></div>
 
-### Override product quantity ###
+### Product quantity ###
 
 You could use this filter to force certain products to be added to the cart with a certain quantity or for example use the `$quantity` value to calculate double the amount if your doing something unique for your store.
 
@@ -312,27 +302,6 @@ function override_product_quantity( $quantity, $product_id, $variation_id, $vari
 
   // Return `$quantity` variable for all other products that you are NOT overriding.
   return $quantity;
-}
-```
-
-<div style="clear: both;"></div>
-
-### Return Cart Session Contents ###
-
-Identical to `cocart_return_cart_contents` filter, only this one is used to filter the cart contents returned for a cart in session.
-
-```php
-<?php
-add_filter( 'cocart_return_cart_session_contents', 'remove_parent_cart_item_key' );
-
-function remove_parent_cart_item_key( $cart_contents ) {
-  $new_cart_contents = array();
-
-  foreach ( $cart_contents as $item_key => $cart_item ) {
-    $new_cart_contents[] = $cart_item;
-  }
-
-  return $new_cart_contents;
 }
 ```
 
@@ -372,9 +341,11 @@ function cart_item_removed_message( $message, $_product ) {
 
 <div style="clear: both;"></div>
 
+## Session Management ##
+
 ### Cookie Supported? ###
 
-This filter allows you to disable the cookie support for handling the session for guest customers. This is so you don't overload the cart database when the session is initialized if you are using the alternative method for guest customers.
+This filter allows you to disable support for the CoCart cookie that handles the session for guest customers. Use only if you are using the alternative method for guest customers.
 
 ```php
 <?php
@@ -383,12 +354,12 @@ add_filter( 'cocart_cookie_supported', function() { return false; });
 
 <div style="clear: both;"></div>
 
-### Change cart session cookie name ###
+### Change Cookie Name ###
 
 This could be changed to include your store brand name.
 
 <aside class="notice">
-  Recommend that you at least leave in place the <strong>COOKIEHASH</strong> which by default is your site URL encrypted. It is used to guarantee unique hash for cookies.
+  It is recommended that you at least leave in place the <strong>COOKIEHASH</strong> which by default is your site URL encrypted. It is used to guarantee unique hash for cookies.
 </aside>
 
 ```php
@@ -442,7 +413,7 @@ add_filter( 'cocart_empty_cart_expiration', function() { return HOUR_IN_SECONDS 
 
 ### Generated Customer ID ###
 
-This filter allows you to change the generated customer ID for the guest customer. Use this filter with caution. Can not be longer than 42 characters for the database.
+This filter allows you to change the generated customer ID for the guest customer. Use this filter with caution. **Cannot** be longer than 42 characters, exceed it and the database will not save the cart.
 
 ```php
 <?php
@@ -468,38 +439,35 @@ function cart_loaded_successful_message( $message ) {
 
 <div style="clear: both;"></div>
 
-### Merge Cart Items ###
-
-This filter allows you to change how the items are merged together before loaded into session when requesting to keep the current cart via the web.
-
-```php
-<?php
-/**
- * @param `$new_cart_content` - Returns the cart items merged from both cart in session and the cart requested to load.
- * @param `$new_cart` - Returns the requested cart to load.
- * @param `$cart_in_session` - Returns the current cart contents, if any.
- */
-add_filter( 'cocart_merge_cart_content', 'merge_cart_contents', 10, 3 );
-
-function merge_cart_contents( $new_cart_content, $new_cart, $cart_in_session ) {
-  return $new_cart_content;
-}
-```
-
-<div style="clear: both;"></div>
+## API Access ##
 
 ### CoCart Logging ###
 
 If you are debugging CoCart during your development, enabling the logger is a great tool to have.
 
+Then when making any request, you can view the logs created via your WordPress dashboard under **WooCommerce > System Status > Logs**
+
+I personally like to change the WooCommerce log handler to be stored via the database which you set in your *wp-config.php* file.
+
+> WooCommerce Log Handler
+```php
+<?php
+define( 'WC_LOG_HANDLER', 'WC_Log_Handler_DB' );
+```
+
+<aside class="notice">
+You must have <strong>WP_DEBUG</strong> enabled in your <i>wp-config.php</i> file first in order for the logs to record.
+</aside>
+
+> CoCart Logging filter
 ```php
 <?php
 add_filter( 'cocart_logging', function() { return true; });
 ```
 
-### Allowing all cross origin headers ###
+### CORS: Allow all cross origin headers ###
 
-<span class="new">New Filter in v2.2</span>
+<span class="new">New Filter since v2.2</span>
 
 If you are getting a warning about cross origin headers then you may need to enable support for it. Simply apply this filter and the headers will set for you with no further configuration.
 
@@ -510,11 +478,43 @@ add_filter( 'cocart_disable_all_cors', function() { return false; });
 
 ### Set Allow Origin Header ###
 
-<span class="new">New Filter in v2.5.1</span>
+<span class="new">New Filter since v2.5.1</span>
 
-For added security when you go into production. Set **'Access-Control-Allow-Origin'** header. All cross origin headers must be enabled first as shown above.
+For added security when you go into production. Set **'Access-Control-Allow-Origin'** header to be more specific. [Allow all cross origin headers](#filters-api-access-cors-allow-all-cross-origin-headers) must be enabled first as shown above.
 
 ```php
 <?php
 add_filter( 'cocart_allow_origin', function() { return 'https://wp-demo.cocart.xyz'; });
+```
+
+## Misc ##
+
+### Merge Cart Items ###
+
+This filter allows you to change how the items are merged together before loaded into session when requesting to keep the current cart via the web.
+
+```php
+<?php
+/**
+ * @param `$new_cart_content` - Returns the cart items merged from both cart in session and the cart requested to load.
+ * @param `$new_cart` - Returns the requested cart to load.
+ * @param `$cart_in_session` - Returns the current cart contents, if any.
+ * @return `$new_cart_content` - Returns your results of the cart contents.
+ */
+add_filter( 'cocart_merge_cart_content', 'merge_cart_contents', 10, 3 );
+
+function merge_cart_contents( $new_cart_content, $new_cart, $cart_in_session ) {
+  return $new_cart_content;
+}
+```
+
+<div style="clear: both;"></div>
+
+### Authenticate User ID ###
+
+Overrides the determined user ID when authenticating. **NOTE** This will only be active if not already authenticated.
+
+```php
+<?php
+add_filter( 'cocart_authenticate', function(){});
 ```

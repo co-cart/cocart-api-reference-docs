@@ -10,8 +10,9 @@ Returns all available shipping methods once the customer has [calculated shippin
 
 ### Properties ###
 
-| Property             | Type   | Description       |
-| -------------------- | ------ | ----------------- |
+| Property             | Type   | Description                                                                                                                    |
+| -------------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------ |
+| `cart_key`           | string | Unique identifier for the cart. <i class="label label-info">optional</>                                                        |
 | `recurring_cart_key` | string | The recurring cart key identifies each subscription in cart. <i class="label label-info">required, only for subscriptions.</i> |
 
 ### HTTP request ###

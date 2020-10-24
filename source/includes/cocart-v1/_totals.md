@@ -1,6 +1,11 @@
-## Retrieve Cart Totals ##
+# Totals #
 
 <img src="images/github.svg" width="20" height="20" alt="GitHub Mark Logo"> [Edit on GitHub](https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v1/_totals.md)
+
+ * [Retrieve Cart Totals](#totals-retrieve-cart-totals)
+ * [Calculate Cart Totals](#totals-calculate-cart-totals)
+
+## Retrieve Cart Totals ##
 
 This API helps you retrieve the cart totals. You can also return the totals pre-formatted to save you time applying the currency symbol.
 
@@ -8,7 +13,7 @@ This API helps you retrieve the cart totals. You can also return the totals pre-
 
 | Property | Type   | Description                                                                                                |
 | -------- | ------ | ---------------------------------------------------------------------------------------------------------- |
-| `id`     | string | Unique identifier for the cart. <i class="label label-info">optional</i>                                   |
+| `cart_key`     | string | Unique identifier for the cart. <i class="label label-info">optional</i>                                   |
 | `html`   | bool   | Set as true to return the totals as strings with currency symbol. <i class="label label-info">optional</i> |
 
 ### HTTP request ###

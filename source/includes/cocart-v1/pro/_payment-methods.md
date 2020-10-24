@@ -8,7 +8,13 @@ This API helps you get the payment methods available.
 
 Returns all available payment methods once the customer has added an item to the cart and the cart requires payment.
 
-### HTTP request ###
+### Properties ###
+
+| Property   | Type   | Description                                                             |
+| ---------- | ------ | ----------------------------------------------------------------------- |
+| `cart_key` | string | Unique identifier for the cart. <i class="label label-info">optional</> |
+
+#### HTTP request ####
 
 <div class="api-endpoint">
   <div class="endpoint-data">
@@ -157,11 +163,12 @@ Apply the payment method to the cart. Can only apply once the customer has added
 
 ### Properties ###
 
-| Property     | Type   | Description       |
-| ------------ | ------ | ----------------- |
+| Property     | Type   | Description                                                                    |
+| ------------ | ------ | ------------------------------------------------------------------------------ |
+| `cart_key`   | string | Unique identifier for the cart. <i class="label label-info">optional</>        |
 | `gateway_id` | string | The gateway ID of the payment method. <i class="label label-info">required</i> |
 
-### HTTP request ###
+#### HTTP request ####
 
 <div class="api-endpoint">
   <div class="endpoint-data">

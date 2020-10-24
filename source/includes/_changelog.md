@@ -1,8 +1,14 @@
 # Changelog #
 
-Below is the changelog for "CoCart" documentation that matches with the version of the plugin release.
+Below is the changelog for "CoCart Lite" documentation that matches with the version of the plugin release.
 
-## Doc Version v2.7 - Plugin Release v2.5.1 ##
+## Doc Version v2.8 - Plugin Release v2.6 to v2.7 ##
+
+<aside class="success">
+    The whole of the documentation has been re-organized and content has been improved for those who are new to developing with an API.
+</aside>
+
+### Doc Version v2.7 - Plugin Release v2.5.1 ###
 
 * Dev: Added filter `cocart_allow_origin` to set the origin header for added layer of security when you go into production.
 

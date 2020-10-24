@@ -14,11 +14,12 @@ This API helps you calculate the cart totals. You can also request to retrieve t
 
 ### Properties ###
 
-| Attribute | Type | Description       |
-| --------- | ---- | ----------------- |
-| `return`  | bool | Set as true to return the totals once calculated. <i class="label label-info">optional</i> |
+| Property   | Type   | Description                                                                                |
+| ---------- | ------ | ------------------------------------------------------------------------------------------ |
+| `cart_key` | string | Unique identifier for the cart. <i class="label label-info">optional</>                    |
+| `return`   | bool   | Set as true to return the totals once calculated. <i class="label label-info">optional</i> |
 
-### HTTP request ###
+#### HTTP request ####
 
 <div class="api-endpoint">
 	<div class="endpoint-data">
@@ -84,10 +85,11 @@ This API helps you calculate the fees.
 
 ### Properties ###
 
-| Attribute     | Type | Description       |
-| ------------- | ---- | ----------------- |
-| `set_session` | bool | Sets the cart fees in session once calculated. <i class="label label-info">optional, used mainly for internal use.</i> |
-| `return`      | bool | Returns the cart fees once calculated. |
+| Property      | Type   | Description                                                                                                            |
+| ------------- | ------ | ---------------------------------------------------------------------------------------------------------------------- |
+| `cart_key`    | string | Unique identifier for the cart. <i class="label label-info">optional</>                                                |
+| `set_session` | bool   | Sets the cart fees in session once calculated. <i class="label label-info">optional, used mainly for internal use.</i> |
+| `return`      | bool   | Returns the cart fees once calculated.                                                                                 |
 
 #### HTTP request ####
 
@@ -155,13 +157,14 @@ This API helps you calculate the shipping costs and get the available methods. Y
 
 ### Properties ###
 
-| Attribute        | Type   | Description       |
-| ---------------- | ------ | ----------------- |
-| `country`        | string | Set the country of the shipping location. <i class="label label-info">required</i> |
-| `state`          | string | Setting the state is optional but maybe required under some circumstances. <i class="label label-info">optional</i> |
-| `city`           | string | Set the city to specify location in country. <i class="label label-info">optional</i> |
+| Attribute        | Type   | Description                                                                                                            |
+| ---------------- | ------ | ---------------------------------------------------------------------------------------------------------------------- |
+| `cart_key`       | string | Unique identifier for the cart. <i class="label label-info">optional</i>                                               |
+| `country`        | string | Set the country of the shipping location. <i class="label label-info">required</i>                                     |
+| `state`          | string | Setting the state is optional but maybe required under some circumstances. <i class="label label-info">optional</i>    |
+| `city`           | string | Set the city to specify location in country. <i class="label label-info">optional</i>                                  |
 | `postcode`       | string | Enter postcode / ZIP to narrow down location for more accurate shipping cost. <i class="label label-info">optional</i> |
-| `return_methods` | bool   | Set as true to return the shipping methods once calculated. <i class="label label-info">optional</i> |
+| `return_methods` | bool   | Set as true to return the shipping methods once calculated. <i class="label label-info">optional</i>                   |
 
 #### HTTP request ####
 

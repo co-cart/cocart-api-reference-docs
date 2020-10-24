@@ -4,6 +4,12 @@
 
 This API helps you get the cart weight. The weight unit returned is set in your WooCommerce settings.
 
+## Properties ##
+
+| Property   | Type   | Description                                                             |
+| ---------- | ------ | ----------------------------------------------------------------------- |
+| `cart_key` | string | Unique identifier for the cart. <i class="label label-info">optional</> |
+
 ### HTTP request ###
 
 <div class="api-endpoint">

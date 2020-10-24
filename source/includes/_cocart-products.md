@@ -8,6 +8,6 @@ CoCart Products provides a public API version of accessing products, categories,
 
 The following table shows API versions present in each major version of CoCart Products:
 
-| API Version | CoCart Pro Version | WC Version      | WP Version   | Documentation         |
-| ----------- | ------------------ | --------------- | ------------ | --------------------- |
-| `v1`        | 1.0.x or later     | 3.6.x or later  | 4.4 or later | [view api documentation](products.html) |
+| API Version | CoCart Version | WC Version     | WP Version   | Documentation         |
+| ----------- | -------------- | -------------- | ------------ | --------------------- |
+| `v1`        | 2.0.x or later | 4.0.x or later | 5.2 or later | [view api documentation](products.html) |

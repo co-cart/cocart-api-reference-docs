@@ -18,9 +18,9 @@ The current WordPress REST API integration for CoCart is version `v1` which take
 
 The following table shows API versions present in each major version of CoCart:
 
-| API Version | CoCart Version | WC Version      | WP Version   | PHP Version  |
-| ----------- | -------------- | --------------- | ------------ | ------------ |
-| `v1`        | 2.0.x or later | 3.6.x or later  | 5.2 or later | 7.0 or later |
+| API Version | CoCart Version | WC Version     | WP Version   | PHP Version  |
+| ----------- | -------------- | -------------- | ------------ | ------------ |
+| `v1`        | 2.0.x or later | 4.0.x or later | 5.2 or later | 7.0 or later |
 
 Prior to WooCommerce v3.6, CoCart shared WooCommerce's REST API. You can find the documentation about cart support for `/wc-api-v2` API separately.
 
@@ -33,7 +33,7 @@ Prior to WooCommerce v3.6, CoCart shared WooCommerce's REST API. You can find th
 To use the latest version of the CoCart you must be using:
 
 * WordPress **5.2 or later**.
-* WooCommerce **3.6 or later**.
+* WooCommerce **4.0 or later**.
 * PHP **7.0 or later**.
 * Pretty permalinks in `Settings > Permalinks` so that the custom endpoints are supported. **Default permalinks will not work.**
 * You may make requests over either HTTP or HTTPS, but HTTPS is recommended where possible.
@@ -70,14 +70,16 @@ I personally find using **raw** works best if you are passing an array of data f
 
 ## Errors ##
 
-Occasionally you might encounter errors when accessing the REST API. There are four possible types:
+Occasionally you might encounter errors when accessing the REST API. Here are the possible types:
 
-| Error Code                  | Error Type                                                  |
-| --------------------------- |------------------------------------------------------------ |
-| `400 Bad Request`           | Invalid request, e.g. using an unsupported HTTP method      |
-| `401 Unauthorized`          | Authentication or permission error, e.g. incorrect API keys |
-| `404 Not Found`             | Requests to resources that don't exist or are missing       |
-| `500 Internal Server Error` | Server error                                                |
+| Error Code                  | Error Type                                                    |
+| --------------------------- |-------------------------------------------------------------- |
+| `400 Bad Request`           | Invalid request, e.g. using an unsupported HTTP method        |
+| `401 Unauthorized`          | Authentication or permission error, e.g. incorrect login      |
+| `403 Forbidden`             | Not allowed to process this action or have permission.        |
+| `404 Not Found`             | Requests to resources that don't exist or are missing         |
+| `405 Method Not Allowed`    | A request method is not supported for the requested resource. |
+| `500 Internal Server Error` | Server error                                                  |
 
 > WP REST API error example
 

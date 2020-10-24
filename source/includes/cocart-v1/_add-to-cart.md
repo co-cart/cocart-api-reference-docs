@@ -1,20 +1,24 @@
-## Add Item to Cart ##
+# Add to Cart #
 
 <img src="images/github.svg" width="20" height="20" alt="GitHub Mark Logo"> [Edit on GitHub](https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v1/_add-to-cart.md)
 
-This API helps you to add an item to the cart. You can also request to return the whole cart once item is added to reduce API requests and use the [Get Cart Content](#cart-get-cart-contents) properties.
+The most important part of CoCart is adding items to the cart. This API helps you to add an item to the cart. You can also request to return the whole cart once item is added to reduce API requests and use the [Get Cart Content](#cart-get-cart-contents) properties.
+
+ * [Add Item to Cart](#add-to-cart-add-item-to-cart)
+ * [Add Variation Item](#add-to-cart-add-variation-item)
+ * [Add Item with Custom Data](#add-to-cart-add-item-with-custom-data)
 
 ### Properties ###
 
-| Property         | Type    | Description                                                                                                 |
-| ---------------- | ------- | ----------------------------------------------------------------------------------------------------------- |
-| `cart_key`       | string  | Unique identifier for the cart. <i class="label label-info">optional</i>                                    |
-| `product_id`     | integer | The product ID is required in order to add a product to the cart. <i class="label label-info">mandatory</i> |
-| `quantity`       | float   | Set the quantity of the product you want to add to the cart. <i class="label label-info">Default is 1</i>   |
-| `variation_id`   | integer | Used to set the variation of the product being added to the cart. <i class="label label-info">optional</i>  |
-| `variation`      | array   | Attribute values.                                                 <i class="label label-info">optional</i>  |
-| `cart_item_data` | array   | Used to apply extra cart item data we want to pass with the item. <i class="label label-info">optional</i>  |
-| `return_cart`    | bool    | Set as true to return the cart once item added. <i class="label label-info">optional</i>                    |
+| Property         | Type    | Description                                                                                                                                   |
+| ---------------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| `cart_key`       | string  | Unique identifier for the cart. <i class="label label-info">optional</i>                                                                      |
+| `product_id`     | string  | The product ID is required in order to add a product to the cart. A SKU ID can also be passed here. <i class="label label-info">mandatory</i> |
+| `quantity`       | float   | Set the quantity of the product you want to add to the cart. <i class="label label-info">Default is 1</i>                                     |
+| `variation_id`   | integer | Used to set the variation of the product being added to the cart. <i class="label label-info">optional</i>                                    |
+| `variation`      | array   | Attribute values.                                                 <i class="label label-info">required, for variable products only</i>        |
+| `cart_item_data` | array   | Used to apply extra cart item data we want to pass with the item. <i class="label label-info">optional</i>                                    |
+| `return_cart`    | bool    | Set as true to return the cart once item added. <i class="label label-info">optional</i>                                                      |
 
 ### HTTP request ###
 
@@ -25,11 +29,15 @@ This API helps you to add an item to the cart. You can also request to return th
   </div>
 </div>
 
+## Add Item to Cart ##
+
+> Adding a product via product ID.
+
 ```shell
 curl -X POST https://example.com/wp-json/cocart/v1/add-item \
   -H "Content-Type: application/json" \
   -d '{
-    "product_id": 32,
+    "product_id": "32",
     "quantity": 1
   }'
 ```
@@ -39,7 +47,7 @@ var settings = {
   "url": "https://example.com/wp-json/cocart/v1/add-item",
   "method": "POST",
   "data": {
-    "product_id" : 32,
+    "product_id" : "32",
     "quantity" : 1
   }
 };
@@ -54,7 +62,7 @@ $.ajax(settings).done(function (response) {
 $curl = curl_init();
 
 $args = array(
-  'product_id' => 32,
+  'product_id' => "32",
   'quantity' => 1
 );
 
@@ -85,7 +93,79 @@ $args = array(
     'Content-Type' => 'application/json; charset=utf-8',
   ),
   'body' => wp_json_encode( [
-    'product_id' => 32,
+    'product_id' => "32",
+    'quantity' => 1
+  ] ),
+  'timeout' => 30
+);
+
+$response = wp_remote_post( 'https://example.com/wp-json/cocart/v1/add-item', $args );
+$body = wp_remote_retrieve_body( $response );
+```
+
+> Adding a product via SKU ID.
+
+```shell
+curl -X POST https://example.com/wp-json/cocart/v1/add-item \
+  -H "Content-Type: application/json" \
+  -d '{
+    "product_id": "Red Hoodie",
+    "quantity": 1
+  }'
+```
+
+```javascript--jquery
+var settings = {
+  "url": "https://example.com/wp-json/cocart/v1/add-item",
+  "method": "POST",
+  "data": {
+    "product_id" : "Red Hoodie",
+    "quantity" : 1
+  }
+};
+
+$.ajax(settings).done(function (response) {
+  console.log(response);
+});
+```
+
+```php
+<?php
+$curl = curl_init();
+
+$args = array(
+  'product_id' => "Red Hoodie",
+  'quantity' => 1
+);
+
+curl_setopt_array( $curl, array(
+  CURLOPT_URL => "https://example.com/wp-json/cocart/v1/add-item",
+  CURLOPT_CUSTOMREQUEST => "POST",
+  CURLOPT_POSTFIELDS => $args,
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_TIMEOUT => 30,
+  CURLOPT_HTTPHEADER => array(
+    'Accept: application/json',
+    'Content-Type: application/json',
+    'User-Agent: CoCart API/v1',
+  )
+) );
+
+$response = curl_exec($curl);
+
+curl_close($curl);
+
+echo $response;
+```
+
+```php--wp-http-api
+<?php
+$args = array(
+  'headers' => array(
+    'Content-Type' => 'application/json; charset=utf-8',
+  ),
+  'body' => wp_json_encode( [
+    'product_id' => "Red Hoodie",
     'quantity' => 1
   ] ),
   'timeout' => 30
@@ -118,7 +198,7 @@ $body = wp_remote_retrieve_body( $response );
 }
 ```
 
-## Add Variation Item to Cart ##
+## Add Variation Item ##
 
 Adding a variation of a product to the cart is easy. All you need is to identify the attributes and which attribute your customer has selected.
 
@@ -144,7 +224,7 @@ All attributes start with a prefix `attribute_`. A global attribute extends the 
 curl -X POST https://example.com/wp-json/cocart/v1/add-item \
   -H "Content-Type: application/json" \
   -d '{
-    "product_id": 1723,
+    "product_id": "1723",
     "quantity": 1,
     "variation_id": 1820,
     "variation": {
@@ -159,7 +239,7 @@ var settings = {
   "url": "https://example.com/wp-json/cocart/v1/add-item",
   "method": "POST",
   "data": {
-    "product_id": 1722,
+    "product_id": "1722",
     "quantity": 1,
     "variation_id": 1820,
     "variation": {
@@ -179,7 +259,7 @@ $.ajax(settings).done(function (response) {
 $curl = curl_init();
 
 $args = array(
-  'product_id' => 1722,
+  'product_id' => '1722',
   'quantity' => 1,
   'variation_id' => 1820,
   'variation' => {
@@ -215,7 +295,7 @@ $args = array(
     'Content-Type' => 'application/json; charset=utf-8',
   ),
   'body' => wp_json_encode( [
-    'product_id' => 1722,
+    'product_id' => '1722',
     'quantity' => 1
     'variation_id' => 1820,
     'variation' => {
@@ -258,7 +338,7 @@ $body = wp_remote_retrieve_body( $response );
 }
 ```
 
-## Add Item to Cart + Custom Data ##
+## Add Item with Custom Data ##
 
 Need to pass custom data? This example will show you how.
 
@@ -266,7 +346,7 @@ Need to pass custom data? This example will show you how.
 curl -X POST https://example.com/wp-json/cocart/v1/add-item \
   -H "Content-Type: application/json" \
   -d '{
-    "product_id": 3008,
+    "product_id": "3008",
     "quantity": 1,
     "cart_item_data": {
       "engraved_name": "Sébastien Dumont",
@@ -280,7 +360,7 @@ var settings = {
   "url": "https://example.com/wp-json/cocart/v1/add-item",
   "method": "POST",
   "data": {
-    "product_id" : 3008,
+    "product_id" : "3008",
     "quantity" : 1,
     "cart_item_data" : {
       "engraved_name" : "Sébastien Dumont",
@@ -299,7 +379,7 @@ $.ajax(settings).done(function (response) {
 $curl = curl_init();
 
 $args = array(
-  'product_id' => 3008,
+  'product_id' => '3008',
   'quantity' => 1,
   'cart_item_data' => array(
     'engraved_name' => 'Sébastien Dumont',
@@ -334,7 +414,7 @@ $args = array(
     'Content-Type' => 'application/json; charset=utf-8',
   ),
   'body' => wp_json_encode( [
-    'product_id' => 3008,
+    'product_id' => '3008',
     'quantity' => 1
     'cart_item_data' => array(
       'engraved_name' => 'Sébastien Dumont',

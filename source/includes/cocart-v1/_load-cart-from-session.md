@@ -1,6 +1,6 @@
 # Load Cart from Session #
 
-<span class="new">New Feature in v2.1</span>
+<span class="new">New Feature since v2.1</span>
 
 <img src="images/github.svg" width="20" height="20" alt="GitHub Mark Logo"> [Edit on GitHub](https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v1/_load-cart-from-session.md)
 

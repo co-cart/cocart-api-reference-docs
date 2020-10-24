@@ -32,7 +32,8 @@
     border-bottom: 1px solid #404040;
     text-shadow: (0px 1px 2px rgba(0,0,0,0.4));
     margin: 15px 0;
-    height: 38px;
+    padding-right: 5px;
+    min-height: 38px;
 
     i {
       display: inline-block;
@@ -42,11 +43,12 @@
     }
 
     h6 {
-      display: inline-block;
+      display: contents;
       margin: 0;
       @extend %code-font;
       text-transform: lowercase;
       font-weight: 400;
+      word-break: break-all;
     }
   }
 }
@@ -62,7 +64,7 @@
 }
 
 .label-get {
-  background: #008000;
+  background: #6bbd5b;
 }
 
 .label-post,
@@ -157,6 +159,11 @@ body.has-warning {
 a[data-title="CoCart Add-ons"],
 a[data-title="Demo CoCart"] {
   margin-top: 10px;
+}
+
+.toc-h2.toc-link[data-title="HTTP request"],
+.toc-h2.toc-link[data-title="Properties"] {
+  display: none;
 }
 
 .new {
