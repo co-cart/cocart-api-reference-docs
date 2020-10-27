@@ -398,4 +398,4 @@ Look for `X-CoCart-API` and you will see the value of the cart key returned. You
 
 ### Cart Key in Cart Response ###
 
-It's possible to do so by return the cart key when you return the cart endpoint. Simply download and activate the [Get Cart Enhanced add-on plugin](https://wordpress.org/plugins/cocart-get-cart-enhanced/) and you're good-to-go.
+It's possible to return the cart key when you return the cart endpoint. Simply download and activate the [Get Cart Enhanced add-on plugin](#cocart-add-ons-get-cart-enhanced) and you're good-to-go.

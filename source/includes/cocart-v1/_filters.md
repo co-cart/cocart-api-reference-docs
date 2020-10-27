@@ -452,6 +452,7 @@ Then when making any request, you can view the logs created via your WordPress d
 I personally like to change the WooCommerce log handler to be stored via the database which you set in your *wp-config.php* file.
 
 > WooCommerce Log Handler
+
 ```php
 <?php
 define( 'WC_LOG_HANDLER', 'WC_Log_Handler_DB' );
@@ -462,6 +463,7 @@ You must have <strong>WP_DEBUG</strong> enabled in your <i>wp-config.php</i> fil
 </aside>
 
 > CoCart Logging filter
+
 ```php
 <?php
 add_filter( 'cocart_logging', function() { return true; });
