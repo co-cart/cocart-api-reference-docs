@@ -286,7 +286,7 @@
   color: #859900;
 }
     </style>
-    <link href="stylesheets/screen-528acbf1.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/screen-87c95e1c.css" rel="stylesheet" media="screen" />
     <link href="stylesheets/print-46df3289.css" rel="stylesheet" media="print" />
       <script src="javascripts/all-db0ef614.js"></script>
 
@@ -488,12 +488,12 @@
 
 <p>CoCart Products allows you to view all and access specific products, attributes, categories, tags and product reviews without authentication required. Only details of the products that customers need to know are returned.</p>
 <h2 id='introduction-requirements'>Requirements</h2>
-<p>To use the latest version of the CoCart Pro you must be using:</p>
+<p>To use the latest version of the CoCart Products you must be using:</p>
 
 <ul>
-<li>WordPress <strong>5.0 or later</strong>.</li>
-<li>WooCommerce <strong>3.6 or later</strong>.</li>
-<li>PHP <strong>5.6 or later</strong>.</li>
+<li>WordPress <strong>5.2 or later</strong>.</li>
+<li>WooCommerce <strong>4.0 or later</strong>.</li>
+<li>PHP <strong>7.0 or later</strong>.</li>
 <li>CoCart <strong>2.0 or later</strong></li>
 <li>Pretty permalinks in <code>Settings &gt; Permalinks</code> so that the custom endpoints are supported. <strong>Default permalinks will not work.</strong></li>
 <li>You may make requests over either HTTP or HTTPS, but HTTPS is recommended where possible.</li>
@@ -541,7 +541,7 @@
 
 <p>I personally find using <strong>raw</strong> works best if you are passing an array of data for a <code>variation</code> or <code>cart_item_data</code>.</p>
 <h2 id='introduction-errors'>Errors</h2>
-<p>Occasionally you might encounter errors when accessing the REST API. There are four possible types:</p>
+<p>Occasionally you might encounter errors when accessing the REST API. Here are the possible types:</p>
 
 <table><thead>
 <tr>
@@ -555,11 +555,19 @@
 </tr>
 <tr>
 <td><code>401 Unauthorized</code></td>
-<td>Authentication or permission error, e.g. incorrect API keys</td>
+<td>Authentication or permission error, e.g. incorrect login</td>
+</tr>
+<tr>
+<td><code>403 Forbidden</code></td>
+<td>Not allowed to process this action or have permission.</td>
 </tr>
 <tr>
 <td><code>404 Not Found</code></td>
 <td>Requests to resources that don&#39;t exist or are missing</td>
+</tr>
+<tr>
+<td><code>405 Method Not Allowed</code></td>
+<td>A request method is not supported for the requested resource.</td>
 </tr>
 <tr>
 <td><code>500 Internal Server Error</code></td>

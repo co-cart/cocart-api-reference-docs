@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>CoCart Pro Documentation v1</title>
+    <title>CoCart Pro Documentation v0.6</title>
 
     <link rel="icon" href="images/favicon-32x32-334932c6.png" sizes="32x32" />
     <link rel="icon" href="images/favicon-192x192-734db461.png" sizes="192x192" />
@@ -286,7 +286,7 @@
   color: #859900;
 }
     </style>
-    <link href="stylesheets/screen-528acbf1.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/screen-87c95e1c.css" rel="stylesheet" media="screen" />
     <link href="stylesheets/print-46df3289.css" rel="stylesheet" media="print" />
       <script src="javascripts/all-db0ef614.js"></script>
 
@@ -360,24 +360,10 @@
             <a href="#error-responses" class="toc-h1 toc-link" data-title="Error Responses">Error Responses</a>
           </li>
           <li>
-            <a href="#calculate" class="toc-h1 toc-link" data-title="Calculate">Calculate</a>
-              <ul class="toc-list-h2">
-                  <li>
-                    <a href="#calculate-calculate-cart-totals" class="toc-h2 toc-link" data-title="Calculate Cart Totals">Calculate Cart Totals</a>
-                  </li>
-                  <li>
-                    <a href="#calculate-calculate-fees" class="toc-h2 toc-link" data-title="Calculate Fees">Calculate Fees</a>
-                  </li>
-                  <li>
-                    <a href="#calculate-calculate-shipping" class="toc-h2 toc-link" data-title="Calculate Shipping">Calculate Shipping</a>
-                  </li>
-              </ul>
-          </li>
-          <li>
             <a href="#coupons" class="toc-h1 toc-link" data-title="Coupons">Coupons</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#coupons-calculate-shipping-coupon-properties" class="toc-h2 toc-link" data-title="Coupon Properties">Coupon Properties</a>
+                    <a href="#coupons-errors-properties" class="toc-h2 toc-link" data-title="Properties">Properties</a>
                   </li>
                   <li>
                     <a href="#coupons-applied-coupons" class="toc-h2 toc-link" data-title="Applied Coupons">Applied Coupons</a>
@@ -397,7 +383,7 @@
             <a href="#cross-sells" class="toc-h1 toc-link" data-title="Cross Sells">Cross Sells</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#cross-sells-cross-sell-properties" class="toc-h2 toc-link" data-title="Cross Sell Properties">Cross Sell Properties</a>
+                    <a href="#cross-sells-properties" class="toc-h2 toc-link" data-title="Properties">Properties</a>
                   </li>
               </ul>
           </li>
@@ -405,7 +391,7 @@
             <a href="#cart-owner" class="toc-h1 toc-link" data-title="Cart Owner">Cart Owner</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#cart-owner-cross-sell-properties-http-request" class="toc-h2 toc-link" data-title="HTTP request">HTTP request</a>
+                    <a href="#cart-owner-properties" class="toc-h2 toc-link" data-title="Properties">Properties</a>
                   </li>
               </ul>
           </li>
@@ -413,13 +399,16 @@
             <a href="#cart-weight" class="toc-h1 toc-link" data-title="Cart Weight">Cart Weight</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#cart-weight-cross-sell-properties-http-request" class="toc-h2 toc-link" data-title="HTTP request">HTTP request</a>
+                    <a href="#cart-weight-properties" class="toc-h2 toc-link" data-title="Properties">Properties</a>
                   </li>
               </ul>
           </li>
           <li>
             <a href="#fees" class="toc-h1 toc-link" data-title="Fees">Fees</a>
               <ul class="toc-list-h2">
+                  <li>
+                    <a href="#fees-calculate-fees" class="toc-h2 toc-link" data-title="Calculate Fees">Calculate Fees</a>
+                  </li>
                   <li>
                     <a href="#fees-get-fees" class="toc-h2 toc-link" data-title="Get Fees">Get Fees</a>
                   </li>
@@ -446,7 +435,7 @@
             <a href="#quantities" class="toc-h1 toc-link" data-title="Quantities">Quantities</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#quantities-set-payment-method-http-request" class="toc-h2 toc-link" data-title="HTTP request">HTTP request</a>
+                    <a href="#quantities-properties" class="toc-h2 toc-link" data-title="Properties">Properties</a>
                   </li>
               </ul>
           </li>
@@ -454,13 +443,16 @@
             <a href="#removed-items" class="toc-h1 toc-link" data-title="Removed Items">Removed Items</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#removed-items-set-payment-method-http-request" class="toc-h2 toc-link" data-title="HTTP request">HTTP request</a>
+                    <a href="#removed-items-properties" class="toc-h2 toc-link" data-title="Properties">Properties</a>
                   </li>
               </ul>
           </li>
           <li>
             <a href="#shipping-methods" class="toc-h1 toc-link" data-title="Shipping Methods">Shipping Methods</a>
               <ul class="toc-list-h2">
+                  <li>
+                    <a href="#shipping-methods-calculate-shipping" class="toc-h2 toc-link" data-title="Calculate Shipping">Calculate Shipping</a>
+                  </li>
                   <li>
                     <a href="#shipping-methods-get-shipping-methods" class="toc-h2 toc-link" data-title="Get Shipping Methods">Get Shipping Methods</a>
                   </li>
@@ -472,6 +464,12 @@
           <li>
             <a href="#totals" class="toc-h1 toc-link" data-title="Totals">Totals</a>
               <ul class="toc-list-h2">
+                  <li>
+                    <a href="#totals-set-shipping-method-properties" class="toc-h2 toc-link" data-title="Properties">Properties</a>
+                  </li>
+                  <li>
+                    <a href="#totals-calculate-totals" class="toc-h2 toc-link" data-title="Calculate Totals">Calculate Totals</a>
+                  </li>
                   <li>
                     <a href="#totals-get-cart-totals" class="toc-h2 toc-link" data-title="Get Cart Totals">Get Cart Totals</a>
                   </li>
@@ -514,16 +512,7 @@
             <a href="#changelog" class="toc-h1 toc-link" data-title="Changelog">Changelog</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#changelog-get-cart-total-doc-version-0-4" class="toc-h2 toc-link" data-title="Doc Version 0.4">Doc Version 0.4</a>
-                  </li>
-                  <li>
-                    <a href="#changelog-get-cart-total-doc-version-0-3-plugin-release-v1-0-0" class="toc-h2 toc-link" data-title="Doc Version 0.3 - Plugin Release v1.0.0">Doc Version 0.3 - Plugin Release v1.0.0</a>
-                  </li>
-                  <li>
-                    <a href="#changelog-get-cart-total-doc-version-0-2-plugin-release-v1-0-0" class="toc-h2 toc-link" data-title="Doc Version 0.2 - Plugin Release v1.0.0">Doc Version 0.2 - Plugin Release v1.0.0</a>
-                  </li>
-                  <li>
-                    <a href="#changelog-get-cart-total-doc-version-0-1-plugin-release-v1-0-0" class="toc-h2 toc-link" data-title="Doc Version 0.1 - Plugin Release v1.0.0">Doc Version 0.1 - Plugin Release v1.0.0</a>
+                    <a href="#changelog-doc-version-0-6" class="toc-h2 toc-link" data-title="Doc Version 0.6">Doc Version 0.6</a>
                   </li>
               </ul>
           </li>
@@ -547,9 +536,9 @@
 <p>To use the latest version of the CoCart Pro you must be using:</p>
 
 <ul>
-<li>WordPress <strong>5.0 or later</strong>.</li>
-<li>WooCommerce <strong>3.6 or later</strong>.</li>
-<li>PHP <strong>5.6 or later</strong>.</li>
+<li>WordPress <strong>5.2 or later</strong>.</li>
+<li>WooCommerce <strong>4.0 or later</strong>.</li>
+<li>PHP <strong>7.0 or later</strong>.</li>
 <li>CoCart <strong>2.0 or later</strong></li>
 <li>Pretty permalinks in <code>Settings &gt; Permalinks</code> so that the custom endpoints are supported. <strong>Default permalinks will not work.</strong></li>
 <li>You may make requests over either HTTP or HTTPS, but HTTPS is recommended where possible.</li>
@@ -597,7 +586,7 @@
 
 <p>I personally find using <strong>raw</strong> works best if you are passing an array of data for a <code>variation</code> or <code>cart_item_data</code>.</p>
 <h2 id='introduction-errors'>Errors</h2>
-<p>Occasionally you might encounter errors when accessing the REST API. There are four possible types:</p>
+<p>Occasionally you might encounter errors when accessing the REST API. Here are the possible types:</p>
 
 <table><thead>
 <tr>
@@ -611,11 +600,19 @@
 </tr>
 <tr>
 <td><code>401 Unauthorized</code></td>
-<td>Authentication or permission error, e.g. incorrect API keys</td>
+<td>Authentication or permission error, e.g. incorrect login</td>
+</tr>
+<tr>
+<td><code>403 Forbidden</code></td>
+<td>Not allowed to process this action or have permission.</td>
 </tr>
 <tr>
 <td><code>404 Not Found</code></td>
 <td>Requests to resources that don&#39;t exist or are missing</td>
+</tr>
+<tr>
+<td><code>405 Method Not Allowed</code></td>
+<td>A request method is not supported for the requested resource.</td>
 </tr>
 <tr>
 <td><code>500 Internal Server Error</code></td>
@@ -742,248 +739,11 @@
 <td>There are no shipping methods available!</td>
 </tr>
 </tbody></table>
-<h1 id='calculate'>Calculate</h1>
-<p><img src="images/github-633266a3.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v1/pro/_calculate.md">Edit on GitHub</a></p>
-
-<p>The following allow you to calculate fees, shipping and the totals of the cart.</p>
-<h2 id='calculate-calculate-cart-totals'>Calculate Cart Totals</h2>
-<p>This API helps you calculate the cart totals. You can also request to retrieve the totals once calculated to reduce API requests and use the <a href="./#cart-retrieve-cart-totals">Retrieve Cart Totals</a> properties.</p>
-
-<aside class="notice">
-  CoCart Pro overrides the calculation endpoint in order to also calculate fees and shipping costs before the totals.
-</aside>
-<h3 id='calculate-calculate-cart-totals-properties'>Properties</h3>
-<table><thead>
-<tr>
-<th>Attribute</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code>return</code></td>
-<td>bool</td>
-<td>Set as true to return the totals once calculated. <i class="label label-info">optional</i></td>
-</tr>
-</tbody></table>
-<h3 id='calculate-calculate-cart-totals-http-request'>HTTP request</h3>
-<div class="api-endpoint">
-    <div class="endpoint-data">
-        <i class="label label-post">POST</i>
-        <h6>/wp-json/cocart/v1/calculate</h6>
-    </div>
-</div>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST https://example.com/wp-json/cocart/v1/calculate <span class="se">\</span>
-    <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span>
-</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript--jquery"><code><span class="kd">var</span> <span class="nx">settings</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="dl">"</span><span class="s2">url</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">https://example.com/wp-json/cocart/v1/calculate</span><span class="dl">"</span><span class="p">,</span>
-  <span class="dl">"</span><span class="s2">method</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">POST</span><span class="dl">"</span>
-<span class="p">};</span>
-
-<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">(</span><span class="nx">settings</span><span class="p">).</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span>
-<span class="p">});</span>
-</code></pre></div><div class="highlight"><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
-<span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
-
-<span class="nb">curl_setopt_array</span><span class="p">(</span> <span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
-  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/calculate"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"POST"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
-  <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
-    <span class="s1">'Accept: application/json'</span><span class="p">,</span>
-    <span class="s1">'Content-Type: application/json'</span><span class="p">,</span>
-    <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
-  <span class="p">)</span>
-<span class="p">)</span> <span class="p">);</span>
-
-<span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
-
-<span class="nb">curl_close</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
-
-<span class="k">echo</span> <span class="nv">$response</span><span class="p">;</span>
-</code></pre></div><div class="highlight"><pre class="highlight php tab-php--wp-http-api"><code><span class="cp">&lt;?php</span>
-<span class="nv">$response</span> <span class="o">=</span> <span class="nx">wp_remote_post</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/calculate'</span> <span class="p">);</span>
-<span class="nv">$body</span> <span class="o">=</span> <span class="nx">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
-</code></pre></div>
-<blockquote>
-<p>JSON response example</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="s2">"Cart totals have been calculated."</span><span class="w">
-</span></code></pre></div><h2 id='calculate-calculate-fees'>Calculate Fees</h2>
-<p>This API helps you calculate the fees.</p>
-<h3 id='calculate-calculate-fees-properties'>Properties</h3>
-<table><thead>
-<tr>
-<th>Attribute</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code>set_session</code></td>
-<td>bool</td>
-<td>Sets the cart fees in session once calculated. <i class="label label-info">optional, used mainly for internal use.</i></td>
-</tr>
-<tr>
-<td><code>return</code></td>
-<td>bool</td>
-<td>Returns the cart fees once calculated.</td>
-</tr>
-</tbody></table>
-<h4 id='calculate-calculate-fees-properties-http-request'>HTTP request</h4>
-<div class="api-endpoint">
-  <div class="endpoint-data">
-    <i class="label label-post">POST</i>
-    <h6>/wp-json/cocart/v1/calculate/fees</h6>
-  </div>
-</div>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST https://example.com/wp-json/cocart/v1/calculate/fees <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span>
-</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript--jquery"><code><span class="kd">var</span> <span class="nx">settings</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="dl">"</span><span class="s2">url</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">https://example.com/wp-json/cocart/v1/calculate/fees</span><span class="dl">"</span><span class="p">,</span>
-  <span class="dl">"</span><span class="s2">method</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">POST</span><span class="dl">"</span>
-<span class="p">};</span>
-
-<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">(</span><span class="nx">settings</span><span class="p">).</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span>
-<span class="p">});</span>
-</code></pre></div><div class="highlight"><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
-<span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
-
-<span class="nb">curl_setopt_array</span><span class="p">(</span> <span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
-  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/calculate/fees"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"POST"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
-  <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
-    <span class="s1">'Accept: application/json'</span><span class="p">,</span>
-    <span class="s1">'Content-Type: application/json'</span><span class="p">,</span>
-    <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
-  <span class="p">)</span>
-<span class="p">)</span> <span class="p">);</span>
-
-<span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
-
-<span class="nb">curl_close</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
-
-<span class="k">echo</span> <span class="nv">$response</span><span class="p">;</span>
-</code></pre></div><div class="highlight"><pre class="highlight php tab-php--wp-http-api"><code><span class="cp">&lt;?php</span>
-<span class="nv">$response</span> <span class="o">=</span> <span class="nx">wp_remote_post</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/calculate/fees'</span> <span class="p">);</span>
-<span class="nv">$body</span> <span class="o">=</span> <span class="nx">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
-</code></pre></div>
-<blockquote>
-<p>JSON response example</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="s2">"Cart fees have been calculated."</span><span class="w">
-</span></code></pre></div><h2 id='calculate-calculate-shipping'>Calculate Shipping</h2>
-<p>This API helps you calculate the shipping costs and get the available methods. You can also request to return the shipping methods once calculated to reduce API requests.</p>
-<h3 id='calculate-calculate-shipping-properties'>Properties</h3>
-<table><thead>
-<tr>
-<th>Attribute</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code>country</code></td>
-<td>string</td>
-<td>Set the country of the shipping location. <i class="label label-info">required</i></td>
-</tr>
-<tr>
-<td><code>state</code></td>
-<td>string</td>
-<td>Setting the state is optional but maybe required under some circumstances. <i class="label label-info">optional</i></td>
-</tr>
-<tr>
-<td><code>city</code></td>
-<td>string</td>
-<td>Set the city to specify location in country. <i class="label label-info">optional</i></td>
-</tr>
-<tr>
-<td><code>postcode</code></td>
-<td>string</td>
-<td>Enter postcode / ZIP to narrow down location for more accurate shipping cost. <i class="label label-info">optional</i></td>
-</tr>
-<tr>
-<td><code>return_methods</code></td>
-<td>bool</td>
-<td>Set as true to return the shipping methods once calculated. <i class="label label-info">optional</i></td>
-</tr>
-</tbody></table>
-<h4 id='calculate-calculate-shipping-properties-http-request'>HTTP request</h4>
-<div class="api-endpoint">
-  <div class="endpoint-data">
-    <i class="label label-post">POST</i>
-    <h6>/wp-json/cocart/v1/calculate/shipping</h6>
-  </div>
-</div>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST https://example.com/wp-json/cocart/v1/calculate/shipping <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span>
-  <span class="nt">-d</span> <span class="s1">'{
-    "country": "GB"
-  }'</span>
-</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript--jquery"><code><span class="kd">var</span> <span class="nx">settings</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="dl">"</span><span class="s2">url</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">https://example.com/wp-json/cocart/v1/calculate/shipping</span><span class="dl">"</span><span class="p">,</span>
-  <span class="dl">"</span><span class="s2">method</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">POST</span><span class="dl">"</span><span class="p">,</span>
-  <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
-    <span class="dl">"</span><span class="s2">country</span><span class="dl">"</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">GB</span><span class="dl">"</span><span class="p">,</span>
-  <span class="p">}</span>
-<span class="p">};</span>
-
-<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">(</span><span class="nx">settings</span><span class="p">).</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span>
-<span class="p">});</span>
-</code></pre></div><div class="highlight"><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
-<span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
-
-<span class="nv">$args</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
-  <span class="s1">'country'</span> <span class="o">=&gt;</span> <span class="s1">'GB'</span><span class="p">,</span>
-<span class="p">);</span>
-
-<span class="nb">curl_setopt_array</span><span class="p">(</span> <span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
-  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/calculate/shipping"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"POST"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_POSTFIELDS</span> <span class="o">=&gt;</span> <span class="nv">$args</span><span class="p">,</span>
-  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
-  <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
-    <span class="s1">'Accept: application/json'</span><span class="p">,</span>
-    <span class="s1">'Content-Type: application/json'</span><span class="p">,</span>
-    <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
-  <span class="p">)</span>
-<span class="p">)</span> <span class="p">);</span>
-
-<span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
-
-<span class="nb">curl_close</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
-
-<span class="k">echo</span> <span class="nv">$response</span><span class="p">;</span>
-</code></pre></div><div class="highlight"><pre class="highlight php tab-php--wp-http-api"><code><span class="cp">&lt;?php</span>
-<span class="nv">$args</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
-  <span class="s1">'headers'</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
-    <span class="s1">'Content-Type'</span> <span class="o">=&gt;</span> <span class="s1">'application/json; charset=utf-8'</span><span class="p">,</span>
-  <span class="p">),</span>
-  <span class="s1">'body'</span> <span class="o">=&gt;</span> <span class="nx">wp_json_encode</span><span class="p">(</span> <span class="p">[</span>
-    <span class="s1">'country'</span> <span class="o">=&gt;</span> <span class="s1">'GB'</span><span class="p">,</span>
-  <span class="p">]</span> <span class="p">),</span>
-  <span class="s1">'timeout'</span> <span class="o">=&gt;</span> <span class="mi">30</span>
-<span class="p">);</span>
-
-<span class="nv">$response</span> <span class="o">=</span> <span class="nx">wp_remote_post</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/calculate/shipping'</span><span class="p">,</span> <span class="nv">$args</span> <span class="p">);</span>
-<span class="nv">$body</span> <span class="o">=</span> <span class="nx">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
-</code></pre></div>
-<blockquote>
-<p>JSON response example</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="s2">"Shipping costs updated."</span><span class="w">
-</span></code></pre></div><h1 id='coupons'>Coupons</h1>
+<h1 id='coupons'>Coupons</h1>
 <p><img src="images/github-633266a3.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v1/pro/_coupons.md">Edit on GitHub</a></p>
 
 <p>This API helps you get applied coupons, add coupons to cart, remove coupons from cart and check coupons for validation.</p>
-<h3 id='coupons-calculate-shipping-coupon-properties'>Coupon Properties</h3>
+<h3 id='coupons-errors-properties'>Properties</h3>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -991,6 +751,11 @@
 <th>Description</th>
 </tr>
 </thead><tbody>
+<tr>
+<td><code>cart_key</code></td>
+<td>string</td>
+<td>Unique identifier for the cart. <i class="label label-info">optional</i></td>
+</tr>
 <tr>
 <td><code>coupon</code></td>
 <td>string</td>
@@ -1242,7 +1007,7 @@
 <p><img src="images/github-633266a3.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v1/pro/_cross-sells.md">Edit on GitHub</a></p>
 
 <p>This API helps you get the cross sells. It returns not just the product ID&#39;s but the product name, price, regular price and sale price.</p>
-<h2 id='cross-sells-cross-sell-properties'>Cross Sell Properties</h2>
+<h2 id='cross-sells-properties'>Properties</h2>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -1251,12 +1016,17 @@
 </tr>
 </thead><tbody>
 <tr>
+<td><code>cart_key</code></td>
+<td>string</td>
+<td>Unique identifier for the cart. <i class="label label-info">optional</i></td>
+</tr>
+<tr>
 <td><code>thumb</code></td>
 <td>bool</td>
 <td>Set as true to return the product thumbnail for each item.</td>
 </tr>
 </tbody></table>
-<h3 id='cross-sells-cross-sell-properties-http-request'>HTTP request</h3>
+<h3 id='cross-sells-properties-http-request'>HTTP request</h3>
 <div class="api-endpoint">
   <div class="endpoint-data">
     <i class="label label-get">GET</i>
@@ -1330,7 +1100,21 @@
 <p><img src="images/github-633266a3.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v1/pro/_customers.md">Edit on GitHub</a></p>
 
 <p>This API helps you get the cart owner&#39;s details of the customer.</p>
-<h3 id='cart-owner-cross-sell-properties-http-request'>HTTP request</h3>
+<h2 id='cart-owner-properties'>Properties</h2>
+<table><thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>cart_key</code></td>
+<td>string</td>
+<td>Unique identifier for the cart. <i class="label label-info">optional</i></td>
+</tr>
+</tbody></table>
+<h3 id='cart-owner-properties-http-request'>HTTP request</h3>
 <div class="api-endpoint">
   <div class="endpoint-data">
     <i class="label label-get">GET</i>
@@ -1413,7 +1197,21 @@
 <p><img src="images/github-633266a3.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v1/pro/_weight.md">Edit on GitHub</a></p>
 
 <p>This API helps you get the cart weight. The weight unit returned is set in your WooCommerce settings.</p>
-<h3 id='cart-weight-cross-sell-properties-http-request'>HTTP request</h3>
+<h2 id='cart-weight-properties'>Properties</h2>
+<table><thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>cart_key</code></td>
+<td>string</td>
+<td>Unique identifier for the cart. <i class="label label-info">optional</i></td>
+</tr>
+</tbody></table>
+<h3 id='cart-weight-properties-http-request'>HTTP request</h3>
 <div class="api-endpoint">
   <div class="endpoint-data">
     <i class="label label-get">GET</i>
@@ -1460,11 +1258,94 @@
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="s2">"4 kg"</span><span class="w">
 </span></code></pre></div><h1 id='fees'>Fees</h1>
 <p><img src="images/github-633266a3.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v1/pro/_fees.md">Edit on GitHub</a></p>
+<h2 id='fees-calculate-fees'>Calculate Fees</h2>
+<p>This API calculate the fees applied.</p>
+<h3 id='fees-calculate-fees-properties'>Properties</h3>
+<table><thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>cart_key</code></td>
+<td>string</td>
+<td>Unique identifier for the cart. <i class="label label-info">optional</i></td>
+</tr>
+<tr>
+<td><code>set_session</code></td>
+<td>bool</td>
+<td>Sets the cart fees in session once calculated. <i class="label label-info">optional, used mainly for internal use.</i></td>
+</tr>
+<tr>
+<td><code>return</code></td>
+<td>bool</td>
+<td>Returns the cart fees once calculated.</td>
+</tr>
+</tbody></table>
+<h4 id='fees-calculate-fees-properties-http-request'>HTTP request</h4>
+<div class="api-endpoint">
+  <div class="endpoint-data">
+    <i class="label label-post">POST</i>
+    <h6>/wp-json/cocart/v1/calculate/fees</h6>
+  </div>
+</div>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST https://example.com/wp-json/cocart/v1/calculate/fees <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript--jquery"><code><span class="kd">var</span> <span class="nx">settings</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="dl">"</span><span class="s2">url</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">https://example.com/wp-json/cocart/v1/calculate/fees</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">method</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">POST</span><span class="dl">"</span>
+<span class="p">};</span>
 
-<p>This API helps you add a fee to the cart, get all fees added, and remove all fees.</p>
-<h2 id='fees-get-fees'>Get Fees</h2>
-<p>Returns all applied fees to the cart.</p>
-<h4 id='fees-get-fees-http-request-http-request'>HTTP request</h4>
+<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">(</span><span class="nx">settings</span><span class="p">).</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div><div class="highlight"><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+<span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
+
+<span class="nb">curl_setopt_array</span><span class="p">(</span> <span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/calculate/fees"</span><span class="p">,</span>
+  <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"POST"</span><span class="p">,</span>
+  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
+  <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">'Accept: application/json'</span><span class="p">,</span>
+    <span class="s1">'Content-Type: application/json'</span><span class="p">,</span>
+    <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
+  <span class="p">)</span>
+<span class="p">)</span> <span class="p">);</span>
+
+<span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
+
+<span class="nb">curl_close</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
+
+<span class="k">echo</span> <span class="nv">$response</span><span class="p">;</span>
+</code></pre></div><div class="highlight"><pre class="highlight php tab-php--wp-http-api"><code><span class="cp">&lt;?php</span>
+<span class="nv">$response</span> <span class="o">=</span> <span class="nx">wp_remote_post</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/calculate/fees'</span> <span class="p">);</span>
+<span class="nv">$body</span> <span class="o">=</span> <span class="nx">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
+</code></pre></div>
+<blockquote>
+<p>JSON response example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="s2">"Cart fees have been calculated."</span><span class="w">
+</span></code></pre></div><h2 id='fees-get-fees'>Get Fees</h2>
+<p>This API returns all applied fees to the cart.</p>
+<h3 id='fees-get-fees-properties'>Properties</h3>
+<table><thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>cart_key</code></td>
+<td>string</td>
+<td>Unique identifier for the cart. <i class="label label-info">optional</i></td>
+</tr>
+</tbody></table>
+<h4 id='fees-get-fees-properties-http-request'>HTTP request</h4>
 <div class="api-endpoint">
   <div class="endpoint-data">
     <i class="label label-get">GET</i>
@@ -1519,7 +1400,7 @@
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h2 id='fees-add-a-fee'>Add a Fee</h2>
-<p>Apply a fee to the cart.</p>
+<p>This API applies a fee to the cart.</p>
 <h3 id='fees-add-a-fee-properties'>Properties</h3>
 <table><thead>
 <tr>
@@ -1528,6 +1409,11 @@
 <th>Description</th>
 </tr>
 </thead><tbody>
+<tr>
+<td><code>cart_key</code></td>
+<td>string</td>
+<td>Unique identifier for the cart. <i class="label label-info">optional</i></td>
+</tr>
 <tr>
 <td><code>name</code></td>
 <td>string</td>
@@ -1541,7 +1427,7 @@
 <tr>
 <td><code>taxable</code></td>
 <td>bool</td>
-<td>Determins if the fee is taxable. <i class="label label-info">optional</i></td>
+<td>Determines if the fee is taxable. <i class="label label-info">optional</i></td>
 </tr>
 <tr>
 <td><code>tax_class</code></td>
@@ -1615,7 +1501,21 @@
     </span><span class="s2">"Fee </span><span class="se">\"</span><span class="s2">Extra Package Protection</span><span class="se">\"</span><span class="s2"> for £40.00 has been added."</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h2 id='fees-remove-fees'>Remove Fees</h2>
-<p>Remove all fees from the cart.</p>
+<p>This API removes all fees from the cart.</p>
+<h3 id='fees-remove-fees-properties'>Properties</h3>
+<table><thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>cart_key</code></td>
+<td>string</td>
+<td>Unique identifier for the cart. <i class="label label-info">optional</i></td>
+</tr>
+</tbody></table>
 <h4 id='fees-remove-fees-properties-http-request'>HTTP request</h4>
 <div class="api-endpoint">
   <div class="endpoint-data">
@@ -1672,7 +1572,21 @@
 <p>This API helps you get the payment methods available.</p>
 <h2 id='payment-methods-get-payment-methods'>Get Payment Methods</h2>
 <p>Returns all available payment methods once the customer has added an item to the cart and the cart requires payment.</p>
-<h3 id='payment-methods-get-payment-methods-http-request'>HTTP request</h3>
+<h3 id='payment-methods-get-payment-methods-properties'>Properties</h3>
+<table><thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>cart_key</code></td>
+<td>string</td>
+<td>Unique identifier for the cart. <i class="label label-info">optional</i></td>
+</tr>
+</tbody></table>
+<h4 id='payment-methods-get-payment-methods-properties-http-request'>HTTP request</h4>
 <div class="api-endpoint">
   <div class="endpoint-data">
     <i class="label label-get">GET</i>
@@ -1811,12 +1725,17 @@
 </tr>
 </thead><tbody>
 <tr>
+<td><code>cart_key</code></td>
+<td>string</td>
+<td>Unique identifier for the cart. <i class="label label-info">optional</i></td>
+</tr>
+<tr>
 <td><code>gateway_id</code></td>
 <td>string</td>
 <td>The gateway ID of the payment method. <i class="label label-info">required</i></td>
 </tr>
 </tbody></table>
-<h3 id='payment-methods-set-payment-method-http-request'>HTTP request</h3>
+<h4 id='payment-methods-set-payment-method-properties-http-request'>HTTP request</h4>
 <div class="api-endpoint">
   <div class="endpoint-data">
     <i class="label label-post">POST</i>
@@ -1886,7 +1805,21 @@
 <p><img src="images/github-633266a3.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v1/pro/_quantities.md">Edit on GitHub</a></p>
 
 <p>This API helps you get the quantities of each product added to the cart.</p>
-<h3 id='quantities-set-payment-method-http-request'>HTTP request</h3>
+<h2 id='quantities-properties'>Properties</h2>
+<table><thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>cart_key</code></td>
+<td>string</td>
+<td>Unique identifier for the cart. <i class="label label-info">optional</i></td>
+</tr>
+</tbody></table>
+<h3 id='quantities-properties-http-request'>HTTP request</h3>
 <div class="api-endpoint">
   <div class="endpoint-data">
     <i class="label label-get">GET</i>
@@ -1939,7 +1872,21 @@
 <p><img src="images/github-633266a3.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v1/pro/_removed-items.md">Edit on GitHub</a></p>
 
 <p>This API helps you get items removed by the customer. This can be helpful should you wish to remind and allow customers to re-add an item back to the cart.</p>
-<h3 id='removed-items-set-payment-method-http-request'>HTTP request</h3>
+<h2 id='removed-items-properties'>Properties</h2>
+<table><thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>cart_key</code></td>
+<td>string</td>
+<td>Unique identifier for the cart. <i class="label label-info">optional</i></td>
+</tr>
+</tbody></table>
+<h3 id='removed-items-properties-http-request'>HTTP request</h3>
 <div class="api-endpoint">
   <div class="endpoint-data">
     <i class="label label-get">GET</i>
@@ -2004,9 +1951,130 @@
 </span></code></pre></div><h1 id='shipping-methods'>Shipping Methods</h1>
 <p><img src="images/github-633266a3.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v1/pro/_shipping-methods.md">Edit on GitHub</a></p>
 
-<p>This API helps you get and set shipping methods.</p>
-<h2 id='shipping-methods-get-shipping-methods'>Get Shipping Methods</h2>
-<p>Returns all available shipping methods once the customer has <a href="#calculate-calculate-shipping">calculated shipping</a>.</p>
+<ul>
+<li><a href="#shipping-methods-calculate-shipping">Calculate Shipping</a></li>
+<li><a href="#shipping-methods-get-shipping-methods">Get Shipping Methods</a></li>
+<li><a href="#shipping-methods-set-shipping-method">Set Shipping Method</a></li>
+</ul>
+<h2 id='shipping-methods-calculate-shipping'>Calculate Shipping</h2>
+<p>This API helps you calculate the shipping costs and get the available methods. You can also request to return the shipping methods once calculated to reduce API requests.</p>
+
+<p><a href="https://github.com/woocommerce/woocommerce/blob/master/i18n/countries.php">See list of country codes</a> that are supported by WooCommerce.</p>
+
+<aside class="notice">
+  You must pass the country code, <strong>NOT</strong> the country name via the <code>country</code> parameter.
+</aside>
+<h3 id='shipping-methods-calculate-shipping-properties'>Properties</h3>
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>cart_key</code></td>
+<td>string</td>
+<td>Unique identifier for the cart. <i class="label label-info">optional</i></td>
+</tr>
+<tr>
+<td><code>country</code></td>
+<td>string</td>
+<td>Set the country code of the shipping location. <i class="label label-info">required</i></td>
+</tr>
+<tr>
+<td><code>state</code></td>
+<td>string</td>
+<td>Setting the state is optional but maybe required under some circumstances. <i class="label label-info">optional</i></td>
+</tr>
+<tr>
+<td><code>city</code></td>
+<td>string</td>
+<td>Set the city to specify location in country. <i class="label label-info">optional</i></td>
+</tr>
+<tr>
+<td><code>postcode</code></td>
+<td>string</td>
+<td>Enter postcode / ZIP to narrow down location for more accurate shipping cost. <i class="label label-info">optional</i></td>
+</tr>
+<tr>
+<td><code>return_methods</code></td>
+<td>bool</td>
+<td>Set as true to return the shipping methods once calculated. <i class="label label-info">optional</i></td>
+</tr>
+</tbody></table>
+<h4 id='shipping-methods-calculate-shipping-properties-http-request'>HTTP request</h4>
+<div class="api-endpoint">
+  <div class="endpoint-data">
+    <i class="label label-post">POST</i>
+    <h6>/wp-json/cocart/v1/calculate/shipping</h6>
+  </div>
+</div>
+
+<blockquote>
+<p>Example of calculating shipping methods for Great Britain.</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST https://example.com/wp-json/cocart/v1/calculate/shipping <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span>
+  <span class="nt">-d</span> <span class="s1">'{
+    "country": "GB"
+  }'</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript--jquery"><code><span class="kd">var</span> <span class="nx">settings</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="dl">"</span><span class="s2">url</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">https://example.com/wp-json/cocart/v1/calculate/shipping</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">method</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">POST</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">"</span><span class="s2">country</span><span class="dl">"</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">GB</span><span class="dl">"</span><span class="p">,</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">(</span><span class="nx">settings</span><span class="p">).</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div><div class="highlight"><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+<span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
+
+<span class="nv">$args</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+  <span class="s1">'country'</span> <span class="o">=&gt;</span> <span class="s1">'GB'</span><span class="p">,</span>
+<span class="p">);</span>
+
+<span class="nb">curl_setopt_array</span><span class="p">(</span> <span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/calculate/shipping"</span><span class="p">,</span>
+  <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"POST"</span><span class="p">,</span>
+  <span class="nx">CURLOPT_POSTFIELDS</span> <span class="o">=&gt;</span> <span class="nv">$args</span><span class="p">,</span>
+  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
+  <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">'Accept: application/json'</span><span class="p">,</span>
+    <span class="s1">'Content-Type: application/json'</span><span class="p">,</span>
+    <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
+  <span class="p">)</span>
+<span class="p">)</span> <span class="p">);</span>
+
+<span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
+
+<span class="nb">curl_close</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
+
+<span class="k">echo</span> <span class="nv">$response</span><span class="p">;</span>
+</code></pre></div><div class="highlight"><pre class="highlight php tab-php--wp-http-api"><code><span class="cp">&lt;?php</span>
+<span class="nv">$args</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+  <span class="s1">'headers'</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">'Content-Type'</span> <span class="o">=&gt;</span> <span class="s1">'application/json; charset=utf-8'</span><span class="p">,</span>
+  <span class="p">),</span>
+  <span class="s1">'body'</span> <span class="o">=&gt;</span> <span class="nx">wp_json_encode</span><span class="p">(</span> <span class="p">[</span>
+    <span class="s1">'country'</span> <span class="o">=&gt;</span> <span class="s1">'GB'</span><span class="p">,</span>
+  <span class="p">]</span> <span class="p">),</span>
+  <span class="s1">'timeout'</span> <span class="o">=&gt;</span> <span class="mi">30</span>
+<span class="p">);</span>
+
+<span class="nv">$response</span> <span class="o">=</span> <span class="nx">wp_remote_post</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/calculate/shipping'</span><span class="p">,</span> <span class="nv">$args</span> <span class="p">);</span>
+<span class="nv">$body</span> <span class="o">=</span> <span class="nx">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
+</code></pre></div>
+<blockquote>
+<p>JSON response example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="s2">"Shipping costs updated."</span><span class="w">
+</span></code></pre></div><h2 id='shipping-methods-get-shipping-methods'>Get Shipping Methods</h2>
+<p>This API returns all available shipping methods once the customer has <a href="#shipping-methods-calculate-shipping">calculated shipping</a>.</p>
 <h3 id='shipping-methods-get-shipping-methods-properties'>Properties</h3>
 <table><thead>
 <tr>
@@ -2015,6 +2083,11 @@
 <th>Description</th>
 </tr>
 </thead><tbody>
+<tr>
+<td><code>cart_key</code></td>
+<td>string</td>
+<td>Unique identifier for the cart. <i class="label label-info">optional</i></td>
+</tr>
 <tr>
 <td><code>recurring_cart_key</code></td>
 <td>string</td>
@@ -2028,6 +2101,10 @@
     <h6>/wp-json/cocart/v1/shipping-methods</h6>
   </div>
 </div>
+
+<blockquote>
+<p>Example of getting the shipping methods.</p>
+</blockquote>
 <div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET https://example.com/wp-json/cocart/v1/shipping-methods <span class="se">\</span>
   <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span>
 </code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript--jquery"><code><span class="kd">var</span> <span class="nx">settings</span> <span class="o">=</span> <span class="p">{</span>
@@ -2090,7 +2167,7 @@
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h2 id='shipping-methods-set-shipping-method'>Set Shipping Method</h2>
-<p>Apply a shipping method to the cart. Can only apply once the customer has calculated shipping.</p>
+<p>This API applies a shipping method to the cart. Can only apply once the customer has <a href="#shipping-methods-calculate-shipping">calculated shipping</a>.</p>
 <h3 id='shipping-methods-set-shipping-method-properties'>Properties</h3>
 <table><thead>
 <tr>
@@ -2117,6 +2194,10 @@
     <h6>/wp-json/cocart/v1/shipping-methods</h6>
   </div>
 </div>
+
+<blockquote>
+<p>Example of setting the shipping method for the cart.</p>
+</blockquote>
 <div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST https://example.com/wp-json/cocart/v1/shipping-methods <span class="se">\</span>
   <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
   <span class="nt">-d</span> <span class="s1">'{
@@ -2178,9 +2259,81 @@
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="kc">true</span><span class="w">
 </span></code></pre></div><h1 id='totals'>Totals</h1>
 <p><img src="images/github-633266a3.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v1/pro/_totals.md">Edit on GitHub</a></p>
+<h3 id='totals-set-shipping-method-properties'>Properties</h3>
+<table><thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>cart_key</code></td>
+<td>string</td>
+<td>Unique identifier for the cart. <i class="label label-info">optional</i></td>
+</tr>
+<tr>
+<td><code>return</code></td>
+<td>bool</td>
+<td>Set as true to return the totals once calculated. <i class="label label-info">optional</i></td>
+</tr>
+</tbody></table>
+<h2 id='totals-calculate-totals'>Calculate Totals</h2>
+<p>This API helps you calculate the cart totals. You can also request to retrieve the totals once calculated to reduce API requests and use the <a href="./#totals-retrieve-cart-totals">Retrieve Cart Totals</a> properties.</p>
 
-<p>This API helps you get all the cart totals including getting them individually.</p>
-<h2 id='totals-get-cart-totals'>Get Cart Totals</h2>
+<aside class="notice">
+  CoCart Pro overrides the calculation endpoint in order to also calculate fees and shipping costs before the totals.
+</aside>
+<h4 id='totals-calculate-totals-properties-http-request'>HTTP request</h4>
+<div class="api-endpoint">
+    <div class="endpoint-data">
+        <i class="label label-post">POST</i>
+        <h6>/wp-json/cocart/v1/calculate</h6>
+    </div>
+</div>
+
+<blockquote>
+<p>Example of calculating totals.</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST https://example.com/wp-json/cocart/v1/calculate <span class="se">\</span>
+    <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript--jquery"><code><span class="kd">var</span> <span class="nx">settings</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="dl">"</span><span class="s2">url</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">https://example.com/wp-json/cocart/v1/calculate</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">method</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">POST</span><span class="dl">"</span>
+<span class="p">};</span>
+
+<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">(</span><span class="nx">settings</span><span class="p">).</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div><div class="highlight"><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+<span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
+
+<span class="nb">curl_setopt_array</span><span class="p">(</span> <span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/calculate"</span><span class="p">,</span>
+  <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"POST"</span><span class="p">,</span>
+  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
+  <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">'Accept: application/json'</span><span class="p">,</span>
+    <span class="s1">'Content-Type: application/json'</span><span class="p">,</span>
+    <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
+  <span class="p">)</span>
+<span class="p">)</span> <span class="p">);</span>
+
+<span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
+
+<span class="nb">curl_close</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
+
+<span class="k">echo</span> <span class="nv">$response</span><span class="p">;</span>
+</code></pre></div><div class="highlight"><pre class="highlight php tab-php--wp-http-api"><code><span class="cp">&lt;?php</span>
+<span class="nv">$response</span> <span class="o">=</span> <span class="nx">wp_remote_post</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/calculate'</span> <span class="p">);</span>
+<span class="nv">$body</span> <span class="o">=</span> <span class="nx">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
+</code></pre></div>
+<blockquote>
+<p>JSON response example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="s2">"Cart totals have been calculated."</span><span class="w">
+</span></code></pre></div><h2 id='totals-get-cart-totals'>Get Cart Totals</h2>
 <p>This API helps you get the cart totals. You can also retrieve the totals pre-formatted to save you time applying the currency symbol. <a href="./#cart-retrieve-cart-totals">Retrieve Cart Totals</a> properties.</p>
 
 <aside class="notice">
@@ -2195,6 +2348,10 @@
     <h6>/wp-json/cocart/v1/totals</h6>
   </div>
 </div>
+
+<blockquote>
+<p>Example of getting the cart totals.</p>
+</blockquote>
 <div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET https://example.com/wp-json/cocart/v1/totals <span class="se">\</span>
  <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span>
 </code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript--jquery"><code><span class="kd">var</span> <span class="nx">settings</span> <span class="o">=</span> <span class="p">{</span>
@@ -2272,6 +2429,10 @@
     <h6>/wp-json/cocart/v1/totals/discount</h6>
   </div>
 </div>
+
+<blockquote>
+<p>Example of getting the cart discount total.</p>
+</blockquote>
 <div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET https://example.com/wp-json/cocart/v1/totals/discount <span class="se">\</span>
  <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span>
 </code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript--jquery"><code><span class="kd">var</span> <span class="nx">settings</span> <span class="o">=</span> <span class="p">{</span>
@@ -2310,13 +2471,19 @@
 <p>JSON response example</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="s2">"£8.40"</span><span class="w">
-</span></code></pre></div><h2 id='totals-get-discount-totals'>Get Discount Totals</h2><h3 id='totals-get-discount-totals-http-request'>HTTP request</h3>
+</span></code></pre></div><h2 id='totals-get-discount-totals'>Get Discount Totals</h2>
+<p>This API returns each coupon applied and their discount total.</p>
+<h3 id='totals-get-discount-totals-http-request'>HTTP request</h3>
 <div class="api-endpoint">
   <div class="endpoint-data">
     <i class="label label-get">GET</i>
     <h6>/wp-json/cocart/v1/totals/discount/coupon-totals</h6>
   </div>
 </div>
+
+<blockquote>
+<p>Example of getting the discount totals.</p>
+</blockquote>
 <div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET https://example.com/wp-json/cocart/v1/totals/discount/coupon-totals <span class="se">\</span>
  <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span>
 </code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript--jquery"><code><span class="kd">var</span> <span class="nx">settings</span> <span class="o">=</span> <span class="p">{</span>
@@ -2734,21 +2901,32 @@
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="s2">"£33.60"</span><span class="w">
 </span></code></pre></div><h1 id='changelog'>Changelog</h1>
 <p>The Documentation is updated only when needed. Below is the changelog for &quot;CoCart Pro&quot; documentation that matches with the version of the plugin release.</p>
-<h3 id='changelog-get-cart-total-doc-version-0-4'>Doc Version 0.4</h3>
+<h2 id='changelog-doc-version-0-6'>Doc Version 0.6</h2>
+<ul>
+<li>Corrected: Minor spelling errors.</li>
+<li>Updated: All API property tables.</li>
+<li>Tweaked: Moved calculating fees, shipping methods and totals under main sections to make it easier for users to find.</li>
+</ul>
+<h3 id='changelog-doc-version-0-6-doc-version-0-5'>Doc Version 0.5</h3>
+<ul>
+<li>Added: Cart key parameter to all CoCart Pro API&#39;s for guest carts.</li>
+<li>Updated: Plugin Requirements.</li>
+</ul>
+<h3 id='changelog-doc-version-0-6-doc-version-0-4'>Doc Version 0.4</h3>
 <ul>
 <li>NEW: Added links to edit documentation at the top of each section.</li>
 </ul>
-<h3 id='changelog-get-cart-total-doc-version-0-3-plugin-release-v1-0-0'>Doc Version 0.3 - Plugin Release v1.0.0</h3>
+<h3 id='changelog-doc-version-0-6-doc-version-0-3'>Doc Version 0.3</h3>
 <ul>
 <li>Added missing documentation for setting payment method.</li>
 <li>Moved Cart Weight under Cart Owner so everything is in order.</li>
 </ul>
-<h3 id='changelog-get-cart-total-doc-version-0-2-plugin-release-v1-0-0'>Doc Version 0.2 - Plugin Release v1.0.0</h3>
+<h3 id='changelog-doc-version-0-6-doc-version-0-2'>Doc Version 0.2</h3>
 <ul>
 <li>Added languages for jQuery, PHP and WP API.</li>
 <li>Corrected typo&#39;s.</li>
 </ul>
-<h3 id='changelog-get-cart-total-doc-version-0-1-plugin-release-v1-0-0'>Doc Version 0.1 - Plugin Release v1.0.0</h3>
+<h3 id='changelog-doc-version-0-6-doc-version-0-1-plugin-release-v1-0-0'>Doc Version 0.1 - Plugin Release v1.0.0</h3>
 <ul>
 <li>Initial Commit</li>
 </ul>
