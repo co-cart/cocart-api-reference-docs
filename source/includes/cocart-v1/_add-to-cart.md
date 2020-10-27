@@ -31,7 +31,7 @@ The most important part of CoCart is adding items to the cart. This API helps yo
 
 ## Add Item to Cart ##
 
-> Adding a product via product ID.
+> Example of adding a product via product ID to the cart.
 
 ```shell
 curl -X POST https://example.com/wp-json/cocart/v1/add-item \
@@ -103,7 +103,7 @@ $response = wp_remote_post( 'https://example.com/wp-json/cocart/v1/add-item', $a
 $body = wp_remote_retrieve_body( $response );
 ```
 
-> Adding a product via SKU ID.
+> Example of adding a product via SKU ID to the cart.
 
 ```shell
 curl -X POST https://example.com/wp-json/cocart/v1/add-item \
@@ -219,6 +219,8 @@ All attributes start with a prefix `attribute_`. A global attribute extends the 
 <aside class="warning">
   You can not add a simple product with attributes like a variation! If you wish to pass attribute data for a simple product, use the `cart_item_data` parameter instead.
 </aside>
+
+> Example of adding a variation of a product to the cart.
 
 ```shell
 curl -X POST https://example.com/wp-json/cocart/v1/add-item \
@@ -341,6 +343,8 @@ $body = wp_remote_retrieve_body( $response );
 ## Add Item with Custom Data ##
 
 Need to pass custom data? This example will show you how.
+
+> Example of adding a product with custom data to the cart.
 
 ```shell
 curl -X POST https://example.com/wp-json/cocart/v1/add-item \

@@ -6,9 +6,9 @@ This API helps you get the cart owner's details of the customer.
 
 ## Properties ##
 
-| Property   | Type   | Description                                                             |
-| ---------- | ------ | ----------------------------------------------------------------------- |
-| `cart_key` | string | Unique identifier for the cart. <i class="label label-info">optional</> |
+| Property   | Type   | Description                                                              |
+| ---------- | ------ | ------------------------------------------------------------------------ |
+| `cart_key` | string | Unique identifier for the cart. <i class="label label-info">optional</i> |
 
 ### HTTP request ###
 

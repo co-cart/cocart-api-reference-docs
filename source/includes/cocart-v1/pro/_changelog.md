@@ -2,7 +2,13 @@
 
 The Documentation is updated only when needed. Below is the changelog for "CoCart Pro" documentation that matches with the version of the plugin release.
 
-### Dov Version 0.5 ###
+## Doc Version 0.6 ##
+
+* Corrected: Minor spelling errors.
+* Updated: All API property tables.
+* Tweaked: Moved calculating fees, shipping methods and totals under main sections to make it easier for users to find.
+
+### Doc Version 0.5 ###
 
 * Added: Cart key parameter to all CoCart Pro API's for guest carts.
 * Updated: Plugin Requirements.

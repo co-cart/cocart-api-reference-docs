@@ -6,9 +6,9 @@ This API helps you get the cart weight. The weight unit returned is set in your 
 
 ## Properties ##
 
-| Property   | Type   | Description                                                             |
-| ---------- | ------ | ----------------------------------------------------------------------- |
-| `cart_key` | string | Unique identifier for the cart. <i class="label label-info">optional</> |
+| Property   | Type   | Description                                                              |
+| ---------- | ------ | ------------------------------------------------------------------------ |
+| `cart_key` | string | Unique identifier for the cart. <i class="label label-info">optional</i> |
 
 ### HTTP request ###
 

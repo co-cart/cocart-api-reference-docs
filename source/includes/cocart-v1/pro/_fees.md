@@ -2,17 +2,87 @@
 
 <img src="images/github.svg" width="20" height="20" alt="GitHub Mark Logo"> [Edit on GitHub](https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v1/pro/_fees.md)
 
-This API helps you add a fee to the cart, get all fees added, and remove all fees.
+## Calculate Fees ##
+
+This API calculate the fees applied.
+
+### Properties ###
+
+| Property      | Type   | Description                                                                                                             |
+| ------------- | ------ | ----------------------------------------------------------------------------------------------------------------------- |
+| `cart_key`    | string | Unique identifier for the cart. <i class="label label-info">optional</i>                                                |
+| `set_session` | bool   | Sets the cart fees in session once calculated. <i class="label label-info">optional, used mainly for internal use.</i>  |
+| `return`      | bool   | Returns the cart fees once calculated.                                                                                  |
+
+#### HTTP request ####
+
+<div class="api-endpoint">
+  <div class="endpoint-data">
+    <i class="label label-post">POST</i>
+    <h6>/wp-json/cocart/v1/calculate/fees</h6>
+  </div>
+</div>
+
+```shell
+curl -X POST https://example.com/wp-json/cocart/v1/calculate/fees \
+  -H "Content-Type: application/json"
+```
+
+```javascript--jquery
+var settings = {
+  "url": "https://example.com/wp-json/cocart/v1/calculate/fees",
+  "method": "POST"
+};
+
+$.ajax(settings).done(function (response) {
+  console.log(response);
+});
+```
+
+```php
+<?php
+$curl = curl_init();
+
+curl_setopt_array( $curl, array(
+  CURLOPT_URL => "https://example.com/wp-json/cocart/v1/calculate/fees",
+  CURLOPT_CUSTOMREQUEST => "POST",
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_TIMEOUT => 30,
+  CURLOPT_HTTPHEADER => array(
+    'Accept: application/json',
+    'Content-Type: application/json',
+    'User-Agent: CoCart API/v1',
+  )
+) );
+
+$response = curl_exec($curl);
+
+curl_close($curl);
+
+echo $response;
+```
+
+```php--wp-http-api
+<?php
+$response = wp_remote_post( 'https://example.com/wp-json/cocart/v1/calculate/fees' );
+$body = wp_remote_retrieve_body( $response );
+```
+
+> JSON response example
+
+```json
+"Cart fees have been calculated."
+```
 
 ## Get Fees ##
 
-Returns all applied fees to the cart.
+This API returns all applied fees to the cart.
 
 ### Properties ###
 
 | Property   | Type   | Description                                                             |
 | ---------- | ------ | ----------------------------------------------------------------------- |
-| `cart_key` | string | Unique identifier for the cart. <i class="label label-info">optional</> |
+| `cart_key` | string | Unique identifier for the cart. <i class="label label-info">optional</i> |
 
 #### HTTP request ####
 
@@ -85,7 +155,7 @@ $body = wp_remote_retrieve_body( $response );
 
 ## Add a Fee ##
 
-Apply a fee to the cart.
+This API applies a fee to the cart.
 
 ### Properties ###
 
@@ -179,13 +249,13 @@ $body = wp_remote_retrieve_body( $response );
 
 ## Remove Fees ##
 
-Remove all fees from the cart.
+This API removes all fees from the cart.
 
 ### Properties ###
 
 | Property   | Type   | Description                                                             |
 | ---------- | ------ | ----------------------------------------------------------------------- |
-| `cart_key` | string | Unique identifier for the cart. <i class="label label-info">optional</> |
+| `cart_key` | string | Unique identifier for the cart. <i class="label label-info">optional</i> |
 
 #### HTTP request ####
 
