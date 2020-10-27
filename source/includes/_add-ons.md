@@ -2,6 +2,10 @@
 
 CoCart Lite is just the tip of the iceberg. These add-ons take your headless build to the next level.
 
+ * [Get Cart Enhanced](#cocart-add-ons-get-cart-enhanced)
+ * [CoCart Pro](#cocart-add-ons-cocart-pro)
+ * [CoCart Products](#cocart-add-ons-cocart-products)
+
 ## Get Cart Enhanced ##
 
 This free add-on for CoCart enhances the data returned for the cart and the items added to it.
