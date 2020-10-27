@@ -2,11 +2,19 @@
 
 <img src="images/github.svg" width="20" height="20" alt="GitHub Mark Logo"> [Edit on GitHub](https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v1/pro/_shipping-methods.md)
 
+ * [Calculate Shipping](#shipping-methods-calculate-shipping)
+ * [Get Shipping Methods](#shipping-methods-get-shipping-methods)
+ * [Set Shipping Method](#shipping-methods-set-shipping-method)
+
 ## Calculate Shipping ##
 
 This API helps you calculate the shipping costs and get the available methods. You can also request to return the shipping methods once calculated to reduce API requests.
 
 [See list of country codes](https://github.com/woocommerce/woocommerce/blob/master/i18n/countries.php) that are supported by WooCommerce.
+
+<aside class="notice">
+  You must pass the country code, <strong>NOT</strong> the country name via the <code>country</code> parameter.
+</aside>
 
 ### Properties ###
 
