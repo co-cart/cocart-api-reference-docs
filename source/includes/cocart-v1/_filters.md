@@ -489,6 +489,22 @@ For added security when you go into production. Set **'Access-Control-Allow-Orig
 add_filter( 'cocart_allow_origin', function() { return 'https://wp-demo.cocart.xyz'; });
 ```
 
+### Is REST API Request? ###
+
+<span class="new">New Filter since v2.7.0</span>
+
+This filter allows you to run your own API check-up with CoCart.
+
+```php
+<?php
+add_filter( 'cocart_is_rest_api_request', function() {
+  $rest_prefix         = trailingslashit( rest_get_url_prefix() );
+  $is_rest_api_request = ( false !== strpos( $_SERVER['REQUEST_URI'], $rest_prefix . 'myrestapi/' ) );
+
+  return $is_rest_api_request;
+});
+```
+
 ## Misc ##
 
 ### Merge Cart Items ###
