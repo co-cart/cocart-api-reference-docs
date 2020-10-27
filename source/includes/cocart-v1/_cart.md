@@ -10,7 +10,6 @@ Using the individual endpoints and their properties, you can control what you ne
  * [Cart for Guest Customers](#get-cart-cart-for-guest-customers)
  * [Retrieve a Cart in Session](#get-cart-retrieve-a-cart-in-session)
  * [Clear Cart](#get-cart-clear-cart)
- * [Count Items](#get-cart-count-items)
 
 ## Get Cart Contents ##
 

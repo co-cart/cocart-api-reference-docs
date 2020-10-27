@@ -24,9 +24,9 @@ includes:
   - cocart-v1/cookie
   - cocart-v1/cart
   - cocart-v1/clear-cart
-  - cocart-v1/count-items
   - cocart-v1/add-to-cart
   - cocart-v1/items
+  - cocart-v1/count-items
   - cocart-v1/remove-item-from-cart
   - cocart-v1/restore-item-to-cart
   - cocart-v1/update-item-in-cart
