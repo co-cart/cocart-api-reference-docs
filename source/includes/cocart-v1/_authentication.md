@@ -14,7 +14,7 @@ CoCart can be authenticated by various methods with the WordPress REST API. Firs
 
 Checkout my guide on [how to authenticate with WooCommerce](https://cocart.xyz/authenticating-with-woocommerce-heres-how-you-can-do-it/).
 
-It is also possible to authenticate using any of the following WP REST API authentication methods.
+It is also possible to authenticate using any of the following WP REST API authentication methods:
 
 * [Basic Authentication](#authentication-basic-authentication) (Recommended with SSL Only!)
 * [JWT Authentication for WP REST API](#authentication-jwt-authentication)

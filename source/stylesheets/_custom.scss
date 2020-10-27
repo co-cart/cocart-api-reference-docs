@@ -166,14 +166,21 @@ a[data-title="Demo CoCart"] {
   display: none;
 }
 
-.new {
+.new, .deprecated {
   font-size: 14px;
   font-weight: 700;
   text-transform: uppercase;
-  background: #9a6fc4;
   color: #fff;
   margin-left: 4px;
   padding: 1px 8px 2px 8px;
   margin: 2px;
   border-radius: 20px;
+}
+
+.new {
+  background: #9a6fc4;
+}
+
+.deprecated {
+  background: #444a7c;
 }

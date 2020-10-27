@@ -394,13 +394,15 @@ There are two filters for cart expiration. The first is used to detect if we are
 
 ```php
 <?php
-add_filter( 'cocart_cart_expiring', function() { return DAY_IN_SECONDS * 6; });
-add_filter( 'cocart_cart_expiration', function() { return DAY_IN_SECONDS * 7; });
+add_filter( 'cocart_cart_expiring', function() { return DAY_IN_SECONDS * 3; });
+add_filter( 'cocart_cart_expiration', function() { return DAY_IN_SECONDS * 4; });
 ```
 
 <div style="clear: both;"></div>
 
 ### Empty Cart Expiration ###
+
+<span class="deprecated">Deprecated since v2.7.1</span>
 
 This filter allows you to change the expiration of an empty cart. Default value is 6 hours.
 
