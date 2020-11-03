@@ -7,7 +7,7 @@
 This API logs out your customers. This will clear all session cookies for WordPress and CoCart.
 
 <aside class="warning">
-  Do not authenticate as the customer you are logging out for.
+  Do <strong>NOT authenticate</strong> as the customer you are logging out for.
 </aside>
 
 ### HTTP request ###
