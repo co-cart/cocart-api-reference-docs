@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>CoCart Documentation v2.8</title>
+    <title>CoCart Documentation v2.8.1</title>
 
     <link rel="icon" href="images/favicon-32x32-334932c6.png" sizes="32x32" />
     <link rel="icon" href="images/favicon-192x192-734db461.png" sizes="192x192" />
@@ -286,7 +286,7 @@
   color: #859900;
 }
     </style>
-    <link href="stylesheets/screen-87c95e1c.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/screen-591f43ac.css" rel="stylesheet" media="screen" />
     <link href="stylesheets/print-46df3289.css" rel="stylesheet" media="print" />
       <script src="javascripts/all-db0ef614.js"></script>
 
@@ -394,6 +394,20 @@
               </ul>
           </li>
           <li>
+            <a href="#f-a-q" class="toc-h1 toc-link" data-title="F.A.Q.">F.A.Q.</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#f-a-q-where-can-i-find-a-cart-item-key" class="toc-h2 toc-link" data-title="Where can I find a cart item key?">Where can I find a cart item key?</a>
+                  </li>
+                  <li>
+                    <a href="#f-a-q-where-can-i-find-the-cart-key" class="toc-h2 toc-link" data-title="Where can I find the cart key?">Where can I find the cart key?</a>
+                  </li>
+                  <li>
+                    <a href="#f-a-q-why-are-cart-items-merged" class="toc-h2 toc-link" data-title="Why are cart items merged?">Why are cart items merged?</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
               <ul class="toc-list-h2">
                   <li>
@@ -405,10 +419,24 @@
               </ul>
           </li>
           <li>
+            <a href="#cart-key" class="toc-h1 toc-link" data-title="Cart Key">Cart Key</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#cart-key-what-is-a-cart-key" class="toc-h2 toc-link" data-title="What is a Cart Key?">What is a Cart Key?</a>
+                  </li>
+                  <li>
+                    <a href="#cart-key-accessing-the-cart-key" class="toc-h2 toc-link" data-title="Accessing the Cart Key">Accessing the Cart Key</a>
+                  </li>
+                  <li>
+                    <a href="#cart-key-cart-key-in-cart-response" class="toc-h2 toc-link" data-title="Cart Key in Cart Response">Cart Key in Cart Response</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#cookie" class="toc-h1 toc-link" data-title="Cookie">Cookie</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#cookie-jwt-authentication-set-cookie-headers" class="toc-h2 toc-link" data-title="Set-Cookie-headers">Set-Cookie-headers</a>
+                    <a href="#cookie-cart-key-in-cart-response-set-cookie-headers" class="toc-h2 toc-link" data-title="Set-Cookie-headers">Set-Cookie-headers</a>
                   </li>
               </ul>
           </li>
@@ -1431,7 +1459,28 @@
         </span><span class="p">]</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h1 id='authentication'>Authentication</h1>
+</span></code></pre></div><h1 id='f-a-q'>F.A.Q.</h1><h2 id='f-a-q-where-can-i-find-a-cart-item-key'>Where can I find a cart item key?</h2>
+<p>Each item added to the cart has it&#39;s on cart item key and you will find it under the property labelled &quot;key&quot;. Use it to update, remove or restore an item in/from the cart.</p>
+
+<blockquote>
+<p>When viewing the cart you will find the key.</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"19ca14e7ea6328a42e0eb13d585e4c22"</span><span class="p">:{</span><span class="w">
+    </span><span class="nl">"key"</span><span class="p">:</span><span class="s2">"19ca14e7ea6328a42e0eb13d585e4c22"</span><span class="p">,</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">This</span><span class="w"> </span><span class="err">is</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">key.</span><span class="w">
+    </span><span class="nl">"product_id"</span><span class="p">:</span><span class="mi">36</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"variation_id"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="err">...</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h2 id='f-a-q-where-can-i-find-the-cart-key'>Where can I find the cart key?</h2>
+<p>The cart key (if not manually set), can be found via a few methods. <a href="#cart-key">See cart key section</a> for more details.</p>
+<h2 id='f-a-q-why-are-cart-items-merged'>Why are cart items merged?</h2>
+<p>If you mean between two or more customers. This is most likely because you tested the API with one of the <a href="#tools">tools</a> available and did not reset before testing as another customer.</p>
+
+<p>For example, you started customer &quot;A&quot; as a guest adding an item to the cart. You then added another item while authenticating (logging in) as customer &quot;B&quot; without clearing the session cookie.</p>
+
+<p>When you do this, WooCommerce thinks you are still the same customer so it merges the cart items together for customer &quot;B&quot; while customer &quot;A&quot; is removed from session as it is no longer a guest customer.</p>
+<h1 id='authentication'>Authentication</h1>
 <p><img src="images/github-633266a3.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v1/_authentication.md">Edit on GitHub</a></p>
 
 <aside class="notice">
@@ -1633,12 +1682,20 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <span class="nb">curl_close</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
 
 <span class="k">echo</span> <span class="nv">$response</span><span class="p">;</span>
-</code></pre></div><h1 id='cookie'>Cookie</h1>
+</code></pre></div><h1 id='cart-key'>Cart Key</h1><h2 id='cart-key-what-is-a-cart-key'>What is a Cart Key?</h2>
+<p>A cart key is what identifies the cart stored in session along with it&#39;s cart data and expiration. This is normally stored in a <a href="#cookie">cookie</a> and is used to load the cart in session if the cart still exists.</p>
+<h2 id='cart-key-accessing-the-cart-key'>Accessing the Cart Key</h2>
+<p>If cookies don&#39;t work for you due to the limitations of the framework your using to build with, then don&#39;t worry. The cart key created for the customer is returned via the returned headers once the first API request has been made. This is helpful for supporting guest customers.</p>
+
+<p>Look for <code>X-CoCart-API</code> and you will see the value of the cart key returned. You can then use this to set any of the CoCart API to load this cart when required using the <code>cart_key</code> parameter.</p>
+<h2 id='cart-key-cart-key-in-cart-response'>Cart Key in Cart Response</h2>
+<p>It&#39;s also possible to return the cart key when you <a href="#get-cart">get the cart</a>. Simply download and activate the <a href="#cocart-add-ons-get-cart-enhanced">Get Cart Enhanced add-on plugin</a> and the cart key is returned along with other enhancements in the response.</p>
+<h1 id='cookie'>Cookie</h1>
 <p><img src="images/github-633266a3.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v1/_cookie.md">Edit on GitHub</a></p>
 
-<p>CoCart only creates and uses one cookie per session/customer/device. The cookie name starts with <code>wp_cocart_session_</code> followed by the WordPress <strong>COOKIEHASH</strong>. The cookie name can be changed using <a href="#extending-cocart-filters-change-cart-session-cookie-name">this filter</a>.</p>
+<p>CoCart only creates and uses one cookie per session/customer/device. The cookie name starts with <code>wp_cocart_session_</code> followed by the WordPress <strong>COOKIEHASH</strong>. The cookie name can be changed using <a href="#filters-session-management-change-cookie-name">this filter</a>.</p>
 
-<p>If left <a href="#extending-cocart-filters-cookie-supported">enabled</a>, this cookie will be used to identity the customers cart if they are not logged in. The cookie is read on the server and returns the cart stored in the cookie.</p>
+<p>If left <a href="#filters-session-management-cookie-supported">enabled</a>, this cookie will be used to identity the customers cart if they are not logged in. The cookie is read on the server and returns the cart stored in the cookie.</p>
 
 <p>The cookie stores <strong>4</strong> key values.</p>
 
@@ -1653,9 +1710,9 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 
 <ol>
 <li>Look for a cookie support add-on for your framework. React for example has one called <a href="https://www.npmjs.com/package/react-cookies">react-cookies</a>.</li>
-<li>Read the cookie value yourself and explode it by <code>||</code> and get the first key value. Once you have that value you can use it to set the <code>cart_key</code> parameter on all API requests. This will use the <a href="#cart-guest-customers-set-cart-id-method">Set Cart ID Method</a>.</li>
+<li>Read the cookie value yourself and explode it by <code>||</code> and get the first key value. Once you have that value you can use it to set the <code>cart_key</code> parameter on all API requests. This will use the <a href="#get-cart-cart-for-guest-customers-cart-key-method">Set Cart ID Method</a>.</li>
 </ol>
-<h3 id='cookie-jwt-authentication-set-cookie-headers'>Set-Cookie-headers</h3>
+<h3 id='cookie-cart-key-in-cart-response-set-cookie-headers'>Set-Cookie-headers</h3>
 <p>The cookie for CoCart and therefore the cart key is supplied through response headers, so called <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie">Set-Cookie-headers</a>.</p>
 
 <p>Cookies received via Set-Cookie-headers is stored in the browser for the domain upon which holds the API, meaning you can encounter problems reading the cookie values from your frontend.</p>
@@ -1687,7 +1744,7 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <tr>
 <td><code>cart_key</code></td>
 <td>string</td>
-<td>Unique identifier for the cart. <i class="label label-info">optional</i></td>
+<td>Unique identifier for the cart. <a class="label label-info" href="#cart-key">?</a> <i class="label label-info">optional</i></td>
 </tr>
 <tr>
 <td><code>thumb</code></td>
@@ -2006,13 +2063,7 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
     </span><span class="nl">"product_price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"£18"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h3 id='get-cart-retrieve-a-cart-in-session-accessing-the-cart-key'>Accessing the Cart Key</h3>
-<p>If cookies don&#39;t work for you due to the limitations the framework your building with has then don&#39;t worry. The cart key created for the customer is returned via the returned headers once the first API request has been made. This is helpful for supporting guest customers.</p>
-
-<p>Look for <code>X-CoCart-API</code> and you will see the value of the cart key returned. You can then use this to set the CoCart API to load this cart when required.</p>
-<h3 id='get-cart-retrieve-a-cart-in-session-cart-key-in-cart-response'>Cart Key in Cart Response</h3>
-<p>It&#39;s possible to return the cart key when you return the cart endpoint. Simply download and activate the <a href="#cocart-add-ons-get-cart-enhanced">Get Cart Enhanced add-on plugin</a> and you&#39;re good-to-go.</p>
-<h2 id='get-cart-clear-cart'>Clear Cart</h2>
+</span></code></pre></div><h2 id='get-cart-clear-cart'>Clear Cart</h2>
 <p><img src="images/github-633266a3.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v1/_clear-cart.md">Edit on GitHub</a></p>
 
 <p>This API helps you clear the contents of the cart.</p>
@@ -2027,7 +2078,7 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <tr>
 <td><code>cart_key</code></td>
 <td>string</td>
-<td>Unique identifier for the cart. <i class="label label-info">optional</i></td>
+<td>Unique identifier for the cart. <a class="label label-info" href="#cart-key">?</a> <i class="label label-info">optional</i></td>
 </tr>
 </tbody></table>
 <h3 id='get-cart-clear-cart-http-request'>HTTP request</h3>
@@ -2096,12 +2147,12 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <tr>
 <td><code>cart_key</code></td>
 <td>string</td>
-<td>Unique identifier for the cart. <i class="label label-info">optional</i></td>
+<td>Unique identifier for the cart. <a class="label label-info" href="#cart-key">?</a> <i class="label label-info">optional</i></td>
 </tr>
 <tr>
 <td><code>product_id</code></td>
 <td>string</td>
-<td>The product ID is required in order to add a product to the cart. A SKU ID can also be passed here. <i class="label label-info">mandatory</i></td>
+<td>The product ID is required in order to add a product to the cart. A SKU ID can also be used here instead. <i class="label label-info">mandatory</i></td>
 </tr>
 <tr>
 <td><code>quantity</code></td>
@@ -2546,7 +2597,7 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <tr>
 <td><code>cart_key</code></td>
 <td>string</td>
-<td>Unique identifier for the cart. <i class="label label-info">optional</i></td>
+<td>Unique identifier for the cart. <a class="label label-info" href="#cart-key">?</a> <i class="label label-info">optional</i></td>
 </tr>
 </tbody></table>
 <h3 id='items-in-cart-count-items-http-request'>HTTP request</h3>
@@ -2609,7 +2660,7 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <tr>
 <td><code>cart_key</code></td>
 <td>string</td>
-<td>Unique identifier for the cart. <i class="label label-info">optional</i></td>
+<td>Unique identifier for the cart. <a class="label label-info" href="#cart-key">?</a> <i class="label label-info">optional</i></td>
 </tr>
 <tr>
 <td><code>cart_item_key</code></td>
@@ -2704,7 +2755,7 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <tr>
 <td><code>cart_key</code></td>
 <td>string</td>
-<td>Unique identifier for the cart. <i class="label label-info">optional</i></td>
+<td>Unique identifier for the cart. <a class="label label-info" href="#cart-key">?</a> <i class="label label-info">optional</i></td>
 </tr>
 <tr>
 <td><code>cart_item_key</code></td>
@@ -2796,7 +2847,7 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <tr>
 <td><code>cart_key</code></td>
 <td>string</td>
-<td>Unique identifier for the cart. <i class="label label-info">optional</i></td>
+<td>Unique identifier for the cart. <a class="label label-info" href="#cart-key">?</a> <i class="label label-info">optional</i></td>
 </tr>
 <tr>
 <td><code>cart_item_key</code></td>
@@ -2907,7 +2958,7 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <tr>
 <td><code>cart_key</code></td>
 <td>string</td>
-<td>Unique identifier for the cart. <i class="label label-info">optional</i></td>
+<td>Unique identifier for the cart. <a class="label label-info" href="#cart-key">?</a> <i class="label label-info">optional</i></td>
 </tr>
 <tr>
 <td><code>html</code></td>
@@ -3065,7 +3116,7 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <tr>
 <td><code>cart_key</code></td>
 <td>string</td>
-<td>Unique identifier for the cart. <i class="label label-info">optional</i></td>
+<td>Unique identifier for the cart. <a class="label label-info" href="#cart-key">?</a> <i class="label label-info">optional</i></td>
 </tr>
 <tr>
 <td><code>return</code></td>
@@ -3126,7 +3177,7 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <p>This API logs out your customers. This will clear all session cookies for WordPress and CoCart.</p>
 
 <aside class="warning">
-  Do not authenticate as the customer you are logging out for.
+  Do <strong>NOT authenticate</strong> as the customer you are logging out for.
 </aside>
 <h3 id='logout-calculate-cart-totals-http-request'>HTTP request</h3>
 <div class="api-endpoint">
@@ -3236,11 +3287,15 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 
 <p>CoCart is developer friendly even for extending support for other product types. This is useful for WooCommerce extensions developed by a 3rd party. Take the <a href="#woocommerce-extensions-mix-and-match-products">WooCommerce Mix and Match Products</a> extension for example.</p>
 <h2 id='extending-cocart-add-to-cart-handler'>Add to Cart Handler</h2>
+<p><img src="images/github-633266a3.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart/search?q=cocart_add_to_cart_handler+in%3Afile&amp;type=Code">View source</a></p>
+
 <p>The handler allows support for other product types besides simple and variable products.</p>
 
 <p>It allows you to override the product type to trigger the product handler before the item is added to the cart.</p>
 
-<p>This is handy if you don&#39;t need to provide your own product handler for your custom product type but just need to use a handler already in the core of CoCart. In <a href="#cocart-add-ons-cocart-pro">CoCart Pro</a> this filter is used so simple subscriptions and variable subscriptions can be added as a simple or variable product as there is not difference between the two when being added to the cart.</p>
+<p>This is handy if you don&#39;t need to provide your own product handler for your custom product type but just need to use a handler already in the core of CoCart.</p>
+
+<p>In <a href="#cocart-add-ons-cocart-pro">CoCart Pro</a> this filter is used so simple subscriptions and variable subscriptions can be added as a simple or variable product as there is not difference between the two when being added to the cart.</p>
 <div class="highlight"><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
 <span class="nx">add_filter</span><span class="p">(</span> <span class="s1">'cocart_add_to_cart_handler'</span><span class="p">,</span> <span class="s1">'my_add_to_cart_handler'</span> <span class="p">);</span>
 
@@ -3252,6 +3307,8 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 </code></pre></div>
 <div style="clear: both;"></div>
 <h2 id='extending-cocart-add-to-cart-validation'>Add to Cart Validation</h2>
+<p><img src="images/github-633266a3.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart/search?l=PHP&amp;q=cocart_add_to_cart_validation+in%3Afile&amp;type=Code">View source</a></p>
+
 <p>This filter allows plugin developers to pass their own validation before an item is added to the cart. Unlike the <code>woocommerce_add_to_cart_validation</code> filter, you can not pass form requests. If you have custom data for the product that must be validated, it must be passed via <code>$cart_item_data</code> and checked to see if it exists.</p>
 
 <p>In addition, to save time identifying the product type, it is also passed through automatically for you via <code>$product_type</code> which saves a database request and increases loading speed.</p>
@@ -3308,7 +3365,9 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <span class="p">}</span>
 </code></pre></div>
 <div style="clear: both;"></div>
-<h2 id='extending-cocart-add-cart-item-data'>Add cart item data</h2><div class="highlight"><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+<h2 id='extending-cocart-add-cart-item-data'>Add cart item data</h2>
+<p><img src="images/github-633266a3.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart/search?l=PHP&amp;q=cocart_add_cart_item_data+in%3Afile&amp;type=Code">View source</a></p>
+<div class="highlight"><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
 <span class="nx">add_filter</span><span class="p">(</span> <span class="s1">'cocart_add_cart_item_data'</span><span class="p">,</span> <span class="s1">'my_add_cart_item_data'</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">7</span> <span class="p">);</span>
 
 <span class="k">function</span> <span class="nf">my_add_cart_item_data</span><span class="p">(</span> <span class="nv">$cart_item_data</span> <span class="p">)</span> <span class="p">{</span>
@@ -3340,6 +3399,8 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <li><a href="#filters-misc">Misc</a></li>
 </ul>
 <h2 id='filters-cart-data'>Cart Data</h2><h3 id='filters-cart-data-return-cart-contents'>Return Cart Contents</h3>
+<p><img src="images/github-633266a3.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart/search?q=cocart_return_cart_contents+in%3Afile&amp;type=Code">View source</a></p>
+
 <p>If you are in need to change the formatting of the returned cart contents, this filter <code>cocart_return_cart_contents</code> is for you.</p>
 
 <p>In CoCart Pro you can filter the same results for removed cart contents.</p>
@@ -3361,6 +3422,8 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 </code></pre></div>
 <div style="clear: both;"></div>
 <h3 id='filters-cart-data-return-cart-contents-in-session'>Return Cart Contents in Session</h3>
+<p><img src="images/github-633266a3.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart/search?q=cocart_return_cart_session_contents+in%3Afile&amp;type=Code">View source</a></p>
+
 <p>Identical to <code>cocart_return_cart_contents</code> filter, only this one is used to filter the cart contents returned for a cart in session that you have <a href="#cart-retrieve-a-cart">requested to view specifically</a>.</p>
 <div class="highlight"><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
 <span class="nx">add_filter</span><span class="p">(</span> <span class="s1">'cocart_return_cart_session_contents'</span><span class="p">,</span> <span class="s1">'remove_parent_cart_item_key'</span> <span class="p">);</span>
@@ -3377,6 +3440,8 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 </code></pre></div>
 <div style="clear: both;"></div>
 <h3 id='filters-cart-data-empty-cart'>Empty Cart</h3>
+<p><img src="images/github-633266a3.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart/search?l=PHP&amp;q=cocart_return_empty_cart+in%3Afile&amp;type=Code">View source</a></p>
+
 <p>If you don&#39;t want to return an empty array when the cart is empty, you can return a custom response instead.</p>
 
 <p>If you have <a href="https://wordpress.org/plugins/cocart-get-cart-enhanced/">Get Cart Enhanced</a> add-on installed, this filter will already be used but can still be used again to apply your own.</p>
@@ -3389,6 +3454,8 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 </code></pre></div>
 <div style="clear: both;"></div>
 <h3 id='filters-cart-data-thumbnail-size'>Thumbnail size</h3>
+<p><img src="images/github-633266a3.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart/search?q=cocart_item_thumbnail_size+in%3Afile&amp;type=Code">View source</a></p>
+
 <p>By default, the product thumbnail returns using <code>woocommerce_thumbnail</code> image size. You can change this simply by returning the image size registered on your WordPress installation with this filter <code>cocart_item_thumbnail_size</code>.</p>
 <div class="highlight"><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
 <span class="nx">add_filter</span><span class="p">(</span> <span class="s1">'cocart_item_thumbnail_size'</span><span class="p">,</span> <span class="s1">'thumbnail_size'</span> <span class="p">);</span>
@@ -3399,6 +3466,8 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 </code></pre></div>
 <div style="clear: both;"></div>
 <h3 id='filters-cart-data-return-more-item-details'>Return more item details</h3>
+<p><img src="images/github-633266a3.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart/search?q=cocart_cart_contents+in%3Afile&amp;type=Code">View source</a></p>
+
 <p>Sometimes you just need more product data for the items added. You can do so using <code>cocart_cart_contents</code> filter.</p>
 
 <table><thead>
@@ -3444,6 +3513,8 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 Some of these overrides require that you also filter the overrides available in the core of WooCommerce in order to match.
 </aside>
 <h3 id='filters-overrides-sold-individually'>Sold Individually</h3>
+<p><img src="images/github-633266a3.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart/search?q=cocart_add_to_cart_sold_individually_quantity+in%3Afile&amp;type=Code">View source</a></p>
+
 <p>With this filter you can force items sold individually to have more or less.</p>
 <div class="highlight"><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
 <span class="nx">add_filter</span><span class="p">(</span> <span class="s1">'cocart_add_to_cart_sold_individually_quantity'</span><span class="p">,</span> <span class="s1">'override_sold_individual_quantity'</span> <span class="p">);</span>
@@ -3454,6 +3525,8 @@ Some of these overrides require that you also filter the overrides available in 
 </code></pre></div>
 <div style="clear: both;"></div>
 <h3 id='filters-overrides-ok-to-add-item'>OK to add item?</h3>
+<p><img src="images/github-633266a3.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart/search?q=cocart_ok_to_add+in%3Afile&amp;type=Code">View source</a></p>
+
 <p>Want to stop an item being added and return a custom message should it require an item not in the cart first.</p>
 
 <p>Use the <code>cocart_ok_to_add</code> and <code>cocart_ok_to_add_response</code> filters.</p>
@@ -3509,6 +3582,8 @@ Some of these overrides require that you also filter the overrides available in 
 </code></pre></div>
 <div style="clear: both;"></div>
 <h3 id='filters-overrides-product-name'>Product name</h3>
+<p><img src="images/github-633266a3.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart/search?l=PHP&amp;q=cocart_product_name+in%3Afile&amp;type=Code">View source</a></p>
+
 <p>You can override the product name when cart is returned or just added to the cart.</p>
 
 <table><thead>
@@ -3554,6 +3629,8 @@ Some of these overrides require that you also filter the overrides available in 
 </code></pre></div>
 <div style="clear: both;"></div>
 <h3 id='filters-overrides-product-title'>Product title</h3>
+<p><img src="images/github-633266a3.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart/search?q=cocart_product_title+in%3Afile&amp;type=Code">View source</a></p>
+
 <p>You can override the product title when cart is returned or just added to the cart.</p>
 
 <table><thead>
@@ -3599,6 +3676,8 @@ Some of these overrides require that you also filter the overrides available in 
 </code></pre></div>
 <div style="clear: both;"></div>
 <h3 id='filters-overrides-product-thumbnail-source'>Product thumbnail source</h3>
+<p><img src="images/github-633266a3.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart/search?q=cocart_item_thumbnail_src+in%3Afile&amp;type=Code">View source</a></p>
+
 <p>This filter in particular allows you to change the source of the image for a specific item. The source could be external for example.</p>
 
 <aside class="warning">
@@ -3637,6 +3716,8 @@ Some of these overrides require that you also filter the overrides available in 
 </code></pre></div>
 <div style="clear: both;"></div>
 <h3 id='filters-overrides-product-quantity'>Product quantity</h3>
+<p><img src="images/github-633266a3.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart/search?q=cocart_add_to_cart_quantity+in%3Afile&amp;type=Code">View source</a></p>
+
 <p>You could use this filter to force certain products to be added to the cart with a certain quantity or for example use the <code>$quantity</code> value to calculate double the amount if your doing something unique for your store.</p>
 
 <aside class="warning">
@@ -3691,6 +3772,8 @@ Some of these overrides require that you also filter the overrides available in 
 </code></pre></div>
 <div style="clear: both;"></div>
 <h3 id='filters-overrides-cannot-add-product-type-to-cart-message'>Cannot Add Product Type to Cart Message</h3>
+<p><img src="images/github-633266a3.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart/search?q=cocart_cannot_add_product_type_to_cart_message+in%3Afile&amp;type=Code">View source</a></p>
+
 <p>Change the returned message when you try to add a product type that cannot be added to the cart.</p>
 <div class="highlight"><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
 <span class="nx">add_filter</span><span class="p">(</span> <span class="s1">'cocart_cannot_add_product_type_to_cart_message'</span><span class="p">,</span> <span class="s1">'cannot_add_product_type_to_cart_message'</span> <span class="p">);</span>
@@ -3702,6 +3785,8 @@ Some of these overrides require that you also filter the overrides available in 
 </code></pre></div>
 <div style="clear: both;"></div>
 <h3 id='filters-overrides-cart-item-removed-message'>Cart Item Removed Message</h3>
+<p><img src="images/github-633266a3.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart/search?q=cocart_cart_item_removed_message+in%3Afile&amp;type=Code">View source</a></p>
+
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -3729,12 +3814,16 @@ Some of these overrides require that you also filter the overrides available in 
 </code></pre></div>
 <div style="clear: both;"></div>
 <h2 id='filters-session-management'>Session Management</h2><h3 id='filters-session-management-cookie-supported'>Cookie Supported?</h3>
+<p><img src="images/github-633266a3.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart/search?q=cocart_cookie_supported+in%3Afile&amp;type=Code">View source</a></p>
+
 <p>This filter allows you to disable support for the CoCart cookie that handles the session for guest customers. Use only if you are using the alternative method for guest customers.</p>
 <div class="highlight"><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
 <span class="nx">add_filter</span><span class="p">(</span> <span class="s1">'cocart_cookie_supported'</span><span class="p">,</span> <span class="k">function</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="kc">false</span><span class="p">;</span> <span class="p">});</span>
 </code></pre></div>
 <div style="clear: both;"></div>
 <h3 id='filters-session-management-change-cookie-name'>Change Cookie Name</h3>
+<p><img src="images/github-633266a3.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart/search?q=cocart_cookie+in%3Afile&amp;type=Code">View source</a></p>
+
 <p>This could be changed to include your store brand name.</p>
 
 <aside class="notice">
@@ -3749,12 +3838,16 @@ Some of these overrides require that you also filter the overrides available in 
 </code></pre></div>
 <div style="clear: both;"></div>
 <h3 id='filters-session-management-should-cart-cookie-be-secure'>Should cart cookie be secure?</h3>
+<p><img src="images/github-633266a3.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart/search?q=cocart_cart_use_secure_cookie+in%3Afile&amp;type=Code">View source</a></p>
+
 <p>Be default this will set as true if your site has SSL enabled. Otherwise it will return false. Filtering will force it.</p>
 <div class="highlight"><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
 <span class="nx">add_filter</span><span class="p">(</span> <span class="s1">'cocart_cart_use_secure_cookie'</span><span class="p">,</span> <span class="k">function</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="kc">true</span><span class="p">;</span> <span class="p">});</span>
 </code></pre></div>
 <div style="clear: both;"></div>
 <h3 id='filters-session-management-cart-expiration'>Cart Expiration</h3>
+<p><img src="images/github-633266a3.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart/search?q=cocart_cart_expiring+in%3Afile&amp;type=Code">View source</a></p>
+
 <p>There are two filters for cart expiration. The first is used to detect if we are close to expiration of the cart. The second is used to set how long the cart will be stored until expired.</p>
 
 <aside class="notice">
@@ -3766,7 +3859,7 @@ Some of these overrides require that you also filter the overrides available in 
 </code></pre></div>
 <div style="clear: both;"></div>
 <h3 id='filters-session-management-empty-cart-expiration'>Empty Cart Expiration</h3>
-<p><span class="deprecated">Deprecated since v2.7.1</span></p>
+<p><span class="deprecated">Deprecated since v2.7.2</span></p>
 
 <p>This filter allows you to change the expiration of an empty cart. Default value is 6 hours.</p>
 <div class="highlight"><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
@@ -3774,6 +3867,8 @@ Some of these overrides require that you also filter the overrides available in 
 </code></pre></div>
 <div style="clear: both;"></div>
 <h3 id='filters-session-management-generated-customer-id'>Generated Customer ID</h3>
+<p><img src="images/github-633266a3.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart/search?q=cocart_customer_id+in%3Afile&amp;type=Code">View source</a></p>
+
 <p>This filter allows you to change the generated customer ID for the guest customer. Use this filter with caution. <strong>Cannot</strong> be longer than 42 characters, exceed it and the database will not save the cart.</p>
 <div class="highlight"><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
 <span class="nx">add_filter</span><span class="p">(</span> <span class="s1">'cocart_customer_id'</span><span class="p">,</span> <span class="s1">'my_custom_generate_customer_id'</span> <span class="p">);</span>
@@ -3783,7 +3878,9 @@ Some of these overrides require that you also filter the overrides available in 
 <span class="p">}</span>
 </code></pre></div>
 <div style="clear: both;"></div>
-<h3 id='filters-session-management-cart-loaded-successful-message'>Cart Loaded Successful Message</h3><div class="highlight"><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+<h3 id='filters-session-management-cart-loaded-successful-message'>Cart Loaded Successful Message</h3>
+<p><img src="images/github-633266a3.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart/search?q=cocart_cart_loaded_successful_message+in%3Afile&amp;type=Code">View source</a></p>
+<div class="highlight"><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
 <span class="nx">add_filter</span><span class="p">(</span> <span class="s1">'cocart_cart_loaded_successful_message'</span><span class="p">,</span> <span class="s1">'cart_loaded_successful_message'</span> <span class="p">);</span>
 
 <span class="k">function</span> <span class="nf">cart_loaded_successful_message</span><span class="p">(</span> <span class="nv">$message</span> <span class="p">)</span> <span class="p">{</span>
@@ -3792,6 +3889,8 @@ Some of these overrides require that you also filter the overrides available in 
 </code></pre></div>
 <div style="clear: both;"></div>
 <h2 id='filters-api-access'>API Access</h2><h3 id='filters-api-access-cocart-logging'>CoCart Logging</h3>
+<p><img src="images/github-633266a3.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart/search?l=PHP&amp;q=cocart_logging+in%3Afile&amp;type=Code">View source</a></p>
+
 <p>If you are debugging CoCart during your development, enabling the logger is a great tool to have.</p>
 
 <p>Then when making any request, you can view the logs created via your WordPress dashboard under <strong>WooCommerce &gt; System Status &gt; Logs</strong></p>
@@ -3813,8 +3912,12 @@ You must have <strong>WP_DEBUG</strong> enabled in your <i>wp-config.php</i> fil
 </blockquote>
 <div class="highlight"><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
 <span class="nx">add_filter</span><span class="p">(</span> <span class="s1">'cocart_logging'</span><span class="p">,</span> <span class="k">function</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="kc">true</span><span class="p">;</span> <span class="p">});</span>
-</code></pre></div><h3 id='filters-api-access-cors-allow-all-cross-origin-headers'>CORS: Allow all cross origin headers</h3>
+</code></pre></div>
+<div style="clear: both;"></div>
+<h3 id='filters-api-access-cors-allow-all-cross-origin-headers'>CORS: Allow all cross origin headers</h3>
 <p><span class="new">New Filter since v2.2</span></p>
+
+<p><img src="images/github-633266a3.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart/search?q=cocart_disable_all_cors+in%3Afile&amp;type=Code">View source</a></p>
 
 <p>If you are getting a warning about cross origin headers then you may need to enable support for it. Simply apply this filter and the headers will set for you with no further configuration.</p>
 <div class="highlight"><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
@@ -3822,11 +3925,15 @@ You must have <strong>WP_DEBUG</strong> enabled in your <i>wp-config.php</i> fil
 </code></pre></div><h3 id='filters-api-access-set-allow-origin-header'>Set Allow Origin Header</h3>
 <p><span class="new">New Filter since v2.5.1</span></p>
 
+<p><img src="images/github-633266a3.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart/search?l=PHP&amp;q=cocart_allow_origin+in%3Afile&amp;type=Code">View source</a></p>
+
 <p>For added security when you go into production. Set <strong>&#39;Access-Control-Allow-Origin&#39;</strong> header to be more specific. <a href="#filters-api-access-cors-allow-all-cross-origin-headers">Allow all cross origin headers</a> must be enabled first as shown above.</p>
 <div class="highlight"><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
 <span class="nx">add_filter</span><span class="p">(</span> <span class="s1">'cocart_allow_origin'</span><span class="p">,</span> <span class="k">function</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="s1">'https://wp-demo.cocart.xyz'</span><span class="p">;</span> <span class="p">});</span>
 </code></pre></div><h3 id='filters-api-access-is-rest-api-request'>Is REST API Request?</h3>
 <p><span class="new">New Filter since v2.7.0</span></p>
+
+<p><img src="images/github-633266a3.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart/search?l=PHP&amp;q=cocart_is_rest_api_request+in%3Afile&amp;type=Code">View source</a></p>
 
 <p>This filter allows you to run your own API check-up with CoCart.</p>
 <div class="highlight"><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
@@ -3837,12 +3944,14 @@ You must have <strong>WP_DEBUG</strong> enabled in your <i>wp-config.php</i> fil
   <span class="k">return</span> <span class="nv">$is_rest_api_request</span><span class="p">;</span>
 <span class="p">});</span>
 </code></pre></div><h2 id='filters-misc'>Misc</h2><h3 id='filters-misc-merge-cart-items'>Merge Cart Items</h3>
+<p><img src="images/github-633266a3.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart/search?q=cocart_merge_cart_content+in%3Afile&amp;type=Code">View source</a></p>
+
 <p>This filter allows you to change how the items are merged together before loaded into session when requesting to keep the current cart via the web.</p>
 <div class="highlight"><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
 <span class="cd">/**
- * @param `$new_cart_content` - Returns the cart items merged from both cart in session and the cart requested to load.
- * @param `$new_cart` - Returns the requested cart to load.
- * @param `$cart_in_session` - Returns the current cart contents, if any.
+ * @param  `$new_cart_content` - Returns the cart items merged from both cart in session and the cart requested to load.
+ * @param  `$new_cart` - Returns the requested cart to load.
+ * @param  `$cart_in_session` - Returns the current cart contents, if any.
  * @return `$new_cart_content` - Returns your results of the cart contents.
  */</span>
 <span class="nx">add_filter</span><span class="p">(</span> <span class="s1">'cocart_merge_cart_content'</span><span class="p">,</span> <span class="s1">'merge_cart_contents'</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">3</span> <span class="p">);</span>
@@ -3853,6 +3962,10 @@ You must have <strong>WP_DEBUG</strong> enabled in your <i>wp-config.php</i> fil
 </code></pre></div>
 <div style="clear: both;"></div>
 <h3 id='filters-misc-authenticate-user-id'>Authenticate User ID</h3>
+<p><span class="new">New Filter since v2.6.0</span></p>
+
+<p><img src="images/github-633266a3.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart/search?q=cocart_authenticate+in%3Afile&amp;type=Code">View source</a></p>
+
 <p>Overrides the determined user ID when authenticating. <strong>NOTE</strong> This will only be active if not already authenticated.</p>
 <div class="highlight"><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
 <span class="nx">add_filter</span><span class="p">(</span> <span class="s1">'cocart_authenticate'</span><span class="p">,</span> <span class="k">function</span><span class="p">(){});</span>

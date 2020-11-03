@@ -286,7 +286,7 @@
   color: #859900;
 }
     </style>
-    <link href="stylesheets/screen-87c95e1c.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/screen-591f43ac.css" rel="stylesheet" media="screen" />
     <link href="stylesheets/print-46df3289.css" rel="stylesheet" media="print" />
       <script src="javascripts/all_nosearch-ea811c3e.js"></script>
 
@@ -339,24 +339,10 @@
             <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
           </li>
           <li>
-            <a href="#cart" class="toc-h1 toc-link" data-title="Cart">Cart</a>
-              <ul class="toc-list-h2">
-                  <li>
-                    <a href="#cart-guest-customers" class="toc-h2 toc-link" data-title="Guest Customers">Guest Customers</a>
-                  </li>
-                  <li>
-                    <a href="#cart-retrieve-a-cart" class="toc-h2 toc-link" data-title="Retrieve a Cart">Retrieve a Cart</a>
-                  </li>
-                  <li>
-                    <a href="#cart-retrieve-a-customers-cart-saved-via-persistent-cart" class="toc-h2 toc-link" data-title="Retrieve a Customers Cart saved via Persistent Cart">Retrieve a Customers Cart saved via Persistent Cart</a>
-                  </li>
-              </ul>
-          </li>
-          <li>
             <a href="#changelog" class="toc-h1 toc-link" data-title="Changelog">Changelog</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#changelog-v2-1-2" class="toc-h2 toc-link" data-title="v2.1.2">v2.1.2</a>
+                    <a href="#changelog-v3-0-0" class="toc-h2 toc-link" data-title="v3.0.0">v3.0.0</a>
                   </li>
               </ul>
           </li>
@@ -375,213 +361,12 @@
 
 <p>You can access the stable release of <a href="./">CoCart documentation here</a>.</p>
 
-<p>WIP Version: <strong>2.1.2-rc.3</strong></p>
-<h1 id='cart'>Cart</h1>
-<p>A new addition to cart API is the ability to view any cart in session now that support for guest customers is available.</p>
-<h2 id='cart-guest-customers'>Guest Customers</h2>
-<p>For guest customers there are two methods available for developers to use. The first method uses a cookie and handles everything for you. The second method allows you to set the cart ID yourself.</p>
-<h3 id='cart-guest-customers-cookie-method'>Cookie Method</h3>
-<p>Once a new customer has added the first item, a cookie is generated that stores a cart key. This cookie is used to retrieve the cart key and cart expiration in order to load the cart again for that individual customer. No parameters are required to pass as it is all done in the background.</p>
-<h3 id='cart-guest-customers-set-cart-id-method'>Set Cart ID Method</h3>
-<p>This method allows you to set the cart key yourself via the <code>cart_key</code> parameter which must be passed with each API request made. This sets the ID in session allowing to fetch the cart before changes are made.</p>
-
-<p>Here are a few examples on how to pass the cart ID with each API request.</p>
-
-<div class="api-endpoint">
-  <div class="endpoint-data">
-    <i class="label label-get">GET CART</i>
-    <h6>/wp-json/cocart/v1/get-cart/?cart_key=9e18904482b4faf8762361836a83b93d</h6>
-  </div>
-</div>
-
-<div class="api-endpoint">
-  <div class="endpoint-data">
-    <i class="label label-post">ADD ITEM</i>
-    <h6>/wp-json/cocart/v1/add-item/?cart_key=9e18904482b4faf8762361836a83b93d&product_id=32</h6>
-  </div>
-</div>
-<h2 id='cart-retrieve-a-cart'>Retrieve a Cart</h2>
-<p>This API allows you to retrieve a cart stored in the database that is in session.</p>
-
-<aside class="warning">
-    This API does not load the cart into session for the customer. Carts for guest customers are loaded via a cookie stored on their device or set by a cart ID. Carts for registered customers are loaded via the database as normal. See <a href="#guest-customers">Guest Customers</a> for more details.
-</aside>
-
-<aside class="notice">
-    If the cart you requested does not return. Then the cart in session either does not exist or has expired. By default, carts are stored in the database for 30 days from the last cart update.
-</aside>
-<h3 id='cart-retrieve-a-cart-properties'>Properties</h3>
-<table><thead>
-<tr>
-<th>Property</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code>cart_key</code></td>
-<td>string</td>
-<td>Unique identifier for the cart. <i class="label label-info">mandatory</i></td>
-</tr>
-<tr>
-<td><code>thumb</code></td>
-<td>bool</td>
-<td>Set as true to return the product thumbnail for each item.</td>
-</tr>
-</tbody></table>
-<h3 id='cart-retrieve-a-cart-http-request'>HTTP request</h3>
-<div class="api-endpoint">
-  <div class="endpoint-data">
-    <i class="label label-get">GET</i>
-    <h6>/wp-json/cocart/v1/get-cart/9e18904482b4faf8762361836a83b93d</h6>
-  </div>
-</div>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET https://example.com/wp-json/cocart/v1/get-cart/9e18904482b4faf8762361836a83b93d <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
-</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript--jquery"><code><span class="kd">var</span> <span class="nx">settings</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="dl">"</span><span class="s2">url</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">https://example.com/wp-json/cocart/v1/get-cart/9e18904482b4faf8762361836a83b93d</span><span class="dl">"</span><span class="p">,</span>
-  <span class="dl">"</span><span class="s2">method</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">GET</span><span class="dl">"</span>
-<span class="p">};</span>
-
-<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">(</span><span class="nx">settings</span><span class="p">).</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span>
-<span class="p">});</span>
-</code></pre></div><div class="highlight"><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
-<span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
-
-<span class="nb">curl_setopt_array</span><span class="p">(</span> <span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
-  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/get-cart/9e18904482b4faf8762361836a83b93d"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"GET"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span>
-<span class="p">)</span> <span class="p">);</span>
-
-<span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
-
-<span class="nb">curl_close</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
-
-<span class="k">echo</span> <span class="nv">$response</span><span class="p">;</span>
-</code></pre></div><div class="highlight"><pre class="highlight php tab-php--wp-http-api"><code><span class="cp">&lt;?php</span>
-<span class="nv">$response</span> <span class="o">=</span> <span class="nx">wp_remote_get</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/get-cart/9e18904482b4faf8762361836a83b93d'</span> <span class="p">);</span>
-<span class="nv">$body</span> <span class="o">=</span> <span class="nx">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
-</code></pre></div>
-<blockquote>
-<p>JSON response example</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"19ca14e7ea6328a42e0eb13d585e4c22"</span><span class="p">:{</span><span class="w">
-    </span><span class="nl">"key"</span><span class="p">:</span><span class="s2">"19ca14e7ea6328a42e0eb13d585e4c22"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"product_id"</span><span class="p">:</span><span class="mi">36</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"variation_id"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"variation"</span><span class="p">:[],</span><span class="w">
-    </span><span class="nl">"quantity"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"data_hash"</span><span class="p">:</span><span class="s2">"b5c1d5ca8bae6d4896cf1807cdf763f0"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"line_tax_data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"subtotal"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"12"</span><span class="p">:</span><span class="w"> </span><span class="mf">8.4</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="nl">"total"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"12"</span><span class="p">:</span><span class="w"> </span><span class="mf">8.4</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="nl">"line_subtotal"</span><span class="p">:</span><span class="mi">18</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"line_subtotal_tax"</span><span class="p">:</span><span class="mf">8.4</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"line_total"</span><span class="p">:</span><span class="mf">14.4</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"line_tax"</span><span class="p">:</span><span class="mf">8.4</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"data"</span><span class="p">:{},</span><span class="w">
-    </span><span class="nl">"product_name"</span><span class="p">:</span><span class="s2">"Vneck Tshirt"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"product_title"</span><span class="p">:</span><span class="s2">"Vneck Tshirt"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"product_price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"£18"</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div><h2 id='cart-retrieve-a-customers-cart-saved-via-persistent-cart'>Retrieve a Customers Cart saved via Persistent Cart</h2>
-<aside class="warning">
-    Only the route of this endpoint has changed in this release in order to support getting carts in session better. Was previously <strong><em>/get-cart/1</em></strong>, now changed to <strong><em>/get-cart/customer/1</em></strong>.
-</aside>
-
-<p>This API returns the cart contents for a specific registered customer and is mainly for testing purposes. Only <strong>administrator users</strong> has the ability to access this API.</p>
-
-<aside class="notice">
-    Please note that to return a registered customer, you must have <strong>persistent cart</strong> left enabled in you WooCommerce store for this to work and will only return cart data if one exists for that customer.
-</aside>
-<h3 id='cart-retrieve-a-customers-cart-saved-via-persistent-cart-properties'>Properties</h3>
-<table><thead>
-<tr>
-<th>Property</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code>id</code></td>
-<td>integer</td>
-<td>Unique identifier for the customer. <i class="label label-info">mandatory, read-only</i></td>
-</tr>
-<tr>
-<td><code>thumb</code></td>
-<td>bool</td>
-<td>Set as true to return the product thumbnail for each item.</td>
-</tr>
-</tbody></table>
-<h3 id='cart-retrieve-a-customers-cart-saved-via-persistent-cart-http-request'>HTTP request</h3>
-<div class="api-endpoint">
-  <div class="endpoint-data">
-    <i class="label label-get">GET</i>
-    <h6>/wp-json/cocart/v1/get-cart/customer/&lt;id&gt;</h6>
-  </div>
-</div>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET https://example.com/wp-json/cocart/v1/get-cart/customer/123 <span class="se">\</span>
-  <span class="nt">-u</span> username:password <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span>
-</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript--jquery"><code><span class="kd">var</span> <span class="nx">settings</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="dl">"</span><span class="s2">url</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">https://example.com/wp-json/cocart/v1/get-cart/customer/123</span><span class="dl">"</span><span class="p">,</span>
-  <span class="dl">"</span><span class="s2">method</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">GET</span><span class="dl">"</span><span class="p">,</span>
-  <span class="dl">"</span><span class="s2">headers</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
-    <span class="dl">'</span><span class="s1">Authorization</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">Basic </span><span class="dl">'</span> <span class="o">+</span> <span class="nx">btoa</span><span class="p">(</span> <span class="nx">username</span> <span class="o">+</span> <span class="dl">'</span><span class="s1">:</span><span class="dl">'</span> <span class="o">+</span> <span class="nx">password</span> <span class="p">)</span> <span class="p">)</span>
-  <span class="p">}</span>
-<span class="p">};</span>
-
-<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">(</span><span class="nx">settings</span><span class="p">).</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span>
-<span class="p">});</span>
-</code></pre></div><div class="highlight"><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
-<span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
-
-<span class="nv">$args</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
-  <span class="s1">'thumb'</span> <span class="o">=&gt;</span> <span class="kc">true</span>
-<span class="p">);</span>
-
-<span class="nb">curl_setopt_array</span><span class="p">(</span> <span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
-  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/get-cart/customer/123"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"GET"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="p">[</span>
-    <span class="s1">'Authorization: Basic '</span> <span class="o">.</span> <span class="nb">base64_encode</span><span class="p">(</span><span class="nv">$username</span> <span class="o">.</span> <span class="s1">':'</span> <span class="o">.</span> <span class="nv">$password</span><span class="p">)</span>
-  <span class="p">],</span>
-  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span>
-<span class="p">)</span> <span class="p">);</span>
-
-<span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
-
-<span class="nb">curl_close</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
-
-<span class="k">echo</span> <span class="nv">$response</span><span class="p">;</span>
-</code></pre></div><div class="highlight"><pre class="highlight php tab-php--wp-http-api"><code><span class="cp">&lt;?php</span>
-<span class="nv">$args</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
-  <span class="s1">'headers'</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
-    <span class="s1">'Authorization'</span> <span class="o">=&gt;</span> <span class="s1">'Basic '</span> <span class="o">.</span> <span class="nb">base64_encode</span><span class="p">(</span> <span class="nx">username</span> <span class="o">.</span> <span class="s1">':'</span> <span class="o">.</span> <span class="nx">password</span> <span class="p">)</span>
-  <span class="p">)</span>
-<span class="p">);</span>
-<span class="nv">$response</span> <span class="o">=</span> <span class="nx">wp_remote_get</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/get-cart/customer/123'</span><span class="p">,</span> <span class="nv">$args</span> <span class="p">);</span>
-<span class="nv">$body</span> <span class="o">=</span> <span class="nx">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
-</code></pre></div><h1 id='changelog'>Changelog</h1>
+<p>WIP Version: <strong>3.0.0</strong></p>
+<h1 id='changelog'>Changelog</h1>
 <p>The changelog below will provide updates on what is being worked on and the outcome of these features been added to future releases. Checkout the <a href="https://cocart.xyz/news/">CoCart blog</a> for updates on new coming releases. Feedback is always appreciated. 😄</p>
-<h2 id='changelog-v2-1-2'>v2.1.2</h2>
-<ul>
-<li>NEW: Carts are now in sync across the web version of your store and your headless store.</li>
-<li>Changed: Parameter used to set cart key. Previously <code>id</code> now <code>cart_key</code>. <code>id</code> used as fallback if still used.</li>
-</ul>
-
+<h2 id='changelog-v3-0-0'>v3.0.0</h2>
 <blockquote>
-<p>This update replaces WooCommerce core session handler with CoCart&#39;s. 100% compatible.</p>
+<p>Documentation for previewing v3.0.0 is underway.</p>
 </blockquote>
 
       </div>
