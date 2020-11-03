@@ -20,11 +20,13 @@ Selling cases of wine? A dozen donuts? Fruit baskets? Six-packs of T-shirts? [Mi
 
 Once you have setup "[Mix and Match Products](https://woocommerce.com/products/woocommerce-mix-and-match-products/)" WooCommerce extension. Here is how you can add a container with the customers selected items and quantity.
 
+> Example of adding a Mix and Match Product
+
 ```shell
 curl -X POST https://example.com/wp-json/cocart/v1/add-item \
   -H "Content-Type: application/json" \
   -d '{
-    "product_id": 1102,
+    "product_id": "1102",
     "quantity": 2,
     "cart_item_data": {
         "mnm_config": [
@@ -50,7 +52,7 @@ var settings = {
   "url": "https://example.com/wp-json/cocart/v1/add-item",
   "method": "POST",
   "data": {
-    "product_id": 1102,
+    "product_id": "1102",
     "quantity": 5,
     "cart_item_data": {
         "mnm_config": [
@@ -80,7 +82,7 @@ $.ajax(settings).done(function (response) {
 $curl = curl_init();
 
 $args = array(
-  'product_id' => 1102,
+  'product_id' => '1102',
   'quantity' => 5,
   'cart_item_data' => array(
       'mnm_config' => array(
@@ -127,7 +129,7 @@ $args = array(
     'Content-Type' => 'application/json; charset=utf-8',
   ),
   'body' => wp_json_encode( [
-    'product_id' => 1102,
+    'product_id' => '1102',
     'quantity' => 5,
     'cart_item_data' => array(
         'mnm_config' => array(
@@ -277,11 +279,13 @@ The [Name Your Price](https://woocommerce.com/products/name-your-price/) plugin 
 
 Once you have setup "[Name Your Price](https://woocommerce.com/products/name-your-price/)" for your particular products. Here is how you can apply the customers requested price for the product when adding to cart.
 
+> Example of adding an item with a custom price.
+
 ```shell
 curl -X POST https://example.com/wp-json/cocart/v1/add-item \
   -H "Content-Type: application/json" \
   -d '{
-    "product_id": 129,
+    "product_id": "129",
     "quantity": 1,
     "cart_item_data": {
       "nyp": 24
@@ -294,7 +298,7 @@ var settings = {
   "url": "https://example.com/wp-json/cocart/v1/add-item",
   "method": "POST",
   "data": {
-    "product_id": 129,
+    "product_id": "129",
     "quantity": 1,
     "cart_item_data": {
       "nyp": 24
@@ -312,7 +316,7 @@ $.ajax(settings).done(function (response) {
 $curl = curl_init();
 
 $args = array(
-  'product_id' => 129,
+  'product_id' => '129',
   'quantity' => 1,
   'cart_item_data' => array(
     'nyp' => 24
@@ -346,7 +350,7 @@ $args = array(
     'Content-Type' => 'application/json; charset=utf-8',
   ),
   'body' => wp_json_encode( [
-    'product_id' => 129,
+    'product_id' => '129',
     'quantity' => 1,
     'cart_item_data' => array(
       'nyp' => 24

@@ -10,9 +10,9 @@ Returns all available payment methods once the customer has added an item to the
 
 ### Properties ###
 
-| Property   | Type   | Description                                                              |
-| ---------- | ------ | ------------------------------------------------------------------------ |
-| `cart_key` | string | Unique identifier for the cart. <i class="label label-info">optional</i> |
+| Property   | Type   | Description                                                                                                                           |
+| ---------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------- |
+| `cart_key` | string | Unique identifier for the cart. <a class="label label-info" href="index.html#cart-key">?</a> <i class="label label-info">optional</i> |
 
 #### HTTP request ####
 
@@ -163,10 +163,10 @@ Apply the payment method to the cart. Can only apply once the customer has added
 
 ### Properties ###
 
-| Property     | Type   | Description                                                                    |
-| ------------ | ------ | ------------------------------------------------------------------------------ |
-| `cart_key`   | string | Unique identifier for the cart. <i class="label label-info">optional</i>        |
-| `gateway_id` | string | The gateway ID of the payment method. <i class="label label-info">required</i> |
+| Property     | Type   | Description                                                                                                                           |
+| ------------ | ------ | ------------------------------------------------------------------------------------------------------------------------------------- |
+| `cart_key`   | string | Unique identifier for the cart. <a class="label label-info" href="index.html#cart-key">?</a> <i class="label label-info">optional</i> |
+| `gateway_id` | string | The gateway ID of the payment method. <i class="label label-info">required</i>                                                        |
 
 #### HTTP request ####
 

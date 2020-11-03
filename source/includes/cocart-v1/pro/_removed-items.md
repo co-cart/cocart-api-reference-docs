@@ -6,9 +6,9 @@ This API helps you get items removed by the customer. This can be helpful should
 
 ## Properties ##
 
-| Property   | Type   | Description                                                              |
-| ---------- | ------ | ------------------------------------------------------------------------ |
-| `cart_key` | string | Unique identifier for the cart. <i class="label label-info">optional</i> |
+| Property   | Type   | Description                                                                                                                           |
+| ---------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------- |
+| `cart_key` | string | Unique identifier for the cart. <a class="label label-info" href="index.html#cart-key">?</a> <i class="label label-info">optional</i> |
 
 ### HTTP request ###
 

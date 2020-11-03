@@ -22,7 +22,7 @@ To prevent any data loss when uninstalling CoCart from the backend and to ensure
 define( 'COCART_REMOVE_ALL_DATA', true );
 ```
 
-## White Labelling
+## White Labelling ##
 
 If you are developing a headless store for a client and need to hide CoCart. Enabling white label mode comes in handy if that is something your would want.
 

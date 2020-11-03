@@ -4,10 +4,10 @@
 
 ### Properties ###
 
-| Property   | Type   | Description                                                                                |
-| ---------- | ------ | ------------------------------------------------------------------------------------------ |
-| `cart_key` | string | Unique identifier for the cart. <i class="label label-info">optional</i>                   |
-| `return`   | bool   | Set as true to return the totals once calculated. <i class="label label-info">optional</i> |
+| Property   | Type   | Description                                                                                                                           |
+| ---------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------- |
+| `cart_key` | string | Unique identifier for the cart. <a class="label label-info" href="index.html#cart-key">?</a> <i class="label label-info">optional</i> |
+| `return`   | bool   | Set as true to return the totals once calculated. <i class="label label-info">optional</i>                                            |
 
 ## Calculate Totals ##
 
@@ -81,13 +81,13 @@ $body = wp_remote_retrieve_body( $response );
 
 ## Get Cart Totals ##
 
-This API helps you get the cart totals. You can also retrieve the totals pre-formatted to save you time applying the currency symbol. [Retrieve Cart Totals](index.html#cart-retrieve-cart-totals) properties.
+This API helps you get the cart totals. You can also retrieve the totals pre-formatted to save you time applying the currency symbol. [Retrieve Cart Totals](index.html#totals-retrieve-cart-totals) properties.
 
 <aside class="notice">
   With CoCart Pro, fees added are appended to the totals.
 </aside>
 
-The `fee_total`, `fee_tax` and `fee_taxes` are only updated if the [fees are calculated](#calculate-calculate-fees) or the [totals are calculated](#calculate-calculate-cart-totals) once the [fees have been added](#fees-add-a-fee).
+The `fee_total`, `fee_tax` and `fee_taxes` are only updated if the [fees are calculated](#fees-calculate-fees) or the [totals are calculated](#totals-calculate-totals) once the [fees have been added](#fees-add-a-fee).
 
 ### HTTP request ###
 

@@ -6,10 +6,10 @@ This API helps you get the cross sells. It returns not just the product ID's but
 
 ## Properties ##
 
-| Property   | Type   | Description                                                              |
-| ---------- | ------ | ------------------------------------------------------------------------ |
-| `cart_key` | string | Unique identifier for the cart. <i class="label label-info">optional</i> |
-| `thumb`    | bool   | Set as true to return the product thumbnail for each item.               |
+| Property   | Type   | Description                                                                                                                           |
+| ---------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------- |
+| `cart_key` | string | Unique identifier for the cart. <a class="label label-info" href="index.html#cart-key">?</a> <i class="label label-info">optional</i> |
+| `thumb`    | bool   | Set as true to return the product thumbnail for each item.                                                                            |
 
 ### HTTP request ###
 
