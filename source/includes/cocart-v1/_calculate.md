@@ -6,10 +6,10 @@ This API helps you calculate the cart totals. You can also request to return the
 
 ### Properties ###
 
-| Property   | Type   | Description                                                                                |
-| ---------- | ------ | ------------------------------------------------------------------------------------------ |
-| `cart_key` | string | Unique identifier for the cart. <i class="label label-info">optional</i>                   |
-| `return`   | bool   | Set as true to return the totals once calculated. <i class="label label-info">optional</i> |
+| Property   | Type   | Description                                                                                                                 |
+| ---------- | ------ | --------------------------------------------------------------------------------------------------------------------------- |
+| `cart_key` | string | Unique identifier for the cart. <a class="label label-info" href="#cart-key">?</a> <i class="label label-info">optional</i> |
+| `return`   | bool   | Set as true to return the totals once calculated. <i class="label label-info">optional</i>                                  |
 
 ### HTTP request ###
 

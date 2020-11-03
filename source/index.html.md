@@ -1,5 +1,5 @@
 ---
-title: CoCart Documentation v2.8
+title: CoCart Documentation v2.8.1
 
 language_tabs:
  - shell: cURL
@@ -20,7 +20,9 @@ includes:
   - cocart-v1/getting-started
   - cocart-v1/errors
   - cocart-v1/index
+  - cocart-v1/faq
   - cocart-v1/authentication
+  - cocart-v1/cart-key
   - cocart-v1/cookie
   - cocart-v1/cart
   - cocart-v1/clear-cart

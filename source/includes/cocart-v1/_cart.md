@@ -17,10 +17,10 @@ This API returns the contents of the cart for a guest customer or logged in regi
 
 ### Properties ###
 
-| Property   | Type   | Description                                                              |
-| ---------- | ------ | ------------------------------------------------------------------------ |
-| `cart_key` | string | Unique identifier for the cart. <i class="label label-info">optional</i> |
-| `thumb`    | bool   | Set as true to return the product thumbnail for each item.               |
+| Property   | Type   | Description                                                                                                                 |
+| ---------- | ------ | --------------------------------------------------------------------------------------------------------------------------- |
+| `cart_key` | string | Unique identifier for the cart. <a class="label label-info" href="#cart-key">?</a> <i class="label label-info">optional</i> |
+| `thumb`    | bool   | Set as true to return the product thumbnail for each item.                                                                  |
 
 ### HTTP request ###
 
@@ -389,13 +389,3 @@ $body = wp_remote_retrieve_body( $response );
   }
 }
 ```
-
-### Accessing the Cart Key ###
-
-If cookies don't work for you due to the limitations the framework your building with has then don't worry. The cart key created for the customer is returned via the returned headers once the first API request has been made. This is helpful for supporting guest customers.
-
-Look for `X-CoCart-API` and you will see the value of the cart key returned. You can then use this to set the CoCart API to load this cart when required.
-
-### Cart Key in Cart Response ###
-
-It's possible to return the cart key when you return the cart endpoint. Simply download and activate the [Get Cart Enhanced add-on plugin](#cocart-add-ons-get-cart-enhanced) and you're good-to-go.

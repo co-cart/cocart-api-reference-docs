@@ -10,15 +10,15 @@ The most important part of CoCart is adding items to the cart. This API helps yo
 
 ### Properties ###
 
-| Property         | Type    | Description                                                                                                                                   |
-| ---------------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| `cart_key`       | string  | Unique identifier for the cart. <i class="label label-info">optional</i>                                                                      |
-| `product_id`     | string  | The product ID is required in order to add a product to the cart. A SKU ID can also be passed here. <i class="label label-info">mandatory</i> |
-| `quantity`       | float   | Set the quantity of the product you want to add to the cart. <i class="label label-info">Default is 1</i>                                     |
-| `variation_id`   | integer | Used to set the variation of the product being added to the cart. <i class="label label-info">optional</i>                                    |
-| `variation`      | object  | Attribute values.                                                 <i class="label label-info">required, for variable products only</i>        |
-| `cart_item_data` | object  | Used to apply extra cart item data we want to pass with the item. <i class="label label-info">optional</i>                                    |
-| `return_cart`    | bool    | Set as true to return the cart once item added. <i class="label label-info">optional</i>                                                      |
+| Property         | Type    | Description                                                                                                                                         |
+| ---------------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `cart_key`       | string  | Unique identifier for the cart. <a class="label label-info" href="#cart-key">?</a> <i class="label label-info">optional</i>                         |
+| `product_id`     | string  | The product ID is required in order to add a product to the cart. A SKU ID can also be used here instead. <i class="label label-info">mandatory</i> |
+| `quantity`       | float   | Set the quantity of the product you want to add to the cart. <i class="label label-info">Default is 1</i>                                           |
+| `variation_id`   | integer | Used to set the variation of the product being added to the cart. <i class="label label-info">optional</i>                                          |
+| `variation`      | object  | Attribute values.                                                 <i class="label label-info">required, for variable products only</i>              |
+| `cart_item_data` | object  | Used to apply extra cart item data we want to pass with the item. <i class="label label-info">optional</i>                                          |
+| `return_cart`    | bool    | Set as true to return the cart once item added. <i class="label label-info">optional</i>                                                            |
 
 ### HTTP request ###
 

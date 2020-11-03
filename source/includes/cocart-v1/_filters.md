@@ -20,6 +20,8 @@ See the [tweaks plugin for examples](https://github.com/co-cart/co-cart-tweaks).
 
 ### Return Cart Contents ###
 
+<img src="images/github.svg" width="20" height="20" alt="GitHub Mark Logo"> [View source](https://github.com/co-cart/co-cart/search?q=cocart_return_cart_contents+in%3Afile&type=Code)
+
 If you are in need to change the formatting of the returned cart contents, this filter `cocart_return_cart_contents` is for you.
 
 In CoCart Pro you can filter the same results for removed cart contents.
@@ -46,6 +48,8 @@ function remove_parent_cart_item_key( $cart_contents ) {
 
 ### Return Cart Contents in Session ###
 
+<img src="images/github.svg" width="20" height="20" alt="GitHub Mark Logo"> [View source](https://github.com/co-cart/co-cart/search?q=cocart_return_cart_session_contents+in%3Afile&type=Code)
+
 Identical to `cocart_return_cart_contents` filter, only this one is used to filter the cart contents returned for a cart in session that you have [requested to view specifically](#cart-retrieve-a-cart).
 
 ```php
@@ -67,6 +71,8 @@ function remove_parent_cart_item_key( $cart_contents ) {
 
 ### Empty Cart ###
 
+<img src="images/github.svg" width="20" height="20" alt="GitHub Mark Logo"> [View source](https://github.com/co-cart/co-cart/search?l=PHP&q=cocart_return_empty_cart+in%3Afile&type=Code)
+
 If you don't want to return an empty array when the cart is empty, you can return a custom response instead.
 
 If you have [Get Cart Enhanced](https://wordpress.org/plugins/cocart-get-cart-enhanced/) add-on installed, this filter will already be used but can still be used again to apply your own.
@@ -84,6 +90,8 @@ function empty_cart_message() {
 
 ### Thumbnail size ###
 
+<img src="images/github.svg" width="20" height="20" alt="GitHub Mark Logo"> [View source](https://github.com/co-cart/co-cart/search?q=cocart_item_thumbnail_size+in%3Afile&type=Code)
+
 By default, the product thumbnail returns using `woocommerce_thumbnail` image size. You can change this simply by returning the image size registered on your WordPress installation with this filter `cocart_item_thumbnail_size`.
 
 ```php
@@ -98,6 +106,8 @@ function thumbnail_size() {
 <div style="clear: both;"></div>
 
 ### Return more item details ###
+
+<img src="images/github.svg" width="20" height="20" alt="GitHub Mark Logo"> [View source](https://github.com/co-cart/co-cart/search?q=cocart_cart_contents+in%3Afile&type=Code)
 
 Sometimes you just need more product data for the items added. You can do so using `cocart_cart_contents` filter.
 
@@ -129,6 +139,8 @@ Some of these overrides require that you also filter the overrides available in 
 
 ### Sold Individually ###
 
+<img src="images/github.svg" width="20" height="20" alt="GitHub Mark Logo"> [View source](https://github.com/co-cart/co-cart/search?q=cocart_add_to_cart_sold_individually_quantity+in%3Afile&type=Code)
+
 With this filter you can force items sold individually to have more or less.
 
 ```php
@@ -143,6 +155,8 @@ function override_sold_individual_quantity() {
 <div style="clear: both;"></div>
 
 ### OK to add item? ###
+
+<img src="images/github.svg" width="20" height="20" alt="GitHub Mark Logo"> [View source](https://github.com/co-cart/co-cart/search?q=cocart_ok_to_add+in%3Afile&type=Code)
 
 Want to stop an item being added and return a custom message should it require an item not in the cart first.
 
@@ -189,6 +203,8 @@ function requires_specific_item_response( $response, $product_data ) {
 
 ### Product name ###
 
+<img src="images/github.svg" width="20" height="20" alt="GitHub Mark Logo"> [View source](https://github.com/co-cart/co-cart/search?l=PHP&q=cocart_product_name+in%3Afile&type=Code)
+
 You can override the product name when cart is returned or just added to the cart.
 
 | Parameter    | Type       | Description               |
@@ -219,6 +235,8 @@ function override_product_name( $name, $_product, $item_key ) {
 <div style="clear: both;"></div>
 
 ### Product title ###
+
+<img src="images/github.svg" width="20" height="20" alt="GitHub Mark Logo"> [View source](https://github.com/co-cart/co-cart/search?q=cocart_product_title+in%3Afile&type=Code)
 
 You can override the product title when cart is returned or just added to the cart.
 
@@ -251,6 +269,8 @@ function override_product_title( $name, $_product, $item_key ) {
 
 ### Product thumbnail source ###
 
+<img src="images/github.svg" width="20" height="20" alt="GitHub Mark Logo"> [View source](https://github.com/co-cart/co-cart/search?q=cocart_item_thumbnail_src+in%3Afile&type=Code)
+
 This filter in particular allows you to change the source of the image for a specific item. The source could be external for example.
 
 <aside class="warning">
@@ -275,6 +295,8 @@ function override_item_thumbail_src( $thumbnail_src, $cart_item, $item_key ) {
 <div style="clear: both;"></div>
 
 ### Product quantity ###
+
+<img src="images/github.svg" width="20" height="20" alt="GitHub Mark Logo"> [View source](https://github.com/co-cart/co-cart/search?q=cocart_add_to_cart_quantity+in%3Afile&type=Code)
 
 You could use this filter to force certain products to be added to the cart with a certain quantity or for example use the `$quantity` value to calculate double the amount if your doing something unique for your store.
 
@@ -309,6 +331,8 @@ function override_product_quantity( $quantity, $product_id, $variation_id, $vari
 
 ### Cannot Add Product Type to Cart Message ###
 
+<img src="images/github.svg" width="20" height="20" alt="GitHub Mark Logo"> [View source](https://github.com/co-cart/co-cart/search?q=cocart_cannot_add_product_type_to_cart_message+in%3Afile&type=Code)
+
 Change the returned message when you try to add a product type that cannot be added to the cart.
 
 ```php
@@ -324,6 +348,8 @@ function cannot_add_product_type_to_cart_message() {
 <div style="clear: both;"></div>
 
 ### Cart Item Removed Message ###
+
+<img src="images/github.svg" width="20" height="20" alt="GitHub Mark Logo"> [View source](https://github.com/co-cart/co-cart/search?q=cocart_cart_item_removed_message+in%3Afile&type=Code)
 
 | Parameter   | Type       | Description           |
 | ----------- | ---------- | --------------------- |
@@ -345,6 +371,8 @@ function cart_item_removed_message( $message, $_product ) {
 
 ### Cookie Supported? ###
 
+<img src="images/github.svg" width="20" height="20" alt="GitHub Mark Logo"> [View source](https://github.com/co-cart/co-cart/search?q=cocart_cookie_supported+in%3Afile&type=Code)
+
 This filter allows you to disable support for the CoCart cookie that handles the session for guest customers. Use only if you are using the alternative method for guest customers.
 
 ```php
@@ -355,6 +383,8 @@ add_filter( 'cocart_cookie_supported', function() { return false; });
 <div style="clear: both;"></div>
 
 ### Change Cookie Name ###
+
+<img src="images/github.svg" width="20" height="20" alt="GitHub Mark Logo"> [View source](https://github.com/co-cart/co-cart/search?q=cocart_cookie+in%3Afile&type=Code)
 
 This could be changed to include your store brand name.
 
@@ -375,6 +405,8 @@ function my_cocart_cookie_name() {
 
 ### Should cart cookie be secure? ###
 
+<img src="images/github.svg" width="20" height="20" alt="GitHub Mark Logo"> [View source](https://github.com/co-cart/co-cart/search?q=cocart_cart_use_secure_cookie+in%3Afile&type=Code)
+
 Be default this will set as true if your site has SSL enabled. Otherwise it will return false. Filtering will force it.
 
 ```php
@@ -385,6 +417,8 @@ add_filter( 'cocart_cart_use_secure_cookie', function() { return true; });
 <div style="clear: both;"></div>
 
 ### Cart Expiration ###
+
+<img src="images/github.svg" width="20" height="20" alt="GitHub Mark Logo"> [View source](https://github.com/co-cart/co-cart/search?q=cocart_cart_expiring+in%3Afile&type=Code)
 
 There are two filters for cart expiration. The first is used to detect if we are close to expiration of the cart. The second is used to set how long the cart will be stored until expired.
 
@@ -415,6 +449,8 @@ add_filter( 'cocart_empty_cart_expiration', function() { return HOUR_IN_SECONDS 
 
 ### Generated Customer ID ###
 
+<img src="images/github.svg" width="20" height="20" alt="GitHub Mark Logo"> [View source](https://github.com/co-cart/co-cart/search?q=cocart_customer_id+in%3Afile&type=Code)
+
 This filter allows you to change the generated customer ID for the guest customer. Use this filter with caution. **Cannot** be longer than 42 characters, exceed it and the database will not save the cart.
 
 ```php
@@ -430,6 +466,8 @@ function my_custom_generate_customer_id( $hasher ) {
 
 ### Cart Loaded Successful Message ###
 
+<img src="images/github.svg" width="20" height="20" alt="GitHub Mark Logo"> [View source](https://github.com/co-cart/co-cart/search?q=cocart_cart_loaded_successful_message+in%3Afile&type=Code)
+
 ```php
 <?php
 add_filter( 'cocart_cart_loaded_successful_message', 'cart_loaded_successful_message' );
@@ -444,6 +482,8 @@ function cart_loaded_successful_message( $message ) {
 ## API Access ##
 
 ### CoCart Logging ###
+
+<img src="images/github.svg" width="20" height="20" alt="GitHub Mark Logo"> [View source](https://github.com/co-cart/co-cart/search?l=PHP&q=cocart_logging+in%3Afile&type=Code)
 
 If you are debugging CoCart during your development, enabling the logger is a great tool to have.
 
@@ -469,9 +509,13 @@ You must have <strong>WP_DEBUG</strong> enabled in your <i>wp-config.php</i> fil
 add_filter( 'cocart_logging', function() { return true; });
 ```
 
+<div style="clear: both;"></div>
+
 ### CORS: Allow all cross origin headers ###
 
 <span class="new">New Filter since v2.2</span>
+
+<img src="images/github.svg" width="20" height="20" alt="GitHub Mark Logo"> [View source](https://github.com/co-cart/co-cart/search?q=cocart_disable_all_cors+in%3Afile&type=Code)
 
 If you are getting a warning about cross origin headers then you may need to enable support for it. Simply apply this filter and the headers will set for you with no further configuration.
 
@@ -484,6 +528,8 @@ add_filter( 'cocart_disable_all_cors', function() { return false; });
 
 <span class="new">New Filter since v2.5.1</span>
 
+<img src="images/github.svg" width="20" height="20" alt="GitHub Mark Logo"> [View source](https://github.com/co-cart/co-cart/search?l=PHP&q=cocart_allow_origin+in%3Afile&type=Code)
+
 For added security when you go into production. Set **'Access-Control-Allow-Origin'** header to be more specific. [Allow all cross origin headers](#filters-api-access-cors-allow-all-cross-origin-headers) must be enabled first as shown above.
 
 ```php
@@ -494,6 +540,8 @@ add_filter( 'cocart_allow_origin', function() { return 'https://wp-demo.cocart.x
 ### Is REST API Request? ###
 
 <span class="new">New Filter since v2.7.0</span>
+
+<img src="images/github.svg" width="20" height="20" alt="GitHub Mark Logo"> [View source](https://github.com/co-cart/co-cart/search?l=PHP&q=cocart_is_rest_api_request+in%3Afile&type=Code)
 
 This filter allows you to run your own API check-up with CoCart.
 
@@ -511,14 +559,16 @@ add_filter( 'cocart_is_rest_api_request', function() {
 
 ### Merge Cart Items ###
 
+<img src="images/github.svg" width="20" height="20" alt="GitHub Mark Logo"> [View source](https://github.com/co-cart/co-cart/search?q=cocart_merge_cart_content+in%3Afile&type=Code)
+
 This filter allows you to change how the items are merged together before loaded into session when requesting to keep the current cart via the web.
 
 ```php
 <?php
 /**
- * @param `$new_cart_content` - Returns the cart items merged from both cart in session and the cart requested to load.
- * @param `$new_cart` - Returns the requested cart to load.
- * @param `$cart_in_session` - Returns the current cart contents, if any.
+ * @param  `$new_cart_content` - Returns the cart items merged from both cart in session and the cart requested to load.
+ * @param  `$new_cart` - Returns the requested cart to load.
+ * @param  `$cart_in_session` - Returns the current cart contents, if any.
  * @return `$new_cart_content` - Returns your results of the cart contents.
  */
 add_filter( 'cocart_merge_cart_content', 'merge_cart_contents', 10, 3 );
@@ -531,6 +581,10 @@ function merge_cart_contents( $new_cart_content, $new_cart, $cart_in_session ) {
 <div style="clear: both;"></div>
 
 ### Authenticate User ID ###
+
+<span class="new">New Filter since v2.6.0</span>
+
+<img src="images/github.svg" width="20" height="20" alt="GitHub Mark Logo"> [View source](https://github.com/co-cart/co-cart/search?q=cocart_authenticate+in%3Afile&type=Code)
 
 Overrides the determined user ID when authenticating. **NOTE** This will only be active if not already authenticated.
 

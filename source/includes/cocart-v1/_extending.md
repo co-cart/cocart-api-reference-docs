@@ -8,11 +8,15 @@ CoCart is developer friendly even for extending support for other product types.
 
 ## Add to Cart Handler ##
 
+<img src="images/github.svg" width="20" height="20" alt="GitHub Mark Logo"> [View source](https://github.com/co-cart/co-cart/search?q=cocart_add_to_cart_handler+in%3Afile&type=Code)
+
 The handler allows support for other product types besides simple and variable products.
 
 It allows you to override the product type to trigger the product handler before the item is added to the cart.
 
-This is handy if you don't need to provide your own product handler for your custom product type but just need to use a handler already in the core of CoCart. In [CoCart Pro](#cocart-add-ons-cocart-pro) this filter is used so simple subscriptions and variable subscriptions can be added as a simple or variable product as there is not difference between the two when being added to the cart.
+This is handy if you don't need to provide your own product handler for your custom product type but just need to use a handler already in the core of CoCart.
+
+In [CoCart Pro](#cocart-add-ons-cocart-pro) this filter is used so simple subscriptions and variable subscriptions can be added as a simple or variable product as there is not difference between the two when being added to the cart.
 
 ```php
 <?php
@@ -28,6 +32,8 @@ function my_add_to_cart_handler( $handler ) {
 <div style="clear: both;"></div>
 
 ## Add to Cart Validation ##
+
+<img src="images/github.svg" width="20" height="20" alt="GitHub Mark Logo"> [View source](https://github.com/co-cart/co-cart/search?l=PHP&q=cocart_add_to_cart_validation+in%3Afile&type=Code)
 
 This filter allows plugin developers to pass their own validation before an item is added to the cart. Unlike the `woocommerce_add_to_cart_validation` filter, you can not pass form requests. If you have custom data for the product that must be validated, it must be passed via `$cart_item_data` and checked to see if it exists.
 
@@ -56,6 +62,8 @@ function my_add_to_cart_validation( $passed_validation, $product_id, $quantity, 
 <div style="clear: both;"></div>
 
 ## Add cart item data ##
+
+<img src="images/github.svg" width="20" height="20" alt="GitHub Mark Logo"> [View source](https://github.com/co-cart/co-cart/search?l=PHP&q=cocart_add_cart_item_data+in%3Afile&type=Code)
 
 ```php
 <?php
