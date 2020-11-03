@@ -436,7 +436,7 @@ add_filter( 'cocart_cart_expiration', function() { return DAY_IN_SECONDS * 4; })
 
 ### Empty Cart Expiration ###
 
-<span class="deprecated">Deprecated since v2.7.1</span>
+<span class="deprecated">Deprecated since v2.7.2</span>
 
 This filter allows you to change the expiration of an empty cart. Default value is 6 hours.
 
