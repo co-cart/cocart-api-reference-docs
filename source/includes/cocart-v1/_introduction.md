@@ -66,7 +66,7 @@ There are different types of body types when making a request. Make sure when us
   Body data must be passed correctly for the CoCart REST API to succeed.
 </aside>
 
-I personally find using **raw** works best if you are passing an array of data for a `variation` or `cart_item_data`.
+I personally find using **raw** works best if you are passing an object of data for a `variation` or `cart_item_data`.
 
 ## Errors ##
 
