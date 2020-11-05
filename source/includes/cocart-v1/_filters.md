@@ -373,7 +373,7 @@ function cart_item_removed_message( $message, $_product ) {
 
 <img src="images/github.svg" width="20" height="20" alt="GitHub Mark Logo"> [View source](https://github.com/co-cart/co-cart/search?q=cocart_cookie_supported+in%3Afile&type=Code)
 
-This filter allows you to disable support for the CoCart cookie that handles the session for guest customers. Use only if you are using the alternative method for guest customers.
+This filter allows you to disable support for the CoCart cookie that handles the session for customers. Use only if you are using the alternative method for customers.
 
 ```php
 <?php
