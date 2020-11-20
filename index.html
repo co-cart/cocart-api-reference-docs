@@ -1,5 +1,5 @@
 
-<!doctype html>
+<!doctype html> 
 <html>
   <head>
     <meta charset="utf-8">
@@ -286,7 +286,7 @@
   color: #859900;
 }
     </style>
-    <link href="stylesheets/screen-591f43ac.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/screen-f8a2f12e.css" rel="stylesheet" media="screen" />
     <link href="stylesheets/print-46df3289.css" rel="stylesheet" media="print" />
       <script src="javascripts/all-db0ef614.js"></script>
 
@@ -319,7 +319,8 @@
     <!-- /Chatra {/literal} -->
   </head>
 
-  <body class="index" data-languages="[&quot;shell&quot;,&quot;javascript--jquery&quot;,&quot;php&quot;,&quot;php--wp-http-api&quot;]">
+    <body class="index" data-languages="[&quot;shell&quot;,&quot;javascript--jquery&quot;,&quot;php&quot;,&quot;php--wp-http-api&quot;]">
+
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -710,7 +711,7 @@
 </tr>
 </thead><tbody>
 <tr>
-<td><code>wc-api-v2</code></td>
+<td><code>Legacy wc-api-v2</code></td>
 <td>3.0.x or later</td>
 <td>4.4 or later</td>
 <td><a href="wc-api-v2.html">wc-api-v2 docs</a></td>
@@ -767,7 +768,7 @@
   Body data must be passed correctly for the CoCart REST API to succeed.
 </aside>
 
-<p>I personally find using <strong>raw</strong> works best if you are passing an array of data for a <code>variation</code> or <code>cart_item_data</code>.</p>
+<p>I personally find using <strong>raw</strong> works best if you are passing an object of data for a <code>variation</code> or <code>cart_item_data</code>.</p>
 <h2 id='introduction-errors'>Errors</h2>
 <p>Occasionally you might encounter errors when accessing the REST API. Here are the possible types:</p>
 
@@ -3816,7 +3817,7 @@ Some of these overrides require that you also filter the overrides available in 
 <h2 id='filters-session-management'>Session Management</h2><h3 id='filters-session-management-cookie-supported'>Cookie Supported?</h3>
 <p><img src="images/github-633266a3.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart/search?q=cocart_cookie_supported+in%3Afile&amp;type=Code">View source</a></p>
 
-<p>This filter allows you to disable support for the CoCart cookie that handles the session for guest customers. Use only if you are using the alternative method for guest customers.</p>
+<p>This filter allows you to disable support for the CoCart cookie that handles the session for customers. Use only if you are using the alternative method for customers.</p>
 <div class="highlight"><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
 <span class="nx">add_filter</span><span class="p">(</span> <span class="s1">'cocart_cookie_supported'</span><span class="p">,</span> <span class="k">function</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="kc">false</span><span class="p">;</span> <span class="p">});</span>
 </code></pre></div>
@@ -4957,5 +4958,6 @@ Please make sure you are viewing the PHP language to copy any code snippet.
           </div>
       </div>
     </div>
-  </body>
+
+    </body>
 </html>
