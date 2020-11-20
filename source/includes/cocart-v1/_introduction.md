@@ -26,7 +26,7 @@ Prior to WooCommerce v3.6, CoCart shared WooCommerce's REST API. You can find th
 
 | API Version  | WC Version     | WP Version   | Documentation                    |
 | ------------ | -------------- | ------------ | -------------------------------- |
-| `wc-api-v2`  | 3.0.x or later | 4.4 or later | [wc-api-v2 docs](wc-api-v2.html) |
+| `Legacy wc-api-v2`  | 3.0.x or later | 4.4 or later | [wc-api-v2 docs](wc-api-v2.html) |
 
 ## Requirements ##
 

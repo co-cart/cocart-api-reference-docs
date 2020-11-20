@@ -23,7 +23,7 @@ under the License.
   end
 %>
 
-<!doctype html>
+<!doctype html> 
 <html>
   <head>
     <meta charset="utf-8">
@@ -86,7 +86,16 @@ under the License.
     <!-- /Chatra {/literal} -->
   </head>
 
-  <body class="<%= page_classes %>" data-languages="<%=h language_tabs.map{ |lang| lang.is_a?(Hash) ? lang.keys.first : lang }.to_json %>">
+  <% if current_page.data.warning %>
+    <body class="<%= page_classes %> warning" data-languages="<%=h language_tabs.map{ |lang| lang.is_a?(Hash) ? lang.keys.first : lang }.to_json %>">
+
+        <div id="warning-top">
+            <%= current_page.data.warning %>
+        </div>
+    <% else %>
+    <body class="<%= page_classes %>" data-languages="<%=h language_tabs.map{ |lang| lang.is_a?(Hash) ? lang.keys.first : lang }.to_json %>">
+  <% end %>
+
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -154,5 +163,6 @@ under the License.
         <% end %>
       </div>
     </div>
-  </body>
+
+    </body>
 </html>

@@ -3,6 +3,7 @@
 @import 'variables';
 @import 'icon-font';
 @import 'custom';
+@import 'warning';
 // @import 'rtl'; // uncomment to switch to RTL format
 
 /*
@@ -273,7 +274,7 @@ html, body {
   .lang-selector {
     position: fixed;
     z-index: 50;
-    border-bottom: 5px solid #6e60cc;
+    border-bottom: 5px solid $border-color;
   }
 }
 

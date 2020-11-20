@@ -11,6 +11,17 @@
       text-decoration: underline;
     }
   }
+
+  img {
+    height: auto;
+    -ms-interpolation-mode: bicubic;
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  h1:first-child, .content div:first-child + h1 {
+    padding-top: 0;
+  }
 }
 
 ///////////////////////////////////////////////////////////////////////////////////
@@ -131,19 +142,6 @@ body.has-warning {
 }
 
 ////////////////////////////////////////////////////////////////////////////////
-// GITHUB BUTTONS
-////////////////////////////////////////////////////////////////////////////////
-
-.github-buttons {
-  padding-top: 10px;
-
-  iframe {
-    display: block;
-    margin-bottom: 5px;
-  }
-}
-
-////////////////////////////////////////////////////////////////////////////////
 // Menu
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -155,6 +153,10 @@ body.has-warning {
 ////////////////////////////////////////////////////////////////////////////////
 // CoCart Documentation Customizations
 ////////////////////////////////////////////////////////////////////////////////
+
+.toc-wrapper .logo {
+  margin-top: 20px;
+}
 
 a[data-title="CoCart Add-ons"],
 a[data-title="Demo CoCart"] {
@@ -190,4 +192,31 @@ a.label {
   color: #fff;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 74%;
+}
+
+.button {
+  display: inline-block;
+  text-align: center;
+  line-height: 1;
+  cursor: pointer;
+  -webkit-appearance: none;
+  -webkit-transition: background-color .25s ease-out,color .25s ease-out;
+  transition: background-color .25s ease-out,color .25s ease-out;
+  vertical-align: middle;
+  border: 1px solid transparent;
+      border-bottom-color: transparent;
+      border-bottom-style: solid;
+      border-bottom-width: 1px;
+  border-bottom-color: transparent;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-radius: 3px;
+  padding: .85em 1em;
+  margin: 0;
+  font-size: .9rem;
+  background-color: #f0f0f0;
+  color: #0a0a0a;
+  font-weight: 600;
+  text-decoration: none !important;
+  border-bottom: 2px solid $border-color;
 }
