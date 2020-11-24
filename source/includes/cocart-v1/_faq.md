@@ -27,3 +27,11 @@ If you mean between two or more customers. This is most likely because you teste
 For example, you started customer "A" as a guest adding an item to the cart. You then added another item while authenticating (logging in) as customer "B" without clearing the session cookie.
 
 When you do this, WooCommerce thinks you are still the same customer so it merges the cart items together for customer "B" while customer "A" is removed from session as it is no longer a guest customer.
+
+## Is it possible to use the admin key/secret to create and update a customers cart?
+
+Unfortunately, no. This is because when you authenticate as the admin, you are logged in not the customer. Even if you specified the customers user ID as the cart key. It will not take affect.
+
+## Does CoCart work with the Dokan plugin?
+
+Yes. The only feature you wont be able to use are coupons. This is because Dokan disables the use of coupons. All other features are compatible.

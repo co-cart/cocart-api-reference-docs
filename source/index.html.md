@@ -52,4 +52,7 @@ includes:
 search: true
 
 code_clipboard: true
+
+warning: <i class="info"></i> Last big sale in a while. CoCart Pro and it's add-ons are 30% OFF. It's also 30% OFF recurring payments too on any tier. Use "BIGSALE2020" at checkout. Hurry. Sale ends 5th December 2020.
+
 ---
