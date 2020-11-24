@@ -319,7 +319,11 @@
     <!-- /Chatra {/literal} -->
   </head>
 
-    <body class="index" data-languages="[&quot;shell&quot;,&quot;javascript--jquery&quot;,&quot;php&quot;,&quot;php--wp-http-api&quot;]">
+    <body class="index warning" data-languages="[&quot;shell&quot;,&quot;javascript--jquery&quot;,&quot;php&quot;,&quot;php--wp-http-api&quot;]">
+
+        <div id="warning-top">
+            <i class="info"></i> Last big sale in a while. CoCart Pro and it's add-ons are 30% OFF. It's also 30% OFF recurring payments too on any tier. Use "BIGSALE2020" at checkout. Hurry. Sale ends 5th December 2020.
+        </div>
 
     <a href="#" id="nav-button">
       <span>
@@ -405,6 +409,12 @@
                   </li>
                   <li>
                     <a href="#f-a-q-why-are-cart-items-merged" class="toc-h2 toc-link" data-title="Why are cart items merged?">Why are cart items merged?</a>
+                  </li>
+                  <li>
+                    <a href="#f-a-q-is-it-possible-to-use-the-admin-key-secret-to-create-and-update-a-customers-cart" class="toc-h2 toc-link" data-title="Is it possible to use the admin key/secret to create and update a customers cart?">Is it possible to use the admin key/secret to create and update a customers cart?</a>
+                  </li>
+                  <li>
+                    <a href="#f-a-q-does-cocart-work-with-the-dokan-plugin" class="toc-h2 toc-link" data-title="Does CoCart work with the Dokan plugin?">Does CoCart work with the Dokan plugin?</a>
                   </li>
               </ul>
           </li>
@@ -1481,6 +1491,10 @@
 <p>For example, you started customer &quot;A&quot; as a guest adding an item to the cart. You then added another item while authenticating (logging in) as customer &quot;B&quot; without clearing the session cookie.</p>
 
 <p>When you do this, WooCommerce thinks you are still the same customer so it merges the cart items together for customer &quot;B&quot; while customer &quot;A&quot; is removed from session as it is no longer a guest customer.</p>
+<h2 id='f-a-q-is-it-possible-to-use-the-admin-key-secret-to-create-and-update-a-customers-cart'>Is it possible to use the admin key/secret to create and update a customers cart?</h2>
+<p>Unfortunately, no. This is because when you authenticate as the admin, you are logged in not the customer. Even if you specified the customers user ID as the cart key. It will not take affect.</p>
+<h2 id='f-a-q-does-cocart-work-with-the-dokan-plugin'>Does CoCart work with the Dokan plugin?</h2>
+<p>Yes. The only feature you wont be able to use are coupons. This is because Dokan disables the use of coupons. All other features are compatible.</p>
 <h1 id='authentication'>Authentication</h1>
 <p><img src="images/github-633266a3.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v1/_authentication.md">Edit on GitHub</a></p>
 
