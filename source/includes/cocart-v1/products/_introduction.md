@@ -4,6 +4,16 @@
 
 CoCart Products allows you to view all and access specific products, attributes, categories, tags and product reviews without authentication required. Only details of the products that customers need to know are returned.
 
+## API Versions ##
+
+The current WordPress REST API integration for CoCart Products is version `v1` which takes a first-order position in the endpoints.
+
+The following table shows API versions present in each major version of CoCart Products:
+
+| API Version | CoCart Version | WC Version     | WP Version   | PHP Version  |
+| ----------- | -------------- | -------------- | ------------ | ------------ |
+| `v1`        | 2.0.x or later | 4.0.x or later | 5.2 or later | 7.0 or later |
+
 ## Requirements ##
 
 To use the latest version of the CoCart Products you must be using:
