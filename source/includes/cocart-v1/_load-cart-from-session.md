@@ -8,9 +8,9 @@ Load cart from session allows the cart of your choosing to be set before anythin
 
 For example if you have a returning customer that started as a guest and then logs in to their account. WooCommerce will then merge the carts together should the customer already have a saved cart.
 
-It can also be used to transfer the cart over to the web version of your store. This allows the customer to continue shopping or checkout what they already have in the cart added via your app. Handy if you don't yet have a checkout system in your app.
+This feature is designed to transfer the cart over to the web version of your store. It allows the customer to continue shopping or checkout what they already have in the cart added via your app. Handy if you don't yet have a checkout system in your app.
 
-You can choose to override the cart (if anything is set) via the web or merge the data together.
+You can choose to override the cart (if anything is set) via the web or merge the cart items together.
 
 <aside class="notice">
 	FYI: It does not matter if your customer is logged in or not already via the web version of your store. Only the cart data will be set. Customer details are <strong>not transferred</strong>.
@@ -28,6 +28,10 @@ You can choose to override the cart (if anything is set) via the web or merge th
 ## Load for the Web ##
 
 To load the cart from session for the web, you must use the properties above to query your website.
+
+<aside class="warning">
+  ⚠️ This features is not a REST API. Do not treat it as such! ⚠️
+</aside>
 
 <div class="api-endpoint">
   <div class="endpoint-data">

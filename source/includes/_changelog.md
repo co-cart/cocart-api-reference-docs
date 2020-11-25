@@ -2,7 +2,12 @@
 
 Below is the changelog for "CoCart Lite" documentation that matches with the version of the plugin release.
 
-## Doc Version v2.8 - Plugin Release v2.6 to v2.7 ##
+## Doc Version v2.8.2
+
+* Added warning notice for load for the web feature.
+* Updated FAQ.
+
+### Doc Version v2.8 - Plugin Release v2.6 to v2.7 ##
 
 <aside class="success">
     The whole of the documentation has been re-organized and content has been improved for those who are new to developing with an API. That also includes documentation for CoCart Pro.
