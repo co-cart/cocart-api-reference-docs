@@ -10,6 +10,10 @@ If cookies don't work for you due to the limitations of the framework your using
 
 Look for `X-CoCart-API` and you will see the value of the cart key returned. You can then use this to set any of the CoCart API to load this cart when required using the `cart_key` parameter.
 
+<aside class="warning">
+    The <code>cart_key</code> parameter is a global parameter so it must be queried rather than being added as part of the data you send with the API request you make. Otherwise it will not update the cart.
+</aside>
+
 ## Cart Key in Cart Response ##
 
 It's also possible to return the cart key when you [get the cart](#get-cart). Simply download and activate the [Get Cart Enhanced add-on plugin](#cocart-add-ons-get-cart-enhanced) and the cart key is returned along with other enhancements in the response.
