@@ -2,7 +2,13 @@
 
 Below is the changelog for "CoCart Lite" documentation that matches with the version of the plugin release.
 
-## Doc Version v2.8.2
+## Doc Version v2.8.3 - Plugin Release v2.8.2
+
+* Corrected: Examples for use of the cart key global parameter.
+* Improved: Explaining the use of the cart key global parameter.
+* Dev: Added filter `cocart_load_cart_query_name` to allow developers add more white labelling when loading the cart via the web. [See example](?php#wp-config-php-white-labelling-load-cart-for-the-web)
+
+### Doc Version v2.8.2
 
 * Added warning notice for load for the web feature.
 * Updated FAQ.
