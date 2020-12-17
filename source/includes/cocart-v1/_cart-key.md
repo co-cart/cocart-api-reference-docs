@@ -1,5 +1,7 @@
 # Cart Key #
 
+<img src="images/github.svg" width="20" height="20" alt="GitHub Mark Logo"> [Edit on GitHub](https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v1/_cart_key.md)
+
 ## What is a Cart Key? ##
 
 A cart key is what identifies the cart stored in session along with it's cart data and expiration. This is normally stored in a [cookie](#cookie) and is used to load the cart in session if the cart still exists.
