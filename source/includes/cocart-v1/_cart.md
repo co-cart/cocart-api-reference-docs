@@ -224,23 +224,21 @@ This method allows you to set the cart key yourself via the `cart_key` parameter
   The cart key cannot be longer than <strong>42 characters</strong> as that is the limit for the database.
 </aside>
 
+<aside class="warning">
+    The <code>cart_key</code> parameter is a global parameter so it must be queried rather than being added as part of the data you send with the API request you make. Otherwise it will not update the cart.
+</aside>
+
 > Example of getting the cart for a guest customer.
 
 ```shell
-curl -X GET https://example.com/wp-json/cocart/v1/get-cart \
-  -H "Content-Type: application/json" \
-  -d '{
-    "cart_key": "9e18904482b4faf8762361836a83b93d"
-  }'
+curl -X GET https://example.com/wp-json/cocart/v1/get-cart?cart_key=9e18904482b4faf8762361836a83b93d \
+  -H "Content-Type: application/json"
 ```
 
 ```javascript--jquery
 var settings = {
-  "url": "https://example.com/wp-json/cocart/v1/get-cart",
-  "method": "GET",
-  "data": {
-    "cart_key": "9e18904482b4faf8762361836a83b93d"
-  }
+  "url": "https://example.com/wp-json/cocart/v1/get-cart?cart_key=9e18904482b4faf8762361836a83b93d",
+  "method": "GET"
 };
 
 $.ajax(settings).done(function (response) {
@@ -252,14 +250,9 @@ $.ajax(settings).done(function (response) {
 <?php
 $curl = curl_init();
 
-$args = array(
-  'cart_key': '9e18904482b4faf8762361836a83b93d'
-);
-
 curl_setopt_array( $curl, array(
-  CURLOPT_URL => "https://example.com/wp-json/cocart/v1/get-cart",
+  CURLOPT_URL => "https://example.com/wp-json/cocart/v1/get-cart?cart_key=9e18904482b4faf8762361836a83b93d",
   CURLOPT_CUSTOMREQUEST => "GET",
-  CURLOPT_POSTFIELDS => $args,
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_TIMEOUT => 30,
   CURLOPT_HTTPHEADER => array(
@@ -281,13 +274,10 @@ echo $response;
 $args = array(
   'headers' => array(
     'Content-Type' => 'application/json; charset=utf-8',
-  ),
-  'body' => wp_json_encode( [
-    'cart_key': '9e18904482b4faf8762361836a83b93d'
-  ] )
+  )
 );
 
-$response = wp_remote_get( 'https://example.com/wp-json/cocart/v1/get-cart', $args );
+$response = wp_remote_get( 'https://example.com/wp-json/cocart/v1/get-cart?cart_key=9e18904482b4faf8762361836a83b93d', $args );
 $body = wp_remote_retrieve_body( $response );
 ```
 
