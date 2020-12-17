@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>CoCart Documentation v2.8.2</title>
+    <title>CoCart Documentation v2.8.3</title>
 
     <link rel="icon" href="images/favicon-32x32-334932c6.png" sizes="32x32" />
     <link rel="icon" href="images/favicon-192x192-734db461.png" sizes="192x192" />
@@ -286,7 +286,7 @@
   color: #859900;
 }
     </style>
-    <link href="stylesheets/screen-6e4d6b52.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/screen-1cd6f20a.css" rel="stylesheet" media="screen" />
     <link href="stylesheets/print-46df3289.css" rel="stylesheet" media="print" />
       <script src="javascripts/all-db0ef614.js"></script>
 
@@ -654,7 +654,7 @@
             <a href="#changelog" class="toc-h1 toc-link" data-title="Changelog">Changelog</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#changelog-doc-version-v2-8-2" class="toc-h2 toc-link" data-title="Doc Version v2.8.2">Doc Version v2.8.2</a>
+                    <a href="#changelog-doc-version-v2-8-3-plugin-release-v2-8-2" class="toc-h2 toc-link" data-title="Doc Version v2.8.3 - Plugin Release v2.8.2">Doc Version v2.8.3 - Plugin Release v2.8.2</a>
                   </li>
               </ul>
           </li>
@@ -1693,12 +1693,18 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <span class="nb">curl_close</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
 
 <span class="k">echo</span> <span class="nv">$response</span><span class="p">;</span>
-</code></pre></div><h1 id='cart-key'>Cart Key</h1><h2 id='cart-key-what-is-a-cart-key'>What is a Cart Key?</h2>
+</code></pre></div><h1 id='cart-key'>Cart Key</h1>
+<p><img src="images/github-633266a3.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v1/_cart_key.md">Edit on GitHub</a></p>
+<h2 id='cart-key-what-is-a-cart-key'>What is a Cart Key?</h2>
 <p>A cart key is what identifies the cart stored in session along with it&#39;s cart data and expiration. This is normally stored in a <a href="#cookie">cookie</a> and is used to load the cart in session if the cart still exists.</p>
 <h2 id='cart-key-accessing-the-cart-key'>Accessing the Cart Key</h2>
 <p>If cookies don&#39;t work for you due to the limitations of the framework your using to build with, then don&#39;t worry. The cart key created for the customer is returned via the returned headers once the first API request has been made. This is helpful for supporting guest customers.</p>
 
 <p>Look for <code>X-CoCart-API</code> and you will see the value of the cart key returned. You can then use this to set any of the CoCart API to load this cart when required using the <code>cart_key</code> parameter.</p>
+
+<aside class="warning">
+    The <code>cart_key</code> parameter is a global parameter so it must be queried rather than being added as part of the data you send with the API request you make. Otherwise it will not update the cart.
+</aside>
 <h2 id='cart-key-cart-key-in-cart-response'>Cart Key in Cart Response</h2>
 <p>It&#39;s also possible to return the cart key when you <a href="#get-cart">get the cart</a>. Simply download and activate the <a href="#cocart-add-ons-get-cart-enhanced">Get Cart Enhanced add-on plugin</a> and the cart key is returned along with other enhancements in the response.</p>
 <h1 id='cookie'>Cookie</h1>
@@ -1934,20 +1940,18 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
   The cart key cannot be longer than <strong>42 characters</strong> as that is the limit for the database.
 </aside>
 
+<aside class="warning">
+    The <code>cart_key</code> parameter is a global parameter so it must be queried rather than being added as part of the data you send with the API request you make. Otherwise it will not update the cart.
+</aside>
+
 <blockquote>
 <p>Example of getting the cart for a guest customer.</p>
 </blockquote>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET https://example.com/wp-json/cocart/v1/get-cart <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
-  <span class="nt">-d</span> <span class="s1">'{
-    "cart_key": "9e18904482b4faf8762361836a83b93d"
-  }'</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET https://example.com/wp-json/cocart/v1/get-cart?cart_key<span class="o">=</span>9e18904482b4faf8762361836a83b93d <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span>
 </code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript--jquery"><code><span class="kd">var</span> <span class="nx">settings</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="dl">"</span><span class="s2">url</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">https://example.com/wp-json/cocart/v1/get-cart</span><span class="dl">"</span><span class="p">,</span>
-  <span class="dl">"</span><span class="s2">method</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">GET</span><span class="dl">"</span><span class="p">,</span>
-  <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
-    <span class="dl">"</span><span class="s2">cart_key</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">9e18904482b4faf8762361836a83b93d</span><span class="dl">"</span>
-  <span class="p">}</span>
+  <span class="dl">"</span><span class="s2">url</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">https://example.com/wp-json/cocart/v1/get-cart?cart_key=9e18904482b4faf8762361836a83b93d</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">method</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">GET</span><span class="dl">"</span>
 <span class="p">};</span>
 
 <span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">(</span><span class="nx">settings</span><span class="p">).</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
@@ -1956,14 +1960,9 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 </code></pre></div><div class="highlight"><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
 <span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
 
-<span class="nv">$args</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
-  <span class="s1">'cart_key'</span><span class="o">:</span> <span class="s1">'9e18904482b4faf8762361836a83b93d'</span>
-<span class="p">);</span>
-
 <span class="nb">curl_setopt_array</span><span class="p">(</span> <span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
-  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/get-cart"</span><span class="p">,</span>
+  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/get-cart?cart_key=9e18904482b4faf8762361836a83b93d"</span><span class="p">,</span>
   <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"GET"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_POSTFIELDS</span> <span class="o">=&gt;</span> <span class="nv">$args</span><span class="p">,</span>
   <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
   <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
   <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
@@ -1982,13 +1981,10 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <span class="nv">$args</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
   <span class="s1">'headers'</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
     <span class="s1">'Content-Type'</span> <span class="o">=&gt;</span> <span class="s1">'application/json; charset=utf-8'</span><span class="p">,</span>
-  <span class="p">),</span>
-  <span class="s1">'body'</span> <span class="o">=&gt;</span> <span class="nx">wp_json_encode</span><span class="p">(</span> <span class="p">[</span>
-    <span class="s1">'cart_key'</span><span class="o">:</span> <span class="s1">'9e18904482b4faf8762361836a83b93d'</span>
-  <span class="p">]</span> <span class="p">)</span>
+  <span class="p">)</span>
 <span class="p">);</span>
 
-<span class="nv">$response</span> <span class="o">=</span> <span class="nx">wp_remote_get</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/get-cart'</span><span class="p">,</span> <span class="nv">$args</span> <span class="p">);</span>
+<span class="nv">$response</span> <span class="o">=</span> <span class="nx">wp_remote_get</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/get-cart?cart_key=9e18904482b4faf8762361836a83b93d'</span><span class="p">,</span> <span class="nv">$args</span> <span class="p">);</span>
 <span class="nv">$body</span> <span class="o">=</span> <span class="nx">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
 </code></pre></div>
 <blockquote>
@@ -4564,7 +4560,8 @@ Please make sure you are viewing the PHP language to copy any code snippet.
 </aside>
 <h2 id='wp-config-php-uninstall'>Uninstall</h2>
 <p>To prevent any data loss when uninstalling CoCart from the backend and to ensure only the site owner can perform this action. You need to enable the ability to remove it.</p>
-<div class="highlight"><pre class="highlight php tab-php"><code><span class="cd">/**
+<div class="highlight"><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+<span class="cd">/**
  * Allows the full un-installation of CoCart.
  */</span>
 <span class="nb">define</span><span class="p">(</span> <span class="s1">'COCART_REMOVE_ALL_DATA'</span><span class="p">,</span> <span class="kc">true</span> <span class="p">);</span>
@@ -4572,10 +4569,22 @@ Please make sure you are viewing the PHP language to copy any code snippet.
 <p>If you are developing a headless store for a client and need to hide CoCart. Enabling white label mode comes in handy if that is something your would want.</p>
 
 <p>Enabling this hides CoCart completely from the backend including the admin menu, plugin row links, plugin notices, WooCommerce inbox notices and WooCommerce System Status information.</p>
-<div class="highlight"><pre class="highlight php tab-php"><code><span class="cd">/**
+<div class="highlight"><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+<span class="cd">/**
  * Hides CoCart from the WordPress dashboard.
  */</span>
 <span class="nb">define</span><span class="p">(</span> <span class="s1">'COCART_WHITE_LABEL'</span><span class="p">,</span> <span class="kc">true</span> <span class="p">);</span>
+</code></pre></div>
+<div style="clear: both;"></div>
+<h3 id='wp-config-php-white-labelling-load-cart-for-the-web'>Load Cart for the Web</h3>
+<p><span class="new">New Filter since v2.8.2</span></p>
+
+<p>In addition to white labelling, you can filter the parameter name <code>cocart-load-cart</code> `to what ever you like.</p>
+<div class="highlight"><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+<span class="cd">/**
+ * Change the parameter name for loading the cart via the web.
+ */</span>
+<span class="nx">add_filter</span><span class="p">(</span> <span class="s1">'cocart_load_cart_query_name'</span><span class="p">,</span> <span class="k">function</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="s1">'my-cart'</span><span class="p">;</span> <span class="p">});</span>
 </code></pre></div><h1 id='demo-cocart'>Demo CoCart</h1>
 <p><img src="images/github-633266a3.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart-docs/blob/master/source/includes/_demo.md">Edit on GitHub</a></p>
 
@@ -4803,24 +4812,30 @@ Please make sure you are viewing the PHP language to copy any code snippet.
 </ul>
 <h1 id='changelog'>Changelog</h1>
 <p>Below is the changelog for &quot;CoCart Lite&quot; documentation that matches with the version of the plugin release.</p>
-<h2 id='changelog-doc-version-v2-8-2'>Doc Version v2.8.2</h2>
+<h2 id='changelog-doc-version-v2-8-3-plugin-release-v2-8-2'>Doc Version v2.8.3 - Plugin Release v2.8.2</h2>
+<ul>
+<li>Corrected: Examples for use of the cart key global parameter.</li>
+<li>Improved: Explaining the use of the cart key global parameter.</li>
+<li>Dev: Added filter <code>cocart_load_cart_query_name</code> to allow developers add more white labelling when loading the cart via the web. <a href="?php#wp-config-php-white-labelling-load-cart-for-the-web">See example</a></li>
+</ul>
+<h3 id='changelog-doc-version-v2-8-3-plugin-release-v2-8-2-doc-version-v2-8-2'>Doc Version v2.8.2</h3>
 <ul>
 <li>Added warning notice for load for the web feature.</li>
 <li>Updated FAQ.</li>
 </ul>
-<h3 id='changelog-doc-version-v2-8-2-doc-version-v2-8-plugin-release-v2-6-to-v2-7'>Doc Version v2.8 - Plugin Release v2.6 to v2.7</h3>
+<h3 id='changelog-doc-version-v2-8-3-plugin-release-v2-8-2-doc-version-v2-8-plugin-release-v2-6-to-v2-7'>Doc Version v2.8 - Plugin Release v2.6 to v2.7</h3>
 <aside class="success">
     The whole of the documentation has been re-organized and content has been improved for those who are new to developing with an API. That also includes documentation for CoCart Pro.
 </aside>
-<h3 id='changelog-doc-version-v2-8-2-doc-version-v2-7-plugin-release-v2-5-1'>Doc Version v2.7 - Plugin Release v2.5.1</h3>
+<h3 id='changelog-doc-version-v2-8-3-plugin-release-v2-8-2-doc-version-v2-7-plugin-release-v2-5-1'>Doc Version v2.7 - Plugin Release v2.5.1</h3>
 <ul>
 <li>Dev: Added filter <code>cocart_allow_origin</code> to set the origin header for added layer of security when you go into production.</li>
 </ul>
-<h3 id='changelog-doc-version-v2-8-2-doc-version-v2-6-plugin-release-v2-5'>Doc Version v2.6 - Plugin Release v2.5</h3>
+<h3 id='changelog-doc-version-v2-8-3-plugin-release-v2-8-2-doc-version-v2-6-plugin-release-v2-5'>Doc Version v2.6 - Plugin Release v2.5</h3>
 <ul>
 <li>Improved: Information about adding a variation to the cart.</li>
 </ul>
-<h3 id='changelog-doc-version-v2-8-2-doc-version-v2-5'>Doc Version v2.5</h3>
+<h3 id='changelog-doc-version-v2-8-3-plugin-release-v2-8-2-doc-version-v2-5'>Doc Version v2.5</h3>
 <ul>
 <li>Added: More detail for setting a cart key.</li>
 <li>Added: More JSON response examples that were missing.</li>
@@ -4830,12 +4845,12 @@ Please make sure you are viewing the PHP language to copy any code snippet.
 <li>Removed: Context that is no longer valid with current version of CoCart.</li>
 <li>Updated: API versions table and Requirements.</li>
 </ul>
-<h3 id='changelog-doc-version-v2-8-2-doc-version-v2-4'>Doc Version v2.4</h3>
+<h3 id='changelog-doc-version-v2-8-3-plugin-release-v2-8-2-doc-version-v2-4'>Doc Version v2.4</h3>
 <ul>
 <li><strong>NEW</strong>: WooCommerce Extensions section added with Mix and Match Products and Name Your Price being the first.</li>
 <li>Updated: Cookies section.</li>
 </ul>
-<h3 id='changelog-doc-version-v2-8-2-doc-version-v2-3'>Doc Version v2.3</h3>
+<h3 id='changelog-doc-version-v2-8-3-plugin-release-v2-8-2-doc-version-v2-3'>Doc Version v2.3</h3>
 <ul>
 <li>Added: New error responses.</li>
 <li>Fixed: Corrected typos.</li>
@@ -4845,29 +4860,29 @@ Please make sure you are viewing the PHP language to copy any code snippet.
 <li>Updated: Plugin requirements for CoCart.</li>
 <li>Updated: Slate script to v2.7.0 which introduces the ability to copy code to clipboard.</li>
 </ul>
-<h3 id='changelog-doc-version-v2-8-2-doc-version-v2-2-plugin-release-v2-2'>Doc Version v2.2 - Plugin Release v2.2</h3>
+<h3 id='changelog-doc-version-v2-8-3-plugin-release-v2-8-2-doc-version-v2-2-plugin-release-v2-2'>Doc Version v2.2 - Plugin Release v2.2</h3>
 <ul>
 <li>Dev: Added <code>cocart_disable_all_cors</code> filter to enable all cross origin headers.</li>
 <li>Dev: Added filters to override the product name <code>cocart_item_added_product_name</code> and product title <code>cocart_item_added_product_title</code> when adding item to cart.</li>
 <li>Dev: Added <code>cocart_item_added</code> filter to allow additional data to be returned when item is added to cart.</li>
 </ul>
-<h3 id='changelog-doc-version-v2-8-2-doc-version-v2-1-plugin-release-v2-1-3'>Doc Version v2.1 - Plugin Release v2.1.3</h3>
+<h3 id='changelog-doc-version-v2-8-3-plugin-release-v2-8-2-doc-version-v2-1-plugin-release-v2-1-3'>Doc Version v2.1 - Plugin Release v2.1.3</h3>
 <ul>
 <li><strong>NEW</strong>: Added example for adding product with <a href="https://woocommerce.com/products/name-your-price/">Name Your Price</a> WooCommerce extension.</li>
 </ul>
-<h3 id='changelog-doc-version-v2-8-2-doc-version-v2-0-plugin-release-v2-1-2'>Doc Version v2.0 - Plugin Release v2.1.2</h3>
+<h3 id='changelog-doc-version-v2-8-3-plugin-release-v2-8-2-doc-version-v2-0-plugin-release-v2-1-2'>Doc Version v2.0 - Plugin Release v2.1.2</h3>
 <ul>
 <li>Tweaked: WP API examples.</li>
 <li>Removed: Warning notice in the introduction section.</li>
 </ul>
-<h3 id='changelog-doc-version-v2-8-2-doc-version-v1-9'>Doc Version v1.9</h3>
+<h3 id='changelog-doc-version-v2-8-3-plugin-release-v2-8-2-doc-version-v1-9'>Doc Version v1.9</h3>
 <ul>
 <li><strong>NEW</strong>: Added Cookie section.</li>
 <li><strong>NEW</strong>: Added link to Postman collections.</li>
 <li>Tweaked: Certain features or API&#39;s are tagged to identify that they are only available in v2.1</li>
 <li>Removed: Persistent Cart documentation.</li>
 </ul>
-<h3 id='changelog-doc-version-v2-8-2-doc-version-v1-8-plugin-release-v2-1'>Doc Version v1.8 - Plugin Release v2.1</h3>
+<h3 id='changelog-doc-version-v2-8-3-plugin-release-v2-8-2-doc-version-v1-8-plugin-release-v2-1'>Doc Version v1.8 - Plugin Release v2.1</h3>
 <ul>
 <li><strong>NEW</strong>: Added support for guest carts with a new endpoint to retrieve those carts.</li>
 <li><strong>NEW</strong>: Added ability to load a cart from session.</li>
@@ -4884,7 +4899,7 @@ Please make sure you are viewing the PHP language to copy any code snippet.
 <li>Dev: Added hook <code>cocart_item_added_updated_in_cart</code> for when an item was added again but updated in cart.</li>
 <li>Dev: Added filter <code>cocart_cookie_supported</code> to allow developers to disable cookie session support if they don&#39;t/can&#39;t support cookies within their app.</li>
 </ul>
-<h3 id='changelog-doc-version-v2-8-2-doc-version-v1-7'>Doc Version v1.7</h3>
+<h3 id='changelog-doc-version-v2-8-3-plugin-release-v2-8-2-doc-version-v1-7'>Doc Version v1.7</h3>
 <ul>
 <li><strong>NEW</strong>: Added links to edit documentation at the top of each section.</li>
 <li><strong>NEW</strong>: Added Getting Started section for those new to WordPress.</li>
@@ -4892,7 +4907,7 @@ Please make sure you are viewing the PHP language to copy any code snippet.
 <li>Tweaked: Menu</li>
 <li>Tweaked: Brand colours and updated favicons.</li>
 </ul>
-<h3 id='changelog-doc-version-v2-8-2-doc-version-v1-6-plugin-release-v2-0-13'>Doc Version v1.6 - Plugin Release v2.0.13</h3>
+<h3 id='changelog-doc-version-v2-8-3-plugin-release-v2-8-2-doc-version-v1-6-plugin-release-v2-0-13'>Doc Version v1.6 - Plugin Release v2.0.13</h3>
 <ul>
 <li><strong>NEW</strong>: Added <code>cocart_return_empty_cart</code> filter and example.</li>
 <li><strong>NEW</strong>: Added <code>cocart_add_to_cart_sold_individually_quantity</code>and example.</li>
@@ -4901,7 +4916,7 @@ Please make sure you are viewing the PHP language to copy any code snippet.
 <li>Tweaked: Menu, content and added helpful links.</li>
 <li>Tweaked: Filter examples to be code highlighted correctly.</li>
 </ul>
-<h3 id='changelog-doc-version-v2-8-2-doc-version-v1-5-plugin-release-v2-0-7'>Doc Version v1.5 - Plugin Release v2.0.7</h3>
+<h3 id='changelog-doc-version-v2-8-3-plugin-release-v2-8-2-doc-version-v1-5-plugin-release-v2-0-7'>Doc Version v1.5 - Plugin Release v2.0.7</h3>
 <ul>
 <li><strong>NEW</strong>: Added link to products add-on documentation under CoCart Pro.</li>
 <li><strong>NEW</strong>: Added a little section explaining the body types when making a request.</li>
@@ -4909,36 +4924,36 @@ Please make sure you are viewing the PHP language to copy any code snippet.
 <li><strong>NEW</strong>: Added Demo section.</li>
 <li>Improved: Authentication section.</li>
 </ul>
-<h3 id='changelog-doc-version-v2-8-2-doc-version-v1-4'>Doc Version v1.4</h3>
+<h3 id='changelog-doc-version-v2-8-3-plugin-release-v2-8-2-doc-version-v1-4'>Doc Version v1.4</h3>
 <ul>
 <li><strong>NEW</strong>: Added live chat so users can ask questions.</li>
 <li>Made it clearer to understand about retrieving specific customers cart.</li>
 <li>Improved the introduction a little.</li>
 </ul>
-<h3 id='changelog-doc-version-v2-8-2-doc-version-v1-3'>Doc Version v1.3</h3>
+<h3 id='changelog-doc-version-v2-8-3-plugin-release-v2-8-2-doc-version-v1-3'>Doc Version v1.3</h3>
 <ul>
 <li>Added languages for jQuery, PHP and WP API.</li>
 </ul>
-<h3 id='changelog-doc-version-v2-8-2-doc-version-v1-2'>Doc Version v1.2</h3>
+<h3 id='changelog-doc-version-v2-8-3-plugin-release-v2-8-2-doc-version-v1-2'>Doc Version v1.2</h3>
 <ul>
 <li>Added Work in Progress section.</li>
 <li>Added Authentication section.</li>
 </ul>
-<h3 id='changelog-doc-version-v2-8-2-doc-version-v1-1'>Doc Version v1.1</h3>
+<h3 id='changelog-doc-version-v2-8-3-plugin-release-v2-8-2-doc-version-v1-1'>Doc Version v1.1</h3>
 <ul>
 <li>Added Index API.</li>
 <li>Linked logo to documentation homepage.</li>
 </ul>
-<h3 id='changelog-doc-version-v2-8-2-doc-version-v1-plugin-release-v2'>Doc Version v1 - Plugin Release v2</h3>
+<h3 id='changelog-doc-version-v2-8-3-plugin-release-v2-8-2-doc-version-v1-plugin-release-v2'>Doc Version v1 - Plugin Release v2</h3>
 <ul>
 <li>Updated for CoCart v2</li>
 </ul>
-<h3 id='changelog-doc-version-v2-8-2-doc-version-v0-5'>Doc Version v0.5</h3>
+<h3 id='changelog-doc-version-v2-8-3-plugin-release-v2-8-2-doc-version-v0-5'>Doc Version v0.5</h3>
 <ul>
 <li>Added attribute table for view cart.</li>
 <li>Added missing examples for count items and get cart totals.</li>
 </ul>
-<h3 id='changelog-doc-version-v2-8-2-doc-version-v0-4-plugin-release-v1-0-5'>Doc Version v0.4 - Plugin Release v1.0.5</h3>
+<h3 id='changelog-doc-version-v2-8-3-plugin-release-v2-8-2-doc-version-v0-4-plugin-release-v1-0-5'>Doc Version v0.4 - Plugin Release v1.0.5</h3>
 <ul>
 <li>Project renamed to CoCart.</li>
 <li>Changed support to contribution.</li>
@@ -4946,17 +4961,17 @@ Please make sure you are viewing the PHP language to copy any code snippet.
 <li>Added Insomnia as another tool you can use to access the API with.</li>
 <li>Removed all languages except for cURL showing examples on how to use with official library wrappers due to authentication required whic CoCart does not.</li>
 </ul>
-<h3 id='changelog-doc-version-v2-8-2-doc-version-v0-3-plugin-release-v1-0-4'>Doc Version v0.3 - Plugin Release v1.0.4</h3>
+<h3 id='changelog-doc-version-v2-8-3-plugin-release-v2-8-2-doc-version-v0-3-plugin-release-v1-0-4'>Doc Version v0.3 - Plugin Release v1.0.4</h3>
 <ul>
 <li>Official libraries are not supported as they require authentication which this API does not.</li>
 <li>Removed installation instruction for official libraries.</li>
 <li>Replaced logo to prevent confusion with the official REST API documentation.</li>
 </ul>
-<h3 id='changelog-doc-version-v2-8-2-doc-version-v0-2-plugin-release-v1-0-1'>Doc Version v0.2 - Plugin Release v1.0.1</h3>
+<h3 id='changelog-doc-version-v2-8-3-plugin-release-v2-8-2-doc-version-v0-2-plugin-release-v1-0-1'>Doc Version v0.2 - Plugin Release v1.0.1</h3>
 <ul>
 <li>Updated endpoint for updating, restoring and removing items.</li>
 </ul>
-<h3 id='changelog-doc-version-v2-8-2-doc-version-v0-1-plugin-release-v1-0-0'>Doc Version v0.1 - Plugin Release v1.0.0</h3>
+<h3 id='changelog-doc-version-v2-8-3-plugin-release-v2-8-2-doc-version-v0-1-plugin-release-v1-0-0'>Doc Version v0.1 - Plugin Release v1.0.0</h3>
 <ul>
 <li>Initial Commit</li>
 </ul>
