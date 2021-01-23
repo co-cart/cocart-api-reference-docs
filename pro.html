@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>CoCart Pro Documentation v0.6</title>
+    <title>CoCart Pro Documentation v0.7</title>
 
     <link rel="icon" href="images/favicon-32x32-334932c6.png" sizes="32x32" />
     <link rel="icon" href="images/favicon-192x192-734db461.png" sizes="192x192" />
@@ -358,13 +358,21 @@
               </ul>
           </li>
           <li>
+            <a href="#getting-started" class="toc-h1 toc-link" data-title="Getting Started">Getting Started</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#getting-started-install-and-activate" class="toc-h2 toc-link" data-title="Install and Activate">Install and Activate</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#error-responses" class="toc-h1 toc-link" data-title="Error Responses">Error Responses</a>
           </li>
           <li>
             <a href="#coupons" class="toc-h1 toc-link" data-title="Coupons">Coupons</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#coupons-errors-properties" class="toc-h2 toc-link" data-title="Properties">Properties</a>
+                    <a href="#coupons-install-and-activate-properties" class="toc-h2 toc-link" data-title="Properties">Properties</a>
                   </li>
                   <li>
                     <a href="#coupons-applied-coupons" class="toc-h2 toc-link" data-title="Applied Coupons">Applied Coupons</a>
@@ -510,10 +518,38 @@
               </ul>
           </li>
           <li>
+            <a href="#woocommerce-extensions" class="toc-h1 toc-link" data-title="WooCommerce Extensions">WooCommerce Extensions</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#woocommerce-extensions-mix-and-match-products" class="toc-h2 toc-link" data-title="Mix and Match Products">Mix and Match Products</a>
+                  </li>
+                  <li>
+                    <a href="#woocommerce-extensions-name-your-price" class="toc-h2 toc-link" data-title="Name Your Price">Name Your Price</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#wp-config-php" class="toc-h1 toc-link" data-title="wp-config.php">wp-config.php</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#wp-config-php-uninstall" class="toc-h2 toc-link" data-title="Uninstall">Uninstall</a>
+                  </li>
+                  <li>
+                    <a href="#wp-config-php-white-labelling" class="toc-h2 toc-link" data-title="White Labelling">White Labelling</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#tools" class="toc-h1 toc-link" data-title="Tools">Tools</a>
+          </li>
+          <li>
+            <a href="#learn-more" class="toc-h1 toc-link" data-title="Learn more">Learn more</a>
+          </li>
+          <li>
             <a href="#changelog" class="toc-h1 toc-link" data-title="Changelog">Changelog</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#changelog-doc-version-0-6" class="toc-h2 toc-link" data-title="Doc Version 0.6">Doc Version 0.6</a>
+                    <a href="#changelog-doc-version-0-7" class="toc-h2 toc-link" data-title="Doc Version 0.7">Doc Version 0.7</a>
                   </li>
               </ul>
           </li>
@@ -644,6 +680,24 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>Errors return both an appropriate HTTP status code and response object which contains a <code>code</code>, <code>message</code> and <code>data</code> attribute.</p>
+<h1 id='getting-started'>Getting Started</h1>
+<p><img src="images/github-633266a3.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v1/pro/_getting-started.md">Edit on GitHub</a></p>
+<h2 id='getting-started-install-and-activate'>Install and Activate</h2>
+<p>If you have a copy of the plugin as a zip file, you can manually upload it and install it through the Plugins admin screen.</p>
+
+<ol>
+<li>Navigate to <strong>Plugins &gt; Add New</strong>.</li>
+<li>Click the <strong>Upload Plugin</strong> button at the top of the screen.</li>
+<li>Select the zip file from your local filesystem.</li>
+<li>Click the <strong>Install Now</strong> button.</li>
+<li>When installation is complete, you’ll see “Plugin installed successfully.” Click the <strong>Activate Plugin</strong> button at the bottom of the page.</li>
+</ol>
+
+<aside class="notice">
+    <strong>New to WordPress?</strong><br/><br/>If you're new to WordPress development, I recommend getting started by downloading and using <a href="https://localwp.com/" target="_blank">Local</a>.
+</aside>
+
+<p>List of server <a href="#introduction-requirements">requirements</a>.</p>
 <h1 id='error-responses'>Error Responses</h1>
 <p><img src="images/github-633266a3.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v1/pro/_errors.md">Edit on GitHub</a></p>
 
@@ -744,7 +798,7 @@
 <p><img src="images/github-633266a3.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v1/pro/_coupons.md">Edit on GitHub</a></p>
 
 <p>This API helps you get applied coupons, add coupons to cart, remove coupons from cart and check coupons for validation.</p>
-<h3 id='coupons-errors-properties'>Properties</h3>
+<h3 id='coupons-install-and-activate-properties'>Properties</h3>
 <table><thead>
 <tr>
 <th>Property</th>
@@ -792,7 +846,6 @@
   <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
   <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
     <span class="s1">'Accept: application/json'</span><span class="p">,</span>
-    <span class="s1">'Content-Type: application/json'</span><span class="p">,</span>
     <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
   <span class="p">)</span>
 <span class="p">)</span> <span class="p">);</span>
@@ -852,7 +905,6 @@
   <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
   <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
     <span class="s1">'Accept: application/json'</span><span class="p">,</span>
-    <span class="s1">'Content-Type: application/json'</span><span class="p">,</span>
     <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
   <span class="p">)</span>
 <span class="p">)</span> <span class="p">);</span>
@@ -924,7 +976,6 @@
   <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
   <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
     <span class="s1">'Accept: application/json'</span><span class="p">,</span>
-    <span class="s1">'Content-Type: application/json'</span><span class="p">,</span>
     <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
   <span class="p">)</span>
 <span class="p">)</span> <span class="p">);</span>
@@ -986,7 +1037,6 @@
   <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
   <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
     <span class="s1">'Accept: application/json'</span><span class="p">,</span>
-    <span class="s1">'Content-Type: application/json'</span><span class="p">,</span>
     <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
   <span class="p">)</span>
 <span class="p">)</span> <span class="p">);</span>
@@ -1054,7 +1104,6 @@
   <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
   <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
     <span class="s1">'Accept: application/json'</span><span class="p">,</span>
-    <span class="s1">'Content-Type: application/json'</span><span class="p">,</span>
     <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
   <span class="p">)</span>
 <span class="p">)</span> <span class="p">);</span>
@@ -1142,7 +1191,6 @@
   <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
   <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
     <span class="s1">'Accept: application/json'</span><span class="p">,</span>
-    <span class="s1">'Content-Type: application/json'</span><span class="p">,</span>
     <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
   <span class="p">)</span>
 <span class="p">)</span> <span class="p">);</span>
@@ -1239,7 +1287,6 @@
   <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
   <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
     <span class="s1">'Accept: application/json'</span><span class="p">,</span>
-    <span class="s1">'Content-Type: application/json'</span><span class="p">,</span>
     <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
   <span class="p">)</span>
 <span class="p">)</span> <span class="p">);</span>
@@ -1312,7 +1359,6 @@
   <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
   <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
     <span class="s1">'Accept: application/json'</span><span class="p">,</span>
-    <span class="s1">'Content-Type: application/json'</span><span class="p">,</span>
     <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
   <span class="p">)</span>
 <span class="p">)</span> <span class="p">);</span>
@@ -1373,7 +1419,6 @@
   <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
   <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
     <span class="s1">'Accept: application/json'</span><span class="p">,</span>
-    <span class="s1">'Content-Type: application/json'</span><span class="p">,</span>
     <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
   <span class="p">)</span>
 <span class="p">)</span> <span class="p">);</span>
@@ -1544,7 +1589,6 @@
   <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
   <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
     <span class="s1">'Accept: application/json'</span><span class="p">,</span>
-    <span class="s1">'Content-Type: application/json'</span><span class="p">,</span>
     <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
   <span class="p">)</span>
 <span class="p">)</span> <span class="p">);</span>
@@ -1614,7 +1658,6 @@
   <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
   <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
     <span class="s1">'Accept: application/json'</span><span class="p">,</span>
-    <span class="s1">'Content-Type: application/json'</span><span class="p">,</span>
     <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
   <span class="p">)</span>
 <span class="p">)</span> <span class="p">);</span>
@@ -1774,7 +1817,6 @@
   <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
   <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
     <span class="s1">'Accept: application/json'</span><span class="p">,</span>
-    <span class="s1">'Content-Type: application/json'</span><span class="p">,</span>
     <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
   <span class="p">)</span>
 <span class="p">)</span> <span class="p">);</span>
@@ -1847,7 +1889,6 @@
   <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
   <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
     <span class="s1">'Accept: application/json'</span><span class="p">,</span>
-    <span class="s1">'Content-Type: application/json'</span><span class="p">,</span>
     <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
   <span class="p">)</span>
 <span class="p">)</span> <span class="p">);</span>
@@ -1914,7 +1955,6 @@
   <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
   <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
     <span class="s1">'Accept: application/json'</span><span class="p">,</span>
-    <span class="s1">'Content-Type: application/json'</span><span class="p">,</span>
     <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
   <span class="p">)</span>
 <span class="p">)</span> <span class="p">);</span>
@@ -1960,10 +2000,8 @@
 <h2 id='shipping-methods-calculate-shipping'>Calculate Shipping</h2>
 <p>This API helps you calculate the shipping costs and get the available methods. You can also request to return the shipping methods once calculated to reduce API requests.</p>
 
-<p><a href="https://github.com/woocommerce/woocommerce/blob/master/i18n/countries.php">See list of country codes</a> that are supported by WooCommerce.</p>
-
 <aside class="notice">
-  You must pass the country code, <strong>NOT</strong> the country name via the <code>country</code> parameter.
+  You must pass the country code, <strong>NOT</strong> the country name via the <code>country</code> parameter. The same is for the state. Pass the state code, <strong>NOT</strong> the state name via the <code>state</code> parameter.
 </aside>
 <h3 id='shipping-methods-calculate-shipping-properties'>Properties</h3>
 <table><thead>
@@ -1981,12 +2019,12 @@
 <tr>
 <td><code>country</code></td>
 <td>string</td>
-<td>Set the country code of the shipping location. <i class="label label-info">required</i></td>
+<td>Set the country code of the shipping location. <a class="label label-info" target="_blank" href="https://github.com/woocommerce/woocommerce/blob/master/i18n/countries.php">Country codes</a> <i class="label label-info">required</i></td>
 </tr>
 <tr>
 <td><code>state</code></td>
 <td>string</td>
-<td>Setting the state is optional but maybe required under some circumstances. <i class="label label-info">optional</i></td>
+<td>Setting the state is optional but maybe required under some circumstances. <a class="label label-info" target="_blank" href="https://github.com/woocommerce/woocommerce/blob/master/i18n/states.php">State codes</a> <i class="label label-info">optional</i></td>
 </tr>
 <tr>
 <td><code>city</code></td>
@@ -2046,7 +2084,6 @@
   <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
   <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
     <span class="s1">'Accept: application/json'</span><span class="p">,</span>
-    <span class="s1">'Content-Type: application/json'</span><span class="p">,</span>
     <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
   <span class="p">)</span>
 <span class="p">)</span> <span class="p">);</span>
@@ -2321,7 +2358,6 @@
   <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
   <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
     <span class="s1">'Accept: application/json'</span><span class="p">,</span>
-    <span class="s1">'Content-Type: application/json'</span><span class="p">,</span>
     <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
   <span class="p">)</span>
 <span class="p">)</span> <span class="p">);</span>
@@ -2378,7 +2414,6 @@
   <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
   <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
     <span class="s1">'Accept: application/json'</span><span class="p">,</span>
-    <span class="s1">'Content-Type: application/json'</span><span class="p">,</span>
     <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
   <span class="p">)</span>
 <span class="p">)</span> <span class="p">);</span>
@@ -2459,7 +2494,6 @@
   <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
   <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
     <span class="s1">'Accept: application/json'</span><span class="p">,</span>
-    <span class="s1">'Content-Type: application/json'</span><span class="p">,</span>
     <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
   <span class="p">)</span>
 <span class="p">)</span> <span class="p">);</span>
@@ -2510,7 +2544,6 @@
   <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
   <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
     <span class="s1">'Accept: application/json'</span><span class="p">,</span>
-    <span class="s1">'Content-Type: application/json'</span><span class="p">,</span>
     <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
   <span class="p">)</span>
 <span class="p">)</span> <span class="p">);</span>
@@ -2557,7 +2590,6 @@
   <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
   <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
     <span class="s1">'Accept: application/json'</span><span class="p">,</span>
-    <span class="s1">'Content-Type: application/json'</span><span class="p">,</span>
     <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
   <span class="p">)</span>
 <span class="p">)</span> <span class="p">);</span>
@@ -2597,7 +2629,6 @@
   <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
   <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
     <span class="s1">'Accept: application/json'</span><span class="p">,</span>
-    <span class="s1">'Content-Type: application/json'</span><span class="p">,</span>
     <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
   <span class="p">)</span>
 <span class="p">)</span> <span class="p">);</span>
@@ -2642,7 +2673,6 @@
   <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
   <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
     <span class="s1">'Accept: application/json'</span><span class="p">,</span>
-    <span class="s1">'Content-Type: application/json'</span><span class="p">,</span>
     <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
   <span class="p">)</span>
 <span class="p">)</span> <span class="p">);</span>
@@ -2682,7 +2712,6 @@
   <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
   <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
     <span class="s1">'Accept: application/json'</span><span class="p">,</span>
-    <span class="s1">'Content-Type: application/json'</span><span class="p">,</span>
     <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
   <span class="p">)</span>
 <span class="p">)</span> <span class="p">);</span>
@@ -2722,7 +2751,6 @@
   <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
   <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
     <span class="s1">'Accept: application/json'</span><span class="p">,</span>
-    <span class="s1">'Content-Type: application/json'</span><span class="p">,</span>
     <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
   <span class="p">)</span>
 <span class="p">)</span> <span class="p">);</span>
@@ -2762,7 +2790,6 @@
   <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
   <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
     <span class="s1">'Accept: application/json'</span><span class="p">,</span>
-    <span class="s1">'Content-Type: application/json'</span><span class="p">,</span>
     <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
   <span class="p">)</span>
 <span class="p">)</span> <span class="p">);</span>
@@ -2807,7 +2834,6 @@
   <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
   <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
     <span class="s1">'Accept: application/json'</span><span class="p">,</span>
-    <span class="s1">'Content-Type: application/json'</span><span class="p">,</span>
     <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
   <span class="p">)</span>
 <span class="p">)</span> <span class="p">);</span>
@@ -2847,7 +2873,6 @@
   <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
   <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
     <span class="s1">'Accept: application/json'</span><span class="p">,</span>
-    <span class="s1">'Content-Type: application/json'</span><span class="p">,</span>
     <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
   <span class="p">)</span>
 <span class="p">)</span> <span class="p">);</span>
@@ -2887,7 +2912,6 @@
   <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
   <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
     <span class="s1">'Accept: application/json'</span><span class="p">,</span>
-    <span class="s1">'Content-Type: application/json'</span><span class="p">,</span>
     <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
   <span class="p">)</span>
 <span class="p">)</span> <span class="p">);</span>
@@ -2905,34 +2929,461 @@
 <p>JSON response example</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="s2">"£33.60"</span><span class="w">
-</span></code></pre></div><h1 id='changelog'>Changelog</h1>
+</span></code></pre></div><h1 id='woocommerce-extensions'>WooCommerce Extensions</h1>
+<p><img src="images/github-633266a3.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart-docs/blob/master/source/includes/_woocommerce-extensions.md">Edit on GitHub</a></p>
+
+<p><a href="https://cocart.xyz/woocommerce-extensions/">These extensions</a> either support CoCart or is supported in <a href="#cocart-add-ons-cocart-pro">CoCart Pro</a>.</p>
+
+<aside class="notice">
+  Extensions are documented with examples only if they have there own configuration.
+</aside>
+<h2 id='woocommerce-extensions-mix-and-match-products'>Mix and Match Products</h2>
+<p>Selling cases of wine? A dozen donuts? Fruit baskets? Six-packs of T-shirts? <a href="https://woocommerce.com/products/woocommerce-mix-and-match-products/">Mix and Match Products</a> is ideal for offering similar products in bulk containers. Perfect for encouraging customers to buy in bulk without forcing them to buy items that don’t interest them.</p>
+
+<aside class="notice">
+  Mix and Match Products supports CoCart since <strong>v1.10.0</strong>.
+</aside>
+<h3 id='woocommerce-extensions-mix-and-match-products-add-item-to-cart'>Add item to Cart</h3>
+<p>Once you have setup &quot;<a href="https://woocommerce.com/products/woocommerce-mix-and-match-products/">Mix and Match Products</a>&quot; WooCommerce extension. Here is how you can add a container with the customers selected items and quantity.</p>
+
+<blockquote>
+<p>Example of adding a Mix and Match Product</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST https://example.com/wp-json/cocart/v1/add-item <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  <span class="nt">-d</span> <span class="s1">'{
+    "product_id": "1102",
+    "quantity": 2,
+    "cart_item_data": {
+        "mnm_config": [
+            {
+                "product_id": 987,
+                "quantity": 1
+            },
+            {
+                "product_id": 1001,
+                "quantity": 2
+            },
+            {
+                "product_id": 1003,
+                "quantity": 3
+            }
+        ]
+    }
+}'</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript--jquery"><code><span class="kd">var</span> <span class="nx">settings</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="dl">"</span><span class="s2">url</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">https://example.com/wp-json/cocart/v1/add-item</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">method</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">POST</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">"</span><span class="s2">product_id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">1102</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">quantity</span><span class="dl">"</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">cart_item_data</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">mnm_config</span><span class="dl">"</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="dl">"</span><span class="s2">product_id</span><span class="dl">"</span><span class="p">:</span> <span class="mi">987</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">quantity</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="dl">"</span><span class="s2">product_id</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1001</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">quantity</span><span class="dl">"</span><span class="p">:</span> <span class="mi">2</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="dl">"</span><span class="s2">product_id</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1003</span><span class="p">,</span>
+                <span class="dl">"</span><span class="s2">quantity</span><span class="dl">"</span><span class="p">:</span> <span class="mi">3</span>
+            <span class="p">}</span>
+        <span class="p">]</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">(</span><span class="nx">settings</span><span class="p">).</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div><div class="highlight"><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+<span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
+
+<span class="nv">$args</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+  <span class="s1">'product_id'</span> <span class="o">=&gt;</span> <span class="s1">'1102'</span><span class="p">,</span>
+  <span class="s1">'quantity'</span> <span class="o">=&gt;</span> <span class="mi">5</span><span class="p">,</span>
+  <span class="s1">'cart_item_data'</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+      <span class="s1">'mnm_config'</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+          <span class="k">array</span><span class="p">(</span>
+              <span class="s1">'product_id'</span> <span class="o">=&gt;</span> <span class="mi">987</span><span class="p">,</span>
+              <span class="s1">'quantity'</span> <span class="o">=&gt;</span> <span class="mi">1</span>
+          <span class="p">),</span>
+          <span class="k">array</span><span class="p">(</span>
+              <span class="s1">'product_id'</span> <span class="o">=&gt;</span> <span class="mi">1001</span><span class="p">,</span>
+              <span class="s1">'quantity'</span> <span class="o">=&gt;</span> <span class="mi">2</span>
+          <span class="p">),</span>
+          <span class="k">array</span><span class="p">(</span>
+              <span class="s1">'product_id'</span> <span class="o">=&gt;</span> <span class="mi">1003</span><span class="p">,</span>
+              <span class="s1">'quantity'</span> <span class="o">=&gt;</span> <span class="mi">3</span>
+          <span class="p">)</span>
+      <span class="p">)</span>
+  <span class="p">)</span>
+<span class="p">);</span>
+
+<span class="nb">curl_setopt_array</span><span class="p">(</span> <span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/add-item"</span><span class="p">,</span>
+  <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"POST"</span><span class="p">,</span>
+  <span class="nx">CURLOPT_POSTFIELDS</span> <span class="o">=&gt;</span> <span class="nv">$args</span><span class="p">,</span>
+  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
+  <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">'Accept: application/json'</span><span class="p">,</span>
+    <span class="s1">'Content-Type: application/json'</span><span class="p">,</span>
+    <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
+  <span class="p">)</span>
+<span class="p">)</span> <span class="p">);</span>
+
+<span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
+
+<span class="nb">curl_close</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
+
+<span class="k">echo</span> <span class="nv">$response</span><span class="p">;</span>
+</code></pre></div><div class="highlight"><pre class="highlight php tab-php--wp-http-api"><code><span class="cp">&lt;?php</span>
+<span class="nv">$args</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+  <span class="s1">'headers'</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">'Content-Type'</span> <span class="o">=&gt;</span> <span class="s1">'application/json; charset=utf-8'</span><span class="p">,</span>
+  <span class="p">),</span>
+  <span class="s1">'body'</span> <span class="o">=&gt;</span> <span class="nx">wp_json_encode</span><span class="p">(</span> <span class="p">[</span>
+    <span class="s1">'product_id'</span> <span class="o">=&gt;</span> <span class="s1">'1102'</span><span class="p">,</span>
+    <span class="s1">'quantity'</span> <span class="o">=&gt;</span> <span class="mi">5</span><span class="p">,</span>
+    <span class="s1">'cart_item_data'</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+        <span class="s1">'mnm_config'</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+            <span class="k">array</span><span class="p">(</span>
+                <span class="s1">'product_id'</span> <span class="o">=&gt;</span> <span class="mi">987</span><span class="p">,</span>
+                <span class="s1">'quantity'</span> <span class="o">=&gt;</span> <span class="mi">1</span>
+            <span class="p">),</span>
+            <span class="k">array</span><span class="p">(</span>
+                <span class="s1">'product_id'</span> <span class="o">=&gt;</span> <span class="mi">1001</span><span class="p">,</span>
+                <span class="s1">'quantity'</span> <span class="o">=&gt;</span> <span class="mi">2</span>
+            <span class="p">),</span>
+            <span class="k">array</span><span class="p">(</span>
+                <span class="s1">'product_id'</span> <span class="o">=&gt;</span> <span class="mi">1003</span><span class="p">,</span>
+                <span class="s1">'quantity'</span> <span class="o">=&gt;</span> <span class="mi">3</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
+    <span class="p">)</span>
+  <span class="p">]</span> <span class="p">),</span>
+  <span class="s1">'timeout'</span> <span class="o">=&gt;</span> <span class="mi">30</span>
+<span class="p">);</span>
+<span class="nv">$response</span> <span class="o">=</span> <span class="nx">wp_remote_post</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/add-item'</span><span class="p">,</span> <span class="nv">$args</span> <span class="p">);</span>
+<span class="nv">$body</span> <span class="o">=</span> <span class="nx">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
+</code></pre></div>
+<blockquote>
+<p>JSON response example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"6563b32f054b00c7ed83ce4c9bb9eedd"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"mnm_config"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"987"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"product_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">987</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nl">"1001"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"product_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1001</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nl">"1003"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"product_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1003</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"mnm_contents"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="s2">"8e9868e336b9bafe4722c31ade00a8f6"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"a29fe85f04188ccc5a7106dec6f5ca89"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"4531239fed8c9875e0cce609b86be85a"</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6563b32f054b00c7ed83ce4c9bb9eedd"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"product_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1102</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"variation_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"variation"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="nl">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"data_hash"</span><span class="p">:</span><span class="w"> </span><span class="s2">"d88f7e7e5dfa45731252a34e3e64325c"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"line_tax_data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"subtotal"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+            </span><span class="nl">"total"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"line_subtotal"</span><span class="p">:</span><span class="w"> </span><span class="mf">9.7013</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"line_subtotal_tax"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"line_total"</span><span class="p">:</span><span class="w"> </span><span class="mf">9.7013</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"line_tax"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"product_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mix-and-match"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"is_nyp"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"product_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mix and Match Products"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"product_title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mix and Match Products"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"product_price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"£2.00"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"8e9868e336b9bafe4722c31ade00a8f6"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"mnm_container"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6563b32f054b00c7ed83ce4c9bb9eedd"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"mnm_child_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1102</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"product_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">987</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"variation_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"variation"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="nl">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"line_tax_data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"subtotal"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+            </span><span class="nl">"total"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"line_subtotal"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.28355</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"line_subtotal_tax"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"line_total"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.28355</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"line_tax"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+        </span><span class="nl">"product_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cupcake"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"product_title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cupcake"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"product_price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"£1.28"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"a29fe85f04188ccc5a7106dec6f5ca89"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"mnm_container"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6563b32f054b00c7ed83ce4c9bb9eedd"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"mnm_child_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1102</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"product_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1001</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"variation_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"variation"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="nl">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"line_tax_data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"subtotal"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+            </span><span class="nl">"total"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"line_subtotal"</span><span class="p">:</span><span class="w"> </span><span class="mf">2.5671</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"line_subtotal_tax"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"line_total"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.28355</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"line_tax"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+        </span><span class="nl">"product_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Turquoise Cupcake"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"product_title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Turquoise Cupcake"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"product_price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"£1.28"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"4531239fed8c9875e0cce609b86be85a"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"mnm_container"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6563b32f054b00c7ed83ce4c9bb9eedd"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"mnm_child_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1102</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"product_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1003</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"variation_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"variation"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="nl">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"line_tax_data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"subtotal"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+            </span><span class="nl">"total"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"line_subtotal"</span><span class="p">:</span><span class="w"> </span><span class="mf">3.85065</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"line_subtotal_tax"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"line_total"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.28355</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"line_tax"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+        </span><span class="nl">"product_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Buttercup and Bumblebee Cupcakes"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"product_title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Buttercup and Bumblebee Cupcakes"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"product_price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"£1.28"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='woocommerce-extensions-mix-and-match-products-retrieve-a-product'>Retrieve a product</h3>
+<p>If you are using <a href="products.html">CoCart Products</a> API, any Mix and Match Product will return additional product data under a new array variable <code>mnm_data</code>. <a href="products.html#woocommerce-extensions-mix-and-match-products">View example</a>.</p>
+<h2 id='woocommerce-extensions-name-your-price'>Name Your Price</h2>
+<p>The <a href="https://woocommerce.com/products/name-your-price/">Name Your Price</a> plugin extension lets you be flexible in what price you are willing to accept for selected products. You can use this plugin to accept donations or to take a new approach to selling products. You can suggest a price to your customers and optionally enforce a minimum acceptable price, or leave it entirely in the hands of the customer.</p>
+
+<aside class="notice">
+  Name Your Price supports CoCart since <strong>v3.1.0</strong>.
+</aside>
+<h3 id='woocommerce-extensions-name-your-price-add-item-to-cart'>Add item to Cart</h3>
+<p>Once you have setup &quot;<a href="https://woocommerce.com/products/name-your-price/">Name Your Price</a>&quot; for your particular products. Here is how you can apply the customers requested price for the product when adding to cart.</p>
+
+<blockquote>
+<p>Example of adding an item with a custom price.</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST https://example.com/wp-json/cocart/v1/add-item <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  <span class="nt">-d</span> <span class="s1">'{
+    "product_id": "129",
+    "quantity": 1,
+    "cart_item_data": {
+      "nyp": 24
+    }
+  }'</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript--jquery"><code><span class="kd">var</span> <span class="nx">settings</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="dl">"</span><span class="s2">url</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">https://example.com/wp-json/cocart/v1/add-item</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">method</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">POST</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">data</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="dl">"</span><span class="s2">product_id</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">129</span><span class="dl">"</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">quantity</span><span class="dl">"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="dl">"</span><span class="s2">cart_item_data</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+      <span class="dl">"</span><span class="s2">nyp</span><span class="dl">"</span><span class="p">:</span> <span class="mi">24</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">(</span><span class="nx">settings</span><span class="p">).</span><span class="nx">done</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div><div class="highlight"><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+<span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
+
+<span class="nv">$args</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+  <span class="s1">'product_id'</span> <span class="o">=&gt;</span> <span class="s1">'129'</span><span class="p">,</span>
+  <span class="s1">'quantity'</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span>
+  <span class="s1">'cart_item_data'</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">'nyp'</span> <span class="o">=&gt;</span> <span class="mi">24</span>
+  <span class="p">)</span>
+<span class="p">);</span>
+
+<span class="nb">curl_setopt_array</span><span class="p">(</span> <span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/add-item"</span><span class="p">,</span>
+  <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"POST"</span><span class="p">,</span>
+  <span class="nx">CURLOPT_POSTFIELDS</span> <span class="o">=&gt;</span> <span class="nv">$args</span><span class="p">,</span>
+  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
+  <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">'Accept: application/json'</span><span class="p">,</span>
+    <span class="s1">'Content-Type: application/json'</span><span class="p">,</span>
+    <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
+  <span class="p">)</span>
+<span class="p">)</span> <span class="p">);</span>
+
+<span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
+
+<span class="nb">curl_close</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
+
+<span class="k">echo</span> <span class="nv">$response</span><span class="p">;</span>
+</code></pre></div><div class="highlight"><pre class="highlight php tab-php--wp-http-api"><code><span class="cp">&lt;?php</span>
+<span class="nv">$args</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+  <span class="s1">'headers'</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">'Content-Type'</span> <span class="o">=&gt;</span> <span class="s1">'application/json; charset=utf-8'</span><span class="p">,</span>
+  <span class="p">),</span>
+  <span class="s1">'body'</span> <span class="o">=&gt;</span> <span class="nx">wp_json_encode</span><span class="p">(</span> <span class="p">[</span>
+    <span class="s1">'product_id'</span> <span class="o">=&gt;</span> <span class="s1">'129'</span><span class="p">,</span>
+    <span class="s1">'quantity'</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s1">'cart_item_data'</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+      <span class="s1">'nyp'</span> <span class="o">=&gt;</span> <span class="mi">24</span>
+    <span class="p">)</span>
+  <span class="p">]</span> <span class="p">),</span>
+  <span class="s1">'timeout'</span> <span class="o">=&gt;</span> <span class="mi">30</span>
+<span class="p">);</span>
+<span class="nv">$response</span> <span class="o">=</span> <span class="nx">wp_remote_post</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/add-item'</span><span class="p">,</span> <span class="nv">$args</span> <span class="p">);</span>
+<span class="nv">$body</span> <span class="o">=</span> <span class="nx">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
+</code></pre></div>
+<blockquote>
+<p>JSON response example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"nyp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"24"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1dc5e4af26b22d63451acb95d2b9deba"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"product_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">129</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"variation_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"variation"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="nl">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+    </span><span class="nl">"data_hash"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b5c1d5ca8bae6d4896cf1807cdf763f0"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"line_tax_data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"subtotal"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="nl">"total"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"line_subtotal"</span><span class="p">:</span><span class="w"> </span><span class="mi">24</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"line_subtotal_tax"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"line_total"</span><span class="p">:</span><span class="w"> </span><span class="mi">24</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"line_tax"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"product_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Name your price"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"product_title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Name your price"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"product_price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"£24.00"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h1 id='wp-config-php'>wp-config.php</h1>
+<p><img src="images/github-633266a3.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart-docs/blob/master/source/includes/_wp-config.md">Edit on GitHub</a></p>
+
+<p>For more handling over CoCart for your store or a client, you will find that using the <code>wp-config.php</code> file is the best place to setup certain conditions.</p>
+
+<ul>
+<li><a href="#wp-config-php-uninstall">Uninstall</a></li>
+<li><a href="#wp-config-php-white-labelling">White Labelling</a></li>
+</ul>
+
+<aside class="notice">
+Please make sure you are viewing the PHP language to copy any code snippet.
+</aside>
+<h2 id='wp-config-php-uninstall'>Uninstall</h2>
+<p>To prevent any data loss when uninstalling CoCart from the backend and to ensure only the site owner can perform this action. You need to enable the ability to remove it.</p>
+<div class="highlight"><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+<span class="cd">/**
+ * Allows the full un-installation of CoCart.
+ */</span>
+<span class="nb">define</span><span class="p">(</span> <span class="s1">'COCART_REMOVE_ALL_DATA'</span><span class="p">,</span> <span class="kc">true</span> <span class="p">);</span>
+</code></pre></div><h2 id='wp-config-php-white-labelling'>White Labelling</h2>
+<p>If you are developing a headless store for a client and need to hide CoCart. Enabling white label mode comes in handy if that is something your would want.</p>
+
+<p>Enabling this hides CoCart completely from the backend including the admin menu, plugin row links, plugin notices, WooCommerce inbox notices and WooCommerce System Status information.</p>
+<div class="highlight"><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+<span class="cd">/**
+ * Hides CoCart from the WordPress dashboard.
+ */</span>
+<span class="nb">define</span><span class="p">(</span> <span class="s1">'COCART_WHITE_LABEL'</span><span class="p">,</span> <span class="kc">true</span> <span class="p">);</span>
+</code></pre></div>
+<div style="clear: both;"></div>
+<h3 id='wp-config-php-white-labelling-load-cart-for-the-web'>Load Cart for the Web</h3>
+<p><span class="new">New Filter since v2.8.2</span></p>
+
+<p>In addition to white labelling, you can filter the parameter name <code>cocart-load-cart</code> `to what ever you like.</p>
+<div class="highlight"><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+<span class="cd">/**
+ * Change the parameter name for loading the cart via the web.
+ */</span>
+<span class="nx">add_filter</span><span class="p">(</span> <span class="s1">'cocart_load_cart_query_name'</span><span class="p">,</span> <span class="k">function</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="s1">'my-cart'</span><span class="p">;</span> <span class="p">});</span>
+</code></pre></div><h1 id='tools'>Tools</h1>
+<p><img src="images/github-633266a3.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart-docs/blob/master/source/includes/_tools.md">Edit on GitHub</a></p>
+
+<p>Some useful tools you can use to access the API include:</p>
+
+<ul>
+<li><a href="https://www.getpostman.com/">Postman</a> - A multi platform REST API GUI client (using Google Chrome or installing the app on Mac OS X or Windows).</li>
+<li><a href="https://postwoman.io/">Postwoman</a> - A fast and beautiful API request builder (web alternative to Postman).</li>
+<li><a href="https://insomnia.rest/">Insomnia</a> - Similar to Postman using an app on Mac OS X, Windows or Ubuntu.</li>
+<li><a href="https://mmattozzi.github.io/cocoa-rest-client/">CocoaRestClient</a> - A Mac OS X GUI client for interacting with the API.</li>
+<li><a href="https://itunes.apple.com/us/app/paw-http-client/id584653203?mt=12">Paw HTTP Client</a> - Another HTTP client for Mac OS X.</li>
+<li><a href="https://addons.mozilla.org/en-US/firefox/addon/restclient/">RESTClient, a debugger for RESTful web services</a> - Free Firefox add-on.</li>
+<li><a href="https://chrome.google.com/webstore/detail/advanced-rest-client/hgmloofddffdnphfgcellkdfbfbjeloo">Advanced REST client</a> - Free Google Chrome extension.</li>
+<li><a href="https://hookbin.com/">Hookbin</a> - Another tool to test web hooks.</li>
+</ul>
+
+<p>If you use <strong>Postman</strong> you can use <a href="https://github.com/co-cart/cocart-postman-collections">these collections</a> made ready for you.</p>
+<h1 id='learn-more'>Learn more</h1>
+<p>Learn more about the REST API by checking the <a href="https://developer.wordpress.org/rest-api/" target="_blank">official WordPress REST API documentation</a>.</p>
+
+<ul>
+<li><a href="https://cocart.xyz/about/">About CoCart</a></li>
+<li><a href="https://cocart.xyz/pro/">Pricing and FAQ</a></li>
+<li><a href="https://cocart.xyz/community/">Community</a></li>
+</ul>
+<h1 id='changelog'>Changelog</h1>
 <p>The Documentation is updated only when needed. Below is the changelog for &quot;CoCart Pro&quot; documentation that matches with the version of the plugin release.</p>
-<h2 id='changelog-doc-version-0-6'>Doc Version 0.6</h2>
+<h2 id='changelog-doc-version-0-7'>Doc Version 0.7</h2>
+<ul>
+<li>Removed <code>&#39;Content-Type: application/json&#39;</code> from cURL examples.</li>
+<li>Added link to view list of state codes for calculating shipping.</li>
+<li>Added the following sections: <strong>Getting Started</strong>, <strong>WooCommerce Extensions</strong>, <strong>wp-config.php</strong> and <strong>Tools</strong>.</li>
+</ul>
+<h3 id='changelog-doc-version-0-7-doc-version-0-6'>Doc Version 0.6</h3>
 <ul>
 <li>Corrected: Minor spelling errors.</li>
 <li>Updated: All API property tables.</li>
 <li>Tweaked: Moved calculating fees, shipping methods and totals under main sections to make it easier for users to find.</li>
 </ul>
-<h3 id='changelog-doc-version-0-6-doc-version-0-5'>Doc Version 0.5</h3>
+<h3 id='changelog-doc-version-0-7-doc-version-0-5'>Doc Version 0.5</h3>
 <ul>
 <li>Added: Cart key parameter to all CoCart Pro API&#39;s for guest carts.</li>
 <li>Updated: Plugin Requirements.</li>
 </ul>
-<h3 id='changelog-doc-version-0-6-doc-version-0-4'>Doc Version 0.4</h3>
+<h3 id='changelog-doc-version-0-7-doc-version-0-4'>Doc Version 0.4</h3>
 <ul>
 <li>NEW: Added links to edit documentation at the top of each section.</li>
 </ul>
-<h3 id='changelog-doc-version-0-6-doc-version-0-3'>Doc Version 0.3</h3>
+<h3 id='changelog-doc-version-0-7-doc-version-0-3'>Doc Version 0.3</h3>
 <ul>
 <li>Added missing documentation for setting payment method.</li>
 <li>Moved Cart Weight under Cart Owner so everything is in order.</li>
 </ul>
-<h3 id='changelog-doc-version-0-6-doc-version-0-2'>Doc Version 0.2</h3>
+<h3 id='changelog-doc-version-0-7-doc-version-0-2'>Doc Version 0.2</h3>
 <ul>
 <li>Added languages for jQuery, PHP and WP API.</li>
 <li>Corrected typo&#39;s.</li>
 </ul>
-<h3 id='changelog-doc-version-0-6-doc-version-0-1-plugin-release-v1-0-0'>Doc Version 0.1 - Plugin Release v1.0.0</h3>
+<h3 id='changelog-doc-version-0-7-doc-version-0-1-plugin-release-v1-0-0'>Doc Version 0.1 - Plugin Release v1.0.0</h3>
 <ul>
 <li>Initial Commit</li>
 </ul>
