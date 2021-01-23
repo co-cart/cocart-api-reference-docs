@@ -10,10 +10,8 @@
 
 This API helps you calculate the shipping costs and get the available methods. You can also request to return the shipping methods once calculated to reduce API requests.
 
-[See list of country codes](https://github.com/woocommerce/woocommerce/blob/master/i18n/countries.php) that are supported by WooCommerce.
-
 <aside class="notice">
-  You must pass the country code, <strong>NOT</strong> the country name via the <code>country</code> parameter.
+  You must pass the country code, <strong>NOT</strong> the country name via the <code>country</code> parameter. The same is for the state. Pass the state code, <strong>NOT</strong> the state name via the <code>state</code> parameter.
 </aside>
 
 ### Properties ###
@@ -21,8 +19,8 @@ This API helps you calculate the shipping costs and get the available methods. Y
 | Attribute        | Type   | Description                                                                                                                           |
 | ---------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------- |
 | `cart_key`       | string | Unique identifier for the cart. <a class="label label-info" href="index.html#cart-key">?</a> <i class="label label-info">optional</i> |
-| `country`        | string | Set the country code of the shipping location. <i class="label label-info">required</i>                                               |
-| `state`          | string | Setting the state is optional but maybe required under some circumstances. <i class="label label-info">optional</i>                   |
+| `country`        | string | Set the country code of the shipping location. <a class="label label-info" target="_blank" href="https://github.com/woocommerce/woocommerce/blob/master/i18n/countries.php">Country codes</a> <i class="label label-info">required</i>                                               |
+| `state`          | string | Setting the state is optional but maybe required under some circumstances. <a class="label label-info" target="_blank" href="https://github.com/woocommerce/woocommerce/blob/master/i18n/states.php">State codes</a> <i class="label label-info">optional</i>                   |
 | `city`           | string | Set the city to specify location in country. <i class="label label-info">optional</i>                                                 |
 | `postcode`       | string | Enter postcode / ZIP to narrow down location for more accurate shipping cost. <i class="label label-info">optional</i>                |
 | `return_methods` | bool   | Set as true to return the shipping methods once calculated. <i class="label label-info">optional</i>                                  |
@@ -76,7 +74,6 @@ curl_setopt_array( $curl, array(
   CURLOPT_TIMEOUT => 30,
   CURLOPT_HTTPHEADER => array(
     'Accept: application/json',
-    'Content-Type: application/json',
     'User-Agent: CoCart API/v1',
   )
 ) );

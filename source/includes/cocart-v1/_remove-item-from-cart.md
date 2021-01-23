@@ -59,7 +59,6 @@ curl_setopt_array( $curl, array(
   CURLOPT_TIMEOUT => 30,
   CURLOPT_HTTPHEADER => array(
     'Accept: application/json',
-    'Content-Type: application/json',
     'User-Agent: CoCart API/v1',
   )
 ) );

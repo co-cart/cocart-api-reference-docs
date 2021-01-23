@@ -82,7 +82,6 @@ $args = json_encode( array(
 
 $headers = array(
   'Accept: application/json',
-  'Content-Type: application/json',
   'User-Agent: CoCart API/v1',
   'Authorization: Basic ' . base64_encode($username . ':' . $password)
 );

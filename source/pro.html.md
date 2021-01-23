@@ -1,5 +1,5 @@
 ---
-title: CoCart Pro Documentation v0.6
+title: CoCart Pro Documentation v0.7
 
 language_tabs:
  - shell: cURL
@@ -15,6 +15,7 @@ toc_footers:
 
 includes:
   - cocart-v1/pro/introduction
+  - cocart-v1/pro/getting-started
   - cocart-v1/pro/errors
   - cocart-v1/pro/coupons
   - cocart-v1/pro/cross-sells
@@ -26,6 +27,9 @@ includes:
   - cocart-v1/pro/removed-items
   - cocart-v1/pro/shipping-methods
   - cocart-v1/pro/totals
+  - woocommerce-extensions
+  - wp-config.php
+  - tools
   - cocart-v1/pro/changelog
 
 search: true
