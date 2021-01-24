@@ -33,6 +33,25 @@ curl -X POST https://example.com/wp-json/cocart/v1/calculate \
 	-H "Content-Type: application/json"
 ```
 
+```javascript--node
+CoCart.post("calculate")
+.then((response) => {
+  // Successful request
+  console.log("Response Status:", response.status);
+  console.log("Response Headers:", response.headers);
+  console.log("Response Data:", response.data);
+})
+.catch((error) => {
+  // Invalid request, for 4xx and 5xx statuses
+  console.log("Response Status:", error.response.status);
+  console.log("Response Headers:", error.response.headers);
+  console.log("Response Data:", error.response.data);
+})
+.finally(() => {
+  // Always executed.
+});
+```
+
 ```javascript--jquery
 var settings = {
   "url": "https://example.com/wp-json/cocart/v1/calculate",
@@ -102,6 +121,25 @@ The `fee_total`, `fee_tax` and `fee_taxes` are only updated if the [fees are cal
 ```shell
 curl -X GET https://example.com/wp-json/cocart/v1/totals \
  -H "Content-Type: application/json"
+```
+
+```javascript--node
+CoCart.get("totals")
+.then((response) => {
+  // Successful request
+  console.log("Response Status:", response.status);
+  console.log("Response Headers:", response.headers);
+  console.log("Response Data:", response.data);
+})
+.catch((error) => {
+  // Invalid request, for 4xx and 5xx statuses
+  console.log("Response Status:", error.response.status);
+  console.log("Response Headers:", error.response.headers);
+  console.log("Response Data:", error.response.data);
+})
+.finally(() => {
+  // Always executed.
+});
 ```
 
 ```javascript--jquery
@@ -199,6 +237,25 @@ curl -X GET https://example.com/wp-json/cocart/v1/totals/discount \
  -H "Content-Type: application/json"
 ```
 
+```javascript--node
+CoCart.get("totals/discount")
+.then((response) => {
+  // Successful request
+  console.log("Response Status:", response.status);
+  console.log("Response Headers:", response.headers);
+  console.log("Response Data:", response.data);
+})
+.catch((error) => {
+  // Invalid request, for 4xx and 5xx statuses
+  console.log("Response Status:", error.response.status);
+  console.log("Response Headers:", error.response.headers);
+  console.log("Response Data:", error.response.data);
+})
+.finally(() => {
+  // Always executed.
+});
+```
+
 ```javascript--jquery
 var settings = {
   "url": "https://example.com/wp-json/cocart/v1/totals/discount",
@@ -264,6 +321,25 @@ curl -X GET https://example.com/wp-json/cocart/v1/totals/discount/coupon-totals 
  -H "Content-Type: application/json"
 ```
 
+```javascript--node
+CoCart.get("totals/discount/coupon-totals")
+.then((response) => {
+  // Successful request
+  console.log("Response Status:", response.status);
+  console.log("Response Headers:", response.headers);
+  console.log("Response Data:", response.data);
+})
+.catch((error) => {
+  // Invalid request, for 4xx and 5xx statuses
+  console.log("Response Status:", error.response.status);
+  console.log("Response Headers:", error.response.headers);
+  console.log("Response Data:", error.response.data);
+})
+.finally(() => {
+  // Always executed.
+});
+```
+
 ```javascript--jquery
 var settings = {
   "url": "https://example.com/wp-json/cocart/v1/totals/discount/coupon-totals",
@@ -327,6 +403,25 @@ curl -X GET https://example.com/wp-json/cocart/v1/totals/discount/coupon-tax \
  -H "Content-Type: application/json"
 ```
 
+```javascript--node
+CoCart.get("totals/discount/coupon-tax")
+.then((response) => {
+  // Successful request
+  console.log("Response Status:", response.status);
+  console.log("Response Headers:", response.headers);
+  console.log("Response Data:", response.data);
+})
+.catch((error) => {
+  // Invalid request, for 4xx and 5xx statuses
+  console.log("Response Status:", error.response.status);
+  console.log("Response Headers:", error.response.headers);
+  console.log("Response Data:", error.response.data);
+})
+.finally(() => {
+  // Always executed.
+});
+```
+
 ```javascript--jquery
 var settings = {
   "url": "https://example.com/wp-json/cocart/v1/totals/discount/coupon-tax",
@@ -380,6 +475,25 @@ $body = wp_remote_retrieve_body( $response );
 ```shell
 curl -X GET https://example.com/wp-json/cocart/v1/totals/fee \
  -H "Content-Type: application/json"
+```
+
+```javascript--node
+CoCart.get("totals/fee")
+.then((response) => {
+  // Successful request
+  console.log("Response Status:", response.status);
+  console.log("Response Headers:", response.headers);
+  console.log("Response Data:", response.data);
+})
+.catch((error) => {
+  // Invalid request, for 4xx and 5xx statuses
+  console.log("Response Status:", error.response.status);
+  console.log("Response Headers:", error.response.headers);
+  console.log("Response Data:", error.response.data);
+})
+.finally(() => {
+  // Always executed.
+});
 ```
 
 ```javascript--jquery
@@ -443,6 +557,25 @@ curl -X GET https://example.com/wp-json/cocart/v1/totals/fee/tax \
  -H "Content-Type: application/json"
 ```
 
+```javascript--node
+CoCart.get("totals/fee/tax")
+.then((response) => {
+  // Successful request
+  console.log("Response Status:", response.status);
+  console.log("Response Headers:", response.headers);
+  console.log("Response Data:", response.data);
+})
+.catch((error) => {
+  // Invalid request, for 4xx and 5xx statuses
+  console.log("Response Status:", error.response.status);
+  console.log("Response Headers:", error.response.headers);
+  console.log("Response Data:", error.response.data);
+})
+.finally(() => {
+  // Always executed.
+});
+```
+
 ```javascript--jquery
 var settings = {
   "url": "https://example.com/wp-json/cocart/v1/totals/fee/tax",
@@ -496,6 +629,25 @@ $body = wp_remote_retrieve_body( $response );
 ```shell
 curl -X GET https://example.com/wp-json/cocart/v1/totals/shipping \
  -H "Content-Type: application/json"
+```
+
+```javascript--node
+CoCart.get("totals/shipping")
+.then((response) => {
+  // Successful request
+  console.log("Response Status:", response.status);
+  console.log("Response Headers:", response.headers);
+  console.log("Response Data:", response.data);
+})
+.catch((error) => {
+  // Invalid request, for 4xx and 5xx statuses
+  console.log("Response Status:", error.response.status);
+  console.log("Response Headers:", error.response.headers);
+  console.log("Response Data:", error.response.data);
+})
+.finally(() => {
+  // Always executed.
+});
 ```
 
 ```javascript--jquery
@@ -553,6 +705,25 @@ curl -X GET https://example.com/wp-json/cocart/v1/totals/shipping/tax \
  -H "Content-Type: application/json"
 ```
 
+```javascript--node
+CoCart.get("totals/shipping/tax")
+.then((response) => {
+  // Successful request
+  console.log("Response Status:", response.status);
+  console.log("Response Headers:", response.headers);
+  console.log("Response Data:", response.data);
+})
+.catch((error) => {
+  // Invalid request, for 4xx and 5xx statuses
+  console.log("Response Status:", error.response.status);
+  console.log("Response Headers:", error.response.headers);
+  console.log("Response Data:", error.response.data);
+})
+.finally(() => {
+  // Always executed.
+});
+```
+
 ```javascript--jquery
 var settings = {
   "url": "https://example.com/wp-json/cocart/v1/totals/shipping/tax",
@@ -606,6 +777,25 @@ $body = wp_remote_retrieve_body( $response );
 ```shell
 curl -X GET https://example.com/wp-json/cocart/v1/totals/subtotal \
  -H "Content-Type: application/json"
+```
+
+```javascript--node
+CoCart.get("totals/subtotal")
+.then((response) => {
+  // Successful request
+  console.log("Response Status:", response.status);
+  console.log("Response Headers:", response.headers);
+  console.log("Response Data:", response.data);
+})
+.catch((error) => {
+  // Invalid request, for 4xx and 5xx statuses
+  console.log("Response Status:", error.response.status);
+  console.log("Response Headers:", error.response.headers);
+  console.log("Response Data:", error.response.data);
+})
+.finally(() => {
+  // Always executed.
+});
 ```
 
 ```javascript--jquery
@@ -669,6 +859,25 @@ curl -X GET https://example.com/wp-json/cocart/v1/totals/subtotal/tax \
  -H "Content-Type: application/json"
 ```
 
+```javascript--node
+CoCart.get("totals/subtotal/tax")
+.then((response) => {
+  // Successful request
+  console.log("Response Status:", response.status);
+  console.log("Response Headers:", response.headers);
+  console.log("Response Data:", response.data);
+})
+.catch((error) => {
+  // Invalid request, for 4xx and 5xx statuses
+  console.log("Response Status:", error.response.status);
+  console.log("Response Headers:", error.response.headers);
+  console.log("Response Data:", error.response.data);
+})
+.finally(() => {
+  // Always executed.
+});
+```
+
 ```javascript--jquery
 var settings = {
   "url": "https://example.com/wp-json/cocart/v1/totals/subtotal/tax",
@@ -724,6 +933,25 @@ curl -X GET https://example.com/wp-json/cocart/v1/totals/tax \
  -H "Content-Type: application/json"
 ```
 
+```javascript--node
+CoCart.get("totals/tax")
+.then((response) => {
+  // Successful request
+  console.log("Response Status:", response.status);
+  console.log("Response Headers:", response.headers);
+  console.log("Response Data:", response.data);
+})
+.catch((error) => {
+  // Invalid request, for 4xx and 5xx statuses
+  console.log("Response Status:", error.response.status);
+  console.log("Response Headers:", error.response.headers);
+  console.log("Response Data:", error.response.data);
+})
+.finally(() => {
+  // Always executed.
+});
+```
+
 ```javascript--jquery
 var settings = {
   "url": "https://example.com/wp-json/cocart/v1/totals/tax",
@@ -777,6 +1005,25 @@ $body = wp_remote_retrieve_body( $response );
 ```shell
 curl -X GET https://example.com/wp-json/cocart/v1/totals/total \
  -H "Content-Type: application/json"
+```
+
+```javascript--node
+CoCart.get("totals/total")
+.then((response) => {
+  // Successful request
+  console.log("Response Status:", response.status);
+  console.log("Response Headers:", response.headers);
+  console.log("Response Data:", response.data);
+})
+.catch((error) => {
+  // Invalid request, for 4xx and 5xx statuses
+  console.log("Response Status:", error.response.status);
+  console.log("Response Headers:", error.response.headers);
+  console.log("Response Data:", error.response.data);
+})
+.finally(() => {
+  // Always executed.
+});
 ```
 
 ```javascript--jquery

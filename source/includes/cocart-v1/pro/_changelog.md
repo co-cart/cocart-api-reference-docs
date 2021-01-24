@@ -2,11 +2,16 @@
 
 The Documentation is updated only when needed. Below is the changelog for "CoCart Pro" documentation that matches with the version of the plugin release.
 
-## Doc Version 0.7
+## Doc Version 0.8
 
-* Removed `'Content-Type: application/json'` from cURL examples.
+* NEW: Added the following sections: **Authentication**, **Cart Key** and **Libraries**.
+* NEW: Node.js examples added for our official library.
+
+### Doc Version 0.7
+
+* NEW: Added the following sections: **Getting Started**, **WooCommerce Extensions**, **wp-config.php** and **Tools**.
 * Added link to view list of state codes for calculating shipping.
-* Added the following sections: **Getting Started**, **WooCommerce Extensions**, **wp-config.php** and **Tools**.
+* Removed `'Content-Type: application/json'` from cURL examples.
 
 ### Doc Version 0.6
 

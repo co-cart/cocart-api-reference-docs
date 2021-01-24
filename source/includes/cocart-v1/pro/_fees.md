@@ -28,6 +28,25 @@ curl -X POST https://example.com/wp-json/cocart/v1/calculate/fees \
   -H "Content-Type: application/json"
 ```
 
+```javascript--node
+CoCart.post("calculate/fees")
+.then((response) => {
+  // Successful request
+  console.log("Response Status:", response.status);
+  console.log("Response Headers:", response.headers);
+  console.log("Response Data:", response.data);
+})
+.catch((error) => {
+  // Invalid request, for 4xx and 5xx statuses
+  console.log("Response Status:", error.response.status);
+  console.log("Response Headers:", error.response.headers);
+  console.log("Response Data:", error.response.data);
+})
+.finally(() => {
+  // Always executed.
+});
+```
+
 ```javascript--jquery
 var settings = {
   "url": "https://example.com/wp-json/cocart/v1/calculate/fees",
@@ -95,6 +114,25 @@ This API returns all applied fees to the cart.
 ```shell
 curl -X GET https://example.com/wp-json/cocart/v1/fees \
   -H "Content-Type: application/json"
+```
+
+```javascript--node
+CoCart.get("fees")
+.then((response) => {
+  // Successful request
+  console.log("Response Status:", response.status);
+  console.log("Response Headers:", response.headers);
+  console.log("Response Data:", response.data);
+})
+.catch((error) => {
+  // Invalid request, for 4xx and 5xx statuses
+  console.log("Response Status:", error.response.status);
+  console.log("Response Headers:", error.response.headers);
+  console.log("Response Data:", error.response.data);
+})
+.finally(() => {
+  // Always executed.
+});
 ```
 
 ```javascript--jquery
@@ -183,6 +221,30 @@ curl -X POST https://example.com/wp-json/cocart/v1/fees \
   }'
 ```
 
+```javascript--node
+var data = {
+  "name": "Extra Package Protection",
+  "amount": "40"
+};
+
+CoCart.post("fees", data)
+.then((response) => {
+  // Successful request
+  console.log("Response Status:", response.status);
+  console.log("Response Headers:", response.headers);
+  console.log("Response Data:", response.data);
+})
+.catch((error) => {
+  // Invalid request, for 4xx and 5xx statuses
+  console.log("Response Status:", error.response.status);
+  console.log("Response Headers:", error.response.headers);
+  console.log("Response Data:", error.response.data);
+})
+.finally(() => {
+  // Always executed.
+});
+```
+
 ```javascript--jquery
 var settings = {
   "url": "https://example.com/wp-json/cocart/v1/fees",
@@ -267,6 +329,25 @@ This API removes all fees from the cart.
 ```shell
 curl -X DELETE https://example.com/wp-json/cocart/v1/fees \
   -H "Content-Type: application/json" \
+```
+
+```javascript--node
+CoCart.delete("fees")
+.then((response) => {
+  // Successful request
+  console.log("Response Status:", response.status);
+  console.log("Response Headers:", response.headers);
+  console.log("Response Data:", response.data);
+})
+.catch((error) => {
+  // Invalid request, for 4xx and 5xx statuses
+  console.log("Response Status:", error.response.status);
+  console.log("Response Headers:", error.response.headers);
+  console.log("Response Data:", error.response.data);
+})
+.finally(() => {
+  // Always executed.
+});
 ```
 
 ```javascript--jquery

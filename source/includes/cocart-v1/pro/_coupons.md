@@ -29,6 +29,25 @@ curl -X GET https://example.com/wp-json/cocart/v1/coupon \
   -H "Content-Type: application/json"
 ```
 
+```javascript--node
+CoCart.get("coupon")
+.then((response) => {
+  // Successful request
+  console.log("Response Status:", response.status);
+  console.log("Response Headers:", response.headers);
+  console.log("Response Data:", response.data);
+})
+.catch((error) => {
+  // Invalid request, for 4xx and 5xx statuses
+  console.log("Response Status:", error.response.status);
+  console.log("Response Headers:", error.response.headers);
+  console.log("Response Data:", error.response.data);
+})
+.finally(() => {
+  // Always executed.
+});
+```
+
 ```javascript--jquery
 var settings = {
   "url": "https://example.com/wp-json/cocart/v1/coupon",
@@ -95,6 +114,29 @@ curl -X POST https://example.com/wp-json/cocart/v1/coupon \
   -d '{
     "coupon": "summer20"
   }'
+```
+
+```javascript--node
+var data = {
+  "coupon": "summer20"
+};
+
+CoCart.post("coupon", data)
+.then((response) => {
+  // Successful request
+  console.log("Response Status:", response.status);
+  console.log("Response Headers:", response.headers);
+  console.log("Response Data:", response.data);
+})
+.catch((error) => {
+  // Invalid request, for 4xx and 5xx statuses
+  console.log("Response Status:", error.response.status);
+  console.log("Response Headers:", error.response.headers);
+  console.log("Response Data:", error.response.data);
+})
+.finally(() => {
+  // Always executed.
+});
 ```
 
 ```javascript--jquery
@@ -185,6 +227,29 @@ curl -X DELETE https://example.com/wp-json/cocart/v1/coupon \
   }'
 ```
 
+```javascript--node
+var data = {
+  "coupon": "summer20"
+};
+
+CoCart.delete("coupon", data)
+.then((response) => {
+  // Successful request
+  console.log("Response Status:", response.status);
+  console.log("Response Headers:", response.headers);
+  console.log("Response Data:", response.data);
+})
+.catch((error) => {
+  // Invalid request, for 4xx and 5xx statuses
+  console.log("Response Status:", error.response.status);
+  console.log("Response Headers:", error.response.headers);
+  console.log("Response Data:", error.response.data);
+})
+.finally(() => {
+  // Always executed.
+});
+```
+
 ```javascript--jquery
 var settings = {
   "url": "https://example.com/wp-json/cocart/v1/coupon",
@@ -269,6 +334,25 @@ Checks applied coupons to see if they are still valid or if they have expired or
 ```shell
 curl -X GET https://example.com/wp-json/cocart/v1/check-coupons \
   -H "Content-Type: application/json"
+```
+
+```javascript--node
+CoCart.get("check-coupons")
+.then((response) => {
+  // Successful request
+  console.log("Response Status:", response.status);
+  console.log("Response Headers:", response.headers);
+  console.log("Response Data:", response.data);
+})
+.catch((error) => {
+  // Invalid request, for 4xx and 5xx statuses
+  console.log("Response Status:", error.response.status);
+  console.log("Response Headers:", error.response.headers);
+  console.log("Response Data:", error.response.data);
+})
+.finally(() => {
+  // Always executed.
+});
 ```
 
 ```javascript--jquery

@@ -1,8 +1,9 @@
 ---
-title: CoCart Pro Documentation v0.7
+title: CoCart Pro Documentation v0.8
 
 language_tabs:
  - shell: cURL
+ - javascript--node: Node.js
  - javascript--jquery: jQuery
  - php: PHP
  - php--wp-http-api: WP API
@@ -17,6 +18,8 @@ includes:
   - cocart-v1/pro/introduction
   - cocart-v1/pro/getting-started
   - cocart-v1/pro/errors
+  - cocart-v1/authentication
+  - cocart-v1/cart-key
   - cocart-v1/pro/coupons
   - cocart-v1/pro/cross-sells
   - cocart-v1/pro/customer
@@ -29,6 +32,7 @@ includes:
   - cocart-v1/pro/totals
   - woocommerce-extensions
   - wp-config.php
+  - libraries
   - tools
   - cocart-v1/pro/changelog
 

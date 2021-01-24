@@ -4,7 +4,7 @@ Below is the changelog for "CoCart Lite" documentation that matches with the ver
 
 ## Doc Version v2.9
 
-* NEW: Added library section.
+* NEW: Added **Libraries** section.
 * NEW: Node.js examples added for our official library.
 
 ## Doc Version v2.8.4
