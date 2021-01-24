@@ -1,8 +1,9 @@
 ---
-title: CoCart Documentation v2.8.4
+title: CoCart Documentation v2.9
 
 language_tabs:
  - shell: cURL
+ - javascript--node: Node.js
  - javascript--jquery: jQuery
  - php: PHP
  - php--wp-http-api: WP API
@@ -45,6 +46,7 @@ includes:
   - woocommerce-extensions
   - wp-config.php
   - demo
+  - libraries
   - tools
   - changelog
   - contribute

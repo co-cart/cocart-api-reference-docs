@@ -36,6 +36,25 @@ curl -X GET https://example.com/wp-json/cocart/v1/get-cart \
   -H "Content-Type: application/json"
 ```
 
+```javascript--node
+CoCart.get("get-cart")
+.then((response) => {
+  // Successful request
+  console.log("Response Status:", response.status);
+  console.log("Response Headers:", response.headers);
+  console.log("Response Data:", response.data);
+})
+.catch((error) => {
+  // Invalid request, for 4xx and 5xx statuses
+  console.log("Response Status:", error.response.status);
+  console.log("Response Headers:", error.response.headers);
+  console.log("Response Data:", error.response.data);
+})
+.finally(() => {
+  // Always executed.
+});
+```
+
 ```javascript--jquery
 var settings = {
   "url": "https://example.com/wp-json/cocart/v1/get-cart",
@@ -114,6 +133,27 @@ curl -X GET https://example.com/wp-json/cocart/v1/get-cart \
   -d '{
     "thumb": true
   }'
+```
+
+```javascript--node
+CoCart.get("get-cart", {
+  thumb: true
+})
+.then((response) => {
+  // Successful request
+  console.log("Response Status:", response.status);
+  console.log("Response Headers:", response.headers);
+  console.log("Response Data:", response.data);
+})
+.catch((error) => {
+  // Invalid request, for 4xx and 5xx statuses
+  console.log("Response Status:", error.response.status);
+  console.log("Response Headers:", error.response.headers);
+  console.log("Response Data:", error.response.data);
+})
+.finally(() => {
+  // Always executed.
+});
 ```
 
 ```javascript--jquery
@@ -233,6 +273,25 @@ curl -X GET https://example.com/wp-json/cocart/v1/get-cart?cart_key=9e18904482b4
   -H "Content-Type: application/json"
 ```
 
+```javascript--node
+CoCart.get("get-cart?cart_key=9e18904482b4faf8762361836a83b93d")
+.then((response) => {
+  // Successful request
+  console.log("Response Status:", response.status);
+  console.log("Response Headers:", response.headers);
+  console.log("Response Data:", response.data);
+})
+.catch((error) => {
+  // Invalid request, for 4xx and 5xx statuses
+  console.log("Response Status:", error.response.status);
+  console.log("Response Headers:", error.response.headers);
+  console.log("Response Data:", error.response.data);
+})
+.finally(() => {
+  // Always executed.
+});
+```
+
 ```javascript--jquery
 var settings = {
   "url": "https://example.com/wp-json/cocart/v1/get-cart?cart_key=9e18904482b4faf8762361836a83b93d",
@@ -304,6 +363,25 @@ This API allows you to retrieve a cart stored in the database that is in session
 ```shell
 curl -X GET https://example.com/wp-json/cocart/v1/get-cart/9e18904482b4faf8762361836a83b93d \
   -H "Content-Type: application/json" \
+```
+
+```javascript--node
+CoCart.get("get-cart/9e18904482b4faf8762361836a83b93d")
+.then((response) => {
+  // Successful request
+  console.log("Response Status:", response.status);
+  console.log("Response Headers:", response.headers);
+  console.log("Response Data:", response.data);
+})
+.catch((error) => {
+  // Invalid request, for 4xx and 5xx statuses
+  console.log("Response Status:", error.response.status);
+  console.log("Response Headers:", error.response.headers);
+  console.log("Response Data:", error.response.data);
+})
+.finally(() => {
+  // Always executed.
+});
 ```
 
 ```javascript--jquery

@@ -2,6 +2,11 @@
 
 Below is the changelog for "CoCart Lite" documentation that matches with the version of the plugin release.
 
+## Doc Version v2.9
+
+* NEW: Added library section.
+* NEW: Node.js examples added for our official library.
+
 ## Doc Version v2.8.4
 
 * Removed `'Content-Type: application/json'` from cURL examples.
