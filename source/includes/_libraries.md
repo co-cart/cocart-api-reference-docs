@@ -2,7 +2,7 @@
 
 <img src="images/github.svg" width="20" height="20" alt="GitHub Mark Logo"> [Edit on GitHub](https://github.com/co-cart/co-cart-docs/blob/master/source/includes/_libraries.md)
 
-- [JavaScript](https://www.npmjs.com/package/@cocart/cocart-rest-api) Library
+- [Node.js](https://www.npmjs.com/package/@cocart/cocart-rest-api) Library
 
 ```javascript--node
 npm install --save @cocart/cocart-rest-api
