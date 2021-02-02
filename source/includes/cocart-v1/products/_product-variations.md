@@ -4,6 +4,9 @@
 
 The product variations API allows you to view individual or a batch of product variations.
 
+ * [List all product variations](#product-variations-list-all-product-variations)
+ * [Retrieve a product variation](#product-variations-retrieve-a-product-variation)
+
 ## Product variation attributes ##
 
 | Attribute               | Type      | Description                                                                                                     |
@@ -94,6 +97,64 @@ This API lets you retrieve and view a specific product variation by ID.
 ```shell
 curl -X GET https://example.com/wp-json/cocart/v1/products/162/variations/176 \
   -H "Content-Type: application/json" \
+```
+
+```javascript--node
+CoCart.get("products/162/variations/176")
+.then((response) => {
+  // Successful request
+  console.log("Response Status:", response.status);
+  console.log("Response Headers:", response.headers);
+  console.log("Response Data:", response.data);
+})
+.catch((error) => {
+  // Invalid request, for 4xx and 5xx statuses
+  console.log("Response Status:", error.response.status);
+  console.log("Response Headers:", error.response.headers);
+  console.log("Response Data:", error.response.data);
+})
+.finally(() => {
+  // Always executed.
+});
+```
+
+```javascript--jquery
+var settings = {
+  "url": "https://example.com/wp-json/cocart/v1/products/162/variations/176",
+  "method": "GET"
+};
+
+$.ajax(settings).done(function (response) {
+  console.log(response);
+});
+```
+
+```php
+<?php
+$curl = curl_init();
+
+curl_setopt_array( $curl, array(
+  CURLOPT_URL => "https://example.com/wp-json/cocart/v1/products/162/variations/176",
+  CURLOPT_CUSTOMREQUEST => "GET",
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_TIMEOUT => 30,
+  CURLOPT_HTTPHEADER => array(
+    'Accept: application/json',
+    'User-Agent: CoCart API/v1',
+  )
+) );
+
+$response = curl_exec($curl);
+
+curl_close($curl);
+
+echo $response;
+```
+
+```php--wp-http-api
+<?php
+$response = wp_remote_get( 'https://example.com/wp-json/cocart/v1/products/162/variations/176' );
+$body = wp_remote_retrieve_body( $response );
 ```
 
 > JSON response example:
@@ -202,6 +263,64 @@ This API helps you to view all the product variations.
 ```shell
 curl -X GET https://example.com/wp-json/cocart/v1/products/22/variations \
   -H "Content-Type: application/json" \
+```
+
+```javascript--node
+CoCart.get("products/22/variations")
+.then((response) => {
+  // Successful request
+  console.log("Response Status:", response.status);
+  console.log("Response Headers:", response.headers);
+  console.log("Response Data:", response.data);
+})
+.catch((error) => {
+  // Invalid request, for 4xx and 5xx statuses
+  console.log("Response Status:", error.response.status);
+  console.log("Response Headers:", error.response.headers);
+  console.log("Response Data:", error.response.data);
+})
+.finally(() => {
+  // Always executed.
+});
+```
+
+```javascript--jquery
+var settings = {
+  "url": "https://example.com/wp-json/cocart/v1/products/22/variations",
+  "method": "GET"
+};
+
+$.ajax(settings).done(function (response) {
+  console.log(response);
+});
+```
+
+```php
+<?php
+$curl = curl_init();
+
+curl_setopt_array( $curl, array(
+  CURLOPT_URL => "https://example.com/wp-json/cocart/v1/products/22/variations",
+  CURLOPT_CUSTOMREQUEST => "GET",
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_TIMEOUT => 30,
+  CURLOPT_HTTPHEADER => array(
+    'Accept: application/json',
+    'User-Agent: CoCart API/v1',
+  )
+) );
+
+$response = curl_exec($curl);
+
+curl_close($curl);
+
+echo $response;
+```
+
+```php--wp-http-api
+<?php
+$response = wp_remote_get( 'https://example.com/wp-json/cocart/v1/products/22/variations' );
+$body = wp_remote_retrieve_body( $response );
 ```
 
 > JSON response example:
