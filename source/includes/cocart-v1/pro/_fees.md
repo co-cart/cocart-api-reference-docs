@@ -86,8 +86,6 @@ $response = wp_remote_post( 'https://example.com/wp-json/cocart/v1/calculate/fee
 $body = wp_remote_retrieve_body( $response );
 ```
 
-> JSON response example
-
 ```json
 "Cart fees have been calculated."
 ```
@@ -173,8 +171,6 @@ echo $response;
 $response = wp_remote_get( 'https://example.com/wp-json/cocart/v1/fees' );
 $body = wp_remote_retrieve_body( $response );
 ```
-
-> JSON response example for returning already applied fees.
 
 ```json
 {
@@ -299,8 +295,6 @@ $response = wp_remote_post( 'https://example.com/wp-json/cocart/v1/fees', $args 
 $body = wp_remote_retrieve_body( $response );
 ```
 
-> JSON response example.
-
 ```json
 {
     "Fee \"Extra Package Protection\" for £40.00 has been added."
@@ -391,8 +385,6 @@ $args = array(
 $response = wp_remote_request( 'https://example.com/wp-json/cocart/v1/fees', $args );
 $body = wp_remote_retrieve_body( $response );
 ```
-
-> JSON response example.
 
 ```json
 {

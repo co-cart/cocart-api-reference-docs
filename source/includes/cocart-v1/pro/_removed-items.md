@@ -82,8 +82,6 @@ $response = wp_remote_get( 'https://example.com/wp-json/cocart/v1/removed-items'
 $body = wp_remote_retrieve_body( $response );
 ```
 
-> JSON response example
-
 ```json
 {
   "40d8882729aa85d43fe007db12880105": {

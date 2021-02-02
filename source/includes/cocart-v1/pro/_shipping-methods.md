@@ -124,8 +124,6 @@ $response = wp_remote_post( 'https://example.com/wp-json/cocart/v1/calculate/shi
 $body = wp_remote_retrieve_body( $response );
 ```
 
-> JSON response example
-
 ```json
 "Shipping costs updated."
 ```
@@ -215,8 +213,6 @@ echo $response;
 $response = wp_remote_get( 'https://example.com/wp-json/cocart/v1/shipping-methods' );
 $body = wp_remote_retrieve_body( $response );
 ```
-
-> JSON response example
 
 ```json
 {
@@ -356,8 +352,6 @@ $args = array(
 $response = wp_remote_post( 'https://example.com/wp-json/cocart/v1/shipping-methods', $args );
 $body = wp_remote_retrieve_body( $response );
 ```
-
-> JSON response example.
 
 ```json
 true

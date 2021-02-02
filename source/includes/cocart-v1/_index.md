@@ -80,8 +80,6 @@ $response = wp_remote_get( 'https://example.com/wp-json/cocart/v1' );
 $body = wp_remote_retrieve_body( $response );
 ```
 
-> JSON response example:
-
 ```json
 {
     "namespace": "cocart/v1",

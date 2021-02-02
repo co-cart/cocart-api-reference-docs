@@ -94,8 +94,6 @@ $response = wp_remote_get( 'https://example.com/wp-json/cocart/v1/get-cart' );
 $body = wp_remote_retrieve_body( $response );
 ```
 
-> JSON response example
-
 ```json
 {
   "19ca14e7ea6328a42e0eb13d585e4c22":{
@@ -211,8 +209,6 @@ $args = array(
 $response = wp_remote_get( 'https://example.com/wp-json/cocart/v1/get-cart', $args );
 $body = wp_remote_retrieve_body( $response );
 ```
-
-> JSON response example
 
 ```json
 {
@@ -422,8 +418,6 @@ echo $response;
 $response = wp_remote_get( 'https://example.com/wp-json/cocart/v1/get-cart/9e18904482b4faf8762361836a83b93d' );
 $body = wp_remote_retrieve_body( $response );
 ```
-
-> JSON response example
 
 ```json
 {

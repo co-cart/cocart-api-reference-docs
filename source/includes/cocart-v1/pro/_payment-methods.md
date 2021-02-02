@@ -86,8 +86,6 @@ $response = wp_remote_get( 'https://example.com/wp-json/cocart/v1/payment-method
 $body = wp_remote_retrieve_body( $response );
 ```
 
-> JSON response example
-
 ```json
 {
     "bacs": {
@@ -282,8 +280,6 @@ $args = array(
 $response = wp_remote_post( 'https://example.com/wp-json/cocart/v1/payment-methods', $args );
 $body = wp_remote_retrieve_body( $response );
 ```
-
-> JSON response example.
 
 ```json
 true

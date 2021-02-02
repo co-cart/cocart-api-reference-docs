@@ -87,8 +87,6 @@ $response = wp_remote_get( 'https://example.com/wp-json/cocart/v1/coupon' );
 $body = wp_remote_retrieve_body( $response );
 ```
 
-> JSON response example for returning already applied coupons.
-
 ```json
 {
   "summer20"
@@ -195,8 +193,6 @@ $args = array(
 $response = wp_remote_post( 'https://example.com/wp-json/cocart/v1/coupon', $args );
 $body = wp_remote_retrieve_body( $response );
 ```
-
-> JSON response example.
 
 ```json
 {
@@ -308,8 +304,6 @@ $response = wp_remote_request( 'https://example.com/wp-json/cocart/v1/coupon', $
 $body = wp_remote_retrieve_body( $response );
 ```
 
-> JSON response example.
-
 ```json
 {
     "message": "Coupon was successfully removed from cart.",
@@ -393,8 +387,6 @@ echo $response;
 $response = wp_remote_get( 'https://example.com/wp-json/cocart/v1/check-coupons' );
 $body = wp_remote_retrieve_body( $response );
 ```
-
-> JSON response example.
 
 ```json
 "Coupons applied are still valid!"

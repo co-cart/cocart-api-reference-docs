@@ -115,8 +115,6 @@ $response = wp_remote_post( 'https://example.com/wp-json/cocart/v1/item', $args 
 $body = wp_remote_retrieve_body( $response );
 ```
 
-> JSON response example
-
 ```json
 {
   "message":"The quantity for 'Woo T-Shirt' has increased to '2'.",

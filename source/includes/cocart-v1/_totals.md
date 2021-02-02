@@ -88,8 +88,6 @@ $response = wp_remote_get( 'https://example.com/wp-json/cocart/v1/totals' );
 $body = wp_remote_retrieve_body( $response );
 ```
 
-> JSON response example
-
 ```json
 {
   "subtotal":"123.00",
@@ -168,8 +166,6 @@ $args = array(
 $response = wp_remote_get( 'https://example.com/wp-json/cocart/v1/totals', $args );
 $body = wp_remote_retrieve_body( $response );
 ```
-
-> JSON response example
 
 ```json
 {

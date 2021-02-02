@@ -91,8 +91,6 @@ $response = wp_remote_post( 'https://example.com/wp-json/cocart/v1/calculate' );
 $body = wp_remote_retrieve_body( $response );
 ```
 
-> JSON response example
-
 ```json
 "Cart totals have been calculated."
 ```
@@ -180,8 +178,6 @@ echo $response;
 $response = wp_remote_get( 'https://example.com/wp-json/cocart/v1/totals' );
 $body = wp_remote_retrieve_body( $response );
 ```
-
-> JSON response example
 
 ```json
 {
@@ -295,8 +291,6 @@ $response = wp_remote_get( 'https://example.com/wp-json/cocart/v1/totals/discoun
 $body = wp_remote_retrieve_body( $response );
 ```
 
-> JSON response example
-
 ```json
 "£8.40"
 ```
@@ -378,8 +372,6 @@ echo $response;
 $response = wp_remote_get( 'https://example.com/wp-json/cocart/v1/totals/discount/coupon-totals' );
 $body = wp_remote_retrieve_body( $response );
 ```
-
-> JSON response example
 
 ```json
 {
@@ -534,8 +526,6 @@ echo $response;
 $response = wp_remote_get( 'https://example.com/wp-json/cocart/v1/totals/fee' );
 $body = wp_remote_retrieve_body( $response );
 ```
-
-> JSON response example
 
 ```json
 "£40.00"
@@ -837,8 +827,6 @@ $response = wp_remote_get( 'https://example.com/wp-json/cocart/v1/totals/subtota
 $body = wp_remote_retrieve_body( $response );
 ```
 
-> JSON response example
-
 ```json
 "£42.00"
 ```
@@ -1064,8 +1052,6 @@ echo $response;
 $response = wp_remote_get( 'https://example.com/wp-json/cocart/v1/totals/total' );
 $body = wp_remote_retrieve_body( $response );
 ```
-
-> JSON response example
 
 ```json
 "£33.60"

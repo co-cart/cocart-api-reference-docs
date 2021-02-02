@@ -107,8 +107,6 @@ $response = wp_remote_get( 'https://example.com/wp-json/cocart/v1/item', $args )
 $body = wp_remote_retrieve_body( $response );
 ```
 
-> JSON response example
-
 ```json
 "Item has been restored to the cart.""
 ```
