@@ -12,6 +12,7 @@ toc_footers:
 
 includes:
   - cocart-v1/products/introduction
+  - cocart-v1/products/getting-started
   - cocart-v1/products/errors
   - cocart-v1/products/products
   - cocart-v1/products/product-variations
