@@ -31,7 +31,7 @@ curl -X GET https://example.com/wp-json/cocart/v1/totals \
 ```
 
 ```javascript--node
-CoCart.get("totals", data)
+CoCart.get("totals")
 .then((response) => {
   // Successful request
   console.log("Response Status:", response.status);

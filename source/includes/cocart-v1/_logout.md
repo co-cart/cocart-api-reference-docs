@@ -25,7 +25,7 @@ curl -X POST https://example.com/wp-json/cocart/v1/logout \
 ```
 
 ```javascript--node
-CoCart.post("logout", data)
+CoCart.post("logout")
 .then((response) => {
   // Successful request
   console.log("Response Status:", response.status);
