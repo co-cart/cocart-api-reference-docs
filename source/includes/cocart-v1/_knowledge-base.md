@@ -6,8 +6,6 @@
 
 Each item added to the cart has it's on cart item key and you will find it under the property labelled **"key"**. Use it to update, remove or restore an item in/from the cart.
 
-> Example response of locating the item key.
-
 ```json
 {
   "19ca14e7ea6328a42e0eb13d585e4c22":{
