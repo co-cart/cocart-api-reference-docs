@@ -344,7 +344,7 @@ This API allows you to retrieve a cart stored in the database that is in session
 </aside>
 
 <aside class="notice">
-  If the cart you requested does not return then the cart in session either does not exist or has expired. By default, carts are stored in the database for 30 days from the last cart update.
+  If the cart you requested does not return then the cart in session either does not exist or has expired. By default, carts are stored in the database for 7 days from the last cart update.
 </aside>
 
 ### HTTP request ###
