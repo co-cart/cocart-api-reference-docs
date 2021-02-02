@@ -1,15 +1,17 @@
-# F.A.Q. #
+# Knowledge Base #
+
+<img src="images/github.svg" width="20" height="20" alt="GitHub Mark Logo"> [Edit on GitHub](https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v1/_knowledge-base.md)
 
 ## Where can I find a cart item key? ##
 
-Each item added to the cart has it's on cart item key and you will find it under the property labelled "key". Use it to update, remove or restore an item in/from the cart.
+Each item added to the cart has it's on cart item key and you will find it under the property labelled **"key"**. Use it to update, remove or restore an item in/from the cart.
 
-> When viewing the cart you will find the key.
+> Example response of locating the item key.
 
 ```json
 {
   "19ca14e7ea6328a42e0eb13d585e4c22":{
-    "key":"19ca14e7ea6328a42e0eb13d585e4c22", // This is the key.
+    "key":"19ca14e7ea6328a42e0eb13d585e4c22", // This is the item key.
     "product_id":36,
     "variation_id":0,
     ...
@@ -28,10 +30,16 @@ For example, you started customer "A" as a guest adding an item to the cart. You
 
 When you do this, WooCommerce thinks you are still the same customer so it merges the cart items together for customer "B" while customer "A" is removed from session as it is no longer a guest customer.
 
-## Is it possible to use the admin key/secret to create and update a customers cart?
+## Is it possible to use the admin key/secret to create and update a customers cart? ##
 
 Unfortunately, no. This is because when you authenticate as the admin, you are logged in not the customer. Even if you specified the customers user ID as the cart key. It will not take affect.
 
-## Does CoCart work with the Dokan plugin?
+## How can I view logs recorded ? ##
+
+If you have **WP_DEBUG** set to `true` in your [wp-config.php](#wp-config-php) file then you should be able to view all the logs recorded by CoCart under **WooCommerce -> System Status -> Logs** in your WordPress dashboard.
+
+URL Example: `https://example.com/wp-admin/admin.php?page=wc-status&tab=logs`
+
+## Does CoCart work with the Dokan plugin? ##
 
 Yes. The only feature you wont be able to use are coupons. This is because Dokan disables the use of coupons. All other features are compatible.

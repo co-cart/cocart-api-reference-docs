@@ -21,7 +21,7 @@ includes:
   - cocart-v1/getting-started
   - cocart-v1/errors
   - cocart-v1/index
-  - cocart-v1/faq
+  - cocart-v1/knowledge-base
   - cocart-v1/authentication
   - cocart-v1/cart-key
   - cocart-v1/cookie
