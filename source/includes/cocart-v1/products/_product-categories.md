@@ -4,6 +4,9 @@
 
 The product categories API allows you to view all or individual product categories.
 
+ * [List all product categories](#product-categories-list-all-product-categories)
+ * [Retrieve a product category](#product-categories-retrieve-a-product-category)
+
 ## Product category attributes ##
 
 | Attribute     | Type    | Description                                                                                                      |
@@ -45,6 +48,64 @@ This API lets you retrieve a product category by ID.
 ```shell
 curl https://example.com/wp-json/cocart/v1/products/categories/9 \
   -H "Content-Type: application/json" \
+```
+
+```javascript--node
+CoCart.get("products/categories/9")
+.then((response) => {
+  // Successful request
+  console.log("Response Status:", response.status);
+  console.log("Response Headers:", response.headers);
+  console.log("Response Data:", response.data);
+})
+.catch((error) => {
+  // Invalid request, for 4xx and 5xx statuses
+  console.log("Response Status:", error.response.status);
+  console.log("Response Headers:", error.response.headers);
+  console.log("Response Data:", error.response.data);
+})
+.finally(() => {
+  // Always executed.
+});
+```
+
+```javascript--jquery
+var settings = {
+  "url": "https://example.com/wp-json/cocart/v1/products/categories/9",
+  "method": "GET"
+};
+
+$.ajax(settings).done(function (response) {
+  console.log(response);
+});
+```
+
+```php
+<?php
+$curl = curl_init();
+
+curl_setopt_array( $curl, array(
+  CURLOPT_URL => "https://example.com/wp-json/cocart/v1/products/categories/9",
+  CURLOPT_CUSTOMREQUEST => "GET",
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_TIMEOUT => 30,
+  CURLOPT_HTTPHEADER => array(
+    'Accept: application/json',
+    'User-Agent: CoCart API/v1',
+  )
+) );
+
+$response = curl_exec($curl);
+
+curl_close($curl);
+
+echo $response;
+```
+
+```php--wp-http-api
+<?php
+$response = wp_remote_get( 'https://example.com/wp-json/cocart/v1/products/categories/9' );
+$body = wp_remote_retrieve_body( $response );
 ```
 
 > JSON response example:
@@ -98,6 +159,64 @@ This API lets you retrieve all product categories.
 ```shell
 curl https://example.com/wp-json/cocart/v1/products/categories \
   -H "Content-Type: application/json" \
+```
+
+```javascript--node
+CoCart.get("products/categories")
+.then((response) => {
+  // Successful request
+  console.log("Response Status:", response.status);
+  console.log("Response Headers:", response.headers);
+  console.log("Response Data:", response.data);
+})
+.catch((error) => {
+  // Invalid request, for 4xx and 5xx statuses
+  console.log("Response Status:", error.response.status);
+  console.log("Response Headers:", error.response.headers);
+  console.log("Response Data:", error.response.data);
+})
+.finally(() => {
+  // Always executed.
+});
+```
+
+```javascript--jquery
+var settings = {
+  "url": "https://example.com/wp-json/cocart/v1/products/categories",
+  "method": "GET"
+};
+
+$.ajax(settings).done(function (response) {
+  console.log(response);
+});
+```
+
+```php
+<?php
+$curl = curl_init();
+
+curl_setopt_array( $curl, array(
+  CURLOPT_URL => "https://example.com/wp-json/cocart/v1/products/categories",
+  CURLOPT_CUSTOMREQUEST => "GET",
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_TIMEOUT => 30,
+  CURLOPT_HTTPHEADER => array(
+    'Accept: application/json',
+    'User-Agent: CoCart API/v1',
+  )
+) );
+
+$response = curl_exec($curl);
+
+curl_close($curl);
+
+echo $response;
+```
+
+```php--wp-http-api
+<?php
+$response = wp_remote_get( 'https://example.com/wp-json/cocart/v1/products/categories' );
+$body = wp_remote_retrieve_body( $response );
 ```
 
 > JSON response example:

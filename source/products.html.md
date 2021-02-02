@@ -3,6 +3,10 @@ title: CoCart Products Documentation v0.2
 
 language_tabs:
  - shell: cURL
+ - javascript--node: Node.js
+ - javascript--jquery: jQuery
+ - php: PHP
+ - php--wp-http-api: WP API
 
 toc_footers:
   - <a href="https://cocart.xyz">CoCart</a>

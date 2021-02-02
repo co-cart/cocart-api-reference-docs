@@ -4,6 +4,9 @@
 
 The product tags API allows you to view all or individual product tags.
 
+ * [List all product tags](#product-tags-list-all-product-tags)
+ * [Retrieve a product tag](#product-tags-retrieve-a-product-tag)
+
 ## Product tag attributes ##
 
 | Attribute     | Type    | Description                                                     |
@@ -28,6 +31,64 @@ This API lets you retrieve a product tag by ID.
 ```shell
 curl https://example.com/wp-json/cocart/v1/products/tags/34 \
   -H "Content-Type: application/json" \
+```
+
+```javascript--node
+CoCart.get("products/tags/34")
+.then((response) => {
+  // Successful request
+  console.log("Response Status:", response.status);
+  console.log("Response Headers:", response.headers);
+  console.log("Response Data:", response.data);
+})
+.catch((error) => {
+  // Invalid request, for 4xx and 5xx statuses
+  console.log("Response Status:", error.response.status);
+  console.log("Response Headers:", error.response.headers);
+  console.log("Response Data:", error.response.data);
+})
+.finally(() => {
+  // Always executed.
+});
+```
+
+```javascript--jquery
+var settings = {
+  "url": "https://example.com/wp-json/cocart/v1/products/tags/34",
+  "method": "GET"
+};
+
+$.ajax(settings).done(function (response) {
+  console.log(response);
+});
+```
+
+```php
+<?php
+$curl = curl_init();
+
+curl_setopt_array( $curl, array(
+  CURLOPT_URL => "https://example.com/wp-json/cocart/v1/products/tags/34",
+  CURLOPT_CUSTOMREQUEST => "GET",
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_TIMEOUT => 30,
+  CURLOPT_HTTPHEADER => array(
+    'Accept: application/json',
+    'User-Agent: CoCart API/v1',
+  )
+) );
+
+$response = curl_exec($curl);
+
+curl_close($curl);
+
+echo $response;
+```
+
+```php--wp-http-api
+<?php
+$response = wp_remote_get( 'https://example.com/wp-json/cocart/v1/products/tags/34' );
+$body = wp_remote_retrieve_body( $response );
 ```
 
 > JSON response example:
@@ -68,6 +129,64 @@ This API lets you retrieve all product tag.
 ```shell
 curl https://example.com/wp-json/cocart/v1/products/tags \
   -H "Content-Type: application/json" \
+```
+
+```javascript--node
+CoCart.get("products/tags")
+.then((response) => {
+  // Successful request
+  console.log("Response Status:", response.status);
+  console.log("Response Headers:", response.headers);
+  console.log("Response Data:", response.data);
+})
+.catch((error) => {
+  // Invalid request, for 4xx and 5xx statuses
+  console.log("Response Status:", error.response.status);
+  console.log("Response Headers:", error.response.headers);
+  console.log("Response Data:", error.response.data);
+})
+.finally(() => {
+  // Always executed.
+});
+```
+
+```javascript--jquery
+var settings = {
+  "url": "https://example.com/wp-json/cocart/v1/products/tags",
+  "method": "GET"
+};
+
+$.ajax(settings).done(function (response) {
+  console.log(response);
+});
+```
+
+```php
+<?php
+$curl = curl_init();
+
+curl_setopt_array( $curl, array(
+  CURLOPT_URL => "https://example.com/wp-json/cocart/v1/products/tags",
+  CURLOPT_CUSTOMREQUEST => "GET",
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_TIMEOUT => 30,
+  CURLOPT_HTTPHEADER => array(
+    'Accept: application/json',
+    'User-Agent: CoCart API/v1',
+  )
+) );
+
+$response = curl_exec($curl);
+
+curl_close($curl);
+
+echo $response;
+```
+
+```php--wp-http-api
+<?php
+$response = wp_remote_get( 'https://example.com/wp-json/cocart/v1/products/tags' );
+$body = wp_remote_retrieve_body( $response );
 ```
 
 > JSON response example:
