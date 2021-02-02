@@ -1,5 +1,5 @@
 ---
-title: CoCart Products Documentation v0.2
+title: CoCart Products Documentation v0.3
 
 language_tabs:
  - shell: cURL
@@ -26,6 +26,8 @@ includes:
   - cocart-v1/products/product-tags
   - cocart-v1/products/product-reviews
   - cocart-v1/products/woocommerce-extensions
+  - libraries
+  - tools
   - cocart-v1/products/changelog
 
 search: true
