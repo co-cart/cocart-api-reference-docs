@@ -1,3 +1,7 @@
+::selection {
+  background: #F22F46;
+  color: white;
+}
 
 ////////////////////////////////////////////////////////////////////////////////
 // CUSTOM CONTENT STYLES
@@ -191,4 +195,45 @@ a.label {
   font-weight: 600;
   text-decoration: none !important;
   border-bottom: 2px solid $border-color;
+}
+
+.copy-clipboard {
+  fill: #fff !important;
+  transition: opacity 100ms !important;
+  padding: 0.4em !important;
+}
+
+.code-label {
+  position: absolute;
+  right: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.825rem;
+  font-weight: 500;
+  line-height: 1;
+  color: #fff;
+  text-align: right;
+  margin-top: 1rem !important;
+  margin-right: 1rem !important;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// CODE SAMPLE STYLES
+////////////////////////////////////////////////////////////////////////////////
+// This is all the stuff that appears in the right half of the page
+
+.content {
+  code {
+    font-size: 14px !important;
+  }
+
+  pre {
+    border-bottom: 1px solid #25287e;
+    margin: 0 !important;
+    padding: 0 !important;
+
+    &.highlight.tab-json {
+      margin-bottom: 20px !important;
+    }
+  }
 }
