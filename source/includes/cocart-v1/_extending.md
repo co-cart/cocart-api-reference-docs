@@ -2,8 +2,6 @@
 
 <img src="images/github.svg" width="20" height="20" alt="GitHub Mark Logo"> [Edit on GitHub](https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v1/_extending.md)
 
-
-
 CoCart is developer friendly even for extending support for other product types. This is useful for WooCommerce extensions developed by a 3rd party. Take the [WooCommerce Mix and Match Products](#woocommerce-extensions-mix-and-match-products) extension for example.
 
 ## Add to Cart Handler ##
