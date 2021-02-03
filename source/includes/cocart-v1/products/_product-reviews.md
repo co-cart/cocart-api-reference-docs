@@ -4,6 +4,10 @@
 
 The product reviews API allows you to view product reviews and create a product review.
 
+* [Create a product review](#product-reviews-create-a-product-review)
+* [Retrieve a product review](#product-reviews-retrieve-a-product-review)
+* [List all product reviews](#product-reviews-list-all-product-reviews)
+
 ## Product review attributes ##
 
 | Attribute          | Type    | Description                                                                   |
