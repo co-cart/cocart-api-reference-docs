@@ -33,7 +33,7 @@ Prior to WooCommerce v3.6, CoCart shared WooCommerce's REST API. You can find th
 
 To use the latest version of the CoCart you must be using:
 
-* WordPress **5.2 or later**.
+* WordPress **5.4 or later**.
 * WooCommerce **4.8 or later**.
 * PHP **7.0 or later**.
 * Pretty permalinks in `Settings > Permalinks` so that the custom endpoints are supported. **Default permalinks will not work.**
