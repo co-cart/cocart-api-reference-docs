@@ -239,6 +239,14 @@ a.label {
     code {
       border-radius: 0!important;
     }
+  }
+
+  .highlight.tab-json {
+
+    .copy-clipboard {
+      display: none;
+    }
 
   }
+
 }
