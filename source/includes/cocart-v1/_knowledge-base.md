@@ -38,6 +38,8 @@ If you have **WP_DEBUG** set to `true` in your [wp-config.php](#wp-config-php) f
 
 URL Example: `https://example.com/wp-admin/admin.php?page=wc-status&tab=logs`
 
+You can also [change how the logs are presented](#filters-api-access-cocart-logging).
+
 ## Does CoCart work with the Dokan plugin? ##
 
 Yes. The only feature you wont be able to use are coupons. This is because Dokan disables the use of coupons. All other features are compatible.
