@@ -235,5 +235,10 @@ a.label {
     &.highlight.tab-json {
       margin-bottom: 20px !important;
     }
+
+    code {
+      border-radius: 0!important;
+    }
+
   }
 }
