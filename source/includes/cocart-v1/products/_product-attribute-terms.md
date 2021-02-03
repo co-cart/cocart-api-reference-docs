@@ -31,8 +31,6 @@ curl -X GET https://example.com/wp-json/cocart/v1/products/attributes/2/terms/23
   -H "Content-Type: application/json" \
 ```
 
-> JSON response example:
-
 ```json
 {
   "id": 23,
@@ -71,8 +69,6 @@ This API lets you retrieve all terms from a product attribute.
 curl -X GET https://example.com/wp-json/cocart/v1/products/attributes/2/terms \
   -H "Content-Type: application/json" \
 ```
-
-> JSON response example:
 
 ```json
 [

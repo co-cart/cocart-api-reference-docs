@@ -92,8 +92,6 @@ $response = wp_remote_get( 'https://example.com/wp-json/cocart/v1/products/attri
 $body = wp_remote_retrieve_body( $response );
 ```
 
-> JSON response example:
-
 ```json
 {
   "id": 1,
@@ -192,8 +190,6 @@ echo $response;
 $response = wp_remote_get( 'https://example.com/wp-json/cocart/v1/products/attributes' );
 $body = wp_remote_retrieve_body( $response );
 ```
-
-> JSON response example:
 
 ```json
 [

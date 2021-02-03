@@ -47,8 +47,6 @@ curl -X POST https://example.com/wp-json/cocart/v1/products/reviews \
 }'
 ```
 
-> JSON response example:
-
 ```json
 {
 	"id": 22,
@@ -102,8 +100,6 @@ curl -X GET https://example.com/wp-json/cocart/v1/products/reviews/22 \
   -H "Content-Type: application/json" \
 ```
 
-> JSON response example:
-
 ```json
 {
 	"id": 22,
@@ -155,8 +151,6 @@ This API lets you retrieve all product reviews.
 curl -X GET https://example.com/wp-json/cocart/v1/products/reviews \
   -H "Content-Type: application/json" \
 ```
-
-> JSON response example:
 
 ```json
 [
@@ -255,8 +249,6 @@ curl -X GET https://example.com/wp-json/cocart/v1/products/reviews \
 | `reviewer_email`   | array   | Limit result set to that from a specific author email.                                                                            |
 | `product`          | array   | Limit result set to reviews assigned to specific product IDs.                                                                     |
 | `status`           | string  | Limit result set to reviews assigned a specific status. Options: `all`, `hold` and `approved`. Default is `approved`.             |
-
-> JSON response example:
 
 ```json
 {
