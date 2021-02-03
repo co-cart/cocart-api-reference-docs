@@ -2,7 +2,18 @@
 
 Below is the changelog for "CoCart Lite" documentation that matches with the version of the plugin release.
 
-## Doc Version v2.9
+## Doc Version v2.9.1
+
+* Corrected: Label for JS library.
+* Improved: Cookie section.
+* Renamed: FAQ to Knowledge Base.
+* Improved: Knowledge Base content.
+* Improved: Styling of the code examples.
+* Improved: Cart key content.
+* Improved: Load cart for the web content.
+* Improved: Extending CoCart examples now always show no matter the set language.
+
+### Doc Version v2.9
 
 * NEW: Added **Libraries** section.
 * NEW: Node.js examples added for our official library.
