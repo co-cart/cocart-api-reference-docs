@@ -4,7 +4,11 @@
 
 ## What is a Cart Key? ##
 
-A cart key is what identifies the cart stored in session along with it's cart data and expiration. This is normally stored in a [cookie](#cookie) and is used to load the cart in session if the cart still exists.
+A cart key is what identifies the cart stored in session along with it's cart data and expiration. This cart key is normally stored in a [cookie](#cookie) and is used to load the cart in session if the cart still exists.
+
+For registered customers, the cart key is the user ID/customer ID and starts from a single digit and up.
+
+For guest customers, the cart key is randomly generated of <strong>42 characters</strong>. This is the database limit.
 
 ## Accessing the Cart Key ##
 
