@@ -21,7 +21,7 @@ The product reviews API allows you to view product reviews and create a product 
 
 ## Create a product review ##
 
-This API helps you to create a new product review. Either submit the review as the customer or as adminisitrator on behalf of the customer. Must use the same email address used on the customers account at the time the product being reviewed was ordered.
+This API helps you to create a new product review. Either submit the review as the customer or as administrator on behalf of the customer. Must use the same email address used on the customers account at the time the product being reviewed was ordered.
 
 ### HTTP request ###
 
@@ -45,6 +45,100 @@ curl -X POST https://example.com/wp-json/cocart/v1/products/reviews \
 	"reviewer_email": "john.doe@example.com",
 	"rating": 5
 }'
+```
+
+```javascript--node
+CoCart.post("products/reviews", {
+  product_id: "22",
+  review: "Nice album!",
+  reviewer: "John Doe",
+  reviewer_email: "john.doe@example.com",
+  rating: 5
+})
+.then((response) => {
+  // Successful request
+  console.log("Response Status:", response.status);
+  console.log("Response Headers:", response.headers);
+  console.log("Response Data:", response.data);
+})
+.catch((error) => {
+  // Invalid request, for 4xx and 5xx statuses
+  console.log("Response Status:", error.response.status);
+  console.log("Response Headers:", error.response.headers);
+  console.log("Response Data:", error.response.data);
+})
+.finally(() => {
+  // Always executed.
+});
+```
+
+```javascript--jquery
+var settings = {
+  "url": "https://example.com/wp-json/cocart/v1/add-item",
+  "method": "POST",
+  "data": {
+    "product_id": "22",
+    "review": "Nice album!",
+    "reviewer": "John Doe",
+    "reviewer_email": "john.doe@example.com",
+    "rating": 5
+  }
+};
+
+$.ajax(settings).done(function (response) {
+  console.log(response);
+});
+```
+
+```php
+<?php
+$curl = curl_init();
+
+$args = array(
+  'product_id' => '22',
+  'review' => 'Nice album!',
+  'reviewer' => 'John Doe',
+  'reviewer_email' => 'john.doe@example.com',
+  'rating' => 5
+);
+
+curl_setopt_array( $curl, array(
+  CURLOPT_URL => "https://example.com/wp-json/cocart/v1/add-item",
+  CURLOPT_CUSTOMREQUEST => "POST",
+  CURLOPT_POSTFIELDS => $args,
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_TIMEOUT => 30,
+  CURLOPT_HTTPHEADER => array(
+    'Accept: application/json',
+    'User-Agent: CoCart API/v1',
+  )
+) );
+
+$response = curl_exec($curl);
+
+curl_close($curl);
+
+echo $response;
+```
+
+```php--wp-http-api
+<?php
+$args = array(
+  'headers' => array(
+    'Content-Type' => 'application/json; charset=utf-8',
+  ),
+  'body' => wp_json_encode( [
+    'product_id' => '22',
+    'review' => 'Nice album!',
+    'reviewer' => 'John Doe',
+    'reviewer_email' => 'john.doe@example.com',
+    'rating' => 5
+  ] ),
+  'timeout' => 30
+);
+
+$response = wp_remote_post( 'https://example.com/wp-json/cocart/v1/add-item', $args );
+$body = wp_remote_retrieve_body( $response );
 ```
 
 ```json
@@ -100,6 +194,64 @@ curl -X GET https://example.com/wp-json/cocart/v1/products/reviews/22 \
   -H "Content-Type: application/json" \
 ```
 
+```javascript--node
+CoCart.get("products/reviews/22")
+.then((response) => {
+  // Successful request
+  console.log("Response Status:", response.status);
+  console.log("Response Headers:", response.headers);
+  console.log("Response Data:", response.data);
+})
+.catch((error) => {
+  // Invalid request, for 4xx and 5xx statuses
+  console.log("Response Status:", error.response.status);
+  console.log("Response Headers:", error.response.headers);
+  console.log("Response Data:", error.response.data);
+})
+.finally(() => {
+  // Always executed.
+});
+```
+
+```javascript--jquery
+var settings = {
+  "url": "https://example.com/wp-json/cocart/v1/products/reviews/22",
+  "method": "GET"
+};
+
+$.ajax(settings).done(function (response) {
+  console.log(response);
+});
+```
+
+```php
+<?php
+$curl = curl_init();
+
+curl_setopt_array( $curl, array(
+  CURLOPT_URL => "https://example.com/wp-json/cocart/v1/products/reviews/22",
+  CURLOPT_CUSTOMREQUEST => "GET",
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_TIMEOUT => 30,
+  CURLOPT_HTTPHEADER => array(
+    'Accept: application/json',
+    'User-Agent: CoCart API/v1',
+  )
+) );
+
+$response = curl_exec($curl);
+
+curl_close($curl);
+
+echo $response;
+```
+
+```php--wp-http-api
+<?php
+$response = wp_remote_get( 'https://example.com/wp-json/cocart/v1/products/reviews/22' );
+$body = wp_remote_retrieve_body( $response );
+```
+
 ```json
 {
 	"id": 22,
@@ -150,6 +302,64 @@ This API lets you retrieve all product reviews.
 ```shell
 curl -X GET https://example.com/wp-json/cocart/v1/products/reviews \
   -H "Content-Type: application/json" \
+```
+
+```javascript--node
+CoCart.get("products/reviews")
+.then((response) => {
+  // Successful request
+  console.log("Response Status:", response.status);
+  console.log("Response Headers:", response.headers);
+  console.log("Response Data:", response.data);
+})
+.catch((error) => {
+  // Invalid request, for 4xx and 5xx statuses
+  console.log("Response Status:", error.response.status);
+  console.log("Response Headers:", error.response.headers);
+  console.log("Response Data:", error.response.data);
+})
+.finally(() => {
+  // Always executed.
+});
+```
+
+```javascript--jquery
+var settings = {
+  "url": "https://example.com/wp-json/cocart/v1/products/reviews",
+  "method": "GET"
+};
+
+$.ajax(settings).done(function (response) {
+  console.log(response);
+});
+```
+
+```php
+<?php
+$curl = curl_init();
+
+curl_setopt_array( $curl, array(
+  CURLOPT_URL => "https://example.com/wp-json/cocart/v1/products/reviews",
+  CURLOPT_CUSTOMREQUEST => "GET",
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_TIMEOUT => 30,
+  CURLOPT_HTTPHEADER => array(
+    'Accept: application/json',
+    'User-Agent: CoCart API/v1',
+  )
+) );
+
+$response = curl_exec($curl);
+
+curl_close($curl);
+
+echo $response;
+```
+
+```php--wp-http-api
+<?php
+$response = wp_remote_get( 'https://example.com/wp-json/cocart/v1/products/reviews' );
+$body = wp_remote_retrieve_body( $response );
 ```
 
 ```json
