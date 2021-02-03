@@ -286,7 +286,7 @@
   color: #859900;
 }
     </style>
-    <link href="stylesheets/screen-1cd6f20a.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/screen-a84b441c.css" rel="stylesheet" media="screen" />
     <link href="stylesheets/print-46df3289.css" rel="stylesheet" media="print" />
       <script src="javascripts/all_nosearch-ea811c3e.js"></script>
 
@@ -319,7 +319,7 @@
     <!-- /Chatra {/literal} -->
   </head>
 
-    <body class="wip" data-languages="[&quot;shell&quot;,&quot;javascript--jquery&quot;,&quot;php&quot;,&quot;php--wp-http-api&quot;]">
+    <body class="wip" data-languages="[&quot;shell&quot;,&quot;javascript--node&quot;,&quot;javascript--jquery&quot;,&quot;php&quot;,&quot;php--wp-http-api&quot;]">
 
     <a href="#" id="nav-button">
       <span>
@@ -331,6 +331,7 @@
       <a href="index.html"><img src="images/logo-c0541af7.png" class="logo" alt="" /></a>
         <div class="lang-selector">
               <a href="#" data-language-name="shell">cURL</a>
+              <a href="#" data-language-name="javascript--node">Node.js</a>
               <a href="#" data-language-name="javascript--jquery">jQuery</a>
               <a href="#" data-language-name="php">PHP</a>
               <a href="#" data-language-name="php--wp-http-api">WP API</a>
@@ -338,6 +339,58 @@
       <ul id="toc" class="toc-list-h1">
           <li>
             <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#introduction-what-is-a-rest-api" class="toc-h2 toc-link" data-title="What is a REST API?">What is a REST API?</a>
+                  </li>
+                  <li>
+                    <a href="#introduction-api-versions" class="toc-h2 toc-link" data-title="API Versions">API Versions</a>
+                  </li>
+                  <li>
+                    <a href="#introduction-requirements" class="toc-h2 toc-link" data-title="Requirements">Requirements</a>
+                  </li>
+                  <li>
+                    <a href="#introduction-request-response-format" class="toc-h2 toc-link" data-title="Request/Response Format">Request/Response Format</a>
+                  </li>
+                  <li>
+                    <a href="#introduction-body-types" class="toc-h2 toc-link" data-title="Body Types">Body Types</a>
+                  </li>
+                  <li>
+                    <a href="#introduction-errors" class="toc-h2 toc-link" data-title="Errors">Errors</a>
+                  </li>
+                  <li>
+                    <a href="#introduction-parameters" class="toc-h2 toc-link" data-title="Parameters">Parameters</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#getting-started" class="toc-h1 toc-link" data-title="Getting Started">Getting Started</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#getting-started-install-and-activate" class="toc-h2 toc-link" data-title="Install and Activate">Install and Activate</a>
+                  </li>
+                  <li>
+                    <a href="#getting-started-cocart-wordpress-plugin" class="toc-h2 toc-link" data-title="CoCart WordPress Plugin">CoCart WordPress Plugin</a>
+                  </li>
+                  <li>
+                    <a href="#getting-started-recommended-version" class="toc-h2 toc-link" data-title="Recommended Version">Recommended Version</a>
+                  </li>
+                  <li>
+                    <a href="#getting-started-github-download-clone-plugin" class="toc-h2 toc-link" data-title="GitHub - Download / Clone Plugin">GitHub - Download / Clone Plugin</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#error-responses" class="toc-h1 toc-link" data-title="Error Responses">Error Responses</a>
+          </li>
+          <li>
+            <a href="#libraries" class="toc-h1 toc-link" data-title="Libraries">Libraries</a>
+          </li>
+          <li>
+            <a href="#tools" class="toc-h1 toc-link" data-title="Tools">Tools</a>
+          </li>
+          <li>
+            <a href="#learn-more" class="toc-h1 toc-link" data-title="Learn more">Learn more</a>
           </li>
           <li>
             <a href="#changelog" class="toc-h1 toc-link" data-title="Changelog">Changelog</a>
@@ -349,7 +402,9 @@
           </li>
       </ul>
         <ul class="toc-footer">
-            <li><a href="https://cocart.xyz">CoCart</a></li>
+            <li><a href="https://github.com/co-cart/co-cart">CoCart Repository</a></li>
+            <li><a href="https://github.com/co-cart/co-cart/issues?page=1&amp;state=open">CoCart Issues</a></li>
+            <li><a href="https://github.com/co-cart/co-cart/blob/master/CONTRIBUTING.md">Contribute to CoCart</a></li>
             <li><a href="https://github.com/co-cart/co-cart-docs/blob/master/CONTRIBUTING.md">Contribute to Documentation</a></li>
             <li><a href="https://sebastiendumont.com">Developed by Sébastien Dumont</a></li>
             <li><a href="https://github.com/slatedocs/slate">Documentation Powered by Slate</a></li>
@@ -358,11 +413,419 @@
     <div class="page-wrapper">
       <div class="content">
         <h1 id='introduction'>Introduction</h1>
-<p>Welcome to CoCart work in progress documentation. This section of the documentation is for features or changes made in CoCart that may or may not be added based on user feedback and practical usage before the next release.</p>
+<p><img src="images/github-633266a3.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v2/_introduction.md">Edit on GitHub</a></p>
 
-<p>You can access the stable release of <a href="./">CoCart documentation here</a>.</p>
+<p>Welcome to the documentation site for CoCart, the free, open-source WordPress plugin that brings the power of WooCommerce&#39;s shopping cart via the REST API.</p>
+<h2 id='introduction-what-is-a-rest-api'>What is a REST API?</h2>
+<p>REST is an acronym for Representational State Transfer — an almost meaningless description of the most-used web service technology! REST is a way for two computer systems to communicate over HTTP in a similar way to web browsers and servers.</p>
 
-<p>WIP Version: <strong>3.0.0</strong></p>
+<p>CoCart is a REST API designed in mind for those who want to create a headless e-commerce site powered by WooCommerce. Read <a href="https://cocart.xyz/what-does-headless-mean/">what does headless mean?</a></p>
+
+<p>CoCart allows developers to provide a shopping cart in their app that stores the customers items, coupons applied, shipping methods available and much more. Carts can be created, read, updated, and deleted using the requests available that return a response in JSON format and standard HTTP verbs which are understood by most HTTP clients.</p>
+<h2 id='introduction-api-versions'>API Versions</h2>
+<p>The current WordPress REST API integration for CoCart is version <code>v2</code>.</p>
+
+<p>The following table shows API versions present in each major version of CoCart:</p>
+
+<table><thead>
+<tr>
+<th>API Version</th>
+<th>CoCart Version</th>
+<th>WC Version</th>
+<th>WP Version</th>
+<th>PHP Version</th>
+<th>Documentation</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>v1</code></td>
+<td>2.0.x or later</td>
+<td>4.3.x or later</td>
+<td>5.2 or later</td>
+<td>7.0 or later</td>
+<td><a href="cocart-api-v1.html">cocart-api-v1 docs</a></td>
+</tr>
+<tr>
+<td><code>v2</code></td>
+<td>3.0.x or later</td>
+<td>4.8.x or later</td>
+<td>5.2 or later</td>
+<td>7.0 or later</td>
+<td><strong>Currently Viewing</strong></td>
+</tr>
+</tbody></table>
+
+<p>Prior to WooCommerce v3.6, CoCart shared WooCommerce&#39;s REST API. You can find the documentation about cart support for <code>/wc-api-v2</code> API separately.</p>
+
+<table><thead>
+<tr>
+<th>API Version</th>
+<th>WC Version</th>
+<th>WP Version</th>
+<th>Documentation</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>Legacy wc-api-v2</code></td>
+<td>3.0.x or later</td>
+<td>4.4 or later</td>
+<td><a href="wc-api-v2.html">wc-api-v2 docs</a></td>
+</tr>
+</tbody></table>
+<h2 id='introduction-requirements'>Requirements</h2>
+<p>To use the latest version of the CoCart you must be using:</p>
+
+<ul>
+<li>WordPress <strong>5.4 or later</strong>.</li>
+<li>WooCommerce <strong>4.8 or later</strong>.</li>
+<li>PHP <strong>7.0 or later</strong>.</li>
+<li>Pretty permalinks in <code>Settings &gt; Permalinks</code> so that the custom endpoints are supported. <strong>Default permalinks will not work.</strong></li>
+<li>You may make requests over either HTTP or HTTPS, but HTTPS is recommended where possible.</li>
+</ul>
+
+<aside class="notice">
+  Please note that you are <strong>not</strong> required to install the <a href="https://wordpress.org/plugins/rest-api/">WP REST API (WP API)</a> plugin.
+</aside>
+<h2 id='introduction-request-response-format'>Request/Response Format</h2>
+<p>The default response format is in JSON. Requests with a message-body use plain JSON to set or update resource attributes. Successful requests will return a <code>200 OK</code> HTTP status.</p>
+
+<p>Some general information about response:</p>
+
+<ul>
+<li>Resource IDs are returned as integers.</li>
+<li>Other amounts, such as item counts, are returned as integers.</li>
+<li>Blank fields are generally included as <code>null</code> instead of being returned as blank strings or omitted.</li>
+</ul>
+<h2 id='introduction-body-types'>Body Types</h2>
+<p>There are different types of body types when making a request. Make sure when using either of these body types that you have the correct <code>Content-Type</code> for the header.</p>
+
+<table><thead>
+<tr>
+<th>Body Type</th>
+<th>Content-Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>form-data </td>
+<td>application/json</td>
+</tr>
+<tr>
+<td>raw </td>
+<td>application/json</td>
+</tr>
+<tr>
+<td>x-www-form-urlencoded</td>
+<td>application/x-www-form-urlencoded</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+  Body data must be passed correctly for the CoCart REST API to succeed.
+</aside>
+
+<p>Using <strong>raw</strong> works best if you are passing an object of data for a <code>variation</code> or <code>cart_item_data</code>.</p>
+<h2 id='introduction-errors'>Errors</h2>
+<p>Occasionally you might encounter errors when accessing the REST API. Here are the possible types:</p>
+
+<table><thead>
+<tr>
+<th>Error Code</th>
+<th>Error Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>400 Bad Request</code></td>
+<td>Invalid request, e.g. using an unsupported HTTP method</td>
+</tr>
+<tr>
+<td><code>401 Unauthorized</code></td>
+<td>Authentication or permission error, e.g. incorrect login</td>
+</tr>
+<tr>
+<td><code>403 Forbidden</code></td>
+<td>Not allowed to process this action or have permission.</td>
+</tr>
+<tr>
+<td><code>404 Not Found</code></td>
+<td>Requests to resources that don&#39;t exist or are missing</td>
+</tr>
+<tr>
+<td><code>405 Method Not Allowed</code></td>
+<td>A request method is not supported for the requested resource.</td>
+</tr>
+<tr>
+<td><code>500 Internal Server Error</code></td>
+<td>Server error</td>
+</tr>
+</tbody></table>
+
+<blockquote>
+<p>WP REST API error example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rest_no_route"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"No route was found matching the URL and request method"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">404</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote>
+<p>CoCart error example</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cocart_clear_cart_failed"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Clearing the cart failed!"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">500</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>Errors return both an appropriate HTTP status code and response object which contains a <code>code</code>, <code>message</code> and <code>data</code> attribute.</p>
+<h2 id='introduction-parameters'>Parameters</h2>
+<p>Almost all endpoints accept optional parameters which can be passed as a HTTP query string parameter, e.g. <code>POST /cocart/v2/item?item_key=270edd69788dce200a3b395a6da6fdb7&amp;quantity=2</code>. All parameters are documented along each endpoint.</p>
+<h1 id='getting-started'>Getting Started</h1>
+<p><img src="images/github-633266a3.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v2/_getting-started.md">Edit on GitHub</a></p>
+<h2 id='getting-started-install-and-activate'>Install and Activate</h2>
+<p>How to install and activate the CoCart plugin.</p>
+
+<aside class="notice">
+    <strong>New to WordPress?</strong><br/><br/>If you're new to WordPress development, I recommend getting started by downloading and using <a href="https://localwp.com/" target="_blank">Local</a>.
+</aside>
+
+<p>List of server <a href="#introduction-requirements">requirements</a>.</p>
+<h3 id='getting-started-install-and-activate-automatic-installation'>Automatic installation</h3>
+<p>Automatic installation is the easiest option as WordPress handles the file transfers itself and you don’t need to leave your web browser. To do an automatic install of CoCart, log in to your WordPress dashboard, navigate to the Plugins menu and click <strong>Add New</strong>.</p>
+
+<p>In the search field type “CoCart” and click Search Plugins. Once you’ve found the plugin you can view details about it such as the point release, rating and description. Most importantly of course, you can install it by simply clicking “Install Now”.</p>
+<h2 id='getting-started-cocart-wordpress-plugin'>CoCart WordPress Plugin</h2>
+<p>CoCart is a free, open-source WordPress plugin that provides a REST API for WooCommerce to access the front-end features of your store.</p>
+<h2 id='getting-started-recommended-version'>Recommended Version</h2>
+<p>For the most stable and performance experience, it’s recommended that you use the most recent version of the plugin. You can get the <a href="https://wordpress.org/plugins/cart-rest-api-for-woocommerce/">latest releases here</a>.</p>
+
+<p>Of course, as new features are in development, feel free to check out the latest develop branch or check out any <a href="https://github.com/co-cart/co-cart/releases">other release</a>.</p>
+<h2 id='getting-started-github-download-clone-plugin'>GitHub - Download / Clone Plugin</h2>
+<p>CoCart is available on GitHub: <a href="https://github.com/co-cart/co-cart">https://github.com/co-cart/co-cart</a></p>
+
+<p>You can <a href="https://github.com/co-cart/co-cart/releases/latest">download the latest release</a> or clone the plugin from GitHub.</p>
+
+<p>Add the downloaded/cloned plugin to your WordPress plugin directory. On a typical WordPress install, this is located at <code>/wp-content/plugins</code>.</p>
+
+<aside class="notice">
+    <strong>Install Directory</strong><br/><br/>To minimize risk of unintended behaviour, it’s best for your plugin directory to be "cart-rest-api-for-woocommerce" and not something else, like "cart-rest-api-for-woocommerce-master" or "cart-rest-api-for-woocommerce-develop".
+</aside>
+<h1 id='error-responses'>Error Responses</h1>
+<p><img src="images/github-633266a3.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v2/_errors.md">Edit on GitHub</a></p>
+
+<p>You might encounter an error when using CoCart. These error responses explain what might have happened.</p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Error Status</th>
+<th>Error Response</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>401</td>
+<td><code>cocart_cannot_read_cart</code></td>
+<td>Cannot read cart!</td>
+</tr>
+<tr>
+<td>404</td>
+<td><code>cocart_customer_missing</code></td>
+<td>Customer ID is required!</td>
+</tr>
+<tr>
+<td>404</td>
+<td><code>cocart_cart_key_missing</code></td>
+<td>Cart Key is required!</td>
+</tr>
+<tr>
+<td>404</td>
+<td><code>cocart_cart_in_session_not_valid</code></td>
+<td>Cart in session is not valid!</td>
+</tr>
+<tr>
+<td>404</td>
+<td><code>cocart_clear_cart_failed</code></td>
+<td>Clearing the cart failed!</td>
+</tr>
+<tr>
+<td>404</td>
+<td><code>cocart_product_id_required</code></td>
+<td>Product ID number is required!</td>
+</tr>
+<tr>
+<td>405</td>
+<td><code>cocart_product_id_not_numeric</code></td>
+<td>Product ID must be numeric!</td>
+</tr>
+<tr>
+<td>405</td>
+<td><code>cocart_quantity_not_numeric</code></td>
+<td>Quantity must be numeric!</td>
+</tr>
+<tr>
+<td>404</td>
+<td><code>cocart_product_does_not_exist</code></td>
+<td>Warning: This product does not exist!</td>
+</tr>
+<tr>
+<td>403</td>
+<td><code>cocart_product_sold_individually</code></td>
+<td>You cannot add another &quot;<code>%s</code>&quot; to your cart. <i class="label label-info">%s is the product name</i></td>
+</tr>
+<tr>
+<td>403</td>
+<td><code>cocart_cannot_be_purchased</code></td>
+<td>Sorry, this product cannot be purchased.</td>
+</tr>
+<tr>
+<td>404</td>
+<td><code>cocart_product_out_of_stock</code></td>
+<td>You cannot add &quot;%s&quot; to the cart because the product is out of stock. <i class="label label-info">%s is the product name</i></td>
+</tr>
+<tr>
+<td>403</td>
+<td><code>cocart_not_enough_in_stock</code></td>
+<td>You cannot add a quantity of <code>%1$s</code> for &quot;<code>%2$s</code>&quot; to the cart because there is not enough stock. - only <code>%3$s</code> remaining! <i class="label label-info">%1$s: quantity requested, %2$s: product name, %3$s: stock remaining.</i></td>
+</tr>
+<tr>
+<td>403</td>
+<td><code>cocart_not_enough_stock_remaining</code></td>
+<td>You cannot add that amount to the cart &mdash; we have <code>%1$s</code> in stock and you already have <code>%2$s</code> in your cart.</td>
+</tr>
+<tr>
+<td>403</td>
+<td><code>cocart_not_ok_to_add_item</code></td>
+<td>This item can not be added to the cart.</td>
+</tr>
+<tr>
+<td>403</td>
+<td><code>cocart_cannot_add_to_cart</code></td>
+<td>You cannot add &quot;<code>%s</code>&quot; to your cart. <i class="label label-info">%s is the product name</i></td>
+</tr>
+<tr>
+<td>403</td>
+<td><code>cocart_can_not_remove_item</code></td>
+<td>Unable to remove item from cart.</td>
+</tr>
+<tr>
+<td>403</td>
+<td><code>cocart_can_not_restore_item</code></td>
+<td>Unable to restore item to the cart.</td>
+</tr>
+<tr>
+<td>403</td>
+<td><code>cocart_can_not_update_item</code></td>
+<td>Unable to update item quantity in cart.</td>
+</tr>
+<tr>
+<td>404</td>
+<td><code>cocart_cart_item_key_required</code></td>
+<td>Cart item key is required!</td>
+</tr>
+<tr>
+<td>404</td>
+<td><code>cocart_no_items</code></td>
+<td>No items in cart.</td>
+</tr>
+<tr>
+<td>404</td>
+<td><code>cocart_item_not_in_cart</code></td>
+<td>Item specified does not exist in cart.</td>
+</tr>
+<tr>
+<td>403</td>
+<td><code>cocart_cannot_add_product_type_to_cart</code></td>
+<td>You cannot add &quot;<code>%1$s</code>&quot; to your cart as it is an &quot;<code>%2$s</code>&quot; product. <i class="label label-info">%1$s: product name, %2$s: product type</i></td>
+</tr>
+<tr>
+<td>400</td>
+<td><code>cocart_invalid_variation_data</code></td>
+<td>Invalid value posted for <code>%1$s</code>. Allowed values: <code>%2$s</code> <i class="label label-info">%1$s: Attribute name, %2$s: Allowed values</i></td>
+</tr>
+<tr>
+<td>400</td>
+<td><code>cocart_missing_variation_data</code></td>
+<td>Missing variation data for variable product. <code>%s</code> is a required field. <i class="label label-info">%s: Attribute name.</i></td>
+</tr>
+<tr>
+<td>400</td>
+<td><code>cocart_missing_variation_data</code></td>
+<td>Missing variation data for variable product. <code>%s</code> are required fields. <i class="label label-info">%s: Attribute name.</i></td>
+</tr>
+<tr>
+<td>400</td>
+<td><code>cocart_no_variation_found</code></td>
+<td>No matching variation found.</td>
+</tr>
+<tr>
+<td>403</td>
+<td><code>cocart_cart_invalid_parent_product</code></td>
+<td>This product cannot be added to the cart.</td>
+</tr>
+<tr>
+<td>404</td>
+<td><code>cocart_product_failed_validation</code></td>
+<td>Product did not pass validation!</td>
+</tr>
+<tr>
+<td>403</td>
+<td><code>cocart_product_sold_individually</code></td>
+<td>You cannot add another &quot;<code>%s</code>&quot; to your cart.</td>
+</tr>
+<tr>
+<td>403</td>
+<td><code>cocart_can_not_increase_quantity</code></td>
+<td>You can only have 1 <code>%s</code> in your cart. <i class="label label-info">%s is the product name</i></td>
+</tr>
+</tbody></table>
+<h1 id='libraries'>Libraries</h1>
+<p><img src="images/github-633266a3.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart-docs/blob/master/source/includes/_libraries.md">Edit on GitHub</a></p>
+
+<ul>
+<li><a href="https://www.npmjs.com/package/@cocart/cocart-rest-api">Node.js</a> Library</li>
+</ul>
+<div class="highlight"><pre class="highlight javascript tab-javascript--node"><code><span class="nx">npm</span> <span class="nx">install</span> <span class="o">--</span><span class="nx">save</span> <span class="p">@</span><span class="nd">cocart</span><span class="sr">/cocart-rest-ap</span><span class="err">i
+</span>
+<span class="c1">// import CoCartAPI from "@cocart/cocart-rest-api"; // Supports ESM</span>
+<span class="kd">const</span> <span class="nx">CoCartAPI</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">@cocart/cocart-rest-api</span><span class="dl">"</span><span class="p">).</span><span class="k">default</span><span class="p">;</span>
+
+<span class="kd">const</span> <span class="nx">CoCart</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">CoCartAPI</span><span class="p">({</span>
+  <span class="na">url</span><span class="p">:</span> <span class="dl">"</span><span class="s2">https://example.com</span><span class="dl">"</span>
+<span class="p">});</span>
+</code></pre></div>
+<aside class="notice">
+    Use the tabs in the top-right corner of this page to see how to install and use each library.
+</aside>
+<h1 id='tools'>Tools</h1>
+<p><img src="images/github-633266a3.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart-docs/blob/master/source/includes/_tools.md">Edit on GitHub</a></p>
+
+<p>Some useful tools you can use to access the API include:</p>
+
+<ul>
+<li><a href="https://www.getpostman.com/">Postman</a> - A multi platform REST API GUI client (using Google Chrome or installing the app on Mac OS X or Windows).</li>
+<li><a href="https://postwoman.io/">Postwoman</a> - A fast and beautiful API request builder (web alternative to Postman).</li>
+<li><a href="https://extendsclass.com/rest-client-online.html">ExtendsClass</a> - Another web HTTP client.</li>
+<li><a href="https://insomnia.rest/">Insomnia</a> - Similar to Postman using an app on Mac OS X, Windows or Ubuntu.</li>
+<li><a href="https://mmattozzi.github.io/cocoa-rest-client/">CocoaRestClient</a> - A Mac OS X GUI client for interacting with the API.</li>
+<li><a href="https://itunes.apple.com/us/app/paw-http-client/id584653203?mt=12">Paw HTTP Client</a> - Another HTTP client for Mac OS X.</li>
+<li><a href="https://addons.mozilla.org/en-US/firefox/addon/restclient/">RESTClient, a debugger for RESTful web services</a> - Free Firefox add-on.</li>
+<li><a href="https://chrome.google.com/webstore/detail/advanced-rest-client/hgmloofddffdnphfgcellkdfbfbjeloo">Advanced REST client</a> - Free Google Chrome extension.</li>
+<li><a href="https://hookbin.com/">Hookbin</a> - Another tool to test web hooks.</li>
+</ul>
+
+<p>If you use <strong>Postman</strong> you can use <a href="https://github.com/co-cart/cocart-postman-collections">these collections</a> made ready for you.</p>
+<h1 id='learn-more'>Learn more</h1>
+<p>Learn more about the REST API by checking the <a href="https://developer.wordpress.org/rest-api/" target="_blank">official WordPress REST API documentation</a>.</p>
+
+<ul>
+<li><a href="https://cocart.xyz/about/">About CoCart</a></li>
+<li><a href="https://cocart.xyz/pro/">Pricing and FAQ</a></li>
+<li><a href="https://cocart.xyz/community/">Community</a></li>
+</ul>
 <h1 id='changelog'>Changelog</h1>
 <p>The changelog below will provide updates on what is being worked on and the outcome of these features been added to future releases. Checkout the <a href="https://cocart.xyz/news/">CoCart blog</a> for updates on new coming releases. Feedback is always appreciated. 😄</p>
 <h2 id='changelog-v3-0-0'>v3.0.0</h2>
@@ -374,6 +837,7 @@
       <div class="dark-box">
           <div class="lang-selector">
                 <a href="#" data-language-name="shell">cURL</a>
+                <a href="#" data-language-name="javascript--node">Node.js</a>
                 <a href="#" data-language-name="javascript--jquery">jQuery</a>
                 <a href="#" data-language-name="php">PHP</a>
                 <a href="#" data-language-name="php--wp-http-api">WP API</a>

@@ -286,9 +286,9 @@
   color: #859900;
 }
     </style>
-    <link href="stylesheets/screen-1cd6f20a.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/screen-a84b441c.css" rel="stylesheet" media="screen" />
     <link href="stylesheets/print-46df3289.css" rel="stylesheet" media="print" />
-      <script src="javascripts/all-db0ef614.js"></script>
+      <script src="javascripts/all-5396c257.js"></script>
 
     <script>
       $(function() { setupCodeCopy(); });
@@ -963,11 +963,7 @@
 
 <span class="nv">$response</span> <span class="o">=</span> <span class="nx">wp_remote_post</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/add-item'</span><span class="p">,</span> <span class="nv">$args</span> <span class="p">);</span>
 <span class="nv">$body</span> <span class="o">=</span> <span class="nx">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
-</code></pre></div>
-<blockquote>
-<p>JSON response example</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+</code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"404dcc91b2aeaa7caa47487d1483e48a"</span><span class="p">:{</span><span class="w">
     </span><span class="nl">"key"</span><span class="p">:</span><span class="s2">"404dcc91b2aeaa7caa47487d1483e48a"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"product_id"</span><span class="p">:</span><span class="mi">32</span><span class="p">,</span><span class="w">
@@ -1056,7 +1052,11 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 </code></pre></div><h1 id='cart-key'>Cart Key</h1>
 <p><img src="images/github-633266a3.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v1/_cart_key.md">Edit on GitHub</a></p>
 <h2 id='cart-key-what-is-a-cart-key'>What is a Cart Key?</h2>
-<p>A cart key is what identifies the cart stored in session along with it&#39;s cart data and expiration. This is normally stored in a <a href="#cookie">cookie</a> and is used to load the cart in session if the cart still exists.</p>
+<p>A cart key is what identifies the cart stored in session along with it&#39;s cart data and expiration. This cart key is normally stored in a <a href="#cookie">cookie</a> and is used to load the cart in session if the cart still exists.</p>
+
+<p>For registered customers, the cart key is the user ID/customer ID and starts from a single digit and up.</p>
+
+<p>For guest customers, the cart key is randomly generated of <strong>42 characters</strong>. This is the database limit.</p>
 <h2 id='cart-key-accessing-the-cart-key'>Accessing the Cart Key</h2>
 <p>If cookies don&#39;t work for you due to the limitations of the framework your using to build with, then don&#39;t worry. The cart key created for the customer is returned via the returned headers once the first API request has been made. This is helpful for supporting guest customers.</p>
 
@@ -1147,11 +1147,7 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 </code></pre></div><div class="highlight"><pre class="highlight php tab-php--wp-http-api"><code><span class="cp">&lt;?php</span>
 <span class="nv">$response</span> <span class="o">=</span> <span class="nx">wp_remote_get</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/coupon'</span> <span class="p">);</span>
 <span class="nv">$body</span> <span class="o">=</span> <span class="nx">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
-</code></pre></div>
-<blockquote>
-<p>JSON response example for returning already applied coupons.</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+</code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"summer20"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h2 id='coupons-apply-coupon'>Apply Coupon</h2>
@@ -1236,11 +1232,7 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 
 <span class="nv">$response</span> <span class="o">=</span> <span class="nx">wp_remote_post</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/coupon'</span><span class="p">,</span> <span class="nv">$args</span> <span class="p">);</span>
 <span class="nv">$body</span> <span class="o">=</span> <span class="nx">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
-</code></pre></div>
-<blockquote>
-<p>JSON response example.</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+</code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Coupon was successfully added to cart."</span><span class="p">,</span><span class="w">
     </span><span class="nl">"coupon"</span><span class="p">:</span><span class="w"> </span><span class="s2">"summer20"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"response"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
@@ -1328,11 +1320,7 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 
 <span class="nv">$response</span> <span class="o">=</span> <span class="nx">wp_remote_request</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/coupon'</span><span class="p">,</span> <span class="nv">$args</span> <span class="p">);</span>
 <span class="nv">$body</span> <span class="o">=</span> <span class="nx">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
-</code></pre></div>
-<blockquote>
-<p>JSON response example.</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+</code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Coupon was successfully removed from cart."</span><span class="p">,</span><span class="w">
     </span><span class="nl">"coupon"</span><span class="p">:</span><span class="w"> </span><span class="s2">"summer20"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"response"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
@@ -1394,11 +1382,7 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 </code></pre></div><div class="highlight"><pre class="highlight php tab-php--wp-http-api"><code><span class="cp">&lt;?php</span>
 <span class="nv">$response</span> <span class="o">=</span> <span class="nx">wp_remote_get</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/check-coupons'</span> <span class="p">);</span>
 <span class="nv">$body</span> <span class="o">=</span> <span class="nx">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
-</code></pre></div>
-<blockquote>
-<p>JSON response example.</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="s2">"Coupons applied are still valid!"</span><span class="w">
+</code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="s2">"Coupons applied are still valid!"</span><span class="w">
 </span></code></pre></div><h1 id='cross-sells'>Cross Sells</h1>
 <p><img src="images/github-633266a3.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v1/pro/_cross-sells.md">Edit on GitHub</a></p>
 
@@ -1477,11 +1461,7 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 </code></pre></div><div class="highlight"><pre class="highlight php tab-php--wp-http-api"><code><span class="cp">&lt;?php</span>
 <span class="nv">$response</span> <span class="o">=</span> <span class="nx">wp_remote_get</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/cross-sells'</span> <span class="p">);</span>
 <span class="nv">$body</span> <span class="o">=</span> <span class="nx">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
-</code></pre></div>
-<blockquote>
-<p>JSON response example</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+</code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"29"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">29</span><span class="p">,</span><span class="w">
         </span><span class="nl">"product_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hoodie with Logo"</span><span class="p">,</span><span class="w">
@@ -1580,11 +1560,7 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 </code></pre></div><div class="highlight"><pre class="highlight php tab-php--wp-http-api"><code><span class="cp">&lt;?php</span>
 <span class="nv">$response</span> <span class="o">=</span> <span class="nx">wp_remote_get</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/customer'</span> <span class="p">);</span>
 <span class="nv">$body</span> <span class="o">=</span> <span class="nx">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
-</code></pre></div>
-<blockquote>
-<p>JSON response example</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+</code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nl">"ID"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
     </span><span class="nl">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John"</span><span class="p">,</span><span class="w">
@@ -1692,11 +1668,7 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 </code></pre></div><div class="highlight"><pre class="highlight php tab-php--wp-http-api"><code><span class="cp">&lt;?php</span>
 <span class="nv">$response</span> <span class="o">=</span> <span class="nx">wp_remote_get</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/weight'</span> <span class="p">);</span>
 <span class="nv">$body</span> <span class="o">=</span> <span class="nx">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
-</code></pre></div>
-<blockquote>
-<p>JSON response example</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="s2">"4 kg"</span><span class="w">
+</code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="s2">"4 kg"</span><span class="w">
 </span></code></pre></div><h1 id='fees'>Fees</h1>
 <p><img src="images/github-633266a3.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v1/pro/_fees.md">Edit on GitHub</a></p>
 <h2 id='fees-calculate-fees'>Calculate Fees</h2>
@@ -1780,11 +1752,7 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 </code></pre></div><div class="highlight"><pre class="highlight php tab-php--wp-http-api"><code><span class="cp">&lt;?php</span>
 <span class="nv">$response</span> <span class="o">=</span> <span class="nx">wp_remote_post</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/calculate/fees'</span> <span class="p">);</span>
 <span class="nv">$body</span> <span class="o">=</span> <span class="nx">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
-</code></pre></div>
-<blockquote>
-<p>JSON response example</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="s2">"Cart fees have been calculated."</span><span class="w">
+</code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="s2">"Cart fees have been calculated."</span><span class="w">
 </span></code></pre></div><h2 id='fees-get-fees'>Get Fees</h2>
 <p>This API returns all applied fees to the cart.</p>
 <h3 id='fees-get-fees-properties'>Properties</h3>
@@ -1856,11 +1824,7 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 </code></pre></div><div class="highlight"><pre class="highlight php tab-php--wp-http-api"><code><span class="cp">&lt;?php</span>
 <span class="nv">$response</span> <span class="o">=</span> <span class="nx">wp_remote_get</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/fees'</span> <span class="p">);</span>
 <span class="nv">$body</span> <span class="o">=</span> <span class="nx">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
-</code></pre></div>
-<blockquote>
-<p>JSON response example for returning already applied fees.</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+</code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"cocart-extra-package-protection"</span><span class="p">:{</span><span class="w">
     </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cocart-extra-package-protection"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Extra Package Protection"</span><span class="p">,</span><span class="w">
@@ -1985,11 +1949,7 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <span class="p">);</span>
 <span class="nv">$response</span> <span class="o">=</span> <span class="nx">wp_remote_post</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/fees'</span><span class="p">,</span> <span class="nv">$args</span> <span class="p">);</span>
 <span class="nv">$body</span> <span class="o">=</span> <span class="nx">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
-</code></pre></div>
-<blockquote>
-<p>JSON response example.</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+</code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"Fee </span><span class="se">\"</span><span class="s2">Extra Package Protection</span><span class="se">\"</span><span class="s2"> for £40.00 has been added."</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h2 id='fees-remove-fees'>Remove Fees</h2>
@@ -2066,11 +2026,7 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <span class="p">);</span>
 <span class="nv">$response</span> <span class="o">=</span> <span class="nx">wp_remote_request</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/fees'</span><span class="p">,</span> <span class="nv">$args</span> <span class="p">);</span>
 <span class="nv">$body</span> <span class="o">=</span> <span class="nx">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
-</code></pre></div>
-<blockquote>
-<p>JSON response example.</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+</code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"All cart fees have been removed."</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h1 id='payment-methods'>Payment Methods</h1>
@@ -2148,11 +2104,7 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 </code></pre></div><div class="highlight"><pre class="highlight php tab-php--wp-http-api"><code><span class="cp">&lt;?php</span>
 <span class="nv">$response</span> <span class="o">=</span> <span class="nx">wp_remote_get</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/payment-methods'</span> <span class="p">);</span>
 <span class="nv">$body</span> <span class="o">=</span> <span class="nx">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
-</code></pre></div>
-<blockquote>
-<p>JSON response example</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+</code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"bacs"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bacs"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"method_title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Direct bank transfer"</span><span class="p">,</span><span class="w">
@@ -2337,11 +2289,7 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 
 <span class="nv">$response</span> <span class="o">=</span> <span class="nx">wp_remote_post</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/payment-methods'</span><span class="p">,</span> <span class="nv">$args</span> <span class="p">);</span>
 <span class="nv">$body</span> <span class="o">=</span> <span class="nx">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
-</code></pre></div>
-<blockquote>
-<p>JSON response example.</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="kc">true</span><span class="w">
+</code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="kc">true</span><span class="w">
 </span></code></pre></div><h1 id='quantities'>Quantities</h1>
 <p><img src="images/github-633266a3.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v1/pro/_quantities.md">Edit on GitHub</a></p>
 
@@ -2415,11 +2363,7 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 </code></pre></div><div class="highlight"><pre class="highlight php tab-php--wp-http-api"><code><span class="cp">&lt;?php</span>
 <span class="nv">$response</span> <span class="o">=</span> <span class="nx">wp_remote_get</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/quantities'</span> <span class="p">);</span>
 <span class="nv">$body</span> <span class="o">=</span> <span class="nx">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
-</code></pre></div>
-<blockquote>
-<p>JSON response example</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+</code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"31"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
   </span><span class="nl">"32"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
   </span><span class="nl">"36"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
@@ -2497,11 +2441,7 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 </code></pre></div><div class="highlight"><pre class="highlight php tab-php--wp-http-api"><code><span class="cp">&lt;?php</span>
 <span class="nv">$response</span> <span class="o">=</span> <span class="nx">wp_remote_get</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/removed-items'</span> <span class="p">);</span>
 <span class="nv">$body</span> <span class="o">=</span> <span class="nx">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
-</code></pre></div>
-<blockquote>
-<p>JSON response example</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+</code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"40d8882729aa85d43fe007db12880105"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"40d8882729aa85d43fe007db12880105"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"product_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">34</span><span class="p">,</span><span class="w">
@@ -2656,11 +2596,7 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 
 <span class="nv">$response</span> <span class="o">=</span> <span class="nx">wp_remote_post</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/calculate/shipping'</span><span class="p">,</span> <span class="nv">$args</span> <span class="p">);</span>
 <span class="nv">$body</span> <span class="o">=</span> <span class="nx">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
-</code></pre></div>
-<blockquote>
-<p>JSON response example</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="s2">"Shipping costs updated."</span><span class="w">
+</code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="s2">"Shipping costs updated."</span><span class="w">
 </span></code></pre></div><h2 id='shipping-methods-get-shipping-methods'>Get Shipping Methods</h2>
 <p>This API returns all available shipping methods once the customer has <a href="#shipping-methods-calculate-shipping">calculated shipping</a>.</p>
 <h3 id='shipping-methods-get-shipping-methods-properties'>Properties</h3>
@@ -2742,11 +2678,7 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 </code></pre></div><div class="highlight"><pre class="highlight php tab-php--wp-http-api"><code><span class="cp">&lt;?php</span>
 <span class="nv">$response</span> <span class="o">=</span> <span class="nx">wp_remote_get</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/shipping-methods'</span> <span class="p">);</span>
 <span class="nv">$body</span> <span class="o">=</span> <span class="nx">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
-</code></pre></div>
-<blockquote>
-<p>JSON response example</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+</code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"flat_rate:1"</span><span class="p">:{</span><span class="w">
     </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"flat_rate:1"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"method_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"flat_rate"</span><span class="p">,</span><span class="w">
@@ -2881,11 +2813,7 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 
 <span class="nv">$response</span> <span class="o">=</span> <span class="nx">wp_remote_post</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/shipping-methods'</span><span class="p">,</span> <span class="nv">$args</span> <span class="p">);</span>
 <span class="nv">$body</span> <span class="o">=</span> <span class="nx">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
-</code></pre></div>
-<blockquote>
-<p>JSON response example.</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="kc">true</span><span class="w">
+</code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="kc">true</span><span class="w">
 </span></code></pre></div><h1 id='totals'>Totals</h1>
 <p><img src="images/github-633266a3.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v1/pro/_totals.md">Edit on GitHub</a></p>
 <h3 id='totals-set-shipping-method-properties'>Properties</h3>
@@ -2972,11 +2900,7 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 </code></pre></div><div class="highlight"><pre class="highlight php tab-php--wp-http-api"><code><span class="cp">&lt;?php</span>
 <span class="nv">$response</span> <span class="o">=</span> <span class="nx">wp_remote_post</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/calculate'</span> <span class="p">);</span>
 <span class="nv">$body</span> <span class="o">=</span> <span class="nx">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
-</code></pre></div>
-<blockquote>
-<p>JSON response example</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="s2">"Cart totals have been calculated."</span><span class="w">
+</code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="s2">"Cart totals have been calculated."</span><span class="w">
 </span></code></pre></div><h2 id='totals-get-cart-totals'>Get Cart Totals</h2>
 <p>This API helps you get the cart totals. You can also retrieve the totals pre-formatted to save you time applying the currency symbol. <a href="./#totals-retrieve-cart-totals">Retrieve Cart Totals</a> properties.</p>
 
@@ -3044,11 +2968,7 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 </code></pre></div><div class="highlight"><pre class="highlight php tab-php--wp-http-api"><code><span class="cp">&lt;?php</span>
 <span class="nv">$response</span> <span class="o">=</span> <span class="nx">wp_remote_get</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/totals'</span> <span class="p">);</span>
 <span class="nv">$body</span> <span class="o">=</span> <span class="nx">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
-</code></pre></div>
-<blockquote>
-<p>JSON response example</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+</code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"subtotal"</span><span class="p">:</span><span class="s2">"123.00"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"subtotal_tax"</span><span class="p">:</span><span class="mf">8.4</span><span class="p">,</span><span class="w">
   </span><span class="nl">"shipping_total"</span><span class="p">:</span><span class="s2">"33.00"</span><span class="p">,</span><span class="w">
@@ -3140,11 +3060,7 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 </code></pre></div><div class="highlight"><pre class="highlight php tab-php--wp-http-api"><code><span class="cp">&lt;?php</span>
 <span class="nv">$response</span> <span class="o">=</span> <span class="nx">wp_remote_get</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/totals/discount'</span> <span class="p">);</span>
 <span class="nv">$body</span> <span class="o">=</span> <span class="nx">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
-</code></pre></div>
-<blockquote>
-<p>JSON response example</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="s2">"£8.40"</span><span class="w">
+</code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="s2">"£8.40"</span><span class="w">
 </span></code></pre></div><h2 id='totals-get-discount-totals'>Get Discount Totals</h2>
 <p>This API returns each coupon applied and their discount total.</p>
 <h3 id='totals-get-discount-totals-http-request'>HTTP request</h3>
@@ -3206,11 +3122,7 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 </code></pre></div><div class="highlight"><pre class="highlight php tab-php--wp-http-api"><code><span class="cp">&lt;?php</span>
 <span class="nv">$response</span> <span class="o">=</span> <span class="nx">wp_remote_get</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/totals/discount/coupon-totals'</span> <span class="p">);</span>
 <span class="nv">$body</span> <span class="o">=</span> <span class="nx">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
-</code></pre></div>
-<blockquote>
-<p>JSON response example</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+</code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"blizzard"</span><span class="p">:</span><span class="w"> </span><span class="s2">"£8.40"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h2 id='totals-get-discount-tax-totals'>Get Discount Tax Totals</h2><h3 id='totals-get-discount-tax-totals-http-request'>HTTP request</h3>
@@ -3323,11 +3235,7 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 </code></pre></div><div class="highlight"><pre class="highlight php tab-php--wp-http-api"><code><span class="cp">&lt;?php</span>
 <span class="nv">$response</span> <span class="o">=</span> <span class="nx">wp_remote_get</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/totals/fee'</span> <span class="p">);</span>
 <span class="nv">$body</span> <span class="o">=</span> <span class="nx">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
-</code></pre></div>
-<blockquote>
-<p>JSON response example</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="s2">"£40.00"</span><span class="w">
+</code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="s2">"£40.00"</span><span class="w">
 </span></code></pre></div><h2 id='totals-get-fee-tax'>Get Fee Tax</h2><h3 id='totals-get-fee-tax-http-request'>HTTP request</h3>
 <div class="api-endpoint">
   <div class="endpoint-data">
@@ -3548,11 +3456,7 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 </code></pre></div><div class="highlight"><pre class="highlight php tab-php--wp-http-api"><code><span class="cp">&lt;?php</span>
 <span class="nv">$response</span> <span class="o">=</span> <span class="nx">wp_remote_get</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/totals/subtotal'</span> <span class="p">);</span>
 <span class="nv">$body</span> <span class="o">=</span> <span class="nx">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
-</code></pre></div>
-<blockquote>
-<p>JSON response example</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="s2">"£42.00"</span><span class="w">
+</code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="s2">"£42.00"</span><span class="w">
 </span></code></pre></div><h2 id='totals-get-subtotal-tax'>Get Subtotal Tax</h2><h3 id='totals-get-subtotal-tax-http-request'>HTTP request</h3>
 <div class="api-endpoint">
   <div class="endpoint-data">
@@ -3718,11 +3622,7 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 </code></pre></div><div class="highlight"><pre class="highlight php tab-php--wp-http-api"><code><span class="cp">&lt;?php</span>
 <span class="nv">$response</span> <span class="o">=</span> <span class="nx">wp_remote_get</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/totals/total'</span> <span class="p">);</span>
 <span class="nv">$body</span> <span class="o">=</span> <span class="nx">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
-</code></pre></div>
-<blockquote>
-<p>JSON response example</p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="s2">"£33.60"</span><span class="w">
+</code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="s2">"£33.60"</span><span class="w">
 </span></code></pre></div><h1 id='woocommerce-extensions'>WooCommerce Extensions</h1>
 <p><img src="images/github-633266a3.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart-docs/blob/master/source/includes/_woocommerce-extensions.md">Edit on GitHub</a></p>
 
@@ -4123,7 +4023,7 @@ Please make sure you are viewing the PHP language to copy any code snippet.
 <p><img src="images/github-633266a3.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart-docs/blob/master/source/includes/_libraries.md">Edit on GitHub</a></p>
 
 <ul>
-<li><a href="https://www.npmjs.com/package/@cocart/cocart-rest-api">JavaScript</a> Library</li>
+<li><a href="https://www.npmjs.com/package/@cocart/cocart-rest-api">Node.js</a> Library</li>
 </ul>
 <div class="highlight"><pre class="highlight javascript tab-javascript--node"><code><span class="nx">npm</span> <span class="nx">install</span> <span class="o">--</span><span class="nx">save</span> <span class="p">@</span><span class="nd">cocart</span><span class="sr">/cocart-rest-ap</span><span class="err">i
 </span>
