@@ -16,7 +16,7 @@ This is handy if you don't need to provide your own product handler for your cus
 
 In [CoCart Pro](#cocart-add-ons-cocart-pro) this filter is used so simple subscriptions and variable subscriptions can be added as a simple or variable product as there is not difference between the two when being added to the cart.
 
-```php
+```php--filter
 <?php
 add_filter( 'cocart_add_to_cart_handler', 'my_add_to_cart_handler' );
 
@@ -47,7 +47,7 @@ In addition, to save time identifying the product type, it is also passed throug
 | `$cart_item_data`    | array   | Cart item data passed with the item.                                                   |
 | `$product_type`      | string  | The product type.                                                                      |
 
-```php
+```php--filter
 <?php
 add_filter( 'cocart_add_to_cart_validation', 'my_add_to_cart_validation', 10, 7 );
 
@@ -63,7 +63,7 @@ function my_add_to_cart_validation( $passed_validation, $product_id, $quantity, 
 
 <img src="images/github.svg" width="20" height="20" alt="GitHub Mark Logo"> [View source](https://github.com/co-cart/co-cart/search?l=PHP&q=cocart_add_cart_item_data+in%3Afile&type=Code)
 
-```php
+```php--filter
 <?php
 add_filter( 'cocart_add_cart_item_data', 'my_add_cart_item_data', 10, 7 );
 
