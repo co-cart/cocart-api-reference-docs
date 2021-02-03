@@ -7,7 +7,7 @@ The cart API is powerful and allows you to view the cart in session, add new ite
 Using the individual endpoints and their properties, you can control what you need and what is returned when the request is finished.
 
  * [Get Cart Contents](#get-cart-get-cart-contents)
- * [Cart for Guest Customers](#get-cart-cart-for-guest-customers)
+ * [Get Cart using Cart Key](#get-cart-get-cart-using-cart-key)
  * [Retrieve a Cart in Session](#get-cart-retrieve-a-cart-in-session)
  * [Clear Cart](#get-cart-clear-cart)
 
@@ -240,29 +240,17 @@ $body = wp_remote_retrieve_body( $response );
 }
 ```
 
-## Cart for Guest Customers ##
+## Get Cart using Cart Key ##
 
 <span class="new">Supported since v2.1</span>
 
-For guest customers there are two methods available for developers to use. The first method uses a cookie and handles everything for you. The second method allows you to set the cart key yourself.
-
-### Cookie Method ###
-
-Once a new customer has added the first item, a cookie is generated that stores the cart key and cart expiration. This cookie is used in order to load the cart again for that individual customer. No parameters are required to pass as it is all done in the background.
-
-### Cart Key Method ###
-
-This method allows you to set the cart key yourself via the `cart_key` parameter which must be passed with each API request made. This sets the ID in session allowing to create/fetch the cart before changes are made.
-
-<aside class="notice">
-  The cart key cannot be longer than <strong>42 characters</strong> as that is the limit for the database.
-</aside>
+This method allows you to set the cart key yourself via the `cart_key` parameter. This sets the cart key in session allowing to create/fetch the cart before changes are made. [See the "Cart Key" section for more information](#cart-key).
 
 <aside class="warning">
     The <code>cart_key</code> parameter is a global parameter so it must be queried rather than being added as part of the data you send with the API request you make. Otherwise it will not update the cart.
 </aside>
 
-> Example of getting the cart for a guest customer.
+> Example of getting the cart with cart key.
 
 ```shell
 curl -X GET https://example.com/wp-json/cocart/v1/get-cart?cart_key=9e18904482b4faf8762361836a83b93d \
