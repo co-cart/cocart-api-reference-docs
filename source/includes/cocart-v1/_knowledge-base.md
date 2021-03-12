@@ -20,6 +20,12 @@ Each item added to the cart has it's on cart item key and you will find it under
 
 The cart key (if not manually set), can be found via a few methods. [See cart key section](#cart-key) for more details.
 
+## After adding a product to cart, the cart still returns empty. Why? ##
+
+This happens because the framework your using does not support cookies so it has no way to store the cart key of the cart that was created when you added the product. Without the cart key, the cart cannot be identified to load.
+
+Either add/install cookie support for that framework or use the [cart key](#cart-key) parameter to manually set one yourself.
+
 ## Why are cart items merged? ##
 
 If you mean between two or more customers. This is most likely because you tested the API with one of the [tools](#tools) available and did not reset before testing as another customer.
