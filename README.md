@@ -15,8 +15,9 @@ If you would like to contribute to the documentation to either correct a mistake
 You're going to need:
 
  - **Linux or macOS** — Windows may work, but is unsupported.
- - **Ruby, version 2.3.1 or newer**
- - **Bundler** — If Ruby is already installed, but the `bundle` command doesn't work, just run `gem install bundler` in a terminal.
+ - **[Ruby, version 2.5 or newer](https://www.ruby-lang.org/en/)**
+ - **[Bundler](https://bundler.io/)** — If Ruby is already installed, but the `bundle` command doesn't work, just run `gem install bundler` in a terminal.
+ - **[NodeJS](https://nodejs.org/en/)**
 
 #### Getting Set Up
 
@@ -28,7 +29,8 @@ You're going to need:
 ```shell
 # either run this to run locally
 bundle install
-bundle exec middleman server
+bundle exec middleman server ## Load server process for development.
+bundle exec middleman build  ## Just build the files.
 
 # OR run this to run with vagrant
 vagrant up
