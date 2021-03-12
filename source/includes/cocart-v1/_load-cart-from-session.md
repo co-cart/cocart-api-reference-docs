@@ -21,7 +21,7 @@ You can choose to override the cart (if anything is set) via the web or merge th
 To load the cart from session for the web, you must use the properties below to query your website.
 
 ```
-https://example.com/?cocart-load-cart=bbfa8e97ac9cff4c861d62a109e83bb6
+https://example.com/cart/?cocart-load-cart=bbfa8e97ac9cff4c861d62a109e83bb6
 ```
 
 <aside class="warning">
@@ -39,4 +39,3 @@ https://example.com/?cocart-load-cart=bbfa8e97ac9cff4c861d62a109e83bb6
 | `cocart-load-cart` | string | Set the cart key of the cart you wish to load. <i class="label label-info">mandatory</i>                                        |
 | `notify`           | bool   | Set as true to notify customers once arrived on the web version of your store. <i class="label label-info">Default is false</i> |
 | `keep-cart`        | bool   | Set as false to merge cart data. <i class="label label-info">Default is true</i>                                                |
-| `redirect`         | bool   | Set as true to redirect to cart page. <i class="label label-info">Default is false. Web Only!</i>                               |
