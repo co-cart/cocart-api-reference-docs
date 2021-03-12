@@ -2,7 +2,14 @@
 
 Below is the changelog for "CoCart Lite" documentation that matches with the version of the plugin release.
 
-## Doc Version v2.9.1
+## Doc Version v2.9.2
+
+* Improved: Authentication content.
+* Improved: Knowledge Base content.
+* Tweaked: Load Cart from Session content.
+* Dev: Updated Slate to v2.9.1
+
+### Doc Version v2.9.1
 
 * Corrected: Label for JS library.
 * Improved: Cookie section.
