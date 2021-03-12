@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>CoCart Documentation v2.9.1</title>
+    <title>CoCart Documentation v2.9.2</title>
 
     <link rel="icon" href="images/favicon-32x32-334932c6.png" sizes="32x32" />
     <link rel="icon" href="images/favicon-192x192-734db461.png" sizes="192x192" />
@@ -255,8 +255,11 @@
 .highlight .kd {
   color: #cb4b16;
 }
-.highlight .s, .highlight .sa, .highlight .sb, .highlight .sc, .highlight .dl, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+.highlight .s, .highlight .sb, .highlight .sc, .highlight .dl, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
   color: #859900;
+}
+.highlight .sa {
+  color: #6c71c4;
 }
 .highlight .sr {
   color: #2aa198;
@@ -288,7 +291,7 @@
     </style>
     <link href="stylesheets/screen-a84b441c.css" rel="stylesheet" media="screen" />
     <link href="stylesheets/print-46df3289.css" rel="stylesheet" media="print" />
-      <script src="javascripts/all-5396c257.js"></script>
+      <script src="javascripts/all-c0cd2ec7.js"></script>
 
     <script>
       $(function() { setupCodeCopy(); });
@@ -405,6 +408,9 @@
                     <a href="#knowledge-base-where-can-i-find-the-cart-key" class="toc-h2 toc-link" data-title="Where can I find the cart key?">Where can I find the cart key?</a>
                   </li>
                   <li>
+                    <a href="#knowledge-base-after-adding-a-product-to-cart-the-cart-still-returns-empty-why" class="toc-h2 toc-link" data-title="After adding a product to cart, the cart still returns empty. Why?">After adding a product to cart, the cart still returns empty. Why?</a>
+                  </li>
+                  <li>
                     <a href="#knowledge-base-why-are-cart-items-merged" class="toc-h2 toc-link" data-title="Why are cart items merged?">Why are cart items merged?</a>
                   </li>
                   <li>
@@ -426,6 +432,9 @@
                   </li>
                   <li>
                     <a href="#authentication-jwt-authentication" class="toc-h2 toc-link" data-title="JWT Authentication">JWT Authentication</a>
+                  </li>
+                  <li>
+                    <a href="#authentication-woocommerce-api-keys" class="toc-h2 toc-link" data-title="WooCommerce API Keys">WooCommerce API Keys</a>
                   </li>
               </ul>
           </li>
@@ -664,7 +673,7 @@
             <a href="#changelog" class="toc-h1 toc-link" data-title="Changelog">Changelog</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#changelog-doc-version-v2-9-1" class="toc-h2 toc-link" data-title="Doc Version v2.9.1">Doc Version v2.9.1</a>
+                    <a href="#changelog-doc-version-v2-9-2" class="toc-h2 toc-link" data-title="Doc Version v2.9.2">Doc Version v2.9.2</a>
                   </li>
               </ul>
           </li>
@@ -1088,11 +1097,11 @@
 <span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
 
 <span class="nb">curl_setopt_array</span><span class="p">(</span> <span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
-  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"GET"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
-  <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+  <span class="no">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1"</span><span class="p">,</span>
+  <span class="no">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"GET"</span><span class="p">,</span>
+  <span class="no">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="no">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
+  <span class="no">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
     <span class="s1">'Accept: application/json'</span><span class="p">,</span>
     <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
   <span class="p">)</span>
@@ -1104,8 +1113,8 @@
 
 <span class="k">echo</span> <span class="nv">$response</span><span class="p">;</span>
 </code></pre></div><div class="highlight"><pre class="highlight php tab-php--wp-http-api"><code><span class="cp">&lt;?php</span>
-<span class="nv">$response</span> <span class="o">=</span> <span class="nx">wp_remote_get</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1'</span> <span class="p">);</span>
-<span class="nv">$body</span> <span class="o">=</span> <span class="nx">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
+<span class="nv">$response</span> <span class="o">=</span> <span class="nf">wp_remote_get</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1'</span> <span class="p">);</span>
+<span class="nv">$body</span> <span class="o">=</span> <span class="nf">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
 </code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"namespace"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cocart/v1"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"routes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -1500,6 +1509,10 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h2 id='knowledge-base-where-can-i-find-the-cart-key'>Where can I find the cart key?</h2>
 <p>The cart key (if not manually set), can be found via a few methods. <a href="#cart-key">See cart key section</a> for more details.</p>
+<h2 id='knowledge-base-after-adding-a-product-to-cart-the-cart-still-returns-empty-why'>After adding a product to cart, the cart still returns empty. Why?</h2>
+<p>This happens because the framework your using does not support cookies so it has no way to store the cart key of the cart that was created when you added the product. Without the cart key, the cart cannot be identified to load.</p>
+
+<p>Either add/install cookie support for that framework or use the <a href="#cart-key">cart key</a> parameter to manually set one yourself.</p>
 <h2 id='knowledge-base-why-are-cart-items-merged'>Why are cart items merged?</h2>
 <p>If you mean between two or more customers. This is most likely because you tested the API with one of the <a href="#tools">tools</a> available and did not reset before testing as another customer.</p>
 
@@ -1527,24 +1540,17 @@
   Authentication is <strong>ONLY</strong> required for registered customers. In order for a registered customer to access their cart, you will be required to pass the customers username and password or token depending on the authentication method you are using. It's important that you keep authenticating with <strong>all routes</strong> from the beginning so the cart in session remains the same. <strong>NOT</strong> doing so will cause another cart to be created and lose track of the items added. If you have any questions, please ask away in the chat window below.
 </aside>
 
-<p>CoCart can be authenticated by various methods with the WordPress REST API. First being via the <a href="https://woocommerce.github.io/woocommerce-rest-api-docs/#rest-api-keys">REST API Keys</a> in <a href="https://woocommerce.github.io/woocommerce-rest-api-docs/#authentication">WooCommerce</a>. Though this method is designed for the backend with their REST API, with some custom coding you can make it work for the frontend with CoCart.</p>
-
-<p>Checkout my guide on <a href="https://cocart.xyz/authenticating-with-woocommerce-heres-how-you-can-do-it/">how to authenticate with WooCommerce</a>.</p>
-
-<p>It is also possible to authenticate using any of the following WP REST API authentication methods:</p>
-
-<ul>
-<li><a href="#authentication-basic-authentication">Basic Authentication</a> (Recommended with SSL Only!)</li>
-<li><a href="#authentication-jwt-authentication">JWT Authentication for WP REST API</a></li>
-</ul>
-
 <p>The WordPress REST API incorporates a method called <a href="https://codex.wordpress.org/WordPress_Nonces">nonces</a> to deal with <a href="https://en.wikipedia.org/wiki/Cross-site_request_forgery">CSRF</a> issues. This ensures that all activities on the website remain segregated. This is because the WordPress REST API just like the WooCommerce REST API is designed for the back-end.</p>
 
 <p>CoCart however, is designed for the front-end so for any CoCart requests made, the <a href="https://developer.wordpress.org/rest-api/using-the-rest-api/authentication/">cookie authentication</a> is disabled allowing the ability to authenticate in any code language without fault.</p>
 
-<p>If you have tested other authentication plugins or methods, please let me know via the <a href="https://cocart.xyz/feedback/">feedback page</a> so that I can add it to the list.</p>
+<p>REST API authentication methods:</p>
 
-<p>Thank you. 😄</p>
+<ul>
+<li><a href="#authentication-basic-authentication">Basic Authentication</a> (Recommended with SSL Only!)</li>
+<li><a href="#authentication-jwt-authentication">JWT Authentication for WP REST API</a> (Not Recommended according to feedback)</li>
+<li><a href="#authentication-woocommerce-api-keys">WooCommerce API Keys</a> (Best for Administrators Only!)</li>
+</ul>
 <h2 id='authentication-basic-authentication'>Basic Authentication</h2>
 <p><a href="https://en.wikipedia.org/wiki/Basic_access_authentication">What is the Basic Authentication method?</a></p>
 
@@ -1624,16 +1630,16 @@
 <span class="nv">$headers</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
   <span class="s1">'Accept: application/json'</span><span class="p">,</span>
   <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
-  <span class="s1">'Authorization: Basic '</span> <span class="o">.</span> <span class="nb">base64_encode</span><span class="p">(</span><span class="nv">$username</span> <span class="o">.</span> <span class="s1">':'</span> <span class="o">.</span> <span class="nv">$password</span><span class="p">)</span>
+  <span class="s1">'Authorization: Basic '</span> <span class="mf">.</span> <span class="nb">base64_encode</span><span class="p">(</span><span class="nv">$username</span> <span class="mf">.</span> <span class="s1">':'</span> <span class="mf">.</span> <span class="nv">$password</span><span class="p">)</span>
 <span class="p">);</span>
 
 <span class="nb">curl_setopt_array</span><span class="p">(</span> <span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
-  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/add-item"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"POST"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_POSTFIELDS</span> <span class="o">=&gt;</span> <span class="nv">$args</span><span class="p">,</span>
-  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
-  <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="nv">$headers</span>
+  <span class="no">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/add-item"</span><span class="p">,</span>
+  <span class="no">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"POST"</span><span class="p">,</span>
+  <span class="no">CURLOPT_POSTFIELDS</span> <span class="o">=&gt;</span> <span class="nv">$args</span><span class="p">,</span>
+  <span class="no">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="no">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
+  <span class="no">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="nv">$headers</span>
 <span class="p">)</span> <span class="p">);</span>
 
 <span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
@@ -1644,18 +1650,18 @@
 </code></pre></div><div class="highlight"><pre class="highlight php tab-php--wp-http-api"><code><span class="cp">&lt;?php</span>
 <span class="nv">$args</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
   <span class="s1">'headers'</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
-    <span class="s1">'Authorization'</span> <span class="o">=&gt;</span> <span class="s1">'Basic '</span> <span class="o">.</span> <span class="nb">base64_encode</span><span class="p">(</span> <span class="s1">'username:password'</span><span class="p">),</span>
+    <span class="s1">'Authorization'</span> <span class="o">=&gt;</span> <span class="s1">'Basic '</span> <span class="mf">.</span> <span class="nb">base64_encode</span><span class="p">(</span> <span class="s1">'username:password'</span> <span class="p">),</span>
     <span class="s1">'Content-Type'</span> <span class="o">=&gt;</span> <span class="s1">'application/json; charset=utf-8'</span><span class="p">,</span>
   <span class="p">),</span>
-  <span class="s1">'body'</span> <span class="o">=&gt;</span> <span class="nx">wp_json_encode</span><span class="p">(</span> <span class="p">[</span>
+  <span class="s1">'body'</span> <span class="o">=&gt;</span> <span class="nf">wp_json_encode</span><span class="p">(</span> <span class="p">[</span>
     <span class="s1">'product_id'</span> <span class="o">=&gt;</span> <span class="s2">"32"</span><span class="p">,</span>
     <span class="s1">'quantity'</span> <span class="o">=&gt;</span> <span class="mi">1</span>
   <span class="p">]</span> <span class="p">),</span>
   <span class="s1">'timeout'</span> <span class="o">=&gt;</span> <span class="mi">30</span>
 <span class="p">);</span>
 
-<span class="nv">$response</span> <span class="o">=</span> <span class="nx">wp_remote_post</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/add-item'</span><span class="p">,</span> <span class="nv">$args</span> <span class="p">);</span>
-<span class="nv">$body</span> <span class="o">=</span> <span class="nx">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
+<span class="nv">$response</span> <span class="o">=</span> <span class="nf">wp_remote_post</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/add-item'</span><span class="p">,</span> <span class="nv">$args</span> <span class="p">);</span>
+<span class="nv">$body</span> <span class="o">=</span> <span class="nf">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
 </code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"404dcc91b2aeaa7caa47487d1483e48a"</span><span class="p">:{</span><span class="w">
     </span><span class="nl">"key"</span><span class="p">:</span><span class="s2">"404dcc91b2aeaa7caa47487d1483e48a"</span><span class="p">,</span><span class="w">
@@ -1725,16 +1731,16 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <span class="nv">$headers</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
   <span class="s1">'Accept: application/json'</span><span class="p">,</span>
   <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
-  <span class="s1">'Authorization: Bearer '</span> <span class="o">.</span> <span class="nv">$token</span>
+  <span class="s1">'Authorization: Bearer '</span> <span class="mf">.</span> <span class="nv">$token</span>
 <span class="p">);</span>
 
 <span class="nb">curl_setopt_array</span><span class="p">(</span> <span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
-  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/add-item"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"POST"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_POSTFIELDS</span> <span class="o">=&gt;</span> <span class="nv">$args</span><span class="p">,</span>
-  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
-  <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="nv">$headers</span>
+  <span class="no">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/add-item"</span><span class="p">,</span>
+  <span class="no">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"POST"</span><span class="p">,</span>
+  <span class="no">CURLOPT_POSTFIELDS</span> <span class="o">=&gt;</span> <span class="nv">$args</span><span class="p">,</span>
+  <span class="no">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="no">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
+  <span class="no">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="nv">$headers</span>
 <span class="p">)</span> <span class="p">);</span>
 
 <span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
@@ -1742,7 +1748,24 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <span class="nb">curl_close</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
 
 <span class="k">echo</span> <span class="nv">$response</span><span class="p">;</span>
-</code></pre></div><h1 id='cart-key'>Cart Key</h1>
+</code></pre></div><div class="highlight"><pre class="highlight php tab-php--wp-http-api"><code><span class="cp">&lt;?php</span>
+<span class="nv">$args</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+  <span class="s1">'headers'</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">'Authorization'</span> <span class="o">=&gt;</span> <span class="s1">'Bearer '</span> <span class="mf">.</span> <span class="nv">$token</span><span class="p">,</span>
+    <span class="s1">'Content-Type'</span> <span class="o">=&gt;</span> <span class="s1">'application/json; charset=utf-8'</span><span class="p">,</span>
+  <span class="p">),</span>
+  <span class="s1">'body'</span> <span class="o">=&gt;</span> <span class="nf">wp_json_encode</span><span class="p">(</span> <span class="p">[</span>
+    <span class="s1">'product_id'</span> <span class="o">=&gt;</span> <span class="s2">"32"</span><span class="p">,</span>
+    <span class="s1">'quantity'</span> <span class="o">=&gt;</span> <span class="mi">1</span>
+  <span class="p">]</span> <span class="p">),</span>
+  <span class="s1">'timeout'</span> <span class="o">=&gt;</span> <span class="mi">30</span>
+<span class="p">);</span>
+
+<span class="nv">$response</span> <span class="o">=</span> <span class="nf">wp_remote_post</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/add-item'</span><span class="p">,</span> <span class="nv">$args</span> <span class="p">);</span>
+<span class="nv">$body</span> <span class="o">=</span> <span class="nf">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
+</code></pre></div><h2 id='authentication-woocommerce-api-keys'>WooCommerce API Keys</h2>
+<p>Though this method is designed for the backend with <a href="https://woocommerce.github.io/woocommerce-rest-api-docs/#authentication">WooCommerce REST API</a>, with some custom coding you can make it work for the frontend with CoCart. Checkout my guide on <a href="https://cocart.xyz/authenticating-with-woocommerce-heres-how-you-can-do-it/">how to authenticate with WooCommerce</a>.</p>
+<h1 id='cart-key'>Cart Key</h1>
 <p><img src="images/github-633266a3.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v1/_cart_key.md">Edit on GitHub</a></p>
 <h2 id='cart-key-what-is-a-cart-key'>What is a Cart Key?</h2>
 <p>A cart key is what identifies the cart stored in session along with it&#39;s cart data and expiration. This cart key is normally stored in a <a href="#cookie">cookie</a> and is used to load the cart in session if the cart still exists.</p>
@@ -1867,11 +1890,11 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
 
 <span class="nb">curl_setopt_array</span><span class="p">(</span> <span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
-  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/get-cart"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"GET"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
-  <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+  <span class="no">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/get-cart"</span><span class="p">,</span>
+  <span class="no">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"GET"</span><span class="p">,</span>
+  <span class="no">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="no">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
+  <span class="no">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
     <span class="s1">'Accept: application/json'</span><span class="p">,</span>
     <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
   <span class="p">)</span>
@@ -1883,8 +1906,8 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 
 <span class="k">echo</span> <span class="nv">$response</span><span class="p">;</span>
 </code></pre></div><div class="highlight"><pre class="highlight php tab-php--wp-http-api"><code><span class="cp">&lt;?php</span>
-<span class="nv">$response</span> <span class="o">=</span> <span class="nx">wp_remote_get</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/get-cart'</span> <span class="p">);</span>
-<span class="nv">$body</span> <span class="o">=</span> <span class="nx">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
+<span class="nv">$response</span> <span class="o">=</span> <span class="nf">wp_remote_get</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/get-cart'</span> <span class="p">);</span>
+<span class="nv">$body</span> <span class="o">=</span> <span class="nf">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
 </code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"19ca14e7ea6328a42e0eb13d585e4c22"</span><span class="p">:{</span><span class="w">
     </span><span class="nl">"key"</span><span class="p">:</span><span class="s2">"19ca14e7ea6328a42e0eb13d585e4c22"</span><span class="p">,</span><span class="w">
@@ -1957,12 +1980,12 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <span class="p">);</span>
 
 <span class="nb">curl_setopt_array</span><span class="p">(</span> <span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
-  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/get-cart"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"GET"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_POSTFIELDS</span> <span class="o">=&gt;</span> <span class="nv">$args</span><span class="p">,</span>
-  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
-  <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+  <span class="no">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/get-cart"</span><span class="p">,</span>
+  <span class="no">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"GET"</span><span class="p">,</span>
+  <span class="no">CURLOPT_POSTFIELDS</span> <span class="o">=&gt;</span> <span class="nv">$args</span><span class="p">,</span>
+  <span class="no">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="no">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
+  <span class="no">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
     <span class="s1">'Accept: application/json'</span><span class="p">,</span>
     <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
   <span class="p">)</span>
@@ -1978,13 +2001,13 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
   <span class="s1">'headers'</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
     <span class="s1">'Content-Type'</span> <span class="o">=&gt;</span> <span class="s1">'application/json; charset=utf-8'</span><span class="p">,</span>
   <span class="p">),</span>
-  <span class="s1">'body'</span> <span class="o">=&gt;</span> <span class="nx">wp_json_encode</span><span class="p">(</span> <span class="p">[</span>
+  <span class="s1">'body'</span> <span class="o">=&gt;</span> <span class="nf">wp_json_encode</span><span class="p">(</span> <span class="p">[</span>
     <span class="s1">'thumb'</span> <span class="o">=&gt;</span> <span class="kc">true</span>
   <span class="p">]</span> <span class="p">)</span>
 <span class="p">);</span>
 
-<span class="nv">$response</span> <span class="o">=</span> <span class="nx">wp_remote_get</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/get-cart'</span><span class="p">,</span> <span class="nv">$args</span> <span class="p">);</span>
-<span class="nv">$body</span> <span class="o">=</span> <span class="nx">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
+<span class="nv">$response</span> <span class="o">=</span> <span class="nf">wp_remote_get</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/get-cart'</span><span class="p">,</span> <span class="nv">$args</span> <span class="p">);</span>
+<span class="nv">$body</span> <span class="o">=</span> <span class="nf">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
 </code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"19ca14e7ea6328a42e0eb13d585e4c22"</span><span class="p">:{</span><span class="w">
     </span><span class="nl">"key"</span><span class="p">:</span><span class="s2">"19ca14e7ea6328a42e0eb13d585e4c22"</span><span class="p">,</span><span class="w">
@@ -2054,11 +2077,11 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
 
 <span class="nb">curl_setopt_array</span><span class="p">(</span> <span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
-  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/get-cart?cart_key=9e18904482b4faf8762361836a83b93d"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"GET"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
-  <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+  <span class="no">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/get-cart?cart_key=9e18904482b4faf8762361836a83b93d"</span><span class="p">,</span>
+  <span class="no">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"GET"</span><span class="p">,</span>
+  <span class="no">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="no">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
+  <span class="no">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
     <span class="s1">'Accept: application/json'</span><span class="p">,</span>
     <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
   <span class="p">)</span>
@@ -2076,8 +2099,8 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
   <span class="p">)</span>
 <span class="p">);</span>
 
-<span class="nv">$response</span> <span class="o">=</span> <span class="nx">wp_remote_get</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/get-cart?cart_key=9e18904482b4faf8762361836a83b93d'</span><span class="p">,</span> <span class="nv">$args</span> <span class="p">);</span>
-<span class="nv">$body</span> <span class="o">=</span> <span class="nx">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
+<span class="nv">$response</span> <span class="o">=</span> <span class="nf">wp_remote_get</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/get-cart?cart_key=9e18904482b4faf8762361836a83b93d'</span><span class="p">,</span> <span class="nv">$args</span> <span class="p">);</span>
+<span class="nv">$body</span> <span class="o">=</span> <span class="nf">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
 </code></pre></div>
 <blockquote>
 <p>JSON response is the same as the example above.</p>
@@ -2129,11 +2152,11 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
 
 <span class="nb">curl_setopt_array</span><span class="p">(</span> <span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
-  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/get-cart/9e18904482b4faf8762361836a83b93d"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"GET"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
-  <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+  <span class="no">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/get-cart/9e18904482b4faf8762361836a83b93d"</span><span class="p">,</span>
+  <span class="no">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"GET"</span><span class="p">,</span>
+  <span class="no">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="no">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
+  <span class="no">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
     <span class="s1">'Accept: application/json'</span><span class="p">,</span>
     <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
   <span class="p">)</span>
@@ -2145,8 +2168,8 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 
 <span class="k">echo</span> <span class="nv">$response</span><span class="p">;</span>
 </code></pre></div><div class="highlight"><pre class="highlight php tab-php--wp-http-api"><code><span class="cp">&lt;?php</span>
-<span class="nv">$response</span> <span class="o">=</span> <span class="nx">wp_remote_get</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/get-cart/9e18904482b4faf8762361836a83b93d'</span> <span class="p">);</span>
-<span class="nv">$body</span> <span class="o">=</span> <span class="nx">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
+<span class="nv">$response</span> <span class="o">=</span> <span class="nf">wp_remote_get</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/get-cart/9e18904482b4faf8762361836a83b93d'</span> <span class="p">);</span>
+<span class="nv">$body</span> <span class="o">=</span> <span class="nf">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
 </code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"19ca14e7ea6328a42e0eb13d585e4c22"</span><span class="p">:{</span><span class="w">
     </span><span class="nl">"key"</span><span class="p">:</span><span class="s2">"19ca14e7ea6328a42e0eb13d585e4c22"</span><span class="p">,</span><span class="w">
@@ -2228,11 +2251,11 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
 
 <span class="nb">curl_setopt_array</span><span class="p">(</span> <span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
-  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/clear"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"POST"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
-  <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+  <span class="no">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/clear"</span><span class="p">,</span>
+  <span class="no">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"POST"</span><span class="p">,</span>
+  <span class="no">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="no">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
+  <span class="no">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
     <span class="s1">'Accept: application/json'</span><span class="p">,</span>
     <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
   <span class="p">)</span>
@@ -2244,8 +2267,8 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 
 <span class="k">echo</span> <span class="nv">$response</span><span class="p">;</span>
 </code></pre></div><div class="highlight"><pre class="highlight php tab-php--wp-http-api"><code><span class="cp">&lt;?php</span>
-<span class="nv">$response</span> <span class="o">=</span> <span class="nx">wp_remote_post</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/clear'</span> <span class="p">);</span>
-<span class="nv">$body</span> <span class="o">=</span> <span class="nx">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
+<span class="nv">$response</span> <span class="o">=</span> <span class="nf">wp_remote_post</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/clear'</span> <span class="p">);</span>
+<span class="nv">$body</span> <span class="o">=</span> <span class="nf">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
 </code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="s2">"Cart is cleared."</span><span class="w">
 </span></code></pre></div><h1 id='add-to-cart'>Add to Cart</h1>
 <p><img src="images/github-633266a3.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v1/_add-to-cart.md">Edit on GitHub</a></p>
@@ -2358,12 +2381,12 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <span class="p">);</span>
 
 <span class="nb">curl_setopt_array</span><span class="p">(</span> <span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
-  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/add-item"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"POST"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_POSTFIELDS</span> <span class="o">=&gt;</span> <span class="nv">$args</span><span class="p">,</span>
-  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
-  <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+  <span class="no">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/add-item"</span><span class="p">,</span>
+  <span class="no">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"POST"</span><span class="p">,</span>
+  <span class="no">CURLOPT_POSTFIELDS</span> <span class="o">=&gt;</span> <span class="nv">$args</span><span class="p">,</span>
+  <span class="no">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="no">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
+  <span class="no">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
     <span class="s1">'Accept: application/json'</span><span class="p">,</span>
     <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
   <span class="p">)</span>
@@ -2379,15 +2402,15 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
   <span class="s1">'headers'</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
     <span class="s1">'Content-Type'</span> <span class="o">=&gt;</span> <span class="s1">'application/json; charset=utf-8'</span><span class="p">,</span>
   <span class="p">),</span>
-  <span class="s1">'body'</span> <span class="o">=&gt;</span> <span class="nx">wp_json_encode</span><span class="p">(</span> <span class="p">[</span>
+  <span class="s1">'body'</span> <span class="o">=&gt;</span> <span class="nf">wp_json_encode</span><span class="p">(</span> <span class="p">[</span>
     <span class="s1">'product_id'</span> <span class="o">=&gt;</span> <span class="s2">"32"</span><span class="p">,</span>
     <span class="s1">'quantity'</span> <span class="o">=&gt;</span> <span class="mi">1</span>
   <span class="p">]</span> <span class="p">),</span>
   <span class="s1">'timeout'</span> <span class="o">=&gt;</span> <span class="mi">30</span>
 <span class="p">);</span>
 
-<span class="nv">$response</span> <span class="o">=</span> <span class="nx">wp_remote_post</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/add-item'</span><span class="p">,</span> <span class="nv">$args</span> <span class="p">);</span>
-<span class="nv">$body</span> <span class="o">=</span> <span class="nx">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
+<span class="nv">$response</span> <span class="o">=</span> <span class="nf">wp_remote_post</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/add-item'</span><span class="p">,</span> <span class="nv">$args</span> <span class="p">);</span>
+<span class="nv">$body</span> <span class="o">=</span> <span class="nf">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
 </code></pre></div>
 <blockquote>
 <p>Example of adding a product via SKU ID to the cart.</p>
@@ -2438,12 +2461,12 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <span class="p">);</span>
 
 <span class="nb">curl_setopt_array</span><span class="p">(</span> <span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
-  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/add-item"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"POST"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_POSTFIELDS</span> <span class="o">=&gt;</span> <span class="nv">$args</span><span class="p">,</span>
-  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
-  <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+  <span class="no">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/add-item"</span><span class="p">,</span>
+  <span class="no">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"POST"</span><span class="p">,</span>
+  <span class="no">CURLOPT_POSTFIELDS</span> <span class="o">=&gt;</span> <span class="nv">$args</span><span class="p">,</span>
+  <span class="no">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="no">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
+  <span class="no">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
     <span class="s1">'Accept: application/json'</span><span class="p">,</span>
     <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
   <span class="p">)</span>
@@ -2459,15 +2482,15 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
   <span class="s1">'headers'</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
     <span class="s1">'Content-Type'</span> <span class="o">=&gt;</span> <span class="s1">'application/json; charset=utf-8'</span><span class="p">,</span>
   <span class="p">),</span>
-  <span class="s1">'body'</span> <span class="o">=&gt;</span> <span class="nx">wp_json_encode</span><span class="p">(</span> <span class="p">[</span>
+  <span class="s1">'body'</span> <span class="o">=&gt;</span> <span class="nf">wp_json_encode</span><span class="p">(</span> <span class="p">[</span>
     <span class="s1">'product_id'</span> <span class="o">=&gt;</span> <span class="s2">"Red Hoodie"</span><span class="p">,</span>
     <span class="s1">'quantity'</span> <span class="o">=&gt;</span> <span class="mi">1</span>
   <span class="p">]</span> <span class="p">),</span>
   <span class="s1">'timeout'</span> <span class="o">=&gt;</span> <span class="mi">30</span>
 <span class="p">);</span>
 
-<span class="nv">$response</span> <span class="o">=</span> <span class="nx">wp_remote_post</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/add-item'</span><span class="p">,</span> <span class="nv">$args</span> <span class="p">);</span>
-<span class="nv">$body</span> <span class="o">=</span> <span class="nx">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
+<span class="nv">$response</span> <span class="o">=</span> <span class="nf">wp_remote_post</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/add-item'</span><span class="p">,</span> <span class="nv">$args</span> <span class="p">);</span>
+<span class="nv">$body</span> <span class="o">=</span> <span class="nf">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
 </code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"404dcc91b2aeaa7caa47487d1483e48a"</span><span class="p">:{</span><span class="w">
     </span><span class="nl">"key"</span><span class="p">:</span><span class="s2">"404dcc91b2aeaa7caa47487d1483e48a"</span><span class="p">,</span><span class="w">
@@ -2576,12 +2599,12 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <span class="p">);</span>
 
 <span class="nb">curl_setopt_array</span><span class="p">(</span> <span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
-  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/add-item"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"POST"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_POSTFIELDS</span> <span class="o">=&gt;</span> <span class="nv">$args</span><span class="p">,</span>
-  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
-  <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+  <span class="no">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/add-item"</span><span class="p">,</span>
+  <span class="no">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"POST"</span><span class="p">,</span>
+  <span class="no">CURLOPT_POSTFIELDS</span> <span class="o">=&gt;</span> <span class="nv">$args</span><span class="p">,</span>
+  <span class="no">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="no">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
+  <span class="no">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
     <span class="s1">'Accept: application/json'</span><span class="p">,</span>
     <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
   <span class="p">)</span>
@@ -2597,7 +2620,7 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
   <span class="s1">'headers'</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
     <span class="s1">'Content-Type'</span> <span class="o">=&gt;</span> <span class="s1">'application/json; charset=utf-8'</span><span class="p">,</span>
   <span class="p">),</span>
-  <span class="s1">'body'</span> <span class="o">=&gt;</span> <span class="nx">wp_json_encode</span><span class="p">(</span> <span class="p">[</span>
+  <span class="s1">'body'</span> <span class="o">=&gt;</span> <span class="nf">wp_json_encode</span><span class="p">(</span> <span class="p">[</span>
     <span class="s1">'product_id'</span> <span class="o">=&gt;</span> <span class="s1">'1722'</span><span class="p">,</span>
     <span class="s1">'quantity'</span> <span class="o">=&gt;</span> <span class="mi">1</span>
     <span class="s1">'variation_id'</span> <span class="o">=&gt;</span> <span class="mi">1820</span><span class="p">,</span>
@@ -2609,8 +2632,8 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
   <span class="s1">'timeout'</span> <span class="o">=&gt;</span> <span class="mi">30</span>
 <span class="p">);</span>
 
-<span class="nv">$response</span> <span class="o">=</span> <span class="nx">wp_remote_post</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/add-item'</span><span class="p">,</span> <span class="nv">$args</span> <span class="p">);</span>
-<span class="nv">$body</span> <span class="o">=</span> <span class="nx">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
+<span class="nv">$response</span> <span class="o">=</span> <span class="nf">wp_remote_post</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/add-item'</span><span class="p">,</span> <span class="nv">$args</span> <span class="p">);</span>
+<span class="nv">$body</span> <span class="o">=</span> <span class="nf">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
 </code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2c698d686c6cd8872e825fd9b05bd322"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"product_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1722</span><span class="p">,</span><span class="w">
@@ -2704,12 +2727,12 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <span class="p">);</span>
 
 <span class="nb">curl_setopt_array</span><span class="p">(</span> <span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
-  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/add-item"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"POST"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_POSTFIELDS</span> <span class="o">=&gt;</span> <span class="nv">$args</span><span class="p">,</span>
-  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
-  <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+  <span class="no">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/add-item"</span><span class="p">,</span>
+  <span class="no">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"POST"</span><span class="p">,</span>
+  <span class="no">CURLOPT_POSTFIELDS</span> <span class="o">=&gt;</span> <span class="nv">$args</span><span class="p">,</span>
+  <span class="no">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="no">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
+  <span class="no">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
     <span class="s1">'Accept: application/json'</span><span class="p">,</span>
     <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
   <span class="p">)</span>
@@ -2725,7 +2748,7 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
   <span class="s1">'headers'</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
     <span class="s1">'Content-Type'</span> <span class="o">=&gt;</span> <span class="s1">'application/json; charset=utf-8'</span><span class="p">,</span>
   <span class="p">),</span>
-  <span class="s1">'body'</span> <span class="o">=&gt;</span> <span class="nx">wp_json_encode</span><span class="p">(</span> <span class="p">[</span>
+  <span class="s1">'body'</span> <span class="o">=&gt;</span> <span class="nf">wp_json_encode</span><span class="p">(</span> <span class="p">[</span>
     <span class="s1">'product_id'</span> <span class="o">=&gt;</span> <span class="s1">'3008'</span><span class="p">,</span>
     <span class="s1">'quantity'</span> <span class="o">=&gt;</span> <span class="mi">1</span>
     <span class="s1">'cart_item_data'</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
@@ -2735,8 +2758,8 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
   <span class="p">]</span> <span class="p">),</span>
   <span class="s1">'timeout'</span> <span class="o">=&gt;</span> <span class="mi">30</span>
 <span class="p">);</span>
-<span class="nv">$response</span> <span class="o">=</span> <span class="nx">wp_remote_post</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/add-item'</span><span class="p">,</span> <span class="nv">$args</span> <span class="p">);</span>
-<span class="nv">$body</span> <span class="o">=</span> <span class="nx">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
+<span class="nv">$response</span> <span class="o">=</span> <span class="nf">wp_remote_post</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/add-item'</span><span class="p">,</span> <span class="nv">$args</span> <span class="p">);</span>
+<span class="nv">$body</span> <span class="o">=</span> <span class="nf">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
 </code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"engraved_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sébastien Dumont"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"engraved_size"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Medium"</span><span class="p">,</span><span class="w">
@@ -2831,11 +2854,11 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
 
 <span class="nb">curl_setopt_array</span><span class="p">(</span> <span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
-  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/count-items"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"GET"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
-  <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+  <span class="no">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/count-items"</span><span class="p">,</span>
+  <span class="no">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"GET"</span><span class="p">,</span>
+  <span class="no">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="no">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
+  <span class="no">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
     <span class="s1">'Accept: application/json'</span><span class="p">,</span>
     <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
   <span class="p">)</span>
@@ -2847,8 +2870,8 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 
 <span class="k">echo</span> <span class="nv">$response</span><span class="p">;</span>
 </code></pre></div><div class="highlight"><pre class="highlight php tab-php--wp-http-api"><code><span class="cp">&lt;?php</span>
-<span class="nv">$response</span> <span class="o">=</span> <span class="nx">wp_remote_get</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/count-items'</span> <span class="p">);</span>
-<span class="nv">$body</span> <span class="o">=</span> <span class="nx">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
+<span class="nv">$response</span> <span class="o">=</span> <span class="nf">wp_remote_get</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/count-items'</span> <span class="p">);</span>
+<span class="nv">$body</span> <span class="o">=</span> <span class="nf">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
 </code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="mi">1</span><span class="w">
 </span></code></pre></div><h2 id='items-in-cart-remove-item-from-cart'>Remove Item from Cart</h2>
 <p><img src="images/github-633266a3.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v1/_remove-item-from-cart.md">Edit on GitHub</a></p>
@@ -2929,12 +2952,12 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <span class="p">);</span>
 
 <span class="nb">curl_setopt_array</span><span class="p">(</span> <span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
-  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/item"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"DELETE"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_POSTFIELDS</span> <span class="o">=&gt;</span> <span class="nv">$args</span><span class="p">,</span>
-  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
-  <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+  <span class="no">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/item"</span><span class="p">,</span>
+  <span class="no">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"DELETE"</span><span class="p">,</span>
+  <span class="no">CURLOPT_POSTFIELDS</span> <span class="o">=&gt;</span> <span class="nv">$args</span><span class="p">,</span>
+  <span class="no">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="no">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
+  <span class="no">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
     <span class="s1">'Accept: application/json'</span><span class="p">,</span>
     <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
   <span class="p">)</span>
@@ -2950,15 +2973,15 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
   <span class="s1">'headers'</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
     <span class="s1">'Content-Type'</span> <span class="o">=&gt;</span> <span class="s1">'application/json; charset=utf-8'</span><span class="p">,</span>
   <span class="p">),</span>
-  <span class="s1">'body'</span> <span class="o">=&gt;</span> <span class="nx">wp_json_encode</span><span class="p">(</span> <span class="p">[</span>
+  <span class="s1">'body'</span> <span class="o">=&gt;</span> <span class="nf">wp_json_encode</span><span class="p">(</span> <span class="p">[</span>
     <span class="s1">'cart_item_key'</span> <span class="o">=&gt;</span> <span class="s1">'404dcc91b2aeaa7caa47487d1483e48a'</span>
   <span class="p">]</span> <span class="p">),</span>
   <span class="s1">'method'</span> <span class="o">=&gt;</span> <span class="s1">'DELETE'</span><span class="p">,</span>
   <span class="s1">'timeout'</span> <span class="o">=&gt;</span> <span class="mi">30</span>
 <span class="p">);</span>
 
-<span class="nv">$response</span> <span class="o">=</span> <span class="nx">wp_remote_request</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/item'</span><span class="p">,</span> <span class="nv">$args</span> <span class="p">);</span>
-<span class="nv">$body</span> <span class="o">=</span> <span class="nx">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
+<span class="nv">$response</span> <span class="o">=</span> <span class="nf">wp_remote_request</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/item'</span><span class="p">,</span> <span class="nv">$args</span> <span class="p">);</span>
+<span class="nv">$body</span> <span class="o">=</span> <span class="nf">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
 </code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="s2">"Item has been removed from cart."</span><span class="w">
 </span></code></pre></div><h2 id='items-in-cart-restore-item-to-cart'>Restore Item to Cart</h2>
 <p><img src="images/github-633266a3.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v1/_restore-item-to-cart.md">Edit on GitHub</a></p>
@@ -3039,12 +3062,12 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <span class="p">);</span>
 
 <span class="nb">curl_setopt_array</span><span class="p">(</span> <span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
-  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/item"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"GET"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_POSTFIELDS</span> <span class="o">=&gt;</span> <span class="nv">$args</span><span class="p">,</span>
-  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
-  <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+  <span class="no">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/item"</span><span class="p">,</span>
+  <span class="no">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"GET"</span><span class="p">,</span>
+  <span class="no">CURLOPT_POSTFIELDS</span> <span class="o">=&gt;</span> <span class="nv">$args</span><span class="p">,</span>
+  <span class="no">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="no">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
+  <span class="no">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
     <span class="s1">'Accept: application/json'</span><span class="p">,</span>
     <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
   <span class="p">)</span>
@@ -3059,13 +3082,13 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
   <span class="s1">'headers'</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
     <span class="s1">'Content-Type'</span> <span class="o">=&gt;</span> <span class="s1">'application/json; charset=utf-8'</span><span class="p">,</span>
   <span class="p">),</span>
-  <span class="s1">'body'</span> <span class="o">=&gt;</span> <span class="nx">wp_json_encode</span><span class="p">(</span> <span class="p">[</span>
+  <span class="s1">'body'</span> <span class="o">=&gt;</span> <span class="nf">wp_json_encode</span><span class="p">(</span> <span class="p">[</span>
     <span class="s1">'cart_item_key'</span> <span class="o">=&gt;</span> <span class="s1">'404dcc91b2aeaa7caa47487d1483e48a'</span>
   <span class="p">]</span> <span class="p">)</span>
 <span class="p">);</span>
 
-<span class="nv">$response</span> <span class="o">=</span> <span class="nx">wp_remote_get</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/item'</span><span class="p">,</span> <span class="nv">$args</span> <span class="p">);</span>
-<span class="nv">$body</span> <span class="o">=</span> <span class="nx">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
+<span class="nv">$response</span> <span class="o">=</span> <span class="nf">wp_remote_get</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/item'</span><span class="p">,</span> <span class="nv">$args</span> <span class="p">);</span>
+<span class="nv">$body</span> <span class="o">=</span> <span class="nf">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
 </code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="s2">"Item has been restored to the cart.""
 </span></code></pre></div><h2 id='items-in-cart-update-item-in-cart'>Update Item in Cart</h2>
 <p><img src="images/github-633266a3.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v1/_update-item-in-cart.md">Edit on GitHub</a></p>
@@ -3155,12 +3178,12 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <span class="p">);</span>
 
 <span class="nb">curl_setopt_array</span><span class="p">(</span> <span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
-  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/item"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"POST"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_POSTFIELDS</span> <span class="o">=&gt;</span> <span class="nv">$args</span><span class="p">,</span>
-  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
-  <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+  <span class="no">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/item"</span><span class="p">,</span>
+  <span class="no">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"POST"</span><span class="p">,</span>
+  <span class="no">CURLOPT_POSTFIELDS</span> <span class="o">=&gt;</span> <span class="nv">$args</span><span class="p">,</span>
+  <span class="no">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="no">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
+  <span class="no">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
     <span class="s1">'Accept: application/json'</span><span class="p">,</span>
     <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
   <span class="p">)</span>
@@ -3176,15 +3199,15 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
   <span class="s1">'headers'</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
     <span class="s1">'Content-Type'</span> <span class="o">=&gt;</span> <span class="s1">'application/json; charset=utf-8'</span><span class="p">,</span>
   <span class="p">),</span>
-  <span class="s1">'body'</span> <span class="o">=&gt;</span> <span class="nx">wp_json_encode</span><span class="p">(</span> <span class="p">[</span>
+  <span class="s1">'body'</span> <span class="o">=&gt;</span> <span class="nf">wp_json_encode</span><span class="p">(</span> <span class="p">[</span>
     <span class="s1">'cart_item_key'</span> <span class="o">=&gt;</span> <span class="s1">'404dcc91b2aeaa7caa47487d1483e48a'</span><span class="p">,</span>
     <span class="s1">'quantity'</span> <span class="o">=&gt;</span> <span class="mi">2</span>
   <span class="p">]</span> <span class="p">),</span>
   <span class="s1">'timeout'</span> <span class="o">=&gt;</span> <span class="mi">30</span>
 <span class="p">);</span>
 
-<span class="nv">$response</span> <span class="o">=</span> <span class="nx">wp_remote_post</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/item'</span><span class="p">,</span> <span class="nv">$args</span> <span class="p">);</span>
-<span class="nv">$body</span> <span class="o">=</span> <span class="nx">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
+<span class="nv">$response</span> <span class="o">=</span> <span class="nf">wp_remote_post</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/item'</span><span class="p">,</span> <span class="nv">$args</span> <span class="p">);</span>
+<span class="nv">$body</span> <span class="o">=</span> <span class="nf">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
 </code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"message"</span><span class="p">:</span><span class="s2">"The quantity for 'Woo T-Shirt' has increased to '2'."</span><span class="p">,</span><span class="w">
   </span><span class="nl">"quantity"</span><span class="p">:</span><span class="mi">2</span><span class="w">
@@ -3254,11 +3277,11 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
 
 <span class="nb">curl_setopt_array</span><span class="p">(</span> <span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
-  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/totals"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"GET"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
-  <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+  <span class="no">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/totals"</span><span class="p">,</span>
+  <span class="no">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"GET"</span><span class="p">,</span>
+  <span class="no">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="no">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
+  <span class="no">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
     <span class="s1">'Accept: application/json'</span><span class="p">,</span>
     <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
   <span class="p">)</span>
@@ -3270,8 +3293,8 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 
 <span class="k">echo</span> <span class="nv">$response</span><span class="p">;</span>
 </code></pre></div><div class="highlight"><pre class="highlight php tab-php--wp-http-api"><code><span class="cp">&lt;?php</span>
-<span class="nv">$response</span> <span class="o">=</span> <span class="nx">wp_remote_get</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/totals'</span> <span class="p">);</span>
-<span class="nv">$body</span> <span class="o">=</span> <span class="nx">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
+<span class="nv">$response</span> <span class="o">=</span> <span class="nf">wp_remote_get</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/totals'</span> <span class="p">);</span>
+<span class="nv">$body</span> <span class="o">=</span> <span class="nf">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
 </code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"subtotal"</span><span class="p">:</span><span class="s2">"123.00"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"subtotal_tax"</span><span class="p">:</span><span class="mf">8.4</span><span class="p">,</span><span class="w">
@@ -3321,10 +3344,10 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <span class="p">);</span>
 
 <span class="nb">curl_setopt_array</span><span class="p">(</span> <span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
-  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/totals"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"GET"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_POSTFIELDS</span> <span class="o">=&gt;</span> <span class="nv">$args</span><span class="p">,</span>
-  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span>
+  <span class="no">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/totals"</span><span class="p">,</span>
+  <span class="no">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"GET"</span><span class="p">,</span>
+  <span class="no">CURLOPT_POSTFIELDS</span> <span class="o">=&gt;</span> <span class="nv">$args</span><span class="p">,</span>
+  <span class="no">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span>
 <span class="p">)</span> <span class="p">);</span>
 
 <span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
@@ -3336,8 +3359,8 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <span class="nv">$args</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
   <span class="s1">'html'</span> <span class="o">=&gt;</span> <span class="kc">true</span>
 <span class="p">);</span>
-<span class="nv">$response</span> <span class="o">=</span> <span class="nx">wp_remote_get</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/totals'</span><span class="p">,</span> <span class="nv">$args</span> <span class="p">);</span>
-<span class="nv">$body</span> <span class="o">=</span> <span class="nx">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
+<span class="nv">$response</span> <span class="o">=</span> <span class="nf">wp_remote_get</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/totals'</span><span class="p">,</span> <span class="nv">$args</span> <span class="p">);</span>
+<span class="nv">$body</span> <span class="o">=</span> <span class="nf">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
 </code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"subtotal"</span><span class="p">:</span><span class="s2">"£123.00"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"subtotal_tax"</span><span class="p">:</span><span class="s2">"£8.40"</span><span class="p">,</span><span class="w">
@@ -3419,11 +3442,11 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
 
 <span class="nb">curl_setopt_array</span><span class="p">(</span> <span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
-  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/calculate"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"POST"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
-  <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+  <span class="no">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/calculate"</span><span class="p">,</span>
+  <span class="no">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"POST"</span><span class="p">,</span>
+  <span class="no">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="no">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
+  <span class="no">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
     <span class="s1">'Accept: application/json'</span><span class="p">,</span>
     <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
   <span class="p">)</span>
@@ -3435,8 +3458,8 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 
 <span class="k">echo</span> <span class="nv">$response</span><span class="p">;</span>
 </code></pre></div><div class="highlight"><pre class="highlight php tab-php--wp-http-api"><code><span class="cp">&lt;?php</span>
-<span class="nv">$response</span> <span class="o">=</span> <span class="nx">wp_remote_post</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/calculate'</span> <span class="p">);</span>
-<span class="nv">$body</span> <span class="o">=</span> <span class="nx">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
+<span class="nv">$response</span> <span class="o">=</span> <span class="nf">wp_remote_post</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/calculate'</span> <span class="p">);</span>
+<span class="nv">$body</span> <span class="o">=</span> <span class="nf">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
 </code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="s2">"Cart totals have been calculated."</span><span class="w">
 </span></code></pre></div><h1 id='logout'>Logout</h1>
 <p><span class="new">New API since v2.1</span></p>
@@ -3485,11 +3508,11 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
 
 <span class="nb">curl_setopt_array</span><span class="p">(</span> <span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
-  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/logout"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"POST"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
-  <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+  <span class="no">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/logout"</span><span class="p">,</span>
+  <span class="no">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"POST"</span><span class="p">,</span>
+  <span class="no">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="no">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
+  <span class="no">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
     <span class="s1">'Accept: application/json'</span><span class="p">,</span>
     <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
   <span class="p">)</span>
@@ -3501,8 +3524,8 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 
 <span class="k">echo</span> <span class="nv">$response</span><span class="p">;</span>
 </code></pre></div><div class="highlight"><pre class="highlight php tab-php--wp-http-api"><code><span class="cp">&lt;?php</span>
-<span class="nv">$response</span> <span class="o">=</span> <span class="nx">wp_remote_post</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/logout'</span> <span class="p">);</span>
-<span class="nv">$body</span> <span class="o">=</span> <span class="nx">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
+<span class="nv">$response</span> <span class="o">=</span> <span class="nf">wp_remote_post</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/logout'</span> <span class="p">);</span>
+<span class="nv">$body</span> <span class="o">=</span> <span class="nf">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
 </code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="kc">true</span><span class="w">
 </span></code></pre></div><h1 id='load-cart-from-session'>Load Cart from Session</h1>
 <p><span class="new">New Feature since v2.1</span></p>
@@ -3522,7 +3545,7 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 </aside>
 <h2 id='load-cart-from-session-load-for-the-web'>Load for the Web</h2>
 <p>To load the cart from session for the web, you must use the properties below to query your website.</p>
-<div class="highlight"><pre class="highlight plaintext"><code>https://example.com/?cocart-load-cart=bbfa8e97ac9cff4c861d62a109e83bb6
+<div class="highlight"><pre class="highlight plaintext"><code>https://example.com/cart/?cocart-load-cart=bbfa8e97ac9cff4c861d62a109e83bb6
 </code></pre></div>
 <aside class="warning">
   ⚠️ This features is not a REST API. Do not treat it as such! ⚠️
@@ -3554,11 +3577,6 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <td>bool</td>
 <td>Set as false to merge cart data. <i class="label label-info">Default is true</i></td>
 </tr>
-<tr>
-<td><code>redirect</code></td>
-<td>bool</td>
-<td>Set as true to redirect to cart page. <i class="label label-info">Default is false. Web Only!</i></td>
-</tr>
 </tbody></table>
 <h1 id='extending-cocart'>Extending CoCart</h1>
 <p><img src="images/github-633266a3.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v1/_extending.md">Edit on GitHub</a></p>
@@ -3575,9 +3593,9 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 
 <p>In <a href="#cocart-add-ons-cocart-pro">CoCart Pro</a> this filter is used so simple subscriptions and variable subscriptions can be added as a simple or variable product as there is not difference between the two when being added to the cart.</p>
 <div class="highlight"><pre class="highlight php tab-php--filter"><code><span class="cp">&lt;?php</span>
-<span class="nx">add_filter</span><span class="p">(</span> <span class="s1">'cocart_add_to_cart_handler'</span><span class="p">,</span> <span class="s1">'my_add_to_cart_handler'</span> <span class="p">);</span>
+<span class="nf">add_filter</span><span class="p">(</span> <span class="s1">'cocart_add_to_cart_handler'</span><span class="p">,</span> <span class="s1">'my_add_to_cart_handler'</span> <span class="p">);</span>
 
-<span class="k">function</span> <span class="nf">my_add_to_cart_handler</span><span class="p">(</span> <span class="nv">$handler</span> <span class="p">)</span> <span class="p">{</span>
+<span class="k">function</span> <span class="n">my_add_to_cart_handler</span><span class="p">(</span> <span class="nv">$handler</span> <span class="p">)</span> <span class="p">{</span>
   <span class="k">if</span> <span class="p">(</span> <span class="nv">$handler</span> <span class="o">==</span> <span class="s1">'my-custom-product-type'</span> <span class="p">)</span> <span class="p">{</span>
     <span class="k">return</span> <span class="s1">'simple'</span><span class="p">;</span>
   <span class="p">}</span>
@@ -3635,9 +3653,9 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 </tr>
 </tbody></table>
 <div class="highlight"><pre class="highlight php tab-php--filter"><code><span class="cp">&lt;?php</span>
-<span class="nx">add_filter</span><span class="p">(</span> <span class="s1">'cocart_add_to_cart_validation'</span><span class="p">,</span> <span class="s1">'my_add_to_cart_validation'</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">7</span> <span class="p">);</span>
+<span class="nf">add_filter</span><span class="p">(</span> <span class="s1">'cocart_add_to_cart_validation'</span><span class="p">,</span> <span class="s1">'my_add_to_cart_validation'</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">7</span> <span class="p">);</span>
 
-<span class="k">function</span> <span class="nf">my_add_to_cart_validation</span><span class="p">(</span> <span class="nv">$passed_validation</span><span class="p">,</span> <span class="nv">$product_id</span><span class="p">,</span> <span class="nv">$quantity</span><span class="p">,</span> <span class="nv">$variation_id</span><span class="p">,</span> <span class="nv">$variation</span><span class="p">,</span> <span class="nv">$cart_item_data</span><span class="p">,</span> <span class="nv">$product_type</span> <span class="p">)</span> <span class="p">{</span>
+<span class="k">function</span> <span class="n">my_add_to_cart_validation</span><span class="p">(</span> <span class="nv">$passed_validation</span><span class="p">,</span> <span class="nv">$product_id</span><span class="p">,</span> <span class="nv">$quantity</span><span class="p">,</span> <span class="nv">$variation_id</span><span class="p">,</span> <span class="nv">$variation</span><span class="p">,</span> <span class="nv">$cart_item_data</span><span class="p">,</span> <span class="nv">$product_type</span> <span class="p">)</span> <span class="p">{</span>
   <span class="c1">// Add your validation here and simply return true|false.</span>
   <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
 <span class="p">}</span>
@@ -3646,9 +3664,9 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <h2 id='extending-cocart-add-cart-item-data'>Add cart item data</h2>
 <p><img src="images/github-633266a3.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart/search?l=PHP&amp;q=cocart_add_cart_item_data+in%3Afile&amp;type=Code">View source</a></p>
 <div class="highlight"><pre class="highlight php tab-php--filter"><code><span class="cp">&lt;?php</span>
-<span class="nx">add_filter</span><span class="p">(</span> <span class="s1">'cocart_add_cart_item_data'</span><span class="p">,</span> <span class="s1">'my_add_cart_item_data'</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">7</span> <span class="p">);</span>
+<span class="nf">add_filter</span><span class="p">(</span> <span class="s1">'cocart_add_cart_item_data'</span><span class="p">,</span> <span class="s1">'my_add_cart_item_data'</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">7</span> <span class="p">);</span>
 
-<span class="k">function</span> <span class="nf">my_add_cart_item_data</span><span class="p">(</span> <span class="nv">$cart_item_data</span> <span class="p">)</span> <span class="p">{</span>
+<span class="k">function</span> <span class="n">my_add_cart_item_data</span><span class="p">(</span> <span class="nv">$cart_item_data</span> <span class="p">)</span> <span class="p">{</span>
   <span class="c1">// Add your validation here and simply return true|false.</span>
   <span class="k">return</span> <span class="nv">$cart_item_data</span><span class="p">;</span>
 <span class="p">}</span>
@@ -3682,9 +3700,9 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <p>If you have <a href="https://wordpress.org/plugins/cocart-get-cart-enhanced/">Get Cart Enhanced</a> add-on installed, this filter will already be used but can still be used again to apply your own.</p>
 <div class="highlight"><pre class="highlight php tab-php--filter"><code><span class="cp">&lt;?php</span>
 <span class="c1">// Returns the cart contents without the cart item key as the parent array.</span>
-<span class="nx">add_filter</span><span class="p">(</span> <span class="s1">'cocart_return_cart_contents'</span><span class="p">,</span> <span class="s1">'remove_parent_cart_item_key'</span><span class="p">,</span> <span class="mi">0</span> <span class="p">);</span>
+<span class="nf">add_filter</span><span class="p">(</span> <span class="s1">'cocart_return_cart_contents'</span><span class="p">,</span> <span class="s1">'remove_parent_cart_item_key'</span><span class="p">,</span> <span class="mi">0</span> <span class="p">);</span>
 
-<span class="k">function</span> <span class="nf">remove_parent_cart_item_key</span><span class="p">(</span> <span class="nv">$cart_contents</span> <span class="p">)</span> <span class="p">{</span>
+<span class="k">function</span> <span class="n">remove_parent_cart_item_key</span><span class="p">(</span> <span class="nv">$cart_contents</span> <span class="p">)</span> <span class="p">{</span>
   <span class="nv">$new_cart_contents</span> <span class="o">=</span> <span class="k">array</span><span class="p">();</span>
 
   <span class="k">foreach</span> <span class="p">(</span> <span class="nv">$cart_contents</span> <span class="k">as</span> <span class="nv">$item_key</span> <span class="o">=&gt;</span> <span class="nv">$cart_item</span> <span class="p">)</span> <span class="p">{</span>
@@ -3700,9 +3718,9 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 
 <p>Identical to <code>cocart_return_cart_contents</code> filter, only this one is used to filter the cart contents returned for a cart in session that you have <a href="#cart-retrieve-a-cart">requested to view specifically</a>.</p>
 <div class="highlight"><pre class="highlight php tab-php--filter"><code><span class="cp">&lt;?php</span>
-<span class="nx">add_filter</span><span class="p">(</span> <span class="s1">'cocart_return_cart_session_contents'</span><span class="p">,</span> <span class="s1">'remove_parent_cart_item_key'</span> <span class="p">);</span>
+<span class="nf">add_filter</span><span class="p">(</span> <span class="s1">'cocart_return_cart_session_contents'</span><span class="p">,</span> <span class="s1">'remove_parent_cart_item_key'</span> <span class="p">);</span>
 
-<span class="k">function</span> <span class="nf">remove_parent_cart_item_key</span><span class="p">(</span> <span class="nv">$cart_contents</span> <span class="p">)</span> <span class="p">{</span>
+<span class="k">function</span> <span class="n">remove_parent_cart_item_key</span><span class="p">(</span> <span class="nv">$cart_contents</span> <span class="p">)</span> <span class="p">{</span>
   <span class="nv">$new_cart_contents</span> <span class="o">=</span> <span class="k">array</span><span class="p">();</span>
 
   <span class="k">foreach</span> <span class="p">(</span> <span class="nv">$cart_contents</span> <span class="k">as</span> <span class="nv">$item_key</span> <span class="o">=&gt;</span> <span class="nv">$cart_item</span> <span class="p">)</span> <span class="p">{</span>
@@ -3720,9 +3738,9 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 
 <p>If you have <a href="https://wordpress.org/plugins/cocart-get-cart-enhanced/">Get Cart Enhanced</a> add-on installed, this filter will already be used but can still be used again to apply your own.</p>
 <div class="highlight"><pre class="highlight php tab-php--filter"><code><span class="cp">&lt;?php</span>
-<span class="nx">add_filter</span><span class="p">(</span> <span class="s1">'cocart_return_empty_cart'</span><span class="p">,</span> <span class="s1">'empty_cart_message'</span> <span class="p">);</span>
+<span class="nf">add_filter</span><span class="p">(</span> <span class="s1">'cocart_return_empty_cart'</span><span class="p">,</span> <span class="s1">'empty_cart_message'</span> <span class="p">);</span>
 
-<span class="k">function</span> <span class="nf">empty_cart_message</span><span class="p">()</span> <span class="p">{</span>
+<span class="k">function</span> <span class="n">empty_cart_message</span><span class="p">()</span> <span class="p">{</span>
   <span class="k">return</span> <span class="s1">'Your cart is empty! Go and fill it.'</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
@@ -3732,9 +3750,9 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 
 <p>By default, the product thumbnail returns using <code>woocommerce_thumbnail</code> image size. You can change this simply by returning the image size registered on your WordPress installation with this filter <code>cocart_item_thumbnail_size</code>.</p>
 <div class="highlight"><pre class="highlight php tab-php--filter"><code><span class="cp">&lt;?php</span>
-<span class="nx">add_filter</span><span class="p">(</span> <span class="s1">'cocart_item_thumbnail_size'</span><span class="p">,</span> <span class="s1">'thumbnail_size'</span> <span class="p">);</span>
+<span class="nf">add_filter</span><span class="p">(</span> <span class="s1">'cocart_item_thumbnail_size'</span><span class="p">,</span> <span class="s1">'thumbnail_size'</span> <span class="p">);</span>
 
-<span class="k">function</span> <span class="nf">thumbnail_size</span><span class="p">()</span> <span class="p">{</span>
+<span class="k">function</span> <span class="n">thumbnail_size</span><span class="p">()</span> <span class="p">{</span>
   <span class="k">return</span> <span class="s1">'thumbnail'</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
@@ -3773,10 +3791,10 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 </tr>
 </tbody></table>
 <div class="highlight"><pre class="highlight php tab-php--filter"><code><span class="cp">&lt;?php</span>
-<span class="nx">add_filter</span><span class="p">(</span> <span class="s1">'cocart_cart_contents'</span><span class="p">,</span> <span class="s1">'return_product_weight'</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">4</span> <span class="p">);</span>
+<span class="nf">add_filter</span><span class="p">(</span> <span class="s1">'cocart_cart_contents'</span><span class="p">,</span> <span class="s1">'return_product_weight'</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">4</span> <span class="p">);</span>
 
-<span class="k">function</span> <span class="nf">return_product_sku</span><span class="p">(</span> <span class="nv">$cart_contents</span><span class="p">,</span> <span class="nv">$item_key</span><span class="p">,</span> <span class="nv">$cart_item</span><span class="p">,</span> <span class="nv">$_product</span> <span class="p">)</span> <span class="p">{</span>
-  <span class="nv">$cart_contents</span><span class="p">[</span><span class="nv">$item_key</span><span class="p">][</span><span class="s1">'sku'</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$_product</span><span class="o">-&gt;</span><span class="na">get_sku</span><span class="p">();</span>
+<span class="k">function</span> <span class="n">return_product_sku</span><span class="p">(</span> <span class="nv">$cart_contents</span><span class="p">,</span> <span class="nv">$item_key</span><span class="p">,</span> <span class="nv">$cart_item</span><span class="p">,</span> <span class="nv">$_product</span> <span class="p">)</span> <span class="p">{</span>
+  <span class="nv">$cart_contents</span><span class="p">[</span><span class="nv">$item_key</span><span class="p">][</span><span class="s1">'sku'</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$_product</span><span class="o">-&gt;</span><span class="nf">get_sku</span><span class="p">();</span>
 
   <span class="k">return</span> <span class="nv">$cart_contents</span><span class="p">;</span>
 <span class="p">}</span>
@@ -3791,9 +3809,9 @@ Some of these overrides require that you also filter the overrides available in 
 
 <p>With this filter you can force items sold individually to have more or less.</p>
 <div class="highlight"><pre class="highlight php tab-php--filter"><code><span class="cp">&lt;?php</span>
-<span class="nx">add_filter</span><span class="p">(</span> <span class="s1">'cocart_add_to_cart_sold_individually_quantity'</span><span class="p">,</span> <span class="s1">'override_sold_individual_quantity'</span> <span class="p">);</span>
+<span class="nf">add_filter</span><span class="p">(</span> <span class="s1">'cocart_add_to_cart_sold_individually_quantity'</span><span class="p">,</span> <span class="s1">'override_sold_individual_quantity'</span> <span class="p">);</span>
 
-<span class="k">function</span> <span class="nf">override_sold_individual_quantity</span><span class="p">()</span> <span class="p">{</span>
+<span class="k">function</span> <span class="n">override_sold_individual_quantity</span><span class="p">()</span> <span class="p">{</span>
   <span class="k">return</span> <span class="mi">2</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
@@ -3829,10 +3847,10 @@ Some of these overrides require that you also filter the overrides available in 
 </tr>
 </tbody></table>
 <div class="highlight"><pre class="highlight php tab-php--filter"><code><span class="cp">&lt;?php</span>
-<span class="nx">add_filter</span><span class="p">(</span> <span class="s1">'cocart_ok_to_add'</span><span class="p">,</span> <span class="s1">'requires_specific_item'</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">2</span> <span class="p">);</span>
+<span class="nf">add_filter</span><span class="p">(</span> <span class="s1">'cocart_ok_to_add'</span><span class="p">,</span> <span class="s1">'requires_specific_item'</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">2</span> <span class="p">);</span>
 
-<span class="k">function</span> <span class="nf">requires_specific_item</span><span class="p">(</span> <span class="nv">$status</span><span class="p">,</span> <span class="nv">$product_data</span> <span class="p">)</span> <span class="p">{</span>
-  <span class="nv">$cart_contents</span> <span class="o">=</span> <span class="nb">isset</span><span class="p">(</span> <span class="nx">WC</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">cart</span> <span class="p">)</span> <span class="o">?</span> <span class="nx">WC</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">cart</span><span class="o">-&gt;</span><span class="na">get_cart</span><span class="p">()</span> <span class="o">:</span> <span class="nx">WC</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">session</span><span class="o">-&gt;</span><span class="na">cart</span><span class="p">;</span>
+<span class="k">function</span> <span class="n">requires_specific_item</span><span class="p">(</span> <span class="nv">$status</span><span class="p">,</span> <span class="nv">$product_data</span> <span class="p">)</span> <span class="p">{</span>
+  <span class="nv">$cart_contents</span> <span class="o">=</span> <span class="k">isset</span><span class="p">(</span> <span class="nf">WC</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">cart</span> <span class="p">)</span> <span class="o">?</span> <span class="nf">WC</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">cart</span><span class="o">-&gt;</span><span class="nf">get_cart</span><span class="p">()</span> <span class="o">:</span> <span class="nf">WC</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">session</span><span class="o">-&gt;</span><span class="n">cart</span><span class="p">;</span>
 
   <span class="nv">$required_product_id</span> <span class="o">=</span> <span class="s1">'123'</span><span class="p">;</span> <span class="c1">// Replace with real product ID number.</span>
 
@@ -3846,10 +3864,10 @@ Some of these overrides require that you also filter the overrides available in 
   <span class="k">return</span> <span class="nv">$status</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div><div class="highlight"><pre class="highlight php tab-php--filter"><code><span class="cp">&lt;?php</span>
-<span class="nx">add_filter</span><span class="p">(</span> <span class="s1">'cocart_ok_to_add_message'</span><span class="p">,</span> <span class="s1">'requires_specific_item'</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">2</span> <span class="p">);</span>
+<span class="nf">add_filter</span><span class="p">(</span> <span class="s1">'cocart_ok_to_add_message'</span><span class="p">,</span> <span class="s1">'requires_specific_item'</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">2</span> <span class="p">);</span>
 
-<span class="k">function</span> <span class="nf">requires_specific_item_response</span><span class="p">(</span> <span class="nv">$response</span><span class="p">,</span> <span class="nv">$product_data</span> <span class="p">)</span> <span class="p">{</span>
-  <span class="nv">$response</span> <span class="o">=</span> <span class="nx">__</span><span class="p">(</span> <span class="s1">'This item requires a specific item to be added first to the cart.'</span> <span class="p">);</span>
+<span class="k">function</span> <span class="n">requires_specific_item_response</span><span class="p">(</span> <span class="nv">$response</span><span class="p">,</span> <span class="nv">$product_data</span> <span class="p">)</span> <span class="p">{</span>
+  <span class="nv">$response</span> <span class="o">=</span> <span class="nf">__</span><span class="p">(</span> <span class="s1">'This item requires a specific item to be added first to the cart.'</span> <span class="p">);</span>
 
   <span class="k">return</span> <span class="nv">$response</span><span class="p">;</span>
 <span class="p">}</span>
@@ -3889,15 +3907,15 @@ Some of these overrides require that you also filter the overrides available in 
 </tr>
 </tbody></table>
 <div class="highlight"><pre class="highlight php tab-php--filter"><code><span class="cp">&lt;?php</span>
-<span class="nx">add_filter</span><span class="p">(</span> <span class="s1">'cocart_product_name'</span><span class="p">,</span> <span class="s1">'override_product_name'</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">4</span> <span class="p">);</span>
+<span class="nf">add_filter</span><span class="p">(</span> <span class="s1">'cocart_product_name'</span><span class="p">,</span> <span class="s1">'override_product_name'</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">4</span> <span class="p">);</span>
 
-<span class="k">function</span> <span class="nf">override_product_name</span><span class="p">(</span> <span class="nv">$name</span><span class="p">,</span> <span class="nv">$_product</span><span class="p">,</span> <span class="nv">$cart_item</span><span class="p">,</span> <span class="nv">$item_key</span> <span class="p">)</span> <span class="p">{</span>
+<span class="k">function</span> <span class="n">override_product_name</span><span class="p">(</span> <span class="nv">$name</span><span class="p">,</span> <span class="nv">$_product</span><span class="p">,</span> <span class="nv">$cart_item</span><span class="p">,</span> <span class="nv">$item_key</span> <span class="p">)</span> <span class="p">{</span>
   <span class="k">return</span> <span class="s1">'This product is special'</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div><div class="highlight"><pre class="highlight php tab-php--filter"><code><span class="cp">&lt;?php</span>
-<span class="nx">add_filter</span><span class="p">(</span> <span class="s1">'cocart_item_added_product_name'</span><span class="p">,</span> <span class="s1">'override_product_name'</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">3</span> <span class="p">);</span>
+<span class="nf">add_filter</span><span class="p">(</span> <span class="s1">'cocart_item_added_product_name'</span><span class="p">,</span> <span class="s1">'override_product_name'</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">3</span> <span class="p">);</span>
 
-<span class="k">function</span> <span class="nf">override_product_name</span><span class="p">(</span> <span class="nv">$name</span><span class="p">,</span> <span class="nv">$_product</span><span class="p">,</span> <span class="nv">$item_key</span> <span class="p">)</span> <span class="p">{</span>
+<span class="k">function</span> <span class="n">override_product_name</span><span class="p">(</span> <span class="nv">$name</span><span class="p">,</span> <span class="nv">$_product</span><span class="p">,</span> <span class="nv">$item_key</span> <span class="p">)</span> <span class="p">{</span>
   <span class="k">return</span> <span class="s1">'This product is special'</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
@@ -3936,15 +3954,15 @@ Some of these overrides require that you also filter the overrides available in 
 </tr>
 </tbody></table>
 <div class="highlight"><pre class="highlight php tab-php--filter"><code><span class="cp">&lt;?php</span>
-<span class="nx">add_filter</span><span class="p">(</span> <span class="s1">'cocart_product_title'</span><span class="p">,</span> <span class="s1">'override_product_title'</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">4</span> <span class="p">);</span>
+<span class="nf">add_filter</span><span class="p">(</span> <span class="s1">'cocart_product_title'</span><span class="p">,</span> <span class="s1">'override_product_title'</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">4</span> <span class="p">);</span>
 
-<span class="k">function</span> <span class="nf">override_product_title</span><span class="p">(</span> <span class="nv">$name</span><span class="p">,</span> <span class="nv">$_product</span><span class="p">,</span> <span class="nv">$cart_item</span><span class="p">,</span> <span class="nv">$item_key</span> <span class="p">)</span> <span class="p">{</span>
+<span class="k">function</span> <span class="n">override_product_title</span><span class="p">(</span> <span class="nv">$name</span><span class="p">,</span> <span class="nv">$_product</span><span class="p">,</span> <span class="nv">$cart_item</span><span class="p">,</span> <span class="nv">$item_key</span> <span class="p">)</span> <span class="p">{</span>
   <span class="k">return</span> <span class="s1">'This product is awesome'</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div><div class="highlight"><pre class="highlight php tab-php--filter"><code><span class="cp">&lt;?php</span>
-<span class="nx">add_filter</span><span class="p">(</span> <span class="s1">'cocart_item_added_product_title'</span><span class="p">,</span> <span class="s1">'override_product_title'</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">3</span> <span class="p">);</span>
+<span class="nf">add_filter</span><span class="p">(</span> <span class="s1">'cocart_item_added_product_title'</span><span class="p">,</span> <span class="s1">'override_product_title'</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">3</span> <span class="p">);</span>
 
-<span class="k">function</span> <span class="nf">override_product_title</span><span class="p">(</span> <span class="nv">$name</span><span class="p">,</span> <span class="nv">$_product</span><span class="p">,</span> <span class="nv">$item_key</span> <span class="p">)</span> <span class="p">{</span>
+<span class="k">function</span> <span class="n">override_product_title</span><span class="p">(</span> <span class="nv">$name</span><span class="p">,</span> <span class="nv">$_product</span><span class="p">,</span> <span class="nv">$item_key</span> <span class="p">)</span> <span class="p">{</span>
   <span class="k">return</span> <span class="s1">'This product is awesome'</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
@@ -3982,9 +4000,9 @@ Some of these overrides require that you also filter the overrides available in 
 </tr>
 </tbody></table>
 <div class="highlight"><pre class="highlight php tab-php--filter"><code><span class="cp">&lt;?php</span>
-<span class="nx">add_filter</span><span class="p">(</span> <span class="s1">'cocart_item_thumbnail_src'</span><span class="p">,</span> <span class="s1">'override_item_thumbail_src'</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">3</span> <span class="p">);</span>
+<span class="nf">add_filter</span><span class="p">(</span> <span class="s1">'cocart_item_thumbnail_src'</span><span class="p">,</span> <span class="s1">'override_item_thumbail_src'</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">3</span> <span class="p">);</span>
 
-<span class="k">function</span> <span class="nf">override_item_thumbail_src</span><span class="p">(</span> <span class="nv">$thumbnail_src</span><span class="p">,</span> <span class="nv">$cart_item</span><span class="p">,</span> <span class="nv">$item_key</span> <span class="p">)</span> <span class="p">{</span>
+<span class="k">function</span> <span class="n">override_item_thumbail_src</span><span class="p">(</span> <span class="nv">$thumbnail_src</span><span class="p">,</span> <span class="nv">$cart_item</span><span class="p">,</span> <span class="nv">$item_key</span> <span class="p">)</span> <span class="p">{</span>
   <span class="k">return</span> <span class="s1">'https://placekitten.com/100/100'</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
@@ -4032,9 +4050,9 @@ Some of these overrides require that you also filter the overrides available in 
 </tr>
 </tbody></table>
 <div class="highlight"><pre class="highlight php tab-php--filter"><code><span class="cp">&lt;?php</span>
-<span class="nx">add_filter</span><span class="p">(</span> <span class="s1">'cocart_add_to_cart_quantity'</span><span class="p">,</span> <span class="s1">'override_product_quantity'</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">5</span> <span class="p">);</span>
+<span class="nf">add_filter</span><span class="p">(</span> <span class="s1">'cocart_add_to_cart_quantity'</span><span class="p">,</span> <span class="s1">'override_product_quantity'</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">5</span> <span class="p">);</span>
 
-<span class="k">function</span> <span class="nf">override_product_quantity</span><span class="p">(</span> <span class="nv">$quantity</span><span class="p">,</span> <span class="nv">$product_id</span><span class="p">,</span> <span class="nv">$variation_id</span><span class="p">,</span> <span class="nv">$variation</span><span class="p">,</span> <span class="nv">$cart_item_data</span> <span class="p">)</span> <span class="p">{</span>
+<span class="k">function</span> <span class="n">override_product_quantity</span><span class="p">(</span> <span class="nv">$quantity</span><span class="p">,</span> <span class="nv">$product_id</span><span class="p">,</span> <span class="nv">$variation_id</span><span class="p">,</span> <span class="nv">$variation</span><span class="p">,</span> <span class="nv">$cart_item_data</span> <span class="p">)</span> <span class="p">{</span>
   <span class="c1">// Make sure you specify the product ID you want to override.</span>
   <span class="k">if</span> <span class="p">(</span> <span class="nv">$product_id</span> <span class="o">==</span> <span class="mi">32</span> <span class="p">)</span> <span class="p">{</span>
     <span class="k">return</span> <span class="mi">3</span><span class="p">;</span> <span class="c1">// Make sure that you just return the number and not override the `$quantity` variable.</span>
@@ -4050,11 +4068,11 @@ Some of these overrides require that you also filter the overrides available in 
 
 <p>Change the returned message when you try to add a product type that cannot be added to the cart.</p>
 <div class="highlight"><pre class="highlight php tab-php--filter"><code><span class="cp">&lt;?php</span>
-<span class="nx">add_filter</span><span class="p">(</span> <span class="s1">'cocart_cannot_add_product_type_to_cart_message'</span><span class="p">,</span> <span class="s1">'cannot_add_product_type_to_cart_message'</span> <span class="p">);</span>
+<span class="nf">add_filter</span><span class="p">(</span> <span class="s1">'cocart_cannot_add_product_type_to_cart_message'</span><span class="p">,</span> <span class="s1">'cannot_add_product_type_to_cart_message'</span> <span class="p">);</span>
 
-<span class="k">function</span> <span class="nf">cannot_add_product_type_to_cart_message</span><span class="p">()</span> <span class="p">{</span>
+<span class="k">function</span> <span class="n">cannot_add_product_type_to_cart_message</span><span class="p">()</span> <span class="p">{</span>
   <span class="cm">/* params: %1$s: product name, %2$s: product type */</span>
-  <span class="nb">sprintf</span><span class="p">(</span> <span class="s1">'You cannot add "%1$s" to your cart as it is a "%2$s" product.'</span><span class="p">,</span> <span class="nv">$product_data</span><span class="o">-&gt;</span><span class="na">get_name</span><span class="p">(),</span> <span class="nv">$product_data</span><span class="o">-&gt;</span><span class="na">get_type</span><span class="p">()</span> <span class="p">);</span>
+  <span class="nb">sprintf</span><span class="p">(</span> <span class="s1">'You cannot add "%1$s" to your cart as it is a "%2$s" product.'</span><span class="p">,</span> <span class="nv">$product_data</span><span class="o">-&gt;</span><span class="nf">get_name</span><span class="p">(),</span> <span class="nv">$product_data</span><span class="o">-&gt;</span><span class="nf">get_type</span><span class="p">()</span> <span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 <div style="clear: both;"></div>
@@ -4080,10 +4098,10 @@ Some of these overrides require that you also filter the overrides available in 
 </tr>
 </tbody></table>
 <div class="highlight"><pre class="highlight php tab-php--filter"><code><span class="cp">&lt;?php</span>
-<span class="nx">add_filter</span><span class="p">(</span> <span class="s1">'cocart_cart_item_removed_message'</span><span class="p">,</span> <span class="s1">'cart_item_removed_message'</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">2</span> <span class="p">);</span>
+<span class="nf">add_filter</span><span class="p">(</span> <span class="s1">'cocart_cart_item_removed_message'</span><span class="p">,</span> <span class="s1">'cart_item_removed_message'</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">2</span> <span class="p">);</span>
 
-<span class="k">function</span> <span class="nf">cart_item_removed_message</span><span class="p">(</span> <span class="nv">$message</span><span class="p">,</span> <span class="nv">$_product</span> <span class="p">)</span> <span class="p">{</span>
-  <span class="k">return</span> <span class="nb">sprintf</span><span class="p">(</span> <span class="s1">'%s has been removed from your cart because it can no longer be purchased. Please contact us if you need assistance.'</span><span class="p">,</span> <span class="nv">$_product</span><span class="o">-&gt;</span><span class="na">get_name</span><span class="p">()</span> <span class="p">);</span>
+<span class="k">function</span> <span class="n">cart_item_removed_message</span><span class="p">(</span> <span class="nv">$message</span><span class="p">,</span> <span class="nv">$_product</span> <span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nb">sprintf</span><span class="p">(</span> <span class="s1">'%s has been removed from your cart because it can no longer be purchased. Please contact us if you need assistance.'</span><span class="p">,</span> <span class="nv">$_product</span><span class="o">-&gt;</span><span class="nf">get_name</span><span class="p">()</span> <span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 <div style="clear: both;"></div>
@@ -4092,7 +4110,7 @@ Some of these overrides require that you also filter the overrides available in 
 
 <p>This filter allows you to disable support for the CoCart cookie that handles the session for customers. Use only if you are using the alternative method for customers.</p>
 <div class="highlight"><pre class="highlight php tab-php--filter"><code><span class="cp">&lt;?php</span>
-<span class="nx">add_filter</span><span class="p">(</span> <span class="s1">'cocart_cookie_supported'</span><span class="p">,</span> <span class="k">function</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="kc">false</span><span class="p">;</span> <span class="p">});</span>
+<span class="nf">add_filter</span><span class="p">(</span> <span class="s1">'cocart_cookie_supported'</span><span class="p">,</span> <span class="k">function</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="kc">false</span><span class="p">;</span> <span class="p">});</span>
 </code></pre></div>
 <div style="clear: both;"></div>
 <h3 id='filters-session-management-change-cookie-name'>Change Cookie Name</h3>
@@ -4104,10 +4122,10 @@ Some of these overrides require that you also filter the overrides available in 
   It is recommended that you at least leave in place the <strong>COOKIEHASH</strong> which by default is your site URL encrypted. It is used to guarantee unique hash for cookies.
 </aside>
 <div class="highlight"><pre class="highlight php tab-php--filter"><code><span class="cp">&lt;?php</span>
-<span class="nx">add_filter</span><span class="p">(</span> <span class="s1">'cocart_cookie'</span><span class="p">,</span> <span class="s1">'my_cocart_cookie_name'</span> <span class="p">);</span>
+<span class="nf">add_filter</span><span class="p">(</span> <span class="s1">'cocart_cookie'</span><span class="p">,</span> <span class="s1">'my_cocart_cookie_name'</span> <span class="p">);</span>
 
-<span class="k">function</span> <span class="nf">my_cocart_cookie_name</span><span class="p">()</span> <span class="p">{</span>
-  <span class="k">return</span> <span class="s1">'randomloot_store_'</span> <span class="o">.</span> <span class="nx">COOKIEHASH</span><span class="p">;</span>
+<span class="k">function</span> <span class="n">my_cocart_cookie_name</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="s1">'randomloot_store_'</span> <span class="mf">.</span> <span class="no">COOKIEHASH</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 <div style="clear: both;"></div>
@@ -4116,7 +4134,7 @@ Some of these overrides require that you also filter the overrides available in 
 
 <p>Be default this will set as true if your site has SSL enabled. Otherwise it will return false. Filtering will force it.</p>
 <div class="highlight"><pre class="highlight php tab-php--filter"><code><span class="cp">&lt;?php</span>
-<span class="nx">add_filter</span><span class="p">(</span> <span class="s1">'cocart_cart_use_secure_cookie'</span><span class="p">,</span> <span class="k">function</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="kc">true</span><span class="p">;</span> <span class="p">});</span>
+<span class="nf">add_filter</span><span class="p">(</span> <span class="s1">'cocart_cart_use_secure_cookie'</span><span class="p">,</span> <span class="k">function</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="kc">true</span><span class="p">;</span> <span class="p">});</span>
 </code></pre></div>
 <div style="clear: both;"></div>
 <h3 id='filters-session-management-cart-expiration'>Cart Expiration</h3>
@@ -4128,8 +4146,8 @@ Some of these overrides require that you also filter the overrides available in 
   Close to expiration by default is 29 days. Cart expiration by default is 30 days.
 </aside>
 <div class="highlight"><pre class="highlight php tab-php--filter"><code><span class="cp">&lt;?php</span>
-<span class="nx">add_filter</span><span class="p">(</span> <span class="s1">'cocart_cart_expiring'</span><span class="p">,</span> <span class="k">function</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="nx">DAY_IN_SECONDS</span> <span class="o">*</span> <span class="mi">3</span><span class="p">;</span> <span class="p">});</span>
-<span class="nx">add_filter</span><span class="p">(</span> <span class="s1">'cocart_cart_expiration'</span><span class="p">,</span> <span class="k">function</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="nx">DAY_IN_SECONDS</span> <span class="o">*</span> <span class="mi">4</span><span class="p">;</span> <span class="p">});</span>
+<span class="nf">add_filter</span><span class="p">(</span> <span class="s1">'cocart_cart_expiring'</span><span class="p">,</span> <span class="k">function</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="no">DAY_IN_SECONDS</span> <span class="o">*</span> <span class="mi">3</span><span class="p">;</span> <span class="p">});</span>
+<span class="nf">add_filter</span><span class="p">(</span> <span class="s1">'cocart_cart_expiration'</span><span class="p">,</span> <span class="k">function</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="no">DAY_IN_SECONDS</span> <span class="o">*</span> <span class="mi">4</span><span class="p">;</span> <span class="p">});</span>
 </code></pre></div>
 <div style="clear: both;"></div>
 <h3 id='filters-session-management-empty-cart-expiration'>Empty Cart Expiration</h3>
@@ -4137,7 +4155,7 @@ Some of these overrides require that you also filter the overrides available in 
 
 <p>This filter allows you to change the expiration of an empty cart. Default value is 6 hours.</p>
 <div class="highlight"><pre class="highlight php tab-php--filter"><code><span class="cp">&lt;?php</span>
-<span class="nx">add_filter</span><span class="p">(</span> <span class="s1">'cocart_empty_cart_expiration'</span><span class="p">,</span> <span class="k">function</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="nx">HOUR_IN_SECONDS</span> <span class="o">*</span> <span class="mi">1</span><span class="p">;</span> <span class="p">});</span>
+<span class="nf">add_filter</span><span class="p">(</span> <span class="s1">'cocart_empty_cart_expiration'</span><span class="p">,</span> <span class="k">function</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="no">HOUR_IN_SECONDS</span> <span class="o">*</span> <span class="mi">1</span><span class="p">;</span> <span class="p">});</span>
 </code></pre></div>
 <div style="clear: both;"></div>
 <h3 id='filters-session-management-generated-customer-id'>Generated Customer ID</h3>
@@ -4145,20 +4163,20 @@ Some of these overrides require that you also filter the overrides available in 
 
 <p>This filter allows you to change the generated customer ID for the guest customer. Use this filter with caution. <strong>Cannot</strong> be longer than 42 characters, exceed it and the database will not save the cart.</p>
 <div class="highlight"><pre class="highlight php tab-php--filter"><code><span class="cp">&lt;?php</span>
-<span class="nx">add_filter</span><span class="p">(</span> <span class="s1">'cocart_customer_id'</span><span class="p">,</span> <span class="s1">'my_custom_generate_customer_id'</span> <span class="p">);</span>
+<span class="nf">add_filter</span><span class="p">(</span> <span class="s1">'cocart_customer_id'</span><span class="p">,</span> <span class="s1">'my_custom_generate_customer_id'</span> <span class="p">);</span>
 
-<span class="k">function</span> <span class="nf">my_custom_generate_customer_id</span><span class="p">(</span> <span class="nv">$hasher</span> <span class="p">)</span> <span class="p">{</span>
-  <span class="k">return</span> <span class="nb">md5</span><span class="p">(</span> <span class="nv">$hasher</span><span class="o">-&gt;</span><span class="na">get_random_bytes</span><span class="p">(</span> <span class="mi">42</span> <span class="p">)</span> <span class="p">);</span>
+<span class="k">function</span> <span class="n">my_custom_generate_customer_id</span><span class="p">(</span> <span class="nv">$hasher</span> <span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nb">md5</span><span class="p">(</span> <span class="nv">$hasher</span><span class="o">-&gt;</span><span class="nf">get_random_bytes</span><span class="p">(</span> <span class="mi">42</span> <span class="p">)</span> <span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 <div style="clear: both;"></div>
 <h3 id='filters-session-management-cart-loaded-successful-message'>Cart Loaded Successful Message</h3>
 <p><img src="images/github-633266a3.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart/search?q=cocart_cart_loaded_successful_message+in%3Afile&amp;type=Code">View source</a></p>
 <div class="highlight"><pre class="highlight php tab-php--filter"><code><span class="cp">&lt;?php</span>
-<span class="nx">add_filter</span><span class="p">(</span> <span class="s1">'cocart_cart_loaded_successful_message'</span><span class="p">,</span> <span class="s1">'cart_loaded_successful_message'</span> <span class="p">);</span>
+<span class="nf">add_filter</span><span class="p">(</span> <span class="s1">'cocart_cart_loaded_successful_message'</span><span class="p">,</span> <span class="s1">'cart_loaded_successful_message'</span> <span class="p">);</span>
 
-<span class="k">function</span> <span class="nf">cart_loaded_successful_message</span><span class="p">(</span> <span class="nv">$message</span> <span class="p">)</span> <span class="p">{</span>
-  <span class="k">return</span> <span class="nb">sprintf</span><span class="p">(</span> <span class="s1">'Your 🛒 cart has been transferred over. You may %1$scontinue shopping%3$s or %2$scheckout%3$s.'</span><span class="p">,</span> <span class="s1">'&lt;a href="'</span> <span class="o">.</span> <span class="nx">wc_get_page_permalink</span><span class="p">(</span> <span class="s2">"shop"</span> <span class="p">)</span> <span class="o">.</span> <span class="s1">'"&gt;'</span><span class="p">,</span> <span class="s1">'&lt;a href="'</span> <span class="o">.</span> <span class="nx">wc_get_checkout_url</span><span class="p">()</span> <span class="o">.</span> <span class="s1">'"&gt;'</span><span class="p">,</span> <span class="s1">'&lt;/a&gt;'</span> <span class="p">)</span> <span class="p">);</span>
+<span class="k">function</span> <span class="n">cart_loaded_successful_message</span><span class="p">(</span> <span class="nv">$message</span> <span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nb">sprintf</span><span class="p">(</span> <span class="s1">'Your 🛒 cart has been transferred over. You may %1$scontinue shopping%3$s or %2$scheckout%3$s.'</span><span class="p">,</span> <span class="s1">'&lt;a href="'</span> <span class="mf">.</span> <span class="nf">wc_get_page_permalink</span><span class="p">(</span> <span class="s2">"shop"</span> <span class="p">)</span> <span class="mf">.</span> <span class="s1">'"&gt;'</span><span class="p">,</span> <span class="s1">'&lt;a href="'</span> <span class="mf">.</span> <span class="nf">wc_get_checkout_url</span><span class="p">()</span> <span class="mf">.</span> <span class="s1">'"&gt;'</span><span class="p">,</span> <span class="s1">'&lt;/a&gt;'</span> <span class="p">)</span> <span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 <div style="clear: both;"></div>
@@ -4185,7 +4203,7 @@ You must have <strong>WP_DEBUG</strong> enabled in your <i>wp-config.php</i> fil
 <p>CoCart Logging filter</p>
 </blockquote>
 <div class="highlight"><pre class="highlight php tab-php--filter"><code><span class="cp">&lt;?php</span>
-<span class="nx">add_filter</span><span class="p">(</span> <span class="s1">'cocart_logging'</span><span class="p">,</span> <span class="k">function</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="kc">true</span><span class="p">;</span> <span class="p">});</span>
+<span class="nf">add_filter</span><span class="p">(</span> <span class="s1">'cocart_logging'</span><span class="p">,</span> <span class="k">function</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="kc">true</span><span class="p">;</span> <span class="p">});</span>
 </code></pre></div>
 <div style="clear: both;"></div>
 <h3 id='filters-api-access-cors-allow-all-cross-origin-headers'>CORS: Allow all cross origin headers</h3>
@@ -4195,7 +4213,7 @@ You must have <strong>WP_DEBUG</strong> enabled in your <i>wp-config.php</i> fil
 
 <p>If you are getting a warning about cross origin headers then you may need to enable support for it. Simply apply this filter and the headers will set for you with no further configuration.</p>
 <div class="highlight"><pre class="highlight php tab-php--filter"><code><span class="cp">&lt;?php</span>
-<span class="nx">add_filter</span><span class="p">(</span> <span class="s1">'cocart_disable_all_cors'</span><span class="p">,</span> <span class="k">function</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="kc">false</span><span class="p">;</span> <span class="p">});</span>
+<span class="nf">add_filter</span><span class="p">(</span> <span class="s1">'cocart_disable_all_cors'</span><span class="p">,</span> <span class="k">function</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="kc">false</span><span class="p">;</span> <span class="p">});</span>
 </code></pre></div><h3 id='filters-api-access-set-allow-origin-header'>Set Allow Origin Header</h3>
 <p><span class="new">New Filter since v2.5.1</span></p>
 
@@ -4203,7 +4221,7 @@ You must have <strong>WP_DEBUG</strong> enabled in your <i>wp-config.php</i> fil
 
 <p>For added security when you go into production. Set <strong>&#39;Access-Control-Allow-Origin&#39;</strong> header to be more specific. <a href="#filters-api-access-cors-allow-all-cross-origin-headers">Allow all cross origin headers</a> must be enabled first as shown above.</p>
 <div class="highlight"><pre class="highlight php tab-php--filter"><code><span class="cp">&lt;?php</span>
-<span class="nx">add_filter</span><span class="p">(</span> <span class="s1">'cocart_allow_origin'</span><span class="p">,</span> <span class="k">function</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="s1">'https://wp-demo.cocart.xyz'</span><span class="p">;</span> <span class="p">});</span>
+<span class="nf">add_filter</span><span class="p">(</span> <span class="s1">'cocart_allow_origin'</span><span class="p">,</span> <span class="k">function</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="s1">'https://wp-demo.cocart.xyz'</span><span class="p">;</span> <span class="p">});</span>
 </code></pre></div><h3 id='filters-api-access-is-rest-api-request'>Is REST API Request?</h3>
 <p><span class="new">New Filter since v2.7.0</span></p>
 
@@ -4211,9 +4229,9 @@ You must have <strong>WP_DEBUG</strong> enabled in your <i>wp-config.php</i> fil
 
 <p>This filter allows you to run your own API check-up with CoCart.</p>
 <div class="highlight"><pre class="highlight php tab-php--filter"><code><span class="cp">&lt;?php</span>
-<span class="nx">add_filter</span><span class="p">(</span> <span class="s1">'cocart_is_rest_api_request'</span><span class="p">,</span> <span class="k">function</span><span class="p">()</span> <span class="p">{</span>
-  <span class="nv">$rest_prefix</span>         <span class="o">=</span> <span class="nx">trailingslashit</span><span class="p">(</span> <span class="nx">rest_get_url_prefix</span><span class="p">()</span> <span class="p">);</span>
-  <span class="nv">$is_rest_api_request</span> <span class="o">=</span> <span class="p">(</span> <span class="kc">false</span> <span class="o">!==</span> <span class="nb">strpos</span><span class="p">(</span> <span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">'REQUEST_URI'</span><span class="p">],</span> <span class="nv">$rest_prefix</span> <span class="o">.</span> <span class="s1">'myrestapi/'</span> <span class="p">)</span> <span class="p">);</span>
+<span class="nf">add_filter</span><span class="p">(</span> <span class="s1">'cocart_is_rest_api_request'</span><span class="p">,</span> <span class="k">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nv">$rest_prefix</span>         <span class="o">=</span> <span class="nf">trailingslashit</span><span class="p">(</span> <span class="nf">rest_get_url_prefix</span><span class="p">()</span> <span class="p">);</span>
+  <span class="nv">$is_rest_api_request</span> <span class="o">=</span> <span class="p">(</span> <span class="kc">false</span> <span class="o">!==</span> <span class="nb">strpos</span><span class="p">(</span> <span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">'REQUEST_URI'</span><span class="p">],</span> <span class="nv">$rest_prefix</span> <span class="mf">.</span> <span class="s1">'myrestapi/'</span> <span class="p">)</span> <span class="p">);</span>
 
   <span class="k">return</span> <span class="nv">$is_rest_api_request</span><span class="p">;</span>
 <span class="p">});</span>
@@ -4228,9 +4246,9 @@ You must have <strong>WP_DEBUG</strong> enabled in your <i>wp-config.php</i> fil
  * @param  `$cart_in_session` - Returns the current cart contents, if any.
  * @return `$new_cart_content` - Returns your results of the cart contents.
  */</span>
-<span class="nx">add_filter</span><span class="p">(</span> <span class="s1">'cocart_merge_cart_content'</span><span class="p">,</span> <span class="s1">'merge_cart_contents'</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">3</span> <span class="p">);</span>
+<span class="nf">add_filter</span><span class="p">(</span> <span class="s1">'cocart_merge_cart_content'</span><span class="p">,</span> <span class="s1">'merge_cart_contents'</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">3</span> <span class="p">);</span>
 
-<span class="k">function</span> <span class="nf">merge_cart_contents</span><span class="p">(</span> <span class="nv">$new_cart_content</span><span class="p">,</span> <span class="nv">$new_cart</span><span class="p">,</span> <span class="nv">$cart_in_session</span> <span class="p">)</span> <span class="p">{</span>
+<span class="k">function</span> <span class="n">merge_cart_contents</span><span class="p">(</span> <span class="nv">$new_cart_content</span><span class="p">,</span> <span class="nv">$new_cart</span><span class="p">,</span> <span class="nv">$cart_in_session</span> <span class="p">)</span> <span class="p">{</span>
   <span class="k">return</span> <span class="nv">$new_cart_content</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
@@ -4242,7 +4260,7 @@ You must have <strong>WP_DEBUG</strong> enabled in your <i>wp-config.php</i> fil
 
 <p>Overrides the determined user ID when authenticating. <strong>NOTE</strong> This will only be active if not already authenticated.</p>
 <div class="highlight"><pre class="highlight php tab-php--filter"><code><span class="cp">&lt;?php</span>
-<span class="nx">add_filter</span><span class="p">(</span> <span class="s1">'cocart_authenticate'</span><span class="p">,</span> <span class="k">function</span><span class="p">(){});</span>
+<span class="nf">add_filter</span><span class="p">(</span> <span class="s1">'cocart_authenticate'</span><span class="p">,</span> <span class="k">function</span><span class="p">(){});</span>
 </code></pre></div><h1 id='hooks'>Hooks</h1>
 <p><img src="images/github-633266a3.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v1/_hooks.md">Edit on GitHub</a></p>
 
@@ -4546,12 +4564,12 @@ You must have <strong>WP_DEBUG</strong> enabled in your <i>wp-config.php</i> fil
 <span class="p">);</span>
 
 <span class="nb">curl_setopt_array</span><span class="p">(</span> <span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
-  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/add-item"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"POST"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_POSTFIELDS</span> <span class="o">=&gt;</span> <span class="nv">$args</span><span class="p">,</span>
-  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
-  <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+  <span class="no">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/add-item"</span><span class="p">,</span>
+  <span class="no">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"POST"</span><span class="p">,</span>
+  <span class="no">CURLOPT_POSTFIELDS</span> <span class="o">=&gt;</span> <span class="nv">$args</span><span class="p">,</span>
+  <span class="no">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="no">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
+  <span class="no">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
     <span class="s1">'Accept: application/json'</span><span class="p">,</span>
     <span class="s1">'Content-Type: application/json'</span><span class="p">,</span>
     <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
@@ -4568,7 +4586,7 @@ You must have <strong>WP_DEBUG</strong> enabled in your <i>wp-config.php</i> fil
   <span class="s1">'headers'</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
     <span class="s1">'Content-Type'</span> <span class="o">=&gt;</span> <span class="s1">'application/json; charset=utf-8'</span><span class="p">,</span>
   <span class="p">),</span>
-  <span class="s1">'body'</span> <span class="o">=&gt;</span> <span class="nx">wp_json_encode</span><span class="p">(</span> <span class="p">[</span>
+  <span class="s1">'body'</span> <span class="o">=&gt;</span> <span class="nf">wp_json_encode</span><span class="p">(</span> <span class="p">[</span>
     <span class="s1">'product_id'</span> <span class="o">=&gt;</span> <span class="s1">'1102'</span><span class="p">,</span>
     <span class="s1">'quantity'</span> <span class="o">=&gt;</span> <span class="mi">5</span><span class="p">,</span>
     <span class="s1">'cart_item_data'</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
@@ -4590,8 +4608,8 @@ You must have <strong>WP_DEBUG</strong> enabled in your <i>wp-config.php</i> fil
   <span class="p">]</span> <span class="p">),</span>
   <span class="s1">'timeout'</span> <span class="o">=&gt;</span> <span class="mi">30</span>
 <span class="p">);</span>
-<span class="nv">$response</span> <span class="o">=</span> <span class="nx">wp_remote_post</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/add-item'</span><span class="p">,</span> <span class="nv">$args</span> <span class="p">);</span>
-<span class="nv">$body</span> <span class="o">=</span> <span class="nx">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
+<span class="nv">$response</span> <span class="o">=</span> <span class="nf">wp_remote_post</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/add-item'</span><span class="p">,</span> <span class="nv">$args</span> <span class="p">);</span>
+<span class="nv">$body</span> <span class="o">=</span> <span class="nf">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
 </code></pre></div>
 <blockquote>
 <p>JSON response example</p>
@@ -4750,12 +4768,12 @@ You must have <strong>WP_DEBUG</strong> enabled in your <i>wp-config.php</i> fil
 <span class="p">);</span>
 
 <span class="nb">curl_setopt_array</span><span class="p">(</span> <span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
-  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/add-item"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"POST"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_POSTFIELDS</span> <span class="o">=&gt;</span> <span class="nv">$args</span><span class="p">,</span>
-  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
-  <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+  <span class="no">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/add-item"</span><span class="p">,</span>
+  <span class="no">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"POST"</span><span class="p">,</span>
+  <span class="no">CURLOPT_POSTFIELDS</span> <span class="o">=&gt;</span> <span class="nv">$args</span><span class="p">,</span>
+  <span class="no">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="no">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
+  <span class="no">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
     <span class="s1">'Accept: application/json'</span><span class="p">,</span>
     <span class="s1">'Content-Type: application/json'</span><span class="p">,</span>
     <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
@@ -4772,7 +4790,7 @@ You must have <strong>WP_DEBUG</strong> enabled in your <i>wp-config.php</i> fil
   <span class="s1">'headers'</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
     <span class="s1">'Content-Type'</span> <span class="o">=&gt;</span> <span class="s1">'application/json; charset=utf-8'</span><span class="p">,</span>
   <span class="p">),</span>
-  <span class="s1">'body'</span> <span class="o">=&gt;</span> <span class="nx">wp_json_encode</span><span class="p">(</span> <span class="p">[</span>
+  <span class="s1">'body'</span> <span class="o">=&gt;</span> <span class="nf">wp_json_encode</span><span class="p">(</span> <span class="p">[</span>
     <span class="s1">'product_id'</span> <span class="o">=&gt;</span> <span class="s1">'129'</span><span class="p">,</span>
     <span class="s1">'quantity'</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span>
     <span class="s1">'cart_item_data'</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
@@ -4781,8 +4799,8 @@ You must have <strong>WP_DEBUG</strong> enabled in your <i>wp-config.php</i> fil
   <span class="p">]</span> <span class="p">),</span>
   <span class="s1">'timeout'</span> <span class="o">=&gt;</span> <span class="mi">30</span>
 <span class="p">);</span>
-<span class="nv">$response</span> <span class="o">=</span> <span class="nx">wp_remote_post</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/add-item'</span><span class="p">,</span> <span class="nv">$args</span> <span class="p">);</span>
-<span class="nv">$body</span> <span class="o">=</span> <span class="nx">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
+<span class="nv">$response</span> <span class="o">=</span> <span class="nf">wp_remote_post</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/add-item'</span><span class="p">,</span> <span class="nv">$args</span> <span class="p">);</span>
+<span class="nv">$body</span> <span class="o">=</span> <span class="nf">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
 </code></pre></div>
 <blockquote>
 <p>JSON response example</p>
@@ -4847,7 +4865,7 @@ Please make sure you are viewing the PHP language to copy any code snippet.
 <span class="cd">/**
  * Change the parameter name for loading the cart via the web.
  */</span>
-<span class="nx">add_filter</span><span class="p">(</span> <span class="s1">'cocart_load_cart_query_name'</span><span class="p">,</span> <span class="k">function</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="s1">'my-cart'</span><span class="p">;</span> <span class="p">});</span>
+<span class="nf">add_filter</span><span class="p">(</span> <span class="s1">'cocart_load_cart_query_name'</span><span class="p">,</span> <span class="k">function</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="s1">'my-cart'</span><span class="p">;</span> <span class="p">});</span>
 </code></pre></div><h1 id='demo-cocart'>Demo CoCart</h1>
 <p><img src="images/github-633266a3.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart-docs/blob/master/source/includes/_demo.md">Edit on GitHub</a></p>
 
@@ -4894,10 +4912,10 @@ Please make sure you are viewing the PHP language to copy any code snippet.
 <span class="p">);</span>
 
 <span class="nb">curl_setopt_array</span><span class="p">(</span> <span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
-  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://wp-demo.cocart.xyz/wp-json/cocart/v1/add-item"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"POST"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_POSTFIELDS</span> <span class="o">=&gt;</span> <span class="nv">$args</span><span class="p">,</span>
-  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span>
+  <span class="no">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://wp-demo.cocart.xyz/wp-json/cocart/v1/add-item"</span><span class="p">,</span>
+  <span class="no">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"POST"</span><span class="p">,</span>
+  <span class="no">CURLOPT_POSTFIELDS</span> <span class="o">=&gt;</span> <span class="nv">$args</span><span class="p">,</span>
+  <span class="no">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span>
 <span class="p">)</span> <span class="p">);</span>
 
 <span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
@@ -4910,8 +4928,8 @@ Please make sure you are viewing the PHP language to copy any code snippet.
   <span class="s1">'product_id'</span> <span class="o">=&gt;</span> <span class="s1">'183'</span><span class="p">,</span>
   <span class="s1">'quantity'</span> <span class="o">=&gt;</span> <span class="mi">1</span>
 <span class="p">);</span>
-<span class="nv">$response</span> <span class="o">=</span> <span class="nx">wp_remote_post</span><span class="p">(</span> <span class="s1">'https://wp-demo.cocart.xyz/wp-json/cocart/v1/add-item'</span><span class="p">,</span> <span class="nv">$args</span> <span class="p">);</span>
-<span class="nv">$body</span> <span class="o">=</span> <span class="nx">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
+<span class="nv">$response</span> <span class="o">=</span> <span class="nf">wp_remote_post</span><span class="p">(</span> <span class="s1">'https://wp-demo.cocart.xyz/wp-json/cocart/v1/add-item'</span><span class="p">,</span> <span class="nv">$args</span> <span class="p">);</span>
+<span class="nv">$body</span> <span class="o">=</span> <span class="nf">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
 </code></pre></div><h2 id='demo-cocart-authenticate-customer'>Authenticate Customer</h2>
 <p>Currently on the demo, you can test authentication as a customer via the <a href="#authentication-basic-authentication">basic method</a>.</p>
 
@@ -5094,7 +5112,14 @@ Please make sure you are viewing the PHP language to copy any code snippet.
 </ul>
 <h1 id='changelog'>Changelog</h1>
 <p>Below is the changelog for &quot;CoCart Lite&quot; documentation that matches with the version of the plugin release.</p>
-<h2 id='changelog-doc-version-v2-9-1'>Doc Version v2.9.1</h2>
+<h2 id='changelog-doc-version-v2-9-2'>Doc Version v2.9.2</h2>
+<ul>
+<li>Improved: Authentication content.</li>
+<li>Improved: Knowledge Base content.</li>
+<li>Tweaked: Load Cart from Session content.</li>
+<li>Dev: Updated Slate to v2.9.1</li>
+</ul>
+<h3 id='changelog-doc-version-v2-9-2-doc-version-v2-9-1'>Doc Version v2.9.1</h3>
 <ul>
 <li>Corrected: Label for JS library.</li>
 <li>Improved: Cookie section.</li>
@@ -5105,39 +5130,39 @@ Please make sure you are viewing the PHP language to copy any code snippet.
 <li>Improved: Load cart for the web content.</li>
 <li>Improved: Extending CoCart examples now always show no matter the set language.</li>
 </ul>
-<h3 id='changelog-doc-version-v2-9-1-doc-version-v2-9'>Doc Version v2.9</h3>
+<h3 id='changelog-doc-version-v2-9-2-doc-version-v2-9'>Doc Version v2.9</h3>
 <ul>
 <li>NEW: Added <strong>Libraries</strong> section.</li>
 <li>NEW: Node.js examples added for our official library.</li>
 </ul>
-<h3 id='changelog-doc-version-v2-9-1-doc-version-v2-8-4'>Doc Version v2.8.4</h3>
+<h3 id='changelog-doc-version-v2-9-2-doc-version-v2-8-4'>Doc Version v2.8.4</h3>
 <ul>
 <li>Removed <code>&#39;Content-Type: application/json&#39;</code> from cURL examples.</li>
 </ul>
-<h3 id='changelog-doc-version-v2-9-1-doc-version-v2-8-3-plugin-release-v2-8-2'>Doc Version v2.8.3 - Plugin Release v2.8.2</h3>
+<h3 id='changelog-doc-version-v2-9-2-doc-version-v2-8-3-plugin-release-v2-8-2'>Doc Version v2.8.3 - Plugin Release v2.8.2</h3>
 <ul>
 <li>Corrected: Examples for use of the cart key global parameter.</li>
 <li>Improved: Explaining the use of the cart key global parameter.</li>
 <li>Dev: Added filter <code>cocart_load_cart_query_name</code> to allow developers add more white labelling when loading the cart via the web. <a href="?php#wp-config-php-white-labelling-load-cart-for-the-web">See example</a></li>
 </ul>
-<h3 id='changelog-doc-version-v2-9-1-doc-version-v2-8-2'>Doc Version v2.8.2</h3>
+<h3 id='changelog-doc-version-v2-9-2-doc-version-v2-8-2'>Doc Version v2.8.2</h3>
 <ul>
 <li>Added warning notice for load for the web feature.</li>
 <li>Updated FAQ.</li>
 </ul>
-<h3 id='changelog-doc-version-v2-9-1-doc-version-v2-8-plugin-release-v2-6-to-v2-7'>Doc Version v2.8 - Plugin Release v2.6 to v2.7</h3>
+<h3 id='changelog-doc-version-v2-9-2-doc-version-v2-8-plugin-release-v2-6-to-v2-7'>Doc Version v2.8 - Plugin Release v2.6 to v2.7</h3>
 <aside class="success">
     The whole of the documentation has been re-organized and content has been improved for those who are new to developing with an API. That also includes documentation for CoCart Pro.
 </aside>
-<h3 id='changelog-doc-version-v2-9-1-doc-version-v2-7-plugin-release-v2-5-1'>Doc Version v2.7 - Plugin Release v2.5.1</h3>
+<h3 id='changelog-doc-version-v2-9-2-doc-version-v2-7-plugin-release-v2-5-1'>Doc Version v2.7 - Plugin Release v2.5.1</h3>
 <ul>
 <li>Dev: Added filter <code>cocart_allow_origin</code> to set the origin header for added layer of security when you go into production.</li>
 </ul>
-<h3 id='changelog-doc-version-v2-9-1-doc-version-v2-6-plugin-release-v2-5'>Doc Version v2.6 - Plugin Release v2.5</h3>
+<h3 id='changelog-doc-version-v2-9-2-doc-version-v2-6-plugin-release-v2-5'>Doc Version v2.6 - Plugin Release v2.5</h3>
 <ul>
 <li>Improved: Information about adding a variation to the cart.</li>
 </ul>
-<h3 id='changelog-doc-version-v2-9-1-doc-version-v2-5'>Doc Version v2.5</h3>
+<h3 id='changelog-doc-version-v2-9-2-doc-version-v2-5'>Doc Version v2.5</h3>
 <ul>
 <li>Added: More detail for setting a cart key.</li>
 <li>Added: More JSON response examples that were missing.</li>
@@ -5147,12 +5172,12 @@ Please make sure you are viewing the PHP language to copy any code snippet.
 <li>Removed: Context that is no longer valid with current version of CoCart.</li>
 <li>Updated: API versions table and Requirements.</li>
 </ul>
-<h3 id='changelog-doc-version-v2-9-1-doc-version-v2-4'>Doc Version v2.4</h3>
+<h3 id='changelog-doc-version-v2-9-2-doc-version-v2-4'>Doc Version v2.4</h3>
 <ul>
 <li><strong>NEW</strong>: WooCommerce Extensions section added with Mix and Match Products and Name Your Price being the first.</li>
 <li>Updated: Cookies section.</li>
 </ul>
-<h3 id='changelog-doc-version-v2-9-1-doc-version-v2-3'>Doc Version v2.3</h3>
+<h3 id='changelog-doc-version-v2-9-2-doc-version-v2-3'>Doc Version v2.3</h3>
 <ul>
 <li>Added: New error responses.</li>
 <li>Fixed: Corrected typos.</li>
@@ -5162,29 +5187,29 @@ Please make sure you are viewing the PHP language to copy any code snippet.
 <li>Updated: Plugin requirements for CoCart.</li>
 <li>Updated: Slate script to v2.7.0 which introduces the ability to copy code to clipboard.</li>
 </ul>
-<h3 id='changelog-doc-version-v2-9-1-doc-version-v2-2-plugin-release-v2-2'>Doc Version v2.2 - Plugin Release v2.2</h3>
+<h3 id='changelog-doc-version-v2-9-2-doc-version-v2-2-plugin-release-v2-2'>Doc Version v2.2 - Plugin Release v2.2</h3>
 <ul>
 <li>Dev: Added <code>cocart_disable_all_cors</code> filter to enable all cross origin headers.</li>
 <li>Dev: Added filters to override the product name <code>cocart_item_added_product_name</code> and product title <code>cocart_item_added_product_title</code> when adding item to cart.</li>
 <li>Dev: Added <code>cocart_item_added</code> filter to allow additional data to be returned when item is added to cart.</li>
 </ul>
-<h3 id='changelog-doc-version-v2-9-1-doc-version-v2-1-plugin-release-v2-1-3'>Doc Version v2.1 - Plugin Release v2.1.3</h3>
+<h3 id='changelog-doc-version-v2-9-2-doc-version-v2-1-plugin-release-v2-1-3'>Doc Version v2.1 - Plugin Release v2.1.3</h3>
 <ul>
 <li><strong>NEW</strong>: Added example for adding product with <a href="https://woocommerce.com/products/name-your-price/">Name Your Price</a> WooCommerce extension.</li>
 </ul>
-<h3 id='changelog-doc-version-v2-9-1-doc-version-v2-0-plugin-release-v2-1-2'>Doc Version v2.0 - Plugin Release v2.1.2</h3>
+<h3 id='changelog-doc-version-v2-9-2-doc-version-v2-0-plugin-release-v2-1-2'>Doc Version v2.0 - Plugin Release v2.1.2</h3>
 <ul>
 <li>Tweaked: WP API examples.</li>
 <li>Removed: Warning notice in the introduction section.</li>
 </ul>
-<h3 id='changelog-doc-version-v2-9-1-doc-version-v1-9'>Doc Version v1.9</h3>
+<h3 id='changelog-doc-version-v2-9-2-doc-version-v1-9'>Doc Version v1.9</h3>
 <ul>
 <li><strong>NEW</strong>: Added Cookie section.</li>
 <li><strong>NEW</strong>: Added link to Postman collections.</li>
 <li>Tweaked: Certain features or API&#39;s are tagged to identify that they are only available in v2.1</li>
 <li>Removed: Persistent Cart documentation.</li>
 </ul>
-<h3 id='changelog-doc-version-v2-9-1-doc-version-v1-8-plugin-release-v2-1'>Doc Version v1.8 - Plugin Release v2.1</h3>
+<h3 id='changelog-doc-version-v2-9-2-doc-version-v1-8-plugin-release-v2-1'>Doc Version v1.8 - Plugin Release v2.1</h3>
 <ul>
 <li><strong>NEW</strong>: Added support for guest carts with a new endpoint to retrieve those carts.</li>
 <li><strong>NEW</strong>: Added ability to load a cart from session.</li>
@@ -5201,7 +5226,7 @@ Please make sure you are viewing the PHP language to copy any code snippet.
 <li>Dev: Added hook <code>cocart_item_added_updated_in_cart</code> for when an item was added again but updated in cart.</li>
 <li>Dev: Added filter <code>cocart_cookie_supported</code> to allow developers to disable cookie session support if they don&#39;t/can&#39;t support cookies within their app.</li>
 </ul>
-<h3 id='changelog-doc-version-v2-9-1-doc-version-v1-7'>Doc Version v1.7</h3>
+<h3 id='changelog-doc-version-v2-9-2-doc-version-v1-7'>Doc Version v1.7</h3>
 <ul>
 <li><strong>NEW</strong>: Added links to edit documentation at the top of each section.</li>
 <li><strong>NEW</strong>: Added Getting Started section for those new to WordPress.</li>
@@ -5209,7 +5234,7 @@ Please make sure you are viewing the PHP language to copy any code snippet.
 <li>Tweaked: Menu</li>
 <li>Tweaked: Brand colours and updated favicons.</li>
 </ul>
-<h3 id='changelog-doc-version-v2-9-1-doc-version-v1-6-plugin-release-v2-0-13'>Doc Version v1.6 - Plugin Release v2.0.13</h3>
+<h3 id='changelog-doc-version-v2-9-2-doc-version-v1-6-plugin-release-v2-0-13'>Doc Version v1.6 - Plugin Release v2.0.13</h3>
 <ul>
 <li><strong>NEW</strong>: Added <code>cocart_return_empty_cart</code> filter and example.</li>
 <li><strong>NEW</strong>: Added <code>cocart_add_to_cart_sold_individually_quantity</code>and example.</li>
@@ -5218,7 +5243,7 @@ Please make sure you are viewing the PHP language to copy any code snippet.
 <li>Tweaked: Menu, content and added helpful links.</li>
 <li>Tweaked: Filter examples to be code highlighted correctly.</li>
 </ul>
-<h3 id='changelog-doc-version-v2-9-1-doc-version-v1-5-plugin-release-v2-0-7'>Doc Version v1.5 - Plugin Release v2.0.7</h3>
+<h3 id='changelog-doc-version-v2-9-2-doc-version-v1-5-plugin-release-v2-0-7'>Doc Version v1.5 - Plugin Release v2.0.7</h3>
 <ul>
 <li><strong>NEW</strong>: Added link to products add-on documentation under CoCart Pro.</li>
 <li><strong>NEW</strong>: Added a little section explaining the body types when making a request.</li>
@@ -5226,36 +5251,36 @@ Please make sure you are viewing the PHP language to copy any code snippet.
 <li><strong>NEW</strong>: Added Demo section.</li>
 <li>Improved: Authentication section.</li>
 </ul>
-<h3 id='changelog-doc-version-v2-9-1-doc-version-v1-4'>Doc Version v1.4</h3>
+<h3 id='changelog-doc-version-v2-9-2-doc-version-v1-4'>Doc Version v1.4</h3>
 <ul>
 <li><strong>NEW</strong>: Added live chat so users can ask questions.</li>
 <li>Made it clearer to understand about retrieving specific customers cart.</li>
 <li>Improved the introduction a little.</li>
 </ul>
-<h3 id='changelog-doc-version-v2-9-1-doc-version-v1-3'>Doc Version v1.3</h3>
+<h3 id='changelog-doc-version-v2-9-2-doc-version-v1-3'>Doc Version v1.3</h3>
 <ul>
 <li>Added languages for jQuery, PHP and WP API.</li>
 </ul>
-<h3 id='changelog-doc-version-v2-9-1-doc-version-v1-2'>Doc Version v1.2</h3>
+<h3 id='changelog-doc-version-v2-9-2-doc-version-v1-2'>Doc Version v1.2</h3>
 <ul>
 <li>Added Work in Progress section.</li>
 <li>Added Authentication section.</li>
 </ul>
-<h3 id='changelog-doc-version-v2-9-1-doc-version-v1-1'>Doc Version v1.1</h3>
+<h3 id='changelog-doc-version-v2-9-2-doc-version-v1-1'>Doc Version v1.1</h3>
 <ul>
 <li>Added Index API.</li>
 <li>Linked logo to documentation homepage.</li>
 </ul>
-<h3 id='changelog-doc-version-v2-9-1-doc-version-v1-plugin-release-v2'>Doc Version v1 - Plugin Release v2</h3>
+<h3 id='changelog-doc-version-v2-9-2-doc-version-v1-plugin-release-v2'>Doc Version v1 - Plugin Release v2</h3>
 <ul>
 <li>Updated for CoCart v2</li>
 </ul>
-<h3 id='changelog-doc-version-v2-9-1-doc-version-v0-5'>Doc Version v0.5</h3>
+<h3 id='changelog-doc-version-v2-9-2-doc-version-v0-5'>Doc Version v0.5</h3>
 <ul>
 <li>Added attribute table for view cart.</li>
 <li>Added missing examples for count items and get cart totals.</li>
 </ul>
-<h3 id='changelog-doc-version-v2-9-1-doc-version-v0-4-plugin-release-v1-0-5'>Doc Version v0.4 - Plugin Release v1.0.5</h3>
+<h3 id='changelog-doc-version-v2-9-2-doc-version-v0-4-plugin-release-v1-0-5'>Doc Version v0.4 - Plugin Release v1.0.5</h3>
 <ul>
 <li>Project renamed to CoCart.</li>
 <li>Changed support to contribution.</li>
@@ -5263,17 +5288,17 @@ Please make sure you are viewing the PHP language to copy any code snippet.
 <li>Added Insomnia as another tool you can use to access the API with.</li>
 <li>Removed all languages except for cURL showing examples on how to use with official library wrappers due to authentication required whic CoCart does not.</li>
 </ul>
-<h3 id='changelog-doc-version-v2-9-1-doc-version-v0-3-plugin-release-v1-0-4'>Doc Version v0.3 - Plugin Release v1.0.4</h3>
+<h3 id='changelog-doc-version-v2-9-2-doc-version-v0-3-plugin-release-v1-0-4'>Doc Version v0.3 - Plugin Release v1.0.4</h3>
 <ul>
 <li>Official libraries are not supported as they require authentication which this API does not.</li>
 <li>Removed installation instruction for official libraries.</li>
 <li>Replaced logo to prevent confusion with the official REST API documentation.</li>
 </ul>
-<h3 id='changelog-doc-version-v2-9-1-doc-version-v0-2-plugin-release-v1-0-1'>Doc Version v0.2 - Plugin Release v1.0.1</h3>
+<h3 id='changelog-doc-version-v2-9-2-doc-version-v0-2-plugin-release-v1-0-1'>Doc Version v0.2 - Plugin Release v1.0.1</h3>
 <ul>
 <li>Updated endpoint for updating, restoring and removing items.</li>
 </ul>
-<h3 id='changelog-doc-version-v2-9-1-doc-version-v0-1-plugin-release-v1-0-0'>Doc Version v0.1 - Plugin Release v1.0.0</h3>
+<h3 id='changelog-doc-version-v2-9-2-doc-version-v0-1-plugin-release-v1-0-0'>Doc Version v0.1 - Plugin Release v1.0.0</h3>
 <ul>
 <li>Initial Commit</li>
 </ul>

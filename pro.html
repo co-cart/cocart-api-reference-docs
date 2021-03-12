@@ -255,8 +255,11 @@
 .highlight .kd {
   color: #cb4b16;
 }
-.highlight .s, .highlight .sa, .highlight .sb, .highlight .sc, .highlight .dl, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+.highlight .s, .highlight .sb, .highlight .sc, .highlight .dl, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
   color: #859900;
+}
+.highlight .sa {
+  color: #6c71c4;
 }
 .highlight .sr {
   color: #2aa198;
@@ -288,7 +291,7 @@
     </style>
     <link href="stylesheets/screen-a84b441c.css" rel="stylesheet" media="screen" />
     <link href="stylesheets/print-46df3289.css" rel="stylesheet" media="print" />
-      <script src="javascripts/all-5396c257.js"></script>
+      <script src="javascripts/all-c0cd2ec7.js"></script>
 
     <script>
       $(function() { setupCodeCopy(); });
@@ -377,6 +380,9 @@
                   </li>
                   <li>
                     <a href="#authentication-jwt-authentication" class="toc-h2 toc-link" data-title="JWT Authentication">JWT Authentication</a>
+                  </li>
+                  <li>
+                    <a href="#authentication-woocommerce-api-keys" class="toc-h2 toc-link" data-title="WooCommerce API Keys">WooCommerce API Keys</a>
                   </li>
               </ul>
           </li>
@@ -834,24 +840,17 @@
   Authentication is <strong>ONLY</strong> required for registered customers. In order for a registered customer to access their cart, you will be required to pass the customers username and password or token depending on the authentication method you are using. It's important that you keep authenticating with <strong>all routes</strong> from the beginning so the cart in session remains the same. <strong>NOT</strong> doing so will cause another cart to be created and lose track of the items added. If you have any questions, please ask away in the chat window below.
 </aside>
 
-<p>CoCart can be authenticated by various methods with the WordPress REST API. First being via the <a href="https://woocommerce.github.io/woocommerce-rest-api-docs/#rest-api-keys">REST API Keys</a> in <a href="https://woocommerce.github.io/woocommerce-rest-api-docs/#authentication">WooCommerce</a>. Though this method is designed for the backend with their REST API, with some custom coding you can make it work for the frontend with CoCart.</p>
-
-<p>Checkout my guide on <a href="https://cocart.xyz/authenticating-with-woocommerce-heres-how-you-can-do-it/">how to authenticate with WooCommerce</a>.</p>
-
-<p>It is also possible to authenticate using any of the following WP REST API authentication methods:</p>
-
-<ul>
-<li><a href="#authentication-basic-authentication">Basic Authentication</a> (Recommended with SSL Only!)</li>
-<li><a href="#authentication-jwt-authentication">JWT Authentication for WP REST API</a></li>
-</ul>
-
 <p>The WordPress REST API incorporates a method called <a href="https://codex.wordpress.org/WordPress_Nonces">nonces</a> to deal with <a href="https://en.wikipedia.org/wiki/Cross-site_request_forgery">CSRF</a> issues. This ensures that all activities on the website remain segregated. This is because the WordPress REST API just like the WooCommerce REST API is designed for the back-end.</p>
 
 <p>CoCart however, is designed for the front-end so for any CoCart requests made, the <a href="https://developer.wordpress.org/rest-api/using-the-rest-api/authentication/">cookie authentication</a> is disabled allowing the ability to authenticate in any code language without fault.</p>
 
-<p>If you have tested other authentication plugins or methods, please let me know via the <a href="https://cocart.xyz/feedback/">feedback page</a> so that I can add it to the list.</p>
+<p>REST API authentication methods:</p>
 
-<p>Thank you. 😄</p>
+<ul>
+<li><a href="#authentication-basic-authentication">Basic Authentication</a> (Recommended with SSL Only!)</li>
+<li><a href="#authentication-jwt-authentication">JWT Authentication for WP REST API</a> (Not Recommended according to feedback)</li>
+<li><a href="#authentication-woocommerce-api-keys">WooCommerce API Keys</a> (Best for Administrators Only!)</li>
+</ul>
 <h2 id='authentication-basic-authentication'>Basic Authentication</h2>
 <p><a href="https://en.wikipedia.org/wiki/Basic_access_authentication">What is the Basic Authentication method?</a></p>
 
@@ -931,16 +930,16 @@
 <span class="nv">$headers</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
   <span class="s1">'Accept: application/json'</span><span class="p">,</span>
   <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
-  <span class="s1">'Authorization: Basic '</span> <span class="o">.</span> <span class="nb">base64_encode</span><span class="p">(</span><span class="nv">$username</span> <span class="o">.</span> <span class="s1">':'</span> <span class="o">.</span> <span class="nv">$password</span><span class="p">)</span>
+  <span class="s1">'Authorization: Basic '</span> <span class="mf">.</span> <span class="nb">base64_encode</span><span class="p">(</span><span class="nv">$username</span> <span class="mf">.</span> <span class="s1">':'</span> <span class="mf">.</span> <span class="nv">$password</span><span class="p">)</span>
 <span class="p">);</span>
 
 <span class="nb">curl_setopt_array</span><span class="p">(</span> <span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
-  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/add-item"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"POST"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_POSTFIELDS</span> <span class="o">=&gt;</span> <span class="nv">$args</span><span class="p">,</span>
-  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
-  <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="nv">$headers</span>
+  <span class="no">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/add-item"</span><span class="p">,</span>
+  <span class="no">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"POST"</span><span class="p">,</span>
+  <span class="no">CURLOPT_POSTFIELDS</span> <span class="o">=&gt;</span> <span class="nv">$args</span><span class="p">,</span>
+  <span class="no">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="no">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
+  <span class="no">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="nv">$headers</span>
 <span class="p">)</span> <span class="p">);</span>
 
 <span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
@@ -951,18 +950,18 @@
 </code></pre></div><div class="highlight"><pre class="highlight php tab-php--wp-http-api"><code><span class="cp">&lt;?php</span>
 <span class="nv">$args</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
   <span class="s1">'headers'</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
-    <span class="s1">'Authorization'</span> <span class="o">=&gt;</span> <span class="s1">'Basic '</span> <span class="o">.</span> <span class="nb">base64_encode</span><span class="p">(</span> <span class="s1">'username:password'</span><span class="p">),</span>
+    <span class="s1">'Authorization'</span> <span class="o">=&gt;</span> <span class="s1">'Basic '</span> <span class="mf">.</span> <span class="nb">base64_encode</span><span class="p">(</span> <span class="s1">'username:password'</span> <span class="p">),</span>
     <span class="s1">'Content-Type'</span> <span class="o">=&gt;</span> <span class="s1">'application/json; charset=utf-8'</span><span class="p">,</span>
   <span class="p">),</span>
-  <span class="s1">'body'</span> <span class="o">=&gt;</span> <span class="nx">wp_json_encode</span><span class="p">(</span> <span class="p">[</span>
+  <span class="s1">'body'</span> <span class="o">=&gt;</span> <span class="nf">wp_json_encode</span><span class="p">(</span> <span class="p">[</span>
     <span class="s1">'product_id'</span> <span class="o">=&gt;</span> <span class="s2">"32"</span><span class="p">,</span>
     <span class="s1">'quantity'</span> <span class="o">=&gt;</span> <span class="mi">1</span>
   <span class="p">]</span> <span class="p">),</span>
   <span class="s1">'timeout'</span> <span class="o">=&gt;</span> <span class="mi">30</span>
 <span class="p">);</span>
 
-<span class="nv">$response</span> <span class="o">=</span> <span class="nx">wp_remote_post</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/add-item'</span><span class="p">,</span> <span class="nv">$args</span> <span class="p">);</span>
-<span class="nv">$body</span> <span class="o">=</span> <span class="nx">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
+<span class="nv">$response</span> <span class="o">=</span> <span class="nf">wp_remote_post</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/add-item'</span><span class="p">,</span> <span class="nv">$args</span> <span class="p">);</span>
+<span class="nv">$body</span> <span class="o">=</span> <span class="nf">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
 </code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"404dcc91b2aeaa7caa47487d1483e48a"</span><span class="p">:{</span><span class="w">
     </span><span class="nl">"key"</span><span class="p">:</span><span class="s2">"404dcc91b2aeaa7caa47487d1483e48a"</span><span class="p">,</span><span class="w">
@@ -1032,16 +1031,16 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <span class="nv">$headers</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
   <span class="s1">'Accept: application/json'</span><span class="p">,</span>
   <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
-  <span class="s1">'Authorization: Bearer '</span> <span class="o">.</span> <span class="nv">$token</span>
+  <span class="s1">'Authorization: Bearer '</span> <span class="mf">.</span> <span class="nv">$token</span>
 <span class="p">);</span>
 
 <span class="nb">curl_setopt_array</span><span class="p">(</span> <span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
-  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/add-item"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"POST"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_POSTFIELDS</span> <span class="o">=&gt;</span> <span class="nv">$args</span><span class="p">,</span>
-  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
-  <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="nv">$headers</span>
+  <span class="no">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/add-item"</span><span class="p">,</span>
+  <span class="no">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"POST"</span><span class="p">,</span>
+  <span class="no">CURLOPT_POSTFIELDS</span> <span class="o">=&gt;</span> <span class="nv">$args</span><span class="p">,</span>
+  <span class="no">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="no">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
+  <span class="no">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="nv">$headers</span>
 <span class="p">)</span> <span class="p">);</span>
 
 <span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
@@ -1049,7 +1048,24 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <span class="nb">curl_close</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
 
 <span class="k">echo</span> <span class="nv">$response</span><span class="p">;</span>
-</code></pre></div><h1 id='cart-key'>Cart Key</h1>
+</code></pre></div><div class="highlight"><pre class="highlight php tab-php--wp-http-api"><code><span class="cp">&lt;?php</span>
+<span class="nv">$args</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+  <span class="s1">'headers'</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">'Authorization'</span> <span class="o">=&gt;</span> <span class="s1">'Bearer '</span> <span class="mf">.</span> <span class="nv">$token</span><span class="p">,</span>
+    <span class="s1">'Content-Type'</span> <span class="o">=&gt;</span> <span class="s1">'application/json; charset=utf-8'</span><span class="p">,</span>
+  <span class="p">),</span>
+  <span class="s1">'body'</span> <span class="o">=&gt;</span> <span class="nf">wp_json_encode</span><span class="p">(</span> <span class="p">[</span>
+    <span class="s1">'product_id'</span> <span class="o">=&gt;</span> <span class="s2">"32"</span><span class="p">,</span>
+    <span class="s1">'quantity'</span> <span class="o">=&gt;</span> <span class="mi">1</span>
+  <span class="p">]</span> <span class="p">),</span>
+  <span class="s1">'timeout'</span> <span class="o">=&gt;</span> <span class="mi">30</span>
+<span class="p">);</span>
+
+<span class="nv">$response</span> <span class="o">=</span> <span class="nf">wp_remote_post</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/add-item'</span><span class="p">,</span> <span class="nv">$args</span> <span class="p">);</span>
+<span class="nv">$body</span> <span class="o">=</span> <span class="nf">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
+</code></pre></div><h2 id='authentication-woocommerce-api-keys'>WooCommerce API Keys</h2>
+<p>Though this method is designed for the backend with <a href="https://woocommerce.github.io/woocommerce-rest-api-docs/#authentication">WooCommerce REST API</a>, with some custom coding you can make it work for the frontend with CoCart. Checkout my guide on <a href="https://cocart.xyz/authenticating-with-woocommerce-heres-how-you-can-do-it/">how to authenticate with WooCommerce</a>.</p>
+<h1 id='cart-key'>Cart Key</h1>
 <p><img src="images/github-633266a3.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v1/_cart_key.md">Edit on GitHub</a></p>
 <h2 id='cart-key-what-is-a-cart-key'>What is a Cart Key?</h2>
 <p>A cart key is what identifies the cart stored in session along with it&#39;s cart data and expiration. This cart key is normally stored in a <a href="#cookie">cookie</a> and is used to load the cart in session if the cart still exists.</p>
@@ -1129,11 +1145,11 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
 
 <span class="nb">curl_setopt_array</span><span class="p">(</span> <span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
-  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/coupon"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"GET"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
-  <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+  <span class="no">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/coupon"</span><span class="p">,</span>
+  <span class="no">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"GET"</span><span class="p">,</span>
+  <span class="no">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="no">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
+  <span class="no">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
     <span class="s1">'Accept: application/json'</span><span class="p">,</span>
     <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
   <span class="p">)</span>
@@ -1145,8 +1161,8 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 
 <span class="k">echo</span> <span class="nv">$response</span><span class="p">;</span>
 </code></pre></div><div class="highlight"><pre class="highlight php tab-php--wp-http-api"><code><span class="cp">&lt;?php</span>
-<span class="nv">$response</span> <span class="o">=</span> <span class="nx">wp_remote_get</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/coupon'</span> <span class="p">);</span>
-<span class="nv">$body</span> <span class="o">=</span> <span class="nx">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
+<span class="nv">$response</span> <span class="o">=</span> <span class="nf">wp_remote_get</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/coupon'</span> <span class="p">);</span>
+<span class="nv">$body</span> <span class="o">=</span> <span class="nf">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
 </code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"summer20"</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -1203,12 +1219,12 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <span class="p">);</span>
 
 <span class="nb">curl_setopt_array</span><span class="p">(</span> <span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
-  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/coupon"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"POST"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_POSTFIELDS</span> <span class="o">=&gt;</span> <span class="nv">$args</span><span class="p">,</span>
-  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
-  <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+  <span class="no">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/coupon"</span><span class="p">,</span>
+  <span class="no">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"POST"</span><span class="p">,</span>
+  <span class="no">CURLOPT_POSTFIELDS</span> <span class="o">=&gt;</span> <span class="nv">$args</span><span class="p">,</span>
+  <span class="no">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="no">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
+  <span class="no">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
     <span class="s1">'Accept: application/json'</span><span class="p">,</span>
     <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
   <span class="p">)</span>
@@ -1224,14 +1240,14 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
   <span class="s1">'headers'</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
     <span class="s1">'Content-Type'</span> <span class="o">=&gt;</span> <span class="s1">'application/json; charset=utf-8'</span><span class="p">,</span>
   <span class="p">),</span>
-  <span class="s1">'body'</span> <span class="o">=&gt;</span> <span class="nx">wp_json_encode</span><span class="p">(</span> <span class="p">[</span>
+  <span class="s1">'body'</span> <span class="o">=&gt;</span> <span class="nf">wp_json_encode</span><span class="p">(</span> <span class="p">[</span>
     <span class="s1">'coupon'</span> <span class="o">=&gt;</span> <span class="s1">'summer20'</span>
   <span class="p">]</span> <span class="p">),</span>
   <span class="s1">'timeout'</span> <span class="o">=&gt;</span> <span class="mi">30</span>
 <span class="p">);</span>
 
-<span class="nv">$response</span> <span class="o">=</span> <span class="nx">wp_remote_post</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/coupon'</span><span class="p">,</span> <span class="nv">$args</span> <span class="p">);</span>
-<span class="nv">$body</span> <span class="o">=</span> <span class="nx">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
+<span class="nv">$response</span> <span class="o">=</span> <span class="nf">wp_remote_post</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/coupon'</span><span class="p">,</span> <span class="nv">$args</span> <span class="p">);</span>
+<span class="nv">$body</span> <span class="o">=</span> <span class="nf">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
 </code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Coupon was successfully added to cart."</span><span class="p">,</span><span class="w">
     </span><span class="nl">"coupon"</span><span class="p">:</span><span class="w"> </span><span class="s2">"summer20"</span><span class="p">,</span><span class="w">
@@ -1290,12 +1306,12 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <span class="p">);</span>
 
 <span class="nb">curl_setopt_array</span><span class="p">(</span> <span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
-  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/coupon"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"DELETE"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_POSTFIELDS</span> <span class="o">=&gt;</span> <span class="nv">$args</span><span class="p">,</span>
-  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
-  <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+  <span class="no">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/coupon"</span><span class="p">,</span>
+  <span class="no">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"DELETE"</span><span class="p">,</span>
+  <span class="no">CURLOPT_POSTFIELDS</span> <span class="o">=&gt;</span> <span class="nv">$args</span><span class="p">,</span>
+  <span class="no">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="no">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
+  <span class="no">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
     <span class="s1">'Accept: application/json'</span><span class="p">,</span>
     <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
   <span class="p">)</span>
@@ -1311,15 +1327,15 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
   <span class="s1">'headers'</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
     <span class="s1">'Content-Type'</span> <span class="o">=&gt;</span> <span class="s1">'application/json; charset=utf-8'</span><span class="p">,</span>
   <span class="p">),</span>
-  <span class="s1">'body'</span> <span class="o">=&gt;</span> <span class="nx">wp_json_encode</span><span class="p">(</span> <span class="p">[</span>
+  <span class="s1">'body'</span> <span class="o">=&gt;</span> <span class="nf">wp_json_encode</span><span class="p">(</span> <span class="p">[</span>
     <span class="s1">'coupon'</span> <span class="o">=&gt;</span> <span class="s1">'summer20'</span>
   <span class="p">]</span> <span class="p">),</span>
   <span class="s1">'method'</span> <span class="o">=&gt;</span> <span class="s1">'DELETE'</span><span class="p">,</span>
   <span class="s1">'timeout'</span> <span class="o">=&gt;</span> <span class="mi">30</span>
 <span class="p">);</span>
 
-<span class="nv">$response</span> <span class="o">=</span> <span class="nx">wp_remote_request</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/coupon'</span><span class="p">,</span> <span class="nv">$args</span> <span class="p">);</span>
-<span class="nv">$body</span> <span class="o">=</span> <span class="nx">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
+<span class="nv">$response</span> <span class="o">=</span> <span class="nf">wp_remote_request</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/coupon'</span><span class="p">,</span> <span class="nv">$args</span> <span class="p">);</span>
+<span class="nv">$body</span> <span class="o">=</span> <span class="nf">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
 </code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Coupon was successfully removed from cart."</span><span class="p">,</span><span class="w">
     </span><span class="nl">"coupon"</span><span class="p">:</span><span class="w"> </span><span class="s2">"summer20"</span><span class="p">,</span><span class="w">
@@ -1364,11 +1380,11 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
 
 <span class="nb">curl_setopt_array</span><span class="p">(</span> <span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
-  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/check-coupons"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"GET"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
-  <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+  <span class="no">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/check-coupons"</span><span class="p">,</span>
+  <span class="no">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"GET"</span><span class="p">,</span>
+  <span class="no">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="no">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
+  <span class="no">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
     <span class="s1">'Accept: application/json'</span><span class="p">,</span>
     <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
   <span class="p">)</span>
@@ -1380,8 +1396,8 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 
 <span class="k">echo</span> <span class="nv">$response</span><span class="p">;</span>
 </code></pre></div><div class="highlight"><pre class="highlight php tab-php--wp-http-api"><code><span class="cp">&lt;?php</span>
-<span class="nv">$response</span> <span class="o">=</span> <span class="nx">wp_remote_get</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/check-coupons'</span> <span class="p">);</span>
-<span class="nv">$body</span> <span class="o">=</span> <span class="nx">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
+<span class="nv">$response</span> <span class="o">=</span> <span class="nf">wp_remote_get</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/check-coupons'</span> <span class="p">);</span>
+<span class="nv">$body</span> <span class="o">=</span> <span class="nf">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
 </code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="s2">"Coupons applied are still valid!"</span><span class="w">
 </span></code></pre></div><h1 id='cross-sells'>Cross Sells</h1>
 <p><img src="images/github-633266a3.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v1/pro/_cross-sells.md">Edit on GitHub</a></p>
@@ -1443,11 +1459,11 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
 
 <span class="nb">curl_setopt_array</span><span class="p">(</span> <span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
-  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/cross-sells"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"GET"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
-  <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+  <span class="no">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/cross-sells"</span><span class="p">,</span>
+  <span class="no">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"GET"</span><span class="p">,</span>
+  <span class="no">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="no">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
+  <span class="no">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
     <span class="s1">'Accept: application/json'</span><span class="p">,</span>
     <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
   <span class="p">)</span>
@@ -1459,8 +1475,8 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 
 <span class="k">echo</span> <span class="nv">$response</span><span class="p">;</span>
 </code></pre></div><div class="highlight"><pre class="highlight php tab-php--wp-http-api"><code><span class="cp">&lt;?php</span>
-<span class="nv">$response</span> <span class="o">=</span> <span class="nx">wp_remote_get</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/cross-sells'</span> <span class="p">);</span>
-<span class="nv">$body</span> <span class="o">=</span> <span class="nx">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
+<span class="nv">$response</span> <span class="o">=</span> <span class="nf">wp_remote_get</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/cross-sells'</span> <span class="p">);</span>
+<span class="nv">$body</span> <span class="o">=</span> <span class="nf">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
 </code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"29"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">29</span><span class="p">,</span><span class="w">
@@ -1542,11 +1558,11 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
 
 <span class="nb">curl_setopt_array</span><span class="p">(</span> <span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
-  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/customer"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"GET"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
-  <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+  <span class="no">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/customer"</span><span class="p">,</span>
+  <span class="no">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"GET"</span><span class="p">,</span>
+  <span class="no">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="no">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
+  <span class="no">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
     <span class="s1">'Accept: application/json'</span><span class="p">,</span>
     <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
   <span class="p">)</span>
@@ -1558,8 +1574,8 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 
 <span class="k">echo</span> <span class="nv">$response</span><span class="p">;</span>
 </code></pre></div><div class="highlight"><pre class="highlight php tab-php--wp-http-api"><code><span class="cp">&lt;?php</span>
-<span class="nv">$response</span> <span class="o">=</span> <span class="nx">wp_remote_get</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/customer'</span> <span class="p">);</span>
-<span class="nv">$body</span> <span class="o">=</span> <span class="nx">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
+<span class="nv">$response</span> <span class="o">=</span> <span class="nf">wp_remote_get</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/customer'</span> <span class="p">);</span>
+<span class="nv">$body</span> <span class="o">=</span> <span class="nf">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
 </code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nl">"ID"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
@@ -1650,11 +1666,11 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
 
 <span class="nb">curl_setopt_array</span><span class="p">(</span> <span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
-  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/weight"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"GET"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
-  <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+  <span class="no">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/weight"</span><span class="p">,</span>
+  <span class="no">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"GET"</span><span class="p">,</span>
+  <span class="no">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="no">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
+  <span class="no">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
     <span class="s1">'Accept: application/json'</span><span class="p">,</span>
     <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
   <span class="p">)</span>
@@ -1666,8 +1682,8 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 
 <span class="k">echo</span> <span class="nv">$response</span><span class="p">;</span>
 </code></pre></div><div class="highlight"><pre class="highlight php tab-php--wp-http-api"><code><span class="cp">&lt;?php</span>
-<span class="nv">$response</span> <span class="o">=</span> <span class="nx">wp_remote_get</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/weight'</span> <span class="p">);</span>
-<span class="nv">$body</span> <span class="o">=</span> <span class="nx">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
+<span class="nv">$response</span> <span class="o">=</span> <span class="nf">wp_remote_get</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/weight'</span> <span class="p">);</span>
+<span class="nv">$body</span> <span class="o">=</span> <span class="nf">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
 </code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="s2">"4 kg"</span><span class="w">
 </span></code></pre></div><h1 id='fees'>Fees</h1>
 <p><img src="images/github-633266a3.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v1/pro/_fees.md">Edit on GitHub</a></p>
@@ -1734,11 +1750,11 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
 
 <span class="nb">curl_setopt_array</span><span class="p">(</span> <span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
-  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/calculate/fees"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"POST"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
-  <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+  <span class="no">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/calculate/fees"</span><span class="p">,</span>
+  <span class="no">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"POST"</span><span class="p">,</span>
+  <span class="no">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="no">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
+  <span class="no">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
     <span class="s1">'Accept: application/json'</span><span class="p">,</span>
     <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
   <span class="p">)</span>
@@ -1750,8 +1766,8 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 
 <span class="k">echo</span> <span class="nv">$response</span><span class="p">;</span>
 </code></pre></div><div class="highlight"><pre class="highlight php tab-php--wp-http-api"><code><span class="cp">&lt;?php</span>
-<span class="nv">$response</span> <span class="o">=</span> <span class="nx">wp_remote_post</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/calculate/fees'</span> <span class="p">);</span>
-<span class="nv">$body</span> <span class="o">=</span> <span class="nx">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
+<span class="nv">$response</span> <span class="o">=</span> <span class="nf">wp_remote_post</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/calculate/fees'</span> <span class="p">);</span>
+<span class="nv">$body</span> <span class="o">=</span> <span class="nf">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
 </code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="s2">"Cart fees have been calculated."</span><span class="w">
 </span></code></pre></div><h2 id='fees-get-fees'>Get Fees</h2>
 <p>This API returns all applied fees to the cart.</p>
@@ -1806,11 +1822,11 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
 
 <span class="nb">curl_setopt_array</span><span class="p">(</span> <span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
-  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/fees"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"GET"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
-  <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+  <span class="no">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/fees"</span><span class="p">,</span>
+  <span class="no">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"GET"</span><span class="p">,</span>
+  <span class="no">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="no">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
+  <span class="no">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
     <span class="s1">'Accept: application/json'</span><span class="p">,</span>
     <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
   <span class="p">)</span>
@@ -1822,8 +1838,8 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 
 <span class="k">echo</span> <span class="nv">$response</span><span class="p">;</span>
 </code></pre></div><div class="highlight"><pre class="highlight php tab-php--wp-http-api"><code><span class="cp">&lt;?php</span>
-<span class="nv">$response</span> <span class="o">=</span> <span class="nx">wp_remote_get</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/fees'</span> <span class="p">);</span>
-<span class="nv">$body</span> <span class="o">=</span> <span class="nx">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
+<span class="nv">$response</span> <span class="o">=</span> <span class="nf">wp_remote_get</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/fees'</span> <span class="p">);</span>
+<span class="nv">$body</span> <span class="o">=</span> <span class="nf">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
 </code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"cocart-extra-package-protection"</span><span class="p">:{</span><span class="w">
     </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cocart-extra-package-protection"</span><span class="p">,</span><span class="w">
@@ -1925,12 +1941,12 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <span class="p">);</span>
 
 <span class="nb">curl_setopt_array</span><span class="p">(</span> <span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
-  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/fees"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"POST"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_POSTFIELDS</span> <span class="o">=&gt;</span> <span class="nv">$args</span><span class="p">,</span>
-  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
-  <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+  <span class="no">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/fees"</span><span class="p">,</span>
+  <span class="no">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"POST"</span><span class="p">,</span>
+  <span class="no">CURLOPT_POSTFIELDS</span> <span class="o">=&gt;</span> <span class="nv">$args</span><span class="p">,</span>
+  <span class="no">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="no">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
+  <span class="no">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
     <span class="s1">'Accept: application/json'</span><span class="p">,</span>
     <span class="s1">'Content-Type: application/json'</span><span class="p">,</span>
     <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
@@ -1947,8 +1963,8 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
   <span class="s2">"name"</span>   <span class="o">=&gt;</span> <span class="s2">"Extra Package Protection"</span><span class="p">,</span>
   <span class="s2">"amount"</span> <span class="o">=&gt;</span> <span class="s2">"40"</span>
 <span class="p">);</span>
-<span class="nv">$response</span> <span class="o">=</span> <span class="nx">wp_remote_post</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/fees'</span><span class="p">,</span> <span class="nv">$args</span> <span class="p">);</span>
-<span class="nv">$body</span> <span class="o">=</span> <span class="nx">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
+<span class="nv">$response</span> <span class="o">=</span> <span class="nf">wp_remote_post</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/fees'</span><span class="p">,</span> <span class="nv">$args</span> <span class="p">);</span>
+<span class="nv">$body</span> <span class="o">=</span> <span class="nf">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
 </code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"Fee </span><span class="se">\"</span><span class="s2">Extra Package Protection</span><span class="se">\"</span><span class="s2"> for £40.00 has been added."</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -2005,11 +2021,11 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
 
 <span class="nb">curl_setopt_array</span><span class="p">(</span> <span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
-  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/fees"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"DELETE"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
-  <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+  <span class="no">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/fees"</span><span class="p">,</span>
+  <span class="no">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"DELETE"</span><span class="p">,</span>
+  <span class="no">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="no">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
+  <span class="no">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
     <span class="s1">'Accept: application/json'</span><span class="p">,</span>
     <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
   <span class="p">)</span>
@@ -2024,8 +2040,8 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <span class="nv">$args</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
   <span class="s1">'method'</span> <span class="o">=&gt;</span> <span class="s1">'DELETE'</span>
 <span class="p">);</span>
-<span class="nv">$response</span> <span class="o">=</span> <span class="nx">wp_remote_request</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/fees'</span><span class="p">,</span> <span class="nv">$args</span> <span class="p">);</span>
-<span class="nv">$body</span> <span class="o">=</span> <span class="nx">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
+<span class="nv">$response</span> <span class="o">=</span> <span class="nf">wp_remote_request</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/fees'</span><span class="p">,</span> <span class="nv">$args</span> <span class="p">);</span>
+<span class="nv">$body</span> <span class="o">=</span> <span class="nf">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
 </code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"All cart fees have been removed."</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -2086,11 +2102,11 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
 
 <span class="nb">curl_setopt_array</span><span class="p">(</span> <span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
-  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/payment-methods"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"GET"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
-  <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+  <span class="no">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/payment-methods"</span><span class="p">,</span>
+  <span class="no">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"GET"</span><span class="p">,</span>
+  <span class="no">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="no">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
+  <span class="no">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
     <span class="s1">'Accept: application/json'</span><span class="p">,</span>
     <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
   <span class="p">)</span>
@@ -2102,8 +2118,8 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 
 <span class="k">echo</span> <span class="nv">$response</span><span class="p">;</span>
 </code></pre></div><div class="highlight"><pre class="highlight php tab-php--wp-http-api"><code><span class="cp">&lt;?php</span>
-<span class="nv">$response</span> <span class="o">=</span> <span class="nx">wp_remote_get</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/payment-methods'</span> <span class="p">);</span>
-<span class="nv">$body</span> <span class="o">=</span> <span class="nx">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
+<span class="nv">$response</span> <span class="o">=</span> <span class="nf">wp_remote_get</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/payment-methods'</span> <span class="p">);</span>
+<span class="nv">$body</span> <span class="o">=</span> <span class="nf">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
 </code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"bacs"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bacs"</span><span class="p">,</span><span class="w">
@@ -2260,12 +2276,12 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <span class="p">);</span>
 
 <span class="nb">curl_setopt_array</span><span class="p">(</span> <span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
-  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/payment-methods"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"POST"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_POSTFIELDS</span> <span class="o">=&gt;</span> <span class="nv">$args</span><span class="p">,</span>
-  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
-  <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+  <span class="no">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/payment-methods"</span><span class="p">,</span>
+  <span class="no">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"POST"</span><span class="p">,</span>
+  <span class="no">CURLOPT_POSTFIELDS</span> <span class="o">=&gt;</span> <span class="nv">$args</span><span class="p">,</span>
+  <span class="no">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="no">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
+  <span class="no">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
     <span class="s1">'Accept: application/json'</span><span class="p">,</span>
     <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
   <span class="p">)</span>
@@ -2281,14 +2297,14 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
   <span class="s1">'headers'</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
     <span class="s1">'Content-Type'</span> <span class="o">=&gt;</span> <span class="s1">'application/json; charset=utf-8'</span><span class="p">,</span>
   <span class="p">),</span>
-  <span class="s1">'body'</span> <span class="o">=&gt;</span> <span class="nx">wp_json_encode</span><span class="p">(</span> <span class="p">[</span>
+  <span class="s1">'body'</span> <span class="o">=&gt;</span> <span class="nf">wp_json_encode</span><span class="p">(</span> <span class="p">[</span>
     <span class="s1">'gateway_id'</span> <span class="o">=&gt;</span> <span class="s1">'stripe'</span>
   <span class="p">]</span> <span class="p">),</span>
   <span class="s1">'timeout'</span> <span class="o">=&gt;</span> <span class="mi">30</span>
 <span class="p">);</span>
 
-<span class="nv">$response</span> <span class="o">=</span> <span class="nx">wp_remote_post</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/payment-methods'</span><span class="p">,</span> <span class="nv">$args</span> <span class="p">);</span>
-<span class="nv">$body</span> <span class="o">=</span> <span class="nx">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
+<span class="nv">$response</span> <span class="o">=</span> <span class="nf">wp_remote_post</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/payment-methods'</span><span class="p">,</span> <span class="nv">$args</span> <span class="p">);</span>
+<span class="nv">$body</span> <span class="o">=</span> <span class="nf">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
 </code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="kc">true</span><span class="w">
 </span></code></pre></div><h1 id='quantities'>Quantities</h1>
 <p><img src="images/github-633266a3.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v1/pro/_quantities.md">Edit on GitHub</a></p>
@@ -2345,11 +2361,11 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
 
 <span class="nb">curl_setopt_array</span><span class="p">(</span> <span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
-  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/quantities"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"GET"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
-  <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+  <span class="no">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/quantities"</span><span class="p">,</span>
+  <span class="no">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"GET"</span><span class="p">,</span>
+  <span class="no">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="no">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
+  <span class="no">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
     <span class="s1">'Accept: application/json'</span><span class="p">,</span>
     <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
   <span class="p">)</span>
@@ -2361,8 +2377,8 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 
 <span class="k">echo</span> <span class="nv">$response</span><span class="p">;</span>
 </code></pre></div><div class="highlight"><pre class="highlight php tab-php--wp-http-api"><code><span class="cp">&lt;?php</span>
-<span class="nv">$response</span> <span class="o">=</span> <span class="nx">wp_remote_get</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/quantities'</span> <span class="p">);</span>
-<span class="nv">$body</span> <span class="o">=</span> <span class="nx">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
+<span class="nv">$response</span> <span class="o">=</span> <span class="nf">wp_remote_get</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/quantities'</span> <span class="p">);</span>
+<span class="nv">$body</span> <span class="o">=</span> <span class="nf">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
 </code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"31"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
   </span><span class="nl">"32"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
@@ -2423,11 +2439,11 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
 
 <span class="nb">curl_setopt_array</span><span class="p">(</span> <span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
-  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/removed-items"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"GET"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
-  <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+  <span class="no">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/removed-items"</span><span class="p">,</span>
+  <span class="no">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"GET"</span><span class="p">,</span>
+  <span class="no">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="no">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
+  <span class="no">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
     <span class="s1">'Accept: application/json'</span><span class="p">,</span>
     <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
   <span class="p">)</span>
@@ -2439,8 +2455,8 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 
 <span class="k">echo</span> <span class="nv">$response</span><span class="p">;</span>
 </code></pre></div><div class="highlight"><pre class="highlight php tab-php--wp-http-api"><code><span class="cp">&lt;?php</span>
-<span class="nv">$response</span> <span class="o">=</span> <span class="nx">wp_remote_get</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/removed-items'</span> <span class="p">);</span>
-<span class="nv">$body</span> <span class="o">=</span> <span class="nx">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
+<span class="nv">$response</span> <span class="o">=</span> <span class="nf">wp_remote_get</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/removed-items'</span> <span class="p">);</span>
+<span class="nv">$body</span> <span class="o">=</span> <span class="nf">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
 </code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"40d8882729aa85d43fe007db12880105"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"40d8882729aa85d43fe007db12880105"</span><span class="p">,</span><span class="w">
@@ -2567,12 +2583,12 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <span class="p">);</span>
 
 <span class="nb">curl_setopt_array</span><span class="p">(</span> <span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
-  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/calculate/shipping"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"POST"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_POSTFIELDS</span> <span class="o">=&gt;</span> <span class="nv">$args</span><span class="p">,</span>
-  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
-  <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+  <span class="no">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/calculate/shipping"</span><span class="p">,</span>
+  <span class="no">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"POST"</span><span class="p">,</span>
+  <span class="no">CURLOPT_POSTFIELDS</span> <span class="o">=&gt;</span> <span class="nv">$args</span><span class="p">,</span>
+  <span class="no">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="no">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
+  <span class="no">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
     <span class="s1">'Accept: application/json'</span><span class="p">,</span>
     <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
   <span class="p">)</span>
@@ -2588,14 +2604,14 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
   <span class="s1">'headers'</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
     <span class="s1">'Content-Type'</span> <span class="o">=&gt;</span> <span class="s1">'application/json; charset=utf-8'</span><span class="p">,</span>
   <span class="p">),</span>
-  <span class="s1">'body'</span> <span class="o">=&gt;</span> <span class="nx">wp_json_encode</span><span class="p">(</span> <span class="p">[</span>
+  <span class="s1">'body'</span> <span class="o">=&gt;</span> <span class="nf">wp_json_encode</span><span class="p">(</span> <span class="p">[</span>
     <span class="s1">'country'</span> <span class="o">=&gt;</span> <span class="s1">'GB'</span><span class="p">,</span>
   <span class="p">]</span> <span class="p">),</span>
   <span class="s1">'timeout'</span> <span class="o">=&gt;</span> <span class="mi">30</span>
 <span class="p">);</span>
 
-<span class="nv">$response</span> <span class="o">=</span> <span class="nx">wp_remote_post</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/calculate/shipping'</span><span class="p">,</span> <span class="nv">$args</span> <span class="p">);</span>
-<span class="nv">$body</span> <span class="o">=</span> <span class="nx">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
+<span class="nv">$response</span> <span class="o">=</span> <span class="nf">wp_remote_post</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/calculate/shipping'</span><span class="p">,</span> <span class="nv">$args</span> <span class="p">);</span>
+<span class="nv">$body</span> <span class="o">=</span> <span class="nf">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
 </code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="s2">"Shipping costs updated."</span><span class="w">
 </span></code></pre></div><h2 id='shipping-methods-get-shipping-methods'>Get Shipping Methods</h2>
 <p>This API returns all available shipping methods once the customer has <a href="#shipping-methods-calculate-shipping">calculated shipping</a>.</p>
@@ -2659,11 +2675,11 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
 
 <span class="nb">curl_setopt_array</span><span class="p">(</span> <span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
-  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/shipping-methods"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"GET"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
-  <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+  <span class="no">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/shipping-methods"</span><span class="p">,</span>
+  <span class="no">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"GET"</span><span class="p">,</span>
+  <span class="no">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="no">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
+  <span class="no">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
     <span class="s1">'Accept: application/json'</span><span class="p">,</span>
     <span class="s1">'Content-Type: application/json'</span><span class="p">,</span>
     <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
@@ -2676,8 +2692,8 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 
 <span class="k">echo</span> <span class="nv">$response</span><span class="p">;</span>
 </code></pre></div><div class="highlight"><pre class="highlight php tab-php--wp-http-api"><code><span class="cp">&lt;?php</span>
-<span class="nv">$response</span> <span class="o">=</span> <span class="nx">wp_remote_get</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/shipping-methods'</span> <span class="p">);</span>
-<span class="nv">$body</span> <span class="o">=</span> <span class="nx">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
+<span class="nv">$response</span> <span class="o">=</span> <span class="nf">wp_remote_get</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/shipping-methods'</span> <span class="p">);</span>
+<span class="nv">$body</span> <span class="o">=</span> <span class="nf">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
 </code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"flat_rate:1"</span><span class="p">:{</span><span class="w">
     </span><span class="nl">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"flat_rate:1"</span><span class="p">,</span><span class="w">
@@ -2783,12 +2799,12 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <span class="p">);</span>
 
 <span class="nb">curl_setopt_array</span><span class="p">(</span> <span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
-  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/shipping-methods"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"POST"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_POSTFIELDS</span> <span class="o">=&gt;</span> <span class="nv">$args</span><span class="p">,</span>
-  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
-  <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+  <span class="no">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/shipping-methods"</span><span class="p">,</span>
+  <span class="no">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"POST"</span><span class="p">,</span>
+  <span class="no">CURLOPT_POSTFIELDS</span> <span class="o">=&gt;</span> <span class="nv">$args</span><span class="p">,</span>
+  <span class="no">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="no">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
+  <span class="no">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
     <span class="s1">'Accept: application/json'</span><span class="p">,</span>
     <span class="s1">'Content-Type: application/json'</span><span class="p">,</span>
     <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
@@ -2805,14 +2821,14 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
   <span class="s1">'headers'</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
     <span class="s1">'Content-Type'</span> <span class="o">=&gt;</span> <span class="s1">'application/json; charset=utf-8'</span><span class="p">,</span>
   <span class="p">),</span>
-  <span class="s1">'body'</span> <span class="o">=&gt;</span> <span class="nx">wp_json_encode</span><span class="p">(</span> <span class="p">[</span>
+  <span class="s1">'body'</span> <span class="o">=&gt;</span> <span class="nf">wp_json_encode</span><span class="p">(</span> <span class="p">[</span>
     <span class="s2">"key"</span> <span class="o">=&gt;</span> <span class="s2">"free_shipping:3"</span>
   <span class="p">]</span> <span class="p">),</span>
   <span class="s1">'timeout'</span> <span class="o">=&gt;</span> <span class="mi">30</span>
 <span class="p">);</span>
 
-<span class="nv">$response</span> <span class="o">=</span> <span class="nx">wp_remote_post</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/shipping-methods'</span><span class="p">,</span> <span class="nv">$args</span> <span class="p">);</span>
-<span class="nv">$body</span> <span class="o">=</span> <span class="nx">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
+<span class="nv">$response</span> <span class="o">=</span> <span class="nf">wp_remote_post</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/shipping-methods'</span><span class="p">,</span> <span class="nv">$args</span> <span class="p">);</span>
+<span class="nv">$body</span> <span class="o">=</span> <span class="nf">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
 </code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="kc">true</span><span class="w">
 </span></code></pre></div><h1 id='totals'>Totals</h1>
 <p><img src="images/github-633266a3.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v1/pro/_totals.md">Edit on GitHub</a></p>
@@ -2882,11 +2898,11 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
 
 <span class="nb">curl_setopt_array</span><span class="p">(</span> <span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
-  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/calculate"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"POST"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
-  <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+  <span class="no">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/calculate"</span><span class="p">,</span>
+  <span class="no">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"POST"</span><span class="p">,</span>
+  <span class="no">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="no">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
+  <span class="no">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
     <span class="s1">'Accept: application/json'</span><span class="p">,</span>
     <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
   <span class="p">)</span>
@@ -2898,8 +2914,8 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 
 <span class="k">echo</span> <span class="nv">$response</span><span class="p">;</span>
 </code></pre></div><div class="highlight"><pre class="highlight php tab-php--wp-http-api"><code><span class="cp">&lt;?php</span>
-<span class="nv">$response</span> <span class="o">=</span> <span class="nx">wp_remote_post</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/calculate'</span> <span class="p">);</span>
-<span class="nv">$body</span> <span class="o">=</span> <span class="nx">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
+<span class="nv">$response</span> <span class="o">=</span> <span class="nf">wp_remote_post</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/calculate'</span> <span class="p">);</span>
+<span class="nv">$body</span> <span class="o">=</span> <span class="nf">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
 </code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="s2">"Cart totals have been calculated."</span><span class="w">
 </span></code></pre></div><h2 id='totals-get-cart-totals'>Get Cart Totals</h2>
 <p>This API helps you get the cart totals. You can also retrieve the totals pre-formatted to save you time applying the currency symbol. <a href="./#totals-retrieve-cart-totals">Retrieve Cart Totals</a> properties.</p>
@@ -2950,11 +2966,11 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
 
 <span class="nb">curl_setopt_array</span><span class="p">(</span> <span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
-  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/totals"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"GET"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
-  <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+  <span class="no">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/totals"</span><span class="p">,</span>
+  <span class="no">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"GET"</span><span class="p">,</span>
+  <span class="no">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="no">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
+  <span class="no">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
     <span class="s1">'Accept: application/json'</span><span class="p">,</span>
     <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
   <span class="p">)</span>
@@ -2966,8 +2982,8 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 
 <span class="k">echo</span> <span class="nv">$response</span><span class="p">;</span>
 </code></pre></div><div class="highlight"><pre class="highlight php tab-php--wp-http-api"><code><span class="cp">&lt;?php</span>
-<span class="nv">$response</span> <span class="o">=</span> <span class="nx">wp_remote_get</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/totals'</span> <span class="p">);</span>
-<span class="nv">$body</span> <span class="o">=</span> <span class="nx">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
+<span class="nv">$response</span> <span class="o">=</span> <span class="nf">wp_remote_get</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/totals'</span> <span class="p">);</span>
+<span class="nv">$body</span> <span class="o">=</span> <span class="nf">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
 </code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"subtotal"</span><span class="p">:</span><span class="s2">"123.00"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"subtotal_tax"</span><span class="p">:</span><span class="mf">8.4</span><span class="p">,</span><span class="w">
@@ -3042,11 +3058,11 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
 
 <span class="nb">curl_setopt_array</span><span class="p">(</span> <span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
-  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/totals/discount"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"GET"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
-  <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+  <span class="no">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/totals/discount"</span><span class="p">,</span>
+  <span class="no">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"GET"</span><span class="p">,</span>
+  <span class="no">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="no">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
+  <span class="no">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
     <span class="s1">'Accept: application/json'</span><span class="p">,</span>
     <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
   <span class="p">)</span>
@@ -3058,8 +3074,8 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 
 <span class="k">echo</span> <span class="nv">$response</span><span class="p">;</span>
 </code></pre></div><div class="highlight"><pre class="highlight php tab-php--wp-http-api"><code><span class="cp">&lt;?php</span>
-<span class="nv">$response</span> <span class="o">=</span> <span class="nx">wp_remote_get</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/totals/discount'</span> <span class="p">);</span>
-<span class="nv">$body</span> <span class="o">=</span> <span class="nx">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
+<span class="nv">$response</span> <span class="o">=</span> <span class="nf">wp_remote_get</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/totals/discount'</span> <span class="p">);</span>
+<span class="nv">$body</span> <span class="o">=</span> <span class="nf">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
 </code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="s2">"£8.40"</span><span class="w">
 </span></code></pre></div><h2 id='totals-get-discount-totals'>Get Discount Totals</h2>
 <p>This API returns each coupon applied and their discount total.</p>
@@ -3104,11 +3120,11 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
 
 <span class="nb">curl_setopt_array</span><span class="p">(</span> <span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
-  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/totals/discount/coupon-totals"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"GET"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
-  <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+  <span class="no">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/totals/discount/coupon-totals"</span><span class="p">,</span>
+  <span class="no">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"GET"</span><span class="p">,</span>
+  <span class="no">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="no">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
+  <span class="no">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
     <span class="s1">'Accept: application/json'</span><span class="p">,</span>
     <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
   <span class="p">)</span>
@@ -3120,8 +3136,8 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 
 <span class="k">echo</span> <span class="nv">$response</span><span class="p">;</span>
 </code></pre></div><div class="highlight"><pre class="highlight php tab-php--wp-http-api"><code><span class="cp">&lt;?php</span>
-<span class="nv">$response</span> <span class="o">=</span> <span class="nx">wp_remote_get</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/totals/discount/coupon-totals'</span> <span class="p">);</span>
-<span class="nv">$body</span> <span class="o">=</span> <span class="nx">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
+<span class="nv">$response</span> <span class="o">=</span> <span class="nf">wp_remote_get</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/totals/discount/coupon-totals'</span> <span class="p">);</span>
+<span class="nv">$body</span> <span class="o">=</span> <span class="nf">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
 </code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"blizzard"</span><span class="p">:</span><span class="w"> </span><span class="s2">"£8.40"</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -3162,11 +3178,11 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
 
 <span class="nb">curl_setopt_array</span><span class="p">(</span> <span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
-  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/totals/discount/coupon-tax"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"GET"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
-  <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+  <span class="no">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/totals/discount/coupon-tax"</span><span class="p">,</span>
+  <span class="no">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"GET"</span><span class="p">,</span>
+  <span class="no">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="no">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
+  <span class="no">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
     <span class="s1">'Accept: application/json'</span><span class="p">,</span>
     <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
   <span class="p">)</span>
@@ -3178,8 +3194,8 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 
 <span class="k">echo</span> <span class="nv">$response</span><span class="p">;</span>
 </code></pre></div><div class="highlight"><pre class="highlight php tab-php--wp-http-api"><code><span class="cp">&lt;?php</span>
-<span class="nv">$response</span> <span class="o">=</span> <span class="nx">wp_remote_get</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/totals/discount/coupon-tax'</span> <span class="p">);</span>
-<span class="nv">$body</span> <span class="o">=</span> <span class="nx">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
+<span class="nv">$response</span> <span class="o">=</span> <span class="nf">wp_remote_get</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/totals/discount/coupon-tax'</span> <span class="p">);</span>
+<span class="nv">$body</span> <span class="o">=</span> <span class="nf">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
 </code></pre></div><h2 id='totals-get-fee-total'>Get Fee Total</h2><h3 id='totals-get-fee-total-http-request'>HTTP request</h3>
 <div class="api-endpoint">
   <div class="endpoint-data">
@@ -3217,11 +3233,11 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
 
 <span class="nb">curl_setopt_array</span><span class="p">(</span> <span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
-  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/totals/fee"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"GET"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
-  <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+  <span class="no">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/totals/fee"</span><span class="p">,</span>
+  <span class="no">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"GET"</span><span class="p">,</span>
+  <span class="no">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="no">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
+  <span class="no">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
     <span class="s1">'Accept: application/json'</span><span class="p">,</span>
     <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
   <span class="p">)</span>
@@ -3233,8 +3249,8 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 
 <span class="k">echo</span> <span class="nv">$response</span><span class="p">;</span>
 </code></pre></div><div class="highlight"><pre class="highlight php tab-php--wp-http-api"><code><span class="cp">&lt;?php</span>
-<span class="nv">$response</span> <span class="o">=</span> <span class="nx">wp_remote_get</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/totals/fee'</span> <span class="p">);</span>
-<span class="nv">$body</span> <span class="o">=</span> <span class="nx">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
+<span class="nv">$response</span> <span class="o">=</span> <span class="nf">wp_remote_get</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/totals/fee'</span> <span class="p">);</span>
+<span class="nv">$body</span> <span class="o">=</span> <span class="nf">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
 </code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="s2">"£40.00"</span><span class="w">
 </span></code></pre></div><h2 id='totals-get-fee-tax'>Get Fee Tax</h2><h3 id='totals-get-fee-tax-http-request'>HTTP request</h3>
 <div class="api-endpoint">
@@ -3273,11 +3289,11 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
 
 <span class="nb">curl_setopt_array</span><span class="p">(</span> <span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
-  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/totals/fee/tax"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"GET"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
-  <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+  <span class="no">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/totals/fee/tax"</span><span class="p">,</span>
+  <span class="no">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"GET"</span><span class="p">,</span>
+  <span class="no">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="no">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
+  <span class="no">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
     <span class="s1">'Accept: application/json'</span><span class="p">,</span>
     <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
   <span class="p">)</span>
@@ -3289,8 +3305,8 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 
 <span class="k">echo</span> <span class="nv">$response</span><span class="p">;</span>
 </code></pre></div><div class="highlight"><pre class="highlight php tab-php--wp-http-api"><code><span class="cp">&lt;?php</span>
-<span class="nv">$response</span> <span class="o">=</span> <span class="nx">wp_remote_get</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/totals/fee/tax'</span> <span class="p">);</span>
-<span class="nv">$body</span> <span class="o">=</span> <span class="nx">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
+<span class="nv">$response</span> <span class="o">=</span> <span class="nf">wp_remote_get</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/totals/fee/tax'</span> <span class="p">);</span>
+<span class="nv">$body</span> <span class="o">=</span> <span class="nf">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
 </code></pre></div><h2 id='totals-get-shipping-total'>Get Shipping Total</h2><h3 id='totals-get-shipping-total-http-request'>HTTP request</h3>
 <div class="api-endpoint">
   <div class="endpoint-data">
@@ -3328,11 +3344,11 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
 
 <span class="nb">curl_setopt_array</span><span class="p">(</span> <span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
-  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/totals/shipping"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"GET"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
-  <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+  <span class="no">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/totals/shipping"</span><span class="p">,</span>
+  <span class="no">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"GET"</span><span class="p">,</span>
+  <span class="no">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="no">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
+  <span class="no">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
     <span class="s1">'Accept: application/json'</span><span class="p">,</span>
     <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
   <span class="p">)</span>
@@ -3344,8 +3360,8 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 
 <span class="k">echo</span> <span class="nv">$response</span><span class="p">;</span>
 </code></pre></div><div class="highlight"><pre class="highlight php tab-php--wp-http-api"><code><span class="cp">&lt;?php</span>
-<span class="nv">$response</span> <span class="o">=</span> <span class="nx">wp_remote_get</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/totals/shipping'</span> <span class="p">);</span>
-<span class="nv">$body</span> <span class="o">=</span> <span class="nx">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
+<span class="nv">$response</span> <span class="o">=</span> <span class="nf">wp_remote_get</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/totals/shipping'</span> <span class="p">);</span>
+<span class="nv">$body</span> <span class="o">=</span> <span class="nf">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
 </code></pre></div><h2 id='totals-get-shipping-tax'>Get Shipping Tax</h2><h3 id='totals-get-shipping-tax-http-request'>HTTP request</h3>
 <div class="api-endpoint">
   <div class="endpoint-data">
@@ -3383,11 +3399,11 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
 
 <span class="nb">curl_setopt_array</span><span class="p">(</span> <span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
-  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/totals/shipping/tax"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"GET"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
-  <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+  <span class="no">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/totals/shipping/tax"</span><span class="p">,</span>
+  <span class="no">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"GET"</span><span class="p">,</span>
+  <span class="no">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="no">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
+  <span class="no">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
     <span class="s1">'Accept: application/json'</span><span class="p">,</span>
     <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
   <span class="p">)</span>
@@ -3399,8 +3415,8 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 
 <span class="k">echo</span> <span class="nv">$response</span><span class="p">;</span>
 </code></pre></div><div class="highlight"><pre class="highlight php tab-php--wp-http-api"><code><span class="cp">&lt;?php</span>
-<span class="nv">$response</span> <span class="o">=</span> <span class="nx">wp_remote_get</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/totals/shipping/tax'</span> <span class="p">);</span>
-<span class="nv">$body</span> <span class="o">=</span> <span class="nx">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
+<span class="nv">$response</span> <span class="o">=</span> <span class="nf">wp_remote_get</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/totals/shipping/tax'</span> <span class="p">);</span>
+<span class="nv">$body</span> <span class="o">=</span> <span class="nf">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
 </code></pre></div><h2 id='totals-get-subtotal'>Get Subtotal</h2><h3 id='totals-get-subtotal-http-request'>HTTP request</h3>
 <div class="api-endpoint">
   <div class="endpoint-data">
@@ -3438,11 +3454,11 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
 
 <span class="nb">curl_setopt_array</span><span class="p">(</span> <span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
-  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/totals/subtotal"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"GET"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
-  <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+  <span class="no">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/totals/subtotal"</span><span class="p">,</span>
+  <span class="no">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"GET"</span><span class="p">,</span>
+  <span class="no">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="no">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
+  <span class="no">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
     <span class="s1">'Accept: application/json'</span><span class="p">,</span>
     <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
   <span class="p">)</span>
@@ -3454,8 +3470,8 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 
 <span class="k">echo</span> <span class="nv">$response</span><span class="p">;</span>
 </code></pre></div><div class="highlight"><pre class="highlight php tab-php--wp-http-api"><code><span class="cp">&lt;?php</span>
-<span class="nv">$response</span> <span class="o">=</span> <span class="nx">wp_remote_get</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/totals/subtotal'</span> <span class="p">);</span>
-<span class="nv">$body</span> <span class="o">=</span> <span class="nx">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
+<span class="nv">$response</span> <span class="o">=</span> <span class="nf">wp_remote_get</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/totals/subtotal'</span> <span class="p">);</span>
+<span class="nv">$body</span> <span class="o">=</span> <span class="nf">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
 </code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="s2">"£42.00"</span><span class="w">
 </span></code></pre></div><h2 id='totals-get-subtotal-tax'>Get Subtotal Tax</h2><h3 id='totals-get-subtotal-tax-http-request'>HTTP request</h3>
 <div class="api-endpoint">
@@ -3494,11 +3510,11 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
 
 <span class="nb">curl_setopt_array</span><span class="p">(</span> <span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
-  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/totals/subtotal/tax"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"GET"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
-  <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+  <span class="no">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/totals/subtotal/tax"</span><span class="p">,</span>
+  <span class="no">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"GET"</span><span class="p">,</span>
+  <span class="no">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="no">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
+  <span class="no">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
     <span class="s1">'Accept: application/json'</span><span class="p">,</span>
     <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
   <span class="p">)</span>
@@ -3510,8 +3526,8 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 
 <span class="k">echo</span> <span class="nv">$response</span><span class="p">;</span>
 </code></pre></div><div class="highlight"><pre class="highlight php tab-php--wp-http-api"><code><span class="cp">&lt;?php</span>
-<span class="nv">$response</span> <span class="o">=</span> <span class="nx">wp_remote_get</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/totals/subtotal/tax'</span> <span class="p">);</span>
-<span class="nv">$body</span> <span class="o">=</span> <span class="nx">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
+<span class="nv">$response</span> <span class="o">=</span> <span class="nf">wp_remote_get</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/totals/subtotal/tax'</span> <span class="p">);</span>
+<span class="nv">$body</span> <span class="o">=</span> <span class="nf">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
 </code></pre></div><h2 id='totals-get-cart-total-tax'>Get Cart Total Tax</h2><h3 id='totals-get-cart-total-tax-http-request'>HTTP request</h3>
 <div class="api-endpoint">
   <div class="endpoint-data">
@@ -3549,11 +3565,11 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
 
 <span class="nb">curl_setopt_array</span><span class="p">(</span> <span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
-  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/totals/tax"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"GET"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
-  <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+  <span class="no">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/totals/tax"</span><span class="p">,</span>
+  <span class="no">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"GET"</span><span class="p">,</span>
+  <span class="no">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="no">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
+  <span class="no">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
     <span class="s1">'Accept: application/json'</span><span class="p">,</span>
     <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
   <span class="p">)</span>
@@ -3565,8 +3581,8 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 
 <span class="k">echo</span> <span class="nv">$response</span><span class="p">;</span>
 </code></pre></div><div class="highlight"><pre class="highlight php tab-php--wp-http-api"><code><span class="cp">&lt;?php</span>
-<span class="nv">$response</span> <span class="o">=</span> <span class="nx">wp_remote_get</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/totals/tax'</span> <span class="p">);</span>
-<span class="nv">$body</span> <span class="o">=</span> <span class="nx">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
+<span class="nv">$response</span> <span class="o">=</span> <span class="nf">wp_remote_get</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/totals/tax'</span> <span class="p">);</span>
+<span class="nv">$body</span> <span class="o">=</span> <span class="nf">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
 </code></pre></div><h2 id='totals-get-cart-total'>Get Cart Total</h2><h3 id='totals-get-cart-total-http-request'>HTTP request</h3>
 <div class="api-endpoint">
   <div class="endpoint-data">
@@ -3604,11 +3620,11 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
 
 <span class="nb">curl_setopt_array</span><span class="p">(</span> <span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
-  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/totals/total"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"GET"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
-  <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+  <span class="no">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/totals/total"</span><span class="p">,</span>
+  <span class="no">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"GET"</span><span class="p">,</span>
+  <span class="no">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="no">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
+  <span class="no">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
     <span class="s1">'Accept: application/json'</span><span class="p">,</span>
     <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
   <span class="p">)</span>
@@ -3620,8 +3636,8 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 
 <span class="k">echo</span> <span class="nv">$response</span><span class="p">;</span>
 </code></pre></div><div class="highlight"><pre class="highlight php tab-php--wp-http-api"><code><span class="cp">&lt;?php</span>
-<span class="nv">$response</span> <span class="o">=</span> <span class="nx">wp_remote_get</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/totals/total'</span> <span class="p">);</span>
-<span class="nv">$body</span> <span class="o">=</span> <span class="nx">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
+<span class="nv">$response</span> <span class="o">=</span> <span class="nf">wp_remote_get</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/totals/total'</span> <span class="p">);</span>
+<span class="nv">$body</span> <span class="o">=</span> <span class="nf">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
 </code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="s2">"£33.60"</span><span class="w">
 </span></code></pre></div><h1 id='woocommerce-extensions'>WooCommerce Extensions</h1>
 <p><img src="images/github-633266a3.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart-docs/blob/master/source/includes/_woocommerce-extensions.md">Edit on GitHub</a></p>
@@ -3717,12 +3733,12 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <span class="p">);</span>
 
 <span class="nb">curl_setopt_array</span><span class="p">(</span> <span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
-  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/add-item"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"POST"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_POSTFIELDS</span> <span class="o">=&gt;</span> <span class="nv">$args</span><span class="p">,</span>
-  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
-  <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+  <span class="no">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/add-item"</span><span class="p">,</span>
+  <span class="no">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"POST"</span><span class="p">,</span>
+  <span class="no">CURLOPT_POSTFIELDS</span> <span class="o">=&gt;</span> <span class="nv">$args</span><span class="p">,</span>
+  <span class="no">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="no">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
+  <span class="no">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
     <span class="s1">'Accept: application/json'</span><span class="p">,</span>
     <span class="s1">'Content-Type: application/json'</span><span class="p">,</span>
     <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
@@ -3739,7 +3755,7 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
   <span class="s1">'headers'</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
     <span class="s1">'Content-Type'</span> <span class="o">=&gt;</span> <span class="s1">'application/json; charset=utf-8'</span><span class="p">,</span>
   <span class="p">),</span>
-  <span class="s1">'body'</span> <span class="o">=&gt;</span> <span class="nx">wp_json_encode</span><span class="p">(</span> <span class="p">[</span>
+  <span class="s1">'body'</span> <span class="o">=&gt;</span> <span class="nf">wp_json_encode</span><span class="p">(</span> <span class="p">[</span>
     <span class="s1">'product_id'</span> <span class="o">=&gt;</span> <span class="s1">'1102'</span><span class="p">,</span>
     <span class="s1">'quantity'</span> <span class="o">=&gt;</span> <span class="mi">5</span><span class="p">,</span>
     <span class="s1">'cart_item_data'</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
@@ -3761,8 +3777,8 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
   <span class="p">]</span> <span class="p">),</span>
   <span class="s1">'timeout'</span> <span class="o">=&gt;</span> <span class="mi">30</span>
 <span class="p">);</span>
-<span class="nv">$response</span> <span class="o">=</span> <span class="nx">wp_remote_post</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/add-item'</span><span class="p">,</span> <span class="nv">$args</span> <span class="p">);</span>
-<span class="nv">$body</span> <span class="o">=</span> <span class="nx">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
+<span class="nv">$response</span> <span class="o">=</span> <span class="nf">wp_remote_post</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/add-item'</span><span class="p">,</span> <span class="nv">$args</span> <span class="p">);</span>
+<span class="nv">$body</span> <span class="o">=</span> <span class="nf">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
 </code></pre></div>
 <blockquote>
 <p>JSON response example</p>
@@ -3921,12 +3937,12 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <span class="p">);</span>
 
 <span class="nb">curl_setopt_array</span><span class="p">(</span> <span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
-  <span class="nx">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/add-item"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"POST"</span><span class="p">,</span>
-  <span class="nx">CURLOPT_POSTFIELDS</span> <span class="o">=&gt;</span> <span class="nv">$args</span><span class="p">,</span>
-  <span class="nx">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="nx">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
-  <span class="nx">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+  <span class="no">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v1/add-item"</span><span class="p">,</span>
+  <span class="no">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"POST"</span><span class="p">,</span>
+  <span class="no">CURLOPT_POSTFIELDS</span> <span class="o">=&gt;</span> <span class="nv">$args</span><span class="p">,</span>
+  <span class="no">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="no">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
+  <span class="no">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
     <span class="s1">'Accept: application/json'</span><span class="p">,</span>
     <span class="s1">'Content-Type: application/json'</span><span class="p">,</span>
     <span class="s1">'User-Agent: CoCart API/v1'</span><span class="p">,</span>
@@ -3943,7 +3959,7 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
   <span class="s1">'headers'</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
     <span class="s1">'Content-Type'</span> <span class="o">=&gt;</span> <span class="s1">'application/json; charset=utf-8'</span><span class="p">,</span>
   <span class="p">),</span>
-  <span class="s1">'body'</span> <span class="o">=&gt;</span> <span class="nx">wp_json_encode</span><span class="p">(</span> <span class="p">[</span>
+  <span class="s1">'body'</span> <span class="o">=&gt;</span> <span class="nf">wp_json_encode</span><span class="p">(</span> <span class="p">[</span>
     <span class="s1">'product_id'</span> <span class="o">=&gt;</span> <span class="s1">'129'</span><span class="p">,</span>
     <span class="s1">'quantity'</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span>
     <span class="s1">'cart_item_data'</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
@@ -3952,8 +3968,8 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
   <span class="p">]</span> <span class="p">),</span>
   <span class="s1">'timeout'</span> <span class="o">=&gt;</span> <span class="mi">30</span>
 <span class="p">);</span>
-<span class="nv">$response</span> <span class="o">=</span> <span class="nx">wp_remote_post</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/add-item'</span><span class="p">,</span> <span class="nv">$args</span> <span class="p">);</span>
-<span class="nv">$body</span> <span class="o">=</span> <span class="nx">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
+<span class="nv">$response</span> <span class="o">=</span> <span class="nf">wp_remote_post</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/add-item'</span><span class="p">,</span> <span class="nv">$args</span> <span class="p">);</span>
+<span class="nv">$body</span> <span class="o">=</span> <span class="nf">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
 </code></pre></div>
 <blockquote>
 <p>JSON response example</p>
@@ -4018,7 +4034,7 @@ Please make sure you are viewing the PHP language to copy any code snippet.
 <span class="cd">/**
  * Change the parameter name for loading the cart via the web.
  */</span>
-<span class="nx">add_filter</span><span class="p">(</span> <span class="s1">'cocart_load_cart_query_name'</span><span class="p">,</span> <span class="k">function</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="s1">'my-cart'</span><span class="p">;</span> <span class="p">});</span>
+<span class="nf">add_filter</span><span class="p">(</span> <span class="s1">'cocart_load_cart_query_name'</span><span class="p">,</span> <span class="k">function</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="s1">'my-cart'</span><span class="p">;</span> <span class="p">});</span>
 </code></pre></div><h1 id='libraries'>Libraries</h1>
 <p><img src="images/github-633266a3.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart-docs/blob/master/source/includes/_libraries.md">Edit on GitHub</a></p>
 
