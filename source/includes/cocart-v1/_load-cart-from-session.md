@@ -25,7 +25,7 @@ https://example.com/cart/?cocart-load-cart=bbfa8e97ac9cff4c861d62a109e83bb6
 ```
 
 <aside class="warning">
-  ⚠️ This features is not a REST API. Do not treat it as such! ⚠️
+  ⚠️ This feature is not a REST API. Do not treat it as such! ⚠️
 </aside>
 
 <aside class="notice">
