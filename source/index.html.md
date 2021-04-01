@@ -43,7 +43,7 @@ includes:
   - add-ons
   - cocart-pro
   - cocart-products
-  - woocommerce-extensions
+  - cocart-v1/woocommerce-extensions
   - wp-config.php
   - demo
   - libraries
