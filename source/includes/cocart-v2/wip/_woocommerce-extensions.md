@@ -1,6 +1,6 @@
 # WooCommerce Extensions #
 
-<img src="images/github.svg" width="20" height="20" alt="GitHub Mark Logo"> [Edit on GitHub](https://github.com/co-cart/co-cart-docs/blob/master/source/includes/_woocommerce-extensions.md)
+<img src="images/github.svg" width="20" height="20" alt="GitHub Mark Logo"> [Edit on GitHub](https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v2/wip/_woocommerce-extensions.md)
 
 [These extensions](https://cocart.xyz/woocommerce-extensions/) either support CoCart or is supported in [CoCart Pro](#cocart-add-ons-cocart-pro).
 
@@ -153,8 +153,6 @@ $args = array(
 $response = wp_remote_post( 'https://example.com/wp-json/cocart/v2/add-item', $args );
 $body = wp_remote_retrieve_body( $response );
 ```
-
-> JSON response example
 
 ```json
 {
@@ -361,8 +359,6 @@ $args = array(
 $response = wp_remote_post( 'https://example.com/wp-json/cocart/v2/add-item', $args );
 $body = wp_remote_retrieve_body( $response );
 ```
-
-> JSON response example
 
 ```json
 {

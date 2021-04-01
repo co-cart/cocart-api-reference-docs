@@ -1,6 +1,6 @@
 # Totals #
 
-<img src="images/github.svg" width="20" height="20" alt="GitHub Mark Logo"> [Edit on GitHub](https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v2/_totals.md)
+<img src="images/github.svg" width="20" height="20" alt="GitHub Mark Logo"> [Edit on GitHub](https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v2/wip/_cart-totals.md)
 
  * [Retrieve Cart Totals](#totals-retrieve-cart-totals)
  * [Calculate Cart Totals](#totals-calculate-cart-totals)
@@ -21,12 +21,12 @@ This API helps you retrieve the cart totals. You can also return the totals pre-
 <div class="api-endpoint">
   <div class="endpoint-data">
     <i class="label label-get">GET</i>
-    <h6>/wp-json/cocart/v2/totals</h6>
+    <h6>/wp-json/cocart/v2/cart/totals</h6>
   </div>
 </div>
 
 ```shell
-curl -X GET https://example.com/wp-json/cocart/v2/totals \
+curl -X GET https://example.com/wp-json/cocart/v2/cart/totals \
  -H "Content-Type: application/json"
 ```
 
@@ -51,7 +51,7 @@ CoCart.get("totals")
 
 ```javascript--jquery
 var settings = {
-  "url": "https://example.com/wp-json/cocart/v2/totals",
+  "url": "https://example.com/wp-json/cocart/v2/cart/totals",
   "method": "GET"
 };
 
@@ -65,13 +65,13 @@ $.ajax(settings).done(function (response) {
 $curl = curl_init();
 
 curl_setopt_array( $curl, array(
-  CURLOPT_URL => "https://example.com/wp-json/cocart/v2/totals",
+  CURLOPT_URL => "https://example.com/wp-json/cocart/v2/cart/totals",
   CURLOPT_CUSTOMREQUEST => "GET",
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_TIMEOUT => 30,
   CURLOPT_HTTPHEADER => array(
     'Accept: application/json',
-    'User-Agent: CoCart API/v1',
+    'User-Agent: CoCart API/v2',
   )
 ) );
 
@@ -84,11 +84,9 @@ echo $response;
 
 ```php--wp-http-api
 <?php
-$response = wp_remote_get( 'https://example.com/wp-json/cocart/v2/totals' );
+$response = wp_remote_get( 'https://example.com/wp-json/cocart/v2/cart/totals' );
 $body = wp_remote_retrieve_body( $response );
 ```
-
-> JSON response example
 
 ```json
 {
@@ -117,7 +115,7 @@ $body = wp_remote_retrieve_body( $response );
 > Here is what to do to return the totals formatted with currency symbol.
 
 ```shell
-curl -X GET https://example.com/wp-json/cocart/v2/totals \
+curl -X GET https://example.com/wp-json/cocart/v2/cart/totals \
   -H "Content-Type: application/json" \
   -d '{
     "html": true
@@ -126,7 +124,7 @@ curl -X GET https://example.com/wp-json/cocart/v2/totals \
 
 ```javascript--jquery
 var settings = {
-  "url": "https://example.com/wp-json/cocart/v2/totals",
+  "url": "https://example.com/wp-json/cocart/v2/cart/totals",
   "method": "GET",
   "data": {
     "html" : true
@@ -147,7 +145,7 @@ $args = array(
 );
 
 curl_setopt_array( $curl, array(
-  CURLOPT_URL => "https://example.com/wp-json/cocart/v2/totals",
+  CURLOPT_URL => "https://example.com/wp-json/cocart/v2/cart/totals",
   CURLOPT_CUSTOMREQUEST => "GET",
   CURLOPT_POSTFIELDS => $args,
   CURLOPT_RETURNTRANSFER => true
@@ -165,11 +163,9 @@ echo $response;
 $args = array(
   'html' => true
 );
-$response = wp_remote_get( 'https://example.com/wp-json/cocart/v2/totals', $args );
+$response = wp_remote_get( 'https://example.com/wp-json/cocart/v2/cart/totals', $args );
 $body = wp_remote_retrieve_body( $response );
 ```
-
-> JSON response example
 
 ```json
 {

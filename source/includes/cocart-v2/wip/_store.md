@@ -1,29 +1,25 @@
-# Logout #
+# Store #
 
-<img src="images/github.svg" width="20" height="20" alt="GitHub Mark Logo"> [Edit on GitHub](https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v2/wip/_logout.md)
+<img src="images/github.svg" width="20" height="20" alt="GitHub Mark Logo"> [Edit on GitHub](https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v2/wip/_store.md)
 
-This API logs out your customers. This will clear all session cookies for WordPress and CoCart.
-
-<aside class="warning">
-  Do <strong>NOT authenticate</strong> as the customer you are logging out for.
-</aside>
+This API helps you get the store details.
 
 ### HTTP request ###
 
 <div class="api-endpoint">
   <div class="endpoint-data">
-    <i class="label label-post">POST</i>
-    <h6>/wp-json/cocart/v2/logout</h6>
+    <i class="label label-get">GET</i>
+    <h6>/wp-json/cocart/v2/store</h6>
   </div>
 </div>
 
 ```shell
-curl -X POST https://example.com/wp-json/cocart/v2/logout \
-  -H "Content-Type: application/json" \
+curl -X GET https://example.com/wp-json/cocart/v2/store \
+  -H "Content-Type: application/json"
 ```
 
 ```javascript--node
-CoCart.post("logout")
+CoCart.get("store")
 .then((response) => {
   // Successful request
   console.log("Response Status:", response.status);
@@ -43,8 +39,8 @@ CoCart.post("logout")
 
 ```javascript--jquery
 var settings = {
-  "url": "https://example.com/wp-json/cocart/v2/logout",
-  "method": "POST"
+  "url": "https://example.com/wp-json/cocart/v2/store",
+  "method": "GET"
 };
 
 $.ajax(settings).done(function (response) {
@@ -57,8 +53,8 @@ $.ajax(settings).done(function (response) {
 $curl = curl_init();
 
 curl_setopt_array( $curl, array(
-  CURLOPT_URL => "https://example.com/wp-json/cocart/v2/logout",
-  CURLOPT_CUSTOMREQUEST => "POST",
+  CURLOPT_URL => "https://example.com/wp-json/cocart/v2/store",
+  CURLOPT_CUSTOMREQUEST => "GET",
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_TIMEOUT => 30,
   CURLOPT_HTTPHEADER => array(
@@ -76,10 +72,9 @@ echo $response;
 
 ```php--wp-http-api
 <?php
-$response = wp_remote_post( 'https://example.com/wp-json/cocart/v2/logout' );
+$response = wp_remote_get( 'https://example.com/wp-json/cocart/v2/store' );
 $body = wp_remote_retrieve_body( $response );
 ```
 
 ```json
-true
 ```

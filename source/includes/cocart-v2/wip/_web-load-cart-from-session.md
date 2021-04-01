@@ -1,6 +1,6 @@
 # Load Cart from Session #
 
-<img src="images/github.svg" width="20" height="20" alt="GitHub Mark Logo"> [Edit on GitHub](https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v2/_load-cart-from-session.md)
+<img src="images/github.svg" width="20" height="20" alt="GitHub Mark Logo"> [Edit on GitHub](https://github.com/co-cart/co-cart-docs/blob/master/source/source/includes/cocart-v2/wip/_load-cart-from-session.md)
 
 Load cart from session allows the cart of your choosing to be set before anything WooCommerce handles.
 

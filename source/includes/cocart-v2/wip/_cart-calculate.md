@@ -1,6 +1,6 @@
 ## Calculate Cart Totals ##
 
-<img src="images/github.svg" width="20" height="20" alt="GitHub Mark Logo"> [Edit on GitHub](https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v2/_calculate.md)
+<img src="images/github.svg" width="20" height="20" alt="GitHub Mark Logo"> [Edit on GitHub](https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v2/wip/_calculate.md)
 
 This API helps you calculate the cart totals. You can also request to return the totals once calculated to reduce API requests and use the [Retrieve Cart Totals](#totals-retrieve-cart-totals) properties.
 
@@ -26,7 +26,7 @@ curl -X POST https://example.com/wp-json/cocart/v2/calculate \
 ```
 
 ```javascript--node
-CoCart.post("calculate", data)
+CoCart.post("calculate")
 .then((response) => {
   // Successful request
   console.log("Response Status:", response.status);
@@ -66,7 +66,7 @@ curl_setopt_array( $curl, array(
   CURLOPT_TIMEOUT => 30,
   CURLOPT_HTTPHEADER => array(
     'Accept: application/json',
-    'User-Agent: CoCart API/v1',
+    'User-Agent: CoCart API/v2',
   )
 ) );
 
@@ -82,8 +82,6 @@ echo $response;
 $response = wp_remote_post( 'https://example.com/wp-json/cocart/v2/calculate' );
 $body = wp_remote_retrieve_body( $response );
 ```
-
-> JSON response example
 
 ```json
 "Cart totals have been calculated."

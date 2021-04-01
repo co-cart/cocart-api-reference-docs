@@ -1,6 +1,6 @@
 # Authentication #
 
-<img src="images/github.svg" width="20" height="20" alt="GitHub Mark Logo"> [Edit on GitHub](https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v2/_authentication.md)
+<img src="images/github.svg" width="20" height="20" alt="GitHub Mark Logo"> [Edit on GitHub](https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v2/wip/_authentication.md)
 
 <aside class="notice">
   For those who don't know what "Authentication" means, it's equivalent to a user logging in.
@@ -10,22 +10,15 @@
   Authentication is <strong>ONLY</strong> required for registered customers. In order for a registered customer to access their cart, you will be required to pass the customers username and password or token depending on the authentication method you are using. It's important that you keep authenticating with <strong>all routes</strong> from the beginning so the cart in session remains the same. <strong>NOT</strong> doing so will cause another cart to be created and lose track of the items added. If you have any questions, please ask away in the chat window below.
 </aside>
 
-CoCart can be authenticated by various methods with the WordPress REST API. First being via the [REST API Keys](https://woocommerce.github.io/woocommerce-rest-api-docs/#rest-api-keys) in [WooCommerce](https://woocommerce.github.io/woocommerce-rest-api-docs/#authentication). Though this method is designed for the backend with their REST API, with some custom coding you can make it work for the frontend with CoCart.
-
-Checkout my guide on [how to authenticate with WooCommerce](https://cocart.xyz/authenticating-with-woocommerce-heres-how-you-can-do-it/).
-
-It is also possible to authenticate using any of the following WP REST API authentication methods:
-
-* [Basic Authentication](#authentication-basic-authentication) (Recommended with SSL Only!)
-* [JWT Authentication for WP REST API](#authentication-jwt-authentication)
-
 The WordPress REST API incorporates a method called [nonces](https://codex.wordpress.org/WordPress_Nonces) to deal with [CSRF](https://en.wikipedia.org/wiki/Cross-site_request_forgery) issues. This ensures that all activities on the website remain segregated. This is because the WordPress REST API just like the WooCommerce REST API is designed for the back-end.
 
 CoCart however, is designed for the front-end so for any CoCart requests made, the [cookie authentication](https://developer.wordpress.org/rest-api/using-the-rest-api/authentication/) is disabled allowing the ability to authenticate in any code language without fault.
 
-If you have tested other authentication plugins or methods, please let me know via the [feedback page](https://cocart.xyz/feedback/) so that I can add it to the list.
+REST API authentication methods:
 
-Thank you. 😄
+* [Basic Authentication](#authentication-basic-authentication) (Recommended with SSL Only!)
+* [JWT Authentication for WP REST API](#authentication-jwt-authentication) (Not Recommended according to feedback)
+* [WooCommerce API Keys](#authentication-woocommerce-api-keys) (Best for Administrators Only!)
 
 ## Basic Authentication ##
 
@@ -44,11 +37,11 @@ If you use the Basic Authentication method (which you may find the easiest to us
 > Adding an item to the cart as a customer.
 
 ```shell
-curl -X POST https://example.com/wp-json/cocart/v2/add-item \
+curl -X POST https://example.com/wp-json/cocart/v2/cart/add-item \
   -u username:password \
   -H "Content-Type: application/json" \
   -d '{
-    "product_id": "32",
+    "id": "32",
     "quantity": 1
   }'
 ```
@@ -64,7 +57,7 @@ const CoCart = new CoCartAPI({
 });
 
 var data = {
-  "product_id": "32",
+  "id": "32",
   "quantity": 1
 };
 
@@ -88,13 +81,13 @@ CoCart.post("add-item", data)
 
 ```javascript--jquery
 var settings = {
-  "url": "https://example.com/wp-json/cocart/v2/add-item",
+  "url": "https://example.com/wp-json/cocart/v2/cart/add-item",
   "headers": {
       "Authorization": "Basic " + btoa('username:password'),
   },
   "method": "POST",
   "data": {
-    "product_id" : "32",
+    "id" : "32",
     "quantity" : 1
   },
 };
@@ -109,18 +102,18 @@ $.ajax(settings).done(function (response) {
 $curl = curl_init();
 
 $args = json_encode( array(
-  'product_id' => "32",
+  'id' => "32",
   'quantity' => 1
 ) );
 
 $headers = array(
   'Accept: application/json',
-  'User-Agent: CoCart API/v1',
+  'User-Agent: CoCart API/v2',
   'Authorization: Basic ' . base64_encode($username . ':' . $password)
 );
 
 curl_setopt_array( $curl, array(
-  CURLOPT_URL => "https://example.com/wp-json/cocart/v2/add-item",
+  CURLOPT_URL => "https://example.com/wp-json/cocart/v2/cart/add-item",
   CURLOPT_CUSTOMREQUEST => "POST",
   CURLOPT_POSTFIELDS => $args,
   CURLOPT_RETURNTRANSFER => true,
@@ -139,21 +132,19 @@ echo $response;
 <?php
 $args = array(
   'headers' => array(
-    'Authorization' => 'Basic ' . base64_encode( 'username:password'),
+    'Authorization' => 'Basic ' . base64_encode( 'username:password' ),
     'Content-Type' => 'application/json; charset=utf-8',
   ),
   'body' => wp_json_encode( [
-    'product_id' => "32",
+    'id' => "32",
     'quantity' => 1
   ] ),
   'timeout' => 30
 );
 
-$response = wp_remote_post( 'https://example.com/wp-json/cocart/v2/add-item', $args );
+$response = wp_remote_post( 'https://example.com/wp-json/cocart/v2/cart/add-item', $args );
 $body = wp_remote_retrieve_body( $response );
 ```
-
-> JSON response example
 
 ```json
 {
@@ -208,13 +199,13 @@ It's important that you follow the installation and configurations exactly for t
 
 ```javascript--jquery
 var settings = {
-  "url": "https://example.com/wp-json/cocart/v2/add-item",
+  "url": "https://example.com/wp-json/cocart/v2/cart/add-item",
   "headers": {
       "Authorization": "Bearer " + token,
   },
   "method": "POST",
   "data": {
-    "product_id" : 32,
+    "id" : 32,
     "quantity" : 1
   },
 };
@@ -229,18 +220,18 @@ $.ajax(settings).done(function (response) {
 $curl = curl_init();
 
 $args = json_encode( array(
-  'product_id' => 32,
+  'id' => 32,
   'quantity' => 1
 ) );
 
 $headers = array(
   'Accept: application/json',
-  'User-Agent: CoCart API/v1',
+  'User-Agent: CoCart API/v2',
   'Authorization: Bearer ' . $token
 );
 
 curl_setopt_array( $curl, array(
-  CURLOPT_URL => "https://example.com/wp-json/cocart/v2/add-item",
+  CURLOPT_URL => "https://example.com/wp-json/cocart/v2/cart/add-item",
   CURLOPT_CUSTOMREQUEST => "POST",
   CURLOPT_POSTFIELDS => $args,
   CURLOPT_RETURNTRANSFER => true,
@@ -254,3 +245,25 @@ curl_close($curl);
 
 echo $response;
 ```
+
+```php--wp-http-api
+<?php
+$args = array(
+  'headers' => array(
+    'Authorization' => 'Bearer ' . $token,
+    'Content-Type' => 'application/json; charset=utf-8',
+  ),
+  'body' => wp_json_encode( [
+    'id' => "32",
+    'quantity' => 1
+  ] ),
+  'timeout' => 30
+);
+
+$response = wp_remote_post( 'https://example.com/wp-json/cocart/v2/cart/add-item', $args );
+$body = wp_remote_retrieve_body( $response );
+```
+
+## WooCommerce API Keys ##
+
+Though this method is designed for the backend with [WooCommerce REST API](https://woocommerce.github.io/woocommerce-rest-api-docs/#authentication), with some custom coding you can make it work for the frontend with CoCart. Checkout my guide on [how to authenticate with WooCommerce](https://cocart.xyz/authenticating-with-woocommerce-heres-how-you-can-do-it/).

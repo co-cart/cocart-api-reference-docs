@@ -1,6 +1,6 @@
 ## Clear Cart ##
 
-<img src="images/github.svg" width="20" height="20" alt="GitHub Mark Logo"> [Edit on GitHub](https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v2/_clear-cart.md)
+<img src="images/github.svg" width="20" height="20" alt="GitHub Mark Logo"> [Edit on GitHub](https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v2/wip/_clear-cart.md)
 
 This API helps you clear the contents of the cart.
 
@@ -15,17 +15,17 @@ This API helps you clear the contents of the cart.
 <div class="api-endpoint">
   <div class="endpoint-data">
     <i class="label label-post">POST</i>
-    <h6>/wp-json/cocart/v2/clear</h6>
+    <h6>/wp-json/cocart/v2/cart/clear</h6>
   </div>
 </div>
 
 ```shell
-curl -X POST https://example.com/wp-json/cocart/v2/clear \
+curl -X POST https://example.com/wp-json/cocart/v2/cart/clear \
   -H "Content-Type: application/json"
 ```
 
 ```javascript--node
-CoCart.post("clear", data)
+CoCart.post("clear")
 .then((response) => {
   // Successful request
   console.log("Response Status:", response.status);
@@ -45,7 +45,7 @@ CoCart.post("clear", data)
 
 ```javascript--jquery
 var settings = {
-  "url": "https://example.com/wp-json/cocart/v2/clear",
+  "url": "https://example.com/wp-json/cocart/v2/cart/clear",
   "method": "POST"
 };
 
@@ -59,13 +59,13 @@ $.ajax(settings).done(function (response) {
 $curl = curl_init();
 
 curl_setopt_array( $curl, array(
-  CURLOPT_URL => "https://example.com/wp-json/cocart/v2/clear",
+  CURLOPT_URL => "https://example.com/wp-json/cocart/v2/cart/clear",
   CURLOPT_CUSTOMREQUEST => "POST",
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_TIMEOUT => 30,
   CURLOPT_HTTPHEADER => array(
     'Accept: application/json',
-    'User-Agent: CoCart API/v1',
+    'User-Agent: CoCart API/v2',
   )
 ) );
 
@@ -78,11 +78,9 @@ echo $response;
 
 ```php--wp-http-api
 <?php
-$response = wp_remote_post( 'https://example.com/wp-json/cocart/v2/clear' );
+$response = wp_remote_post( 'https://example.com/wp-json/cocart/v2/cart/clear' );
 $body = wp_remote_retrieve_body( $response );
 ```
-
-> JSON response example
 
 ```json
 "Cart is cleared."

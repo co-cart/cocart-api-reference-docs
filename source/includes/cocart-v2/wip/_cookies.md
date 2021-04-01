@@ -1,6 +1,6 @@
 # Cookies #
 
-<img src="images/github.svg" width="20" height="20" alt="GitHub Mark Logo"> [Edit on GitHub](https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v2/_cookies.md)
+<img src="images/github.svg" width="20" height="20" alt="GitHub Mark Logo"> [Edit on GitHub](https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v2/wip/_cookies.md)
 
 CoCart **only** creates and uses **only one cookie** per session/customer/device. The cookie name starts with `wp_cocart_session_` followed by the WordPress **COOKIEHASH**. The cookie name can be changed using [this filter](#filters-session-management-change-cookie-name).
 

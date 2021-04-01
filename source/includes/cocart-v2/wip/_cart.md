@@ -76,7 +76,7 @@ curl_setopt_array( $curl, array(
   CURLOPT_TIMEOUT => 30,
   CURLOPT_HTTPHEADER => array(
     'Accept: application/json',
-    'User-Agent: CoCart API/v1',
+    'User-Agent: CoCart API/v2',
   )
 ) );
 
@@ -92,8 +92,6 @@ echo $response;
 $response = wp_remote_get( 'https://example.com/wp-json/cocart/v2/cart' );
 $body = wp_remote_retrieve_body( $response );
 ```
-
-> JSON response example
 
 ```json
 {
@@ -128,6 +126,12 @@ $body = wp_remote_retrieve_body( $response );
 ## Get Cart using Cart Key ##
 
 This method allows you to set the cart key yourself via the `cart_key` parameter. This sets the cart key in session allowing to create/fetch the cart before changes are made. [See the "Cart Key" section for more information](#cart-key).
+
+<aside class="warning">
+    The <code>cart_key</code> parameter is a global parameter so it must be queried rather than being added as part of the data you send with the API request you make. Otherwise it will not update the cart.
+</aside>
+
+> Example of getting the cart with cart key.
 
 ```shell
 curl -X GET https://example.com/wp-json/cocart/v2/cart?cart_key=9e18904482b4faf8762361836a83b93d \
@@ -175,7 +179,7 @@ curl_setopt_array( $curl, array(
   CURLOPT_TIMEOUT => 30,
   CURLOPT_HTTPHEADER => array(
     'Accept: application/json',
-    'User-Agent: CoCart API/v1',
+    'User-Agent: CoCart API/v2',
   )
 ) );
 
