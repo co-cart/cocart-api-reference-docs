@@ -2,7 +2,13 @@
 
 Below is the changelog for "CoCart Lite" documentation that matches with the version of the plugin release.
 
-## Doc Version v2.9.2
+## Doc Version v2.9.3 - Plugin Version v2.9.1
+
+* Introduced `cocart_cookie_samesite` filter.
+* Updated: Introduction content.
+* Updated: Knowledge Base content.
+
+### Doc Version v2.9.2
 
 * Improved: Authentication content.
 * Improved: Knowledge Base content.
