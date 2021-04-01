@@ -46,6 +46,10 @@ URL Example: `https://example.com/wp-admin/admin.php?page=wc-status&tab=logs`
 
 You can also [change how the logs are presented](#filters-api-access-cocart-logging).
 
+## How can I use CoCart on a multi-site network? ##
+
+Using CoCart on any site on the network is just the same as you would on a single site. The only difference is the domain/sub-domain of the site.
+
 ## Does CoCart work with the Dokan plugin? ##
 
 Yes. The only feature you wont be able to use are coupons. This is because Dokan disables the use of coupons. All other features are compatible.
