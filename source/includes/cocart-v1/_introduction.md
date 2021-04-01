@@ -2,7 +2,9 @@
 
 <img src="images/github.svg" width="20" height="20" alt="GitHub Mark Logo"> [Edit on GitHub](https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v1/_introduction.md)
 
-Welcome to the documentation site for CoCart, the free, open-source WordPress plugin that brings the power of WooCommerce's shopping cart via the REST API.
+Welcome to the documentation site for CoCart, the free  open-source WordPress plugin that brings the power of WooCommerce's shopping cart via the REST API. If you haven't already, [checkout the features](https://cocart.xyz/features/) CoCart support.
+
+CoCart helps you manage shopping carts in any modern framework of your choosing. No local storing required. A powerful RESTful API that offers an integration to build your headless store with ease.
 
 ## What is a REST API? ##
 
