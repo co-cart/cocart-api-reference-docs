@@ -419,7 +419,7 @@ add_filter( 'cocart_cart_use_secure_cookie', function() { return true; });
 There are two filters for cart expiration. The first is used to detect if we are close to expiration of the cart. The second is used to set how long the cart will be stored until expired.
 
 <aside class="notice">
-  Close to expiration by default is 29 days. Cart expiration by default is 30 days.
+  Close to expiration by default is 6 days. Cart expiration by default is 7 days.
 </aside>
 
 ```php--filter
