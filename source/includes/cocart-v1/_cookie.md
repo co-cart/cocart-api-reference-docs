@@ -1,4 +1,4 @@
-# Cookies #
+# Cookie #
 
 <img src="images/github.svg" width="20" height="20" alt="GitHub Mark Logo"> [Edit on GitHub](https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v1/_cookie.md)
 
@@ -37,3 +37,9 @@ Cookies received via Set-Cookie-headers is stored in the browser for the domain 
 If using a package like [axios](https://github.com/axios/axios), make sure to supply the correct config parameters that enables cookies in requests to the server. As an example, axios has a config parameter called `withAuthorization`. With the flag set to true, cookies previous set will be sent in the request.
 
 P.S. Our [official JS library](#libraries) already has this setup for you.
+
+## Can I change the SameSite Attribute? ##
+
+If you need to change the **SameSite attribute** [a filter is available](#filters-api-access-cookie-samesite-attribute) that was introduced in v2.9.1
+
+If you want to know more about **SameSite attribute**. [Checkout this article](https://www.kevel.co/blog/chrome-samesite/).

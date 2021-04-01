@@ -557,6 +557,23 @@ add_filter( 'cocart_is_rest_api_request', function() {
 
 <div style="clear: both;"></div>
 
+### Cookie: Samesite Attribute ###
+
+<span class="new">New Filter since v2.9.1</span>
+
+<img src="images/github.svg" width="20" height="20" alt="GitHub Mark Logo"> [View source](https://github.com/co-cart/co-cart/search?q=cocart_cookie_samesite+in%3Afile&type=Code)
+
+This filter allows you to change the **SameSite attribute** applied to the [CoCart cookie](#cookie).
+
+```php--filter
+<?php
+add_filter( 'cocart_cookie_samesite', function() {
+    return "None; Secure";
+});
+```
+
+<div style="clear: both;"></div>
+
 ## Misc ##
 
 ### Merge Cart Items ###
