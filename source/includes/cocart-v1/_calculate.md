@@ -26,7 +26,7 @@ curl -X POST https://example.com/wp-json/cocart/v1/calculate \
 ```
 
 ```javascript--node
-CoCart.post("calculate", data)
+CoCart.post("calculate")
 .then((response) => {
   // Successful request
   console.log("Response Status:", response.status);
