@@ -154,8 +154,6 @@ $response = wp_remote_post( 'https://example.com/wp-json/cocart/v1/add-item', $a
 $body = wp_remote_retrieve_body( $response );
 ```
 
-> JSON response example
-
 ```json
 {
     "6563b32f054b00c7ed83ce4c9bb9eedd": {
@@ -361,8 +359,6 @@ $args = array(
 $response = wp_remote_post( 'https://example.com/wp-json/cocart/v1/add-item', $args );
 $body = wp_remote_retrieve_body( $response );
 ```
-
-> JSON response example
 
 ```json
 {

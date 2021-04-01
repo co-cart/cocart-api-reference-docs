@@ -520,6 +520,8 @@ If you are getting a warning about cross origin headers then you may need to ena
 add_filter( 'cocart_disable_all_cors', function() { return false; });
 ```
 
+<div style="clear: both;"></div>
+
 ### Set Allow Origin Header ###
 
 <span class="new">New Filter since v2.5.1</span>
@@ -532,6 +534,8 @@ For added security when you go into production. Set **'Access-Control-Allow-Orig
 <?php
 add_filter( 'cocart_allow_origin', function() { return 'https://wp-demo.cocart.xyz'; });
 ```
+
+<div style="clear: both;"></div>
 
 ### Is REST API Request? ###
 
@@ -550,6 +554,8 @@ add_filter( 'cocart_is_rest_api_request', function() {
   return $is_rest_api_request;
 });
 ```
+
+<div style="clear: both;"></div>
 
 ## Misc ##
 
