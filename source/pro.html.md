@@ -30,7 +30,7 @@ includes:
   - cocart-v1/pro/removed-items
   - cocart-v1/pro/shipping-methods
   - cocart-v1/pro/totals
-  - woocommerce-extensions
+  - cocart-v1/woocommerce-extensions
   - wp-config.php
   - libraries
   - tools
