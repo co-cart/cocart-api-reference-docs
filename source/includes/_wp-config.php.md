@@ -15,7 +15,7 @@ Please make sure you are viewing the PHP language to copy any code snippet.
 
 To prevent any data loss when uninstalling CoCart from the backend and to ensure only the site owner can perform this action. You need to enable the ability to remove it.
 
-```php
+```php--contants
 <?php
 /**
  * Allows the full un-installation of CoCart.
@@ -29,7 +29,7 @@ If you are developing a headless store for a client and need to hide CoCart. Ena
 
 Enabling this hides CoCart completely from the backend including the admin menu, plugin row links, plugin notices, WooCommerce inbox notices and WooCommerce System Status information.
 
-```php
+```php--contants
 <?php
 /**
  * Hides CoCart from the WordPress dashboard.
@@ -45,7 +45,7 @@ define( 'COCART_WHITE_LABEL', true );
 
 In addition to white labelling, you can filter the parameter name `cocart-load-cart` `to what ever you like.
 
-```php
+```php--filter
 <?php
 /**
  * Change the parameter name for loading the cart via the web.

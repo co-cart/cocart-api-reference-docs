@@ -2,7 +2,14 @@
 
 Below is the changelog for "CoCart Lite" documentation that matches with the version of the plugin release.
 
-## Doc Version v2.9.3 - Plugin Version v2.9.1
+## Doc Version v2.9.4
+
+* Improved: Getting Started content.
+* Added: Node JS example for demo section.
+* Tweaked: Made sure action and filter examples for `wp-config.php` section are shown no matter the language selected.
+* Renamed: Hooks to Actions
+
+### Doc Version v2.9.3 - Plugin Version v2.9.1
 
 * Introduced `cocart_cookie_samesite` filter.
 * Updated: Introduction content.

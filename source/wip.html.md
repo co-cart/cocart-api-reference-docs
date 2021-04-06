@@ -39,8 +39,8 @@ includes:
   - cocart-v2/wip/web-load-cart-from-session
   - cocart-v2/wip/sessions
   - cocart-v2/wip/extending
+  - cocart-v2/wip/actions
   - cocart-v2/wip/filters
-  - cocart-v2/wip/hooks
   - cocart-v2/wip/woocommerce-extensions
   - libraries
   - tools

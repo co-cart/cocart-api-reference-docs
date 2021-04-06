@@ -38,8 +38,8 @@ includes:
   - cocart-v1/logout
   - cocart-v1/load-cart-from-session
   - cocart-v1/extending
-  - cocart-v1/filters
   - cocart-v1/hooks
+  - cocart-v1/filters
   - add-ons
   - cocart-pro
   - cocart-products
