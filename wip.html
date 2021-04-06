@@ -378,16 +378,16 @@
             <a href="#getting-started" class="toc-h1 toc-link" data-title="Getting Started">Getting Started</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#getting-started-install-and-activate" class="toc-h2 toc-link" data-title="Install and Activate">Install and Activate</a>
+                    <a href="#getting-started-setting-up-wordpress" class="toc-h2 toc-link" data-title="Setting up WordPress">Setting up WordPress</a>
                   </li>
                   <li>
-                    <a href="#getting-started-cocart-wordpress-plugin" class="toc-h2 toc-link" data-title="CoCart WordPress Plugin">CoCart WordPress Plugin</a>
+                    <a href="#getting-started-setting-up-woocommerce" class="toc-h2 toc-link" data-title="Setting up WooCommerce">Setting up WooCommerce</a>
                   </li>
                   <li>
-                    <a href="#getting-started-recommended-version" class="toc-h2 toc-link" data-title="Recommended Version">Recommended Version</a>
+                    <a href="#getting-started-setting-up-cocart" class="toc-h2 toc-link" data-title="Setting up CoCart">Setting up CoCart</a>
                   </li>
                   <li>
-                    <a href="#getting-started-github-download-clone-plugin" class="toc-h2 toc-link" data-title="GitHub - Download / Clone Plugin">GitHub - Download / Clone Plugin</a>
+                    <a href="#getting-started-recommended-plugins" class="toc-h2 toc-link" data-title="Recommended Plugins">Recommended Plugins</a>
                   </li>
               </ul>
           </li>
@@ -398,7 +398,7 @@
             <a href="#index" class="toc-h1 toc-link" data-title="Index">Index</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#index-github-download-clone-plugin-http-request" class="toc-h2 toc-link" data-title="HTTP request">HTTP request</a>
+                    <a href="#index-recommended-plugins-http-request" class="toc-h2 toc-link" data-title="HTTP request">HTTP request</a>
                   </li>
               </ul>
           </li>
@@ -606,6 +606,29 @@
               </ul>
           </li>
           <li>
+            <a href="#actions" class="toc-h1 toc-link" data-title="Actions">Actions</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#actions-extending-schema-get-cart" class="toc-h2 toc-link" data-title="Get Cart">Get Cart</a>
+                  </li>
+                  <li>
+                    <a href="#actions-extending-schema-clear-cart" class="toc-h2 toc-link" data-title="Clear Cart">Clear Cart</a>
+                  </li>
+                  <li>
+                    <a href="#actions-extending-schema-item-added" class="toc-h2 toc-link" data-title="Item Added">Item Added</a>
+                  </li>
+                  <li>
+                    <a href="#actions-extending-schema-item-removed" class="toc-h2 toc-link" data-title="Item Removed">Item Removed</a>
+                  </li>
+                  <li>
+                    <a href="#actions-extending-schema-item-restored" class="toc-h2 toc-link" data-title="Item Restored">Item Restored</a>
+                  </li>
+                  <li>
+                    <a href="#actions-extending-schema-item-quantity-changed" class="toc-h2 toc-link" data-title="Item Quantity Changed">Item Quantity Changed</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#filters" class="toc-h1 toc-link" data-title="Filters">Filters</a>
               <ul class="toc-list-h2">
                   <li>
@@ -622,29 +645,6 @@
                   </li>
                   <li>
                     <a href="#filters-misc" class="toc-h2 toc-link" data-title="Misc">Misc</a>
-                  </li>
-              </ul>
-          </li>
-          <li>
-            <a href="#hooks" class="toc-h1 toc-link" data-title="Hooks">Hooks</a>
-              <ul class="toc-list-h2">
-                  <li>
-                    <a href="#hooks-misc-get-cart" class="toc-h2 toc-link" data-title="Get Cart">Get Cart</a>
-                  </li>
-                  <li>
-                    <a href="#hooks-misc-clear-cart" class="toc-h2 toc-link" data-title="Clear Cart">Clear Cart</a>
-                  </li>
-                  <li>
-                    <a href="#hooks-misc-item-added" class="toc-h2 toc-link" data-title="Item Added">Item Added</a>
-                  </li>
-                  <li>
-                    <a href="#hooks-misc-item-removed" class="toc-h2 toc-link" data-title="Item Removed">Item Removed</a>
-                  </li>
-                  <li>
-                    <a href="#hooks-misc-item-restored" class="toc-h2 toc-link" data-title="Item Restored">Item Restored</a>
-                  </li>
-                  <li>
-                    <a href="#hooks-misc-item-quantity-changed" class="toc-h2 toc-link" data-title="Item Quantity Changed">Item Quantity Changed</a>
                   </li>
               </ul>
           </li>
@@ -864,25 +864,42 @@
 <p>Almost all endpoints accept optional parameters which can be passed as a HTTP query string parameter, e.g. <code>POST /cocart/v2/item?item_key=270edd69788dce200a3b395a6da6fdb7&amp;quantity=2</code>. All parameters are documented along each endpoint.</p>
 <h1 id='getting-started'>Getting Started</h1>
 <p><img src="images/github-633266a3.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v2/wip/_getting-started.md">Edit on GitHub</a></p>
-<h2 id='getting-started-install-and-activate'>Install and Activate</h2>
-<p>How to install and activate the CoCart plugin.</p>
 
-<aside class="notice">
-    <strong>New to WordPress?</strong><br/><br/>If you're new to WordPress development, I recommend getting started by downloading and using <a href="https://localwp.com/" target="_blank">Local</a>.
-</aside>
+<p>This section is intended to help you get started with WordPress, WooCommerce and CoCart.</p>
+<h2 id='getting-started-setting-up-wordpress'>Setting up WordPress</h2>
+<p>One of the first things you might want to do is to set up a WordPress site on your personal computer.</p>
 
-<p>List of server <a href="#introduction-requirements">requirements</a>.</p>
-<h3 id='getting-started-install-and-activate-automatic-installation'>Automatic installation</h3>
-<p>Automatic installation is the easiest option as WordPress handles the file transfers itself and you don’t need to leave your web browser. To do an automatic install of CoCart, log in to your WordPress dashboard, navigate to the Plugins menu and click <strong>Add New</strong>.</p>
+<p>I hands-down recommend using a tool called <a href="https://localwp.com/">LocalWP</a>. It’s a desktop application that allows you to create new WordPress sites on your computer with the click of a few buttons. It takes care of configuring PHP, MySQL and basic configuration of WordPress to connect to the database. It provides one-click support for enabling XDebug, allows access to your WordPress site using WP-CLI, and more. And, it’s free.</p>
+
+<p>There are some alternatives for quickly spinning up a local environment:</p>
+
+<ul>
+<li><a href="https://docs.lando.dev/config/wordpress.html">Lando</a></li>
+<li><a href="https://codex.wordpress.org/Installing_WordPress_Locally_on_Your_Mac_With_MAMP">MAMP</a></li>
+<li><a href="https://themeisle.com/blog/install-xampp-and-wordpress-locally/">XAMP</a></li>
+<li><a href="https://coolestguidesontheplanet.com/fastest-way-to-install-wordpress-on-osx-10-6/">Set it all up on your own</a></li>
+</ul>
+
+<p>When setting up your WordPress environment, please check that you have the server <a href="#introduction-requirements">requirements</a> for CoCart.</p>
+<h2 id='getting-started-setting-up-woocommerce'>Setting up WooCommerce</h2>
+<p>Once you have your WordPress environment setup. The next step is to install WooCommerce and setup your store. Add products, configure shipping, taxes payment gateway etc.</p>
+
+<p>A more detailed guide for setting up WooCommerce can be found at <a href="https://docs.woocommerce.com/documentation/plugins/woocommerce/getting-started/">WooCommerce.com documentation</a>.</p>
+<h3 id='getting-started-setting-up-woocommerce-automatic-installation'>Automatic installation</h3>
+<p>Automatic installation is the easiest option as WordPress handles the file transfers itself and you don’t need to leave your web browser. To do an automatic install of <strong>WooCommerce</strong>, log in to your WordPress dashboard, navigate to the Plugins menu and click <strong>Add New</strong>.</p>
+
+<p>In the search field type “WooCommerce” and click Search Plugins. Once you’ve found the plugin you can view details about it such as the point release, rating and description. Most importantly of course, you can install it by simply clicking “Install Now”.</p>
+<h2 id='getting-started-setting-up-cocart'>Setting up CoCart</h2>
+<p>Once you have your WooCommerce store setup. The next step is to install CoCart. Once installed you can the use the API.</p>
+<h3 id='getting-started-setting-up-cocart-automatic-installation'>Automatic installation</h3>
+<p>Automatic installation is the easiest option as WordPress handles the file transfers itself and you don’t need to leave your web browser. To do an automatic install of <strong>CoCart</strong>, log in to your WordPress dashboard, navigate to the Plugins menu and click <strong>Add New</strong>.</p>
 
 <p>In the search field type “CoCart” and click Search Plugins. Once you’ve found the plugin you can view details about it such as the point release, rating and description. Most importantly of course, you can install it by simply clicking “Install Now”.</p>
-<h2 id='getting-started-cocart-wordpress-plugin'>CoCart WordPress Plugin</h2>
-<p>CoCart is a free, open-source WordPress plugin that provides a REST API for WooCommerce to access the front-end features of your store.</p>
-<h2 id='getting-started-recommended-version'>Recommended Version</h2>
+<h3 id='getting-started-setting-up-cocart-recommended-version'>Recommended Version</h3>
 <p>For the most stable and performance experience, it’s recommended that you use the most recent version of the plugin. You can get the <a href="https://wordpress.org/plugins/cart-rest-api-for-woocommerce/">latest releases here</a>.</p>
 
 <p>Of course, as new features are in development, feel free to check out the latest develop branch or check out any <a href="https://github.com/co-cart/co-cart/releases">other release</a>.</p>
-<h2 id='getting-started-github-download-clone-plugin'>GitHub - Download / Clone Plugin</h2>
+<h3 id='getting-started-setting-up-cocart-github-download-clone-plugin'>GitHub - Download / Clone Plugin</h3>
 <p>CoCart is available on GitHub: <a href="https://github.com/co-cart/co-cart">https://github.com/co-cart/co-cart</a></p>
 
 <p>You can <a href="https://github.com/co-cart/co-cart/releases/latest">download the latest release</a> or clone the plugin from GitHub.</p>
@@ -892,6 +909,13 @@
 <aside class="notice">
     <strong>Install Directory</strong><br/><br/>To minimize risk of unintended behaviour, it’s best for your plugin directory to be "cart-rest-api-for-woocommerce" and not something else, like "cart-rest-api-for-woocommerce-master" or "cart-rest-api-for-woocommerce-develop".
 </aside>
+<h2 id='getting-started-recommended-plugins'>Recommended Plugins</h2>
+<p>This section will list recommended plugins that will help with your development in creating a headless store.</p>
+
+<ul>
+<li><a href="https://wordpress.org/plugins/rest-api-toolbox/">REST API Toolbox</a></li>
+<li><a href="https://wordpress.org/plugins/wp-rest-api-v2-menus/">WP-REST-API V2 Menus</a></li>
+</ul>
 <h1 id='error-responses'>Error Responses</h1>
 <p><img src="images/github-633266a3.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v2/wip/_errors.md">Edit on GitHub</a></p>
 
@@ -1068,7 +1092,7 @@
 <aside class="notice">
     Some endpoints are only available in CoCart Pro or via add-on.
 </aside>
-<h3 id='index-github-download-clone-plugin-http-request'>HTTP request</h3>
+<h3 id='index-recommended-plugins-http-request'>HTTP request</h3>
 <div class="api-endpoint">
     <div class="endpoint-data">
         <i class="label label-get">GET</i>
@@ -3806,6 +3830,112 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <p>Details coming soon.</p>
 
 <div style="clear: both;"></div>
+<h1 id='actions'>Actions</h1>
+<p><img src="images/github-633266a3.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v2/wip/_actions.md">Edit on GitHub</a></p>
+
+<p>The cart API has a number of action hooks that you can use to extend the API to your needs.</p>
+
+<p>See the <a href="https://github.com/co-cart/co-cart-tweaks">tweaks plugin for examples</a>.</p>
+<h3 id='actions-extending-schema-get-cart'>Get Cart</h3>
+<p>Perhaps you need to apply something to the whole of the cart before it returns or send a notification. The choice is yours.</p>
+
+<p>Use hook name: <code>cocart_get_cart</code></p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>$cart_contents</code></td>
+<td>array</td>
+<td>An array of items added to the cart.</td>
+</tr>
+</tbody></table>
+<h3 id='actions-extending-schema-clear-cart'>Clear Cart</h3>
+<p>Could be used to send a registered customer an email once they have emptied their cart. 😢</p>
+
+<p>Use hook name: <code>cocart_cart_cleared</code></p>
+<h3 id='actions-extending-schema-item-added'>Item Added</h3>
+<p>You can do something once an item has been added to the cart.</p>
+
+<p>Use hook name: <code>cocart_item_added_to_cart</code></p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>$item_key</code></td>
+<td>string</td>
+<td>The cart item key of the product in the cart.</td>
+</tr>
+<tr>
+<td><code>$item_added</code></td>
+<td>array</td>
+<td>The details of the added item.</td>
+</tr>
+</tbody></table>
+<h3 id='actions-extending-schema-item-removed'>Item Removed</h3>
+<p>Use hook name: <code>cocart_item_removed</code></p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>$current_data</code></td>
+<td>array</td>
+<td>The details of the item removed.</td>
+</tr>
+</tbody></table>
+<h3 id='actions-extending-schema-item-restored'>Item Restored</h3>
+<p>Use hook name: <code>cocart_item_restored</code></p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>$current_data</code></td>
+<td>array</td>
+<td>The details of the item restored.</td>
+</tr>
+</tbody></table>
+<h3 id='actions-extending-schema-item-quantity-changed'>Item Quantity Changed</h3>
+<p>Should you need to change some other detail for the updated item.</p>
+
+<p>Use hook name: <code>cocart_item_quantity_changed</code></p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>$cart_item_key</code></td>
+<td>string</td>
+<td>The cart item key of the product in the cart.</td>
+</tr>
+<tr>
+<td><code>$new_data</code></td>
+<td>array</td>
+<td>The details of the item updated.</td>
+</tr>
+</tbody></table>
 <h1 id='filters'>Filters</h1>
 <p><img src="images/github-633266a3.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v2/_filters.md">Edit on GitHub</a></p>
 
@@ -4409,113 +4539,7 @@ You must have <strong>WP_DEBUG</strong> enabled in your <i>wp-config.php</i> fil
 <p>Overrides the determined user ID when authenticating. <strong>NOTE</strong> This will only be active if not already authenticated.</p>
 <div class="highlight"><pre class="highlight php tab-php--filter"><code><span class="cp">&lt;?php</span>
 <span class="nf">add_filter</span><span class="p">(</span> <span class="s1">'cocart_authenticate'</span><span class="p">,</span> <span class="k">function</span><span class="p">(){});</span>
-</code></pre></div><h1 id='hooks'>Hooks</h1>
-<p><img src="images/github-633266a3.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v2/wip/_hooks.md">Edit on GitHub</a></p>
-
-<p>The cart API has a number of action hooks that you can use to extend the API to your needs.</p>
-
-<p>See the <a href="https://github.com/co-cart/co-cart-tweaks">tweaks plugin for examples</a>.</p>
-<h3 id='hooks-misc-get-cart'>Get Cart</h3>
-<p>Perhaps you need to apply something to the whole of the cart before it returns or send a notification. The choice is yours.</p>
-
-<p>Use hook name: <code>cocart_get_cart</code></p>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code>$cart_contents</code></td>
-<td>array</td>
-<td>An array of items added to the cart.</td>
-</tr>
-</tbody></table>
-<h3 id='hooks-misc-clear-cart'>Clear Cart</h3>
-<p>Could be used to send a registered customer an email once they have emptied their cart. 😢</p>
-
-<p>Use hook name: <code>cocart_cart_cleared</code></p>
-<h3 id='hooks-misc-item-added'>Item Added</h3>
-<p>You can do something once an item has been added to the cart.</p>
-
-<p>Use hook name: <code>cocart_item_added_to_cart</code></p>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code>$item_key</code></td>
-<td>string</td>
-<td>The cart item key of the product in the cart.</td>
-</tr>
-<tr>
-<td><code>$item_added</code></td>
-<td>array</td>
-<td>The details of the added item.</td>
-</tr>
-</tbody></table>
-<h3 id='hooks-misc-item-removed'>Item Removed</h3>
-<p>Use hook name: <code>cocart_item_removed</code></p>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code>$current_data</code></td>
-<td>array</td>
-<td>The details of the item removed.</td>
-</tr>
-</tbody></table>
-<h3 id='hooks-misc-item-restored'>Item Restored</h3>
-<p>Use hook name: <code>cocart_item_restored</code></p>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code>$current_data</code></td>
-<td>array</td>
-<td>The details of the item restored.</td>
-</tr>
-</tbody></table>
-<h3 id='hooks-misc-item-quantity-changed'>Item Quantity Changed</h3>
-<p>Should you need to change some other detail for the updated item.</p>
-
-<p>Use hook name: <code>cocart_item_quantity_changed</code></p>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code>$cart_item_key</code></td>
-<td>string</td>
-<td>The cart item key of the product in the cart.</td>
-</tr>
-<tr>
-<td><code>$new_data</code></td>
-<td>array</td>
-<td>The details of the item updated.</td>
-</tr>
-</tbody></table>
-<h1 id='woocommerce-extensions'>WooCommerce Extensions</h1>
+</code></pre></div><h1 id='woocommerce-extensions'>WooCommerce Extensions</h1>
 <p><img src="images/github-633266a3.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v2/wip/_woocommerce-extensions.md">Edit on GitHub</a></p>
 
 <p><a href="https://cocart.xyz/woocommerce-extensions/">These extensions</a> either support CoCart or is supported in <a href="#cocart-add-ons-cocart-pro">CoCart Pro</a>.</p>

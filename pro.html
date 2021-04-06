@@ -4002,7 +4002,7 @@ Please make sure you are viewing the PHP language to copy any code snippet.
 </aside>
 <h2 id='wp-config-php-uninstall'>Uninstall</h2>
 <p>To prevent any data loss when uninstalling CoCart from the backend and to ensure only the site owner can perform this action. You need to enable the ability to remove it.</p>
-<div class="highlight"><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+<div class="highlight"><pre class="highlight php tab-php--contants"><code><span class="cp">&lt;?php</span>
 <span class="cd">/**
  * Allows the full un-installation of CoCart.
  */</span>
@@ -4011,7 +4011,7 @@ Please make sure you are viewing the PHP language to copy any code snippet.
 <p>If you are developing a headless store for a client and need to hide CoCart. Enabling white label mode comes in handy if that is something your would want.</p>
 
 <p>Enabling this hides CoCart completely from the backend including the admin menu, plugin row links, plugin notices, WooCommerce inbox notices and WooCommerce System Status information.</p>
-<div class="highlight"><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+<div class="highlight"><pre class="highlight php tab-php--contants"><code><span class="cp">&lt;?php</span>
 <span class="cd">/**
  * Hides CoCart from the WordPress dashboard.
  */</span>
@@ -4022,7 +4022,7 @@ Please make sure you are viewing the PHP language to copy any code snippet.
 <p><span class="new">New Filter since v2.8.2</span></p>
 
 <p>In addition to white labelling, you can filter the parameter name <code>cocart-load-cart</code> `to what ever you like.</p>
-<div class="highlight"><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+<div class="highlight"><pre class="highlight php tab-php--filter"><code><span class="cp">&lt;?php</span>
 <span class="cd">/**
  * Change the parameter name for loading the cart via the web.
  */</span>
