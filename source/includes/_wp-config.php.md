@@ -7,10 +7,6 @@ For more handling over CoCart for your store or a client, you will find that usi
 * [Uninstall](#wp-config-php-uninstall)
 * [White Labelling](#wp-config-php-white-labelling)
 
-<aside class="notice">
-Please make sure you are viewing the PHP language to copy any code snippet.
-</aside>
-
 ## Uninstall ##
 
 To prevent any data loss when uninstalling CoCart from the backend and to ensure only the site owner can perform this action. You need to enable the ability to remove it.
