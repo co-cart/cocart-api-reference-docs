@@ -119,13 +119,14 @@ CoCart.get("products/162/variations/176")
 ```
 
 ```javascript--jquery
-var settings = {
-  "url": "https://example.com/wp-json/cocart/v1/products/162/variations/176",
-  "method": "GET"
-};
-
-$.ajax(settings).done(function (response) {
-  console.log(response);
+$.ajax({
+  url: "https://example.com/wp-json/cocart/v1/products/162/variations/176",
+  method: "GET",
+  dataType: "json",
+  contentType: "application/json; charset=utf-8",
+  complete: function (response) {
+    console.log(response);
+  }
 });
 ```
 
@@ -283,13 +284,14 @@ CoCart.get("products/22/variations")
 ```
 
 ```javascript--jquery
-var settings = {
-  "url": "https://example.com/wp-json/cocart/v1/products/22/variations",
-  "method": "GET"
-};
-
-$.ajax(settings).done(function (response) {
-  console.log(response);
+$.ajax({
+  url: "https://example.com/wp-json/cocart/v1/products/22/variations",
+  method: "GET",
+  dataType: "json",
+  contentType: "application/json; charset=utf-8",
+  complete: function (response) {
+    console.log(response);
+  }
 });
 ```
 

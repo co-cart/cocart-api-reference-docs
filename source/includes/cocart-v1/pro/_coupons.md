@@ -49,13 +49,14 @@ CoCart.get("coupon")
 ```
 
 ```javascript--jquery
-var settings = {
-  "url": "https://example.com/wp-json/cocart/v1/coupon",
-  "method": "GET"
-};
-
-$.ajax(settings).done(function (response) {
-  console.log(response);
+$.ajax({
+  url: "https://example.com/wp-json/cocart/v1/coupon",
+  method: "GET",
+  dataType: "json",
+  contentType: "application/json; charset=utf-8",
+  complete: function (response) {
+    console.log(response);
+  }
 });
 ```
 
@@ -138,16 +139,17 @@ CoCart.post("coupon", data)
 ```
 
 ```javascript--jquery
-var settings = {
-  "url": "https://example.com/wp-json/cocart/v1/coupon",
-  "method": "POST",
-  "data": {
+$.ajax({
+  url: "https://example.com/wp-json/cocart/v1/coupon",
+  method: "POST",
+  data: {
     "coupon": "summer20"
+  }),
+  dataType: "json",
+  contentType: "application/json; charset=utf-8",
+  complete: function (response) {
+    console.log(response);
   }
-};
-
-$.ajax(settings).done(function (response) {
-  console.log(response);
 });
 ```
 
@@ -247,16 +249,17 @@ CoCart.delete("coupon", data)
 ```
 
 ```javascript--jquery
-var settings = {
-  "url": "https://example.com/wp-json/cocart/v1/coupon",
-  "method": "DELETE",
-  "data": {
+$.ajax({
+  url: "https://example.com/wp-json/cocart/v1/coupon",
+  method: "DELETE",
+  data: JSON.stringify({
     "coupon": "summer20"
+  }),
+  dataType: "json",
+  contentType: "application/json; charset=utf-8",
+  complete: function (response) {
+    console.log(response);
   }
-};
-
-$.ajax(settings).done(function (response) {
-  console.log(response);
 });
 ```
 
@@ -350,13 +353,14 @@ CoCart.get("check-coupons")
 ```
 
 ```javascript--jquery
-var settings = {
-  "url": "https://example.com/wp-json/cocart/v1/check-coupons",
-  "method": "GET"
-};
-
-$.ajax(settings).done(function (response) {
-  console.log(response);
+$.ajax({
+  url: "https://example.com/wp-json/cocart/v1/check-coupons",
+  method: "GET",
+  dataType: "json",
+  contentType: "application/json; charset=utf-8",
+  complete: function (response) {
+    console.log(response);
+  }
 });
 ```
 

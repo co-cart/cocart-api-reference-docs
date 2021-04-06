@@ -65,13 +65,14 @@ CoCart.get("count-items", data)
 ```
 
 ```javascript--jquery
-var settings = {
-  "url": "https://example.com/wp-json/cocart/v2/cart/items/count",
-  "method": "GET"
-};
-
-$.ajax(settings).done(function (response) {
-  console.log(response);
+$.ajax({
+  url: "https://example.com/wp-json/cocart/v2/cart/items/count",
+  method: "GET",
+  dataType: "json",
+  contentType: "application/json; charset=utf-8",
+  complete: function (response) {
+    console.log(response);
+  }
 });
 ```
 

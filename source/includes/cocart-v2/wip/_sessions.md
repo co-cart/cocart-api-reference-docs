@@ -58,16 +58,17 @@ CoCart.get("sessions")
 ```
 
 ```javascript--jquery
-var settings = {
-  "url": "https://example.com/wp-json/cocart/v2/sessions",
-  "headers": {
+$.ajax({
+  url: "https://example.com/wp-json/cocart/v2/sessions",
+  headers: {
       "Authorization": "Basic " + btoa('username:password'),
   },
-  "method": "GET"
-};
-
-$.ajax(settings).done(function (response) {
-  console.log(response);
+  method: "GET",
+  dataType: "json",
+  contentType: "application/json; charset=utf-8",
+  complete: function (response) {
+    console.log(response);
+  }
 });
 ```
 
@@ -151,16 +152,17 @@ CoCart.get("session/ec2b1f30a304ed513d2975b7b9f222f6")
 ```
 
 ```javascript--jquery
-var settings = {
-  "url": "https://example.com/wp-json/cocart/v2/session/ec2b1f30a304ed513d2975b7b9f222f6",
-  "headers": {
+$.ajax({
+  url: "https://example.com/wp-json/cocart/v2/session/ec2b1f30a304ed513d2975b7b9f222f6",
+  headers: {
       "Authorization": "Basic " + btoa('username:password'),
   },
-  "method": "GET"
-};
-
-$.ajax(settings).done(function (response) {
-  console.log(response);
+  method: "GET",
+  dataType: "json",
+  contentType: "application/json; charset=utf-8",
+  complete: function (response) {
+    console.log(response);
+  }
 });
 ```
 
@@ -244,16 +246,17 @@ CoCart.get("session/ec2b1f30a304ed513d2975b7b9f222f6/items")
 ```
 
 ```javascript--jquery
-var settings = {
-  "url": "https://example.com/wp-json/cocart/v2/session/ec2b1f30a304ed513d2975b7b9f222f6/items",
-  "headers": {
+$.ajax({
+  url: "https://example.com/wp-json/cocart/v2/session/ec2b1f30a304ed513d2975b7b9f222f6/items",
+  headers: {
       "Authorization": "Basic " + btoa('username:password'),
   },
-  "method": "GET"
-};
-
-$.ajax(settings).done(function (response) {
-  console.log(response);
+  method: "GET",
+  dataType: "json",
+  contentType: "application/json; charset=utf-8",
+  complete: function (response) {
+    console.log(response);
+  }
 });
 ```
 

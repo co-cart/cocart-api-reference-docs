@@ -50,13 +50,14 @@ CoCart.get("totals")
 ```
 
 ```javascript--jquery
-var settings = {
-  "url": "https://example.com/wp-json/cocart/v2/cart/totals",
-  "method": "GET"
-};
-
-$.ajax(settings).done(function (response) {
-  console.log(response);
+$.ajax({
+  url: "https://example.com/wp-json/cocart/v2/cart/totals",
+  method: "GET",
+  dataType: "json",
+  contentType: "application/json; charset=utf-8",
+  complete: function (response) {
+    console.log(response);
+  }
 });
 ```
 
@@ -123,16 +124,17 @@ curl -X GET https://example.com/wp-json/cocart/v2/cart/totals \
 ```
 
 ```javascript--jquery
-var settings = {
-  "url": "https://example.com/wp-json/cocart/v2/cart/totals",
-  "method": "GET",
-  "data": {
+$.ajax({
+  url: "https://example.com/wp-json/cocart/v2/cart/totals",
+  method: "GET",
+  data: JSON.stringify({
     "html" : true
+  }),
+  dataType: "json",
+  contentType: "application/json; charset=utf-8",
+  complete: function (response) {
+    console.log(response);
   }
-};
-
-$.ajax(settings).done(function (response) {
-  console.log(response);
 });
 ```
 

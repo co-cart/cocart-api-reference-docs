@@ -53,16 +53,17 @@ CoCart.get("item", data)
 ```
 
 ```javascript--jquery
-var settings = {
-  "url": "https://example.com/wp-json/cocart/v2/cart/item",
-  "method": "GET",
-  "data": {
+$.ajax({
+  url: "https://example.com/wp-json/cocart/v2/cart/item",
+  method: "GET",
+  data: JSON.stringify({
     "item_key" : "404dcc91b2aeaa7caa47487d1483e48a"
+  }),
+  dataType: "json",
+  contentType: "application/json; charset=utf-8",
+  complete: function (response) {
+    console.log(response);
   }
-};
-
-$.ajax(settings).done(function (response) {
-  console.log(response);
 });
 ```
 

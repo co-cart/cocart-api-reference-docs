@@ -2,7 +2,11 @@
 
 The Documentation is updated only when needed. Below is the changelog for "CoCart Products" documentation that matches with the version of the plugin release.
 
-## Doc Version 0.3
+## Doc Version 0.4
+
+* Updated: jQuery request examples.
+
+### Doc Version 0.3
 
 * **NEW**: Added other language examples.
 * **NEW**: Added Getting Started section.

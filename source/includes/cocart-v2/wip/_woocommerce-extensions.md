@@ -48,10 +48,10 @@ curl -X POST https://example.com/wp-json/cocart/v2/add-item \
 ```
 
 ```javascript--jquery
-var settings = {
-  "url": "https://example.com/wp-json/cocart/v2/add-item",
-  "method": "POST",
-  "data": {
+$.ajax({
+  url: "https://example.com/wp-json/cocart/v2/add-item",
+  method: "POST",
+  data: JSON.stringify({
     "product_id": "1102",
     "quantity": 5,
     "cart_item_data": {
@@ -69,11 +69,13 @@ var settings = {
                 "quantity": 3
             }
         ]
-    }
-};
-
-$.ajax(settings).done(function (response) {
-  console.log(response);
+    },
+  }),
+  dataType: "json",
+  contentType: "application/json; charset=utf-8",
+  complete: function (response) {
+    console.log(response);
+  }
 });
 ```
 
@@ -292,20 +294,21 @@ curl -X POST https://example.com/wp-json/cocart/v2/add-item \
 ```
 
 ```javascript--jquery
-var settings = {
-  "url": "https://example.com/wp-json/cocart/v2/add-item",
-  "method": "POST",
-  "data": {
+$.ajax({
+  url: "https://example.com/wp-json/cocart/v2/add-item",
+  method: "POST",
+  data: JSON.stringify({
     "product_id": "129",
     "quantity": 1,
     "cart_item_data": {
       "nyp": 24
     }
+  }),
+  dataType: "json",
+  contentType: "application/json; charset=utf-8",
+  complete: function (response) {
+    console.log(response);
   }
-};
-
-$.ajax(settings).done(function (response) {
-  console.log(response);
 });
 ```
 

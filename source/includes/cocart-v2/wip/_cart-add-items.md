@@ -67,17 +67,18 @@ CoCart.post("add-item", {
 ```
 
 ```javascript--jquery
-var settings = {
-  "url": "https://example.com/wp-json/cocart/v2/cart/add-item",
-  "method": "POST",
-  "data": {
+$.ajax({
+  url: "https://example.com/wp-json/cocart/v2/cart/add-item",
+  method: "POST",
+  data: JSON.stringify({
     "id" : "32",
     "quantity" : 1
+  }),
+  dataType: "json",
+  contentType: "application/json; charset=utf-8",
+  complete: function (response) {
+    console.log(response);
   }
-};
-
-$.ajax(settings).done(function (response) {
-  console.log(response);
 });
 ```
 
@@ -160,17 +161,18 @@ CoCart.post("add-item", {
 ```
 
 ```javascript--jquery
-var settings = {
-  "url": "https://example.com/wp-json/cocart/v2/cart/add-item",
-  "method": "POST",
-  "data": {
+$.ajax({
+  url: "https://example.com/wp-json/cocart/v2/cart/add-item",
+  method: "POST",
+  data: JSON.stringify({
     "id" : "Red Hoodie",
     "quantity" : 1
+  }),
+  dataType: "json",
+  contentType: "application/json; charset=utf-8",
+  complete: function (response) {
+    console.log(response);
   }
-};
-
-$.ajax(settings).done(function (response) {
-  console.log(response);
 });
 ```
 
@@ -283,21 +285,22 @@ CoCart.post("add-item", data)
 ```
 
 ```javascript--jquery
-var settings = {
-  "url": "https://example.com/wp-json/cocart/v2/cart/add-item",
-  "method": "POST",
-  "data": {
+$.ajax({
+  url: "https://example.com/wp-json/cocart/v2/cart/add-item",
+  method: "POST",
+  data: JSON.stringify({
     "id": "1820",
     "quantity": 1,
     "variation": {
       "attribute_colours": "Red",
       "attribute_pa_size": "2x-large"
     }
+  }),
+  dataType: "json",
+  contentType: "application/json; charset=utf-8",
+  complete: function (response) {
+    console.log(response);
   }
-};
-
-$.ajax(settings).done(function (response) {
-  console.log(response);
 });
 ```
 
@@ -402,20 +405,21 @@ CoCart.post("add-item", data)
 ```
 
 ```javascript--jquery
-var settings = {
-  "url": "https://example.com/wp-json/cocart/v2/cart/add-items",
-  "method": "POST",
-  "data": {
+$.ajax({
+  url: "https://example.com/wp-json/cocart/v2/cart/add-items",
+  method: "POST",
+  data: JSON.stringify({
     "id" : "91",
     "quantity": {
       "71": 2,
       "72": 1
     }
+  }),
+  dataType: "json",
+  contentType: "application/json; charset=utf-8",
+  complete: function (response) {
+    console.log(response);
   }
-};
-
-$.ajax(settings).done(function (response) {
-  console.log(response);
 });
 ```
 
@@ -517,21 +521,22 @@ CoCart.post("add-item", data)
 ```
 
 ```javascript--jquery
-var settings = {
-  "url": "https://example.com/wp-json/cocart/v2/cart/add-item",
-  "method": "POST",
-  "data": {
+$.ajax({
+  url: "https://example.com/wp-json/cocart/v2/cart/add-item",
+  method: "POST",
+  data: JSON.stringify({
     "id" : "3008",
     "quantity" : 1,
     "item_data" : {
       "engraved_name" : "Sébastien Dumont",
       "engraved_size" : "Medium"
     }
+  }),
+  dataType: "json",
+  contentType: "application/json; charset=utf-8",
+  complete: function (response) {
+    console.log(response);
   }
-};
-
-$.ajax(settings).done(function (response) {
-  console.log(response);
 });
 ```
 

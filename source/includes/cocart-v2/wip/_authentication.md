@@ -80,20 +80,21 @@ CoCart.post("add-item", data)
 ```
 
 ```javascript--jquery
-var settings = {
-  "url": "https://example.com/wp-json/cocart/v2/cart/add-item",
-  "headers": {
+$.ajax({
+  url: "https://example.com/wp-json/cocart/v2/cart/add-item",
+  headers: {
       "Authorization": "Basic " + btoa('username:password'),
   },
-  "method": "POST",
-  "data": {
+  method: "POST",
+  data: JSON.stringify({
     "id" : "32",
     "quantity" : 1
-  },
-};
-
-$.ajax(settings).done(function (response) {
-  console.log(response);
+  }),
+  dataType: "json",
+  contentType: "application/json; charset=utf-8",
+  complete: function (response) {
+    console.log(response);
+  }
 });
 ```
 
@@ -198,20 +199,21 @@ It's important that you follow the installation and configurations exactly for t
 </aside>
 
 ```javascript--jquery
-var settings = {
-  "url": "https://example.com/wp-json/cocart/v2/cart/add-item",
-  "headers": {
+$.ajax({
+  url: "https://example.com/wp-json/cocart/v2/cart/add-item",
+  headers: {
       "Authorization": "Bearer " + token,
   },
-  "method": "POST",
-  "data": {
+  method: "POST",
+  data: JSON.stringify({
     "id" : 32,
     "quantity" : 1
-  },
-};
-
-$.ajax(settings).done(function (response) {
-  console.log(response);
+  }),
+  dataType: "json",
+  contentType: "application/json; charset=utf-8",
+  complete: function (response) {
+    console.log(response);
+  }
 });
 ```
 

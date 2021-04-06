@@ -48,13 +48,14 @@ CoCart.get("payment-methods")
 ```
 
 ```javascript--jquery
-var settings = {
-  "url": "https://example.com/wp-json/cocart/v1/payment-methods",
-  "method": "GET"
-};
-
-$.ajax(settings).done(function (response) {
-  console.log(response);
+$.ajax({
+  url: "https://example.com/wp-json/cocart/v1/payment-methods",
+  method: "GET",
+  dataType: "json",
+  contentType: "application/json; charset=utf-8",
+  complete: function (response) {
+    console.log(response);
+  }
 });
 ```
 
@@ -225,16 +226,17 @@ CoCart.post("payment-methods", data)
 ```
 
 ```javascript--jquery
-var settings = {
-  "url": "https://example.com/wp-json/cocart/v1/payment-methods",
-  "method": "POST",
-  "data": {
+$.ajax({
+  url: "https://example.com/wp-json/cocart/v1/payment-methods",
+  method: "POST",
+  data: JSON.stringify({
     "gateway_id": "stripe"
+  }),
+  dataType: "json",
+  contentType: "application/json; charset=utf-8",
+  complete: function (response) {
+    console.log(response);
   }
-};
-
-$.ajax(settings).done(function (response) {
-  console.log(response);
 });
 ```
 

@@ -68,16 +68,17 @@ CoCart.post("calculate/shipping", data)
 ```
 
 ```javascript--jquery
-var settings = {
-  "url": "https://example.com/wp-json/cocart/v1/calculate/shipping",
-  "method": "POST",
-  "data": {
+$.ajax({
+  url: "https://example.com/wp-json/cocart/v1/calculate/shipping",
+  method: "POST",
+  data: JSON.stringify({
     "country" : "GB",
+  }),
+  dataType: "json",
+  contentType: "application/json; charset=utf-8",
+  complete: function (response) {
+    console.log(response);
   }
-};
-
-$.ajax(settings).done(function (response) {
-  console.log(response);
 });
 ```
 
@@ -175,13 +176,14 @@ CoCart.get("shipping-methods")
 ```
 
 ```javascript--jquery
-var settings = {
-  "url": "https://example.com/wp-json/cocart/v1/shipping-methods",
-  "method": "GET"
-};
-
-$.ajax(settings).done(function (response) {
-  console.log(response);
+$.ajax({
+  url: "https://example.com/wp-json/cocart/v1/shipping-methods",
+  method: "GET",
+  dataType: "json",
+  contentType: "application/json; charset=utf-8",
+  complete: function (response) {
+    console.log(response);
+  }
 });
 ```
 
@@ -296,16 +298,17 @@ CoCart.post("shipping-methods", data)
 ```
 
 ```javascript--jquery
-var settings = {
-  "url": "https://example.com/wp-json/cocart/v1/shipping-methods",
-  "method": "POST",
-  "data": {
+$.ajax({
+  url: "https://example.com/wp-json/cocart/v1/shipping-methods",
+  method: "POST",
+  data: JSON.stringify({
     "key": "free_shipping:3"
+  }),
+  dataType: "json",
+  contentType: "application/json; charset=utf-8",
+  complete: function (response) {
+    console.log(response);
   }
-};
-
-$.ajax(settings).done(function (response) {
-  console.log(response);
 });
 ```
 

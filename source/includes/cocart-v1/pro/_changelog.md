@@ -2,7 +2,11 @@
 
 The Documentation is updated only when needed. Below is the changelog for "CoCart Pro" documentation that matches with the version of the plugin release.
 
-## Doc Version 0.8
+## Doc Version 0.9
+
+* Updated: jQuery request examples.
+
+### Doc Version 0.8
 
 * NEW: Added the following sections: **Authentication**, **Cart Key** and **Libraries**.
 * NEW: Node.js examples added for our official library.

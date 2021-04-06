@@ -55,17 +55,18 @@ CoCart.post("add-item", {
 ```
 
 ```javascript--jquery
-var settings = {
-  "url": "https://wp-demo.cocart.xyz/wp-json/cocart/v1/add-item",
-  "method": "POST",
-  "data": {
+$.ajax({
+  url: "https://wp-demo.cocart.xyz/wp-json/cocart/v1/add-item",
+  method: "POST",
+  data: JSON.stringify({
     "product_id" : "183",
     "quantity" : 1
+  }),
+  dataType: "json",
+  contentType: "application/json; charset=utf-8",
+  complete: function (response) {
+    console.log(response);
   }
-};
-
-$.ajax(settings).done(function (response) {
-  console.log(response);
 });
 ```
 

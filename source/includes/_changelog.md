@@ -2,7 +2,11 @@
 
 Below is the changelog for "CoCart Lite" documentation that matches with the version of the plugin release.
 
-## Doc Version v2.9.4
+## Doc Version v2.9.5
+
+* Updated: jQuery request examples.
+
+### Doc Version v2.9.4
 
 * Improved: Getting Started content.
 * Added: Node JS example for demo section.

@@ -65,17 +65,18 @@ CoCart.post("add-item", {
 ```
 
 ```javascript--jquery
-var settings = {
-  "url": "https://example.com/wp-json/cocart/v1/add-item",
-  "method": "POST",
-  "data": {
+$.ajax({
+  url: "https://example.com/wp-json/cocart/v1/add-item",
+  method: "POST",
+  data: JSON.stringify({
     "product_id" : "32",
     "quantity" : 1
+  }),
+  dataType: "json",
+  contentType: "application/json; charset=utf-8",
+  complete: function (response) {
+    console.log(response);
   }
-};
-
-$.ajax(settings).done(function (response) {
-  console.log(response);
 });
 ```
 
@@ -158,17 +159,18 @@ CoCart.post("add-item", {
 ```
 
 ```javascript--jquery
-var settings = {
-  "url": "https://example.com/wp-json/cocart/v1/add-item",
-  "method": "POST",
-  "data": {
+$.ajax({
+  url: "https://example.com/wp-json/cocart/v1/add-item",
+  method: "POST",
+  data: JSON.stringify({
     "product_id" : "Red Hoodie",
     "quantity" : 1
+  }),
+  dataType: "json",
+  contentType: "application/json; charset=utf-8",
+  complete: function (response) {
+    console.log(response);
   }
-};
-
-$.ajax(settings).done(function (response) {
-  console.log(response);
 });
 ```
 
@@ -306,10 +308,10 @@ CoCart.post("add-item", data)
 ```
 
 ```javascript--jquery
-var settings = {
-  "url": "https://example.com/wp-json/cocart/v1/add-item",
-  "method": "POST",
-  "data": {
+$.ajax({
+  url: "https://example.com/wp-json/cocart/v1/add-item",
+  method: "POST",
+  data: JSON.stringify({
     "product_id": "1722",
     "quantity": 1,
     "variation_id": 1820,
@@ -317,11 +319,12 @@ var settings = {
       "attribute_colours": "Red",
       "attribute_pa_size": "2x-large"
     }
+  }),
+  dataType: "json",
+  contentType: "application/json; charset=utf-8",
+  complete: function (response) {
+    console.log(response);
   }
-};
-
-$.ajax(settings).done(function (response) {
-  console.log(response);
 });
 ```
 
@@ -454,21 +457,22 @@ CoCart.post("add-item", data)
 ```
 
 ```javascript--jquery
-var settings = {
-  "url": "https://example.com/wp-json/cocart/v1/add-item",
-  "method": "POST",
-  "data": {
+$.ajax({
+  url: "https://example.com/wp-json/cocart/v1/add-item",
+  method: "POST",
+  data: JSON.stringify({
     "product_id" : "3008",
     "quantity" : 1,
     "cart_item_data" : {
       "engraved_name" : "Sébastien Dumont",
       "engraved_size" : "Medium"
     }
+  }),
+  dataType: "json",
+  contentType: "application/json; charset=utf-8",
+  complete: function (response) {
+    console.log(response);
   }
-};
-
-$.ajax(settings).done(function (response) {
-  console.log(response);
 });
 ```
 

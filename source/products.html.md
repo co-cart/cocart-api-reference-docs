@@ -1,5 +1,5 @@
 ---
-title: CoCart Products Documentation v0.3
+title: CoCart Products Documentation v0.4
 
 language_tabs:
  - shell: cURL
