@@ -27,12 +27,8 @@ REST API authentication methods:
 If you use the Basic Authentication method (which you may find the easiest to use for your customers to login with), please make sure that you have SSL enabled when making requests with any of the CoCart API routes. Check out the example adding an item to the cart as a registered customer.
 
 <aside class="notice">
-  Replace the username and password with the customers login details.
+  Replace the username and password with the customers login details. The username can also be the users email address.
 </aside>
-
-### Steps to follow ###
-
-1. [Download and Install Basic Auth plugin](https://github.com/WP-API/Basic-Auth)
 
 > Adding an item to the cart as a customer.
 
@@ -193,6 +189,8 @@ It's important that you follow the installation and configurations exactly for t
 1. [Download and Install JWT Authentication plugin](https://wordpress.org/plugins/jwt-authentication-for-wp-rest-api/) from WordPress.org.
 2. [Configure the Secret Key](https://github.com/Tmeister/wp-api-jwt-auth#configurate-the-secret-key).
 3. [Get your token](https://github.com/Tmeister/wp-api-jwt-auth#usage).
+
+There are other JWT authentication plugins available but this one appears to be the most commonly used.
 
 <aside class="notice">
   Once you get the token, you must store it somewhere in your application, e.g. in a cookie or using localstorage. From this point, you should pass this token to every CoCart API call.

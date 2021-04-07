@@ -78,4 +78,40 @@ $body = wp_remote_retrieve_body( $response );
 ```
 
 ```json
+{
+	"version": "https://example.com/wp-json/cocart/v2/",
+	"title": "My Awesome Swag Store",
+	"description": "Collect my new swag for 2021. Forget about 2020.",
+	"home_url": "https://example.com",
+	"language": "en-US",
+	"gmt_offset": 2,
+	"timezone_string": "Europe/Paris",
+	"store_address": {
+		"address": "Somewhere",
+		"address_2": "warm",
+		"city": "TimeCity",
+		"country": "FR",
+		"postcode": "11400"
+	},
+	"routes": {
+		"cart": "https://example.com/wp-json/cocart/v2/cart",
+		"cart-add-item": "https://example.com/wp-json/cocart/v2/cart/add-item",
+		"cart-add-items": "https://example.com/wp-json/cocart/v2/cart/add-items",
+		"cart-item": "https://example.com/wp-json/cocart/v2/cart/item",
+		"cart-items": "https://example.com/wp-json/cocart/v2/cart/items",
+		"cart-items-count": "https://example.com/wp-json/cocart/v2/cart/items/count",
+		"cart-calculate": "https://example.com/wp-json/cocart/v2/cart/calculate",
+		"cart-clear": "https://example.com/wp-json/cocart/v2/cart/clear",
+		"cart-totals": "https://example.com/wp-json/cocart/v2/cart/totals",
+		"login": "https://example.com/wp-json/cocart/v2/login",
+		"logout": "https://example.com/wp-json/cocart/v2/logout"
+	},
+	"_links": {
+		"help": [
+			{
+				"href": "https://docs.cocart.xyz/"
+			}
+		]
+	}
+}
 ```

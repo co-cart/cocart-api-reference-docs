@@ -35,6 +35,7 @@ includes:
   - cocart-v2/wip/cart-update-item
   - cocart-v2/wip/cart-totals
   - cocart-v2/wip/cart-calculate
+  - cocart-v2/wip/login
   - cocart-v2/wip/logout
   - cocart-v2/wip/web-load-cart-from-session
   - cocart-v2/wip/sessions
@@ -42,6 +43,7 @@ includes:
   - cocart-v2/wip/actions
   - cocart-v2/wip/filters
   - cocart-v2/wip/woocommerce-extensions
+  - cocart-v2/wip/breaking-changes
   - libraries
   - tools
   - cocart-v2/wip/changelog
