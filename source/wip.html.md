@@ -30,9 +30,9 @@ includes:
   - cocart-v2/wip/cart-clear
   - cocart-v2/wip/cart-add-items
   - cocart-v2/wip/cart-items
-  - cocart-v2/wip/cart-remove-item
-  - cocart-v2/wip/cart-restore-item
-  - cocart-v2/wip/cart-update-item
+  - cocart-v2/wip/cart-item-remove
+  - cocart-v2/wip/cart-item-restore
+  - cocart-v2/wip/cart-item-update
   - cocart-v2/wip/cart-totals
   - cocart-v2/wip/cart-calculate
   - cocart-v2/wip/login

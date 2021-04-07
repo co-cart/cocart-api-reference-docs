@@ -15,3 +15,4 @@ One of the biggest changes is to return the cart updated in most of the API endp
 * Getting a specific cart in session publically will no longer be possible.
 * Adding a variation of a variable product no longer requires the need to pass the parent ID via the `product_id` parameter. `product_id` is now `id` and `variation_id` is now deprecated. You now just pass the variation ID via `id`.
 * The `quantity` parameter when adding a product must now be passed as a string. This allows for better validation on the server side due to WordPress REST API validation callback limits.
+* The featured image of the item in cart returns by default. Now the parameter is used to not return it.

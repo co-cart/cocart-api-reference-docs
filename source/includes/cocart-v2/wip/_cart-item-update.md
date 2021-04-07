@@ -1,6 +1,6 @@
 ## Update Item in Cart ##
 
-<img src="images/github.svg" width="20" height="20" alt="GitHub Mark Logo"> [Edit on GitHub](https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v2/wip/_cart-update-item.md)
+<img src="images/github.svg" width="20" height="20" alt="GitHub Mark Logo"> [Edit on GitHub](https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v2/wip/_cart-item-update.md)
 
 This API helps you to update an item in the cart.
 
@@ -18,26 +18,24 @@ This API helps you to update an item in the cart.
 <div class="api-endpoint">
   <div class="endpoint-data">
     <i class="label label-post">POST</i>
-    <h6>/wp-json/cocart/v2/cart/item</h6>
+    <h6>/wp-json/cocart/v2/cart/item/<item_key></h6>
   </div>
 </div>
 
 ```shell
-curl -X POST https://example.com/wp-json/cocart/v2/cart/item \
+curl -X POST https://example.com/wp-json/cocart/v2/cart/item/<item_key> \
   -H "Content-Type: application/json" \
   -d '{
-    "item_key": "404dcc91b2aeaa7caa47487d1483e48a",
     "quantity": 2
   }'
 ```
 
 ```javascript--node
 var data = {
-  "item_key": 404dcc91b2aeaa7caa47487d1483e48a,
   "quantity": 2
 };
 
-CoCart.post("item", data)
+CoCart.post("cart/item/<item_key>", data)
 .then((response) => {
   // Successful request
   console.log("Response Status:", response.status);
@@ -57,10 +55,9 @@ CoCart.post("item", data)
 
 ```javascript--jquery
 $.ajax({
-  url: "https://example.com/wp-json/cocart/v2/cart/item",
+  url: "https://example.com/wp-json/cocart/v2/cart/item/<item_key>",
   method: "POST",
   data: JSON.stringify({
-    "item_key" : "404dcc91b2aeaa7caa47487d1483e48a",
     "quantity" : 2
   }),
   dataType: "json",
@@ -76,12 +73,11 @@ $.ajax({
 $curl = curl_init();
 
 $args = array(
-  'item_key' => '404dcc91b2aeaa7caa47487d1483e48a',
   'quantity' => 2
 );
 
 curl_setopt_array( $curl, array(
-  CURLOPT_URL => "https://example.com/wp-json/cocart/v2/cart/item",
+  CURLOPT_URL => "https://example.com/wp-json/cocart/v2/cart/item/<item_key>",
   CURLOPT_CUSTOMREQUEST => "POST",
   CURLOPT_POSTFIELDS => $args,
   CURLOPT_RETURNTRANSFER => true,
@@ -106,12 +102,11 @@ $args = array(
     'Content-Type' => 'application/json; charset=utf-8',
   ),
   'body' => wp_json_encode( [
-    'item_key' => '404dcc91b2aeaa7caa47487d1483e48a',
     'quantity' => 2
   ] ),
   'timeout' => 30
 );
 
-$response = wp_remote_post( 'https://example.com/wp-json/cocart/v2/cart/item', $args );
+$response = wp_remote_post( 'https://example.com/wp-json/cocart/v2/cart/item/<item_key>', $args );
 $body = wp_remote_retrieve_body( $response );
 ```

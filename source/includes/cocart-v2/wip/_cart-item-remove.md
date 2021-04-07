@@ -1,6 +1,6 @@
 ## Remove Item from Cart ##
 
-<img src="images/github.svg" width="20" height="20" alt="GitHub Mark Logo"> [Edit on GitHub](https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v2/wip/_cart-remove-item.md)
+<img src="images/github.svg" width="20" height="20" alt="GitHub Mark Logo"> [Edit on GitHub](https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v2/wip/_cart-item-remove.md)
 
 This API helps you to remove an item from the cart.
 
@@ -17,24 +17,17 @@ This API helps you to remove an item from the cart.
 <div class="api-endpoint">
   <div class="endpoint-data">
     <i class="label label-delete">DELETE</i>
-    <h6>/wp-json/cocart/v2/cart/item</h6>
+    <h6>/wp-json/cocart/v2/cart/item/<item_key></h6>
   </div>
 </div>
 
 ```shell
-curl -X DELETE https://example.com/wp-json/cocart/v2/cart/item \
-  -H "Content-Type: application/json" \
-  -d '{
-    "item_key": 404dcc91b2aeaa7caa47487d1483e48a
-  }'
+curl -X DELETE https://example.com/wp-json/cocart/v2/cart/item/<item_key> \
+  -H "Content-Type: application/json"
 ```
 
 ```javascript--node
-var data = {
-  "item_key": 404dcc91b2aeaa7caa47487d1483e48a
-};
-
-CoCart.delete("item", data)
+CoCart.delete("cart/item/<item_key>")
 .then((response) => {
   // Successful request
   console.log("Response Status:", response.status);
@@ -54,11 +47,8 @@ CoCart.delete("item", data)
 
 ```javascript--jquery
 $.ajax({
-  url: "https://example.com/wp-json/cocart/v2/cart/item",
+  url: "https://example.com/wp-json/cocart/v2/cart/item/<item_key>",
   method: "DELETE",
-  data: JSON.stringify({
-    "item_key" : "404dcc91b2aeaa7caa47487d1483e48a"
-  }),
   dataType: "json",
   contentType: "application/json; charset=utf-8",
   complete: function (response) {
@@ -71,14 +61,9 @@ $.ajax({
 <?php
 $curl = curl_init();
 
-$args = array(
-  'item_key' => '404dcc91b2aeaa7caa47487d1483e48a'
-);
-
 curl_setopt_array( $curl, array(
-  CURLOPT_URL => "https://example.com/wp-json/cocart/v2/cart/item",
+  CURLOPT_URL => "https://example.com/wp-json/cocart/v2/cart/item/<item_key>",
   CURLOPT_CUSTOMREQUEST => "DELETE",
-  CURLOPT_POSTFIELDS => $args,
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_TIMEOUT => 30,
   CURLOPT_HTTPHEADER => array(
@@ -100,13 +85,10 @@ $args = array(
   'headers' => array(
     'Content-Type' => 'application/json; charset=utf-8',
   ),
-  'body' => wp_json_encode( [
-    'item_key' => '404dcc91b2aeaa7caa47487d1483e48a'
-  ] ),
   'method' => 'DELETE',
   'timeout' => 30
 );
 
-$response = wp_remote_request( 'https://example.com/wp-json/cocart/v2/cart/item', $args );
+$response = wp_remote_request( 'https://example.com/wp-json/cocart/v2/cart/item/<item_key>', $args );
 $body = wp_remote_retrieve_body( $response );
 ```
