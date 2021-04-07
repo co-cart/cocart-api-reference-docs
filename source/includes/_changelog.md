@@ -2,7 +2,11 @@
 
 Below is the changelog for "CoCart Lite" documentation that matches with the version of the plugin release.
 
-## Doc Version v2.9.5
+## Doc Version v2.9.6
+
+* Improved: Confusion of parameters and attributes. If both exist for the API they are split into two seperate tables.
+
+### Doc Version v2.9.5
 
 * Updated: jQuery request examples.
 

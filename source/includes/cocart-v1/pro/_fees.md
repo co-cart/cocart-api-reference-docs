@@ -6,13 +6,18 @@
 
 This API calculate the fees applied.
 
+### Parameters ###
+
+| Parameter  | Type   | Description                                                                                                                 |
+| ---------- | ------ | --------------------------------------------------------------------------------------------------------------------------- |
+| `cart_key` | string | Unique identifier for the cart. <a class="label label-info" href="#cart-key">?</a> <i class="label label-info">optional</i> |
+
 ### Properties ###
 
-| Property      | Type   | Description                                                                                                                           |
-| ------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------- |
-| `cart_key`    | string | Unique identifier for the cart. <a class="label label-info" href="index.html#cart-key">?</a> <i class="label label-info">optional</i> |
-| `set_session` | bool   | Sets the cart fees in session once calculated. <i class="label label-info">optional, used mainly for internal use.</i>                |
-| `return`      | bool   | Returns the cart fees once calculated.                                                                                                |
+| Attribute     | Type   | Description                                                                                                            |
+| ------------- | ------ | ---------------------------------------------------------------------------------------------------------------------- |
+| `set_session` | bool   | Sets the cart fees in session once calculated. <i class="label label-info">optional, used mainly for internal use.</i> |
+| `return`      | bool   | Returns the cart fees once calculated.                                                                                 |
 
 #### HTTP request ####
 
@@ -95,11 +100,11 @@ $body = wp_remote_retrieve_body( $response );
 
 This API returns all applied fees to the cart.
 
-### Properties ###
+### Parameters ###
 
-| Property   | Type   | Description                                                                                                                           |
-| ---------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------- |
-| `cart_key` | string | Unique identifier for the cart. <a class="label label-info" href="index.html#cart-key">?</a> <i class="label label-info">optional</i> |
+| Parameter  | Type   | Description                                                                                                                 |
+| ---------- | ------ | --------------------------------------------------------------------------------------------------------------------------- |
+| `cart_key` | string | Unique identifier for the cart. <a class="label label-info" href="#cart-key">?</a> <i class="label label-info">optional</i> |
 
 #### HTTP request ####
 
@@ -191,15 +196,20 @@ $body = wp_remote_retrieve_body( $response );
 
 This API applies a fee to the cart.
 
+### Parameters ###
+
+| Parameter  | Type   | Description                                                                                                                 |
+| ---------- | ------ | --------------------------------------------------------------------------------------------------------------------------- |
+| `cart_key` | string | Unique identifier for the cart. <a class="label label-info" href="#cart-key">?</a> <i class="label label-info">optional</i> |
+
 ### Properties ###
 
-| Property    | Type   | Description                                                                                                                           |
-| ----------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------- |
-| `cart_key`  | string | Unique identifier for the cart. <a class="label label-info" href="index.html#cart-key">?</a> <i class="label label-info">optional</i> |
-| `name`      | string | Name of the fee. <i class="label label-info">required</i>                                                                             |
-| `amount`    | string | Amount for the fee. <i class="label label-info">required</i>                                                                          |
-| `taxable`   | bool   | Determines if the fee is taxable. <i class="label label-info">optional</i>                                                            |
-| `tax_class` | string | The tax class the fee applies to. <i class="label label-info">optional</i>                                                            |
+| Attribute   | Type   | Description                                                                |
+| ----------- | ------ | ---------------------------------------------------------------------------|
+| `name`      | string | Name of the fee. <i class="label label-info">required</i>                  |
+| `amount`    | string | Amount for the fee. <i class="label label-info">required</i>               |
+| `taxable`   | bool   | Determines if the fee is taxable. <i class="label label-info">optional</i> |
+| `tax_class` | string | The tax class the fee applies to. <i class="label label-info">optional</i> |
 
 #### HTTP request ####
 

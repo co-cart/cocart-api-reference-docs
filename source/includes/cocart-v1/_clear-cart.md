@@ -4,9 +4,9 @@
 
 This API helps you clear the contents of the cart.
 
-### Properties ###
+### Parameters ###
 
-| Property   | Type   | Description                                                                                                                 |
+| Parameter  | Type   | Description                                                                                                                 |
 | ---------- | ------ | --------------------------------------------------------------------------------------------------------------------------- |
 | `cart_key` | string | Unique identifier for the cart. <a class="label label-info" href="#cart-key">?</a> <i class="label label-info">optional</i> |
 
@@ -25,7 +25,7 @@ curl -X POST https://example.com/wp-json/cocart/v1/clear \
 ```
 
 ```javascript--node
-CoCart.post("clear", data)
+CoCart.post("clear")
 .then((response) => {
   // Successful request
   console.log("Response Status:", response.status);

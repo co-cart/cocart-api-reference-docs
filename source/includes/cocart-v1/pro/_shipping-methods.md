@@ -14,16 +14,21 @@ This API helps you calculate the shipping costs and get the available methods. Y
   You must pass the country code, <strong>NOT</strong> the country name via the <code>country</code> parameter. The same is for the state. Pass the state code, <strong>NOT</strong> the state name via the <code>state</code> parameter.
 </aside>
 
+## Parameters ##
+
+| Parameter  | Type   | Description                                                                                                                 |
+| ---------- | ------ | --------------------------------------------------------------------------------------------------------------------------- |
+| `cart_key` | string | Unique identifier for the cart. <a class="label label-info" href="#cart-key">?</a> <i class="label label-info">optional</i> |
+
 ### Properties ###
 
-| Attribute        | Type   | Description                                                                                                                           |
-| ---------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------- |
-| `cart_key`       | string | Unique identifier for the cart. <a class="label label-info" href="index.html#cart-key">?</a> <i class="label label-info">optional</i> |
-| `country`        | string | Set the country code of the shipping location. <a class="label label-info" target="_blank" href="https://github.com/woocommerce/woocommerce/blob/master/i18n/countries.php">Country codes</a> <i class="label label-info">required</i>                                               |
-| `state`          | string | Setting the state is optional but maybe required under some circumstances. <a class="label label-info" target="_blank" href="https://github.com/woocommerce/woocommerce/blob/master/i18n/states.php">State codes</a> <i class="label label-info">optional</i>                   |
-| `city`           | string | Set the city to specify location in country. <i class="label label-info">optional</i>                                                 |
-| `postcode`       | string | Enter postcode / ZIP to narrow down location for more accurate shipping cost. <i class="label label-info">optional</i>                |
-| `return_methods` | bool   | Set as true to return the shipping methods once calculated. <i class="label label-info">optional</i>                                  |
+| Attribute        | Type   | Description                                                                                                                                                                                                                                                   |
+| ---------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `country`        | string | Set the country code of the shipping location. <a class="label label-info" target="_blank" href="https://github.com/woocommerce/woocommerce/blob/master/i18n/countries.php">Country codes</a> <i class="label label-info">required</i>                        |
+| `state`          | string | Setting the state is optional but maybe required under some circumstances. <a class="label label-info" target="_blank" href="https://github.com/woocommerce/woocommerce/blob/master/i18n/states.php">State codes</a> <i class="label label-info">optional</i> |
+| `city`           | string | Set the city to specify location in country. <i class="label label-info">optional</i>                                                                                                                                                                         |
+| `postcode`       | string | Enter postcode / ZIP to narrow down location for more accurate shipping cost. <i class="label label-info">optional</i>                                                                                                                                        |
+| `return_methods` | bool   | Set as true to return the shipping methods once calculated. <i class="label label-info">optional</i>                                                                                                                                                          |
 
 #### HTTP request ####
 
@@ -133,12 +138,17 @@ $body = wp_remote_retrieve_body( $response );
 
 This API returns all available shipping methods once the customer has [calculated shipping](#shipping-methods-calculate-shipping).
 
+## Parameters ##
+
+| Parameter  | Type   | Description                                                                                                                 |
+| ---------- | ------ | --------------------------------------------------------------------------------------------------------------------------- |
+| `cart_key` | string | Unique identifier for the cart. <a class="label label-info" href="#cart-key">?</a> <i class="label label-info">optional</i> |
+
 ### Properties ###
 
-| Property             | Type   | Description                                                                                                                           |
-| -------------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------- |
-| `cart_key`           | string | Unique identifier for the cart. <a class="label label-info" href="index.html#cart-key">?</a> <i class="label label-info">optional</i> |
-| `recurring_cart_key` | string | The recurring cart key identifies each subscription in cart. <i class="label label-info">required, only for subscriptions.</i>        |
+| Attribute            | Type   | Description                                                                                                                    |
+| -------------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------ |
+| `recurring_cart_key` | string | The recurring cart key identifies each subscription in cart. <i class="label label-info">required, only for subscriptions.</i> |
 
 ### HTTP request ###
 
@@ -247,13 +257,18 @@ $body = wp_remote_retrieve_body( $response );
 
 This API applies a shipping method to the cart. Can only apply once the customer has [calculated shipping](#shipping-methods-calculate-shipping).
 
+## Parameters ##
+
+| Parameter  | Type   | Description                                                                                                                 |
+| ---------- | ------ | --------------------------------------------------------------------------------------------------------------------------- |
+| `cart_key` | string | Unique identifier for the cart. <a class="label label-info" href="#cart-key">?</a> <i class="label label-info">optional</i> |
+
 ### Properties ###
 
-| Property             | Type   | Description                                                                                                                           |
-| -------------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------- |
-| `cart_key`           | string | Unique identifier for the cart. <a class="label label-info" href="index.html#cart-key">?</a> <i class="label label-info">optional</i> |
-| `key`                | string | The key of the shipping method. <i class="label label-info">required</i>                                                              |
-| `recurring_cart_key` | string | The recurring cart key identifies each subscription in cart. <i class="label label-info">required, only for subscriptions.</i>        |
+| Attribute            | Type   | Description                                                                                                                    |
+| -------------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------ |
+| `key`                | string | The key of the shipping method. <i class="label label-info">required</i>                                                       |
+| `recurring_cart_key` | string | The recurring cart key identifies each subscription in cart. <i class="label label-info">required, only for subscriptions.</i> |
 
 ### HTTP request ###
 

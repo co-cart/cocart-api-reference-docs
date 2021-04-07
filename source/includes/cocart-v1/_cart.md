@@ -15,12 +15,17 @@ Using the individual endpoints and their properties, you can control what you ne
 
 This API returns the contents of the cart for a guest customer or logged in registered customer.
 
-### Properties ###
+### Parameters ###
 
-| Property   | Type   | Description                                                                                                                 |
+| Parameter  | Type   | Description                                                                                                                 |
 | ---------- | ------ | --------------------------------------------------------------------------------------------------------------------------- |
 | `cart_key` | string | Unique identifier for the cart. <a class="label label-info" href="#cart-key">?</a> <i class="label label-info">optional</i> |
-| `thumb`    | bool   | Set as true to return the product thumbnail for each item.                                                                  |
+
+### Properties ###
+
+| Attribute | Type | Description                                                |
+| --------- | ---- | ---------------------------------------------------------- |
+| `thumb`   | bool | Set as true to return the product thumbnail for each item. |
 
 ### HTTP request ###
 

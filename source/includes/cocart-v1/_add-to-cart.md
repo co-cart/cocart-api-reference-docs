@@ -8,11 +8,16 @@ The most important part of CoCart is adding items to the cart. This API helps yo
  * [Add Variation Item](#add-to-cart-add-variation-item)
  * [Add Item with Custom Data](#add-to-cart-add-item-with-custom-data)
 
+### Parameters ###
+
+| Parameter  | Type   | Description                                                                                                                 |
+| ---------- | ------ | --------------------------------------------------------------------------------------------------------------------------- |
+| `cart_key` | string | Unique identifier for the cart. <a class="label label-info" href="#cart-key">?</a> <i class="label label-info">optional</i> |
+
 ### Properties ###
 
-| Property         | Type    | Description                                                                                                                                         |
+| Attribute        | Type    | Description                                                                                                                                         |
 | ---------------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `cart_key`       | string  | Unique identifier for the cart. <a class="label label-info" href="#cart-key">?</a> <i class="label label-info">optional</i>                         |
 | `product_id`     | string  | The product ID is required in order to add a product to the cart. A SKU ID can also be used here instead. <i class="label label-info">mandatory</i> |
 | `quantity`       | float   | Set the quantity of the product you want to add to the cart. <i class="label label-info">Default is 1</i>                                           |
 | `variation_id`   | integer | Used to set the variation of the product being added to the cart. <i class="label label-info">optional</i>                                          |

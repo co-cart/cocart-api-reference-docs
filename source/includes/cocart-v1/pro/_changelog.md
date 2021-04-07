@@ -2,7 +2,11 @@
 
 The Documentation is updated only when needed. Below is the changelog for "CoCart Pro" documentation that matches with the version of the plugin release.
 
-## Doc Version 0.9
+## Doc Version 0.10
+
+* Improved: Confusion of parameters and attributes. If both exist for the API they are split into two seperate tables.
+
+### Doc Version 0.9
 
 * Updated: jQuery request examples.
 

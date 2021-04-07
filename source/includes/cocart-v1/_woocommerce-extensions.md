@@ -20,6 +20,12 @@ Selling cases of wine? A dozen donuts? Fruit baskets? Six-packs of T-shirts? [Mi
 
 Once you have setup "[Mix and Match Products](https://woocommerce.com/products/woocommerce-mix-and-match-products/)" WooCommerce extension. Here is how you can add a container with the customers selected items and quantity.
 
+### Parameters ###
+
+| Parameter  | Type   | Description                                                                                                                 |
+| ---------- | ------ | --------------------------------------------------------------------------------------------------------------------------- |
+| `cart_key` | string | Unique identifier for the cart. <a class="label label-info" href="#cart-key">?</a> <i class="label label-info">optional</i> |
+
 > Example of adding a Mix and Match Product
 
 ```shell
@@ -277,6 +283,12 @@ The [Name Your Price](https://woocommerce.com/products/name-your-price/) plugin 
 ### Add item to Cart ###
 
 Once you have setup "[Name Your Price](https://woocommerce.com/products/name-your-price/)" for your particular products. Here is how you can apply the customers requested price for the product when adding to cart.
+
+### Parameters ###
+
+| Parameter  | Type   | Description                                                                                                                 |
+| ---------- | ------ | --------------------------------------------------------------------------------------------------------------------------- |
+| `cart_key` | string | Unique identifier for the cart. <a class="label label-info" href="#cart-key">?</a> <i class="label label-info">optional</i> |
 
 > Example of adding an item with a custom price.
 

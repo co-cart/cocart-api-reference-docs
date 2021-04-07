@@ -4,14 +4,19 @@
 
 This API helps you to update an item in the cart. You can also request to return the whole cart once item is updated to reduce API requests and use the [Get Cart Contents](#get-cart-get-cart-contents) properties.
 
+### Parameters ###
+
+| Parameter  | Type   | Description                                                                                                                 |
+| ---------- | ------ | --------------------------------------------------------------------------------------------------------------------------- |
+| `cart_key` | string | Unique identifier for the cart. <a class="label label-info" href="#cart-key">?</a> <i class="label label-info">optional</i> |
+
 ### Properties ###
 
-| Property        | Type   | Description                                                                                                                 |
-| --------------- | ------ | --------------------------------------------------------------------------------------------------------------------------- |
-| `cart_key`      | string | Unique identifier for the cart. <a class="label label-info" href="#cart-key">?</a> <i class="label label-info">optional</i> |
-| `cart_item_key` | string | The cart item key of the product in the cart you want to update. <i class="label label-info">mandatory</i>                  |
-| `quantity`      | float  | Set the quantity of the product you want to update in the cart. <i class="label label-info">Default is 1</i>                |
-| `return_cart`   | bool   | Set as true to return the whole cart once item is updated. <i class="label label-info">optional</i>                         |
+| Attribute       | Type   | Description                                                                                                  |
+| --------------- | ------ | ------------------------------------------------------------------------------------------------------------ |
+| `cart_item_key` | string | The cart item key of the product in the cart you want to update. <i class="label label-info">mandatory</i>   |
+| `quantity`      | float  | Set the quantity of the product you want to update in the cart. <i class="label label-info">Default is 1</i> |
+| `return_cart`   | bool   | Set as true to return the whole cart once item is updated. <i class="label label-info">optional</i>          |
 
 ### HTTP request ###
 

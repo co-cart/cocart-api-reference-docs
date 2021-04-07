@@ -4,11 +4,11 @@
 
 This API helps you get the cart owner's details of the customer.
 
-## Properties ##
+### Parameters ###
 
-| Property   | Type   | Description                                                                                                                           |
-| ---------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------- |
-| `cart_key` | string | Unique identifier for the cart. <a class="label label-info" href="index.html#cart-key">?</a> <i class="label label-info">optional</i> |
+| Parameter  | Type   | Description                                                                                                                 |
+| ---------- | ------ | --------------------------------------------------------------------------------------------------------------------------- |
+| `cart_key` | string | Unique identifier for the cart. <a class="label label-info" href="#cart-key">?</a> <i class="label label-info">optional</i> |
 
 ### HTTP request ###
 

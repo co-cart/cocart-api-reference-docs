@@ -8,11 +8,11 @@ This API helps you get the payment methods available.
 
 Returns all available payment methods once the customer has added an item to the cart and the cart requires payment.
 
-### Properties ###
+### Parameters ###
 
-| Property   | Type   | Description                                                                                                                           |
-| ---------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------- |
-| `cart_key` | string | Unique identifier for the cart. <a class="label label-info" href="index.html#cart-key">?</a> <i class="label label-info">optional</i> |
+| Parameter  | Type   | Description                                                                                                                 |
+| ---------- | ------ | --------------------------------------------------------------------------------------------------------------------------- |
+| `cart_key` | string | Unique identifier for the cart. <a class="label label-info" href="#cart-key">?</a> <i class="label label-info">optional</i> |
 
 #### HTTP request ####
 
@@ -178,12 +178,17 @@ $body = wp_remote_retrieve_body( $response );
 
 Apply the payment method to the cart. Can only apply once the customer has added an item to the cart.
 
+### Parameters ###
+
+| Parameter  | Type   | Description                                                                                                                 |
+| ---------- | ------ | --------------------------------------------------------------------------------------------------------------------------- |
+| `cart_key` | string | Unique identifier for the cart. <a class="label label-info" href="#cart-key">?</a> <i class="label label-info">optional</i> |
+
 ### Properties ###
 
-| Property     | Type   | Description                                                                                                                           |
-| ------------ | ------ | ------------------------------------------------------------------------------------------------------------------------------------- |
-| `cart_key`   | string | Unique identifier for the cart. <a class="label label-info" href="index.html#cart-key">?</a> <i class="label label-info">optional</i> |
-| `gateway_id` | string | The gateway ID of the payment method. <i class="label label-info">required</i>                                                        |
+| Attributes   | Type   | Description                                                                    |
+| ------------ | ------ | ------------------------------------------------------------------------------ |
+| `gateway_id` | string | The gateway ID of the payment method. <i class="label label-info">required</i> |
 
 #### HTTP request ####
 

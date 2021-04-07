@@ -2,12 +2,17 @@
 
 <img src="images/github.svg" width="20" height="20" alt="GitHub Mark Logo"> [Edit on GitHub](https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v1/pro/_totals.md)
 
+## Parameters ##
+
+| Parameter  | Type   | Description                                                                                                                 |
+| ---------- | ------ | --------------------------------------------------------------------------------------------------------------------------- |
+| `cart_key` | string | Unique identifier for the cart. <a class="label label-info" href="#cart-key">?</a> <i class="label label-info">optional</i> |
+
 ### Properties ###
 
-| Property   | Type   | Description                                                                                                                           |
-| ---------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------- |
-| `cart_key` | string | Unique identifier for the cart. <a class="label label-info" href="index.html#cart-key">?</a> <i class="label label-info">optional</i> |
-| `return`   | bool   | Set as true to return the totals once calculated. <i class="label label-info">optional</i>                                            |
+| Attribute | Type | Description                                                                                |
+| --------- | ---- | ------------------------------------------------------------------------------------------ |
+| `return`  | bool | Set as true to return the totals once calculated. <i class="label label-info">optional</i> |
 
 ## Calculate Totals ##
 

@@ -4,12 +4,17 @@
 
 This API helps you get the cross sells. It returns not just the product ID's but the product name, price, regular price and sale price.
 
+### Parameters ###
+
+| Parameter  | Type   | Description                                                                                                                 |
+| ---------- | ------ | --------------------------------------------------------------------------------------------------------------------------- |
+| `cart_key` | string | Unique identifier for the cart. <a class="label label-info" href="#cart-key">?</a> <i class="label label-info">optional</i> |
+
 ## Properties ##
 
-| Property   | Type   | Description                                                                                                                           |
-| ---------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------- |
-| `cart_key` | string | Unique identifier for the cart. <a class="label label-info" href="index.html#cart-key">?</a> <i class="label label-info">optional</i> |
-| `thumb`    | bool   | Set as true to return the product thumbnail for each item.                                                                            |
+| Attribute | Type | Description                                                |
+| --------- | ---- | ---------------------------------------------------------- |
+| `thumb`   | bool | Set as true to return the product thumbnail for each item. |
 
 ### HTTP request ###
 
