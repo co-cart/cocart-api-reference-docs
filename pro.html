@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>CoCart Pro Documentation v0.9</title>
+    <title>CoCart Pro Documentation v0.10</title>
 
     <link rel="icon" href="images/favicon-32x32-334932c6.png" sizes="32x32" />
     <link rel="icon" href="images/favicon-192x192-734db461.png" sizes="192x192" />
@@ -289,7 +289,7 @@
   color: #859900;
 }
     </style>
-    <link href="stylesheets/screen-a84b441c.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/screen-c6db4369.css" rel="stylesheet" media="screen" />
     <link href="stylesheets/print-46df3289.css" rel="stylesheet" media="print" />
       <script src="javascripts/all-c0cd2ec7.js"></script>
 
@@ -404,6 +404,9 @@
             <a href="#coupons" class="toc-h1 toc-link" data-title="Coupons">Coupons</a>
               <ul class="toc-list-h2">
                   <li>
+                    <a href="#coupons-cart-key-in-cart-response-parameters" class="toc-h2 toc-link" data-title="Parameters">Parameters</a>
+                  </li>
+                  <li>
                     <a href="#coupons-cart-key-in-cart-response-properties" class="toc-h2 toc-link" data-title="Properties">Properties</a>
                   </li>
                   <li>
@@ -424,6 +427,9 @@
             <a href="#cross-sells" class="toc-h1 toc-link" data-title="Cross Sells">Cross Sells</a>
               <ul class="toc-list-h2">
                   <li>
+                    <a href="#cross-sells-check-coupons-parameters" class="toc-h2 toc-link" data-title="Parameters">Parameters</a>
+                  </li>
+                  <li>
                     <a href="#cross-sells-properties" class="toc-h2 toc-link" data-title="Properties">Properties</a>
                   </li>
               </ul>
@@ -432,7 +438,10 @@
             <a href="#cart-owner" class="toc-h1 toc-link" data-title="Cart Owner">Cart Owner</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#cart-owner-properties" class="toc-h2 toc-link" data-title="Properties">Properties</a>
+                    <a href="#cart-owner-properties-parameters" class="toc-h2 toc-link" data-title="Parameters">Parameters</a>
+                  </li>
+                  <li>
+                    <a href="#cart-owner-properties-http-request" class="toc-h2 toc-link" data-title="HTTP request">HTTP request</a>
                   </li>
               </ul>
           </li>
@@ -440,7 +449,7 @@
             <a href="#cart-weight" class="toc-h1 toc-link" data-title="Cart Weight">Cart Weight</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#cart-weight-properties" class="toc-h2 toc-link" data-title="Properties">Properties</a>
+                    <a href="#cart-weight-parameters" class="toc-h2 toc-link" data-title="Parameters">Parameters</a>
                   </li>
               </ul>
           </li>
@@ -476,7 +485,7 @@
             <a href="#quantities" class="toc-h1 toc-link" data-title="Quantities">Quantities</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#quantities-properties" class="toc-h2 toc-link" data-title="Properties">Properties</a>
+                    <a href="#quantities-parameters" class="toc-h2 toc-link" data-title="Parameters">Parameters</a>
                   </li>
               </ul>
           </li>
@@ -484,7 +493,7 @@
             <a href="#removed-items" class="toc-h1 toc-link" data-title="Removed Items">Removed Items</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#removed-items-properties" class="toc-h2 toc-link" data-title="Properties">Properties</a>
+                    <a href="#removed-items-parameters" class="toc-h2 toc-link" data-title="Parameters">Parameters</a>
                   </li>
               </ul>
           </li>
@@ -495,10 +504,19 @@
                     <a href="#shipping-methods-calculate-shipping" class="toc-h2 toc-link" data-title="Calculate Shipping">Calculate Shipping</a>
                   </li>
                   <li>
+                    <a href="#shipping-methods-parameters" class="toc-h2 toc-link" data-title="Parameters">Parameters</a>
+                  </li>
+                  <li>
                     <a href="#shipping-methods-get-shipping-methods" class="toc-h2 toc-link" data-title="Get Shipping Methods">Get Shipping Methods</a>
                   </li>
                   <li>
+                    <a href="#shipping-methods-parameters" class="toc-h2 toc-link" data-title="Parameters">Parameters</a>
+                  </li>
+                  <li>
                     <a href="#shipping-methods-set-shipping-method" class="toc-h2 toc-link" data-title="Set Shipping Method">Set Shipping Method</a>
+                  </li>
+                  <li>
+                    <a href="#shipping-methods-parameters" class="toc-h2 toc-link" data-title="Parameters">Parameters</a>
                   </li>
               </ul>
           </li>
@@ -506,7 +524,7 @@
             <a href="#totals" class="toc-h1 toc-link" data-title="Totals">Totals</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#totals-set-shipping-method-properties" class="toc-h2 toc-link" data-title="Properties">Properties</a>
+                    <a href="#totals-parameters" class="toc-h2 toc-link" data-title="Parameters">Parameters</a>
                   </li>
                   <li>
                     <a href="#totals-calculate-totals" class="toc-h2 toc-link" data-title="Calculate Totals">Calculate Totals</a>
@@ -584,7 +602,7 @@
             <a href="#changelog" class="toc-h1 toc-link" data-title="Changelog">Changelog</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#changelog-doc-version-0-9" class="toc-h2 toc-link" data-title="Doc Version 0.9">Doc Version 0.9</a>
+                    <a href="#changelog-doc-version-0-10" class="toc-h2 toc-link" data-title="Doc Version 0.10">Doc Version 0.10</a>
                   </li>
               </ul>
           </li>
@@ -1089,10 +1107,10 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <p><img src="images/github-633266a3.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v1/pro/_coupons.md">Edit on GitHub</a></p>
 
 <p>This API helps you get applied coupons, add coupons to cart, remove coupons from cart and check coupons for validation.</p>
-<h3 id='coupons-cart-key-in-cart-response-properties'>Properties</h3>
+<h3 id='coupons-cart-key-in-cart-response-parameters'>Parameters</h3>
 <table><thead>
 <tr>
-<th>Property</th>
+<th>Parameter</th>
 <th>Type</th>
 <th>Description</th>
 </tr>
@@ -1100,8 +1118,17 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <tr>
 <td><code>cart_key</code></td>
 <td>string</td>
-<td>Unique identifier for the cart. <a class="label label-info" href="index.html#cart-key">?</a> <i class="label label-info">optional</i></td>
+<td>Unique identifier for the cart. <a class="label label-info" href="#cart-key">?</a> <i class="label label-info">optional</i></td>
 </tr>
+</tbody></table>
+<h3 id='coupons-cart-key-in-cart-response-properties'>Properties</h3>
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
 <tr>
 <td><code>coupon</code></td>
 <td>string</td>
@@ -1409,10 +1436,10 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <p><img src="images/github-633266a3.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v1/pro/_cross-sells.md">Edit on GitHub</a></p>
 
 <p>This API helps you get the cross sells. It returns not just the product ID&#39;s but the product name, price, regular price and sale price.</p>
-<h2 id='cross-sells-properties'>Properties</h2>
+<h3 id='cross-sells-check-coupons-parameters'>Parameters</h3>
 <table><thead>
 <tr>
-<th>Property</th>
+<th>Parameter</th>
 <th>Type</th>
 <th>Description</th>
 </tr>
@@ -1420,8 +1447,17 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <tr>
 <td><code>cart_key</code></td>
 <td>string</td>
-<td>Unique identifier for the cart. <a class="label label-info" href="index.html#cart-key">?</a> <i class="label label-info">optional</i></td>
+<td>Unique identifier for the cart. <a class="label label-info" href="#cart-key">?</a> <i class="label label-info">optional</i></td>
 </tr>
+</tbody></table>
+<h2 id='cross-sells-properties'>Properties</h2>
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
 <tr>
 <td><code>thumb</code></td>
 <td>bool</td>
@@ -1514,10 +1550,10 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <p><img src="images/github-633266a3.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v1/pro/_customers.md">Edit on GitHub</a></p>
 
 <p>This API helps you get the cart owner&#39;s details of the customer.</p>
-<h2 id='cart-owner-properties'>Properties</h2>
+<h3 id='cart-owner-properties-parameters'>Parameters</h3>
 <table><thead>
 <tr>
-<th>Property</th>
+<th>Parameter</th>
 <th>Type</th>
 <th>Description</th>
 </tr>
@@ -1525,7 +1561,7 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <tr>
 <td><code>cart_key</code></td>
 <td>string</td>
-<td>Unique identifier for the cart. <a class="label label-info" href="index.html#cart-key">?</a> <i class="label label-info">optional</i></td>
+<td>Unique identifier for the cart. <a class="label label-info" href="#cart-key">?</a> <i class="label label-info">optional</i></td>
 </tr>
 </tbody></table>
 <h3 id='cart-owner-properties-http-request'>HTTP request</h3>
@@ -1624,10 +1660,10 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <p><img src="images/github-633266a3.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v1/pro/_weight.md">Edit on GitHub</a></p>
 
 <p>This API helps you get the cart weight. The weight unit returned is set in your WooCommerce settings.</p>
-<h2 id='cart-weight-properties'>Properties</h2>
+<h2 id='cart-weight-parameters'>Parameters</h2>
 <table><thead>
 <tr>
-<th>Property</th>
+<th>Parameter</th>
 <th>Type</th>
 <th>Description</th>
 </tr>
@@ -1635,10 +1671,10 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <tr>
 <td><code>cart_key</code></td>
 <td>string</td>
-<td>Unique identifier for the cart. <a class="label label-info" href="index.html#cart-key">?</a> <i class="label label-info">optional</i></td>
+<td>Unique identifier for the cart. <a class="label label-info" href="#cart-key">?</a> <i class="label label-info">optional</i></td>
 </tr>
 </tbody></table>
-<h3 id='cart-weight-properties-http-request'>HTTP request</h3>
+<h3 id='cart-weight-parameters-http-request'>HTTP request</h3>
 <div class="api-endpoint">
   <div class="endpoint-data">
     <i class="label label-get">GET</i>
@@ -1699,10 +1735,10 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <p><img src="images/github-633266a3.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v1/pro/_fees.md">Edit on GitHub</a></p>
 <h2 id='fees-calculate-fees'>Calculate Fees</h2>
 <p>This API calculate the fees applied.</p>
-<h3 id='fees-calculate-fees-properties'>Properties</h3>
+<h3 id='fees-calculate-fees-parameters'>Parameters</h3>
 <table><thead>
 <tr>
-<th>Property</th>
+<th>Parameter</th>
 <th>Type</th>
 <th>Description</th>
 </tr>
@@ -1710,8 +1746,17 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <tr>
 <td><code>cart_key</code></td>
 <td>string</td>
-<td>Unique identifier for the cart. <a class="label label-info" href="index.html#cart-key">?</a> <i class="label label-info">optional</i></td>
+<td>Unique identifier for the cart. <a class="label label-info" href="#cart-key">?</a> <i class="label label-info">optional</i></td>
 </tr>
+</tbody></table>
+<h3 id='fees-calculate-fees-properties'>Properties</h3>
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
 <tr>
 <td><code>set_session</code></td>
 <td>bool</td>
@@ -1782,10 +1827,10 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 </code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="s2">"Cart fees have been calculated."</span><span class="w">
 </span></code></pre></div><h2 id='fees-get-fees'>Get Fees</h2>
 <p>This API returns all applied fees to the cart.</p>
-<h3 id='fees-get-fees-properties'>Properties</h3>
+<h3 id='fees-get-fees-parameters'>Parameters</h3>
 <table><thead>
 <tr>
-<th>Property</th>
+<th>Parameter</th>
 <th>Type</th>
 <th>Description</th>
 </tr>
@@ -1793,10 +1838,10 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <tr>
 <td><code>cart_key</code></td>
 <td>string</td>
-<td>Unique identifier for the cart. <a class="label label-info" href="index.html#cart-key">?</a> <i class="label label-info">optional</i></td>
+<td>Unique identifier for the cart. <a class="label label-info" href="#cart-key">?</a> <i class="label label-info">optional</i></td>
 </tr>
 </tbody></table>
-<h4 id='fees-get-fees-properties-http-request'>HTTP request</h4>
+<h4 id='fees-get-fees-parameters-http-request'>HTTP request</h4>
 <div class="api-endpoint">
   <div class="endpoint-data">
     <i class="label label-get">GET</i>
@@ -1864,10 +1909,10 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h2 id='fees-add-a-fee'>Add a Fee</h2>
 <p>This API applies a fee to the cart.</p>
-<h3 id='fees-add-a-fee-properties'>Properties</h3>
+<h3 id='fees-add-a-fee-parameters'>Parameters</h3>
 <table><thead>
 <tr>
-<th>Property</th>
+<th>Parameter</th>
 <th>Type</th>
 <th>Description</th>
 </tr>
@@ -1875,8 +1920,17 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <tr>
 <td><code>cart_key</code></td>
 <td>string</td>
-<td>Unique identifier for the cart. <a class="label label-info" href="index.html#cart-key">?</a> <i class="label label-info">optional</i></td>
+<td>Unique identifier for the cart. <a class="label label-info" href="#cart-key">?</a> <i class="label label-info">optional</i></td>
 </tr>
+</tbody></table>
+<h3 id='fees-add-a-fee-properties'>Properties</h3>
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
 <tr>
 <td><code>name</code></td>
 <td>string</td>
@@ -2065,10 +2119,10 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <p>This API helps you get the payment methods available.</p>
 <h2 id='payment-methods-get-payment-methods'>Get Payment Methods</h2>
 <p>Returns all available payment methods once the customer has added an item to the cart and the cart requires payment.</p>
-<h3 id='payment-methods-get-payment-methods-properties'>Properties</h3>
+<h3 id='payment-methods-get-payment-methods-parameters'>Parameters</h3>
 <table><thead>
 <tr>
-<th>Property</th>
+<th>Parameter</th>
 <th>Type</th>
 <th>Description</th>
 </tr>
@@ -2076,10 +2130,10 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <tr>
 <td><code>cart_key</code></td>
 <td>string</td>
-<td>Unique identifier for the cart. <a class="label label-info" href="index.html#cart-key">?</a> <i class="label label-info">optional</i></td>
+<td>Unique identifier for the cart. <a class="label label-info" href="#cart-key">?</a> <i class="label label-info">optional</i></td>
 </tr>
 </tbody></table>
-<h4 id='payment-methods-get-payment-methods-properties-http-request'>HTTP request</h4>
+<h4 id='payment-methods-get-payment-methods-parameters-http-request'>HTTP request</h4>
 <div class="api-endpoint">
   <div class="endpoint-data">
     <i class="label label-get">GET</i>
@@ -2221,10 +2275,10 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h2 id='payment-methods-set-payment-method'>Set Payment Method</h2>
 <p>Apply the payment method to the cart. Can only apply once the customer has added an item to the cart.</p>
-<h3 id='payment-methods-set-payment-method-properties'>Properties</h3>
+<h3 id='payment-methods-set-payment-method-parameters'>Parameters</h3>
 <table><thead>
 <tr>
-<th>Property</th>
+<th>Parameter</th>
 <th>Type</th>
 <th>Description</th>
 </tr>
@@ -2232,8 +2286,17 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <tr>
 <td><code>cart_key</code></td>
 <td>string</td>
-<td>Unique identifier for the cart. <a class="label label-info" href="index.html#cart-key">?</a> <i class="label label-info">optional</i></td>
+<td>Unique identifier for the cart. <a class="label label-info" href="#cart-key">?</a> <i class="label label-info">optional</i></td>
 </tr>
+</tbody></table>
+<h3 id='payment-methods-set-payment-method-properties'>Properties</h3>
+<table><thead>
+<tr>
+<th>Attributes</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
 <tr>
 <td><code>gateway_id</code></td>
 <td>string</td>
@@ -2326,10 +2389,10 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <p><img src="images/github-633266a3.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v1/pro/_quantities.md">Edit on GitHub</a></p>
 
 <p>This API helps you get the quantities of each product added to the cart.</p>
-<h2 id='quantities-properties'>Properties</h2>
+<h2 id='quantities-parameters'>Parameters</h2>
 <table><thead>
 <tr>
-<th>Property</th>
+<th>Parameter</th>
 <th>Type</th>
 <th>Description</th>
 </tr>
@@ -2337,10 +2400,10 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <tr>
 <td><code>cart_key</code></td>
 <td>string</td>
-<td>Unique identifier for the cart. <a class="label label-info" href="index.html#cart-key">?</a> <i class="label label-info">optional</i></td>
+<td>Unique identifier for the cart. <a class="label label-info" href="#cart-key">?</a> <i class="label label-info">optional</i></td>
 </tr>
 </tbody></table>
-<h3 id='quantities-properties-http-request'>HTTP request</h3>
+<h3 id='quantities-parameters-http-request'>HTTP request</h3>
 <div class="api-endpoint">
   <div class="endpoint-data">
     <i class="label label-get">GET</i>
@@ -2405,10 +2468,10 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <p><img src="images/github-633266a3.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v1/pro/_removed-items.md">Edit on GitHub</a></p>
 
 <p>This API helps you get items removed by the customer. This can be helpful should you wish to remind and allow customers to re-add an item back to the cart.</p>
-<h2 id='removed-items-properties'>Properties</h2>
+<h2 id='removed-items-parameters'>Parameters</h2>
 <table><thead>
 <tr>
-<th>Property</th>
+<th>Parameter</th>
 <th>Type</th>
 <th>Description</th>
 </tr>
@@ -2416,10 +2479,10 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <tr>
 <td><code>cart_key</code></td>
 <td>string</td>
-<td>Unique identifier for the cart. <a class="label label-info" href="index.html#cart-key">?</a> <i class="label label-info">optional</i></td>
+<td>Unique identifier for the cart. <a class="label label-info" href="#cart-key">?</a> <i class="label label-info">optional</i></td>
 </tr>
 </tbody></table>
-<h3 id='removed-items-properties-http-request'>HTTP request</h3>
+<h3 id='removed-items-parameters-http-request'>HTTP request</h3>
 <div class="api-endpoint">
   <div class="endpoint-data">
     <i class="label label-get">GET</i>
@@ -2507,10 +2570,10 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <aside class="notice">
   You must pass the country code, <strong>NOT</strong> the country name via the <code>country</code> parameter. The same is for the state. Pass the state code, <strong>NOT</strong> the state name via the <code>state</code> parameter.
 </aside>
-<h3 id='shipping-methods-calculate-shipping-properties'>Properties</h3>
+<h2 id='shipping-methods-parameters'>Parameters</h2>
 <table><thead>
 <tr>
-<th>Attribute</th>
+<th>Parameter</th>
 <th>Type</th>
 <th>Description</th>
 </tr>
@@ -2518,8 +2581,17 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <tr>
 <td><code>cart_key</code></td>
 <td>string</td>
-<td>Unique identifier for the cart. <a class="label label-info" href="index.html#cart-key">?</a> <i class="label label-info">optional</i></td>
+<td>Unique identifier for the cart. <a class="label label-info" href="#cart-key">?</a> <i class="label label-info">optional</i></td>
 </tr>
+</tbody></table>
+<h3 id='shipping-methods-parameters-properties'>Properties</h3>
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
 <tr>
 <td><code>country</code></td>
 <td>string</td>
@@ -2546,7 +2618,7 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <td>Set as true to return the shipping methods once calculated. <i class="label label-info">optional</i></td>
 </tr>
 </tbody></table>
-<h4 id='shipping-methods-calculate-shipping-properties-http-request'>HTTP request</h4>
+<h4 id='shipping-methods-parameters-properties-http-request'>HTTP request</h4>
 <div class="api-endpoint">
   <div class="endpoint-data">
     <i class="label label-post">POST</i>
@@ -2634,10 +2706,10 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 </code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="s2">"Shipping costs updated."</span><span class="w">
 </span></code></pre></div><h2 id='shipping-methods-get-shipping-methods'>Get Shipping Methods</h2>
 <p>This API returns all available shipping methods once the customer has <a href="#shipping-methods-calculate-shipping">calculated shipping</a>.</p>
-<h3 id='shipping-methods-get-shipping-methods-properties'>Properties</h3>
+<h2 id='shipping-methods-parameters'>Parameters</h2>
 <table><thead>
 <tr>
-<th>Property</th>
+<th>Parameter</th>
 <th>Type</th>
 <th>Description</th>
 </tr>
@@ -2645,15 +2717,24 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <tr>
 <td><code>cart_key</code></td>
 <td>string</td>
-<td>Unique identifier for the cart. <a class="label label-info" href="index.html#cart-key">?</a> <i class="label label-info">optional</i></td>
+<td>Unique identifier for the cart. <a class="label label-info" href="#cart-key">?</a> <i class="label label-info">optional</i></td>
 </tr>
+</tbody></table>
+<h3 id='shipping-methods-parameters-properties'>Properties</h3>
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
 <tr>
 <td><code>recurring_cart_key</code></td>
 <td>string</td>
 <td>The recurring cart key identifies each subscription in cart. <i class="label label-info">required, only for subscriptions.</i></td>
 </tr>
 </tbody></table>
-<h3 id='shipping-methods-get-shipping-methods-http-request'>HTTP request</h3>
+<h3 id='shipping-methods-parameters-http-request'>HTTP request</h3>
 <div class="api-endpoint">
   <div class="endpoint-data">
     <i class="label label-get">GET</i>
@@ -2740,10 +2821,10 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h2 id='shipping-methods-set-shipping-method'>Set Shipping Method</h2>
 <p>This API applies a shipping method to the cart. Can only apply once the customer has <a href="#shipping-methods-calculate-shipping">calculated shipping</a>.</p>
-<h3 id='shipping-methods-set-shipping-method-properties'>Properties</h3>
+<h2 id='shipping-methods-parameters'>Parameters</h2>
 <table><thead>
 <tr>
-<th>Property</th>
+<th>Parameter</th>
 <th>Type</th>
 <th>Description</th>
 </tr>
@@ -2751,8 +2832,17 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <tr>
 <td><code>cart_key</code></td>
 <td>string</td>
-<td>Unique identifier for the cart. <a class="label label-info" href="index.html#cart-key">?</a> <i class="label label-info">optional</i></td>
+<td>Unique identifier for the cart. <a class="label label-info" href="#cart-key">?</a> <i class="label label-info">optional</i></td>
 </tr>
+</tbody></table>
+<h3 id='shipping-methods-parameters-properties'>Properties</h3>
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
 <tr>
 <td><code>key</code></td>
 <td>string</td>
@@ -2764,7 +2854,7 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <td>The recurring cart key identifies each subscription in cart. <i class="label label-info">required, only for subscriptions.</i></td>
 </tr>
 </tbody></table>
-<h3 id='shipping-methods-set-shipping-method-http-request'>HTTP request</h3>
+<h3 id='shipping-methods-parameters-http-request'>HTTP request</h3>
 <div class="api-endpoint">
   <div class="endpoint-data">
     <i class="label label-post">POST</i>
@@ -2853,10 +2943,10 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 </code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="kc">true</span><span class="w">
 </span></code></pre></div><h1 id='totals'>Totals</h1>
 <p><img src="images/github-633266a3.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v1/pro/_totals.md">Edit on GitHub</a></p>
-<h3 id='totals-set-shipping-method-properties'>Properties</h3>
+<h2 id='totals-parameters'>Parameters</h2>
 <table><thead>
 <tr>
-<th>Property</th>
+<th>Parameter</th>
 <th>Type</th>
 <th>Description</th>
 </tr>
@@ -2864,8 +2954,17 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <tr>
 <td><code>cart_key</code></td>
 <td>string</td>
-<td>Unique identifier for the cart. <a class="label label-info" href="index.html#cart-key">?</a> <i class="label label-info">optional</i></td>
+<td>Unique identifier for the cart. <a class="label label-info" href="#cart-key">?</a> <i class="label label-info">optional</i></td>
 </tr>
+</tbody></table>
+<h3 id='totals-parameters-properties'>Properties</h3>
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
 <tr>
 <td><code>return</code></td>
 <td>bool</td>
@@ -3689,6 +3788,20 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 </aside>
 <h3 id='woocommerce-extensions-mix-and-match-products-add-item-to-cart'>Add item to Cart</h3>
 <p>Once you have setup &quot;<a href="https://woocommerce.com/products/woocommerce-mix-and-match-products/">Mix and Match Products</a>&quot; WooCommerce extension. Here is how you can add a container with the customers selected items and quantity.</p>
+<h3 id='woocommerce-extensions-mix-and-match-products-parameters'>Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>cart_key</code></td>
+<td>string</td>
+<td>Unique identifier for the cart. <a class="label label-info" href="#cart-key">?</a> <i class="label label-info">optional</i></td>
+</tr>
+</tbody></table>
 
 <blockquote>
 <p>Example of adding a Mix and Match Product</p>
@@ -3928,6 +4041,20 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 </aside>
 <h3 id='woocommerce-extensions-name-your-price-add-item-to-cart'>Add item to Cart</h3>
 <p>Once you have setup &quot;<a href="https://woocommerce.com/products/name-your-price/">Name Your Price</a>&quot; for your particular products. Here is how you can apply the customers requested price for the product when adding to cart.</p>
+<h3 id='woocommerce-extensions-name-your-price-parameters'>Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>cart_key</code></td>
+<td>string</td>
+<td>Unique identifier for the cart. <a class="label label-info" href="#cart-key">?</a> <i class="label label-info">optional</i></td>
+</tr>
+</tbody></table>
 
 <blockquote>
 <p>Example of adding an item with a custom price.</p>
@@ -4105,47 +4232,51 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 </ul>
 <h1 id='changelog'>Changelog</h1>
 <p>The Documentation is updated only when needed. Below is the changelog for &quot;CoCart Pro&quot; documentation that matches with the version of the plugin release.</p>
-<h2 id='changelog-doc-version-0-9'>Doc Version 0.9</h2>
+<h2 id='changelog-doc-version-0-10'>Doc Version 0.10</h2>
+<ul>
+<li>Improved: Confusion of parameters and attributes. If both exist for the API they are split into two seperate tables.</li>
+</ul>
+<h3 id='changelog-doc-version-0-10-doc-version-0-9'>Doc Version 0.9</h3>
 <ul>
 <li>Updated: jQuery request examples.</li>
 </ul>
-<h3 id='changelog-doc-version-0-9-doc-version-0-8'>Doc Version 0.8</h3>
+<h3 id='changelog-doc-version-0-10-doc-version-0-8'>Doc Version 0.8</h3>
 <ul>
 <li>NEW: Added the following sections: <strong>Authentication</strong>, <strong>Cart Key</strong> and <strong>Libraries</strong>.</li>
 <li>NEW: Node.js examples added for our official library.</li>
 </ul>
-<h3 id='changelog-doc-version-0-9-doc-version-0-7'>Doc Version 0.7</h3>
+<h3 id='changelog-doc-version-0-10-doc-version-0-7'>Doc Version 0.7</h3>
 <ul>
 <li>NEW: Added the following sections: <strong>Getting Started</strong>, <strong>WooCommerce Extensions</strong>, <strong>wp-config.php</strong> and <strong>Tools</strong>.</li>
 <li>Added link to view list of state codes for calculating shipping.</li>
 <li>Removed <code>&#39;Content-Type: application/json&#39;</code> from cURL examples.</li>
 </ul>
-<h3 id='changelog-doc-version-0-9-doc-version-0-6'>Doc Version 0.6</h3>
+<h3 id='changelog-doc-version-0-10-doc-version-0-6'>Doc Version 0.6</h3>
 <ul>
 <li>Corrected: Minor spelling errors.</li>
 <li>Updated: All API property tables.</li>
 <li>Tweaked: Moved calculating fees, shipping methods and totals under main sections to make it easier for users to find.</li>
 </ul>
-<h3 id='changelog-doc-version-0-9-doc-version-0-5'>Doc Version 0.5</h3>
+<h3 id='changelog-doc-version-0-10-doc-version-0-5'>Doc Version 0.5</h3>
 <ul>
 <li>Added: Cart key parameter to all CoCart Pro API&#39;s for guest carts.</li>
 <li>Updated: Plugin Requirements.</li>
 </ul>
-<h3 id='changelog-doc-version-0-9-doc-version-0-4'>Doc Version 0.4</h3>
+<h3 id='changelog-doc-version-0-10-doc-version-0-4'>Doc Version 0.4</h3>
 <ul>
 <li>NEW: Added links to edit documentation at the top of each section.</li>
 </ul>
-<h3 id='changelog-doc-version-0-9-doc-version-0-3'>Doc Version 0.3</h3>
+<h3 id='changelog-doc-version-0-10-doc-version-0-3'>Doc Version 0.3</h3>
 <ul>
 <li>Added missing documentation for setting payment method.</li>
 <li>Moved Cart Weight under Cart Owner so everything is in order.</li>
 </ul>
-<h3 id='changelog-doc-version-0-9-doc-version-0-2'>Doc Version 0.2</h3>
+<h3 id='changelog-doc-version-0-10-doc-version-0-2'>Doc Version 0.2</h3>
 <ul>
 <li>Added languages for jQuery, PHP and WP API.</li>
 <li>Corrected typo&#39;s.</li>
 </ul>
-<h3 id='changelog-doc-version-0-9-doc-version-0-1-plugin-release-v1-0-0'>Doc Version 0.1 - Plugin Release v1.0.0</h3>
+<h3 id='changelog-doc-version-0-10-doc-version-0-1-plugin-release-v1-0-0'>Doc Version 0.1 - Plugin Release v1.0.0</h3>
 <ul>
 <li>Initial Commit</li>
 </ul>

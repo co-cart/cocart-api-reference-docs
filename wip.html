@@ -289,7 +289,7 @@
   color: #859900;
 }
     </style>
-    <link href="stylesheets/screen-a84b441c.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/screen-c6db4369.css" rel="stylesheet" media="screen" />
     <link href="stylesheets/print-46df3289.css" rel="stylesheet" media="print" />
       <script src="javascripts/all-c0cd2ec7.js"></script>
 
@@ -525,6 +525,9 @@
             <a href="#items-in-cart" class="toc-h1 toc-link" data-title="Items in Cart">Items in Cart</a>
               <ul class="toc-list-h2">
                   <li>
+                    <a href="#items-in-cart-add-item-with-custom-data-properties" class="toc-h2 toc-link" data-title="Properties">Properties</a>
+                  </li>
+                  <li>
                     <a href="#items-in-cart-items" class="toc-h2 toc-link" data-title="Items">Items</a>
                   </li>
                   <li>
@@ -552,6 +555,14 @@
                   </li>
                   <li>
                     <a href="#totals-calculate-cart-totals" class="toc-h2 toc-link" data-title="Calculate Cart Totals">Calculate Cart Totals</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#login" class="toc-h1 toc-link" data-title="Login">Login</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#login-calculate-cart-totals-http-request" class="toc-h2 toc-link" data-title="HTTP request">HTTP request</a>
                   </li>
               </ul>
           </li>
@@ -656,6 +667,14 @@
                   </li>
                   <li>
                     <a href="#woocommerce-extensions-name-your-price" class="toc-h2 toc-link" data-title="Name Your Price">Name Your Price</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#breaking-changes" class="toc-h1 toc-link" data-title="Breaking changes">Breaking changes</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#breaking-changes-cocart-3-0" class="toc-h2 toc-link" data-title="CoCart 3.0">CoCart 3.0</a>
                   </li>
               </ul>
           </li>
@@ -1596,12 +1615,8 @@
 <p>If you use the Basic Authentication method (which you may find the easiest to use for your customers to login with), please make sure that you have SSL enabled when making requests with any of the CoCart API routes. Check out the example adding an item to the cart as a registered customer.</p>
 
 <aside class="notice">
-  Replace the username and password with the customers login details.
+  Replace the username and password with the customers login details. The username can also be the users email address.
 </aside>
-<h3 id='authentication-basic-authentication-steps-to-follow'>Steps to follow</h3>
-<ol>
-<li><a href="https://github.com/WP-API/Basic-Auth">Download and Install Basic Auth plugin</a></li>
-</ol>
 
 <blockquote>
 <p>Adding an item to the cart as a customer.</p>
@@ -1741,6 +1756,8 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <li><a href="https://github.com/Tmeister/wp-api-jwt-auth#configurate-the-secret-key">Configure the Secret Key</a>.</li>
 <li><a href="https://github.com/Tmeister/wp-api-jwt-auth#usage">Get your token</a>.</li>
 </ol>
+
+<p>There are other JWT authentication plugins available but this one appears to be the most commonly used.</p>
 
 <aside class="notice">
   Once you get the token, you must store it somewhere in your application, e.g. in a cookie or using localstorage. From this point, you should pass this token to every CoCart API call.
@@ -1920,7 +1937,43 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 </code></pre></div><div class="highlight"><pre class="highlight php tab-php--wp-http-api"><code><span class="cp">&lt;?php</span>
 <span class="nv">$response</span> <span class="o">=</span> <span class="nf">wp_remote_get</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v2/store'</span> <span class="p">);</span>
 <span class="nv">$body</span> <span class="o">=</span> <span class="nf">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
-</code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code></code></pre></div><h1 id='cart'>Cart</h1>
+</code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-json/cocart/v2/"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My Awesome Swag Store"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Collect my new swag for 2021. Forget about 2020."</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"home_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"language"</span><span class="p">:</span><span class="w"> </span><span class="s2">"en-US"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"gmt_offset"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"timezone_string"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Europe/Paris"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"store_address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Somewhere"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"address_2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"warm"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TimeCity"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FR"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"postcode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11400"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"routes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"cart"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-json/cocart/v2/cart"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"cart-add-item"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-json/cocart/v2/cart/add-item"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"cart-add-items"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-json/cocart/v2/cart/add-items"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"cart-item"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-json/cocart/v2/cart/item"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"cart-items"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-json/cocart/v2/cart/items"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"cart-items-count"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-json/cocart/v2/cart/items/count"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"cart-calculate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-json/cocart/v2/cart/calculate"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"cart-clear"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-json/cocart/v2/cart/clear"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"cart-totals"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-json/cocart/v2/cart/totals"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"login"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-json/cocart/v2/login"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"logout"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/wp-json/cocart/v2/logout"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"_links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"help"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://docs.cocart.xyz/"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h1 id='cart'>Cart</h1>
 <p><img src="images/github-633266a3.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v2/_cart.md">Edit on GitHub</a></p>
 
 <p>The cart API is powerful and allows you to view the customers cart in full detail ready to use the data made available to build and display the cart you want.</p>
@@ -2738,11 +2791,275 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <li><a href="#items-in-cart-remove-item-from-cart">Remove Item from Cart</a></li>
 <li><a href="#items-in-cart-restore-item-to-cart">Restore Item to Cart</a></li>
 </ul>
+<h3 id='items-in-cart-add-item-with-custom-data-properties'>Properties</h3>
+<table><thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>cart_key</code></td>
+<td>string</td>
+<td>Unique identifier for the cart. <a class="label label-info" href="#cart-key">?</a> <i class="label label-info">optional</i></td>
+</tr>
+</tbody></table>
 <h2 id='items-in-cart-items'>Items</h2>
 <p>This API help you view just the items added in the cart.</p>
-<h2 id='items-in-cart-view-a-single-item'>View a Single Item</h2>
+<h3 id='items-in-cart-items-http-request'>HTTP request</h3>
+<div class="api-endpoint">
+  <div class="endpoint-data">
+    <i class="label label-get">GET</i>
+    <h6>/wp-json/cocart/v2/cart/items</h6>
+  </div>
+</div>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET https://example.com/wp-json/cocart/v2/cart/items <span class="se">\</span>
+ <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript--node"><code><span class="nx">CoCart</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="dl">"</span><span class="s2">cart/items</span><span class="dl">"</span><span class="p">)</span>
+<span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">response</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="c1">// Successful request</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Response Status:</span><span class="dl">"</span><span class="p">,</span> <span class="nx">response</span><span class="p">.</span><span class="nx">status</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Response Headers:</span><span class="dl">"</span><span class="p">,</span> <span class="nx">response</span><span class="p">.</span><span class="nx">headers</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Response Data:</span><span class="dl">"</span><span class="p">,</span> <span class="nx">response</span><span class="p">.</span><span class="nx">data</span><span class="p">);</span>
+<span class="p">})</span>
+<span class="p">.</span><span class="k">catch</span><span class="p">((</span><span class="nx">error</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="c1">// Invalid request, for 4xx and 5xx statuses</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Response Status:</span><span class="dl">"</span><span class="p">,</span> <span class="nx">error</span><span class="p">.</span><span class="nx">response</span><span class="p">.</span><span class="nx">status</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Response Headers:</span><span class="dl">"</span><span class="p">,</span> <span class="nx">error</span><span class="p">.</span><span class="nx">response</span><span class="p">.</span><span class="nx">headers</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Response Data:</span><span class="dl">"</span><span class="p">,</span> <span class="nx">error</span><span class="p">.</span><span class="nx">response</span><span class="p">.</span><span class="nx">data</span><span class="p">);</span>
+<span class="p">})</span>
+<span class="p">.</span><span class="k">finally</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="c1">// Always executed.</span>
+<span class="p">});</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript--jquery"><code><span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
+  <span class="na">url</span><span class="p">:</span> <span class="dl">"</span><span class="s2">https://example.com/wp-json/cocart/v2/cart/items</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">method</span><span class="p">:</span> <span class="dl">"</span><span class="s2">GET</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">dataType</span><span class="p">:</span> <span class="dl">"</span><span class="s2">json</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">contentType</span><span class="p">:</span> <span class="dl">"</span><span class="s2">application/json; charset=utf-8</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">complete</span><span class="p">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</code></pre></div><div class="highlight"><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+<span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
+
+<span class="nb">curl_setopt_array</span><span class="p">(</span> <span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+  <span class="no">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v2/cart/items"</span><span class="p">,</span>
+  <span class="no">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"GET"</span><span class="p">,</span>
+  <span class="no">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="no">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
+  <span class="no">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">'Accept: application/json'</span><span class="p">,</span>
+    <span class="s1">'User-Agent: CoCart API/v2'</span><span class="p">,</span>
+  <span class="p">)</span>
+<span class="p">)</span> <span class="p">);</span>
+
+<span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
+
+<span class="nb">curl_close</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
+
+<span class="k">echo</span> <span class="nv">$response</span><span class="p">;</span>
+</code></pre></div><div class="highlight"><pre class="highlight php tab-php--wp-http-api"><code><span class="cp">&lt;?php</span>
+<span class="nv">$response</span> <span class="o">=</span> <span class="nf">wp_remote_get</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v2/cart/items'</span> <span class="p">);</span>
+<span class="nv">$body</span> <span class="o">=</span> <span class="nf">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
+</code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"f28cd9f0560070670a861d86462b8f14"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"item_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f28cd9f0560070670a861d86462b8f14"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">90</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Beanie with Logo"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Beanie with Logo"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"18.00"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"min_purchase"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"max_purchase"</span><span class="p">:</span><span class="w"> </span><span class="mi">-1</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"tax_data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"subtotal"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+            </span><span class="nl">"total"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"totals"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"subtotal"</span><span class="p">:</span><span class="w"> </span><span class="mi">36</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"subtotal_tax"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">36</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"tax"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"beanie-with-logo"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"product_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"simple"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Woo-beanie-logo"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"dimensions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"length"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"width"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"height"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cm"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nl">"weight"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"variation"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"cart_item_data"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="nl">"featured_image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://cocart-dev.local/wp-content/uploads/2021/02/beanie-with-logo-1-324x324.jpg"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"af69a8dc2ae2de6cac18bc4a6a75afa3"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"item_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"af69a8dc2ae2de6cac18bc4a6a75afa3"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">85</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"V-Neck T-Shirt - Blue"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"V-Neck T-Shirt"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"15.00"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"min_purchase"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"max_purchase"</span><span class="p">:</span><span class="w"> </span><span class="mi">-1</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"tax_data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"subtotal"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+            </span><span class="nl">"total"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"totals"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"subtotal"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"subtotal_tax"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"tax"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"v-neck-t-shirt"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"product_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"variation"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"woo-vneck-tee-blue"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"dimensions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"length"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"width"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"height"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cm"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nl">"weight"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"variation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"Color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Blue"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"Size"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Large"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"cart_item_data"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="nl">"featured_image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://cocart-dev.local/wp-content/uploads/2021/02/vnech-tee-blue-1-324x324.jpg"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h2 id='items-in-cart-view-a-single-item'>View a Single Item</h2>
 <p>This API help you view just a single item added in the cart.</p>
-<h2 id='items-in-cart-count-items'>Count Items</h2>
+<h3 id='items-in-cart-view-a-single-item-properties'>Properties</h3>
+<table><thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>cart_key</code></td>
+<td>string</td>
+<td>Unique identifier for the cart. <a class="label label-info" href="#cart-key">?</a> <i class="label label-info">optional</i></td>
+</tr>
+<tr>
+<td><code>item_key</code></td>
+<td>string</td>
+<td>Unique identifier for the item in the cart. <i class="label label-info">mandatory</i></td>
+</tr>
+</tbody></table>
+<h3 id='items-in-cart-view-a-single-item-http-request'>HTTP request</h3>
+<div class="api-endpoint">
+  <div class="endpoint-data">
+    <i class="label label-get">GET</i>
+    <h6>/wp-json/cocart/v2/cart/item/{item_key}</h6>
+  </div>
+</div>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET https://example.com/wp-json/cocart/v2/cart/item/<span class="o">{</span>item_key<span class="o">}</span> <span class="se">\</span>
+ <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript--node"><code><span class="nx">CoCart</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="dl">"</span><span class="s2">cart/item/{item_key}</span><span class="dl">"</span><span class="p">)</span>
+<span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">response</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="c1">// Successful request</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Response Status:</span><span class="dl">"</span><span class="p">,</span> <span class="nx">response</span><span class="p">.</span><span class="nx">status</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Response Headers:</span><span class="dl">"</span><span class="p">,</span> <span class="nx">response</span><span class="p">.</span><span class="nx">headers</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Response Data:</span><span class="dl">"</span><span class="p">,</span> <span class="nx">response</span><span class="p">.</span><span class="nx">data</span><span class="p">);</span>
+<span class="p">})</span>
+<span class="p">.</span><span class="k">catch</span><span class="p">((</span><span class="nx">error</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="c1">// Invalid request, for 4xx and 5xx statuses</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Response Status:</span><span class="dl">"</span><span class="p">,</span> <span class="nx">error</span><span class="p">.</span><span class="nx">response</span><span class="p">.</span><span class="nx">status</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Response Headers:</span><span class="dl">"</span><span class="p">,</span> <span class="nx">error</span><span class="p">.</span><span class="nx">response</span><span class="p">.</span><span class="nx">headers</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Response Data:</span><span class="dl">"</span><span class="p">,</span> <span class="nx">error</span><span class="p">.</span><span class="nx">response</span><span class="p">.</span><span class="nx">data</span><span class="p">);</span>
+<span class="p">})</span>
+<span class="p">.</span><span class="k">finally</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="c1">// Always executed.</span>
+<span class="p">});</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript--jquery"><code><span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
+  <span class="na">url</span><span class="p">:</span> <span class="dl">"</span><span class="s2">https://example.com/wp-json/cocart/v2/cart/item/{item_key}</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">method</span><span class="p">:</span> <span class="dl">"</span><span class="s2">GET</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">dataType</span><span class="p">:</span> <span class="dl">"</span><span class="s2">json</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">contentType</span><span class="p">:</span> <span class="dl">"</span><span class="s2">application/json; charset=utf-8</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">complete</span><span class="p">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</code></pre></div><div class="highlight"><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+<span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
+
+<span class="nb">curl_setopt_array</span><span class="p">(</span> <span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+  <span class="no">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v2/cart/item/</span><span class="si">{</span><span class="nv">item_key</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
+  <span class="no">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"GET"</span><span class="p">,</span>
+  <span class="no">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="no">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
+  <span class="no">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">'Accept: application/json'</span><span class="p">,</span>
+    <span class="s1">'User-Agent: CoCart API/v2'</span><span class="p">,</span>
+  <span class="p">)</span>
+<span class="p">)</span> <span class="p">);</span>
+
+<span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
+
+<span class="nb">curl_close</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
+
+<span class="k">echo</span> <span class="nv">$response</span><span class="p">;</span>
+</code></pre></div><div class="highlight"><pre class="highlight php tab-php--wp-http-api"><code><span class="cp">&lt;?php</span>
+<span class="nv">$response</span> <span class="o">=</span> <span class="nf">wp_remote_get</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v2/cart/item/{item_key}'</span> <span class="p">);</span>
+<span class="nv">$body</span> <span class="o">=</span> <span class="nf">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
+</code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"item_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"af69a8dc2ae2de6cac18bc4a6a75afa3"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">85</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"V-Neck T-Shirt - Blue"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"V-Neck T-Shirt"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"15.00"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"min_purchase"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"max_purchase"</span><span class="p">:</span><span class="w"> </span><span class="mi">-1</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"tax_data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"subtotal"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="nl">"total"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"totals"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"subtotal"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"subtotal_tax"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"tax"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"v-neck-t-shirt"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"product_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"variation"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">"woo-vneck-tee-blue"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"dimensions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"length"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"width"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"height"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cm"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"weight"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"variation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"Color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Blue"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"Size"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Large"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"cart_item_data"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="nl">"featured_image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://cocart-dev.local/wp-content/uploads/2021/02/vnech-tee-blue-1-324x324.jpg"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h2 id='items-in-cart-count-items'>Count Items</h2>
 <p>This API helps you count the items in the cart.</p>
 <h3 id='items-in-cart-count-items-properties'>Properties</h3>
 <table><thead>
@@ -2757,6 +3074,11 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <td>string</td>
 <td>Unique identifier for the cart. <a class="label label-info" href="#cart-key">?</a> <i class="label label-info">optional</i></td>
 </tr>
+<tr>
+<td><code>removed_items</code></td>
+<td>bool</td>
+<td>Set as true to count items removed from the cart. <i class="label label-info">optional</i></td>
+</tr>
 </tbody></table>
 <h3 id='items-in-cart-count-items-http-request'>HTTP request</h3>
 <div class="api-endpoint">
@@ -2767,7 +3089,7 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 </div>
 <div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET https://example.com/wp-json/cocart/v2/cart/items/count <span class="se">\</span>
  <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span>
-</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript--node"><code><span class="nx">CoCart</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="dl">"</span><span class="s2">count-items</span><span class="dl">"</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript--node"><code><span class="nx">CoCart</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="dl">"</span><span class="s2">cart/items/count</span><span class="dl">"</span><span class="p">)</span>
 <span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">response</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
   <span class="c1">// Successful request</span>
   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Response Status:</span><span class="dl">"</span><span class="p">,</span> <span class="nx">response</span><span class="p">.</span><span class="nx">status</span><span class="p">);</span>
@@ -2814,8 +3136,9 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 </code></pre></div><div class="highlight"><pre class="highlight php tab-php--wp-http-api"><code><span class="cp">&lt;?php</span>
 <span class="nv">$response</span> <span class="o">=</span> <span class="nf">wp_remote_get</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v2/cart/items/count'</span> <span class="p">);</span>
 <span class="nv">$body</span> <span class="o">=</span> <span class="nf">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
-</code></pre></div><h2 id='items-in-cart-remove-item-from-cart'>Remove Item from Cart</h2>
-<p><img src="images/github-633266a3.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v2/wip/_cart-remove-item.md">Edit on GitHub</a></p>
+</code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="mi">3</span><span class="w">
+</span></code></pre></div><h2 id='items-in-cart-remove-item-from-cart'>Remove Item from Cart</h2>
+<p><img src="images/github-633266a3.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v2/wip/_cart-item-remove.md">Edit on GitHub</a></p>
 
 <p>This API helps you to remove an item from the cart.</p>
 <h3 id='items-in-cart-remove-item-from-cart-properties'>Properties</h3>
@@ -2846,19 +3169,12 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <div class="api-endpoint">
   <div class="endpoint-data">
     <i class="label label-delete">DELETE</i>
-    <h6>/wp-json/cocart/v2/cart/item</h6>
+    <h6>/wp-json/cocart/v2/cart/item/<item_key></h6>
   </div>
 </div>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> DELETE https://example.com/wp-json/cocart/v2/cart/item <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
-  <span class="nt">-d</span> <span class="s1">'{
-    "item_key": 404dcc91b2aeaa7caa47487d1483e48a
-  }'</span>
-</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript--node"><code><span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="dl">"</span><span class="s2">item_key</span><span class="dl">"</span><span class="p">:</span> <span class="mi">404</span><span class="nx">dcc91b2aeaa7caa47487d1483e48a</span>
-<span class="p">};</span>
-
-<span class="nx">CoCart</span><span class="p">.</span><span class="k">delete</span><span class="p">(</span><span class="dl">"</span><span class="s2">item</span><span class="dl">"</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> DELETE https://example.com/wp-json/cocart/v2/cart/item/&lt;item_key&gt; <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript--node"><code><span class="nx">CoCart</span><span class="p">.</span><span class="k">delete</span><span class="p">(</span><span class="dl">"</span><span class="s2">cart/item/&lt;item_key&gt;</span><span class="dl">"</span><span class="p">)</span>
 <span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">response</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
   <span class="c1">// Successful request</span>
   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Response Status:</span><span class="dl">"</span><span class="p">,</span> <span class="nx">response</span><span class="p">.</span><span class="nx">status</span><span class="p">);</span>
@@ -2875,11 +3191,8 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
   <span class="c1">// Always executed.</span>
 <span class="p">});</span>
 </code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript--jquery"><code><span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
-  <span class="na">url</span><span class="p">:</span> <span class="dl">"</span><span class="s2">https://example.com/wp-json/cocart/v2/cart/item</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span> <span class="dl">"</span><span class="s2">https://example.com/wp-json/cocart/v2/cart/item/&lt;item_key&gt;</span><span class="dl">"</span><span class="p">,</span>
   <span class="na">method</span><span class="p">:</span> <span class="dl">"</span><span class="s2">DELETE</span><span class="dl">"</span><span class="p">,</span>
-  <span class="na">data</span><span class="p">:</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
-    <span class="dl">"</span><span class="s2">item_key</span><span class="dl">"</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">404dcc91b2aeaa7caa47487d1483e48a</span><span class="dl">"</span>
-  <span class="p">}),</span>
   <span class="na">dataType</span><span class="p">:</span> <span class="dl">"</span><span class="s2">json</span><span class="dl">"</span><span class="p">,</span>
   <span class="na">contentType</span><span class="p">:</span> <span class="dl">"</span><span class="s2">application/json; charset=utf-8</span><span class="dl">"</span><span class="p">,</span>
   <span class="na">complete</span><span class="p">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
@@ -2889,14 +3202,9 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 </code></pre></div><div class="highlight"><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
 <span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
 
-<span class="nv">$args</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
-  <span class="s1">'item_key'</span> <span class="o">=&gt;</span> <span class="s1">'404dcc91b2aeaa7caa47487d1483e48a'</span>
-<span class="p">);</span>
-
 <span class="nb">curl_setopt_array</span><span class="p">(</span> <span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
-  <span class="no">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v2/cart/item"</span><span class="p">,</span>
+  <span class="no">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v2/cart/item/&lt;item_key&gt;"</span><span class="p">,</span>
   <span class="no">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"DELETE"</span><span class="p">,</span>
-  <span class="no">CURLOPT_POSTFIELDS</span> <span class="o">=&gt;</span> <span class="nv">$args</span><span class="p">,</span>
   <span class="no">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
   <span class="no">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
   <span class="no">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
@@ -2915,17 +3223,14 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
   <span class="s1">'headers'</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
     <span class="s1">'Content-Type'</span> <span class="o">=&gt;</span> <span class="s1">'application/json; charset=utf-8'</span><span class="p">,</span>
   <span class="p">),</span>
-  <span class="s1">'body'</span> <span class="o">=&gt;</span> <span class="nf">wp_json_encode</span><span class="p">(</span> <span class="p">[</span>
-    <span class="s1">'item_key'</span> <span class="o">=&gt;</span> <span class="s1">'404dcc91b2aeaa7caa47487d1483e48a'</span>
-  <span class="p">]</span> <span class="p">),</span>
   <span class="s1">'method'</span> <span class="o">=&gt;</span> <span class="s1">'DELETE'</span><span class="p">,</span>
   <span class="s1">'timeout'</span> <span class="o">=&gt;</span> <span class="mi">30</span>
 <span class="p">);</span>
 
-<span class="nv">$response</span> <span class="o">=</span> <span class="nf">wp_remote_request</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v2/cart/item'</span><span class="p">,</span> <span class="nv">$args</span> <span class="p">);</span>
+<span class="nv">$response</span> <span class="o">=</span> <span class="nf">wp_remote_request</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v2/cart/item/&lt;item_key&gt;'</span><span class="p">,</span> <span class="nv">$args</span> <span class="p">);</span>
 <span class="nv">$body</span> <span class="o">=</span> <span class="nf">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
 </code></pre></div><h2 id='items-in-cart-restore-item-to-cart'>Restore Item to Cart</h2>
-<p><img src="images/github-633266a3.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v2/_cart-restore-item.md">Edit on GitHub</a></p>
+<p><img src="images/github-633266a3.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v2/_cart-item-restore.md">Edit on GitHub</a></p>
 
 <p>This API helps you to restore an item to the cart.</p>
 <h3 id='items-in-cart-restore-item-to-cart-properties'>Properties</h3>
@@ -2956,19 +3261,12 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <div class="api-endpoint">
   <div class="endpoint-data">
     <i class="label label-get">GET</i>
-    <h6>/wp-json/cocart/v2/cart/item</h6>
+    <h6>/wp-json/cocart/v2/cart/item/<item_key></h6>
     </div>
 </div>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET https://example.com/wp-json/cocart/v2/cart/item <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
-  <span class="nt">-d</span> <span class="s1">'{
-    "item_key": 404dcc91b2aeaa7caa47487d1483e48a
-  }'</span>
-</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript--node"><code><span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="dl">"</span><span class="s2">item_key</span><span class="dl">"</span><span class="p">:</span> <span class="mi">404</span><span class="nx">dcc91b2aeaa7caa47487d1483e48a</span>
-<span class="p">};</span>
-
-<span class="nx">CoCart</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="dl">"</span><span class="s2">item</span><span class="dl">"</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> GET https://example.com/wp-json/cocart/v2/cart/item/&lt;item_key&gt; <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript--node"><code><span class="nx">CoCart</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="dl">"</span><span class="s2">cart/item/&lt;item_key&gt;</span><span class="dl">"</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span>
 <span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">response</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
   <span class="c1">// Successful request</span>
   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Response Status:</span><span class="dl">"</span><span class="p">,</span> <span class="nx">response</span><span class="p">.</span><span class="nx">status</span><span class="p">);</span>
@@ -2985,11 +3283,8 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
   <span class="c1">// Always executed.</span>
 <span class="p">});</span>
 </code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript--jquery"><code><span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
-  <span class="na">url</span><span class="p">:</span> <span class="dl">"</span><span class="s2">https://example.com/wp-json/cocart/v2/cart/item</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span> <span class="dl">"</span><span class="s2">https://example.com/wp-json/cocart/v2/cart/item/&lt;item_key&gt;</span><span class="dl">"</span><span class="p">,</span>
   <span class="na">method</span><span class="p">:</span> <span class="dl">"</span><span class="s2">GET</span><span class="dl">"</span><span class="p">,</span>
-  <span class="na">data</span><span class="p">:</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
-    <span class="dl">"</span><span class="s2">item_key</span><span class="dl">"</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">404dcc91b2aeaa7caa47487d1483e48a</span><span class="dl">"</span>
-  <span class="p">}),</span>
   <span class="na">dataType</span><span class="p">:</span> <span class="dl">"</span><span class="s2">json</span><span class="dl">"</span><span class="p">,</span>
   <span class="na">contentType</span><span class="p">:</span> <span class="dl">"</span><span class="s2">application/json; charset=utf-8</span><span class="dl">"</span><span class="p">,</span>
   <span class="na">complete</span><span class="p">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
@@ -2999,14 +3294,9 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 </code></pre></div><div class="highlight"><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
 <span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
 
-<span class="nv">$args</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
-  <span class="s1">'item_key'</span> <span class="o">=&gt;</span> <span class="s1">'404dcc91b2aeaa7caa47487d1483e48a'</span>
-<span class="p">);</span>
-
 <span class="nb">curl_setopt_array</span><span class="p">(</span> <span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
-  <span class="no">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v2/cart/item"</span><span class="p">,</span>
+  <span class="no">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v2/cart/item/&lt;item_key&gt;"</span><span class="p">,</span>
   <span class="no">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"GET"</span><span class="p">,</span>
-  <span class="no">CURLOPT_POSTFIELDS</span> <span class="o">=&gt;</span> <span class="nv">$args</span><span class="p">,</span>
   <span class="no">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
   <span class="no">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
   <span class="no">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
@@ -3021,18 +3311,18 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 
 <span class="k">echo</span> <span class="nv">$response</span><span class="p">;</span>
 </code></pre></div><div class="highlight"><pre class="highlight php tab-php--wp-http-api"><code><span class="cp">&lt;?php</span>
+<span class="nv">$args</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
   <span class="s1">'headers'</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
     <span class="s1">'Content-Type'</span> <span class="o">=&gt;</span> <span class="s1">'application/json; charset=utf-8'</span><span class="p">,</span>
   <span class="p">),</span>
-  <span class="s1">'body'</span> <span class="o">=&gt;</span> <span class="nf">wp_json_encode</span><span class="p">(</span> <span class="p">[</span>
-    <span class="s1">'item_key'</span> <span class="o">=&gt;</span> <span class="s1">'404dcc91b2aeaa7caa47487d1483e48a'</span>
-  <span class="p">]</span> <span class="p">)</span>
+  <span class="s1">'method'</span> <span class="o">=&gt;</span> <span class="s1">'DELETE'</span><span class="p">,</span>
+  <span class="s1">'timeout'</span> <span class="o">=&gt;</span> <span class="mi">30</span>
 <span class="p">);</span>
 
-<span class="nv">$response</span> <span class="o">=</span> <span class="nf">wp_remote_get</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v2/cart/item'</span><span class="p">,</span> <span class="nv">$args</span> <span class="p">);</span>
+<span class="nv">$response</span> <span class="o">=</span> <span class="nf">wp_remote_get</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v2/cart/item/&lt;item_key&gt;'</span><span class="p">,</span> <span class="nv">$args</span> <span class="p">);</span>
 <span class="nv">$body</span> <span class="o">=</span> <span class="nf">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
 </code></pre></div><h2 id='items-in-cart-update-item-in-cart'>Update Item in Cart</h2>
-<p><img src="images/github-633266a3.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v2/wip/_cart-update-item.md">Edit on GitHub</a></p>
+<p><img src="images/github-633266a3.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v2/wip/_cart-item-update.md">Edit on GitHub</a></p>
 
 <p>This API helps you to update an item in the cart.</p>
 <h3 id='items-in-cart-update-item-in-cart-properties'>Properties</h3>
@@ -3068,21 +3358,19 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <div class="api-endpoint">
   <div class="endpoint-data">
     <i class="label label-post">POST</i>
-    <h6>/wp-json/cocart/v2/cart/item</h6>
+    <h6>/wp-json/cocart/v2/cart/item/<item_key></h6>
   </div>
 </div>
-<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST https://example.com/wp-json/cocart/v2/cart/item <span class="se">\</span>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST https://example.com/wp-json/cocart/v2/cart/item/&lt;item_key&gt; <span class="se">\</span>
   <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
   <span class="nt">-d</span> <span class="s1">'{
-    "item_key": "404dcc91b2aeaa7caa47487d1483e48a",
     "quantity": 2
   }'</span>
 </code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript--node"><code><span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="dl">"</span><span class="s2">item_key</span><span class="dl">"</span><span class="p">:</span> <span class="mi">404</span><span class="nx">dcc91b2aeaa7caa47487d1483e48a</span><span class="p">,</span>
   <span class="dl">"</span><span class="s2">quantity</span><span class="dl">"</span><span class="p">:</span> <span class="mi">2</span>
 <span class="p">};</span>
 
-<span class="nx">CoCart</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="dl">"</span><span class="s2">item</span><span class="dl">"</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span>
+<span class="nx">CoCart</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="dl">"</span><span class="s2">cart/item/&lt;item_key&gt;</span><span class="dl">"</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span>
 <span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">response</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
   <span class="c1">// Successful request</span>
   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Response Status:</span><span class="dl">"</span><span class="p">,</span> <span class="nx">response</span><span class="p">.</span><span class="nx">status</span><span class="p">);</span>
@@ -3099,10 +3387,9 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
   <span class="c1">// Always executed.</span>
 <span class="p">});</span>
 </code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript--jquery"><code><span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
-  <span class="na">url</span><span class="p">:</span> <span class="dl">"</span><span class="s2">https://example.com/wp-json/cocart/v2/cart/item</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">url</span><span class="p">:</span> <span class="dl">"</span><span class="s2">https://example.com/wp-json/cocart/v2/cart/item/&lt;item_key&gt;</span><span class="dl">"</span><span class="p">,</span>
   <span class="na">method</span><span class="p">:</span> <span class="dl">"</span><span class="s2">POST</span><span class="dl">"</span><span class="p">,</span>
   <span class="na">data</span><span class="p">:</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
-    <span class="dl">"</span><span class="s2">item_key</span><span class="dl">"</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">404dcc91b2aeaa7caa47487d1483e48a</span><span class="dl">"</span><span class="p">,</span>
     <span class="dl">"</span><span class="s2">quantity</span><span class="dl">"</span> <span class="p">:</span> <span class="mi">2</span>
   <span class="p">}),</span>
   <span class="na">dataType</span><span class="p">:</span> <span class="dl">"</span><span class="s2">json</span><span class="dl">"</span><span class="p">,</span>
@@ -3115,12 +3402,11 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
 
 <span class="nv">$args</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
-  <span class="s1">'item_key'</span> <span class="o">=&gt;</span> <span class="s1">'404dcc91b2aeaa7caa47487d1483e48a'</span><span class="p">,</span>
   <span class="s1">'quantity'</span> <span class="o">=&gt;</span> <span class="mi">2</span>
 <span class="p">);</span>
 
 <span class="nb">curl_setopt_array</span><span class="p">(</span> <span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
-  <span class="no">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v2/cart/item"</span><span class="p">,</span>
+  <span class="no">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v2/cart/item/&lt;item_key&gt;"</span><span class="p">,</span>
   <span class="no">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"POST"</span><span class="p">,</span>
   <span class="no">CURLOPT_POSTFIELDS</span> <span class="o">=&gt;</span> <span class="nv">$args</span><span class="p">,</span>
   <span class="no">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
@@ -3142,13 +3428,12 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
     <span class="s1">'Content-Type'</span> <span class="o">=&gt;</span> <span class="s1">'application/json; charset=utf-8'</span><span class="p">,</span>
   <span class="p">),</span>
   <span class="s1">'body'</span> <span class="o">=&gt;</span> <span class="nf">wp_json_encode</span><span class="p">(</span> <span class="p">[</span>
-    <span class="s1">'item_key'</span> <span class="o">=&gt;</span> <span class="s1">'404dcc91b2aeaa7caa47487d1483e48a'</span><span class="p">,</span>
     <span class="s1">'quantity'</span> <span class="o">=&gt;</span> <span class="mi">2</span>
   <span class="p">]</span> <span class="p">),</span>
   <span class="s1">'timeout'</span> <span class="o">=&gt;</span> <span class="mi">30</span>
 <span class="p">);</span>
 
-<span class="nv">$response</span> <span class="o">=</span> <span class="nf">wp_remote_post</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v2/cart/item'</span><span class="p">,</span> <span class="nv">$args</span> <span class="p">);</span>
+<span class="nv">$response</span> <span class="o">=</span> <span class="nf">wp_remote_post</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v2/cart/item/&lt;item_key&gt;'</span><span class="p">,</span> <span class="nv">$args</span> <span class="p">);</span>
 <span class="nv">$body</span> <span class="o">=</span> <span class="nf">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
 </code></pre></div><h1 id='totals'>Totals</h1>
 <p><img src="images/github-633266a3.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v2/wip/_cart-totals.md">Edit on GitHub</a></p>
@@ -3402,6 +3687,72 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <span class="nv">$response</span> <span class="o">=</span> <span class="nf">wp_remote_post</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v2/calculate'</span> <span class="p">);</span>
 <span class="nv">$body</span> <span class="o">=</span> <span class="nf">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
 </code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="s2">"Cart totals have been calculated."</span><span class="w">
+</span></code></pre></div><h1 id='login'>Login</h1>
+<p><img src="images/github-633266a3.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v2/wip/_login.md">Edit on GitHub</a></p>
+
+<p>This API requires <a href="#authentication">authentication</a> and returns basic information about the user logged in.</p>
+<h3 id='login-calculate-cart-totals-http-request'>HTTP request</h3>
+<div class="api-endpoint">
+  <div class="endpoint-data">
+    <i class="label label-post">POST</i>
+    <h6>/wp-json/cocart/v2/login</h6>
+  </div>
+</div>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST https://example.com/wp-json/cocart/v2/login <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript--node"><code><span class="nx">CoCart</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="dl">"</span><span class="s2">login</span><span class="dl">"</span><span class="p">)</span>
+<span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">response</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="c1">// Successful request</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Response Status:</span><span class="dl">"</span><span class="p">,</span> <span class="nx">response</span><span class="p">.</span><span class="nx">status</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Response Headers:</span><span class="dl">"</span><span class="p">,</span> <span class="nx">response</span><span class="p">.</span><span class="nx">headers</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Response Data:</span><span class="dl">"</span><span class="p">,</span> <span class="nx">response</span><span class="p">.</span><span class="nx">data</span><span class="p">);</span>
+<span class="p">})</span>
+<span class="p">.</span><span class="k">catch</span><span class="p">((</span><span class="nx">error</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="c1">// Invalid request, for 4xx and 5xx statuses</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Response Status:</span><span class="dl">"</span><span class="p">,</span> <span class="nx">error</span><span class="p">.</span><span class="nx">response</span><span class="p">.</span><span class="nx">status</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Response Headers:</span><span class="dl">"</span><span class="p">,</span> <span class="nx">error</span><span class="p">.</span><span class="nx">response</span><span class="p">.</span><span class="nx">headers</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Response Data:</span><span class="dl">"</span><span class="p">,</span> <span class="nx">error</span><span class="p">.</span><span class="nx">response</span><span class="p">.</span><span class="nx">data</span><span class="p">);</span>
+<span class="p">})</span>
+<span class="p">.</span><span class="k">finally</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="c1">// Always executed.</span>
+<span class="p">});</span>
+</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript--jquery"><code><span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
+  <span class="na">url</span><span class="p">:</span> <span class="dl">"</span><span class="s2">https://example.com/wp-json/cocart/v2/login</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">method</span><span class="p">:</span> <span class="dl">"</span><span class="s2">POST</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">dataType</span><span class="p">:</span> <span class="dl">"</span><span class="s2">json</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">contentType</span><span class="p">:</span> <span class="dl">"</span><span class="s2">application/json; charset=utf-8</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">complete</span><span class="p">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</code></pre></div><div class="highlight"><pre class="highlight php tab-php"><code><span class="cp">&lt;?php</span>
+<span class="nv">$curl</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
+
+<span class="nb">curl_setopt_array</span><span class="p">(</span> <span class="nv">$curl</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+  <span class="no">CURLOPT_URL</span> <span class="o">=&gt;</span> <span class="s2">"https://example.com/wp-json/cocart/v2/login"</span><span class="p">,</span>
+  <span class="no">CURLOPT_CUSTOMREQUEST</span> <span class="o">=&gt;</span> <span class="s2">"POST"</span><span class="p">,</span>
+  <span class="no">CURLOPT_RETURNTRANSFER</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="no">CURLOPT_TIMEOUT</span> <span class="o">=&gt;</span> <span class="mi">30</span><span class="p">,</span>
+  <span class="no">CURLOPT_HTTPHEADER</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">'Accept: application/json'</span><span class="p">,</span>
+    <span class="s1">'User-Agent: CoCart API/v2'</span><span class="p">,</span>
+  <span class="p">)</span>
+<span class="p">)</span> <span class="p">);</span>
+
+<span class="nv">$response</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
+
+<span class="nb">curl_close</span><span class="p">(</span><span class="nv">$curl</span><span class="p">);</span>
+
+<span class="k">echo</span> <span class="nv">$response</span><span class="p">;</span>
+</code></pre></div><div class="highlight"><pre class="highlight php tab-php--wp-http-api"><code><span class="cp">&lt;?php</span>
+<span class="nv">$response</span> <span class="o">=</span> <span class="nf">wp_remote_post</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v2/login'</span> <span class="p">);</span>
+<span class="nv">$body</span> <span class="o">=</span> <span class="nf">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
+</code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5143"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sebastien"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"role"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Customer"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"dev_note"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Don't forget to store the users login information in order to authenticate all other routes with CoCart."</span><span class="w">
+</span><span class="p">}</span><span class="w">
 </span></code></pre></div><h1 id='logout'>Logout</h1>
 <p><img src="images/github-633266a3.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v2/wip/_logout.md">Edit on GitHub</a></p>
 
@@ -4913,7 +5264,24 @@ You must have <strong>WP_DEBUG</strong> enabled in your <i>wp-config.php</i> fil
     </span><span class="nl">"product_title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Name your price"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"product_price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"£24.00"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h1 id='libraries'>Libraries</h1>
+</span></code></pre></div><h1 id='breaking-changes'>Breaking changes</h1>
+<p><img src="images/github-633266a3.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v2/wip/_breaking-changes.md">Edit on GitHub</a></p>
+
+<p>New major versions typically involve some backwards incompatible changes. If you use custom integrations with the API, you should also expect things to change when switching between API versions.</p>
+<h2 id='breaking-changes-cocart-3-0'>CoCart 3.0</h2>
+<p>CoCart 3.0 focuses on bringing a new flow experience to help development for headless ecommerce be better than ever before. There are a few changes.</p>
+
+<p>One of the biggest changes is to return the cart updated in most of the API endpoints available.</p>
+
+<ul>
+<li>New <code>/v2/</code> API version have been added.</li>
+<li>The <code>/v1/</code> (maintenance) endpoints will not recieve any further changes.</li>
+<li>Getting a specific cart in session publically will no longer be possible.</li>
+<li>Adding a variation of a variable product no longer requires the need to pass the parent ID via the <code>product_id</code> parameter. <code>product_id</code> is now <code>id</code> and <code>variation_id</code> is now deprecated. You now just pass the variation ID via <code>id</code>.</li>
+<li>The <code>quantity</code> parameter when adding a product must now be passed as a string. This allows for better validation on the server side due to WordPress REST API validation callback limits.</li>
+<li>The featured image of the item in cart returns by default. Now the parameter is used to not return it.</li>
+</ul>
+<h1 id='libraries'>Libraries</h1>
 <p><img src="images/github-633266a3.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart-docs/blob/master/source/includes/_libraries.md">Edit on GitHub</a></p>
 
 <ul>
@@ -4960,9 +5328,15 @@ You must have <strong>WP_DEBUG</strong> enabled in your <i>wp-config.php</i> fil
 <h1 id='changelog'>Changelog</h1>
 <p>The changelog below will provide updates on what is being worked on and the outcome of these features been added to future releases. Checkout the <a href="https://cocart.xyz/news/">CoCart blog</a> for updates on new coming releases. Feedback is always appreciated. 😄</p>
 <h2 id='changelog-v3-0-0'>v3.0.0</h2>
-<blockquote>
-<p>Documentation for previewing v3.0.0 is underway.</p>
-</blockquote>
+<ul>
+<li>🚋 <strong>NEW</strong>: API routes with better cart response.</li>
+<li>🔑 <strong>NEW</strong>: <a href="#authentication-basic-authentication">Basic Authentication</a> now built in with the ability to authenticate via email instead of username. 🥳</li>
+<li>🔒 <strong>NEW</strong>: Each route can be forced to check if the user (meaning only a logged in user) has permission to use the API.</li>
+<li>Tweaked: Cart key now returns in the cart response the first time round. 🥳</li>
+<li>Tweaked: Cart session now stores when the cart was created, it&#39;s source and hash.</li>
+</ul>
+
+<p><a href="#breaking-changes">See breaking changes</a> for more details.</p>
 
       </div>
       <div class="dark-box">
