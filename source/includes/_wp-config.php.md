@@ -21,7 +21,7 @@ define( 'COCART_REMOVE_ALL_DATA', true );
 
 ## White Labelling ##
 
-If you are developing a headless store for a client and need to hide CoCart. Enabling white label mode comes in handy if that is something your would want.
+If you are developing a headless store for a client and need to hide CoCart. Enabling white label mode comes in handy if that is something you would want.
 
 Enabling this hides CoCart completely from the backend including the admin menu, plugin row links, plugin notices, WooCommerce inbox notices and WooCommerce System Status information.
 
