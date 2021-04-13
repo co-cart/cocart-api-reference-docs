@@ -20,6 +20,10 @@ Each item added to the cart has it's on cart item key and you will find it under
 
 The cart key (if not manually set), can be found via a few methods. [See cart key section](#cart-key) for more details.
 
+## Why am I not seeing the X-COCART-API header returning? ##
+
+If this header is not returning then you need to enable CORS so that the header is exposed. Either enable CORS support via [the filter](index.html#filters-api-access-cors-allow-all-cross-origin-headers) or simply [install CoCart CORS plugin](https://wordpress.org/plugins/cocart-cors/) for quick activation.
+
 ## After adding a product to cart, the cart still returns empty. Why? ##
 
 This happens because the framework your using does not support cookies so it has no way to store the cart key of the cart that was created when you added the product. Without the cart key, the cart cannot be identified to load.
