@@ -12,12 +12,12 @@ For guest customers, the cart key is randomly generated of <strong>42 characters
 
 ## Accessing the Cart Key ##
 
-If cookies don't work for you due to the limitations of the framework your using to build with, then don't worry. The cart key created for the customer is returned via the returned headers once the first API request has been made. This is helpful for supporting guest customers.
+If cookies don't work for you due to the limitations of the framework your using to build with, then don't worry. The cart key created for the customer is returned via the returned headers once the first item is added to the cart.
 
-Look for `X-CoCart-API` and you will see the value of the cart key returned. You can then use this to set any of the CoCart API to load this cart when required using the `cart_key` parameter.
+Look for `X-CoCart-API` and you will see the value of the cart key returned. You can then use this to set all future CoCart API requests to load this cart when required using the global `cart_key` parameter.
 
 <aside class="warning">
-    The <code>cart_key</code> parameter is a global parameter so it must be queried rather than being added as part of the data you send with the API request you make. Otherwise it will not update the cart.
+    The <code>cart_key</code> parameter is a global parameter so it must be queried rather than being added as part of the data you send with the API request you make. Otherwise it will not update the cart. You don't however use this parameter when authenticating. An authenticated request will override the use of the cart key.
 </aside>
 
 ## Cart Key in Cart Response ##
