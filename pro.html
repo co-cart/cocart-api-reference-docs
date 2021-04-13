@@ -1094,12 +1094,12 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 
 <p>For guest customers, the cart key is randomly generated of <strong>42 characters</strong>. This is the database limit.</p>
 <h2 id='cart-key-accessing-the-cart-key'>Accessing the Cart Key</h2>
-<p>If cookies don&#39;t work for you due to the limitations of the framework your using to build with, then don&#39;t worry. The cart key created for the customer is returned via the returned headers once the first API request has been made. This is helpful for supporting guest customers.</p>
+<p>If cookies don&#39;t work for you due to the limitations of the framework your using to build with, then don&#39;t worry. The cart key created for the customer is returned via the returned headers once the first item is added to the cart.</p>
 
-<p>Look for <code>X-CoCart-API</code> and you will see the value of the cart key returned. You can then use this to set any of the CoCart API to load this cart when required using the <code>cart_key</code> parameter.</p>
+<p>Look for <code>X-CoCart-API</code> and you will see the value of the cart key returned. You can then use this to set all future CoCart API requests to load this cart when required using the global <code>cart_key</code> parameter.</p>
 
 <aside class="warning">
-    The <code>cart_key</code> parameter is a global parameter so it must be queried rather than being added as part of the data you send with the API request you make. Otherwise it will not update the cart.
+    The <code>cart_key</code> parameter is a global parameter so it must be queried rather than being added as part of the data you send with the API request you make. Otherwise it will not update the cart. You don't however use this parameter when authenticating. An authenticated request will override the use of the cart key.
 </aside>
 <h2 id='cart-key-cart-key-in-cart-response'>Cart Key in Cart Response</h2>
 <p>It&#39;s also possible to return the cart key when you <a href="#get-cart">get the cart</a>. Simply download and activate the <a href="#cocart-add-ons-get-cart-enhanced">Get Cart Enhanced add-on plugin</a> and the cart key is returned along with other enhancements in the response.</p>

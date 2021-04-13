@@ -412,6 +412,9 @@
                     <a href="#knowledge-base-where-can-i-find-the-cart-key" class="toc-h2 toc-link" data-title="Where can I find the cart key?">Where can I find the cart key?</a>
                   </li>
                   <li>
+                    <a href="#knowledge-base-why-am-i-not-seeing-the-x-cocart-api-header-returning" class="toc-h2 toc-link" data-title="Why am I not seeing the X-COCART-API header returning?">Why am I not seeing the X-COCART-API header returning?</a>
+                  </li>
+                  <li>
                     <a href="#knowledge-base-after-adding-a-product-to-cart-the-cart-still-returns-empty-why" class="toc-h2 toc-link" data-title="After adding a product to cart, the cart still returns empty. Why?">After adding a product to cart, the cart still returns empty. Why?</a>
                   </li>
                   <li>
@@ -1565,6 +1568,8 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h2 id='knowledge-base-where-can-i-find-the-cart-key'>Where can I find the cart key?</h2>
 <p>The cart key (if not manually set), can be found via a few methods. <a href="#cart-key">See cart key section</a> for more details.</p>
+<h2 id='knowledge-base-why-am-i-not-seeing-the-x-cocart-api-header-returning'>Why am I not seeing the X-COCART-API header returning?</h2>
+<p>If this header is not returning then you need to enable CORS so that the header is exposed. Either enable CORS support via <a href="./#filters-api-access-cors-allow-all-cross-origin-headers">the filter</a> or simply <a href="https://wordpress.org/plugins/cocart-cors/">install CoCart CORS plugin</a> for quick activation.</p>
 <h2 id='knowledge-base-after-adding-a-product-to-cart-the-cart-still-returns-empty-why'>After adding a product to cart, the cart still returns empty. Why?</h2>
 <p>This happens because the framework your using does not support cookies so it has no way to store the cart key of the cart that was created when you added the product. Without the cart key, the cart cannot be identified to load.</p>
 
