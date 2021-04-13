@@ -10,6 +10,7 @@ Using the individual endpoints and their properties, you can control what you ne
  * [Get Cart using Cart Key](#get-cart-get-cart-using-cart-key)
  * [Retrieve a Cart in Session](#get-cart-retrieve-a-cart-in-session)
  * [Clear Cart](#get-cart-clear-cart)
+ * [Merge Carts](#get-cart-merge-carts)
 
 ## Get Cart Contents ##
 
@@ -443,4 +444,117 @@ $body = wp_remote_retrieve_body( $response );
     "product_price": "£18"
   }
 }
+```
+
+## Merge Carts ##
+
+Wish to merge items from a guest customers cart with a registered customers cart? Then when fetching the cart, you must [authenticate](#authentication) as the registered customer and set the guests customers cart key.
+
+<aside class="notice">
+This request can only be done once so remember to remove the cart key when fetching the cart again. Once the guest customers cart has merged with the registered customers cart. The previous cart will be destroyed.
+</aside>
+
+### Parameters ###
+
+| Parameter  | Type   | Description                                                                                                                 |
+| ---------- | ------ | --------------------------------------------------------------------------------------------------------------------------- |
+| `cart_key` | string | Unique identifier for the cart. <a class="label label-info" href="#cart-key">?</a> <i class="label label-info">optional</i> |
+
+### Properties ###
+
+| Attribute | Type | Description                                                |
+| --------- | ---- | ---------------------------------------------------------- |
+| `thumb`   | bool | Set as true to return the product thumbnail for each item. |
+
+### HTTP request ###
+
+<div class="api-endpoint">
+  <div class="endpoint-data">
+    <i class="label label-get">GET</i>
+    <h6>/wp-json/cocart/v1/get-cart?cart_key=&#60;cart_key&#62;</h6>
+  </div>
+</div>
+
+```shell
+curl -X GET https://example.com/wp-json/cocart/v1/get-cart?cart_key=<cart_key> \
+  -u username:password \
+  -H "Content-Type: application/json"
+```
+
+```javascript--node
+// import CoCartAPI from "@cocart/cocart-rest-api"; // Supports ESM
+const CoCartAPI = require("@cocart/cocart-rest-api").default;
+ 
+const CoCart = new CoCartAPI({
+  url: "https://example.com",
+  consumerKey: 'sebtest123',
+  consumerSecret: 'happycoding24'
+});
+
+CoCart.get("get-cart?cart_key=<cart_key>")
+.then((response) => {
+  // Successful request
+  console.log("Response Status:", response.status);
+  console.log("Response Headers:", response.headers);
+  console.log("Response Data:", response.data);
+})
+.catch((error) => {
+  // Invalid request, for 4xx and 5xx statuses
+  console.log("Response Status:", error.response.status);
+  console.log("Response Headers:", error.response.headers);
+  console.log("Response Data:", error.response.data);
+})
+.finally(() => {
+  // Always executed.
+});
+```
+
+```javascript--jquery
+$.ajax({
+  url: "https://example.com/wp-json/cocart/v1/get-cart?cart_key=<cart_key>",
+  headers: {
+      "Authorization": "Basic " + btoa('username:password'),
+  },
+  method: "GET",
+  dataType: "json",
+  contentType: "application/json; charset=utf-8",
+  complete: function (response) {
+    console.log(response);
+  }
+});
+```
+
+```php
+<?php
+$curl = curl_init();
+
+curl_setopt_array( $curl, array(
+  CURLOPT_URL => "https://example.com/wp-json/cocart/v1/get-cart?cart_key=<cart_key>",
+  CURLOPT_CUSTOMREQUEST => "GET",
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_TIMEOUT => 30,
+  CURLOPT_HTTPHEADER => array(
+    'Accept: application/json',
+    'User-Agent: CoCart API/v1',
+    'Authorization: Basic ' . base64_encode($username . ':' . $password)
+  )
+) );
+
+$response = curl_exec($curl);
+
+curl_close($curl);
+
+echo $response;
+```
+
+```php--wp-http-api
+<?php
+$args = array(
+  'headers' => array(
+    'Authorization' => 'Basic ' . base64_encode( 'username:password' ),
+  ),
+);
+
+$response = wp_remote_get( 'https://example.com/wp-json/cocart/v1/get-cart?cart_key=<cart_key>', $args );
+$body = wp_remote_retrieve_body( $response );
 ```
