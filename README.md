@@ -38,4 +38,18 @@ vagrant up
 
 You can now see the docs at http://localhost:4567.
 
+## CoCart Channels
+
+We have different channels at your disposal where you can find information about the CoCart project, discuss it and get involved:
+
+[![Twitter: cart_co](https://img.shields.io/twitter/follow/cart_co?style=social)](https://twitter.com/cart_co) [![CoCart JS Lib Github Stars](https://img.shields.io/github/stars/co-cart/co-cart-docs?style=social)](https://github.com/co-cart/co-cart-docs)
+
+<ul>
+  <li>📖 <strong>Docs</strong>: this is the place to learn how to build amazing sites with CoCart. <a href="https://docs.cocart.xyz/#getting-started">Get started!</a></li>
+  <li>👪 <strong>Community</strong>: use our Slack chat room to share any doubts, feedback and meet great people. This is your place too to share <a href="https://cocart.xyz/community/">how are you planning to use CoCart!</a></li>
+  <li>🐞 <strong>GitHub</strong>: we use GitHub for bugs and pull requests, doubts are solved with the community.</li>
+  <li>🐦 <strong>Social media</strong>: a more informal place to interact with CoCart users, reach out to us on <a href="https://twitter.com/cart_co">Twitter.</a></li>
+  <li>💌 <strong>Newsletter</strong>: do you want to receive the latest plugin updates and news? Subscribe <a href="https://twitter.com/cart_co">here.</a></li>
+</ul>
+
 > The documentation is powered by [Slate](https://github.com/lord/slate).
