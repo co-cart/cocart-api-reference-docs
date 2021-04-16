@@ -2,6 +2,32 @@
 
 <img src="images/github.svg" width="20" height="20" alt="GitHub Mark Logo"> [Edit on GitHub](https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v1/_knowledge-base.md)
 
+## Cart returns empty after adding items. Why? ##
+
+As a guest customer, this is normally because the framework your using does not support cookies so it is unable to read the required cookie to load the cart on the next API request.
+
+[Read this guide on how to create a cart](https://cocart.xyz/how-to-create-a-cart/?utm_medium=docs.cocart.xyz&utm_source=docs&utm_content=cocart-docs) and keep using the same one.
+
+If the cart returns empty while your authenticated then contact me so that I may be able to help.
+
+## I added several products but only 1 item returns in cart. Why? ##
+
+As a guest customer, this is possibly because you did not store the cart key after the first item was added  and set it on future API requests. So all your seeing is the last item added to the cart.
+
+[Read this guide on how to create a cart](https://cocart.xyz/how-to-create-a-cart/?utm_medium=docs.cocart.xyz&utm_source=docs&utm_content=cocart-docs) and keep using the same one.
+
+## Can I create and update a cart without cookies? ##
+
+Yes you can. [See cart key section](#cart-key) for more details.
+
+## Where can I find the cart key? ##
+
+The cart key (if not manually set), can be found via a few methods. [See cart key section](#cart-key) for more details.
+
+## Why am I not seeing the X-COCART-API header returning? ##
+
+If this header is not returning then you need to enable CORS so that the header is exposed. Either enable CORS support via [the filter](index.html#filters-api-access-cors-allow-all-cross-origin-headers) or simply [install CoCart CORS plugin](https://wordpress.org/plugins/cocart-cors/) for quick activation.
+
 ## Where can I find a cart item key? ##
 
 Each item added to the cart has it's on cart item key and you will find it under the property labelled **"key"**. Use it to update, remove or restore an item in/from the cart.
@@ -16,33 +42,11 @@ Each item added to the cart has it's on cart item key and you will find it under
 }
 ```
 
-## Where can I find the cart key? ##
-
-The cart key (if not manually set), can be found via a few methods. [See cart key section](#cart-key) for more details.
-
-## Why am I not seeing the X-COCART-API header returning? ##
-
-If this header is not returning then you need to enable CORS so that the header is exposed. Either enable CORS support via [the filter](index.html#filters-api-access-cors-allow-all-cross-origin-headers) or simply [install CoCart CORS plugin](https://wordpress.org/plugins/cocart-cors/) for quick activation.
-
-## After adding a product to cart, the cart still returns empty. Why? ##
-
-This happens because the framework your using does not support cookies so it has no way to store the cart key of the cart that was created when you added the product. Without the cart key, the cart cannot be identified to load.
-
-Either add/install cookie support for that framework or use the [cart key](#cart-key) parameter to manually set one yourself.
-
-## Why are cart items merged? ##
-
-If you mean between two or more customers. This is most likely because you tested the API with one of the [tools](#tools) available and did not reset before testing as another customer.
-
-For example, you started customer "A" as a guest adding an item to the cart. You then added another item while authenticating (logging in) as customer "B" without clearing the session cookie.
-
-When you do this, WooCommerce thinks you are still the same customer so it merges the cart items together for customer "B" while customer "A" is removed from session as it is no longer a guest customer.
-
-## Is it possible to use the admin key/secret to create and update a customers cart? ##
+## As admininstator can I create and update a customers cart? ##
 
 Unfortunately, no. This is because when you authenticate as the admin, you are logged in not the customer. Even if you specified the customers user ID as the cart key. It will not take affect.
 
-## How can I view logs recorded ? ##
+## How can I view debug logs recorded ? ##
 
 If you have **WP_DEBUG** set to `true` in your [wp-config.php](#wp-config-php) file then you should be able to view all the logs recorded by CoCart under **WooCommerce -> System Status -> Logs** in your WordPress dashboard.
 
