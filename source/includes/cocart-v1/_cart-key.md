@@ -20,6 +20,8 @@ Look for `X-CoCart-API` and you will see the value of the cart key returned. You
     The <code>cart_key</code> parameter is a global parameter so it must be queried rather than being added as part of the data you send with the API request you make. Otherwise it will not update the cart. You don't however use this parameter when authenticating. An authenticated request will override the use of the cart key.
 </aside>
 
-## Cart Key in Cart Response ##
+[Read this guide on how to create a cart](https://cocart.xyz/how-to-create-a-cart/?utm_medium=docs.cocart.xyz&utm_source=docs&utm_content=cocart-docs) and keep using the same one.
+
+### Cart Key in Cart Response ###
 
 It's also possible to return the cart key when you [get the cart](#get-cart). Simply download and activate the [Get Cart Enhanced add-on plugin](#cocart-add-ons-get-cart-enhanced) and the cart key is returned along with other enhancements in the response.
