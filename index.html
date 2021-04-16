@@ -476,6 +476,9 @@
               </ul>
           </li>
           <li>
+            <a href="#products" class="toc-h1 toc-link" data-title="Products">Products</a>
+          </li>
+          <li>
             <a href="#get-cart" class="toc-h1 toc-link" data-title="Get Cart">Get Cart</a>
               <ul class="toc-list-h2">
                   <li>
@@ -710,13 +713,13 @@
         <h1 id='introduction'>Introduction</h1>
 <p><img src="images/github-633266a3.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v1/_introduction.md">Edit on GitHub</a></p>
 
-<p>Welcome to the documentation site for CoCart, the free  open-source WordPress plugin that brings the power of WooCommerce&#39;s shopping cart via the REST API. If you haven&#39;t already, <a href="https://cocart.xyz/features/">checkout the features</a> CoCart support.</p>
+<p>Welcome to the documentation site for CoCart, the free  open-source WordPress plugin that brings the power of WooCommerce&#39;s shopping cart via the REST API. If you haven&#39;t already, <a href="https://cocart.xyz/features/?utm_medium=docs.cocart.xyz&amp;utm_source=docs&amp;utm_content=cocart-docs">checkout the features</a> CoCart support.</p>
 
 <p>CoCart helps you manage shopping carts in any modern framework of your choosing. No local storing required. A powerful RESTful API that offers an integration to build your headless store with ease.</p>
 <h2 id='introduction-what-is-a-rest-api'>What is a REST API?</h2>
 <p>REST is an acronym for Representational State Transfer — an almost meaningless description of the most-used web service technology! REST is a way for two computer systems to communicate over HTTP in a similar way to web browsers and servers.</p>
 
-<p>CoCart is a REST API designed in mind for those who want to create a headless e-commerce site powered by WooCommerce. Read <a href="https://cocart.xyz/what-does-headless-mean/">what does headless mean?</a></p>
+<p>CoCart is a REST API designed in mind for those who want to create a headless e-commerce site powered by WooCommerce. Read <a href="https://cocart.xyz/what-does-headless-mean/?utm_medium=docs.cocart.xyz&amp;utm_source=docs&amp;utm_content=cocart-docs">what does headless mean?</a></p>
 
 <p>CoCart allows developers to provide a shopping cart in their app that stores the customers items, coupons applied, shipping methods available and much more. Carts can be created, read, updated, and deleted using the requests available that return a response in JSON format and standard HTTP verbs which are understood by most HTTP clients.</p>
 <h2 id='introduction-api-versions'>API Versions</h2>
@@ -1812,7 +1815,7 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <span class="nv">$response</span> <span class="o">=</span> <span class="nf">wp_remote_post</span><span class="p">(</span> <span class="s1">'https://example.com/wp-json/cocart/v1/add-item'</span><span class="p">,</span> <span class="nv">$args</span> <span class="p">);</span>
 <span class="nv">$body</span> <span class="o">=</span> <span class="nf">wp_remote_retrieve_body</span><span class="p">(</span> <span class="nv">$response</span> <span class="p">);</span>
 </code></pre></div><h2 id='authentication-woocommerce-api-keys'>WooCommerce API Keys</h2>
-<p>Though this method is designed for the backend with <a href="https://woocommerce.github.io/woocommerce-rest-api-docs/#authentication">WooCommerce REST API</a>, with some custom coding you can make it work for the frontend with CoCart. Checkout my guide on <a href="https://cocart.xyz/authenticating-with-woocommerce-heres-how-you-can-do-it/">how to authenticate with WooCommerce</a>.</p>
+<p>Though this method is designed for the backend with <a href="https://woocommerce.github.io/woocommerce-rest-api-docs/#authentication">WooCommerce REST API</a>, with some custom coding you can make it work for the frontend with CoCart. Checkout my guide on <a href="https://cocart.xyz/authenticating-with-woocommerce-heres-how-you-can-do-it/?utm_medium=docs.cocart.xyz&amp;utm_source=docs&amp;utm_content=cocart-docs">how to authenticate with WooCommerce</a>.</p>
 <h1 id='cart-key'>Cart Key</h1>
 <p><img src="images/github-633266a3.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v1/_cart_key.md">Edit on GitHub</a></p>
 <h2 id='cart-key-what-is-a-cart-key'>What is a Cart Key?</h2>
@@ -1871,6 +1874,34 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <p>If you need to change the <strong>SameSite attribute</strong> <a href="#filters-api-access-cookie-samesite-attribute">a filter is available</a> that was introduced in v2.9.1</p>
 
 <p>If you want to know more about <strong>SameSite attribute</strong>. <a href="https://www.kevel.co/blog/chrome-samesite/">Checkout this article</a>.</p>
+<h1 id='products'>Products</h1>
+<p>In order to access your products, you need to have the <a href="https://cocart.xyz/add-ons/products/?utm_medium=docs.cocart.xyz&amp;utm_source=docs&amp;utm_content=cocart-docs">CoCart Products add-on</a>.</p>
+
+<p>It&#39;s a public API that provides access to non-sensitive product information, categories, tags, attributes and even reviews from your store without the need to authenticate.</p>
+
+<p>Supports other products types created by WooCommerce extensions such as Subscriptions and more.</p>
+
+<p><a href="https://cocart.xyz/add-ons/products/?utm_medium=docs.cocart.xyz&amp;utm_source=docs&amp;utm_content=cocart-docs">Get CoCart Products</a></p>
+
+<p>The following table shows API versions present in each major version of CoCart Products:</p>
+
+<table><thead>
+<tr>
+<th>API Version</th>
+<th>CoCart Version</th>
+<th>WC Version</th>
+<th>WP Version</th>
+<th>Documentation</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>v1</code></td>
+<td>2.0.x or later</td>
+<td>4.0.x or later</td>
+<td>5.2 or later</td>
+<td><a href="products.html">view api documentation</a></td>
+</tr>
+</tbody></table>
 <h1 id='get-cart'>Get Cart</h1>
 <p><img src="images/github-633266a3.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v1/_cart.md">Edit on GitHub</a></p>
 
@@ -4676,7 +4707,7 @@ You must have <strong>WP_DEBUG</strong> enabled in your <i>wp-config.php</i> fil
 
 <p>CoCart Pro, an extension that completes the CoCart API package with more control over the cart from coupons, shipping methods to additional fees and more.</p>
 
-<p><a href="https://cocart.xyz/pro/">Purchase here</a></p>
+<p><a href="https://cocart.xyz/pro/?utm_medium=docs.cocart.xyz&amp;utm_source=docs&amp;utm_content=cocart-docs">Purchase here</a></p>
 
 <p>The following table shows API versions present in each major version of CoCart Pro:</p>
 
@@ -4726,7 +4757,7 @@ You must have <strong>WP_DEBUG</strong> enabled in your <i>wp-config.php</i> fil
 <h1 id='woocommerce-extensions'>WooCommerce Extensions</h1>
 <p><img src="images/github-633266a3.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart-docs/blob/master/source/includes/_woocommerce-extensions.md">Edit on GitHub</a></p>
 
-<p><a href="https://cocart.xyz/woocommerce-extensions/">These extensions</a> either support CoCart or is supported in <a href="#cocart-add-ons-cocart-pro">CoCart Pro</a>.</p>
+<p><a href="https://cocart.xyz/woocommerce-extensions/?utm_medium=docs.cocart.xyz&amp;utm_source=docs&amp;utm_content=cocart-docs">These extensions</a> either support CoCart or is supported in <a href="#cocart-add-ons-cocart-pro">CoCart Pro</a>.</p>
 
 <aside class="notice">
   Extensions are documented with examples only if they have there own configuration.
@@ -5144,7 +5175,7 @@ You must have <strong>WP_DEBUG</strong> enabled in your <i>wp-config.php</i> fil
 
 <p>When you do make a request, make sure you use <code>https://wp-demo.cocart.xyz/</code> as the domain to use the demo.</p>
 
-<p><a href="https://cocart.xyz/add-ons/get-cart-enhanced/">Get Cart Enhanced</a> add-on is installed so some results may appear different to the example results you see throughout the documentation. It also gives you a look at what is possible using the <a href="#filters">filters</a> available to customize CoCart to your needs.</p>
+<p><a href="https://cocart.xyz/add-ons/get-cart-enhanced/?utm_medium=docs.cocart.xyz&amp;utm_source=docs&amp;utm_content=cocart-docs">Get Cart Enhanced</a> add-on is installed so some results may appear different to the example results you see throughout the documentation. It also gives you a look at what is possible using the <a href="#filters">filters</a> available to customize CoCart to your needs.</p>
 <h2 id='demo-cocart-adding-an-item'>Adding an item</h2>
 <p>Here is an example of adding a item to the cart via the demo.</p>
 <h3 id='demo-cocart-adding-an-item-http-request'>HTTP request</h3>
@@ -5397,9 +5428,9 @@ You must have <strong>WP_DEBUG</strong> enabled in your <i>wp-config.php</i> fil
 <p>Learn more about the REST API by checking the <a href="https://developer.wordpress.org/rest-api/" target="_blank">official WordPress REST API documentation</a>.</p>
 
 <ul>
-<li><a href="https://cocart.xyz/about/">About CoCart</a></li>
-<li><a href="https://cocart.xyz/pro/">Pricing and FAQ</a></li>
-<li><a href="https://cocart.xyz/community/">Community</a></li>
+<li><a href="https://cocart.xyz/about/?utm_medium=docs.cocart.xyz&amp;utm_source=docs&amp;utm_content=cocart-docs">About CoCart</a></li>
+<li><a href="https://cocart.xyz/pro/?utm_medium=docs.cocart.xyz&amp;utm_source=docs&amp;utm_content=cocart-docs">Pricing and FAQ</a></li>
+<li><a href="https://cocart.xyz/community/?utm_medium=docs.cocart.xyz&amp;utm_source=docs&amp;utm_content=cocart-docs">Community</a></li>
 </ul>
 <h1 id='changelog'>Changelog</h1>
 <p>Below is the changelog for &quot;CoCart Lite&quot; documentation that matches with the version of the plugin release.</p>
