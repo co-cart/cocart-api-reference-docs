@@ -1,6 +1,6 @@
 # Changelog #
 
-The changelog below will provide updates on what is being worked on and the outcome of these features been added to future releases. Checkout the [CoCart blog](https://cocart.xyz/news/) for updates on new coming releases. Feedback is always appreciated. 😄
+The changelog below will provide updates on what is being worked on and the outcome of these features been added to future releases. Checkout the [CoCart blog](https://cocart.xyz/news/?utm_medium=docs.cocart.xyz&utm_source=docs&utm_content=cocart-docs) for updates on new coming releases. Feedback is always appreciated. 😄
 
 ## v3.0.0 ##
 

@@ -2,7 +2,7 @@
 
 <img src="images/github.svg" width="20" height="20" alt="GitHub Mark Logo"> [Edit on GitHub](https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v2/wip/_introduction.md)
 
-Welcome to the documentation site for CoCart, the free  open-source WordPress plugin that brings the power of WooCommerce's shopping cart via the REST API. If you haven't already, [checkout the features](https://cocart.xyz/features/) CoCart support.
+Welcome to the documentation site for CoCart, the free  open-source WordPress plugin that brings the power of WooCommerce's shopping cart via the REST API. If you haven't already, [checkout the features](https://cocart.xyz/features/?utm_medium=docs.cocart.xyz&utm_source=docs&utm_content=cocart-docs) CoCart support.
 
 CoCart helps you manage shopping carts in any modern framework of your choosing. No local storing required. A powerful RESTful API that offers an integration to build your headless store with ease.
 
@@ -10,7 +10,7 @@ CoCart helps you manage shopping carts in any modern framework of your choosing.
 
 REST is an acronym for Representational State Transfer — an almost meaningless description of the most-used web service technology! REST is a way for two computer systems to communicate over HTTP in a similar way to web browsers and servers.
 
-CoCart is a REST API designed in mind for those who want to create a headless e-commerce site powered by WooCommerce. Read [what does headless mean?](https://cocart.xyz/what-does-headless-mean/)
+CoCart is a REST API designed in mind for those who want to create a headless e-commerce site powered by WooCommerce. Read [what does headless mean?](https://cocart.xyz/what-does-headless-mean/?utm_medium=docs.cocart.xyz&utm_source=docs&utm_content=cocart-docs)
 
 CoCart allows developers to provide a shopping cart in their app that stores the customers items, coupons applied, shipping methods available and much more. Carts can be created, read, updated, and deleted using the requests available that return a response in JSON format and standard HTTP verbs which are understood by most HTTP clients.
 
