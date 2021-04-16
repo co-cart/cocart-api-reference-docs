@@ -52,6 +52,6 @@ search: true
 
 code_clipboard: true
 
-warning: <i class="info"></i> This documentation is a preview for CoCart API v2. <a href="https://docs.cocart.xyz/">Please use the latest CoCart REST API version instead</a> if you are not testing the NEW API. <a href="https://cocart.xyz/upgrading-api-from-v1-to-v2/">Upgrade guide from v1 to v2</a>.
+warning: <i class="info"></i> This documentation is a preview for CoCart API v2. <a href="https://docs.cocart.xyz/">Please use the latest CoCart REST API version instead</a> if you are not testing the NEW API. <a href="https://cocart.xyz/upgrading-api-from-v1-to-v2/?utm_medium=docs.cocart.xyz&utm_source=docs&utm_content=cocart-docs">Upgrade guide from v1 to v2</a>.
 
 ---

@@ -268,4 +268,4 @@ $body = wp_remote_retrieve_body( $response );
 
 ## WooCommerce API Keys ##
 
-Though this method is designed for the backend with [WooCommerce REST API](https://woocommerce.github.io/woocommerce-rest-api-docs/#authentication), with some custom coding you can make it work for the frontend with CoCart. Checkout my guide on [how to authenticate with WooCommerce](https://cocart.xyz/authenticating-with-woocommerce-heres-how-you-can-do-it/).
+Though this method is designed for the backend with [WooCommerce REST API](https://woocommerce.github.io/woocommerce-rest-api-docs/#authentication), with some custom coding you can make it work for the frontend with CoCart. Checkout my guide on [how to authenticate with WooCommerce](https://cocart.xyz/authenticating-with-woocommerce-heres-how-you-can-do-it/?utm_medium=docs.cocart.xyz&utm_source=docs&utm_content=cocart-docs).

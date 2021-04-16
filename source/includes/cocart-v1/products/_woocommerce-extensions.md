@@ -2,7 +2,7 @@
 
 <img src="images/github.svg" width="20" height="20" alt="GitHub Mark Logo"> [Edit on GitHub](https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v1/products/_woocommerce-extensions.md)
 
-[These extensions](https://cocart.xyz/woocommerce-extensions/) either support CoCart Products or is supported in CoCart Products.
+[These extensions](https://cocart.xyz/woocommerce-extensions/?utm_medium=docs.cocart.xyz&utm_source=docs&utm_content=cocart-docs) either support CoCart Products or is supported in CoCart Products.
 
 ## Mix and Match Products ##
 

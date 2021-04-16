@@ -20,6 +20,6 @@ If you use **Postman** you can use [these collections](https://github.com/co-car
 
 Learn more about the REST API by checking the <a href="https://developer.wordpress.org/rest-api/" target="_blank">official WordPress REST API documentation</a>.
 
-* [About CoCart](https://cocart.xyz/about/)
-* [Pricing and FAQ](https://cocart.xyz/pro/)
-* [Community](https://cocart.xyz/community/)
+* [About CoCart](https://cocart.xyz/about/?utm_medium=docs.cocart.xyz&utm_source=docs&utm_content=cocart-docs)
+* [Pricing and FAQ](https://cocart.xyz/pro/?utm_medium=docs.cocart.xyz&utm_source=docs&utm_content=cocart-docs)
+* [Community](https://cocart.xyz/community/?utm_medium=docs.cocart.xyz&utm_source=docs&utm_content=cocart-docs)

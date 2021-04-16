@@ -6,7 +6,7 @@ If you don't yet have CoCart installed or a WordPress setup ready, you can test 
 
 When you do make a request, make sure you use `https://wp-demo.cocart.xyz/` as the domain to use the demo.
 
-[Get Cart Enhanced](https://cocart.xyz/add-ons/get-cart-enhanced/) add-on is installed so some results may appear different to the example results you see throughout the documentation. It also gives you a look at what is possible using the [filters](#filters) available to customize CoCart to your needs.
+[Get Cart Enhanced](https://cocart.xyz/add-ons/get-cart-enhanced/?utm_medium=docs.cocart.xyz&utm_source=docs&utm_content=cocart-docs) add-on is installed so some results may appear different to the example results you see throughout the documentation. It also gives you a look at what is possible using the [filters](#filters) available to customize CoCart to your needs.
 
 ## Adding an item ##
 

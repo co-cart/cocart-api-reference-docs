@@ -4,7 +4,7 @@
 
 CoCart Pro, an extension that completes the CoCart API package with more control over the cart from coupons, shipping methods to additional fees and more.
 
-[Purchase here](https://cocart.xyz/pro/)
+[Purchase here](https://cocart.xyz/pro/?utm_medium=docs.cocart.xyz&utm_source=docs&utm_content=cocart-docs)
 
 The following table shows API versions present in each major version of CoCart Pro:
 

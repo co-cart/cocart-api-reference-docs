@@ -26,6 +26,6 @@ search: true
 
 code_clipboard: true
 
-warning: <i class="info"></i> This documentation is for WooCommerce API v2 which is now deprecated. <a href="https://docs.cocart.xyz/">Please use the latest CoCart REST API version instead</a>. <a href="https://cocart.xyz/update-from-legacy-api/">Upgrade guide</a>.
+warning: <i class="info"></i> This documentation is for WooCommerce API v2 which is now deprecated. <a href="https://docs.cocart.xyz/">Please use the latest CoCart REST API version instead</a>. <a href="https://cocart.xyz/update-from-legacy-api/?utm_medium=docs.cocart.xyz&utm_source=docs&utm_content=cocart-docs">Upgrade guide</a>.
 
 ---

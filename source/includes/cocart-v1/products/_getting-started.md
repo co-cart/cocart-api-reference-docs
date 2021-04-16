@@ -20,7 +20,7 @@ List of server [requirements](#introduction-requirements).
 
 ## Recommended Version ##
 
-For the most stable and performance experience, it’s recommended that you use the most recent version of the plugin. You can get the [latest releases here](https://cocart.xyz).
+For the most stable and performance experience, it’s recommended that you use the most recent version of the plugin. You can get the [latest releases here](https://cocart.xyz/?utm_medium=docs.cocart.xyz&utm_source=docs&utm_content=cocart-docs).
 
 Of course, as new features are in development, feel free to check out the latest develop branch or check out any [other release](https://github.com/co-cart/co-cart/releases).
 
