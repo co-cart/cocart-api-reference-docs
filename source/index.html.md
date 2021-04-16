@@ -25,6 +25,7 @@ includes:
   - cocart-v1/authentication
   - cocart-v1/cart-key
   - cocart-v1/cookie
+  - cocart-v1/products
   - cocart-v1/cart
   - cocart-v1/clear-cart
   - cocart-v1/add-to-cart
