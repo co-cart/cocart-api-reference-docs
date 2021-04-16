@@ -2,7 +2,13 @@
 
 Below is the changelog for "CoCart Lite" documentation that matches with the version of the plugin release.
 
-## Doc Version v2.9.7
+## Doc Version v2.9.8
+
+* Added: Products section to help identify the CoCart Products add-on up top. Can still be found under "CoCart Add-ons" section.
+* Updated: All links pointing to cocart.xyz are now tagged for referral identification.
+* Updated: Knowledge Base content. Improved questions and linked new guide for creating a cart.
+
+### Doc Version v2.9.7
 
 * Added: Explanation to merge carts together.
 * Updated: Knowledge Base content.
