@@ -395,19 +395,16 @@
                   <li>
                     <a href="#cart-key-accessing-the-cart-key" class="toc-h2 toc-link" data-title="Accessing the Cart Key">Accessing the Cart Key</a>
                   </li>
-                  <li>
-                    <a href="#cart-key-cart-key-in-cart-response" class="toc-h2 toc-link" data-title="Cart Key in Cart Response">Cart Key in Cart Response</a>
-                  </li>
               </ul>
           </li>
           <li>
             <a href="#coupons" class="toc-h1 toc-link" data-title="Coupons">Coupons</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#coupons-cart-key-in-cart-response-parameters" class="toc-h2 toc-link" data-title="Parameters">Parameters</a>
+                    <a href="#coupons-accessing-the-cart-key-parameters" class="toc-h2 toc-link" data-title="Parameters">Parameters</a>
                   </li>
                   <li>
-                    <a href="#coupons-cart-key-in-cart-response-properties" class="toc-h2 toc-link" data-title="Properties">Properties</a>
+                    <a href="#coupons-accessing-the-cart-key-properties" class="toc-h2 toc-link" data-title="Properties">Properties</a>
                   </li>
                   <li>
                     <a href="#coupons-applied-coupons" class="toc-h2 toc-link" data-title="Applied Coupons">Applied Coupons</a>
@@ -1101,13 +1098,15 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <aside class="warning">
     The <code>cart_key</code> parameter is a global parameter so it must be queried rather than being added as part of the data you send with the API request you make. Otherwise it will not update the cart. You don't however use this parameter when authenticating. An authenticated request will override the use of the cart key.
 </aside>
-<h2 id='cart-key-cart-key-in-cart-response'>Cart Key in Cart Response</h2>
+
+<p><a href="https://cocart.xyz/how-to-create-a-cart/?utm_medium=docs.cocart.xyz&amp;utm_source=docs&amp;utm_content=cocart-docs">Read this guide on how to create a cart</a> and keep using the same one.</p>
+<h3 id='cart-key-accessing-the-cart-key-cart-key-in-cart-response'>Cart Key in Cart Response</h3>
 <p>It&#39;s also possible to return the cart key when you <a href="#get-cart">get the cart</a>. Simply download and activate the <a href="#cocart-add-ons-get-cart-enhanced">Get Cart Enhanced add-on plugin</a> and the cart key is returned along with other enhancements in the response.</p>
 <h1 id='coupons'>Coupons</h1>
 <p><img src="images/github-633266a3.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v1/pro/_coupons.md">Edit on GitHub</a></p>
 
 <p>This API helps you get applied coupons, add coupons to cart, remove coupons from cart and check coupons for validation.</p>
-<h3 id='coupons-cart-key-in-cart-response-parameters'>Parameters</h3>
+<h3 id='coupons-accessing-the-cart-key-parameters'>Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1121,7 +1120,7 @@ RewriteRule ^(.*) - [E=HTTP_AUTHORIZATION:%1]
 <td>Unique identifier for the cart. <a class="label label-info" href="#cart-key">?</a> <i class="label label-info">optional</i></td>
 </tr>
 </tbody></table>
-<h3 id='coupons-cart-key-in-cart-response-properties'>Properties</h3>
+<h3 id='coupons-accessing-the-cart-key-properties'>Properties</h3>
 <table><thead>
 <tr>
 <th>Attribute</th>

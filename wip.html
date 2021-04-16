@@ -406,7 +406,13 @@
             <a href="#knowledge-base" class="toc-h1 toc-link" data-title="Knowledge Base">Knowledge Base</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#knowledge-base-where-can-i-find-a-cart-item-key" class="toc-h2 toc-link" data-title="Where can I find a cart item key?">Where can I find a cart item key?</a>
+                    <a href="#knowledge-base-cart-returns-empty-after-adding-items-why" class="toc-h2 toc-link" data-title="Cart returns empty after adding items. Why?">Cart returns empty after adding items. Why?</a>
+                  </li>
+                  <li>
+                    <a href="#knowledge-base-i-added-several-products-but-only-1-item-returns-in-cart-why" class="toc-h2 toc-link" data-title="I added several products but only 1 item returns in cart. Why?">I added several products but only 1 item returns in cart. Why?</a>
+                  </li>
+                  <li>
+                    <a href="#knowledge-base-can-i-create-and-update-a-cart-without-cookies" class="toc-h2 toc-link" data-title="Can I create and update a cart without cookies?">Can I create and update a cart without cookies?</a>
                   </li>
                   <li>
                     <a href="#knowledge-base-where-can-i-find-the-cart-key" class="toc-h2 toc-link" data-title="Where can I find the cart key?">Where can I find the cart key?</a>
@@ -415,16 +421,13 @@
                     <a href="#knowledge-base-why-am-i-not-seeing-the-x-cocart-api-header-returning" class="toc-h2 toc-link" data-title="Why am I not seeing the X-COCART-API header returning?">Why am I not seeing the X-COCART-API header returning?</a>
                   </li>
                   <li>
-                    <a href="#knowledge-base-after-adding-a-product-to-cart-the-cart-still-returns-empty-why" class="toc-h2 toc-link" data-title="After adding a product to cart, the cart still returns empty. Why?">After adding a product to cart, the cart still returns empty. Why?</a>
+                    <a href="#knowledge-base-where-can-i-find-a-cart-item-key" class="toc-h2 toc-link" data-title="Where can I find a cart item key?">Where can I find a cart item key?</a>
                   </li>
                   <li>
-                    <a href="#knowledge-base-why-are-cart-items-merged" class="toc-h2 toc-link" data-title="Why are cart items merged?">Why are cart items merged?</a>
+                    <a href="#knowledge-base-as-admininstator-can-i-create-and-update-a-customers-cart" class="toc-h2 toc-link" data-title="As admininstator can I create and update a customers cart?">As admininstator can I create and update a customers cart?</a>
                   </li>
                   <li>
-                    <a href="#knowledge-base-is-it-possible-to-use-the-admin-key-secret-to-create-and-update-a-customers-cart" class="toc-h2 toc-link" data-title="Is it possible to use the admin key/secret to create and update a customers cart?">Is it possible to use the admin key/secret to create and update a customers cart?</a>
-                  </li>
-                  <li>
-                    <a href="#knowledge-base-how-can-i-view-logs-recorded" class="toc-h2 toc-link" data-title="How can I view logs recorded ?">How can I view logs recorded ?</a>
+                    <a href="#knowledge-base-how-can-i-view-debug-logs-recorded" class="toc-h2 toc-link" data-title="How can I view debug logs recorded ?">How can I view debug logs recorded ?</a>
                   </li>
                   <li>
                     <a href="#knowledge-base-how-can-i-use-cocart-on-a-multi-site-network" class="toc-h2 toc-link" data-title="How can I use CoCart on a multi-site network?">How can I use CoCart on a multi-site network?</a>
@@ -1557,6 +1560,22 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h1 id='knowledge-base'>Knowledge Base</h1>
 <p><img src="images/github-633266a3.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v1/_knowledge-base.md">Edit on GitHub</a></p>
+<h2 id='knowledge-base-cart-returns-empty-after-adding-items-why'>Cart returns empty after adding items. Why?</h2>
+<p>As a guest customer, this is normally because the framework your using does not support cookies so it is unable to read the required cookie to load the cart on the next API request.</p>
+
+<p><a href="https://cocart.xyz/how-to-create-a-cart/?utm_medium=docs.cocart.xyz&amp;utm_source=docs&amp;utm_content=cocart-docs">Read this guide on how to create a cart</a> and keep using the same one.</p>
+
+<p>If the cart returns empty while your authenticated then contact me so that I may be able to help.</p>
+<h2 id='knowledge-base-i-added-several-products-but-only-1-item-returns-in-cart-why'>I added several products but only 1 item returns in cart. Why?</h2>
+<p>As a guest customer, this is possibly because you did not store the cart key after the first item was added  and set it on future API requests. So all your seeing is the last item added to the cart.</p>
+
+<p><a href="https://cocart.xyz/how-to-create-a-cart/?utm_medium=docs.cocart.xyz&amp;utm_source=docs&amp;utm_content=cocart-docs">Read this guide on how to create a cart</a> and keep using the same one.</p>
+<h2 id='knowledge-base-can-i-create-and-update-a-cart-without-cookies'>Can I create and update a cart without cookies?</h2>
+<p>Yes you can. <a href="#cart-key">See cart key section</a> for more details.</p>
+<h2 id='knowledge-base-where-can-i-find-the-cart-key'>Where can I find the cart key?</h2>
+<p>The cart key (if not manually set), can be found via a few methods. <a href="#cart-key">See cart key section</a> for more details.</p>
+<h2 id='knowledge-base-why-am-i-not-seeing-the-x-cocart-api-header-returning'>Why am I not seeing the X-COCART-API header returning?</h2>
+<p>If this header is not returning then you need to enable CORS so that the header is exposed. Either enable CORS support via <a href="./#filters-api-access-cors-allow-all-cross-origin-headers">the filter</a> or simply <a href="https://wordpress.org/plugins/cocart-cors/">install CoCart CORS plugin</a> for quick activation.</p>
 <h2 id='knowledge-base-where-can-i-find-a-cart-item-key'>Where can I find a cart item key?</h2>
 <p>Each item added to the cart has it&#39;s on cart item key and you will find it under the property labelled <strong>&quot;key&quot;</strong>. Use it to update, remove or restore an item in/from the cart.</p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
@@ -1566,23 +1585,9 @@
     </span><span class="nl">"variation_id"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="err">...</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h2 id='knowledge-base-where-can-i-find-the-cart-key'>Where can I find the cart key?</h2>
-<p>The cart key (if not manually set), can be found via a few methods. <a href="#cart-key">See cart key section</a> for more details.</p>
-<h2 id='knowledge-base-why-am-i-not-seeing-the-x-cocart-api-header-returning'>Why am I not seeing the X-COCART-API header returning?</h2>
-<p>If this header is not returning then you need to enable CORS so that the header is exposed. Either enable CORS support via <a href="./#filters-api-access-cors-allow-all-cross-origin-headers">the filter</a> or simply <a href="https://wordpress.org/plugins/cocart-cors/">install CoCart CORS plugin</a> for quick activation.</p>
-<h2 id='knowledge-base-after-adding-a-product-to-cart-the-cart-still-returns-empty-why'>After adding a product to cart, the cart still returns empty. Why?</h2>
-<p>This happens because the framework your using does not support cookies so it has no way to store the cart key of the cart that was created when you added the product. Without the cart key, the cart cannot be identified to load.</p>
-
-<p>Either add/install cookie support for that framework or use the <a href="#cart-key">cart key</a> parameter to manually set one yourself.</p>
-<h2 id='knowledge-base-why-are-cart-items-merged'>Why are cart items merged?</h2>
-<p>If you mean between two or more customers. This is most likely because you tested the API with one of the <a href="#tools">tools</a> available and did not reset before testing as another customer.</p>
-
-<p>For example, you started customer &quot;A&quot; as a guest adding an item to the cart. You then added another item while authenticating (logging in) as customer &quot;B&quot; without clearing the session cookie.</p>
-
-<p>When you do this, WooCommerce thinks you are still the same customer so it merges the cart items together for customer &quot;B&quot; while customer &quot;A&quot; is removed from session as it is no longer a guest customer.</p>
-<h2 id='knowledge-base-is-it-possible-to-use-the-admin-key-secret-to-create-and-update-a-customers-cart'>Is it possible to use the admin key/secret to create and update a customers cart?</h2>
+</span></code></pre></div><h2 id='knowledge-base-as-admininstator-can-i-create-and-update-a-customers-cart'>As admininstator can I create and update a customers cart?</h2>
 <p>Unfortunately, no. This is because when you authenticate as the admin, you are logged in not the customer. Even if you specified the customers user ID as the cart key. It will not take affect.</p>
-<h2 id='knowledge-base-how-can-i-view-logs-recorded'>How can I view logs recorded ?</h2>
+<h2 id='knowledge-base-how-can-i-view-debug-logs-recorded'>How can I view debug logs recorded ?</h2>
 <p>If you have <strong>WP_DEBUG</strong> set to <code>true</code> in your <a href="#wp-config-php">wp-config.php</a> file then you should be able to view all the logs recorded by CoCart under <strong>WooCommerce -&gt; System Status -&gt; Logs</strong> in your WordPress dashboard.</p>
 
 <p>URL Example: <code>https://example.com/wp-admin/admin.php?page=wc-status&amp;tab=logs</code></p>
