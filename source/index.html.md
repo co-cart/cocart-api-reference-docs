@@ -2,8 +2,8 @@
 title: CoCart Documentation
 
 language_tabs:
- - shell: cURL
  - javascript--node: Node.js
+ - shell: cURL
  - javascript--jquery: jQuery
  - php: PHP
  - php--wp-http-api: WP API
