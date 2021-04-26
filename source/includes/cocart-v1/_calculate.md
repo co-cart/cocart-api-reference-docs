@@ -80,7 +80,14 @@ echo $response;
 
 ```php--wp-http-api
 <?php
-$response = wp_remote_post( 'https://example.com/wp-json/cocart/v1/calculate' );
+$args = array(
+  'headers' => array(
+    'Content-Type' => 'application/json; charset=utf-8',
+  ),
+  'timeout' => 30
+);
+
+$response = wp_remote_post( 'https://example.com/wp-json/cocart/v1/calculate', $args );
 $body = wp_remote_retrieve_body( $response );
 ```
 

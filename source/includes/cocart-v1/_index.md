@@ -77,7 +77,14 @@ echo $response;
 
 ```php--wp-http-api
 <?php
-$response = wp_remote_get( 'https://example.com/wp-json/cocart/v1' );
+$args = array(
+  'headers' => array(
+    'Content-Type' => 'application/json; charset=utf-8',
+  ),
+  'timeout' => 30
+);
+
+$response = wp_remote_get( 'https://example.com/wp-json/cocart/v1', $args );
 $body = wp_remote_retrieve_body( $response );
 ```
 

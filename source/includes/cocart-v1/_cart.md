@@ -97,7 +97,14 @@ echo $response;
 
 ```php--wp-http-api
 <?php
-$response = wp_remote_get( 'https://example.com/wp-json/cocart/v1/get-cart' );
+$args = array(
+  'headers' => array(
+    'Content-Type' => 'application/json; charset=utf-8',
+  ),
+  'timeout' => 30
+);
+
+$response = wp_remote_get( 'https://example.com/wp-json/cocart/v1/get-cart', $args );
 $body = wp_remote_retrieve_body( $response );
 ```
 
@@ -211,7 +218,8 @@ $args = array(
   ),
   'body' => wp_json_encode( [
     'thumb' => true
-  ] )
+  ] ),
+  'timeout' => 30
 );
 
 $response = wp_remote_get( 'https://example.com/wp-json/cocart/v1/get-cart', $args );
@@ -323,7 +331,8 @@ echo $response;
 $args = array(
   'headers' => array(
     'Content-Type' => 'application/json; charset=utf-8',
-  )
+  ),
+  'timeout' => 30
 );
 
 $response = wp_remote_get( 'https://example.com/wp-json/cocart/v1/get-cart?cart_key=9e18904482b4faf8762361836a83b93d', $args );
@@ -413,7 +422,14 @@ echo $response;
 
 ```php--wp-http-api
 <?php
-$response = wp_remote_get( 'https://example.com/wp-json/cocart/v1/get-cart/9e18904482b4faf8762361836a83b93d' );
+$args = array(
+  'headers' => array(
+    'Content-Type' => 'application/json; charset=utf-8',
+  ),
+  'timeout' => 30
+);
+
+$response = wp_remote_get( 'https://example.com/wp-json/cocart/v1/get-cart/9e18904482b4faf8762361836a83b93d', $args );
 $body = wp_remote_retrieve_body( $response );
 ```
 
@@ -552,7 +568,9 @@ echo $response;
 $args = array(
   'headers' => array(
     'Authorization' => 'Basic ' . base64_encode( 'username:password' ),
+    'Content-Type' => 'application/json; charset=utf-8',
   ),
+  'timeout' => 30
 );
 
 $response = wp_remote_get( 'https://example.com/wp-json/cocart/v1/get-cart?cart_key=<cart_key>', $args );

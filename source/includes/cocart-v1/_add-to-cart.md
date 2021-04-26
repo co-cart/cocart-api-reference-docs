@@ -374,7 +374,7 @@ $args = array(
   ),
   'body' => wp_json_encode( [
     'product_id' => '1722',
-    'quantity' => 1
+    'quantity' => 1,
     'variation_id' => 1820,
     'variation' => {
       'attribute_colours': 'Red',
@@ -521,7 +521,7 @@ $args = array(
   ),
   'body' => wp_json_encode( [
     'product_id' => '3008',
-    'quantity' => 1
+    'quantity' => 1,
     'cart_item_data' => array(
       'engraved_name' => 'Sébastien Dumont',
       'engraved_size' => 'Medium'

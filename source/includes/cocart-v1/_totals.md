@@ -90,7 +90,14 @@ echo $response;
 
 ```php--wp-http-api
 <?php
-$response = wp_remote_get( 'https://example.com/wp-json/cocart/v1/totals' );
+$args = array(
+  'headers' => array(
+    'Content-Type' => 'application/json; charset=utf-8',
+  ),
+  'timeout' => 30
+);
+
+$response = wp_remote_get( 'https://example.com/wp-json/cocart/v1/totals', $args );
 $body = wp_remote_retrieve_body( $response );
 ```
 
@@ -168,8 +175,15 @@ echo $response;
 ```php--wp-http-api
 <?php
 $args = array(
-  'html' => true
+  'headers' => array(
+    'Content-Type' => 'application/json; charset=utf-8',
+  ),
+  'body' => wp_json_encode( [
+    'html' => true
+  ] ),
+  'timeout' => 30
 );
+
 $response = wp_remote_get( 'https://example.com/wp-json/cocart/v1/totals', $args );
 $body = wp_remote_retrieve_body( $response );
 ```
