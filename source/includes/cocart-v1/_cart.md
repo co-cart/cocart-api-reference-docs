@@ -9,8 +9,8 @@ Using the individual endpoints and their properties, you can control what you ne
  * [Get Cart Contents](#get-cart-get-cart-contents)
  * [Get Cart using Cart Key](#get-cart-get-cart-using-cart-key)
  * [Retrieve a Cart in Session](#get-cart-retrieve-a-cart-in-session)
- * [Clear Cart](#get-cart-clear-cart)
  * [Merge Carts](#get-cart-merge-carts)
+ * [Clear Cart](#get-cart-clear-cart)
 
 ## Get Cart Contents ##
 
