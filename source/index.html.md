@@ -21,12 +21,12 @@ includes:
   - cocart-v1/introduction
   - cocart-v1/getting-started
   - cocart-v1/errors
-  - cocart-v1/index
   - knowledge-base
   - cocart-v1/authentication
   - cocart-v1/cart-key
   - cocart-v1/cookie
-  - cocart-v1/products
+  - cocart-v1/index
+  - products
   - cocart-v1/cart
   - cocart-v1/clear-cart
   - cocart-v1/add-to-cart
@@ -47,9 +47,9 @@ includes:
   - cocart-products
   - cocart-v1/woocommerce-extensions
   - wp-config.php
-  - demo
   - libraries
   - tools
+  - demo
   - changelog
   - contribute
 
