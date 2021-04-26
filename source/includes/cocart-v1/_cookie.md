@@ -11,7 +11,7 @@ The cookie stores **4** key values.
 * Cart Key/Customer ID
 * Cart expiring timestamp.
 * Cart expiration timestamp.
-* Cart hash (Customer ID and Cart Expiration Timestamp encrypted).
+* Cookie hash.
 
 ## How the CoCart cookie is created ##
 
