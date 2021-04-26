@@ -102,6 +102,28 @@ $body = wp_remote_retrieve_body( $response );
 ```
 
 ```json
+[
+  {
+    "cart_id": "4038",
+    "cart_key": "afa399e3a0647fe660438409d9ad7eb9",
+    "customers_name": "John Snow",
+    "customers_email": "",
+    "cart_created": "04/23/2021 07:46:59",
+    "cart_expiry": "04/30/2021 07:48:40",
+    "cart_source": "woocommerce",
+    "link": "https://example.com/wp-json/cocart/v2/session/afa399e3a0647fe660438409d9ad7eb9"
+  },
+  {
+    "cart_id": "4335",
+    "cart_key": "8f36f08beca94f2b51faedcb7c6864b8",
+    "customers_name": "Clark Kent",
+    "customers_email": "clark@dailyplanet.wb",
+    "cart_created": "04/25/2021 12:14:09",
+    "cart_expiry": "05/02/2021 12:14:05",
+    "cart_source": "cocart",
+    "link": "https://example.com/wp-json/cocart/v2/session/8f36f08beca94f2b51faedcb7c6864b8"
+  }
+]
 ```
 
 ## View Cart in Session ##
@@ -113,12 +135,12 @@ This API helps you retrieve a specified session and return the cart details.
 <div class="api-endpoint">
   <div class="endpoint-data">
     <i class="label label-get">GET</i>
-    <h6>/wp-json/cocart/v2/session/ec2b1f30a304ed513d2975b7b9f222f6</h6>
+    <h6>/wp-json/cocart/v2/session/&lt;cart_key&gt;</h6>
   </div>
 </div>
 
 ```shell
-curl -X GET https://example.com/wp-json/cocart/v2/session/ec2b1f30a304ed513d2975b7b9f222f6 \
+curl -X GET https://example.com/wp-json/cocart/v2/session/<cart_key> \
   -u username:password \
   -H "Content-Type: application/json"
 ```
@@ -133,7 +155,7 @@ const CoCart = new CoCartAPI({
   consumerSecret: 'happycoding24'
 });
 
-CoCart.get("session/ec2b1f30a304ed513d2975b7b9f222f6")
+CoCart.get("session/<cart_key>")
 .then((response) => {
   // Successful request
   console.log("Response Status:", response.status);
@@ -153,7 +175,7 @@ CoCart.get("session/ec2b1f30a304ed513d2975b7b9f222f6")
 
 ```javascript--jquery
 $.ajax({
-  url: "https://example.com/wp-json/cocart/v2/session/ec2b1f30a304ed513d2975b7b9f222f6",
+  url: "https://example.com/wp-json/cocart/v2/session/<cart_key>",
   headers: {
       "Authorization": "Basic " + btoa('username:password'),
   },
@@ -171,7 +193,7 @@ $.ajax({
 $curl = curl_init();
 
 curl_setopt_array( $curl, array(
-  CURLOPT_URL => "https://example.com/wp-json/cocart/v2/session/ec2b1f30a304ed513d2975b7b9f222f6",
+  CURLOPT_URL => "https://example.com/wp-json/cocart/v2/session/<cart_key>",
   CURLOPT_CUSTOMREQUEST => "GET",
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_TIMEOUT => 30,
@@ -191,7 +213,7 @@ echo $response;
 
 ```php--wp-http-api
 <?php
-$response = wp_remote_get( 'https://example.com/wp-json/cocart/v2/session/ec2b1f30a304ed513d2975b7b9f222f6' );
+$response = wp_remote_get( 'https://example.com/wp-json/cocart/v2/session/<cart_key>' );
 $body = wp_remote_retrieve_body( $response );
 ```
 
@@ -207,12 +229,12 @@ This API helps you retrieve a specified session and returns just the cart items.
 <div class="api-endpoint">
   <div class="endpoint-data">
     <i class="label label-get">GET</i>
-    <h6>/wp-json/cocart/v2/session/ec2b1f30a304ed513d2975b7b9f222f6/items</h6>
+    <h6>/wp-json/cocart/v2/session/&lt;cart_key&gt;/items</h6>
   </div>
 </div>
 
 ```shell
-curl -X GET https://example.com/wp-json/cocart/v2/session/ec2b1f30a304ed513d2975b7b9f222f6/items \
+curl -X GET https://example.com/wp-json/cocart/v2/session/<cart_key>/items \
   -u username:password \
   -H "Content-Type: application/json"
 ```
@@ -227,7 +249,7 @@ const CoCart = new CoCartAPI({
   consumerSecret: 'happycoding24'
 });
 
-CoCart.get("session/ec2b1f30a304ed513d2975b7b9f222f6/items")
+CoCart.get("session/<cart_key>/items")
 .then((response) => {
   // Successful request
   console.log("Response Status:", response.status);
@@ -247,7 +269,7 @@ CoCart.get("session/ec2b1f30a304ed513d2975b7b9f222f6/items")
 
 ```javascript--jquery
 $.ajax({
-  url: "https://example.com/wp-json/cocart/v2/session/ec2b1f30a304ed513d2975b7b9f222f6/items",
+  url: "https://example.com/wp-json/cocart/v2/session/<cart_key>/items",
   headers: {
       "Authorization": "Basic " + btoa('username:password'),
   },
@@ -265,7 +287,7 @@ $.ajax({
 $curl = curl_init();
 
 curl_setopt_array( $curl, array(
-  CURLOPT_URL => "https://example.com/wp-json/cocart/v2/session/ec2b1f30a304ed513d2975b7b9f222f6/items",
+  CURLOPT_URL => "https://example.com/wp-json/cocart/v2/session/<cart_key>/items",
   CURLOPT_CUSTOMREQUEST => "GET",
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_TIMEOUT => 30,
@@ -285,7 +307,7 @@ echo $response;
 
 ```php--wp-http-api
 <?php
-$response = wp_remote_get( 'https://example.com/wp-json/cocart/v2/session/ec2b1f30a304ed513d2975b7b9f222f6/items' );
+$response = wp_remote_get( 'https://example.com/wp-json/cocart/v2/session/<cart_key>/items' );
 $body = wp_remote_retrieve_body( $response );
 ```
 

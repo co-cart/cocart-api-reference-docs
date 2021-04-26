@@ -4,11 +4,17 @@
 
 This API helps you clear the contents of the cart.
 
-### Properties ###
+### Parameters ###
 
-| Property   | Type   | Description                                                                                                                 |
+| Parameter  | Type   | Description                                                                                                                 |
 | ---------- | ------ | --------------------------------------------------------------------------------------------------------------------------- |
 | `cart_key` | string | Unique identifier for the cart. <a class="label label-info" href="#cart-key">?</a> <i class="label label-info">optional</i> |
+
+### Properties ###
+
+| Property             | Type | Description                                                                                     |
+| -------------------- | ---- | ----------------------------------------------------------------------------------------------- |
+| `keep_removed_items` | bool | Keeps removed items in session when clearing the cart. <i class="label label-info">optional</i> |
 
 ### HTTP request ###
 

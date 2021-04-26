@@ -13,15 +13,15 @@ The following API's help with all of that.
  * [Remove Item from Cart](#items-in-cart-remove-item-from-cart)
  * [Restore Item to Cart](#items-in-cart-restore-item-to-cart)
 
+## Items ##
+
+This API help you view just the items added in the cart.
+
 ### Properties ###
 
 | Property   | Type   | Description                                                                                                                 |
 | ---------- | ------ | --------------------------------------------------------------------------------------------------------------------------- |
 | `cart_key` | string | Unique identifier for the cart. <a class="label label-info" href="#cart-key">?</a> <i class="label label-info">optional</i> |
-
-## Items ##
-
-This API help you view just the items added in the cart.
 
 ### HTTP request ###
 
@@ -133,7 +133,7 @@ $body = wp_remote_retrieve_body( $response );
 			"variation": []
 		},
 		"cart_item_data": [],
-		"featured_image": "http://cocart-dev.local/wp-content/uploads/2021/02/beanie-with-logo-1-324x324.jpg"
+		"featured_image": "https://example.com/wp-content/uploads/2021/02/beanie-with-logo-1-324x324.jpg"
 	},
 	"af69a8dc2ae2de6cac18bc4a6a75afa3": {
 		"item_key": "af69a8dc2ae2de6cac18bc4a6a75afa3",
@@ -173,7 +173,7 @@ $body = wp_remote_retrieve_body( $response );
 			}
 		},
 		"cart_item_data": [],
-		"featured_image": "http://cocart-dev.local/wp-content/uploads/2021/02/vnech-tee-blue-1-324x324.jpg"
+		"featured_image": "https://example.com/wp-content/uploads/2021/02/vnech-tee-blue-1-324x324.jpg"
 	}
 }
 ```
@@ -182,29 +182,34 @@ $body = wp_remote_retrieve_body( $response );
 
 This API help you view just a single item added in the cart.
 
-### Properties ###
+### Parameters ###
 
-| Property   | Type   | Description                                                                                                                 |
+| Parameter  | Type   | Description                                                                                                                 |
 | ---------- | ------ | --------------------------------------------------------------------------------------------------------------------------- |
 | `cart_key` | string | Unique identifier for the cart. <a class="label label-info" href="#cart-key">?</a> <i class="label label-info">optional</i> |
-| `item_key` | string | Unique identifier for the item in the cart. <i class="label label-info">mandatory</i>                                       |
+
+### Properties ###
+
+| Property   | Type   | Description                                                                           |
+| ---------- | ------ | ------------------------------------------------------------------------------------- |
+| `item_key` | string | Unique identifier for the item in the cart. <i class="label label-info">mandatory</i> |
 
 ### HTTP request ###
 
 <div class="api-endpoint">
   <div class="endpoint-data">
     <i class="label label-get">GET</i>
-    <h6>/wp-json/cocart/v2/cart/item/{item_key}</h6>
+    <h6>/wp-json/cocart/v2/cart/item/&lt;item_key&gt;</h6>
   </div>
 </div>
 
 ```shell
-curl -X GET https://example.com/wp-json/cocart/v2/cart/item/{item_key} \
+curl -X GET https://example.com/wp-json/cocart/v2/cart/item/<item_key> \
  -H "Content-Type: application/json"
 ```
 
 ```javascript--node
-CoCart.get("cart/item/{item_key}")
+CoCart.get("cart/item/<item_key>")
 .then((response) => {
   // Successful request
   console.log("Response Status:", response.status);
@@ -224,7 +229,7 @@ CoCart.get("cart/item/{item_key}")
 
 ```javascript--jquery
 $.ajax({
-  url: "https://example.com/wp-json/cocart/v2/cart/item/{item_key}",
+  url: "https://example.com/wp-json/cocart/v2/cart/item/<item_key>",
   method: "GET",
   dataType: "json",
   contentType: "application/json; charset=utf-8",
@@ -239,7 +244,7 @@ $.ajax({
 $curl = curl_init();
 
 curl_setopt_array( $curl, array(
-  CURLOPT_URL => "https://example.com/wp-json/cocart/v2/cart/item/{item_key}",
+  CURLOPT_URL => "https://example.com/wp-json/cocart/v2/cart/item/<item_key>",
   CURLOPT_CUSTOMREQUEST => "GET",
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_TIMEOUT => 30,
@@ -258,7 +263,7 @@ echo $response;
 
 ```php--wp-http-api
 <?php
-$response = wp_remote_get( 'https://example.com/wp-json/cocart/v2/cart/item/{item_key}' );
+$response = wp_remote_get( 'https://example.com/wp-json/cocart/v2/cart/item/<item_key>' );
 $body = wp_remote_retrieve_body( $response );
 ```
 
@@ -301,7 +306,7 @@ $body = wp_remote_retrieve_body( $response );
 		}
 	},
 	"cart_item_data": [],
-	"featured_image": "http://cocart-dev.local/wp-content/uploads/2021/02/vnech-tee-blue-1-324x324.jpg"
+	"featured_image": "https://example.com/wp-content/uploads/2021/02/vnech-tee-blue-1-324x324.jpg"
 }
 ```
 
@@ -309,12 +314,17 @@ $body = wp_remote_retrieve_body( $response );
 
 This API helps you count the items in the cart.
 
+### Parameters ###
+
+| Parameter  | Type   | Description                                                                                                                 |
+| ---------- | ------ | --------------------------------------------------------------------------------------------------------------------------- |
+| `cart_key` | string | Unique identifier for the cart. <a class="label label-info" href="#cart-key">?</a> <i class="label label-info">optional</i> |
+
 ### Properties ###
 
-| Property        | Type   | Description                                                                                                                 |
-| --------------- | ------ | --------------------------------------------------------------------------------------------------------------------------- |
-| `cart_key`      | string | Unique identifier for the cart. <a class="label label-info" href="#cart-key">?</a> <i class="label label-info">optional</i> |
-| `removed_items` | bool | Set as true to count items removed from the cart. <i class="label label-info">optional</i>                                    |
+| Property        | Type | Description                                                                                |
+| --------------- | ---- | ------------------------------------------------------------------------------------------ |
+| `removed_items` | bool | Set as true to count items removed from the cart. <i class="label label-info">optional</i> |
 
 ### HTTP request ###
 

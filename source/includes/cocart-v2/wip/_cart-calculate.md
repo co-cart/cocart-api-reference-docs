@@ -4,12 +4,17 @@
 
 This API helps you calculate the cart totals. You can also request to return the totals once calculated to reduce API requests and use the [Retrieve Cart Totals](#totals-retrieve-cart-totals) properties.
 
-### Properties ###
+### Parameters ###
 
-| Property   | Type   | Description                                                                                                                 |
+| Parameter  | Type   | Description                                                                                                                 |
 | ---------- | ------ | --------------------------------------------------------------------------------------------------------------------------- |
 | `cart_key` | string | Unique identifier for the cart. <a class="label label-info" href="#cart-key">?</a> <i class="label label-info">optional</i> |
-| `return`   | bool   | Set as true to return the totals once calculated. <i class="label label-info">optional</i>                                  |
+
+### Properties ###
+
+| Property | Type | Description                                                                                |
+| -------- | ---- | ------------------------------------------------------------------------------------------ |
+| `return` | bool | Set as true to return the totals once calculated. <i class="label label-info">optional</i> |
 
 ### HTTP request ###
 

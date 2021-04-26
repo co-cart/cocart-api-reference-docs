@@ -2,22 +2,29 @@
 
 <img src="images/github.svg" width="20" height="20" alt="GitHub Mark Logo"> [Edit on GitHub](https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v2/wip/_cart-item-remove.md)
 
-This API helps you to remove an item from the cart.
+This API helps you to remove an item from the cart. If an item has not already been removed and does exist in the cart then an updated cart response will return.
+
+If an item does not exist in cart or has already been removed, then an error message will return instead as nothing has changed to the cart. Therefore there is no need to return the cart response.
+
+### Parameters ###
+
+| Parameter  | Type   | Description                                                                                                                 |
+| ---------- | ------ | --------------------------------------------------------------------------------------------------------------------------- |
+| `cart_key` | string | Unique identifier for the cart. <a class="label label-info" href="#cart-key">?</a> <i class="label label-info">optional</i> |
 
 ### Properties ###
 
-| Property        | Type   | Description                                                                                                                 |
-| --------------- | ------ | --------------------------------------------------------------------------------------------------------------------------- |
-| `cart_key`      | string | Unique identifier for the cart. <a class="label label-info" href="#cart-key">?</a> <i class="label label-info">optional</i> |
-| `item_key`      | string | Unique identifier for the item in the cart. <i class="label label-info">mandatory</i>                                       |
-| `return_status` | bool   | Set as true to return a message after removing item from cart. <i class="label label-info">optional</i>                     |
+| Property        | Type   | Description                                                                                             |
+| --------------- | ------ | ------------------------------------------------------------------------------------------------------- |
+| `item_key`      | string | Unique identifier for the item in the cart. <i class="label label-info">mandatory</i>                   |
+| `return_status` | bool   | Set as true to return a message after removing item from cart. <i class="label label-info">optional</i> |
 
 ### HTTP request ###
 
 <div class="api-endpoint">
   <div class="endpoint-data">
     <i class="label label-delete">DELETE</i>
-    <h6>/wp-json/cocart/v2/cart/item/<item_key></h6>
+    <h6>/wp-json/cocart/v2/cart/item/&lt;item_key&gt;</h6>
   </div>
 </div>
 
@@ -91,4 +98,9 @@ $args = array(
 
 $response = wp_remote_request( 'https://example.com/wp-json/cocart/v2/cart/item/<item_key>', $args );
 $body = wp_remote_retrieve_body( $response );
+```
+
+```json
+// Returned response if item is removed with `return_status` set to `true`.
+"\"Beanie\" has been removed from cart."
 ```
