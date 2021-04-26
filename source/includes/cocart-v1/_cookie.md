@@ -26,7 +26,7 @@ This is the default behaviour for WooCommerce on the frontend and works fine in 
 If the framework your using is not able to read cookies, then there are a few things you can do.
 
 1. Look for a cookie support add-on for your framework. React for example has one called [react-cookies](https://www.npmjs.com/package/react-cookies).
-2. Read the cart key value in the returned header response `X-CoCart-API`. Once you have that value you can use it to set the `cart_key` parameter on all API requests. This will use the [Cart Key method](#get-cart-cart-for-guest-customers).
+2. Read the cart key value in the returned header response `X-CoCart-API`. Once you have that value you can use it to set the `cart_key` parameter on all API requests. This will use the [Cart Key method](#get-cart-get-cart-using-cart-key).
 
 ## Set-Cookie-headers ##
 
