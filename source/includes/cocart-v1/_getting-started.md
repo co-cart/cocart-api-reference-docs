@@ -15,6 +15,7 @@ There are some alternatives for quickly spinning up a local environment:
  * [Lando](https://docs.lando.dev/config/wordpress.html)
  * [MAMP](https://codex.wordpress.org/Installing_WordPress_Locally_on_Your_Mac_With_MAMP)
  * [XAMP](https://themeisle.com/blog/install-xampp-and-wordpress-locally/)
+ * [DevKinsta](https://kinsta.com/blog/install-wordpress-locally/#how-to-install-wordpress-locally-with-devkinsta)
  * [Set it all up on your own](https://coolestguidesontheplanet.com/fastest-way-to-install-wordpress-on-osx-10-6/)
 
 When setting up your WordPress environment, please check that you have the server [requirements](#introduction-requirements) for CoCart.
