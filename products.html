@@ -289,7 +289,7 @@
   color: #859900;
 }
     </style>
-    <link href="stylesheets/screen-91a2af0c.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/screen-49ae59f7.css" rel="stylesheet" media="screen" />
     <link href="stylesheets/print-46df3289.css" rel="stylesheet" media="print" />
       <script src="javascripts/all-c0cd2ec7.js"></script>
 
@@ -509,8 +509,11 @@
           </li>
       </ul>
         <ul class="toc-footer">
-            <li><a href="https://cocart.xyz/?utm_medium=docs.cocart.xyz&utm_source=docs&utm_content=cocart-docs">CoCart</a></li>
             <li><a href="https://github.com/co-cart/co-cart-docs/blob/master/CONTRIBUTING.md">Contribute to Documentation</a></li>
+            <li><a href="https://github.com/co-cart/co-cart/blob/master/CONTRIBUTING.md">Contribute to CoCart</a></li>
+            <li><a href="https://github.com/co-cart/co-cart/tree/master/includes/api">REST API Source on GitHub</a></li>
+            <li><a href="https://github.com/co-cart/co-cart/issues?page=1&amp;state=open">CoCart Issues</a></li>
+            <li><a href="https://github.com/co-cart/co-cart">CoCart Repository</a></li>
             <li><a href="https://sebastiendumont.com">Developed by Sébastien Dumont</a></li>
             <li><a href="https://github.com/slatedocs/slate">Documentation Powered by Slate</a></li>
         </ul>
@@ -4972,7 +4975,7 @@
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div><h1 id='libraries'>Libraries</h1>
-<p><img src="images/github-633266a3.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart-docs/blob/master/source/includes/_libraries.md">Edit on GitHub</a></p>
+<p><img src="images/github-633266a3.svg" width="20" height="20" alt="GitHub Mark Logo"> <a href="https://github.com/co-cart/co-cart-docs/blob/master/source/includes/cocart-v1/_libraries.md">Edit on GitHub</a></p>
 
 <ul>
 <li><a href="https://www.npmjs.com/package/@cocart/cocart-rest-api">Node.js</a> Library</li>
@@ -4983,7 +4986,8 @@
 <span class="kd">const</span> <span class="nx">CoCartAPI</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">@cocart/cocart-rest-api</span><span class="dl">"</span><span class="p">).</span><span class="k">default</span><span class="p">;</span>
 
 <span class="kd">const</span> <span class="nx">CoCart</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">CoCartAPI</span><span class="p">({</span>
-  <span class="na">url</span><span class="p">:</span> <span class="dl">"</span><span class="s2">https://example.com</span><span class="dl">"</span>
+  <span class="na">url</span><span class="p">:</span> <span class="dl">"</span><span class="s2">https://example.com</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">version</span><span class="p">:</span> <span class="dl">"</span><span class="s2">cocart/v1</span><span class="dl">"</span>
 <span class="p">});</span>
 </code></pre></div>
 <aside class="notice">
