@@ -18,39 +18,42 @@ toc_footers:
   - <a href="https://github.com/slatedocs/slate">Documentation Powered by Slate</a>
 
 includes:
-  - cocart-v1/introduction
-  - cocart-v1/getting-started
-  - cocart-v1/errors
-  - knowledge-base
-  - cocart-v1/authentication
-  - cocart-v1/cart-key
-  - cocart-v1/cookie
-  - cocart-v1/index
-  - products
-  - cocart-v1/cart
-  - cocart-v1/clear-cart
-  - cocart-v1/add-to-cart
-  - cocart-v1/items
-  - cocart-v1/count-items
-  - cocart-v1/remove-item-from-cart
-  - cocart-v1/restore-item-to-cart
-  - cocart-v1/update-item-in-cart
-  - cocart-v1/totals
-  - cocart-v1/calculate
-  - cocart-v1/logout
-  - cocart-v1/load-cart-from-session
-  - cocart-v1/extending
-  - cocart-v1/hooks
-  - cocart-v1/filters
-  - add-ons
-  - cocart-pro
-  - cocart-products
-  - cocart-v1/woocommerce-extensions
+  - cocart-v2/introduction
+  - cocart-v2/getting-started
+  - cocart-v2/errors
+  - cocart-v2/breaking-changes
+  - cocart-v2/knowledge-base
+  - cocart-v2/authentication
+  - cocart-v2/cart-key
+  - cocart-v2/cookie
+  - cocart-v2/index
+  - cocart-v2/store
+  - cocart-v2/products
+  - cocart-v2/cart
+  - cocart-v2/cart-clear
+  - cocart-v2/cart-add-items
+  - cocart-v2/cart-items
+  - cocart-v2/cart-item-remove
+  - cocart-v2/cart-item-restore
+  - cocart-v2/cart-item-update
+  - cocart-v2/cart-totals
+  - cocart-v2/cart-calculate
+  - cocart-v2/login
+  - cocart-v2/logout
+  - cocart-v2/web-load-cart-from-session
+  - cocart-v2/sessions
+  - cocart-v2/wp-cli
+  - cocart-v2/extending
+  - cocart-v2/actions
+  - cocart-v2/filters
+  - cocart-v2/add-ons
+  - cocart-v2/cocart-pro
+  - cocart-v2/cocart-products
+  - cocart-v2/woocommerce-extensions
   - wp-config.php
-  - libraries
+  - cocart-v2/libraries
   - tools
-  - demo
-  - changelog
+  - cocart-v2/demo
   - contribute
 
 search: true

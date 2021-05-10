@@ -146,7 +146,7 @@ a[data-title="Libraries"] {
   display: none;
 }
 
-.new, .deprecated {
+.pro, .new, .deprecated {
   font-size: 14px;
   font-weight: 700;
   text-transform: uppercase;
@@ -155,6 +155,10 @@ a[data-title="Libraries"] {
   padding: 1px 8px 2px 8px;
   margin: 2px;
   border-radius: 20px;
+}
+
+.pro {
+  background: #6539b4;
 }
 
 .new {

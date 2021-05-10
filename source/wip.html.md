@@ -18,43 +18,43 @@ toc_footers:
   - <a href="https://github.com/slatedocs/slate">Documentation Powered by Slate</a>
 
 includes:
-  - cocart-v2/wip/introduction
-  - cocart-v2/wip/getting-started
-  - cocart-v2/wip/errors
-  - cocart-v2/wip/breaking-changes
-  - knowledge-base
-  - cocart-v2/wip/authentication
-  - cocart-v2/wip/cart-key
-  - cocart-v2/wip/cookie
-  - cocart-v2/wip/index
-  - cocart-v2/wip/store
-  - products
-  - cocart-v2/wip/cart
-  - cocart-v2/wip/cart-clear
-  - cocart-v2/wip/cart-add-items
-  - cocart-v2/wip/cart-items
-  - cocart-v2/wip/cart-item-remove
-  - cocart-v2/wip/cart-item-restore
-  - cocart-v2/wip/cart-item-update
-  - cocart-v2/wip/cart-totals
-  - cocart-v2/wip/cart-calculate
-  - cocart-v2/wip/login
-  - cocart-v2/wip/logout
-  - cocart-v2/wip/web-load-cart-from-session
-  - cocart-v2/wip/sessions
-  - cocart-v2/wip/wp-cli
-  - cocart-v2/wip/extending
-  - cocart-v2/wip/actions
-  - cocart-v2/wip/filters
-  - add-ons
-  - cocart-pro
-  - cocart-products
-  - cocart-v2/wip/woocommerce-extensions
+  - cocart-v2/introduction
+  - cocart-v2/getting-started
+  - cocart-v2/errors
+  - cocart-v2/breaking-changes
+  - cocart-v2/knowledge-base
+  - cocart-v2/authentication
+  - cocart-v2/cart-key
+  - cocart-v2/cookie
+  - cocart-v2/index
+  - cocart-v2/store
+  - cocart-v2/products
+  - cocart-v2/cart
+  - cocart-v2/cart-clear
+  - cocart-v2/cart-add-items
+  - cocart-v2/cart-items
+  - cocart-v2/cart-item-remove
+  - cocart-v2/cart-item-restore
+  - cocart-v2/cart-item-update
+  - cocart-v2/cart-totals
+  - cocart-v2/cart-calculate
+  - cocart-v2/login
+  - cocart-v2/logout
+  - cocart-v2/web-load-cart-from-session
+  - cocart-v2/sessions
+  - cocart-v2/wp-cli
+  - cocart-v2/extending
+  - cocart-v2/actions
+  - cocart-v2/filters
+  - cocart-v2/add-ons
+  - cocart-v2/cocart-pro
+  - cocart-v2/cocart-products
+  - cocart-v2/woocommerce-extensions
   - wp-config.php
-  - libraries
+  - cocart-v2/libraries
   - tools
-  - demo
-  - cocart-v2/wip/changelog
+  - cocart-v2/demo
+  - cocart-v2/changelog
 
 search: true
 

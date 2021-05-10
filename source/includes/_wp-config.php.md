@@ -37,7 +37,7 @@ define( 'COCART_WHITE_LABEL', true );
 
 ### Load Cart for the Web ###
 
-<span class="new">New Filter since v2.8.2</span>
+<span class="new">Introduced filter since v2.8.2</span>
 
 In addition to white labelling, you can filter the parameter name `cocart-load-cart` `to what ever you like.
 
