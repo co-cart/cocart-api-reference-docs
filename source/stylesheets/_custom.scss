@@ -146,7 +146,7 @@ a[data-title="Libraries"] {
   display: none;
 }
 
-.pro, .new, .deprecated {
+span.pro, span.new, span.deprecated {
   font-size: 14px;
   font-weight: 700;
   text-transform: uppercase;
@@ -157,15 +157,15 @@ a[data-title="Libraries"] {
   border-radius: 20px;
 }
 
-.pro {
+span.pro {
   background: #6539b4;
 }
 
-.new {
+span.new {
   background: #9a6fc4;
 }
 
-.deprecated {
+span.deprecated {
   background: #444a7c;
 }
 
