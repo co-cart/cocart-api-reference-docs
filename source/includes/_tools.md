@@ -5,7 +5,7 @@
 Some useful tools you can use to access the API include:
 
 * [Postman](https://www.getpostman.com/) - A multi platform REST API GUI client (using Google Chrome or installing the app on Mac OS X or Windows).
-* [Postwoman](https://postwoman.io/) - A fast and beautiful API request builder (web alternative to Postman).
+* [Hoppscotch](https://hoppscotch.io/) - A fast and beautiful API request builder (web alternative to Postman).
 * [ExtendsClass](https://extendsclass.com/rest-client-online.html) - Another web HTTP client.
 * [Insomnia](https://insomnia.rest/) - Similar to Postman using an app on Mac OS X, Windows or Ubuntu.
 * [CocoaRestClient](https://mmattozzi.github.io/cocoa-rest-client/) - A Mac OS X GUI client for interacting with the API.
