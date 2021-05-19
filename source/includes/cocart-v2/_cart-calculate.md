@@ -21,12 +21,12 @@ This API helps you calculate the cart totals. You can also request to return the
 <div class="api-endpoint">
 	<div class="endpoint-data">
 		<i class="label label-post">POST</i>
-		<h6>/wp-json/cocart/v2/calculate</h6>
+		<h6>/wp-json/cocart/v2/cart/calculate</h6>
 	</div>
 </div>
 
 ```shell
-curl -X POST https://example.com/wp-json/cocart/v2/calculate \
+curl -X POST https://example.com/wp-json/cocart/v2/cart/calculate \
 	-H "Content-Type: application/json"
 ```
 
@@ -51,7 +51,7 @@ CoCart.post("calculate")
 
 ```javascript--jquery
 $.ajax({
-  url: "https://example.com/wp-json/cocart/v2/calculate",
+  url: "https://example.com/wp-json/cocart/v2/cart/calculate",
   method: "POST",
   dataType: "json",
   contentType: "application/json; charset=utf-8",
@@ -66,7 +66,7 @@ $.ajax({
 $curl = curl_init();
 
 curl_setopt_array( $curl, array(
-  CURLOPT_URL => "https://example.com/wp-json/cocart/v2/calculate",
+  CURLOPT_URL => "https://example.com/wp-json/cocart/v2/cart/calculate",
   CURLOPT_CUSTOMREQUEST => "POST",
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_TIMEOUT => 30,
@@ -85,7 +85,7 @@ echo $response;
 
 ```php--wp-http-api
 <?php
-$response = wp_remote_post( 'https://example.com/wp-json/cocart/v2/calculate' );
+$response = wp_remote_post( 'https://example.com/wp-json/cocart/v2/cart/calculate' );
 $body = wp_remote_retrieve_body( $response );
 ```
 
