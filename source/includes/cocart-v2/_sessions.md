@@ -9,6 +9,7 @@
  * [Get Sessions](#sessions-get-sessions)
  * [View Cart in Session](#sessions-view-cart-in-session)
  * [View Cart Items in Session](#sessions-view-cart-items-in-session)
+ * [Delete Cart in Session](#sessions-delete-cart-in-session)
 
 ## Get Sessions ##
 
@@ -706,4 +707,107 @@ $body = wp_remote_retrieve_body( $response );
     "featured_image": "https://example.com/wp-content/uploads/2021/02/single-1-324x324.jpg"
   }
 }
+```
+
+## Delete Cart in Session ##
+
+This API helps you delete a specified session.
+
+### HTTP request ###
+
+<div class="api-endpoint">
+  <div class="endpoint-data">
+    <i class="label label-delete">DELETE</i>
+    <h6>/wp-json/cocart/v2/session/&lt;cart_key&gt;</h6>
+  </div>
+</div>
+
+```shell
+curl -X DELETE https://example.com/wp-json/cocart/v2/session/<cart_key> \
+  -u username:password \
+  -H "Content-Type: application/json"
+```
+
+```javascript--node
+// import CoCartAPI from "@cocart/cocart-rest-api"; // Supports ESM
+const CoCartAPI = require("@cocart/cocart-rest-api").default;
+ 
+const CoCart = new CoCartAPI({
+  url: "https://example.com",
+  consumerKey: 'sebtest123',
+  consumerSecret: 'happycoding24'
+});
+
+CoCart.delete("session/<cart_key>")
+.then((response) => {
+  // Successful request
+  console.log("Response Status:", response.status);
+  console.log("Response Headers:", response.headers);
+  console.log("Response Data:", response.data);
+})
+.catch((error) => {
+  // Invalid request, for 4xx and 5xx statuses
+  console.log("Response Status:", error.response.status);
+  console.log("Response Headers:", error.response.headers);
+  console.log("Response Data:", error.response.data);
+})
+.finally(() => {
+  // Always executed.
+});
+```
+
+```javascript--jquery
+$.ajax({
+  url: "https://example.com/wp-json/cocart/v2/session/<cart_key>",
+  headers: {
+      "Authorization": "Basic " + btoa('username:password'),
+  },
+  method: "DELETE",
+  dataType: "json",
+  contentType: "application/json; charset=utf-8",
+  complete: function (response) {
+    console.log(response);
+  }
+});
+```
+
+```php
+<?php
+$curl = curl_init();
+
+curl_setopt_array( $curl, array(
+  CURLOPT_URL => "https://example.com/wp-json/cocart/v2/session/<cart_key>",
+  CURLOPT_CUSTOMREQUEST => "DELETE",
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_TIMEOUT => 30,
+  CURLOPT_HTTPHEADER => array(
+    'Accept: application/json',
+    'User-Agent: CoCart API/v2',
+    'Authorization: Basic ' . base64_encode($username . ':' . $password)
+  )
+) );
+
+$response = curl_exec($curl);
+
+curl_close($curl);
+
+echo $response;
+```
+
+```php--wp-http-api
+<?php
+$args = array(
+  'headers' => array(
+    'Content-Type' => 'application/json; charset=utf-8',
+  ),
+  'method' => 'DELETE',
+  'timeout' => 30
+);
+
+$response = wp_remote_request( 'https://example.com/wp-json/cocart/v2/session/<cart_key>', $args );
+$body = wp_remote_retrieve_body( $response );
+```
+
+```json
+"Cart successfully deleted!"
 ```
