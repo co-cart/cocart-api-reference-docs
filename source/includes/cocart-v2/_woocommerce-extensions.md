@@ -26,7 +26,7 @@ Once you have setup "[Mix and Match Products](https://woocommerce.com/products/w
 CoCart.post("cart/add-item", {
   "id": "1102",
   "quantity": "5",
-  "cart_item_data": {
+  "item_data": {
       "mnm_config": [
           {
               "product_id": 987,
@@ -66,7 +66,7 @@ curl -X POST https://example.com/wp-json/cocart/v2/cart/add-item \
   -d '{
     "id": "1102",
     "quantity": "2",
-    "cart_item_data": {
+    "item_data": {
         "mnm_config": [
             {
                 "product_id": 987,
@@ -92,7 +92,7 @@ $.ajax({
   data: JSON.stringify({
     "id": "1102",
     "quantity": "5",
-    "cart_item_data": {
+    "item_data": {
         "mnm_config": [
             {
                 "product_id": 987,
@@ -124,7 +124,7 @@ $curl = curl_init();
 $args = array(
   'id' => '1102',
   'quantity' => '5',
-  'cart_item_data' => array(
+  'item_data' => array(
       'mnm_config' => array(
           array(
               'product_id' => 987,
@@ -171,7 +171,7 @@ $args = array(
   'body' => wp_json_encode( [
     'id' => '1102',
     'quantity' => '5',
-    'cart_item_data' => array(
+    'item_data' => array(
         'mnm_config' => array(
             array(
                 'product_id' => 987,
@@ -323,7 +323,7 @@ Once you have setup "[Name Your Price](https://woocommerce.com/products/name-you
 CoCart.post("cart/add-item", {
   "id": "1102",
   "quantity": "5",
-  "cart_item_data": {
+  "item_data": {
       "nyp": 24
   }
 })
@@ -350,7 +350,7 @@ curl -X POST https://example.com/wp-json/cocart/v2/cart/add-item \
   -d '{
     "id": "129",
     "quantity": "1",
-    "cart_item_data": {
+    "item_data": {
       "nyp": 24
     }
   }'
@@ -363,7 +363,7 @@ $.ajax({
   data: JSON.stringify({
     "id": "129",
     "quantity": "1",
-    "cart_item_data": {
+    "item_data": {
       "nyp": 24
     }
   }),
@@ -382,7 +382,7 @@ $curl = curl_init();
 $args = array(
   'id' => '129',
   'quantity' => '1',
-  'cart_item_data' => array(
+  'item_data' => array(
     'nyp' => 24
   )
 );
@@ -416,7 +416,7 @@ $args = array(
   'body' => wp_json_encode( [
     'id' => '129',
     'quantity' => '1',
-    'cart_item_data' => array(
+    'item_data' => array(
       'nyp' => 24
     )
   ] ),
