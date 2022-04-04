@@ -25,8 +25,6 @@ curl -X DELETE https://example.com/wp-json/wc/v2/cart/cart-item \
   }'
 ```
 
-> JSON response example
-
 ```json
 "Item has been removed from cart."
 ```

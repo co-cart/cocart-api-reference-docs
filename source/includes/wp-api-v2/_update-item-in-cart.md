@@ -27,8 +27,6 @@ curl -X POST https://example.com/wp-json/wc/v2/cart/cart-item \
 	}'
 ```
 
-> JSON response example
-
 ```json
 "The quantity for 'Woo T-Shirt' has increased to '2'."
 ```

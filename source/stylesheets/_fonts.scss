@@ -1,0 +1,15 @@
+%default-font {
+	font-family: "Jost", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	font-size: 20px;
+}
+
+%header-font {
+	@extend %default-font;
+	font-weight: bold;
+}
+
+%code-font {
+	font-family: Consolas, Menlo, Monaco, "Lucida Console", "Liberation Mono", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Courier New", monospace, serif;
+	font-size: 12px;
+	line-height: 1.5;
+}

@@ -14,6 +14,7 @@ License for the specific language governing permissions and limitations
 under the License.
 %>
 <% language_tabs = current_page.data.language_tabs || [] %>
+<% whats_on_page = current_page.data.whats_on_page || false %>
 <% page_content = yield %>
 <%
   if current_page.data.includes
@@ -22,21 +23,51 @@ under the License.
     end
   end
 %>
+<% layout = 'page' %>
+<%
+  if language_tabs.any?
+    layout = 'docs'
+  end
+%>
 
 <!doctype html> 
-<html>
+<html lang="en-US">
   <head>
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title><%= current_page.data.title || "API Documentation" %></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover">
+    <title><%= current_page.data.title || "CoCart API Reference" %></title>
 
-    <link rel="icon" href="images/favicon-32x32.png" sizes="32x32" />
-    <link rel="icon" href="images/favicon-192x192.png" sizes="192x192" />
-    <link rel="apple-touch-icon-precomposed" href="images/favicon-180x180.png" />
-    <meta name="msapplication-TileImage" content="images/favicon-270x270.png" />
-    <meta name="msapplication-TileColor" content="#6e60cc" />
-    <meta name="theme-color" content="#6e60cc" />
+    <meta name="description" content="<%= current_page.data.meta_description %>" />
+    <% if current_page.data.seo_index %>
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <% else %>
+    <meta name="robots" content="noindex, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <% end %>
+    <link rel="canonical" href="https://docs.cocart.xyz/" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="CoCart API Reference" />
+    <meta property="og:description" content="<%= current_page.data.meta_description %>" />
+    <meta property="og:url" content="https://docs.cocart.xyz/" />
+    <meta property="og:site_name" content="CoCart API Reference" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://docs.cocart.xyz/images/cocart-social-card.png" />
+    <meta name="twitter:site" content="@cocartapi" />
+
+    <link rel="icon" href="https://docs.cocart.xyz/images/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" href="https://docs.cocart.xyz/images/favicon-192x192.png" sizes="192x192" />
+    <link rel="apple-touch-icon" href="https://docs.cocart.xyz/images/favicon-180x180.png" />
+    <meta name="msapplication-TileImage" content="https://docs.cocart.xyz/images/favicon-270x270.png" />
+    <meta name="msapplication-TileColor" content="#6032b0" />
+    <meta name="theme-color" content="#6032b0" />
+
+    <link rel='dns-prefetch' href='//fonts.googleapis.com' />
+    <link crossorigin rel='preconnect' href='https://fonts.gstatic.com' />
+    <link rel='stylesheet' id='frost-fonts-css' href='https://fonts.googleapis.com/css2?family=Jost:wght@100;200;300;400;500;600;700;800;900&#038;display=swap' media='all' />
+
+    <meta name="google-site-verification" content="Uy3jWeNTrD16tTQlKFRED88Esbb1y08VXiUmvWv_yUQ" />
 
     <style media="screen">
       <%= Rouge::Themes::MonokaiSublimeSlate.render(:scope => '.highlight') %>
@@ -61,29 +92,6 @@ under the License.
     </script>
     <% end %>
 
-    <!-- Chatra {literal} -->
-    <script>
-    window.ChatraSetup = {
-        colors: {
-            buttonText: '#fff',
-            buttonBg: '#9a6fc4',
-            disabledOnMobile: true
-        }
-    };
-    </script>
-    <script>
-        (function(d, w, c) {
-            w.ChatraID = 'xwyESjfvnFXRtTM3N';
-            var s = d.createElement('script');
-            w[c] = w[c] || function() {
-                (w[c].q = w[c].q || []).push(arguments);
-            };
-            s.async = true;
-            s.src = 'https://call.chatra.io/chatra.js';
-            if (d.head) d.head.appendChild(s);
-        })(document, window, 'Chatra');
-    </script>
-    <!-- /Chatra {/literal} -->
   </head>
 
   <% if current_page.data.warning %>
@@ -92,8 +100,8 @@ under the License.
         <div id="warning-top">
             <%= current_page.data.warning %>
         </div>
-    <% else %>
-    <body class="<%= page_classes %>" data-languages="<%=h language_tabs.map{ |lang| lang.is_a?(Hash) ? lang.keys.first : lang }.to_json %>">
+  <% else %>
+    <body class="<%= page_classes %>" id="<%= layout %>" data-languages="<%=h language_tabs.map{ |lang| lang.is_a?(Hash) ? lang.keys.first : lang }.to_json %>">
   <% end %>
 
     <a href="#" id="nav-button">
@@ -102,8 +110,11 @@ under the License.
         <%= image_tag('navbar.png') %>
       </span>
     </a>
+    <% if layout == "page" %>
+    <div class="root">
+    <% end %>
     <div class="toc-wrapper">
-      <a href="index.html"><%= image_tag "logo.png", class: 'logo' %></a>
+      <a href="https://docs.cocart.xyz/index.html"><%= image_tag "logo.png", class: 'logo' %></a>
       <% if language_tabs.any? %>
         <div class="lang-selector">
           <% language_tabs.each do |lang| %>
@@ -113,6 +124,17 @@ under the License.
               <a href="#" data-language-name="<%= lang %>"><%= lang %></a>
             <% end %>
           <% end %>
+        </div>
+      <% end %>
+      <% if layout == "docs" %>
+        <div class="api-versions">
+          <label for="api-version">API Version:</label>
+          <select onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);">
+            <option value="https://docs.cocart.xyz/core/version/v3.4/api-v2.html" selected="selected">CoCart v3.4 - API v2</option>
+            <option value="https://docs.cocart.xyz/core/version/v3.0/api-v2.html">CoCart v3.0 - API v2</option>
+            <option value="https://docs.cocart.xyz/core/version/v3.0/api-v1.html">CoCart v3.0 - API v1</option>
+            <option value="https://docs.cocart.xyz/core/version/v2.0/api-v1.html">CoCart v2.0 - API v2</option>
+          </select>
         </div>
       <% end %>
       <% if current_page.data.search %>
@@ -137,6 +159,13 @@ under the License.
           </li>
         <% end %>
       </ul>
+      <% if current_page.data.menu %>
+        <ul class="toc-footer">
+          <% current_page.data.menu.each do |menu_item| %>
+            <li><%= menu_item %></li>
+          <% end %>
+        </ul>
+      <% end %>
       <% if current_page.data.toc_footers %>
         <ul class="toc-footer">
           <% current_page.data.toc_footers.each do |footer| %>
@@ -145,12 +174,54 @@ under the License.
         </ul>
       <% end %>
     </div>
+
     <div class="page-wrapper">
-      <div class="content">
+      <% if layout == "page" %>
+        <div class="container">
+          <div class="content-container">
+            <div style="display:flex; flex-direction: row;">
+              <div class="content">
+                <%= page_content %>
+              </div>
+              <% if current_page.data.whats_on_page %>
+              <div class="whats-on-page">
+                <span>On this page</span>
+                <ul>
+                  <% toc_data(page_content).each do |h1| %>
+                    <li><a href="#<%= h1[:id] %>" class="link" data-title="<%= h1[:title] %>"><%= h1[:content] %></a></li>
+                  <% end %>
+                </ul>
+              </div>
+              <% end %>
+            </div>
+            <div class="footer">
+              <div class="footer-links">
+                <p>Questions? <a href="https://cocart.xyz/contact/" target="_blank" rel="noopener noreferrer">Contact us</a></p>
+                <p>Check out the <a href="https://github.com/co-cart/co-cart/blob/trunk/CHANGELOG.md" target="_blank" rel="noopener noreferrer">changelog.</a></p>
+              </div>
+              <div class="footer-signup">
+                <form action="https://xyz.us1.list-manage.com/subscribe/post?u=48ead612ad85b23fe2239c6e3&amp;id=d462357844&amp;SIGNUPPAGE=plugin" method="post" target="_blank">
+                  <div class="newsletter-form-container">
+                    <label for="sign-up-for-developer-updates">Sign up for developer updates:</label>
+                    <input class="newsletter-form-email" type="email" name="EMAIL" placeholder="Email address" required="required">
+                    <button type="submit" value="Yes please!" name="subscribe" class="button newsletter-form-button">Yes please!</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <% else %>
+        <div class="content">
         <%= page_content %>
+        </div>
+      <% end %>
+      <% if layout == "page" %>
       </div>
-      <div class="dark-box">
-        <% if language_tabs.any? %>
+      <% end %>
+  
+      <% if language_tabs.any? %>
+        <div class="dark-box">
           <div class="lang-selector">
             <% language_tabs.each do |lang| %>
               <% if lang.is_a? Hash %>
@@ -160,9 +231,9 @@ under the License.
               <% end %>
             <% end %>
           </div>
-        <% end %>
+        </div>
+      <% end %>
       </div>
-    </div>
 
     </body>
 </html>

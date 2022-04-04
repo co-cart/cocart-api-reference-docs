@@ -1,0 +1,142 @@
+body#page {
+
+	.root {
+		height: 100%;
+		display: flex;
+		overflow-y: hidden;
+	}
+
+	.toc-wrapper {
+		-webkit-transition: left 0.3s ease-in-out;
+		transition: left 0.3s ease-in-out;
+		position: relative;
+		width: var(--sidebar-width);
+		background-color: #f7f7f7;
+		font-size: 13px;
+		font-weight: bold;
+		display: flex;
+		height: 100%;
+		flex-direction: column;
+		flex-grow: 1;
+	}
+
+	.page-wrapper {
+		margin: 0;
+		display: flex;
+		flex-flow: column nowrap;
+		align-items: start;
+		justify-content: flex-start;
+		flex-grow: 1;
+	}
+
+	.container {
+		height: 100%;
+		width: calc(100vw - var(--sidebar-width));
+		overflow-y: auto;
+		display: flex;
+		justify-content: center;
+		position: relative;
+		z-index: 1;
+		padding-top: 0;
+		flex: 1;
+	}
+
+	.content-container {
+		width: 100%;
+		max-width: var(--content-max-width);
+	}
+
+	.content {
+		width: 100%;
+		min-width: var(--article-min-width);
+		padding-top: 32px;
+	}
+
+	.content > h1,
+	.content > h2,
+	.content > h3,
+	.content > h4,
+	.content > h5,
+	.content > h6,
+	.content > p,
+	.content > table,
+	.content > ul,
+	.content > ol,
+	.content > aside,
+	.content > dl {
+		margin-right: 0;
+	}
+
+	.content pre,
+	.content blockquote {
+		float: none;
+		width: 100%;
+	}
+
+	.content blockquote {
+		color: initial;
+	}
+
+	.content blockquote > p {
+		color: initial;
+	}
+
+	.whats-on-page {
+		display: block;
+		position: sticky;
+		top: 52px;
+		height: calc(100vh - 200px);
+		max-height: 600px;
+		overflow-y: scroll;
+		padding-left: 48px;
+		padding-bottom: 16px;
+		width: 250px;
+		flex: none;
+		overflow: auto;
+	}
+
+	.footer {
+		display: flex;
+		justify-content: space-between;
+		padding: 32px 0;
+		
+		.footer-links {
+			
+		}
+
+		.footer-signup {
+			width: 520px;
+		}
+	}
+}
+
+@media (max-width: 800px) {
+	.content {
+		padding-top: 24px;
+		padding-right: 24px;
+		padding-bottom: 24px;
+		padding-left: 24px;
+	}
+}
+
+@media (max-width: 1000px) {
+	.container {
+		width: 100vw;
+	}
+
+	.content {
+		width: 100vw;
+	}
+}
+
+@media (max-width: 1200px) {
+	.whats-on-page {
+		display: none;
+	}
+}
+
+@media (min-width: 1500px) {
+	.container {
+		padding-top: 12px;
+	}
+}

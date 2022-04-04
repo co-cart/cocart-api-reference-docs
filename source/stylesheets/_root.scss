@@ -1,0 +1,31 @@
+:root {
+	--content-max-width: 1175px;
+	--article-min-width: 200px;
+	--default-vertical-spacing: 12px;
+	--sidebar-width: 260px;
+	--sidebar-item-min-width: 184px;
+	--fixed-header-height: 64px;
+	--video-player-mini-height: 113px;
+	--video-player-expanded-height: 576px;
+
+	--examples-width: 50%; // portion of the screen taken up by code examples
+	--logo-margin: 20px; // margin between nav items and logo, ignored if search is active
+	--main-padding: 28px; // padding to left and right of content & examples
+	--nav-padding: 20px; // padding to left and right of navbar
+	--nav-v-padding: 10px; // padding used vertically around search boxes and results
+	--nav-indent: 10px !default; // extra padding for ToC subitems
+	--code-annotation-padding: 13px !default; // padding inside code annotations
+	--h1-margin-bottom: 20px; // padding under the largest header tags
+	--tablet-width: 930px; // min width before reverting to tablet size
+	--phone-width: $tablet-width - $nav-width; // min width before reverting to mobile size
+}
+
+*:focus {
+	outline: none;
+}
+
+@media (min-width: 1400px) {
+	:root {
+		--sidebar-width: 280px;
+	}
+}

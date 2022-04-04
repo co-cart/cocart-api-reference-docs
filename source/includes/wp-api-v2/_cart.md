@@ -24,8 +24,6 @@ curl -X GET https://example.com/wp-json/wc/v2/cart \
 	-H "Content-Type: application/json"
 ```
 
-> JSON response example
-
 ```json
 {
   "404dcc91b2aeaa7caa47487d1483e48a":{
@@ -69,8 +67,6 @@ curl -X POST https://example.com/wp-json/wc/v2/cart/clear \
 	-H "Content-Type: application/json"
 ```
 
-> JSON response example
-
 ```json
 "Cart is cleared."
 ```
@@ -92,8 +88,6 @@ This API helps you count the items in the cart.
 curl -X GET https://example.com/wp-json/wc/v2/cart/count-items \
 	-H "Content-Type: application/json"
 ```
-
-> JSON response example
 
 ```json
 1
@@ -117,8 +111,6 @@ curl -X POST https://example.com/wp-json/wc/v2/cart/calculate \
 	-H "Content-Type: application/json"
 ```
 
-> JSON response example
-
 ```json
 "Cart totals have been calculated."
 ```
@@ -140,8 +132,6 @@ This API helps you get the cart totals.
 curl -X GET https://example.com/wp-json/wc/v2/cart/totals \
 	-H "Content-Type: application/json"
 ```
-
-> JSON response example
 
 ```json
 {

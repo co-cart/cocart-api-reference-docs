@@ -30,8 +30,6 @@ curl -X POST https://example.com/wp-json/wc/v2/cart/add \
   }'
 ```
 
-> JSON response example
-
 ```json
 {
   "404dcc91b2aeaa7caa47487d1483e48a":{
