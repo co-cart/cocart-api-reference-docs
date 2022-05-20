@@ -1,14 +1,12 @@
 ---
-title: CoCart API Reference
+title: CoCart Pro API Reference - API v1
 
-meta_description: Complete API reference documentation for the CoCart API. Includes examples for Node.js, cURL, jQuery, PHP and WordPress API.
-
-language_tabs: false
-
-whats_on_page: true
-
-menu:
-  - <a href="#">Getting Started</a>
+language_tabs:
+ - javascript--node: Node.js
+ - shell: cURL
+ - javascript--jquery: jQuery
+ - php: PHP
+ - php--wp-http-api: WP API
 
 toc_footers:
   - <a href="https://github.com/co-cart/co-cart-docs/blob/master/CONTRIBUTING.md">Contribute to Documentation</a>
@@ -22,12 +20,20 @@ toc_footers:
   - <a href="https://github.com/slatedocs/slate">Documentation Powered by Slate</a>
 
 includes:
-  - overview/introduction
-  - overview/getting-started
-  - overview/tools
-  - overview/wp-cli
+  - pro/versions/v1.0/api-v1/coupons
+  - pro/versions/v1.0/api-v1/cross-sells
+  - pro/versions/v1.0/api-v1/customer
+  - pro/versions/v1.0/api-v1/weight
+  - pro/versions/v1.0/api-v1/fees
+  - pro/versions/v1.0/api-v1/payment-methods
+  - pro/versions/v1.0/api-v1/quantities
+  - pro/versions/v1.0/api-v1/removed-items
+  - pro/versions/v1.0/api-v1/shipping-methods
+  - pro/versions/v1.0/api-v1/totals
+  - core/versions/v3.0/api-v1/woocommerce-extensions
+  - core/versions/v3.0/api-v1/libraries
 
-search: false
+search: true
 
 code_clipboard: true
 

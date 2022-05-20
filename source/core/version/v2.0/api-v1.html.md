@@ -1,5 +1,5 @@
 ---
-title: CoCart API Reference - API v1
+title: CoCart API Reference - v2.0 - API v1
 
 language_tabs:
  - javascript--node: Node.js
@@ -18,26 +18,26 @@ toc_footers:
   - <a href="https://github.com/slatedocs/slate">Documentation Powered by Slate</a>
 
 includes:
-  - core/versions/v3.0/api-v1/index
-  - core/versions/v3.0/api-v1/cart
-  - core/versions/v3.0/api-v1/clear-cart
-  - core/versions/v3.0/api-v1/add-to-cart
-  - core/versions/v3.0/api-v1/items
-  - core/versions/v3.0/api-v1/count-items
-  - core/versions/v3.0/api-v1/remove-item-from-cart
-  - core/versions/v3.0/api-v1/restore-item-to-cart
-  - core/versions/v3.0/api-v1/update-item-in-cart
-  - core/versions/v3.0/api-v1/totals
-  - core/versions/v3.0/api-v1/calculate
-  - core/versions/v3.0/api-v1/logout
-  - core/versions/v3.0/api-v1/load-cart-from-session
-  - core/versions/v3.0/api-v1/woocommerce-extensions
-  - core/versions/v3.0/api-v1/authentication
-  - core/versions/v3.0/api-v1/cart-key
-  - core/versions/v3.0/api-v1/cookie
-  - core/versions/v3.0/api-v1/errors
-  - core/versions/v3.0/api-v1/libraries
-  - core/versions/v3.0/api-v1/demo
+  - core/versions/v2.0/api-v1/index
+  - core/versions/v2.0/api-v1/cart
+  - core/versions/v2.0/api-v1/clear-cart
+  - core/versions/v2.0/api-v1/add-to-cart
+  - core/versions/v2.0/api-v1/items
+  - core/versions/v2.0/api-v1/count-items
+  - core/versions/v2.0/api-v1/remove-item-from-cart
+  - core/versions/v2.0/api-v1/restore-item-to-cart
+  - core/versions/v2.0/api-v1/update-item-in-cart
+  - core/versions/v2.0/api-v1/totals
+  - core/versions/v2.0/api-v1/calculate
+  - core/versions/v2.0/api-v1/logout
+  - core/versions/v2.0/api-v1/load-cart-from-session
+  - core/versions/v2.0/api-v1/woocommerce-extensions
+  - core/versions/v2.0/api-v1/authentication
+  - core/versions/v2.0/api-v1/cart-key
+  - core/versions/v2.0/api-v1/cookie
+  - core/versions/v2.0/api-v1/errors
+  - core/versions/v2.0/api-v1/libraries
+  - core/versions/v2.0/api-v1/demo
 
 search: true
 

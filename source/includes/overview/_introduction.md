@@ -24,8 +24,8 @@ The following table shows API versions present in each major version of CoCart:
 
 | API Version | CoCart Version | WC Version     | WP Version   | PHP Version  | Reference                               |
 | ----------- | -------------- | -------------- | ------------ | ------------ | --------------------------------------- |
-| `v1`        | 2.0.x or later | 4.3.x or later | 5.2 or later | 7.0 or later | [API v1](cocart-api-v1.html)            |
-| `v2`        | 3.2.x or later | 5.2.x or later | 5.8 or later | 7.4 or later | [API v2](core/version/v3.2/api-v2.html) |
+| `v1`        | 2.0.x or later | 4.3.x or later | 5.2 or later | 7.0 or later | [API v1](core/version/v3.0/api-v1.html)            |
+| `v2`        | 3.2.x or later | 5.2.x or later | 5.8 or later | 7.4 or later | [API v2](core/version/v3.4/api-v2.html) |
 
 Prior to WooCommerce v3.6, CoCart shared WooCommerce's REST API. You can find the documentation about cart support for `/wc-api-v2` API separately.
 
@@ -89,3 +89,5 @@ Here are the possible types:
 ```
 
 Errors return both an appropriate HTTP status code and response object which contains a `code`, `message` and `data` attribute.
+
+[A full list of HTTP status codes can be found here.](https://www.iana.org/assignments/http-status-codes/http-status-codes.xhtml)

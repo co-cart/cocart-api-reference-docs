@@ -263,3 +263,53 @@ a.label {
     }
   }
 }
+
+////////////////////////////////////////////////////////////////////////////////
+// Select Dropdown
+////////////////////////////////////////////////////////////////////////////////
+
+select {
+  /* Reset Select */
+  appearance: none;
+  outline: 0;
+  border: 0;
+  box-shadow: none;
+  /* Personalize */
+  flex: 1;
+  padding: 0.5em 1em;
+  background-image: none;
+  cursor: pointer;
+  width: 100%;
+
+  /* Remove IE arrow */
+  &::-ms-expand {
+    display: none;
+  }
+}
+
+/* Custom Select wrapper */
+.select {
+  position: relative;
+  display: flex;
+  width: auto;
+  height: 3em;
+  border-radius: .25em;
+  overflow: hidden;
+
+  /* Arrow */
+  &::after {
+    content: '\25BC';
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 1em;
+    background-color: $select-bg;
+    transition: .25s all ease;
+    pointer-events: none;
+  }
+
+  /* Transition */
+  &:hover::after {
+    color: $nav-active-bg;
+  }
+}

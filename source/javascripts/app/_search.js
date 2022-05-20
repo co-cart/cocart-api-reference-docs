@@ -63,7 +63,7 @@
 
     var searchInput = $('#input-search')[0];
 
-    unhighlight();
+    //unhighlight();
     searchResults.addClass('visible');
 
     // ESC clears the field
@@ -80,13 +80,13 @@
           var elem = document.getElementById(result.ref);
           searchResults.append("<li><a href='#" + result.ref + "'>" + $(elem).text() + "</a></li>");
         });
-        highlight.call(searchInput);
+        //highlight.call(searchInput);
       } else {
         searchResults.html('<li></li>');
         $('.search-results li').text('No Results Found for "' + searchInput.value + '"');
       }
     } else {
-      unhighlight();
+      //unhighlight();
       searchResults.removeClass('visible');
     }
   }

@@ -7,8 +7,8 @@ body#page {
 	}
 
 	.toc-wrapper {
-		-webkit-transition: left 0.3s ease-in-out;
-		transition: left 0.3s ease-in-out;
+		-webkit-transition: left 0.5s ease-in-out;
+		transition: left 0.5s ease-in-out;
 		position: relative;
 		width: var(--sidebar-width);
 		background-color: #f7f7f7;
@@ -111,32 +111,40 @@ body#page {
 }
 
 @media (max-width: 800px) {
-	.content {
-		padding-top: 24px;
-		padding-right: 24px;
-		padding-bottom: 24px;
-		padding-left: 24px;
+	body#page {
+		.content {
+			padding-top: 24px;
+			padding-right: 24px;
+			padding-bottom: 24px;
+			padding-left: 24px;
+		}
 	}
 }
 
 @media (max-width: 1000px) {
-	.container {
-		width: 100vw;
-	}
+	body#page {
+		.container {
+			width: 100vw;
+		}
 
-	.content {
-		width: 100vw;
+		.content {
+			width: 100vw;
+		}
 	}
 }
 
 @media (max-width: 1200px) {
-	.whats-on-page {
-		display: none;
+	body#page {
+		.whats-on-page {
+			display: none;
+		}
 	}
 }
 
 @media (min-width: 1500px) {
-	.container {
-		padding-top: 12px;
+	body#page {
+		.container {
+			padding-top: 12px;
+		}
 	}
 }

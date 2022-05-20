@@ -51,7 +51,7 @@ configure :build do
   # out the following two lines has been known to help
   activate :minify_css
   activate :minify_javascript
-  # activate :gzip
+  activate :gzip
 end
 
 # Deploy Configuration

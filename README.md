@@ -24,8 +24,8 @@ You're going to need:
 ### Getting Set Up
 
 1. Fork this repository on GitHub.
-2. Clone *your forked repository* (not this original one) to your hard drive with `git clone https://github.com/YOURUSERNAME/co-cart-docs.git`
-3. `cd co-cart-docs`
+2. Clone *your forked repository* (not this original one) to your hard drive with `git clone https://github.com/YOURUSERNAME/cocart-docs.git`
+3. `cd cocart-docs`
 4. Initialize and start Slate. You can either do this locally, or with Vagrant:
 
 ```shell
@@ -44,7 +44,7 @@ You can now see the docs at http://localhost:4567.
 
 We have different channels at your disposal where you can find information about the CoCart project, discuss it and get involved:
 
-[![Twitter: cocartapi](https://img.shields.io/twitter/follow/cocartapi?style=social)](https://twitter.com/cocartapi) [![CoCart JS Lib Github Stars](https://img.shields.io/github/stars/co-cart/co-cart-docs?style=social)](https://github.com/co-cart/co-cart-docs)
+[![Twitter: cocartapi](https://img.shields.io/twitter/follow/cocartapi?style=social)](https://twitter.com/cocartapi) [![CoCart JS Lib Github Stars](https://img.shields.io/github/stars/co-cart/co-cart-docs?style=social)](https://github.com/co-cart/cocart-docs)
 
 <ul>
   <li>📖 <strong>Docs</strong>: this is the place to learn how to use CoCart API. <a href="https://docs.cocart.xyz/#getting-started">Get started!</a></li>
@@ -55,4 +55,4 @@ We have different channels at your disposal where you can find information about
   <li>💌 <strong>Newsletter</strong>: do you want to receive the latest plugin updates and news? Subscribe <a href="https://twitter.com/cocartapi">here.</a></li>
 </ul>
 
-> The documentation is powered by [Slate](https://github.com/lord/slate).
+> The documentation is powered by [Slate](https://github.com/slatedocs/slate).

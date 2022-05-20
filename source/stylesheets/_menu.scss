@@ -1,0 +1,36 @@
+@media (max-width: $tablet-width) {
+	#nav-button {
+		opacity: 1;
+		padding: 4px 0em 3em 0; // Touch size area
+	}
+
+	.toc-wrapper {
+		width: 0;
+
+		&.open {
+			left: var(--sidebar-width-rev) !important;
+			overflow: scroll;
+			position: fixed !important;
+			width: var(--sidebar-width);
+		}
+	}
+}
+
+@media (max-width: $phone-width) {
+	// button to show navigation on mobile devices
+	#nav-button {
+		&:hover {
+			opacity: 1;
+		}
+		&.open {
+			left: var(--sidebar-width-rev);
+		}
+	}
+
+	.toc-wrapper {
+		&.open {
+			width: 100% !important;
+			position: absolute !important;
+		}
+	}
+}

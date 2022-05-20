@@ -23,7 +23,7 @@ $link-color: #106fbc;
 $main-text: #333; // main content text color
 $nav-text: #3c3c3c;
 $nav-active-text: #fff;
-$nav-active-parent-text: #fff !default; // parent links of the current section
+$nav-active-parent-text: #fff; // parent links of the current section
 $lang-select-text: #fff; // color of unselected language tab text
 $lang-select-active-text: #fff; // color of selected language tab text
 $lang-select-pressed-text: #fff; // color of language tab text when mouse is pressed
@@ -39,3 +39,5 @@ $search-box-border-color: #666;
 
 $bg-code-samples: #6e60cc;
 $border-color: #6e60cc;
+
+$select-bg: #e9e9ed;
