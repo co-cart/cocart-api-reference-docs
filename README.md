@@ -1,4 +1,4 @@
-<h1 align="center">CoCart Documentation</h1>
+<h1 align="center">CoCart API Reference Docs</h1>
 
 <p align="center"><img src="https://cocart.xyz/wp-content/uploads/2021/11/cocart-home-default.png.webp" alt="CoCart Logo" /></p>
 
@@ -6,9 +6,9 @@
 [![WordPress Plugin Version](https://img.shields.io/wordpress/plugin/v/cart-rest-api-for-woocommerce.svg?style=flat)](https://wordpress.org/plugins/cart-rest-api-for-woocommerce/)
 [![WordPress Plugin Downloads](https://img.shields.io/wordpress/plugin/dt/cart-rest-api-for-woocommerce.svg)](https://wordpress.org/plugins/cart-rest-api-for-woocommerce/)
 
-This repository manages the documentation for CoCart.
+This repository manages the API Reference documentation for CoCart.
 
-If you would like to contribute to the documentation to either correct a mistake, maybe add another language or something else. Then please follow these [contribution guidelines](https://github.com/co-cart/co-cart-docs/blob/master/CONTRIBUTING.md).
+If you would like to contribute to the documentation to either correct a mistake, maybe add another language or something else. Then please follow these [contribution guidelines](https://github.com/co-cart/cocart-api-reference-docs/blob/master/CONTRIBUTING.md).
 
 ## Getting Started
 
@@ -16,7 +16,7 @@ If you would like to contribute to the documentation to either correct a mistake
 
 You're going to need:
 
- - **Linux or macOS** — Windows may work, but is unsupported.
+ - **Linux or macOS** — Windows should work fine if setup correctly.
  - **[Ruby, version 2.5 or newer](https://www.ruby-lang.org/en/)**
  - **[Bundler](https://bundler.io/)** — If Ruby is already installed, but the `bundle` command doesn't work, just run `gem install bundler` in a terminal.
  - **[NodeJS](https://nodejs.org/en/)**
@@ -24,8 +24,8 @@ You're going to need:
 ### Getting Set Up
 
 1. Fork this repository on GitHub.
-2. Clone *your forked repository* (not this original one) to your hard drive with `git clone https://github.com/YOURUSERNAME/cocart-docs.git`
-3. `cd cocart-docs`
+2. Clone *your forked repository* (not this original one) to your hard drive with `git clone https://github.com/YOURUSERNAME/cocart-api-reference-docs.git`
+3. `cd cocart-api-reference-docs`
 4. Initialize and start Slate. You can either do this locally, or with Vagrant:
 
 ```shell
@@ -44,7 +44,7 @@ You can now see the docs at http://localhost:4567.
 
 We have different channels at your disposal where you can find information about the CoCart project, discuss it and get involved:
 
-[![Twitter: cocartapi](https://img.shields.io/twitter/follow/cocartapi?style=social)](https://twitter.com/cocartapi) [![CoCart JS Lib Github Stars](https://img.shields.io/github/stars/co-cart/co-cart-docs?style=social)](https://github.com/co-cart/cocart-docs)
+[![Twitter: cocartapi](https://img.shields.io/twitter/follow/cocartapi?style=social)](https://twitter.com/cocartapi) [![CoCart JS Lib Github Stars](https://img.shields.io/github/stars/co-cart/co-cart-docs?style=social)](https://github.com/co-cart/cocart-api-reference-docs)
 
 <ul>
   <li>📖 <strong>Docs</strong>: this is the place to learn how to use CoCart API. <a href="https://docs.cocart.xyz/#getting-started">Get started!</a></li>
@@ -55,4 +55,4 @@ We have different channels at your disposal where you can find information about
   <li>💌 <strong>Newsletter</strong>: do you want to receive the latest plugin updates and news? Subscribe <a href="https://twitter.com/cocartapi">here.</a></li>
 </ul>
 
-> The documentation is powered by [Slate](https://github.com/slatedocs/slate).
+> The CoCart API Reference is powered by [Slate](https://github.com/slatedocs/slate). Some modifications have been made.
